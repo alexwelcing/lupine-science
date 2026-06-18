@@ -1,0 +1,14 @@
+{
+  "name": "lupine-science",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "license": "AGPL-3.0-or-later",
+  "description": "Static public front door for lupine.science",
+  "scripts": {
+    "verify": "node scripts/check-static.mjs"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

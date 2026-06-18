@@ -1,0 +1,114 @@
+name: Deploy lupine.science
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'public/**'
+      - 'docs/**'
+      - 'scripts/**'
+      - 'Dockerfile'
+      - 'nginx.conf'
+      - 'package.json'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch: {}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Verify static surface
+        run: npm run verify
+
+      - name: Google auth
+        id: auth
+        uses: 'google-github-actions/auth@v2'
+        with:
+          workload_identity_provider: '${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}'
+          service_account: '${{ secrets.GCP_SERVICE_ACCOUNT }}'
+
+      - name: Configure Docker
+        run: gcloud auth configure-docker gcr.io --quiet
+
+      - name: Validate secrets
+        run: |
+          if [ -z "${{ secrets.GCP_SERVICE_NAME_SITE }}" ]; then
+            echo "::error::MISSING SECRET: GCP_SERVICE_NAME_SITE is not defined."
+            exit 1
+          fi
+          if [ -z "${{ secrets.GCP_PROJECT_ID }}" ]; then
+            echo "::error::MISSING SECRET: GCP_PROJECT_ID is not defined."
+            exit 1
+          fi
+          if [ -z "${{ secrets.GCP_REGION }}" ]; then
+            echo "::error::MISSING SECRET: GCP_REGION is not defined."
+            exit 1
+          fi
+
+      - name: Build and push Docker image
+        run: |
+          IMAGE_TAG=gcr.io/${{ secrets.GCP_PROJECT_ID }}/lupine-science:$GITHUB_SHA
+          docker build -t $IMAGE_TAG .
+          docker push $IMAGE_TAG
+          echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
+
+      - name: Deploy to Cloud Run
+        id: deploy
+        uses: 'google-github-actions/deploy-cloudrun@v2'
+        with:
+          image: ${{ env.IMAGE_TAG }}
+          service: '${{ secrets.GCP_SERVICE_NAME_SITE }}'
+          region: '${{ secrets.GCP_REGION }}'
+          project_id: '${{ secrets.GCP_PROJECT_ID }}'
+          flags: '--allow-unauthenticated'
+          no_traffic: false
+
+      - name: Route traffic to the new revision
+        run: |
+          gcloud run services update-traffic ${{ secrets.GCP_SERVICE_NAME_SITE }} \
+            --region=${{ secrets.GCP_REGION }} \
+            --project=${{ secrets.GCP_PROJECT_ID }} \
+            --to-latest \
+            --quiet
+
+      - name: Smoke test
+        run: |
+          url="${{ steps.deploy.outputs.url }}"
+          echo "Smoke-testing $url"
+          for i in 1 2 3 4 5; do
+            body=$(curl -s --fail "$url" -m 10)
+            if echo "$body" | grep -q "Evidence before claim"; then
+              echo "Smoke test passed"
+              exit 0
+            fi
+            echo "Attempt $i: content not ready, retrying..."
+            sleep 10
+          done
+          echo "::error::Smoke test failed: expected content not found"
+          exit 1
+
+      - name: Show output
+        run: echo ${{ steps.deploy.outputs.url }}
+
+      - name: Report deploy status
+        if: always()
+        run: |
+          curl -X POST https://glim-think-v1.aw-ab5.workers.dev/ops/report \
+            -H "Content-Type: application/json" \
+            -d "{\"repo\":\"$GITHUB_REPOSITORY\",\"workflow\":\"$GITHUB_WORKFLOW\",\"run_id\":\"$GITHUB_RUN_ID\",\"status\":\"${{ job.status }}\",\"commit_sha\":\"$GITHUB_SHA\",\"branch\":\"$GITHUB_REF_NAME\",\"service\":\"lupine.science\",\"run_url\":\"$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID\",\"started_at\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}" || true
