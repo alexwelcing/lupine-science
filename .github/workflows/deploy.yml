@@ -1,9 +1,17 @@
-name: Deploy lupine.science
+name: Lupine Science CI / Deploy
 
 on:
+  pull_request:
+    paths:
+      - 'public/**'
+      - 'docs/**'
+      - 'scripts/**'
+      - 'Dockerfile'
+      - 'nginx.conf'
+      - 'package.json'
+      - '.github/workflows/deploy.yml'
   push:
-    branches:
-      - main
+    branches: [main]
     paths:
       - 'public/**'
       - 'docs/**'
@@ -14,15 +22,35 @@ on:
       - '.github/workflows/deploy.yml'
   workflow_dispatch: {}
 
+concurrency:
+  group: lupine-science-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
 jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Verify static surface
+        run: npm run verify
+
   deploy:
+    needs: verify
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     permissions:
-      contents: 'read'
-      id-token: 'write'
-
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      contents: read
+      id-token: write
 
     steps:
       - name: Checkout code
@@ -31,59 +59,54 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Verify static surface
         run: npm run verify
 
+      - name: Validate deployment secrets
+        run: |
+          miss=0
+          [ -z "${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}" ] && { echo "::error::MISSING SECRET: GCP_WORKLOAD_IDENTITY_PROVIDER"; miss=1; }
+          [ -z "${{ secrets.GCP_SERVICE_ACCOUNT }}" ] && { echo "::error::MISSING SECRET: GCP_SERVICE_ACCOUNT"; miss=1; }
+          [ -z "${{ secrets.GCP_SERVICE_NAME_SITE }}" ] && { echo "::error::MISSING SECRET: GCP_SERVICE_NAME_SITE"; miss=1; }
+          [ -z "${{ secrets.GCP_PROJECT_ID }}" ] && { echo "::error::MISSING SECRET: GCP_PROJECT_ID"; miss=1; }
+          [ -z "${{ secrets.GCP_REGION }}" ] && { echo "::error::MISSING SECRET: GCP_REGION"; miss=1; }
+          exit $miss
+
       - name: Google auth
         id: auth
-        uses: 'google-github-actions/auth@v2'
+        uses: google-github-actions/auth@v2
         with:
-          workload_identity_provider: '${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}'
-          service_account: '${{ secrets.GCP_SERVICE_ACCOUNT }}'
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
 
       - name: Configure Docker
         run: gcloud auth configure-docker gcr.io --quiet
 
-      - name: Validate secrets
-        run: |
-          if [ -z "${{ secrets.GCP_SERVICE_NAME_SITE }}" ]; then
-            echo "::error::MISSING SECRET: GCP_SERVICE_NAME_SITE is not defined."
-            exit 1
-          fi
-          if [ -z "${{ secrets.GCP_PROJECT_ID }}" ]; then
-            echo "::error::MISSING SECRET: GCP_PROJECT_ID is not defined."
-            exit 1
-          fi
-          if [ -z "${{ secrets.GCP_REGION }}" ]; then
-            echo "::error::MISSING SECRET: GCP_REGION is not defined."
-            exit 1
-          fi
-
       - name: Build and push Docker image
         run: |
           IMAGE_TAG=gcr.io/${{ secrets.GCP_PROJECT_ID }}/lupine-science:$GITHUB_SHA
-          docker build -t $IMAGE_TAG .
-          docker push $IMAGE_TAG
-          echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
+          docker build -t "$IMAGE_TAG" .
+          docker push "$IMAGE_TAG"
+          echo "IMAGE_TAG=$IMAGE_TAG" >> "$GITHUB_ENV"
 
       - name: Deploy to Cloud Run
         id: deploy
-        uses: 'google-github-actions/deploy-cloudrun@v2'
+        uses: google-github-actions/deploy-cloudrun@v2
         with:
           image: ${{ env.IMAGE_TAG }}
-          service: '${{ secrets.GCP_SERVICE_NAME_SITE }}'
-          region: '${{ secrets.GCP_REGION }}'
-          project_id: '${{ secrets.GCP_PROJECT_ID }}'
+          service: ${{ secrets.GCP_SERVICE_NAME_SITE }}
+          region: ${{ secrets.GCP_REGION }}
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
           flags: '--allow-unauthenticated'
           no_traffic: false
 
       - name: Route traffic to the new revision
         run: |
-          gcloud run services update-traffic ${{ secrets.GCP_SERVICE_NAME_SITE }} \
-            --region=${{ secrets.GCP_REGION }} \
-            --project=${{ secrets.GCP_PROJECT_ID }} \
+          gcloud run services update-traffic "${{ secrets.GCP_SERVICE_NAME_SITE }}" \
+            --region="${{ secrets.GCP_REGION }}" \
+            --project="${{ secrets.GCP_PROJECT_ID }}" \
             --to-latest \
             --quiet
 
@@ -104,7 +127,7 @@ jobs:
           exit 1
 
       - name: Show output
-        run: echo ${{ steps.deploy.outputs.url }}
+        run: echo "${{ steps.deploy.outputs.url }}"
 
       - name: Report deploy status
         if: always()
