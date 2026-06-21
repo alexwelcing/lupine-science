@@ -31,8 +31,8 @@ curl -fsS http://localhost:8080/health
 `npm run verify` checks:
 
 - required public files exist
-- old `library.lupine.science` links are gone
-- canonical links point to `library.lupine.site`, `lupi.live`, and the repo
+- canonical links point to the live Library domain (`library.lupine.science`),
+  `lupi.live`, and the repo
 - the homepage keeps conservative public paper status
 - nginx exposes `GET /health -> ok`
 
@@ -89,7 +89,7 @@ curl -fsS https://lupine.science/llms.txt
 Then open the site and verify:
 
 - hero loads
-- Library link opens `library.lupine.site`
+- Library link opens `library.lupine.science`
 - LUPI link opens `lupi.live`
 - repository link opens the source repo
 - live MLIP status either loads or degrades gracefully

@@ -13,10 +13,13 @@
 
 ## This Repo Links To
 
-- `library.lupine.site` for reports, evidence notes, status labels, and papers
+- `library.lupine.science` for reports, evidence notes, status labels, and papers
 - `lupi.live` for molecular viewing and shared structures
 - the science/control-plane repo for source, proofs, experiments, and ledgers
 - the public `glim-think` progress API for compact live-loop status
+
+`library.lupine.site` is the planned Library migration target. Do not point the
+homepage at it until DNS and TLS are live.
 
 ## This Repo Must Not Own
 
