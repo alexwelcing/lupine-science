@@ -13,7 +13,7 @@ Use this before a public `lupine.science` deploy or domain cutover.
 
 ## Links And Metadata
 
-- [ ] Library links use `https://library.lupine.site`.
+- [ ] Library links use the live Library domain, currently `https://library.lupine.science`.
 - [ ] Viewer links use `https://lupi.live`.
 - [ ] Repository links use the intended source repo.
 - [ ] `robots.txt`, `sitemap.xml`, and `llms.txt` match the public domain.

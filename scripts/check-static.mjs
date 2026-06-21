@@ -27,7 +27,11 @@ for (const relativePath of [
   'public/robots.txt',
   'public/sitemap.xml',
   'public/llms.txt',
+  'public/data/benchmark_manifold.json',
+  'public/lupine-science-icon.png',
+  'public/lupine-science-mark.svg',
   'public/og-lupine-science.png',
+  'public/ribbon-still.jpg',
   'Dockerfile',
   'nginx.conf',
 ]) {
@@ -39,19 +43,15 @@ const llms = read('public/llms.txt');
 const sitemap = read('public/sitemap.xml');
 const nginx = read('nginx.conf');
 
-for (const [name, body] of Object.entries({ index, llms, sitemap })) {
-  if (/library\.lupine\.science/i.test(body)) {
-    fail(`${name} still references library.lupine.science`);
-  }
-}
-
 const requiredIndexSnippets = [
   'Evidence before claim',
-  'https://library.lupine.site',
+  'Unlocking the materials that build the future',
+  'AI is learning to design matter',
+  'https://library.lupine.science',
   'https://lupi.live',
   'https://github.com/alexwelcing/lupine',
-  'working paper',
-  'no peer review',
+  'Working paper in preparation',
+  'not yet peer-reviewed',
 ];
 
 for (const snippet of requiredIndexSnippets) {
@@ -61,12 +61,21 @@ for (const snippet of requiredIndexSnippets) {
 const forbiddenClaims = [
   /accepted\s+(at|by|in)\b/i,
   /published\s+in\b/i,
-  /peer[-\s]?reviewed/i,
   /submitted\s+to\b/i,
 ];
 
 for (const pattern of forbiddenClaims) {
   if (pattern.test(index)) fail(`index.html contains forbidden publication-status claim: ${pattern}`);
+}
+
+if (/\bpeer[-\s]?reviewed\b/i.test(index) && !/\bnot\s+yet\s+peer[-\s]?reviewed\b/i.test(index)) {
+  fail('index.html mentions peer review without the required "not yet peer-reviewed" qualifier');
+}
+
+for (const [name, body] of Object.entries({ llms, sitemap })) {
+  if (/library\.lupine\.site/i.test(body)) {
+    fail(`${name} references library.lupine.site, but the live Library domain is library.lupine.science`);
+  }
 }
 
 if (!/location\s*=\s*\/health/.test(nginx) || !/return\s+200\s+"ok\\n"/.test(nginx)) {

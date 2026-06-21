@@ -15,7 +15,7 @@ does not adjudicate claims or host the research corpus.
 
 - **Lupine Ledger**: `https://github.com/alexwelcing/lupine-ledger`
   - Public evidence record and Library reader.
-  - Site: `https://library.lupine.site`
+  - Site: `https://library.lupine.science`
 - **Lupi**: `https://github.com/alexwelcing/Lupi`
   - Browser-native molecular viewer and agent-driven inspection surface.
   - Site: `https://lupi.live`

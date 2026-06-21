@@ -4,8 +4,8 @@ Static public front door for Lupine Science.
 
 This repo owns the small public entry page at `lupine.science`: the first
 impression, canonical links, public metadata, nginx container, and deploy
-workflow. It should stay intentionally small. The research corpus lives in
-`library.lupine.site`, the molecular viewer lives in `lupi.live`, and the
+workflow. It should stay intentionally small. The research corpus currently
+lives at `library.lupine.science`, the molecular viewer lives in `lupi.live`, and the
 science/control-plane repo owns claims, proofs, experiments, and evidence.
 
 ## Boundary
@@ -58,11 +58,14 @@ Library and repository for current claim labels and evidence.
 
 ## Canonical Surfaces
 
-- Library: `https://library.lupine.site`
+- Library: `https://library.lupine.science`
 - LUPI viewer: `https://lupi.live`
 - Repository: `https://github.com/alexwelcing/lupine`
 - MLIP progress API:
   `https://glim-think-v1.aw-ab5.workers.dev/research/mlip-discovery/progress`
+
+The intended Library migration target remains `library.lupine.site`, but public
+links should stay on `library.lupine.science` until that DNS/TLS cutover is live.
 
 ## Docs
 
