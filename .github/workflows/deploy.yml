@@ -1,4 +1,4 @@
-name: Lupine Science CI / Deploy
+name: Lupine Science CI / Cloudflare Pages
 
 on:
   pull_request:
@@ -6,19 +6,16 @@ on:
       - 'public/**'
       - 'docs/**'
       - 'scripts/**'
-      - 'Dockerfile'
-      - 'nginx.conf'
       - 'package.json'
+      - 'wrangler.toml'
       - '.github/workflows/deploy.yml'
   push:
-    branches: [main]
     paths:
       - 'public/**'
       - 'docs/**'
       - 'scripts/**'
-      - 'Dockerfile'
-      - 'nginx.conf'
       - 'package.json'
+      - 'wrangler.toml'
       - '.github/workflows/deploy.yml'
   workflow_dispatch: {}
 
@@ -28,6 +25,9 @@ concurrency:
 
 permissions:
   contents: read
+
+env:
+  CF_PAGES_PROJECT: lupine-science
 
 jobs:
   verify:
@@ -44,13 +44,10 @@ jobs:
       - name: Verify static surface
         run: npm run verify
 
-  deploy:
+  deploy-preview:
     needs: verify
-    if: github.event_name == 'workflow_dispatch'
+    if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref_name != 'main')
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
 
     steps:
       - name: Checkout code
@@ -64,59 +61,38 @@ jobs:
       - name: Verify static surface
         run: npm run verify
 
-      - name: Validate deployment secrets
+      - name: Validate Cloudflare secrets
         run: |
           miss=0
-          [ -z "${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}" ] && { echo "::error::MISSING SECRET: GCP_WORKLOAD_IDENTITY_PROVIDER"; miss=1; }
-          [ -z "${{ secrets.GCP_SERVICE_ACCOUNT }}" ] && { echo "::error::MISSING SECRET: GCP_SERVICE_ACCOUNT"; miss=1; }
-          [ -z "${{ secrets.GCP_SERVICE_NAME_SITE }}" ] && { echo "::error::MISSING SECRET: GCP_SERVICE_NAME_SITE"; miss=1; }
-          [ -z "${{ secrets.GCP_PROJECT_ID }}" ] && { echo "::error::MISSING SECRET: GCP_PROJECT_ID"; miss=1; }
-          [ -z "${{ secrets.GCP_REGION }}" ] && { echo "::error::MISSING SECRET: GCP_REGION"; miss=1; }
+          [ -z "${{ secrets.CLOUDFLARE_API_TOKEN }}" ] && { echo "::error::MISSING SECRET: CLOUDFLARE_API_TOKEN"; miss=1; }
+          [ -z "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}" ] && { echo "::error::MISSING SECRET: CLOUDFLARE_ACCOUNT_ID"; miss=1; }
           exit $miss
 
-      - name: Google auth
-        id: auth
-        uses: google-github-actions/auth@v2
-        with:
-          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
-          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
-
-      - name: Configure Docker
-        run: gcloud auth configure-docker gcr.io --quiet
-
-      - name: Build and push Docker image
-        run: |
-          IMAGE_TAG=gcr.io/${{ secrets.GCP_PROJECT_ID }}/lupine-science:$GITHUB_SHA
-          docker build -t "$IMAGE_TAG" .
-          docker push "$IMAGE_TAG"
-          echo "IMAGE_TAG=$IMAGE_TAG" >> "$GITHUB_ENV"
-
-      - name: Deploy to Cloud Run
+      - name: Deploy preview to Cloudflare Pages
         id: deploy
-        uses: google-github-actions/deploy-cloudrun@v2
-        with:
-          image: ${{ env.IMAGE_TAG }}
-          service: ${{ secrets.GCP_SERVICE_NAME_SITE }}
-          region: ${{ secrets.GCP_REGION }}
-          project_id: ${{ secrets.GCP_PROJECT_ID }}
-          flags: '--allow-unauthenticated'
-          no_traffic: false
-
-      - name: Route traffic to the new revision
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          gcloud run services update-traffic "${{ secrets.GCP_SERVICE_NAME_SITE }}" \
-            --region="${{ secrets.GCP_REGION }}" \
-            --project="${{ secrets.GCP_PROJECT_ID }}" \
-            --to-latest \
-            --quiet
+          branch="${GITHUB_HEAD_REF:-$GITHUB_REF_NAME}"
+          log_file="$(mktemp)"
+          npx --yes wrangler@latest pages deploy public \
+            --project-name "$CF_PAGES_PROJECT" \
+            --branch "$branch" \
+            --commit-hash "$GITHUB_SHA" \
+            --commit-dirty=true | tee "$log_file"
+          url="$(grep -Eo 'https://[^[:space:]]+\.pages\.dev' "$log_file" | tail -n 1)"
+          [ -n "$url" ] || { echo "::error::Could not find Pages deployment URL"; exit 1; }
+          echo "url=$url" >> "$GITHUB_OUTPUT"
 
       - name: Smoke test
         run: |
           url="${{ steps.deploy.outputs.url }}"
           echo "Smoke-testing $url"
           for i in 1 2 3 4 5; do
-            body=$(curl -s --fail "$url" -m 10)
-            if echo "$body" | grep -q "Evidence before claim"; then
+            health=$(curl -s --fail "$url/health" -m 10 || true)
+            body=$(curl -s --fail "$url" -m 10 || true)
+            if [ "$health" = "ok" ] && echo "$body" | grep -q "Evidence before claim"; then
               echo "Smoke test passed"
               exit 0
             fi
@@ -129,9 +105,84 @@ jobs:
       - name: Show output
         run: echo "${{ steps.deploy.outputs.url }}"
 
+  deploy-production:
+    needs: verify
+    if: (github.event_name == 'push' && github.ref_name == 'main') || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Verify static surface
+        run: npm run verify
+
+      - name: Validate Cloudflare secrets
+        run: |
+          miss=0
+          [ -z "${{ secrets.CLOUDFLARE_API_TOKEN }}" ] && { echo "::error::MISSING SECRET: CLOUDFLARE_API_TOKEN"; miss=1; }
+          [ -z "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}" ] && { echo "::error::MISSING SECRET: CLOUDFLARE_ACCOUNT_ID"; miss=1; }
+          exit $miss
+
+      - name: Deploy production to Cloudflare Pages
+        id: deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          log_file="$(mktemp)"
+          npx --yes wrangler@latest pages deploy public \
+            --project-name "$CF_PAGES_PROJECT" \
+            --branch main \
+            --commit-hash "$GITHUB_SHA" \
+            --commit-dirty=true | tee "$log_file"
+          url="$(grep -Eo 'https://[^[:space:]]+\.pages\.dev' "$log_file" | tail -n 1)"
+          [ -n "$url" ] || { echo "::error::Could not find Pages deployment URL"; exit 1; }
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+
+      - name: Smoke test deployment URL
+        run: |
+          url="${{ steps.deploy.outputs.url }}"
+          echo "Smoke-testing $url"
+          for i in 1 2 3 4 5; do
+            health=$(curl -s --fail "$url/health" -m 10 || true)
+            body=$(curl -s --fail "$url" -m 10 || true)
+            if [ "$health" = "ok" ] && echo "$body" | grep -q "Evidence before claim"; then
+              echo "Smoke test passed"
+              exit 0
+            fi
+            echo "Attempt $i: content not ready, retrying..."
+            sleep 10
+          done
+          echo "::error::Smoke test failed: expected health and content not found"
+          exit 1
+
+      - name: Smoke test custom domain
+        run: |
+          for i in 1 2 3 4 5; do
+            health=$(curl -s --fail https://lupine.science/health -m 10 || true)
+            body=$(curl -s --fail https://lupine.science/ -m 10 || true)
+            if [ "$health" = "ok" ] && echo "$body" | grep -q "Evidence before claim"; then
+              echo "Custom domain smoke test passed"
+              exit 0
+            fi
+            echo "Attempt $i: custom domain not ready, retrying..."
+            sleep 10
+          done
+          echo "::error::Custom domain smoke test failed"
+          exit 1
+
+      - name: Show output
+        run: echo "${{ steps.deploy.outputs.url }}"
+
       - name: Report deploy status
         if: always()
         run: |
           curl -X POST https://glim-think-v1.aw-ab5.workers.dev/ops/report \
             -H "Content-Type: application/json" \
-            -d "{\"repo\":\"$GITHUB_REPOSITORY\",\"workflow\":\"$GITHUB_WORKFLOW\",\"run_id\":\"$GITHUB_RUN_ID\",\"status\":\"${{ job.status }}\",\"commit_sha\":\"$GITHUB_SHA\",\"branch\":\"$GITHUB_REF_NAME\",\"service\":\"lupine.science\",\"run_url\":\"$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID\",\"started_at\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}" || true
+            -d "{\"repo\":\"$GITHUB_REPOSITORY\",\"workflow\":\"$GITHUB_WORKFLOW\",\"run_id\":\"$GITHUB_RUN_ID\",\"status\":\"${{ job.status }}\",\"commit_sha\":\"$GITHUB_SHA\",\"branch\":\"$GITHUB_REF_NAME\",\"service\":\"lupine.science\",\"platform\":\"cloudflare-pages\",\"run_url\":\"$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID\",\"started_at\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}" || true

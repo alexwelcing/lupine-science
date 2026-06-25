@@ -1,6 +1,8 @@
 # Operations
 
-`lupine.science` is a static nginx site deployed to Cloud Run.
+`lupine.science` is a static site deployed to Cloudflare Pages. The nginx
+container remains available for local/container smoke tests, but production and
+branch previews are served by Pages.
 
 ## Local Checks
 
@@ -49,31 +51,30 @@ Workflow:
 
 Required secrets:
 
-- `GCP_PROJECT_ID`
-- `GCP_REGION`
-- `GCP_WORKLOAD_IDENTITY_PROVIDER`
-- `GCP_SERVICE_ACCOUNT`
-- `GCP_SERVICE_NAME_SITE`
+- `CLOUDFLARE_API_TOKEN`
+- `CLOUDFLARE_ACCOUNT_ID`
 
 Deploy path:
 
 1. check out repo
-2. set up Node 20
+2. set up Node 22
 3. run `npm run verify`
-4. authenticate to GCP
-5. build and push Docker image
-6. deploy to Cloud Run
-7. route traffic to latest revision
-8. smoke-test homepage copy
-9. report status to `glim-think` `/ops/report`
+4. authenticate to Cloudflare
+5. deploy `public/` to the `lupine-science` Pages project
+6. smoke-test `/health` and homepage copy
+7. on production deploys, smoke-test the `lupine.science` custom domain
+8. report status to `glim-think` `/ops/report`
+
+Preview deploys run for pull requests and non-`main` branch pushes. Production
+deploys run for `main` pushes and manual `workflow_dispatch` runs.
 
 ## Live Checks
 
 Keep these truths separate:
 
 - GitHub Actions workflow result
-- Docker image push
-- Cloud Run revision and traffic
+- Cloudflare Pages deployment URL
+- Cloudflare Pages production alias and custom domain routing
 - public domain content
 - `glim-think` deploy report
 
@@ -96,13 +97,12 @@ Then open the site and verify:
 
 ## Rollback
 
-Use Cloud Run revision traffic rather than editing the public page in a panic:
+Use the Cloudflare Pages deployments list to roll back production to a previous
+known-good deployment rather than editing the public page in a panic:
 
 ```bash
-gcloud run revisions list --service=SERVICE --region=REGION
-gcloud run services update-traffic SERVICE \
-  --region=REGION \
-  --to-revisions=REVISION=100
+wrangler pages deployment list --project-name lupine-science
+wrangler pages deployment promote DEPLOYMENT_ID --project-name lupine-science
 ```
 
 After rollback, verify `https://lupine.science/` itself, not only Cloud Run.

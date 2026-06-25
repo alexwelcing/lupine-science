@@ -24,6 +24,7 @@ function read(relativePath) {
 
 for (const relativePath of [
   'public/index.html',
+  'public/health',
   'public/robots.txt',
   'public/sitemap.xml',
   'public/llms.txt',
@@ -34,14 +35,17 @@ for (const relativePath of [
   'public/ribbon-still.jpg',
   'Dockerfile',
   'nginx.conf',
+  'wrangler.toml',
 ]) {
   if (!fs.existsSync(path.join(ROOT, relativePath))) fail(`missing ${relativePath}`);
 }
 
 const index = read('public/index.html');
+const health = read('public/health');
 const llms = read('public/llms.txt');
 const sitemap = read('public/sitemap.xml');
 const nginx = read('nginx.conf');
+const wrangler = read('wrangler.toml');
 
 const requiredIndexSnippets = [
   'Evidence before claim',
@@ -80,6 +84,14 @@ for (const [name, body] of Object.entries({ llms, sitemap })) {
 
 if (!/location\s*=\s*\/health/.test(nginx) || !/return\s+200\s+"ok\\n"/.test(nginx)) {
   fail('nginx.conf must expose GET /health -> ok');
+}
+
+if (health !== 'ok\n') {
+  fail('public/health must expose GET /health -> ok on Cloudflare Pages');
+}
+
+if (!/name\s*=\s*"lupine-science"/.test(wrangler) || !/pages_build_output_dir\s*=\s*"public"/.test(wrangler)) {
+  fail('wrangler.toml must target the lupine-science Pages project and public output directory');
 }
 
 const publicFiles = fs.readdirSync(PUBLIC).sort();

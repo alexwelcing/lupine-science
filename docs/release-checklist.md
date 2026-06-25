@@ -35,9 +35,9 @@ python -m http.server 8080 -d public
 
 - [ ] GitHub workflow includes all files that should trigger deploys.
 - [ ] Workflow runs `npm run verify`.
-- [ ] Docker image builds from repo root.
-- [ ] Cloud Run service and region are correct.
-- [ ] Traffic moves to the latest revision.
+- [ ] Pull requests and non-`main` branches create Cloudflare Pages previews.
+- [ ] `main` deploys to the `lupine-science` Pages production branch.
+- [ ] `lupine.science` is attached as a Pages custom domain.
 - [ ] `/ops/report` receives non-blocking deploy telemetry.
 
 ## Live Verification
