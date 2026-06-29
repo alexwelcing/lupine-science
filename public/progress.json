@@ -1,6 +1,7 @@
 {
-  "headline": "Final paper: 16-element 3×3×3 MLIP elastic benchmark — sub-core-hour, QET leads at 13.4 GPa",
-  "subheadline": "Read the complete draft at library.lupine.science.",
-  "url": "https://library.lupine.science/#/read/lupine-layer2-3x3x3-final-paper",
+  "headline": "Projection Law Round 2 released — 16-element 3×3×3 MLIP benchmark, 17.84 → 10.36 GPa with a class-aware correction operator",
+  "subheadline": "Read the final release note and download the submission package.",
+  "url": "https://library.lupine.science/#/read/projection-law-round2-final",
+  "releaseUrl": "https://github.com/alexwelcing/lupine/releases/tag/projection-law-round2-2026-06-29",
   "updated": "2026-06-29"
 }

@@ -131,6 +131,11 @@
     @keyframes ping { to { box-shadow: 0 0 0 9px rgba(168,119,43,0); } }
     .loop-margin .nums { margin-top: 4px; }
     .loop-margin .nums b { color: var(--ochre); font-weight: 600; }
+    .loop-link {
+      display: inline-block; margin-top: 6px; font-size: 12px; color: var(--indigo);
+      border-bottom: 1px solid var(--indigo-line); transition: color 200ms ease, border-color 200ms ease;
+    }
+    .loop-link:hover { color: var(--indigo-deep); border-bottom-color: var(--indigo); }
 
     /* ════════ THE EQUATION HORIZON (navigation) ════════ */
     /* paper knockout so the equation always sits on calm ground, not on the ribbon */
@@ -360,6 +365,7 @@
     <!-- live loop marginalia -->
     <div class="loop-margin" aria-live="polite">
       <span class="lh"><span class="ld" aria-hidden="true"></span><span id="loop-headline">research running, live</span></span>
+      <a id="loop-link" class="loop-link" href="https://library.lupine.science/" style="display:none">Open the ledger</a>
     </div>
 
     <!-- ════ EQUATION HORIZON (the navigation) ════ -->
@@ -846,10 +852,16 @@
     /* ── live discovery loop ── */
     (() => {
       const set = (id, v) => { const n = document.getElementById(id); if (n) n.textContent = v; };
+      const link = document.getElementById("loop-link");
       fetch("/progress.json", { cache: "no-store" })
         .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
         .then((data) => {
           set("loop-headline", data.headline || "research running, live");
+          if (link && data.subheadline) {
+            link.textContent = data.subheadline;
+            link.href = data.releaseUrl || data.url || "https://library.lupine.science/";
+            link.style.display = "inline-block";
+          }
         })
         .catch(() => { set("loop-headline", "research in the open record"); });
     })();
