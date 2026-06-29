@@ -846,9 +846,11 @@
     /* ── live discovery loop ── */
     (() => {
       const set = (id, v) => { const n = document.getElementById(id); if (n) n.textContent = v; };
-      fetch("https://glim-think-v1.aw-ab5.workers.dev/research/mlip-discovery/progress", { cache: "no-store" })
+      fetch("/progress.json", { cache: "no-store" })
         .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
-        .then(() => { set("loop-headline", "research running, live"); })
+        .then((data) => {
+          set("loop-headline", data.headline || "research running, live");
+        })
         .catch(() => { set("loop-headline", "research in the open record"); });
     })();
 
