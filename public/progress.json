@@ -1,6 +1,6 @@
 {
-  "headline": "Refinement sprint shipped — 5 theorems, zero sorry; 56-task 3×3×3 benchmark grid running on GCP",
-  "subheadline": "Read the public announcement at library.lupine.science",
+  "headline": "3×3×3 Layer-2 benchmark complete — 112 results across 14 elements, 4 MLIPs, 2 functionals",
+  "subheadline": "Best mean MAE: CHGNet (PBE 14.0 GPa, r2SCAN 19.9 GPa). Full report at library.lupine.science.",
   "url": "https://library.lupine.science/articles/docs/ANNOUNCEMENT-lupine-refinement-sprint-2026-06-27.html",
-  "updated": "2026-06-27"
+  "updated": "2026-06-29"
 }
