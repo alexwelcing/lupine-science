@@ -1,6 +1,6 @@
 {
-  "headline": "3×3×3 Layer-2 benchmark complete — 128 results across 16 elements, 4 MLIPs, 2 functionals",
-  "subheadline": "Best model: QET at 14.4 GPa mean MAE; full report at library.lupine.science.",
-  "url": "https://library.lupine.science/articles/docs/layer2-3x3x3-results-2026-06-29.html",
+  "headline": "Final paper: 16-element 3×3×3 MLIP elastic benchmark — sub-core-hour, QET leads at 13.4 GPa",
+  "subheadline": "Read the complete draft at library.lupine.science.",
+  "url": "https://library.lupine.science/articles/docs/lupine-layer2-3x3x3-final-paper.html",
   "updated": "2026-06-29"
 }
