@@ -300,8 +300,12 @@
       .field {
         display: block; min-height: 0; padding: 0 22px;
       }
-      #ribbon, .ribbon-fallback { position: fixed; height: 46vh; top: 0; }
-      .field::before { position: fixed; width: 100%; height: 46vh; top: 0; bottom: auto;
+      /* the ribbon is a hero banner that scrolls away — absolute (within the
+         relatively-positioned .field), not fixed. A fixed background stays
+         pinned over the top of the viewport and bleeds across the reading
+         content as you scroll, obscuring roughly half the page. */
+      #ribbon, .ribbon-fallback { position: absolute; height: 46vh; top: 0; }
+      .field::before { position: absolute; width: 100%; height: 46vh; top: 0; bottom: auto;
         background: linear-gradient(180deg, rgba(250,249,246,0) 50%, var(--paper) 100%); }
       .mark { padding-top: 18px; }
       .loop-margin { display: none; }
