@@ -1,6 +1,6 @@
 {
-  "headline": "3×3×3 Layer-2 benchmark complete — 112 results across 14 elements, 4 MLIPs, 2 functionals",
-  "subheadline": "Best mean MAE: CHGNet (PBE 14.0 GPa, r2SCAN 19.9 GPa). Full report at library.lupine.science.",
-  "url": "https://library.lupine.science/articles/docs/ANNOUNCEMENT-lupine-refinement-sprint-2026-06-27.html",
+  "headline": "3×3×3 Layer-2 benchmark complete — 128 results across 16 elements, 4 MLIPs, 2 functionals",
+  "subheadline": "Best model: QET at 14.4 GPa mean MAE; full report at library.lupine.science.",
+  "url": "https://library.lupine.science/articles/docs/layer2-3x3x3-results-2026-06-29.html",
   "updated": "2026-06-29"
 }
