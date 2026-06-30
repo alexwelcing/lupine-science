@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#faf9f6"/>
+    </radialGradient>
+    <linearGradient id="indigoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3d4db3"/>
+      <stop offset="100%" stop-color="#2e3a87"/>
+    </linearGradient>
+    <linearGradient id="ochreGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#a8772b"/>
+      <stop offset="100%" stop-color="#7d571e"/>
+    </linearGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowIndigo" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3d4db3"/>
+    </marker>
+    <marker id="arrowOchre" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#a8772b"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <!-- Left: stylized MOF unit cell -->
+  <g transform="translate(260, 450)" filter="url(#softGlow)">
+    <g stroke="#3d4db3" stroke-width="5" stroke-linecap="round" opacity="0.9">
+      <line x1="-100" y1="-120" x2="100" y2="-120"/>
+      <line x1="100" y1="-120" x2="150" y2="0"/>
+      <line x1="150" y1="0" x2="-50" y2="0"/>
+      <line x1="-50" y1="0" x2="-100" y2="-120"/>
+      <line x1="-100" y1="120" x2="100" y2="120"/>
+      <line x1="100" y1="120" x2="150" y2="0"/>
+      <line x1="150" y1="0" x2="-50" y2="0"/>
+      <line x1="-50" y1="0" x2="-100" y2="120"/>
+      <line x1="-100" y1="-120" x2="-100" y2="120"/>
+      <line x1="100" y1="-120" x2="100" y2="120"/>
+    </g>
+    <g stroke="#a8772b" stroke-width="4" stroke-linecap="round" opacity="0.85">
+      <line x1="-20" y1="-60" x2="70" y2="60"/>
+      <line x1="20" y1="-60" x2="-70" y2="60"/>
+    </g>
+    <g>
+      <circle cx="-100" cy="-120" r="14" fill="url(#indigoGrad)"/>
+      <circle cx="100" cy="-120" r="14" fill="url(#ochreGrad)"/>
+      <circle cx="150" cy="0" r="14" fill="url(#indigoGrad)"/>
+      <circle cx="-50" cy="0" r="14" fill="url(#ochreGrad)"/>
+      <circle cx="-100" cy="120" r="14" fill="url(#ochreGrad)"/>
+      <circle cx="100" cy="120" r="14" fill="url(#indigoGrad)"/>
+    </g>
+  </g>
+
+  <!-- Center: generate–test–learn flywheel -->
+  <g transform="translate(800, 430)">
+    <ellipse cx="0" cy="0" rx="220" ry="220" fill="none" stroke="#e2dfd4" stroke-width="2"/>
+    <path d="M 160,-110 A 210,210 0 1,1 -120,140" fill="none" stroke="#3d4db3" stroke-width="10" stroke-linecap="round" marker-end="url(#arrowIndigo)"/>
+    <path d="M -120,140 A 210,210 0 0,1 160,-110" fill="none" stroke="#a8772b" stroke-width="10" stroke-linecap="round" marker-end="url(#arrowOchre)" opacity="0.85"/>
+
+    <g font-family="'IBM Plex Mono', monospace" font-size="22" font-weight="600" text-anchor="middle" fill="#16171d">
+      <text x="0" y="-175">FORMALIZE</text>
+      <text x="190" y="15">SIMULATE</text>
+      <text x="0" y="205">SYNTHESIZE</text>
+      <text x="-190" y="15">FEEDBACK</text>
+    </g>
+    <circle cx="0" cy="0" r="55" fill="#faf9f6" stroke="#3d4db3" stroke-width="4"/>
+    <path d="M -22,5 L -8,22 L 28,-18" fill="none" stroke="#3d4db3" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Right: certificate / theorem icon -->
+  <g transform="translate(1340, 450)" filter="url(#softGlow)">
+    <rect x="-90" y="-120" width="180" height="240" rx="10" fill="#ffffff" stroke="#a8772b" stroke-width="6"/>
+    <rect x="-72" y="-96" width="144" height="14" rx="4" fill="#3d4db3" opacity="0.18"/>
+    <rect x="-72" y="-68" width="110" height="10" rx="3" fill="#3d4db3" opacity="0.12"/>
+    <rect x="-72" y="-46" width="130" height="10" rx="3" fill="#3d4db3" opacity="0.12"/>
+    <rect x="-72" y="-24" width="90" height="10" rx="3" fill="#3d4db3" opacity="0.12"/>
+    <circle cx="0" cy="55" r="48" fill="none" stroke="#a8772b" stroke-width="6"/>
+    <path d="M -18,50 L -6,64 L 24,36" fill="none" stroke="#3d4db3" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Brackets suggesting theorem -->
+    <path d="M -120,-90 L -110,-90 L -110,90 L -120,90" fill="none" stroke="#16171d" stroke-width="4"/>
+    <path d="M 120,-90 L 110,-90 L 110,90 L 120,90" fill="none" stroke="#16171d" stroke-width="4"/>
+  </g>
+
+  <!-- Decorative dot field -->
+  <g fill="#3d4db3" opacity="0.12">
+    <circle cx="140" cy="160" r="5"/>
+    <circle cx="170" cy="190" r="3"/>
+    <circle cx="120" cy="220" r="4"/>
+    <circle cx="1460" cy="700" r="5"/>
+    <circle cx="1500" cy="730" r="3"/>
+    <circle cx="1430" cy="760" r="4"/>
+  </g>
+</svg>

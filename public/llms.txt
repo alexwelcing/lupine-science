@@ -12,6 +12,7 @@ and open repository.
 
 Canonical surfaces:
 
+- Articles: https://lupine.science/articles/
 - Library: https://library.lupine.science
 - LUPI: https://lupi.live
 - Repository: https://github.com/alexwelcing/lupine
