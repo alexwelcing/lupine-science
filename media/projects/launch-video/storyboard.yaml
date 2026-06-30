@@ -1,0 +1,112 @@
+project: launch-video
+format: video
+resolution: [1280, 720]
+fps: 30
+duration: 30.0
+transition:
+  type: fade
+  duration: 1.0
+scenes:
+  - id: 01
+    time_start: 0.0
+    time_end: 5.833
+    title: Unlocking the materials
+    copy: Unlocking the materials that build the future.
+    narration_start: 0.5
+    narration_file: narration_01.mp3
+    visual_prompt: |
+      Cinematic abstract scientific visualization of matter crystallizing, indigo and warm paper tones,
+      soft glowing particles forming a lupine flower silhouette, elegant and minimal, 16:9.
+    audio: narration_01
+    status: final
+
+  - id: 02
+    time_start: 4.833
+    time_end: 10.666
+    title: AI predicts matter
+    copy: A.I. predicts matter, but its simulations are wrong in structured ways.
+    narration_start: 5.0
+    narration_file: narration_02.mp3
+    visual_prompt: |
+      Abstract representation of AI prediction errors: a smooth manifold ribbon bending under tension,
+      scattered error vectors, indigo lines on warm cream background, cinematic 16:9.
+    audio: narration_02
+    status: final
+
+  - id: 03
+    time_start: 9.666
+    time_end: 15.5
+    title: Predictable failure
+    copy: Predictable failure is correctable failure.
+    narration_start: 10.5
+    narration_file: narration_03.mp3
+    visual_prompt: |
+      An open book glowing with mathematical formulas and a lupine plant growing from its pages,
+      warm light, hope and structure, scientific illustration style, 16:9.
+    audio: narration_03
+    status: final
+
+  - id: 04
+    time_start: 14.5
+    time_end: 20.333
+    title: Trust you can check
+    copy: Trust you can check. Theorem-proved, open, and auditable.
+    narration_start: 16.0
+    narration_file: narration_04.mp3
+    visual_prompt: |
+      Clean futuristic laboratory interface with proof graphs, theorem statements, and a verified badge,
+      indigo and ochre accents on paper white, 16:9.
+    audio: narration_04
+    status: final
+
+  - id: 05
+    time_start: 19.333
+    time_end: 25.166
+    title: Lupine Science
+    copy: Lupine Science. Makeable materials, not fantasy frameworks.
+    narration_start: 21.5
+    narration_file: narration_05.mp3
+    visual_prompt: |
+      A blooming lupine flower in the foreground with a materials laboratory and molecular structures
+      softly blurred behind it, warm cinematic light, 16:9.
+    audio: narration_05
+    status: final
+
+  - id: 06
+    time_start: 24.166
+    time_end: 30.0
+    title: CTA
+    copy: lupine.science
+    narration_start: 26.5
+    narration_file: narration_06.mp3
+    visual_prompt: |
+      Minimal end card with lupine flower motif and the text lupine.science centered,
+      warm paper background, indigo typography, 16:9.
+    audio: narration_06
+    status: final
+
+assets:
+  music:
+    - file: music.mp3
+      prompt: |
+        Cinematic ambient electronic, calm and hopeful, soft warm pads, gentle arpeggios,
+        no vocals, 80 seconds, suitable for a science launch video.
+      duration_generated: 133.77
+      duration_used: 30.0
+  narration:
+    - file: narration_01.mp3
+      text: Unlocking the materials that build the future.
+    - file: narration_02.mp3
+      text: A.I. predicts matter, but its simulations are wrong in structured ways.
+    - file: narration_03.mp3
+      text: Predictable failure is correctable failure.
+    - file: narration_04.mp3
+      text: Trust you can check. Theorem-proved, open, and auditable.
+    - file: narration_05.mp3
+      text: Lupine Science. Makeable materials, not fantasy frameworks.
+    - file: narration_06.mp3
+      text: Visit lupine dot science.
+
+renders:
+  - v01_silent.mp4
+  - v02_with_audio.mp4
