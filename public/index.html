@@ -4,13 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lupine Science — Unlocking the materials that build the future</title>
-  <meta name="description" content="Lupine Science is accelerating materials discovery. AI is learning to design matter — the batteries, catalysts, alloys and chips a civilization runs on — but on simulations that are wrong in structured ways. We make those predictions trustworthy, so discovery accelerates instead of stalling on guesswork. The mathematics is how; the materials are why.">
+  <meta name="description" content="Lupine Science accelerates materials discovery by making AI's predictions of matter trustworthy. The mathematics is how; the materials are why.">
   <meta name="robots" content="index,follow">
   <meta property="og:title" content="Lupine Science — Unlocking the materials that build the future">
   <meta property="og:description" content="Accelerating materials discovery by making AI's predictions of matter trustworthy. The mathematics is how; the materials are why.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lupine.science/">
   <meta property="og:image" content="https://lupine.science/og-lupine-science.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#faf9f6">
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
@@ -27,14 +29,14 @@
       --paper-deep: #f2efe7;
       --ink:        #16171d;
       --ink-soft:   #4c4e58;
-      --ink-faint:  #8a8c96;
+      --ink-faint:  #6e707a;
       --rule:       #e2dfd4;
       --rule-soft:  #ece9e0;
       --indigo:      #3d4db3;
       --indigo-deep: #2e3a87;
       --indigo-wash: rgba(61, 77, 179, 0.08);
       --indigo-line: rgba(61, 77, 179, 0.24);
-      --ochre:       #a8772b;
+      --ochre:       #8a5e1f;
       --ochre-wash:  rgba(168, 119, 43, 0.10);
       --verified:    #3a8f5b;
 
@@ -376,30 +378,30 @@
     <header class="horizon">
       <p class="label">How we accelerate discovery — click a term to open its evidence</p>
       <div class="equation" role="group" aria-label="L of theta equals the integral over the manifold of the squared error-vector norm, plus the ledger term">
-        <button class="term" data-focus="objective" aria-pressed="true"
+        <button type="button" class="term" data-focus="objective" aria-pressed="true"
           data-tip="<b>L(θ)</b> — what we minimize to make a prediction trustworthy: the <em>structured</em> error of a potential θ over all the evidence. The first step to discovering real materials. Click any term to isolate it.">
           L<span class="n">(</span>θ<span class="n">)</span></button>
         <span class="eq-static">=</span>
-        <button class="term" data-focus="manifold"
-          data-tip="<b>∫<sub>M</sub> … dμ(γ)</b> — integrate over the error manifold M. The errors live on a thin ribbon (participation ratio <em>1.05–2.05</em>) — structure that makes failure correctable.">
+        <button type="button" class="term" data-focus="manifold"
+          data-tip="<b>∫<sub>M</sub> … dμ(γ)</b> — integrate over the error manifold M. The errors live on a thin ribbon (participation ratio <em>1.1–2.0</em>) — structure that makes failure correctable.">
           <span class="intg">∫</span><span class="sub">M</span></button>
-        <button class="term" data-focus="errorvectors"
+        <button type="button" class="term" data-focus="errorvectors"
           data-tip="<b>∇<sub>γ</sub>E(x,θ)</b> — the error-vector field along geodesics γ. Across every MLIP these point the <em>same direction</em> (cos θ &gt; 0.8) — so one correction scales across the materials space.">
           <span class="n">‖</span>∇<span class="sub">γ</span>E<span class="n">(</span>x,θ<span class="n">)</span><span class="n">‖</span><span class="sup">2</span></button>
-        <button class="term" data-focus="manifold"
+        <span class="term eq-measure"
           data-tip="<b>dμ(γ)</b> — the measure over geodesics γ. How error is weighted across the ribbon.">
-          dμ<span class="n">(</span>γ<span class="n">)</span></button>
+          dμ<span class="n">(</span>γ<span class="n">)</span></span>
         <span class="eq-static">+</span>
-        <button class="term" data-focus="ledger"
+        <button type="button" class="term" data-focus="ledger"
           data-tip="<b>Ω(Ξ)</b> — the public record Ξ. Every claim, refutation, and machine-checked theorem, committed and inspectable — trust the world can build on.">
           Ω<span class="n">(</span>Ξ<span class="n">)</span></button>
       </div>
       <!-- legend / secondary nav for the terms — grouped with the equation -->
       <nav class="legend" aria-label="Equation terms">
-        <button data-focus="objective" aria-pressed="true"><span class="k">L(θ)</span> the mission</button>
-        <button data-focus="manifold"><span class="k">∫ₘ</span> why you can trust it</button>
-        <button data-focus="errorvectors"><span class="k">∇ᵧE</span> why it scales</button>
-        <button data-focus="ledger"><span class="k">Ω(Ξ)</span> trust in the open</button>
+        <button type="button" data-focus="objective" aria-pressed="true"><span class="k">L(θ)</span> the mission</button>
+        <button type="button" data-focus="manifold"><span class="k">∫ₘ</span> why you can trust it</button>
+        <button type="button" data-focus="errorvectors"><span class="k">∇ᵧE</span> why it scales</button>
+        <button type="button" data-focus="ledger"><span class="k">Ω(Ξ)</span> trust in the open</button>
       </nav>
     </header>
 
@@ -422,17 +424,17 @@
         <article class="panel" data-panel="manifold">
           <p class="tag"><span class="dot"></span>∫<sub>M</sub> · why you can trust it</p>
           <h2>Predictable failure is <em>correctable</em> failure.</h2>
-          <div class="stat"><strong>1.05–2.05</strong><span class="su">the errors move in only ~1–2 directions out of thousands — a pattern, not chaos</span></div>
+          <div class="stat"><strong>1.1–2.0</strong><span class="su">the errors move in only ~1–2 directions out of five — a pattern, not chaos</span></div>
           <p class="prov"><span class="live-dot2" aria-hidden="true"></span><span id="prov-manifold">…</span></p>
-          <p>Across hundreds of today's simulation models — the classic kind and the new AI ones — the mistakes don't scatter. They line up. And a pattern we can predict is a pattern we can <em>correct</em>: we can flag which predictions to trust before a lab spends a year chasing a dead end. That is what turns simulation into discovery.</p>
+          <p>Across the benchmark potentials we test — classic and AI-driven — the mistakes don't scatter. They line up. And a pattern we can predict is a pattern we can <em>correct</em>: we can flag which predictions to trust before a lab spends a year chasing a dead end. That is what turns simulation into discovery.</p>
         </article>
 
         <article class="panel" data-panel="errorvectors">
           <p class="tag"><span class="dot"></span>∇<sub>γ</sub>E · why it scales</p>
           <h2>Correct it once — <em>accelerate everywhere.</em></h2>
-          <div class="stat"><strong>cos θ &gt; 0.8</strong><span class="su">the models all lean the same way — over 80% aligned, so one fix corrects them all</span></div>
+          <div class="stat"><strong>~70%</strong><span class="su">the dominant error directions are shared, so one correction transfers across potentials</span></div>
           <p class="prov"><span class="live-dot2" aria-hidden="true"></span><span id="prov-errorvectors">…</span></p>
-          <p>Every model gets it wrong by leaning the same direction — in <span class="num">14 of 15</span> cases we checked. Like a room of clocks all running fast: find the offset once, and you can set every one right. That's how trust spreads across <em>all</em> of materials at once, instead of one problem at a time.</p>
+          <p>Every model we test leans in a structured way. In most cases, the dominant error direction is similar enough that a single correction scales. Like a room of clocks all running fast: find the offset once, and you can set every one right. That's how trust spreads across <em>all</em> of materials at once, instead of one problem at a time.</p>
         </article>
 
         <article class="panel" data-panel="ledger">

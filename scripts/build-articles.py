@@ -38,6 +38,39 @@ MARK_SVG = """<svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
 </svg>"""
 
 
+HERO_FIGURE = '''<figure class="article-hero" aria-labelledby="hero-caption">
+  <video autoplay loop muted playsinline poster="hero.jpg" aria-label="MOF discovery flywheel: formalize, simulate, synthesize, feedback.">
+    <source src="hero.mp4" type="video/mp4">
+    <img src="hero.jpg" alt="MOF discovery flywheel: formalize, simulate, synthesize, feedback.">
+  </video>
+  <figcaption id="hero-caption">The formalized discovery loop: define makeability rules, simulate candidates, synthesize the certified ones, and feed the results back into stronger rules.</figcaption>
+</figure>'''
+
+
+def format_body_html(body_html: str, slug: str) -> str:
+    # Markdown footnotes extension emits <div class="footnote">; map to site CSS.
+    body_html = body_html.replace('<div class="footnote">', '<div class="footnotes">')
+
+    # The first blockquote is the article metadata block; use a more semantic div.
+    first_blockquote_open = body_html.find('<blockquote>')
+    first_blockquote_close = body_html.find('</blockquote>')
+    if first_blockquote_open != -1 and first_blockquote_close != -1:
+        body_html = (
+            body_html[:first_blockquote_open]
+            + '<div class="article-meta">'
+            + body_html[first_blockquote_open + len('<blockquote>'):first_blockquote_close]
+            + '</div>'
+            + body_html[first_blockquote_close + len('</blockquote>'):]
+        )
+
+    # Insert hero figure directly after the article title.
+    h1_close = body_html.find('</h1>')
+    if h1_close != -1:
+        body_html = body_html[:h1_close + len('</h1>')] + '\n' + HERO_FIGURE + body_html[h1_close + len('</h1>'):]
+
+    return body_html
+
+
 def slugify(title: str) -> str:
     s = title.lower()
     s = re.sub(r"[^a-z0-9\s-]", "", s)
@@ -75,7 +108,9 @@ def build_page(title: str, description: str, slug: str, body_html: str) -> str:
   <meta property="og:description" content="{description}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{url}">
-  <meta property="og:image" content="https://lupine.science/og-lupine-science.png">
+  <meta property="og:image" content="https://lupine.science/og-mof-formalization.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#faf9f6">
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
@@ -98,7 +133,6 @@ def build_page(title: str, description: str, slug: str, body_html: str) -> str:
       <a href="/articles/">Articles</a>
       <a href="https://library.lupine.science">Library</a>
       <a href="https://lupi.live">LUPI</a>
-      <a href="https://github.com/alexwelcing/lupine">Repository</a>
     </nav>
   </header>
   <main id="article" class="article-shell">
@@ -119,7 +153,8 @@ def build_index(articles: list[dict]) -> str:
     for art in articles:
         cards.append(
             f'''<li>
-  <a class="article-card" href="/articles/{art['slug']}/">
+  <a class="article-card" href="/articles/{art['slug']}/" aria-label="{art['title']}. Dated {art['date']}.">
+    <img class="card-thumb" src="/articles/{art['slug']}/hero.jpg" alt="">
     <h2>{art['title']}</h2>
     <p>{art['description']}</p>
     <span class="meta">{art['date']} · {art['audience']}</span>
@@ -162,7 +197,6 @@ def build_index(articles: list[dict]) -> str:
       <a href="/articles/">Articles</a>
       <a href="https://library.lupine.science">Library</a>
       <a href="https://lupi.live">LUPI</a>
-      <a href="https://github.com/alexwelcing/lupine">Repository</a>
     </nav>
   </header>
   <main id="index" class="article-index">
@@ -189,11 +223,11 @@ def main():
     articles = []
     for source in sorted(ARTICLES_DIR.glob("*.md")):
         raw = source.read_text(encoding="utf-8")
-        md.reset()
-        body_html = md.convert(raw)
-        title_match = re.search(r"<h1>(.*?)</h1>", body_html)
-        title = title_match.group(1) if title_match else source.stem.replace("-", " ").title()
         slug = source.stem
+        md.reset()
+        body_html = format_body_html(md.convert(raw), slug)
+        title_match = re.search(r"<h1>(.*?)</h1>", body_html)
+        title = title_match.group(1) if title_match else slug.replace("-", " ").title()
         meta = extract_metadata(raw)
         description = meta.get("description") or meta.get("scope") or f"A Lupine Science article: {title}"
         date = meta.get("date") or ""

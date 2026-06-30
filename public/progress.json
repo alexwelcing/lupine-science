@@ -2,6 +2,5 @@
   "headline": "A geometric correction operator for systematic error in machine-learned interatomic potentials",
   "subheadline": "TMS 2027 abstract: MLIP errors are structured, not random — a transferable 1-D correction cuts elastic MAE from 17.8 GPa to 10.4 GPa with zero harm cases.",
   "url": "https://library.lupine.science/#/read/projection-law-round2-final",
-  "releaseUrl": "https://github.com/alexwelcing/lupine/blob/main/paper2/submission_abstracts/TMS2027_oral_abstract.md",
   "updated": "2026-06-29"
 }

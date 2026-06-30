@@ -3,14 +3,14 @@
   --paper-deep: #f2efe7;
   --ink:        #16171d;
   --ink-soft:   #4c4e58;
-  --ink-faint:  #8a8c96;
+  --ink-faint:  #6e707a;
   --rule:       #e2dfd4;
   --rule-soft:  #ece9e0;
   --indigo:      #3d4db3;
   --indigo-deep: #2e3a87;
   --indigo-wash: rgba(61, 77, 179, 0.08);
   --indigo-line: rgba(61, 77, 179, 0.24);
-  --ochre:       #a8772b;
+  --ochre:       #8a5e1f;
   --ochre-wash:  rgba(168, 119, 43, 0.10);
   --verified:    #3a8f5b;
 
@@ -24,7 +24,7 @@ html, body { margin: 0; min-height: 100%; }
 html { scroll-behavior: smooth; }
 body {
   background: var(--paper); color: var(--ink);
-  font-family: var(--serif); font-size: 18px; line-height: 1.6; font-weight: 400;
+  font-family: var(--serif); font-size: 18px; line-height: 1.7; font-weight: 400;
   -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
   font-optical-sizing: auto; font-kerning: normal;
   font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
@@ -45,10 +45,13 @@ a { color: inherit; }
 ::selection { background: rgba(61, 77, 179, 0.18); }
 
 .skip {
-  position: absolute; left: -9999px; background: var(--ink); color: var(--paper);
+  position: fixed; left: 12px; top: 0;
+  transform: translateY(-120%);
+  background: var(--ink); color: var(--paper);
   padding: 10px 16px; z-index: 200; border-radius: 4px;
+  transition: transform 150ms ease;
 }
-.skip:focus { left: 12px; top: 12px; }
+.skip:focus-visible { transform: translateY(12px); }
 
 /* Header & nav */
 .site-header {
@@ -93,6 +96,7 @@ a { color: inherit; }
   margin: 56px 0 18px; letter-spacing: -0.015em;
   padding-bottom: 10px; border-bottom: 1px solid var(--rule);
 }
+.article hr + h2 { border-bottom: none; padding-bottom: 0; margin-top: 42px; }
 .article h3 {
   font-size: 20px; line-height: 1.25; font-weight: 600;
   margin: 34px 0 12px; letter-spacing: -0.01em;
@@ -100,13 +104,13 @@ a { color: inherit; }
 .article p {
   margin: 0 0 18px;
 }
-.article blockquote {
+.article blockquote, .article-meta {
   margin: 0 0 32px; padding: 18px 22px;
   background: var(--indigo-wash); border-left: 3px solid var(--indigo-line);
   border-radius: 4px; color: var(--ink-soft);
 }
-.article blockquote p { margin: 0 0 8px; }
-.article blockquote p:last-child { margin-bottom: 0; }
+.article blockquote p, .article-meta p { margin: 0 0 8px; }
+.article blockquote p:last-child, .article-meta p:last-child { margin-bottom: 0; }
 
 .article ul, .article ol {
   margin: 0 0 22px; padding-left: 26px;
@@ -140,10 +144,15 @@ a { color: inherit; }
 
 /* Footnotes */
 .footnote-ref {
-  font-family: var(--mono); font-size: 0.78em;
+  font-family: var(--mono); font-size: 0.85em;
   color: var(--indigo-deep); text-decoration: none;
   vertical-align: super; line-height: 0;
+  padding: 4px 5px; margin: -4px -2px;
+  min-width: 24px; min-height: 24px; display: inline-block;
+  text-align: center;
 }
+.footnote-ref:visited { color: var(--ink-faint); }
+.footnote-ref:hover { color: var(--indigo); }
 .footnotes {
   margin-top: 64px; padding-top: 28px; border-top: 1px solid var(--rule);
   font-size: 15px; color: var(--ink-soft);
@@ -185,10 +194,17 @@ a { color: inherit; }
   border: 1px solid var(--rule);
   background: var(--paper-deep);
 }
-.article-hero img {
+.article-hero img,
+.article-hero video {
   display: block;
   width: 100%;
   height: auto;
+}
+.article-hero figcaption {
+  padding: 14px 18px;
+  font-family: var(--mono); font-size: 13px; color: var(--ink-faint);
+  background: var(--paper-deep); border-top: 1px solid var(--rule);
+  line-height: 1.5;
 }
 
 /* Card thumbnail */
@@ -201,6 +217,17 @@ a { color: inherit; }
   margin: -24px -24px 18px;
   border-bottom: 1px solid var(--rule);
   background: var(--paper-deep);
+}
+
+/* Print styles */
+@media print {
+  body::before, body::after { display: none; }
+  .site-header { position: static; border-bottom: 1px solid var(--rule); backdrop-filter: none; }
+  .article-shell { padding-top: 24px; }
+  .article a[href]::after { content: " (" attr(href) ")"; font-size: 0.85em; color: var(--ink-faint); word-break: break-all; }
+  .article a[href^="/"]::after { content: " (https://lupine.science" attr(href) ")"; }
+  .article-hero { break-inside: avoid; }
+  .footnotes { break-before: auto; }
 }
 
 /* Footer */
