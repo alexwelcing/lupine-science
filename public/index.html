@@ -49,6 +49,8 @@
     * { box-sizing: border-box; }
     html, body { margin: 0; height: 100%; }
     html { scroll-behavior: smooth; }
+    /* prevent any script or focus from yanking the viewport on load */
+    html, body { scroll-padding-top: 0; }
     body {
       background: var(--paper); color: var(--ink);
       font-family: var(--serif); font-size: 18px; line-height: 1.6; font-weight: 400;
@@ -173,6 +175,9 @@
       filter: blur(1px);
     }
     .panel[data-active] { position: relative; opacity: 1; transform: none; filter: none; pointer-events: auto; }
+    /* the initially-active panel must not slide in on first paint — that reads as a lurch */
+    .panel[data-active] { transition: none; }
+    .reading.is-settled .panel[data-active] { transition: opacity var(--settle) var(--ease), transform var(--settle) var(--ease), filter var(--settle) var(--ease); }
     .panel .tag {
       font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--ink-faint); margin: 0 0 18px; display: flex; align-items: center; gap: 9px;
@@ -216,7 +221,7 @@
 
     /* ════════ THE LEDGER — margin rail (right) ════════ */
     .rail-ledger {
-      grid-column: rail / end; grid-row: body; z-index: 4; align-self: stretch;
+      grid-column: rail / end; grid-row: body; z-index: 4; align-self: start;
       display: flex; flex-direction: column; padding-top: 30px; min-height: 0;
       background: linear-gradient(90deg, rgba(250,249,246,0) 0%, rgba(250,249,246,0.78) 14%, rgba(250,249,246,0.9) 100%);
     }
@@ -229,12 +234,18 @@
       padding-bottom: 10px; border-bottom: 1px solid var(--rule);
     }
     .rail-head .h { color: var(--ochre); }
-    .ledger { margin: 0; padding: 0; list-style: none; }
+    .ledger {
+      margin: 0; padding: 0; list-style: none;
+      /* reserve room for 5 entries so the rail (and therefore the whole page)
+         does not lurch when the live commits render */
+      min-height: 280px;
+    }
     .ledger li {
       padding: 11px 0; border-bottom: 1px solid var(--rule-soft);
       font-family: var(--mono); font-size: 13.5px; line-height: 1.45;
       transition: opacity var(--settle) var(--ease), border-color var(--settle) var(--ease);
     }
+    .ledger li.loading { color: var(--ink-faint); font-style: italic; }
     .ledger .hash { color: var(--ink-soft); }
     .ledger .when { color: var(--ink-faint); }
     .ledger .msg { display: block; margin-top: 2px; font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--ink-soft); }
@@ -421,11 +432,8 @@
     <!-- ════ LEDGER RAIL (marginalia) ════ -->
     <aside class="rail-ledger" aria-label="Public ledger">
       <div class="rail-head"><span>Public ledger · Ξ</span><span class="h">height <span id="ledger-height">970</span></span></div>
-      <ul class="ledger">
-        <li><span class="hash">9b37d99</span> <span class="when">06·19</span><span class="msg">Refactor LUPI viewer loading seams</span></li>
-        <li><span class="hash">25482ab</span> <span class="when">06·18</span><span class="msg">Retire monorepo LUPI viewer deploy</span></li>
-        <li><span class="hash">08fe80c</span> <span class="when">06·17</span><span class="msg">Add social cards for saved views</span></li>
-        <li><span class="hash">109c116</span> <span class="when">06·17</span><span class="msg">Add LUPI analytics measurement tools</span></li>
+      <ul class="ledger" id="ledger-list">
+        <li class="loading">loading open record…</li>
       </ul>
       <div class="rail-note">
         <div class="row"><span class="d wp"></span><span>Working paper in preparation — not yet peer-reviewed. The full record lives in the open repository.</span></div>
@@ -732,9 +740,11 @@
         if (!t0) t0 = ts; const time = (ts - t0) / 1000;
         for (const k in cur) cur[k] += (tgt[k] - cur[k]) * 0.045;
         ctx.clearRect(0, 0, w, h);
-        const amp = h * (0.14 + 0.05 * cur.ribbon);
+        const amp = h * (0.16 + 0.07 * cur.ribbon);
         // ribbon thickness derives from the REAL mean eigenvalue ratio √(λ₂/λ₁)
         const bandW = h * (0.05 + 0.34 * M.meanThin);
+        // slow, ambient breath so the ribbon never reads as a frozen image
+        const breath = 0.88 + 0.12 * Math.sin(time * 0.55);
 
         // ── the hyper-ribbon: the luminous hero motif ──
         // (a) focal bloom — the single indigo light source, seated in the clear window
@@ -742,8 +752,8 @@
           const fx = STAGE.cx, fy = spineY(clamp01(STAGE.cx / w), time, amp);
           const R = Math.min(w, h) * 0.34;
           const bg = ctx.createRadialGradient(fx, fy, 0, fx, fy, R);
-          bg.addColorStop(0, `rgba(${IND},${0.06 * cur.ribbon})`);
-          bg.addColorStop(0.55, `rgba(${IND},${0.02 * cur.ribbon})`);
+          bg.addColorStop(0, `rgba(${IND},${0.09 * cur.ribbon * breath})`);
+          bg.addColorStop(0.55, `rgba(${IND},${0.035 * cur.ribbon * breath})`);
           bg.addColorStop(1, `rgba(${IND},0)`);
           ctx.fillStyle = bg; ctx.beginPath(); ctx.arc(fx, fy, R, 0, 6.2832); ctx.fill();
         }
@@ -752,8 +762,8 @@
         for (let b = -bands; b <= bands; b++) {
           const env = 1 - Math.abs(b / bands);
           const off = (b / bands) * bandW;
-          ctx.strokeStyle = `rgba(${IND},${(0.028 + env * 0.13 * cur.ribbon)})`;
-          ctx.lineWidth = 0.6; ctx.beginPath();
+          ctx.strokeStyle = `rgba(${IND},${(0.04 + env * 0.17 * cur.ribbon * breath)})`;
+          ctx.lineWidth = 0.7; ctx.beginPath();
           for (let s = 0; s <= 96; s++) {
             const u = s / 96, x = u * w, y = spineY(u, time, amp) + off * (0.5 + 0.5 * env);
             s === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
@@ -762,14 +772,14 @@
         }
         // (c) luminous core thread — emerges from behind the hero text, dissolves toward the rail
         ctx.save();
-        ctx.shadowColor = `rgba(${IND},${0.5 * cur.ribbon})`; ctx.shadowBlur = 7;
+        ctx.shadowColor = `rgba(${IND},${0.55 * cur.ribbon * breath})`; ctx.shadowBlur = 9;
         const a0 = STAGE.x0 / w, a1 = STAGE.x1 / w;
         const cg = ctx.createLinearGradient(0, 0, w, 0);
         cg.addColorStop(clamp01(a0 - 0.05), `rgba(${IND},0)`);
-        cg.addColorStop(clamp01(a0 + 0.07), `rgba(${IND},${0.26 * cur.ribbon})`);
-        cg.addColorStop(clamp01(a1 - 0.03), `rgba(${IND},${0.2 * cur.ribbon})`);
+        cg.addColorStop(clamp01(a0 + 0.07), `rgba(${IND},${0.34 * cur.ribbon * breath})`);
+        cg.addColorStop(clamp01(a1 - 0.03), `rgba(${IND},${0.26 * cur.ribbon * breath})`);
         cg.addColorStop(clamp01(a1 + 0.06), `rgba(${IND},0)`);
-        ctx.strokeStyle = cg; ctx.lineWidth = 1.2; ctx.lineCap = "round"; ctx.beginPath();
+        ctx.strokeStyle = cg; ctx.lineWidth = 1.4; ctx.lineCap = "round"; ctx.beginPath();
         for (let s = 0; s <= 110; s++) { const u = s / 110, x = u * w, y = spineY(u, time, amp); s === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); }
         ctx.stroke(); ctx.restore();
 
@@ -778,22 +788,22 @@
         for (const p of pts) {
           const pot = M.pots[p.pot % M.n] || { thin: 0.3 };
           const x = p.u * w, ribY = spineY(p.u, time, amp);
-          const wide = p.sy * h * 0.4;
+          const wide = p.sy * h * 0.46;
           const spread = wide * (1 + (pot.thin - 1) * cur.converge);
-          const y = ribY + spread + Math.sin(time * p.sp + p.ph) * h * 0.04 * (1 - 0.6 * cur.converge);
+          const y = ribY + spread + Math.sin(time * p.sp + p.ph) * h * 0.06 * (1 - 0.55 * cur.converge);
           const cm = clearAt(x, y); if (cm <= 0.02) continue;   // never sit on text
           const aligned = Math.atan2(slope(p.u, time, amp) * w, w);
           const ang = p.ph + (aligned - p.ph) * Math.max(cur.converge, cur.vector);
           const len = 7 + 7 * p.sp, core = 1 - Math.abs(p.sy);
           // soft motion trail (no arrowhead)
-          ctx.strokeStyle = `rgba(${IND},${(0.08 + 0.4 * cur.vector) * (0.4 + 0.6 * core) * cm})`;
-          ctx.lineWidth = 0.8; ctx.lineCap = "round";
+          ctx.strokeStyle = `rgba(${IND},${(0.12 + 0.46 * cur.vector) * (0.4 + 0.6 * core) * cm})`;
+          ctx.lineWidth = 1.0; ctx.lineCap = "round";
           ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + Math.cos(ang) * len, y + Math.sin(ang) * len); ctx.stroke();
           // electron: faint halo + core
-          ctx.fillStyle = `rgba(${IND},${0.05 * cm})`;
-          ctx.beginPath(); ctx.arc(x, y, 2.4 + 1.6 * core, 0, 6.2832); ctx.fill();
-          ctx.fillStyle = `rgba(${INK},${(0.11 + 0.13 * (1 - cur.converge)) * cm})`;
-          ctx.beginPath(); ctx.arc(x, y, 0.8 + 0.9 * core, 0, 6.2832); ctx.fill();
+          ctx.fillStyle = `rgba(${IND},${0.08 * cm})`;
+          ctx.beginPath(); ctx.arc(x, y, 2.6 + 1.7 * core, 0, 6.2832); ctx.fill();
+          ctx.fillStyle = `rgba(${INK},${(0.14 + 0.14 * (1 - cur.converge)) * cm})`;
+          ctx.beginPath(); ctx.arc(x, y, 1.0 + 0.95 * core, 0, 6.2832); ctx.fill();
         }
 
         drawShells(time);
@@ -826,7 +836,64 @@
       }
     }
 
+    /* ── public ledger: live commits from the open repository ── */
+    (() => {
+      const LEDGER_REPO = "alexwelcing/lupine";
+      const list = document.getElementById("ledger-list");
+      const heightEl = document.getElementById("ledger-height");
+      const fallback = [
+        { sha: "9b37d99", date: "06·19", msg: "Refactor LUPI viewer loading seams" },
+        { sha: "25482ab", date: "06·18", msg: "Retire monorepo LUPI viewer deploy" },
+        { sha: "08fe80c", date: "06·17", msg: "Add social cards for saved views" },
+        { sha: "109c116", date: "06·17", msg: "Add LUPI analytics measurement tools" },
+      ];
+      function render(rows) {
+        if (!list) return;
+        list.innerHTML = rows.slice(0, 5).map((r) =>
+          `<li><span class="hash">${r.sha}</span> <span class="when">${r.date}</span><span class="msg">${r.msg.replace(/</g, "&lt;")}</span></li>`
+        ).join("");
+      }
+      function fmtDate(iso) {
+        const d = new Date(iso);
+        const m = String(d.getUTCMonth() + 1).padStart(2, "0");
+        const day = String(d.getUTCDate()).padStart(2, "0");
+        return `${m}·${day}`;
+      }
+      function parseLastPage(link) {
+        if (!link) return null;
+        const m = link.match(/page=(\d+)[^>]*>;\s*rel="last"/);
+        return m ? parseInt(m[1], 10) : null;
+      }
+      // start with the previous hardcoded entries so the rail is never empty
+      render(fallback);
+      fetch(`https://api.github.com/repos/${LEDGER_REPO}/commits?sha=main&per_page=5`, { cache: "no-store" })
+        .then((r) => {
+          if (!r.ok) throw new Error(String(r.status));
+          const link = r.headers.get("link") || "";
+          const total = parseLastPage(link);
+          if (heightEl && total) heightEl.textContent = total;
+          return r.json();
+        })
+        .then((commits) => {
+          if (!Array.isArray(commits) || !commits.length) throw new Error("empty");
+          render(commits.map((c) => ({
+            sha: String(c.sha || "").slice(0, 7),
+            date: fmtDate(c.commit && c.commit.committer ? c.commit.committer.date : c.commit.commit_date || ""),
+            msg: String(c.commit && c.commit.message ? c.commit.message.split("\n")[0] : ""),
+          })));
+        })
+        .catch(() => { /* fallback already visible */ });
+    })();
+
     setFocus("objective");
+
+    // after first paint, enable panel transitions so later focus changes still feel smooth
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const reading = document.querySelector(".reading");
+        if (reading) reading.classList.add("is-settled");
+      });
+    });
   })();
   </script>
 </body>
