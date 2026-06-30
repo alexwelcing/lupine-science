@@ -118,27 +118,6 @@
     .mark b { font-weight: 600; font-size: 15px; letter-spacing: 0.01em; }
     .mark .tld { font-family: var(--mono); font-size: 13.5px; color: var(--ink-faint); }
 
-    /* ── live loop, pinned top-right of the rail (marginalia) ── */
-    .loop-margin {
-      grid-column: rail / end; grid-row: top; z-index: 4;
-      align-self: center; justify-self: end; text-align: right;
-      font-family: var(--mono); font-size: 13px; color: var(--ink-faint); line-height: 1.5;
-      text-shadow: 0 0 7px var(--paper), 0 0 7px var(--paper), 0 0 3px var(--paper);
-    }
-    .loop-margin .lh { display: inline-flex; align-items: center; gap: 7px; color: var(--ink-soft); }
-    .loop-margin .ld {
-      width: 7px; height: 7px; border-radius: 50%; background: var(--ochre);
-      box-shadow: 0 0 0 0 rgba(168,119,43,0.55); animation: ping 2.6s var(--ease) infinite;
-    }
-    @keyframes ping { to { box-shadow: 0 0 0 9px rgba(168,119,43,0); } }
-    .loop-margin .nums { margin-top: 4px; }
-    .loop-margin .nums b { color: var(--ochre); font-weight: 600; }
-    .loop-link {
-      display: inline-block; margin-top: 6px; font-size: 12px; color: var(--indigo);
-      border-bottom: 1px solid var(--indigo-line); transition: color 200ms ease, border-color 200ms ease;
-    }
-    .loop-link:hover { color: var(--indigo-deep); border-bottom-color: var(--indigo); }
-
     /* ════════ THE EQUATION HORIZON (navigation) ════════ */
     /* paper knockout so the equation always sits on calm ground, not on the ribbon */
     .horizon {
@@ -310,7 +289,6 @@
       .field::before { position: absolute; width: 100%; height: 46vh; top: 0; bottom: auto;
         background: linear-gradient(180deg, rgba(250,249,246,0) 50%, var(--paper) 100%); }
       .mark { padding-top: 18px; }
-      .loop-margin { display: none; }
       .horizon { padding-top: 38vh; }
       .equation { font-size: clamp(26px, 8vw, 44px); }
       .legend { margin: 16px 0 30px; }
@@ -323,7 +301,6 @@
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .loop-margin .ld { animation: none; }
       .panel { transition: opacity 1ms; filter: none; transform: none; }
     }
   </style>
@@ -367,12 +344,6 @@
       </svg>
       <span><b>Lupine Science</b> <span class="tld">accelerating materials discovery</span></span>
     </a>
-
-    <!-- live loop marginalia -->
-    <div class="loop-margin" aria-live="polite">
-      <span class="lh"><span class="ld" aria-hidden="true"></span><span id="loop-headline">research running, live</span></span>
-      <a id="loop-link" class="loop-link" href="https://library.lupine.science/" style="display:none">Open the ledger</a>
-    </div>
 
     <!-- ════ EQUATION HORIZON (the navigation) ════ -->
     <header class="horizon">
@@ -624,7 +595,7 @@
           const m = rectOf(".mark"); if (m) zones.push(m);
           STAGE = { x0: w * 0.04, x1: w * 0.96, y0: h * 0.15, y1: h * 0.97 };
         } else {
-          [".horizon", ".legend", ".reading .panel[data-active]", ".rail-ledger", ".loop-margin", ".foot"]
+          [".horizon", ".legend", ".reading .panel[data-active]", ".rail-ledger", ".foot"]
             .forEach((s) => { const z = rectOf(s); if (z) zones.push(z); });
           const m = rectOf(".mark"); if (m) zones.push({ l: m.l, t: m.t, r: Math.min(m.r, m.l + 250), bo: m.bo });
           const rd = rectOf(".reading .panel[data-active]") || rectOf(".reading");
@@ -854,23 +825,6 @@
         });
       }
     }
-
-    /* ── live discovery loop ── */
-    (() => {
-      const set = (id, v) => { const n = document.getElementById(id); if (n) n.textContent = v; };
-      const link = document.getElementById("loop-link");
-      fetch("/progress.json", { cache: "no-store" })
-        .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
-        .then((data) => {
-          set("loop-headline", data.headline || "research running, live");
-          if (link && data.subheadline) {
-            link.textContent = data.subheadline;
-            link.href = data.releaseUrl || data.url || "https://library.lupine.science/";
-            link.style.display = "inline-block";
-          }
-        })
-        .catch(() => { set("loop-headline", "research in the open record"); });
-    })();
 
     setFocus("objective");
   })();
