@@ -1,0 +1,109 @@
+project: lupi-launch
+format: video
+resolution: [1280, 720]
+fps: 30
+duration: 30.0
+transition:
+  type: fade
+  duration: 1.0
+scenes:
+  - id: 01
+    time_start: 0.0
+    time_end: 5.833
+    title: LUPI shows molecules
+    copy: LUPI shows molecules.
+    narration_start: 0.5
+    narration_file: narration_01.mp3
+    visual_prompt: |
+      Cinematic dark molecular lattice made of glowing indigo and white particles on a deep black (#06080d) background,
+      million-atom copper lattice, camera pull-back, scientific and vast, 16:9.
+    audio: narration_01
+    status: pending
+
+  - id: 02
+    time_start: 4.833
+    time_end: 10.666
+    title: Million-atom scenes
+    copy: Million-atom scenes, right in your browser.
+    narration_start: 5.0
+    narration_file: narration_02.mp3
+    visual_prompt: |
+      Abstract browser window frame floating in dark space, inside it a dense shimmering atomistic lattice rotates smoothly,
+      indigo and white particles, deep black background, 16:9.
+    audio: narration_02
+    status: pending
+
+  - id: 03
+    time_start: 9.666
+    time_end: 15.5
+    title: Inspectable structures
+    copy: Functional groups. OMol25 geometries. Materials structures.
+    narration_start: 10.5
+    narration_file: narration_03.mp3
+    visual_prompt: |
+      Split triptych on black background: an organic functional group molecule, a crystalline materials structure, and a QM geometry surface,
+      indigo and white highlights, clean scientific illustration, 16:9.
+    audio: narration_03
+    status: pending
+
+  - id: 04
+    time_start: 14.5
+    time_end: 20.333
+    title: Geometry of error
+    copy: See where models fail. Inspect the geometry of error.
+    narration_start: 16.0
+    narration_file: narration_04.mp3
+    visual_prompt: |
+      A smooth molecular surface with a glowing red-orange fracture line revealing a low-dimensional ribbon of error,
+      surrounding atoms fade into deep black, indigo light, cinematic 16:9.
+    audio: narration_04
+    status: pending
+
+  - id: 05
+    time_start: 19.333
+    time_end: 25.166
+    title: LUPI
+    copy: LUPI. Browser-native evidence for atomistic science.
+    narration_start: 21.5
+    narration_file: narration_05.mp3
+    visual_prompt: |
+      A single elegant molecule at center stage rotating slowly, subtle grid and data overlays, deep black background,
+      indigo glow, text space reserved, 16:9.
+    audio: narration_05
+    status: pending
+
+  - id: 06
+    time_start: 24.166
+    time_end: 30.0
+    title: CTA
+    copy: open lupi.live
+    narration_start: 26.5
+    narration_file: narration_06.mp3
+    visual_prompt: |
+      Minimal dark end card with subtle lupine flower particle motif, centered open space for text lupi.live,
+      deep black background, indigo typography glow, 16:9.
+    audio: narration_06
+    status: pending
+
+assets:
+  music:
+    - file: music.mp3
+      prompt: |
+        Deep cinematic electronic music, sparse sub-bass pulses, crystalline high-end synths, dark and precise,
+        no vocals, 80 seconds, suitable for a molecular science product launch video.
+      duration_used: 30.0
+  narration:
+    - file: narration_01.mp3
+      text: LUPI shows molecules.
+    - file: narration_02.mp3
+      text: Million-atom scenes, right in your browser.
+    - file: narration_03.mp3
+      text: Functional groups. OMol25 geometries. Materials structures.
+    - file: narration_04.mp3
+      text: See where models fail. Inspect the geometry of error.
+    - file: narration_05.mp3
+      text: LUPI. Browser-native evidence for atomistic science.
+    - file: narration_06.mp3
+      text: Open lupi dot live.
+
+renders: []
