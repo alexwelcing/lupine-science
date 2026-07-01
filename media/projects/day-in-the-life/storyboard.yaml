@@ -1,0 +1,64 @@
+project: day-in-the-life
+format: image-carousel
+platform: x-twitter
+resolution: [1200, 1200]
+aspect_ratio: "1:1"
+scenes:
+  - id: 01
+    title: Standup — the command center wakes up
+    carousel_position: 1
+    role: hook
+    visual_prompt: |
+      Cinematic dark workspace scene, a central glowing command-center dashboard on a deep ink-black (#16171d) background,
+      three luminous agent profile cards arranged in a row — labeled COORDINATOR, RESEARCHER, MEDIA DIRECTOR — each card
+      glowing with electric indigo (#3d4db3) light, subtle terminal text and progress bars, ochre (#8a5e1f) accent highlights,
+      particle motes drifting, the feeling of a research control room powering up at dawn, clean scientific aesthetic, 1:1 square.
+    status: done
+
+  - id: 02
+    title: Research — Lean formalizations and the A6 bridge
+    carousel_position: 2
+    role: body
+    visual_prompt: |
+      Cinematic dark scene of a code and theorem environment on deep ink-black (#16171d) background,
+      elegant Lean formalization code in IBM Plex Mono glowing in indigo (#3d4db3) and soft white,
+      a mathematical proof tree branching beautifully, the letters A6 BRIDGE visible as a subtle heading,
+      ochre (#8a5e1f) cursor and bracket accents, clean and precise, feeling of deep focused research work, 1:1 square.
+    status: done
+
+  - id: 03
+    title: Build — LUPI renders a million atoms in the browser
+    carousel_position: 3
+    role: body
+    visual_prompt: |
+      Cinematic dark scene of a browser window floating in deep ink-black (#16171d) space,
+      inside the browser a dense shimmering molecular lattice of indigo (#3d4db3) and white particles rotates,
+      a subtle URL bar reading lupi.live, the word LUPI glowing in the corner,
+      ochre (#8a5e1f) data overlay accents, million-atom scale, clean scientific product aesthetic, 1:1 square.
+    status: done
+
+  - id: 04
+    title: Ship — lupine.science goes live
+    carousel_position: 4
+    role: body
+    visual_prompt: |
+      Cinematic dark scene of a website going live on deep ink-black (#16171d) background,
+      the lupine.science homepage rendered elegantly with serif typography and a subtle hyper-ribbon animation,
+      glowing indigo (#3d4db3) UI elements, a public ledger panel, an article preview, a launch film thumbnail,
+      ochre (#8a5e1f) live-status indicator, the feeling of a public research record activating, 1:1 square.
+    status: done
+
+  - id: 05
+    title: The team — one mission
+    carousel_position: 5
+    role: cta
+    visual_prompt: |
+      Minimal dark closing card on deep ink-black (#16171d) background,
+      three small glowing agent icons arranged in a triangle — coordinator, researcher, media director —
+      connected by faint indigo (#3d4db3) lines forming a network, a subtle lupine flower particle motif,
+      generous negative space, clean and confident, reserved space for a tagline and URL, 1:1 square.
+    status: done
+
+renders:
+  - hero.jpg
+  - x_thread.md
