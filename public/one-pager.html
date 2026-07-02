@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lupine Science — Executive Summary</title>
+  <meta name="description" content="The trust layer for the age of AI-designed matter.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #faf9f6;
+      --paper-deep: #f3f1eb;
+      --ink: #16171d;
+      --ink-soft: #4c4e58;
+      --ink-muted: #6e707a;
+      --indigo: #3d4db3;
+      --indigo-deep: #2e3a87;
+      --indigo-wash: rgba(61, 77, 179, 0.10);
+      --rule: #e2dfd4;
+      --rule-strong: #d1cfc4;
+      --serif: "Newsreader", Georgia, "Times New Roman", serif;
+      --mono: "IBM Plex Mono", ui-monospace, monospace;
+    }
+
+    @page { size: letter; margin: 0; }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 13.5px; }
+
+    body {
+      font-family: var(--serif);
+      background: #e8e5dc;
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .page {
+      position: relative;
+      width: 8.5in;
+      height: 11in;
+      margin: 0 auto;
+      background: var(--paper);
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(22, 23, 29, 0.12);
+    }
+
+    /* subtle paper grain */
+    .page::before {
+      content: "";
+      position: absolute; inset: 0; pointer-events: none; z-index: 2;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.018'/%3E%3C/svg%3E");
+    }
+
+    /* hero image, washed out so type wins */
+    .hero-bg {
+      position: absolute; top: 0; left: 0; right: 0; height: 4.1in;
+      background:
+        linear-gradient(180deg, rgba(250,249,246,0.45) 0%, rgba(250,249,246,0.78) 62%, var(--paper) 100%),
+        url("one-pager-assets/cover-shape-of-wrongness.jpg") center 30% / cover no-repeat;
+      z-index: 0;
+    }
+
+    .content {
+      position: relative; z-index: 3;
+      padding: 0.55in 0.6in 0.55in;
+      height: 100%;
+      display: flex; flex-direction: column;
+    }
+
+    /* header */
+    header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 0.45in;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .brand svg { width: 28px; height: 28px; display: block; }
+    .brand-name {
+      font-family: var(--serif); font-size: 16px; font-weight: 600; letter-spacing: 0.01em;
+    }
+    .brand-tag {
+      font-family: var(--mono); font-size: 9.5px; color: var(--ink-muted);
+      letter-spacing: 0.04em; margin-top: 2px;
+    }
+    .confidential {
+      text-align: right;
+      font-family: var(--mono); font-size: 9px; color: var(--ink-muted);
+      letter-spacing: 0.18em; text-transform: uppercase;
+    }
+
+    /* hero */
+    .hero {
+      margin-bottom: 0.42in;
+    }
+    .hero h1 {
+      font-size: 34px; line-height: 1.08; font-weight: 400; letter-spacing: -0.02em;
+      max-width: 11ch; margin-bottom: 16px;
+    }
+    .hero h1 em { font-style: italic; color: var(--indigo); }
+    .hero p {
+      font-size: 14px; line-height: 1.55; color: var(--ink-soft); max-width: 50ch;
+      margin-bottom: 16px;
+    }
+    .hero .ask {
+      display: inline-block;
+      font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--indigo-deep); background: var(--indigo-wash);
+      padding: 7px 11px; border-radius: 4px;
+    }
+
+    /* grid */
+    .grid {
+      flex: 1;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.35in;
+    }
+    .col { display: flex; flex-direction: column; gap: 0.26in; }
+
+    .section-label {
+      font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--indigo); margin-bottom: 7px;
+    }
+    .section h2 {
+      font-size: 17px; font-weight: 400; line-height: 1.18; letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+    .section h2 em { font-style: italic; color: var(--indigo); }
+    .section p, .section li {
+      font-size: 12px; line-height: 1.55; color: var(--ink-soft);
+    }
+    .section ul { list-style: none; margin-top: 6px; }
+    .section li {
+      position: relative; padding-left: 13px; margin-bottom: 5px;
+    }
+    .section li::before {
+      content: "—"; position: absolute; left: 0; color: var(--indigo);
+    }
+
+    .stat-row {
+      display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px;
+    }
+    .stat {
+      min-width: 72px;
+    }
+    .stat .num {
+      font-family: var(--mono); font-size: 22px; font-weight: 600; color: var(--indigo); line-height: 1;
+      display: block;
+    }
+    .stat .caption {
+      font-family: var(--mono); font-size: 8.5px; color: var(--ink-muted); letter-spacing: 0.06em;
+      margin-top: 4px; text-transform: uppercase;
+    }
+
+    /* footer */
+    footer {
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid var(--rule);
+      display: flex; justify-content: space-between; align-items: flex-end;
+      font-family: var(--mono); font-size: 9.5px; color: var(--ink-muted);
+    }
+    footer a { color: var(--indigo); text-decoration: none; }
+    footer .right { text-align: right; }
+
+    @media print {
+      body { background: white; }
+      .page { box-shadow: none; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="content">
+      <header>
+        <div class="brand">
+          <svg viewBox="0 0 512 512" role="img" aria-label="Lupine Science mark">
+            <g fill="none" stroke="#3d4db3" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="256" cy="256" r="90" opacity="0.25"/>
+              <ellipse cx="256" cy="256" rx="90" ry="28" transform="rotate(60 256 256)" opacity="0.35"/>
+              <ellipse cx="256" cy="256" rx="90" ry="28" transform="rotate(-60 256 256)" opacity="0.35"/>
+              <circle cx="256" cy="256" r="22" fill="#3d4db3" stroke="none"/>
+            </g>
+          </svg>
+          <div>
+            <div class="brand-name">Lupine Science</div>
+            <div class="brand-tag">The trust layer for AI-designed matter</div>
+          </div>
+        </div>
+        <div class="confidential">Confidential · July 2026</div>
+      </header>
+
+      <section class="hero">
+        <h1>The trust layer for the age of <em>AI-designed matter.</em></h1>
+        <p>AI is leaving the screen and entering the physical world — designing batteries, catalysts, alloys, and chips on simulations that are wrong in structured ways. Lupine Science measures that wrongness, proves it, corrects it, and makes the evidence inspectable.</p>
+        <span class="ask">Raising ~$20M · founder@lupinesci.com</span>
+      </section>
+
+      <div class="grid">
+        <div class="col">
+          <section class="section">
+            <div class="section-label">The inflection</div>
+            <h2>AI is crossing from <em>bits to atoms.</em></h2>
+            <p>Foundation models now predict how atoms behave — MACE, CHGNet, Orb, all in the last two years. The largest economy on earth is coming online for AI. The bottleneck is no longer generating predictions. It is trusting them.</p>
+          </section>
+
+          <section class="section">
+            <div class="section-label">The catch</div>
+            <h2>Every potential is wrong — <em>but not randomly.</em></h2>
+            <p>There are ~900 published potentials for metals alone, and every one fails in a structured way. Today, "which prediction is real" is still a craft judgment. Wrong predictions waste synthesis budgets and kill programs.</p>
+          </section>
+
+          <section class="section">
+            <div class="section-label">The proof</div>
+            <h2>The wrongness has a shape — <em>and we machine-checked the map.</em></h2>
+            <div class="stat-row">
+              <div class="stat"><span class="num">14/15</span><span class="caption">Elements transfer</span></div>
+              <div class="stat"><span class="num">&gt;0.8</span><span class="caption">Cross-MLIP cosine</span></div>
+              <div class="stat"><span class="num">0</span><span class="caption">Sorrys in Lean 4</span></div>
+            </div>
+            <ul>
+              <li>Errors collapse onto a low-dimensional manifold (participation ratio 1.05–2.05).</li>
+              <li>Classical and foundation MLIPs fail in the same direction; one correction scales across the space.</li>
+              <li>Core projection law formalized in Lean 4 with zero gaps.</li>
+              <li>3 hypotheses self-refuted and published — correction is the credibility.</li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="col">
+          <section class="section">
+            <div class="section-label">What we build</div>
+            <h2>A correction layer <em>and a discovery engine.</em></h2>
+            <ul>
+              <li><strong>Floor:</strong> simulation-trust software and calibration services — profitable base.</li>
+              <li><strong>Ceiling:</strong> materials-IP discovery and licensing, driven by the corrected signal.</li>
+              <li><strong>Evidence surface:</strong> LUPI, the browser-native WebGPU viewer for atomistic evidence.</li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <div class="section-label">The moat</div>
+            <h2>An edge that compounds <em>instead of decaying.</em></h2>
+            <p>Domain-science depth refreshes with every discovery. Machine-checked proofs cannot be hand-waved around. Every element and MLIP added widens the manifold, accelerating both correction and IP generation.</p>
+          </section>
+
+          <section class="section">
+            <div class="section-label">Founder</div>
+            <h2>The bridge the industry <em>is crossing.</em></h2>
+            <p><strong>Alex Welcing.</strong> Materials-science origin (presented on interatomic potentials at TMS at 17), 15 years as an AI/ML operator (Google Cloud, 2018), now returning to finish the problem at the exact moment the world needs it.</p>
+          </section>
+
+          <section class="section">
+            <div class="section-label">The ask</div>
+            <h2>~$20M to put materials intelligence <em>in every major lab on earth.</em></h2>
+            <p>Deliver Lupine's work to all major supercompute sites and university + industry labs globally within 12 months; build the founding team; expand the manifold.</p>
+          </section>
+        </div>
+      </div>
+
+      <footer>
+        <div>
+          <a href="https://lupine.science">lupine.science</a> ·
+          <a href="https://lupi.live">lupi.live</a> ·
+          <a href="https://github.com/alexwelcing/lupine">github</a>
+        </div>
+        <div class="right">
+          679 commits · 46 public articles · 15 elements · 3 foundation MLIPs
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
