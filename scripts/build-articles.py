@@ -98,6 +98,7 @@ def extract_metadata(body: str) -> dict:
 
 def build_page(title: str, description: str, slug: str, body_html: str, fmt: str = "article") -> str:
     url = f"https://lupine.science/articles/{slug}/"
+    og_image = f"https://lupine.science/articles/{slug}/hero.jpg"
     body_class = f"format-{fmt}"
     return f"""<!doctype html>
 <html lang="en">
@@ -111,7 +112,8 @@ def build_page(title: str, description: str, slug: str, body_html: str, fmt: str
   <meta property="og:description" content="{description}">
   <meta property="og:type" content="article">
   <meta property="og:url" content="{url}">
-  <meta property="og:image" content="https://lupine.science/og-mof-formalization.png">
+  <meta property="og:image" content="{og_image}">
+  <meta name="twitter:image" content="{og_image}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -177,7 +179,8 @@ def build_index(articles: list[dict]) -> str:
   <meta property="og:description" content="Articles, prospectuses, and research notes from Lupine Science on formalized materials discovery.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lupine.science/articles/">
-  <meta property="og:image" content="https://lupine.science/og-lupine-science.png">
+  <meta property="og:image" content="https://lupine.science/og-lupine-science.jpg">
+  <meta name="twitter:image" content="https://lupine.science/og-lupine-science.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#faf9f6">
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
