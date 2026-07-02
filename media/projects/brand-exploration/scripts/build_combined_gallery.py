@@ -13,6 +13,8 @@ MOTIF_NAMES = {
     "shape-of-wrongness": "Shape of wrongness",
     "bits-to-atoms": "Bits to atoms",
     "upstream-cascade": "Upstream cascade",
+    "error-vector-alignment": "Error-vector alignment",
+    "calibration-grid": "Calibration grid",
 }
 
 
@@ -71,7 +73,7 @@ def main():
     )
     html = html.replace(
         "A controlled matrix of MiniMax-generated stills across three motifs and four variants.",
-        "All five generations (v1–v5) side by side. Compare how the prompt tightening changed palette, geometry, and readability.",
+        "All generations (v1–v7) side by side. Compare how the prompt tightening changed palette, geometry, and readability.",
     )
 
     OUT.write_text(html)

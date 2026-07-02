@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Generate the brand exploration image matrix from storyboard.yaml."""
+import argparse
 import json
 import pathlib
 import subprocess
@@ -7,7 +8,6 @@ import sys
 import yaml
 
 PROJECT = pathlib.Path(__file__).resolve().parent.parent
-STORYBOARD = PROJECT / "storyboard.yaml"
 ASSETS_ROOT = PROJECT / "assets" / "images"
 CLIENT = pathlib.Path.home() / ".hermes" / "skills" / "lupine-media-director" / "scripts" / "minimax_client.py"
 
@@ -28,7 +28,11 @@ def run_image(prompt: str, aspect: str, output: pathlib.Path):
 
 
 def main():
-    sb = yaml.safe_load(STORYBOARD.read_text())
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--storyboard", default=str(PROJECT / "storyboard.yaml"))
+    args = parser.parse_args()
+    storyboard_path = pathlib.Path(args.storyboard)
+    sb = yaml.safe_load(storyboard_path.read_text())
     style = " ".join(sb["style_suffix"].split())
     version = sb.get("version", "")
     scenes = []
@@ -58,7 +62,7 @@ def main():
             })
 
     sb["scenes"] = scenes
-    STORYBOARD.write_text(yaml.safe_dump(sb, sort_keys=False))
+    storyboard_path.write_text(yaml.safe_dump(sb, sort_keys=False))
     print(f"\nDone. Generated {len(scenes)} images.")
 
 

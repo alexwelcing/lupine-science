@@ -1,0 +1,228 @@
+project: brand-exploration
+format: image
+version: v6
+motifs:
+- id: shape-of-wrongness
+  name: Shape of wrongness
+  base: "faint scattered directional error vectors across a warm paper field gracefully\
+    \ collapsing and aligning onto a single luminous indigo ribbon \u2014 a low-dimensional\
+    \ manifold emerging from chaos"
+- id: error-vector-alignment
+  name: Error-vector alignment
+  base: many faint near-parallel error arrows on the left gradually rotating and collapsing
+    into a single bold indigo direction on the right, representing consensus and correction
+- id: calibration-grid
+  name: Calibration grid
+  base: a sparse orthogonal calibration grid on warm paper with a single indigo reference
+    axis and a few faint error ticks being aligned to zero, representing measurement
+    and trust
+variants:
+- id: wide
+  aspect: '16:9'
+  modifier: cinematic wide framing, full-bleed background, detail pushed toward the
+    edges
+- id: square
+  aspect: '1:1'
+  modifier: tight centered composition, balanced symmetry, contained negative space
+- id: dense
+  aspect: '16:9'
+  modifier: richer density of elements, more vectors or nodes, stronger texture
+- id: quiet
+  aspect: '16:9'
+  modifier: extremely sparse, vast empty paper, only a few luminous elements
+style_suffix: 'editorial scientific minimalism, warm off-white #faf9f6 paper background,
+  single indigo #3d4db3 light and accent, strict two-color palette, near-duotone,
+  solid flat background, no gradients, no sky, no fog, no bokeh, only crisp vector
+  lines and flat shapes, generous negative space, calm and premium, no text, no people,
+  no flowers, no neon, no 3D render, no cyan no teal no purple no orange no gold'
+scenes:
+- motif_id: shape-of-wrongness
+  motif_name: Shape of wrongness
+  variant_id: wide
+  version: v6
+  aspect: '16:9'
+  filename: assets/images/v6/shape-of-wrongness_wide_v6.jpg
+  prompt: "faint scattered directional error vectors across a warm paper field gracefully\
+    \ collapsing and aligning onto a single luminous indigo ribbon \u2014 a low-dimensional\
+    \ manifold emerging from chaos; cinematic wide framing, full-bleed background,\
+    \ detail pushed toward the edges; editorial scientific minimalism, warm off-white\
+    \ #faf9f6 paper background, single indigo #3d4db3 light and accent, strict two-color\
+    \ palette, near-duotone, solid flat background, no gradients, no sky, no fog,\
+    \ no bokeh, only crisp vector lines and flat shapes, generous negative space,\
+    \ calm and premium, no text, no people, no flowers, no neon, no 3D render, no\
+    \ cyan no teal no purple no orange no gold"
+  status: generated
+- motif_id: shape-of-wrongness
+  motif_name: Shape of wrongness
+  variant_id: square
+  version: v6
+  aspect: '1:1'
+  filename: assets/images/v6/shape-of-wrongness_square_v6.jpg
+  prompt: "faint scattered directional error vectors across a warm paper field gracefully\
+    \ collapsing and aligning onto a single luminous indigo ribbon \u2014 a low-dimensional\
+    \ manifold emerging from chaos; tight centered composition, balanced symmetry,\
+    \ contained negative space; editorial scientific minimalism, warm off-white #faf9f6\
+    \ paper background, single indigo #3d4db3 light and accent, strict two-color palette,\
+    \ near-duotone, solid flat background, no gradients, no sky, no fog, no bokeh,\
+    \ only crisp vector lines and flat shapes, generous negative space, calm and premium,\
+    \ no text, no people, no flowers, no neon, no 3D render, no cyan no teal no purple\
+    \ no orange no gold"
+  status: generated
+- motif_id: shape-of-wrongness
+  motif_name: Shape of wrongness
+  variant_id: dense
+  version: v6
+  aspect: '16:9'
+  filename: assets/images/v6/shape-of-wrongness_dense_v6.jpg
+  prompt: "faint scattered directional error vectors across a warm paper field gracefully\
+    \ collapsing and aligning onto a single luminous indigo ribbon \u2014 a low-dimensional\
+    \ manifold emerging from chaos; richer density of elements, more vectors or nodes,\
+    \ stronger texture; editorial scientific minimalism, warm off-white #faf9f6 paper\
+    \ background, single indigo #3d4db3 light and accent, strict two-color palette,\
+    \ near-duotone, solid flat background, no gradients, no sky, no fog, no bokeh,\
+    \ only crisp vector lines and flat shapes, generous negative space, calm and premium,\
+    \ no text, no people, no flowers, no neon, no 3D render, no cyan no teal no purple\
+    \ no orange no gold"
+  status: generated
+- motif_id: shape-of-wrongness
+  motif_name: Shape of wrongness
+  variant_id: quiet
+  version: v6
+  aspect: '16:9'
+  filename: assets/images/v6/shape-of-wrongness_quiet_v6.jpg
+  prompt: "faint scattered directional error vectors across a warm paper field gracefully\
+    \ collapsing and aligning onto a single luminous indigo ribbon \u2014 a low-dimensional\
+    \ manifold emerging from chaos; extremely sparse, vast empty paper, only a few\
+    \ luminous elements; editorial scientific minimalism, warm off-white #faf9f6 paper\
+    \ background, single indigo #3d4db3 light and accent, strict two-color palette,\
+    \ near-duotone, solid flat background, no gradients, no sky, no fog, no bokeh,\
+    \ only crisp vector lines and flat shapes, generous negative space, calm and premium,\
+    \ no text, no people, no flowers, no neon, no 3D render, no cyan no teal no purple\
+    \ no orange no gold"
+  status: generated
+- motif_id: error-vector-alignment
+  motif_name: Error-vector alignment
+  variant_id: wide
+  version: v6
+  aspect: '16:9'
+  filename: assets/images/v6/error-vector-alignment_wide_v6.jpg
+  prompt: 'many faint near-parallel error arrows on the left gradually rotating and
+    collapsing into a single bold indigo direction on the right, representing consensus
+    and correction; cinematic wide framing, full-bleed background, detail pushed toward
+    the edges; editorial scientific minimalism, warm off-white #faf9f6 paper background,
+    single indigo #3d4db3 light and accent, strict two-color palette, near-duotone,
+    solid flat background, no gradients, no sky, no fog, no bokeh, only crisp vector
+    lines and flat shapes, generous negative space, calm and premium, no text, no
+    people, no flowers, no neon, no 3D render, no cyan no teal no purple no orange
+    no gold'
+  status: generated
+- motif_id: error-vector-alignment
+  motif_name: Error-vector alignment
+  variant_id: square
+  version: v6
+  aspect: '1:1'
+  filename: assets/images/v6/error-vector-alignment_square_v6.jpg
+  prompt: 'many faint near-parallel error arrows on the left gradually rotating and
+    collapsing into a single bold indigo direction on the right, representing consensus
+    and correction; tight centered composition, balanced symmetry, contained negative
+    space; editorial scientific minimalism, warm off-white #faf9f6 paper background,
+    single indigo #3d4db3 light and accent, strict two-color palette, near-duotone,
+    solid flat background, no gradients, no sky, no fog, no bokeh, only crisp vector
+    lines and flat shapes, generous negative space, calm and premium, no text, no
+    people, no flowers, no neon, no 3D render, no cyan no teal no purple no orange
+    no gold'
+  status: generated
+- motif_id: error-vector-alignment
+  motif_name: Error-vector alignment
+  variant_id: dense
+  version: v6
+  aspect: '16:9'
+  filename: assets/images/v6/error-vector-alignment_dense_v6.jpg
+  prompt: 'many faint near-parallel error arrows on the left gradually rotating and
+    collapsing into a single bold indigo direction on the right, representing consensus
+    and correction; richer density of elements, more vectors or nodes, stronger texture;
+    editorial scientific minimalism, warm off-white #faf9f6 paper background, single
+    indigo #3d4db3 light and accent, strict two-color palette, near-duotone, solid
+    flat background, no gradients, no sky, no fog, no bokeh, only crisp vector lines
+    and flat shapes, generous negative space, calm and premium, no text, no people,
+    no flowers, no neon, no 3D render, no cyan no teal no purple no orange no gold'
+  status: generated
+- motif_id: error-vector-alignment
+  motif_name: Error-vector alignment
+  variant_id: quiet
+  version: v6
+  aspect: '16:9'
+  filename: assets/images/v6/error-vector-alignment_quiet_v6.jpg
+  prompt: 'many faint near-parallel error arrows on the left gradually rotating and
+    collapsing into a single bold indigo direction on the right, representing consensus
+    and correction; extremely sparse, vast empty paper, only a few luminous elements;
+    editorial scientific minimalism, warm off-white #faf9f6 paper background, single
+    indigo #3d4db3 light and accent, strict two-color palette, near-duotone, solid
+    flat background, no gradients, no sky, no fog, no bokeh, only crisp vector lines
+    and flat shapes, generous negative space, calm and premium, no text, no people,
+    no flowers, no neon, no 3D render, no cyan no teal no purple no orange no gold'
+  status: generated
+- motif_id: calibration-grid
+  motif_name: Calibration grid
+  variant_id: wide
+  version: v6
+  aspect: '16:9'
+  filename: assets/images/v6/calibration-grid_wide_v6.jpg
+  prompt: 'a sparse orthogonal calibration grid on warm paper with a single indigo
+    reference axis and a few faint error ticks being aligned to zero, representing
+    measurement and trust; cinematic wide framing, full-bleed background, detail pushed
+    toward the edges; editorial scientific minimalism, warm off-white #faf9f6 paper
+    background, single indigo #3d4db3 light and accent, strict two-color palette,
+    near-duotone, solid flat background, no gradients, no sky, no fog, no bokeh, only
+    crisp vector lines and flat shapes, generous negative space, calm and premium,
+    no text, no people, no flowers, no neon, no 3D render, no cyan no teal no purple
+    no orange no gold'
+  status: generated
+- motif_id: calibration-grid
+  motif_name: Calibration grid
+  variant_id: square
+  version: v6
+  aspect: '1:1'
+  filename: assets/images/v6/calibration-grid_square_v6.jpg
+  prompt: 'a sparse orthogonal calibration grid on warm paper with a single indigo
+    reference axis and a few faint error ticks being aligned to zero, representing
+    measurement and trust; tight centered composition, balanced symmetry, contained
+    negative space; editorial scientific minimalism, warm off-white #faf9f6 paper
+    background, single indigo #3d4db3 light and accent, strict two-color palette,
+    near-duotone, solid flat background, no gradients, no sky, no fog, no bokeh, only
+    crisp vector lines and flat shapes, generous negative space, calm and premium,
+    no text, no people, no flowers, no neon, no 3D render, no cyan no teal no purple
+    no orange no gold'
+  status: generated
+- motif_id: calibration-grid
+  motif_name: Calibration grid
+  variant_id: dense
+  version: v6
+  aspect: '16:9'
+  filename: assets/images/v6/calibration-grid_dense_v6.jpg
+  prompt: 'a sparse orthogonal calibration grid on warm paper with a single indigo
+    reference axis and a few faint error ticks being aligned to zero, representing
+    measurement and trust; richer density of elements, more vectors or nodes, stronger
+    texture; editorial scientific minimalism, warm off-white #faf9f6 paper background,
+    single indigo #3d4db3 light and accent, strict two-color palette, near-duotone,
+    solid flat background, no gradients, no sky, no fog, no bokeh, only crisp vector
+    lines and flat shapes, generous negative space, calm and premium, no text, no
+    people, no flowers, no neon, no 3D render, no cyan no teal no purple no orange
+    no gold'
+  status: generated
+- motif_id: calibration-grid
+  motif_name: Calibration grid
+  variant_id: quiet
+  version: v6
+  aspect: '16:9'
+  filename: assets/images/v6/calibration-grid_quiet_v6.jpg
+  prompt: 'a sparse orthogonal calibration grid on warm paper with a single indigo
+    reference axis and a few faint error ticks being aligned to zero, representing
+    measurement and trust; extremely sparse, vast empty paper, only a few luminous
+    elements; editorial scientific minimalism, warm off-white #faf9f6 paper background,
+    single indigo #3d4db3 light and accent, strict two-color palette, near-duotone,
+    solid flat background, no gradients, no sky, no fog, no bokeh, only crisp vector
+    lines and flat shapes, generous negative space, calm and premium, no text, no
+    people, no flowers, no neon, no 3D render, no cyan no teal no purple no orange
+    no gold'
+  status: generated

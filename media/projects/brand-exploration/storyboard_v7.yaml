@@ -1,0 +1,166 @@
+project: brand-exploration
+format: image
+version: v7
+motifs:
+- id: error-vector-alignment
+  name: Error-vector alignment
+  base: on the left, many short faint indigo line segments pointing in different directions;
+    on the right, the same line segments rotated to point exactly right, flat vector
+    diagram, no arrowheads, no motion blur, representing consensus and correction
+- id: calibration-grid
+  name: Calibration grid
+  base: a minimal coordinate frame drawn with thin indigo lines on warm paper, one
+    horizontal reference axis with small perpendicular tick marks, a few tick marks
+    shifting from off-axis to aligned with the axis, flat vector diagram, no numbers,
+    no text, no tables, representing measurement and trust
+variants:
+- id: wide
+  aspect: '16:9'
+  modifier: cinematic wide framing, full-bleed background, detail pushed toward the
+    edges
+- id: square
+  aspect: '1:1'
+  modifier: tight centered composition, balanced symmetry, contained negative space
+- id: dense
+  aspect: '16:9'
+  modifier: richer density of elements, more vectors or nodes, stronger texture
+- id: quiet
+  aspect: '16:9'
+  modifier: extremely sparse, vast empty paper, only a few luminous elements
+style_suffix: 'flat vector diagram, warm off-white paper background exactly #faf9f6,
+  only indigo #3d4db3 ink, strict two-color palette, solid flat colors, no gradients,
+  no glow, no blur, no shadows, no 3D, no photography, no cyan no teal no light blue
+  no purple no orange no gold, no text no numbers no letters, no people no flowers,
+  generous negative space, physics monograph figure'
+scenes:
+- motif_id: error-vector-alignment
+  motif_name: Error-vector alignment
+  variant_id: wide
+  version: v7
+  aspect: '16:9'
+  filename: assets/images/v7/error-vector-alignment_wide_v7.jpg
+  prompt: 'on the left, many short faint indigo line segments pointing in different
+    directions; on the right, the same line segments rotated to point exactly right,
+    flat vector diagram, no arrowheads, no motion blur, representing consensus and
+    correction; cinematic wide framing, full-bleed background, detail pushed toward
+    the edges; flat vector diagram, warm off-white paper background exactly #faf9f6,
+    only indigo #3d4db3 ink, strict two-color palette, solid flat colors, no gradients,
+    no glow, no blur, no shadows, no 3D, no photography, no cyan no teal no light
+    blue no purple no orange no gold, no text no numbers no letters, no people no
+    flowers, generous negative space, physics monograph figure'
+  status: generated
+- motif_id: error-vector-alignment
+  motif_name: Error-vector alignment
+  variant_id: square
+  version: v7
+  aspect: '1:1'
+  filename: assets/images/v7/error-vector-alignment_square_v7.jpg
+  prompt: 'on the left, many short faint indigo line segments pointing in different
+    directions; on the right, the same line segments rotated to point exactly right,
+    flat vector diagram, no arrowheads, no motion blur, representing consensus and
+    correction; tight centered composition, balanced symmetry, contained negative
+    space; flat vector diagram, warm off-white paper background exactly #faf9f6, only
+    indigo #3d4db3 ink, strict two-color palette, solid flat colors, no gradients,
+    no glow, no blur, no shadows, no 3D, no photography, no cyan no teal no light
+    blue no purple no orange no gold, no text no numbers no letters, no people no
+    flowers, generous negative space, physics monograph figure'
+  status: generated
+- motif_id: error-vector-alignment
+  motif_name: Error-vector alignment
+  variant_id: dense
+  version: v7
+  aspect: '16:9'
+  filename: assets/images/v7/error-vector-alignment_dense_v7.jpg
+  prompt: 'on the left, many short faint indigo line segments pointing in different
+    directions; on the right, the same line segments rotated to point exactly right,
+    flat vector diagram, no arrowheads, no motion blur, representing consensus and
+    correction; richer density of elements, more vectors or nodes, stronger texture;
+    flat vector diagram, warm off-white paper background exactly #faf9f6, only indigo
+    #3d4db3 ink, strict two-color palette, solid flat colors, no gradients, no glow,
+    no blur, no shadows, no 3D, no photography, no cyan no teal no light blue no purple
+    no orange no gold, no text no numbers no letters, no people no flowers, generous
+    negative space, physics monograph figure'
+  status: generated
+- motif_id: error-vector-alignment
+  motif_name: Error-vector alignment
+  variant_id: quiet
+  version: v7
+  aspect: '16:9'
+  filename: assets/images/v7/error-vector-alignment_quiet_v7.jpg
+  prompt: 'on the left, many short faint indigo line segments pointing in different
+    directions; on the right, the same line segments rotated to point exactly right,
+    flat vector diagram, no arrowheads, no motion blur, representing consensus and
+    correction; extremely sparse, vast empty paper, only a few luminous elements;
+    flat vector diagram, warm off-white paper background exactly #faf9f6, only indigo
+    #3d4db3 ink, strict two-color palette, solid flat colors, no gradients, no glow,
+    no blur, no shadows, no 3D, no photography, no cyan no teal no light blue no purple
+    no orange no gold, no text no numbers no letters, no people no flowers, generous
+    negative space, physics monograph figure'
+  status: generated
+- motif_id: calibration-grid
+  motif_name: Calibration grid
+  variant_id: wide
+  version: v7
+  aspect: '16:9'
+  filename: assets/images/v7/calibration-grid_wide_v7.jpg
+  prompt: 'a minimal coordinate frame drawn with thin indigo lines on warm paper,
+    one horizontal reference axis with small perpendicular tick marks, a few tick
+    marks shifting from off-axis to aligned with the axis, flat vector diagram, no
+    numbers, no text, no tables, representing measurement and trust; cinematic wide
+    framing, full-bleed background, detail pushed toward the edges; flat vector diagram,
+    warm off-white paper background exactly #faf9f6, only indigo #3d4db3 ink, strict
+    two-color palette, solid flat colors, no gradients, no glow, no blur, no shadows,
+    no 3D, no photography, no cyan no teal no light blue no purple no orange no gold,
+    no text no numbers no letters, no people no flowers, generous negative space,
+    physics monograph figure'
+  status: generated
+- motif_id: calibration-grid
+  motif_name: Calibration grid
+  variant_id: square
+  version: v7
+  aspect: '1:1'
+  filename: assets/images/v7/calibration-grid_square_v7.jpg
+  prompt: 'a minimal coordinate frame drawn with thin indigo lines on warm paper,
+    one horizontal reference axis with small perpendicular tick marks, a few tick
+    marks shifting from off-axis to aligned with the axis, flat vector diagram, no
+    numbers, no text, no tables, representing measurement and trust; tight centered
+    composition, balanced symmetry, contained negative space; flat vector diagram,
+    warm off-white paper background exactly #faf9f6, only indigo #3d4db3 ink, strict
+    two-color palette, solid flat colors, no gradients, no glow, no blur, no shadows,
+    no 3D, no photography, no cyan no teal no light blue no purple no orange no gold,
+    no text no numbers no letters, no people no flowers, generous negative space,
+    physics monograph figure'
+  status: generated
+- motif_id: calibration-grid
+  motif_name: Calibration grid
+  variant_id: dense
+  version: v7
+  aspect: '16:9'
+  filename: assets/images/v7/calibration-grid_dense_v7.jpg
+  prompt: 'a minimal coordinate frame drawn with thin indigo lines on warm paper,
+    one horizontal reference axis with small perpendicular tick marks, a few tick
+    marks shifting from off-axis to aligned with the axis, flat vector diagram, no
+    numbers, no text, no tables, representing measurement and trust; richer density
+    of elements, more vectors or nodes, stronger texture; flat vector diagram, warm
+    off-white paper background exactly #faf9f6, only indigo #3d4db3 ink, strict two-color
+    palette, solid flat colors, no gradients, no glow, no blur, no shadows, no 3D,
+    no photography, no cyan no teal no light blue no purple no orange no gold, no
+    text no numbers no letters, no people no flowers, generous negative space, physics
+    monograph figure'
+  status: generated
+- motif_id: calibration-grid
+  motif_name: Calibration grid
+  variant_id: quiet
+  version: v7
+  aspect: '16:9'
+  filename: assets/images/v7/calibration-grid_quiet_v7.jpg
+  prompt: 'a minimal coordinate frame drawn with thin indigo lines on warm paper,
+    one horizontal reference axis with small perpendicular tick marks, a few tick
+    marks shifting from off-axis to aligned with the axis, flat vector diagram, no
+    numbers, no text, no tables, representing measurement and trust; extremely sparse,
+    vast empty paper, only a few luminous elements; flat vector diagram, warm off-white
+    paper background exactly #faf9f6, only indigo #3d4db3 ink, strict two-color palette,
+    solid flat colors, no gradients, no glow, no blur, no shadows, no 3D, no photography,
+    no cyan no teal no light blue no purple no orange no gold, no text no numbers
+    no letters, no people no flowers, generous negative space, physics monograph figure'
+  status: generated
