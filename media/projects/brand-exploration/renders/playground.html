@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lupine Science — Creative Playground</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #faf9f6; --paper-deep: #f2efe7;
+      --ink: #16171d; --ink-soft: #4c4e58; --ink-faint: #6e707a;
+      --indigo: #3d4db3; --indigo-deep: #2e3a87; --indigo-wash: rgba(61,77,179,0.12);
+      --rule: #e2dfd4;
+      --serif: "Newsreader", Georgia, serif;
+      --mono: "IBM Plex Mono", ui-monospace, monospace;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      font-family: var(--serif); background: var(--paper); color: var(--ink);
+      overflow: hidden;
+    }
+    #canvas { position: fixed; inset: 0; z-index: 0; }
+    #hero-img {
+      position: fixed; inset: 0; z-index: 1; opacity: 0.55;
+      width: 100%; height: 100%; object-fit: cover;
+      mix-blend-mode: multiply;
+      transition: opacity 600ms var(--ease);
+      pointer-events: none;
+    }
+    #hero-img.hidden { opacity: 0; }
+    .ui {
+      position: fixed; top: 24px; left: 24px; z-index: 10;
+      width: min(360px, calc(100vw - 48px));
+      background: rgba(250,249,246,0.92); backdrop-filter: blur(12px);
+      border: 1px solid var(--rule); border-radius: 10px;
+      padding: 20px; box-shadow: 0 16px 48px rgba(22,23,29,0.08);
+    }
+    .ui h1 { font-size: 22px; font-weight: 500; margin-bottom: 4px; }
+    .ui h1 em { font-style: italic; color: var(--indigo); }
+    .ui p { font-size: 13px; color: var(--ink-soft); margin-bottom: 18px; }
+    .control { margin-bottom: 14px; }
+    .control label {
+      display: flex; justify-content: space-between;
+      font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--ink-faint); margin-bottom: 5px;
+    }
+    .control input[type="range"] { width: 100%; }
+    .control select, .control button {
+      width: 100%; padding: 8px 10px; border: 1px solid var(--rule); border-radius: 5px;
+      background: var(--paper-deep); font-family: var(--mono); font-size: 12px; color: var(--ink-soft);
+      cursor: pointer;
+    }
+    .control button:hover { border-color: var(--indigo); color: var(--indigo); }
+    .toggle-row { display: flex; gap: 8px; }
+    .toggle-row button { flex: 1; }
+    .toggle-row button.active { background: var(--indigo-wash); border-color: var(--indigo); color: var(--indigo-deep); }
+    .prompt {
+      margin-top: 14px; padding: 10px; background: var(--paper-deep); border: 1px solid var(--rule); border-radius: 5px;
+      font-family: var(--mono); font-size: 10.5px; color: var(--ink-soft); line-height: 1.5; max-height: 120px; overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <img id="hero-img" src="assets/images/cover-shape-of-wrongness.jpg" alt="">
+
+  <div class="ui">
+    <h1>Creative <em>playground.</em></h1>
+    <p>Procedural hyper-ribbon + still asset. Tune the motif, density, and blend, then copy the prompt for MiniMax.</p>
+
+    <div class="control">
+      <label>Motif</label>
+      <div class="toggle-row" id="motifs">
+        <button class="active" data-img="assets/images/cover-shape-of-wrongness.jpg">Shape</button>
+        <button data-img="assets/images/bits-to-atoms.jpg">Bits→Atoms</button>
+        <button data-img="assets/images/bridge.jpg">Bridge</button>
+        <button data-img="assets/images/vision-replicator-arc.jpg">Vision</button>
+      </div>
+    </div>
+
+    <div class="control">
+      <label>Particle density <span id="density-val">120</span></label>
+      <input type="range" id="density" min="40" max="400" value="120">
+    </div>
+
+    <div class="control">
+      <label>Ribbon curvature <span id="curve-val">0.4</span></label>
+      <input type="range" id="curve" min="0" max="100" value="40">
+    </div>
+
+    <div class="control">
+      <label>Still opacity <span id="opacity-val">55%</span></label>
+      <input type="range" id="img-opacity" min="0" max="100" value="55">
+    </div>
+
+    <div class="control">
+      <label>Motion speed <span id="speed-val">1.0</span></label>
+      <input type="range" id="speed" min="0" max="30" value="10">
+    </div>
+
+    <div class="control">
+      <button id="randomize">Randomize seed</button>
+    </div>
+
+    <div class="prompt" id="prompt">
+      faint scattered directional error vectors across a warm paper field gracefully collapsing and aligning onto a single luminous indigo ribbon — a low-dimensional manifold emerging from chaos; editorial scientific minimalism, warm off-white #faf9f6 paper background, single indigo #3d4db3 light/accent, near-duotone, generous negative space, calm and premium, no text, no people, no flowers, no neon, no glowing circuits, like a figure in a beautiful physics monograph, high detail toward the edges
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const heroImg = document.getElementById('hero-img');
+
+    let width, height, dpr;
+    let time = 0;
+    let seed = Math.random() * 1000;
+    let params = {
+      density: 120,
+      curve: 0.4,
+      opacity: 0.55,
+      speed: 0.01,
+    };
+
+    const PROMPTS = {
+      'assets/images/cover-shape-of-wrongness.jpg': 'faint scattered directional error vectors across a warm paper field gracefully collapsing and aligning onto a single luminous indigo ribbon — a low-dimensional manifold emerging from chaos',
+      'assets/images/bits-to-atoms.jpg': 'the crossing from the digital to the physical: a field of tiny pixels dissolving on the left and re-forming into a precise crystalline atomic lattice on the right',
+      'assets/images/bridge.jpg': 'atoms to bits to atoms: a single luminous indigo arc bridging a crystalline lattice to a field of digital glyphs and back to a lattice',
+      'assets/images/vision-replicator-arc.jpg': 'matter coalescing out of faint indigo light along a sweeping horizon arc; expansive, cinematic, restrained',
+    };
+    const STYLE = 'editorial scientific minimalism, warm off-white #faf9f6 paper background, single indigo #3d4db3 light/accent, near-duotone, generous negative space, calm and premium, no text, no people, no flowers, no neon, no glowing circuits, like a figure in a beautiful physics monograph, high detail toward the edges';
+
+    function resize() {
+      dpr = window.devicePixelRatio || 1;
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    function noise(x) {
+      return Math.sin(x * 12.9898 + seed) * 43758.5453 % 1;
+    }
+
+    function ribbonY(x, t) {
+      const cx = width * 0.5;
+      const norm = (x - cx) / (width * 0.4);
+      return height * 0.5 + Math.sin(norm * params.curve * 5 + t) * height * 0.18 + Math.cos(norm * 2.3) * height * 0.06;
+    }
+
+    function draw() {
+      ctx.fillStyle = '#faf9f6';
+      ctx.fillRect(0, 0, width, height);
+
+      // faint grid
+      ctx.strokeStyle = 'rgba(61,77,179,0.04)';
+      ctx.lineWidth = 1;
+      const grid = 48;
+      for (let x = 0; x < width; x += grid) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,height); ctx.stroke(); }
+      for (let y = 0; y < height; y += grid) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(width,y); ctx.stroke(); }
+
+      const t = time;
+      const n = params.density;
+
+      // scattered error vectors
+      ctx.strokeStyle = 'rgba(61,77,179,0.18)';
+      ctx.lineWidth = 1.2;
+      for (let i = 0; i < n; i++) {
+        const x = (i / n) * width + (Math.sin(i * 13.7 + seed) * width * 0.12);
+        const yBase = ribbonY(x, t);
+        const y = yBase + (Math.cos(i * 7.3 + seed) * height * 0.28);
+        const angle = Math.atan2(yBase - y, (x - width*0.5) * 0.002) + Math.sin(i + t) * 0.4;
+        const len = 18 + Math.random() * 26;
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(x + Math.cos(angle) * len, y + Math.sin(angle) * len);
+        ctx.stroke();
+      }
+
+      // luminous ribbon
+      ctx.lineWidth = 3;
+      for (let pass = 0; pass < 3; pass++) {
+        ctx.beginPath();
+        ctx.strokeStyle = pass === 0 ? 'rgba(61,77,179,0.08)' : pass === 1 ? 'rgba(61,77,179,0.22)' : 'rgba(61,77,179,0.55)';
+        ctx.lineWidth = 14 - pass * 4;
+        for (let x = 0; x <= width; x += 4) {
+          const y = ribbonY(x, t + pass * 0.05);
+          if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+      }
+
+      // converge points
+      ctx.fillStyle = 'rgba(61,77,179,0.35)';
+      for (let i = 0; i < n / 4; i++) {
+        const x = (i / (n/4)) * width;
+        const y = ribbonY(x, t) + Math.sin(i * 9 + t * 2) * 8;
+        ctx.beginPath();
+        ctx.arc(x, y, 1.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      time += params.speed;
+      requestAnimationFrame(draw);
+    }
+
+    function updatePrompt(img) {
+      document.getElementById('prompt').textContent = PROMPTS[img] + '; ' + STYLE;
+    }
+
+    document.querySelectorAll('#motifs button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#motifs button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        heroImg.src = btn.dataset.img;
+        updatePrompt(btn.dataset.img);
+      });
+    });
+
+    function bind(id, key, scale=1, displayFn=v=>v) {
+      const el = document.getElementById(id);
+      el.addEventListener('input', () => {
+        const val = parseFloat(el.value) * scale;
+        params[key] = val;
+        document.getElementById(id + '-val').textContent = displayFn(val);
+      });
+    }
+    bind('density', 'density', 1, v => Math.round(v));
+    bind('curve', 'curve', 0.01, v => v.toFixed(2));
+    bind('img-opacity', 'opacity', 0.01, v => Math.round(v*100) + '%');
+    bind('speed', 'speed', 0.001, v => v.toFixed(3));
+
+    document.getElementById('img-opacity').addEventListener('input', e => {
+      heroImg.style.opacity = e.target.value / 100;
+    });
+
+    document.getElementById('randomize').addEventListener('click', () => {
+      seed = Math.random() * 10000;
+    });
+
+    draw();
+  </script>
+</body>
+</html>
