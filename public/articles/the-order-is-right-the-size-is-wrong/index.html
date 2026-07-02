@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Order Is Right, the Size Is Wrong — Lupine Science</title>
+  <meta name="description" content="Foundation machine-learned interatomic potentials (CHGNet, MACE-MP, MACE-MPA-0) measured across 21 materials and up to 9 properties against 228 published reference values">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="The Order Is Right, the Size Is Wrong — Lupine Science">
+  <meta property="og:description" content="Foundation machine-learned interatomic potentials (CHGNet, MACE-MP, MACE-MPA-0) measured across 21 materials and up to 9 properties against 228 published reference values">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://lupine.science/articles/the-order-is-right-the-size-is-wrong/">
+  <meta property="og:image" content="https://lupine.science/og-mof-formalization.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#faf9f6">
+  <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
+  <link rel="icon" type="image/png" href="/lupine-science-icon.png">
+  <link rel="apple-touch-icon" href="/lupine-science-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/articles/styles.css">
+</head>
+<body>
+  <a class="skip" href="#article">Skip to article</a>
+  <header class="site-header">
+    <a class="mark" href="/" aria-label="Lupine Science">
+      <svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="bb" x1="190" y1="74" x2="324" y2="356" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#88a7d8"/><stop offset=".35" stop-color="#475b9c"/><stop offset=".78" stop-color="#102f47"/><stop offset="1" stop-color="#071a2a"/>
+    </linearGradient>
+    <linearGradient id="bl" x1="150" y1="330" x2="360" y2="470" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7f907c"/><stop offset="1" stop-color="#4c653d"/>
+    </linearGradient>
+    <radialGradient id="bc" cx="48%" cy="30%" r="68%">
+      <stop offset="0" stop-color="#fffdf3"/><stop offset=".7" stop-color="#f1e8c9"/><stop offset="1" stop-color="#d4c58f"/>
+    </radialGradient>
+  </defs>
+  <g fill="none" stroke="#4c653d" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M256 148 C252 224 258 312 254 448"/><path d="M252 402 C222 372 178 354 124 348"/><path d="M260 402 C290 372 334 354 388 348"/>
+  </g>
+  <g fill="url(#bl)" opacity=".96">
+    <ellipse cx="139" cy="348" rx="18" ry="62" transform="rotate(-78 139 348)"/><ellipse cx="167" cy="384" rx="18" ry="62" transform="rotate(-48 167 384)"/><ellipse cx="214" cy="410" rx="17" ry="58" transform="rotate(-20 214 410)"/><ellipse cx="373" cy="348" rx="18" ry="62" transform="rotate(78 373 348)"/><ellipse cx="345" cy="384" rx="18" ry="62" transform="rotate(48 345 384)"/><ellipse cx="298" cy="410" rx="17" ry="58" transform="rotate(20 298 410)"/>
+  </g>
+  <g fill="none" stroke="#fef8f5" stroke-width="5" stroke-linecap="round" opacity=".66">
+    <path d="M132 348 C170 356 205 373 236 405"/><path d="M380 348 C342 356 307 373 276 405"/>
+  </g>
+  <g fill="url(#bb)" stroke="#fef8f5" stroke-width="5" stroke-linejoin="round">
+    <ellipse cx="256" cy="86" rx="22" ry="34"/><ellipse cx="232" cy="122" rx="23" ry="35" transform="rotate(-24 232 122)"/><ellipse cx="280" cy="122" rx="23" ry="35" transform="rotate(24 280 122)"/><ellipse cx="256" cy="150" rx="30" ry="40"/><ellipse cx="211" cy="182" rx="26" ry="38" transform="rotate(-34 211 182)"/><ellipse cx="301" cy="182" rx="26" ry="38" transform="rotate(34 301 182)"/><ellipse cx="256" cy="216" rx="37" ry="48"/><ellipse cx="204" cy="256" rx="30" ry="43" transform="rotate(-42 204 256)"/><ellipse cx="308" cy="256" rx="30" ry="43" transform="rotate(42 308 256)"/><ellipse cx="256" cy="306" rx="40" ry="52"/>
+  </g>
+  <g fill="url(#bc)">
+    <path d="M244 142 C251 124 261 124 268 142 C262 136 250 136 244 142Z"/><path d="M244 207 C252 186 263 186 271 207 C263 199 252 199 244 207Z"/><path d="M242 296 C252 272 265 272 274 296 C264 286 252 286 242 296Z"/>
+  </g>
+</svg>
+      <span><b>Lupine Science</b> <span class="tld">accelerating materials discovery</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/articles/">Articles</a>
+      <a href="https://library.lupine.science">Library</a>
+      <a href="https://lupi.live">LUPI</a>
+    </nav>
+  </header>
+  <main id="article" class="article-shell">
+    <article class="article">
+      <h1>The Order Is Right, the Size Is Wrong</h1>
+<figure class="article-hero" aria-labelledby="hero-caption">
+  <video autoplay loop muted playsinline poster="hero.jpg" aria-label="MOF discovery flywheel: formalize, simulate, synthesize, feedback.">
+    <source src="hero.mp4" type="video/mp4">
+    <img src="hero.jpg" alt="MOF discovery flywheel: formalize, simulate, synthesize, feedback.">
+  </video>
+  <figcaption id="hero-caption">The formalized discovery loop: define makeability rules, simulate candidates, synthesize the certified ones, and feed the results back into stronger rules.</figcaption>
+</figure>
+<div class="article-meta">
+<p><strong>Field note from the live lab</strong></p>
+<p><strong>Date:</strong> 2026-07-02
+<strong>Scope:</strong> Foundation machine-learned interatomic potentials (CHGNet, MACE-MP, MACE-MPA-0) measured across 21 materials and up to 9 properties against 228 published reference values
+<strong>Status:</strong> Live evidence — every number below is sealed as a machine-checked theorem over provenance-hashed data; kills and corrections are preserved in the record
+<strong>Artifacts:</strong> manuscript, pre-registration with amendments, 100+ Lean theorems, and the full evidence corpus in the <a href="https://github.com/alexwelcing/lupine-rhizo/pull/14">repository</a> and <a href="https://library.lupine.science">Library</a></p>
+</div>
+<hr />
+<h2>What we asked</h2>
+<p>Foundation potentials promise density-functional accuracy at classical cost.
+On bulk properties they nearly deliver: across our matrix, lattice constants
+land within half a percent and formation enthalpies within a few percent of
+published references. On the properties that decide real materials questions —
+surfaces, vacancies, stacking faults — the same models miss by ten to forty
+percent, systematically.</p>
+<p>We wanted to know whether that failure has <em>structure</em>: something measurable,
+correctable, and honest about its own limits.</p>
+<h2>What did not survive</h2>
+<p>We pre-registered the obvious hypotheses first, with coupling-aware nulls —
+statistical controls that grant the physics its own internal correlations
+before crediting any model with "shared structure."</p>
+<p>Two headline hypotheses died. Cross-property error is <strong>not</strong> low-dimensional
+in the linear sense: participation ratios sit inside the null band. And
+apparent cross-model alignment — raw cosine similarities as high as 0.96 —
+sits <em>inside</em> a null that reaches 0.98. A naive analysis would have published
+both as discoveries. The nulls exist so that we don't.</p>
+<p>The kills are preserved in the registration document alongside a third entry:
+our own first explanation for an iron anomaly, falsified by measurement the
+same day it was written, with the falsification logged in place.</p>
+<h2>What survived</h2>
+<p><strong>Rankings.</strong> Ask any of these models <em>which</em> metal has the higher surface
+energy and it almost never lies — rank correlations of 0.88 to a perfect
+1.000 across materials — even while the magnitudes are wrong by tens of
+percent. All 22 reference-ordered facet hierarchies reproduce. The order is
+right; the size is wrong.</p>
+<p><strong>A form.</strong> The error is approximately a power law, <code>prediction ≈ c·T^α</code>,
+and the two parameters have different owners. The exponent belongs to the
+<em>property family</em> — surfaces sit near α ≈ 1.10 in all four models, across
+two architectures and three training sets — while the prefactor belongs to
+the <em>model's training data</em>, moving from 0.66 (CHGNet) toward 1 (0.98,
+OMat-lineage MACE) as training distributions improve. Retraining fixes the
+bias and barely touches the exponent.</p>
+<p><strong>A field.</strong> Both regularities are projections of something simpler
+underneath: a smooth error field over local atomic environments, keyed on
+coordination. Measured from just three standard observables per material,
+the field predicted a fourth observable it had never seen — the (110)
+surface energy, which probes an unfitted coordination — with r = 0.906
+across 36 cells, zero adjustable parameters, surviving material-clustered
+resampling and a permutation null that we report honestly at its true
+center (0.44, not zero).</p>
+<h2>From map to correction</h2>
+<p>Because the field lives on atomic environments, its inverse is not a
+spreadsheet adjustment — it is an additive energy term with analytic forces,
+running beside the live model. Deployed over CHGNet, it recovered the fitted
+observables exactly through full relaxations, improved the <em>blind</em> facet at
+run time (9.7% → 1.5% error on nickel; 28.0% → 13.7% on copper), left the
+bulk provably untouched, and ran stable molecular dynamics.</p>
+<p>And where it cannot work, we can now <em>prove</em> it cannot: MPtrj-trained models
+scramble the ranking of stacking-fault energies, and a short quantified lemma
+shows no order-preserving correction can ever map those predictions onto the
+references. The impossibility is a theorem with concrete witnesses, checked
+by the Lean proof kernel — the system refuses, with a proof, before a
+core-hour is spent.</p>
+<p>One null result is part of the record: the first-shell field corrects
+energies, not near-equilibrium forces — force error lives in the curvature,
+not the coordination step. That boundary is stated in the manuscript's
+abstract, because knowing where a method stops is most of knowing what it is.</p>
+<h2>Why the proof kernel is in the loop</h2>
+<p>Every claim above — the wins, the kills, the impossibility — is sealed as
+decidable theorems over integer-scaled data carrying cryptographic
+provenance. This is not decoration. During preparation the kernel rejected
+one of our own claimed results: a blind-prediction win whose margin vanished
+at the fourth decimal (<code>decide</code> refused <code>813 &lt; 813</code>). The corrected count is
+the published one. The proof assistant edited the science, in exactly the
+direction of honesty.</p>
+<h2>What this means if you run simulations</h2>
+<ul>
+<li><strong>Screening today:</strong> rankings from these models are already trustworthy
+  where we measured (surfaces, vacancies, bulk moduli) — pick candidates
+  with confidence, and treat MPtrj stacking-fault rankings as unusable.</li>
+<li><strong>Certification:</strong> a handful of anchor measurements per property family,
+  plus the family exponent, buys a several-fold error reduction at zero
+  additional simulation cost.</li>
+<li><strong>Boundaries:</strong> where the order is broken, no monotone fix exists — we
+  will show you the proof rather than a worse number.</li>
+</ul>
+<p>The registered next tests — hcp metals, alloys, a continuous-coordinate
+field for forces — are in the record with their kill conditions. If they
+break the picture, that will be published here with the same prominence.</p>
+<hr />
+<p><em>Evidence trail: pre-registration and amendments, confirmatory artifacts,
+statistical hardening, the manuscript with its five-figure hashed pipeline,
+and the Lean modules are in the <a href="https://github.com/alexwelcing/lupine-rhizo">repository</a>
+and the <a href="https://library.lupine.science">Lupine Library</a>. The ledger's
+records landed under <code>y-matrix-2026-07-02</code>.</em></p>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <p>Lupine Science · founder Alex Welcing · <a href="mailto:alex@lupinesci.com">alex@lupinesci.com</a></p>
+  </footer>
+</body>
+</html>
