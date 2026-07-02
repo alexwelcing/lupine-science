@@ -119,7 +119,19 @@ The central, repeatable image is the **hyper-ribbon manifold**: scattered faint 
 
 ---
 
-## 9. Content design system
+## 9. Creative exploration workflow
+
+For brand-vibe iteration we run a make → evaluate → mutate loop:
+
+1. **Generate** a controlled matrix of stills across motifs and variants with `media/projects/brand-exploration/scripts/generate_matrix.py`.
+2. **Review** in `media/projects/brand-exploration/renders/gallery.html` with palette / composition / on-brand / hero-usable scoring and a shortlist.
+3. **Explore** live combinations in `media/projects/brand-exploration/renders/playground.html`: procedural hyper-ribbon overlaid with any still, tunable density, curve, opacity, and speed.
+4. **Mutate** the shortlist into next-generation prompts with `scripts/mutate_prompts.py`.
+5. **Regenerate** and repeat.
+
+This keeps the human/agent feedback loop explicit and reusable for every visual campaign.
+
+## 10. Content design system
 
 For templates and components for articles, white papers, research guides, tutorials, proof packs, and reports, see:
 
@@ -128,7 +140,7 @@ For templates and components for articles, white papers, research guides, tutori
 - **Component reference:** `lupine-science/public/articles/components.html`
 - **Markdown templates:** `lupine-science/articles/_templates/`
 
-## 10. Production files
+## 11. Production files
 
 - **Brand narrative:** `lupine/docs/brand/narrative.md`
 - **Market strategy:** `lupine/docs/brand/market-strategy.json`
