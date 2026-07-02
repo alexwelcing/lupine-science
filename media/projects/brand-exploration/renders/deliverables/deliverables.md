@@ -20,8 +20,25 @@ Generated from the winning brand-exploration still (`v3/shape-of-wrongness_wide_
 - Type on the OG card is set in Noto Serif (italic headline) and Noto Sans Mono (URL).
 - The public site meta tags in `public/index.html` now reference `https://lupine.science/og-lupine-science.jpg`.
 
+## Pitch slides
+
+Headline/subhead slides rendered over the deck backgrounds by `scripts/build_pitch_slides.py`:
+
+- `slides/slide-01-16x9.jpg` — Title: "The trust layer for the age of AI-designed matter."
+- `slides/slide-02-16x9.jpg` — Inflection: AI is leaving the screen and entering matter.
+- `slides/slide-03-16x9.jpg` — Catch: every prediction is wrong in a structured way.
+- `slides/slide-04-16x9.jpg` — Insight: the wrongness has a shape.
+- `slides/slide-05-16x9.jpg` — Proof: 36 cells, blind γ₁₁₀ r = 0.906, p = 10⁻⁴.
+- `slides/slide-06-16x9.jpg` — Product: a run-time correction beside the calculator.
+- `slides/slide-07-16x9.jpg` — Product: floor + ceiling.
+- `slides/slide-08-16x9.jpg` — Moat: proof, not promises.
+- `slides/slide-09-16x9.jpg` — Vision: validation substrate for a real-world Replicator.
+
+All slides are also rendered in 4:3.
+
 ## Rebuild
 
 ```bash
 python3 media/projects/brand-exploration/scripts/build_deliverables.py
+python3 media/projects/brand-exploration/scripts/build_pitch_slides.py
 ```
