@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Components — Lupine Science Content Design System</title>
+  <meta name="description" content="Reference page for Lupine Science content components.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#faf9f6">
+  <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
+  <link rel="icon" type="image/png" href="/lupine-science-icon.png">
+  <link rel="apple-touch-icon" href="/lupine-science-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/articles/styles.css">
+</head>
+<body class="format-article">
+  <a class="skip" href="#article">Skip to components</a>
+  <header class="site-header">
+    <a class="mark" href="/" aria-label="Lupine Science">
+      <svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
+        <g fill="none" stroke="#3d4db3" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="256" cy="256" r="90" opacity="0.25"/>
+          <ellipse cx="256" cy="256" rx="90" ry="28" transform="rotate(60 256 256)" opacity="0.35"/>
+          <ellipse cx="256" cy="256" rx="90" ry="28" transform="rotate(-60 256 256)" opacity="0.35"/>
+          <circle cx="256" cy="256" r="22" fill="#3d4db3" stroke="none"/>
+        </g>
+      </svg>
+      <span><b>Lupine Science</b> <span class="tld">the trust layer for AI-designed matter</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/articles/">Articles</a>
+      <a href="https://library.lupine.science">Library</a>
+      <a href="https://lupi.live">LUPI</a>
+    </nav>
+  </header>
+  <main id="article" class="article-shell">
+    <article class="article">
+      <h1>Content components</h1>
+      <p class="lead">A reference page for every component in the Lupine Science content design system. Copy the HTML blocks into any article, white paper, research guide, tutorial, proof pack, or report.</p>
+
+      <h2>Lead paragraph</h2>
+      <p class="lead">This is a <code>.lead</code> paragraph. Use it once, directly under the title or abstract.</p>
+
+      <h2>Status badges</h2>
+      <p>
+        <span class="status draft">Draft</span>
+        <span class="status published">Published</span>
+        <span class="status verified">Verified</span>
+        <span class="status refuted">Refuted</span>
+      </p>
+
+      <h2>Callouts</h2>
+      <div class="callout info"><strong>Info.</strong> A concise clarification or aside.</div>
+      <div class="callout warning"><strong>Warning.</strong> A common pitfall or caution.</div>
+      <div class="callout proof"><strong>Proof.</strong> A verified conclusion or lemma.</div>
+      <div class="callout todo"><strong>Next.</strong> The single most important action item.</div>
+      <div class="callout claim"><strong>Claim.</strong> The exact statement under test.</div>
+      <div class="callout refuted"><strong>Refuted.</strong> A claim we disproved and published.</div>
+
+      <h2>Stat row</h2>
+      <div class="stat-row">
+        <div class="stat"><span class="num">14/15</span><span class="caption">Elements transfer</span></div>
+        <div class="stat"><span class="num">&gt;0.8</span><span class="caption">Cross-MLIP cosine</span></div>
+        <div class="stat"><span class="num">0</span><span class="caption">Sorrys in Lean 4</span></div>
+      </div>
+
+      <h2>Pull quote</h2>
+      <blockquote class="pullquote">
+        <p>"A sentence that carries the whole argument."</p>
+        <cite>— Source or author</cite>
+      </blockquote>
+
+      <h2>CTA box</h2>
+      <div class="cta">
+        <p><strong>Next:</strong> read the evidence in LUPI.</p>
+        <a href="https://lupi.live">Open LUPI →</a>
+      </div>
+
+      <h2>Definition list</h2>
+      <dl class="definition">
+        <dt>Error manifold</dt>
+        <dd>The low-dimensional surface on which prediction errors cluster.</dd>
+        <dt>Makeability</dt>
+        <dd>The property that a predicted material can actually be synthesized and used.</dd>
+      </dl>
+
+      <h2>Two-column layout</h2>
+      <div class="two-col">
+        <div>
+          <h3>Column A</h3>
+          <p>A compact block for comparisons, pros/cons, or parallel points.</p>
+        </div>
+        <div>
+          <h3>Column B</h3>
+          <p>Stacks to a single column on narrow screens.</p>
+        </div>
+      </div>
+
+      <h2>Table</h2>
+      <table>
+        <thead>
+          <tr><th>Format</th><th>Purpose</th><th>Hero</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Article</td><td>Research note or essay</td><td>Image or video</td></tr>
+          <tr><td>White paper</td><td>Definitive document</td><td>Figure or none</td></tr>
+          <tr><td>Tutorial</td><td>Hands-on walkthrough</td><td>Screenshot</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Hero figure</h2>
+      <figure class="article-hero" aria-labelledby="hero-caption">
+        <img src="/articles/why-lupine-science/hero.jpg" alt="Example hero">
+        <figcaption id="hero-caption">Example figure caption in monospace, with a rule top border.</figcaption>
+      </figure>
+    </article>
+  </main>
+  <footer class="site-footer">
+    <p>Lupine Science · founder Alex Welcing · <a href="mailto:alex@lupinesci.com">alex@lupinesci.com</a></p>
+  </footer>
+</body>
+</html>

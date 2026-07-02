@@ -119,7 +119,16 @@ The central, repeatable image is the **hyper-ribbon manifold**: scattered faint 
 
 ---
 
-## 9. Production files
+## 9. Content design system
+
+For templates and components for articles, white papers, research guides, tutorials, proof packs, and reports, see:
+
+- **Content design system:** `lupine-science/docs/content-design-system.md`
+- **Article CSS:** `lupine-science/public/articles/styles.css`
+- **Component reference:** `lupine-science/public/articles/components.html`
+- **Markdown templates:** `lupine-science/articles/_templates/`
+
+## 10. Production files
 
 - **Brand narrative:** `lupine/docs/brand/narrative.md`
 - **Market strategy:** `lupine/docs/brand/market-strategy.json`

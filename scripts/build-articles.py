@@ -79,10 +79,12 @@ def slugify(title: str) -> str:
 
 
 def extract_metadata(body: str) -> dict:
-    meta = {}
+    meta = {"type": "article"}
     for line in body.splitlines():
         if line.startswith("> **Date:**"):
             meta["date"] = line.replace("> **Date:**", "").strip()
+        elif line.startswith("> **Type:**"):
+            meta["type"] = line.replace("> **Type:**", "").strip().lower().replace(" ", "-")
         elif line.startswith("> **Scope:**"):
             meta["scope"] = line.replace("> **Scope:**", "").strip()
         elif line.startswith("> **Description:**"):
@@ -94,8 +96,9 @@ def extract_metadata(body: str) -> dict:
     return meta
 
 
-def build_page(title: str, description: str, slug: str, body_html: str) -> str:
+def build_page(title: str, description: str, slug: str, body_html: str, fmt: str = "article") -> str:
     url = f"https://lupine.science/articles/{slug}/"
+    body_class = f"format-{fmt}"
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -121,12 +124,12 @@ def build_page(title: str, description: str, slug: str, body_html: str) -> str:
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/articles/styles.css">
 </head>
-<body>
+<body class="{body_class}">
   <a class="skip" href="#article">Skip to article</a>
   <header class="site-header">
     <a class="mark" href="/" aria-label="Lupine Science">
       {MARK_SVG}
-      <span><b>Lupine Science</b> <span class="tld">accelerating materials discovery</span></span>
+      <span><b>Lupine Science</b> <span class="tld">the trust layer for AI-designed matter</span></span>
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/">Home</a>
@@ -190,7 +193,7 @@ def build_index(articles: list[dict]) -> str:
   <header class="site-header">
     <a class="mark" href="/" aria-label="Lupine Science">
       {MARK_SVG}
-      <span><b>Lupine Science</b> <span class="tld">accelerating materials discovery</span></span>
+      <span><b>Lupine Science</b> <span class="tld">the trust layer for AI-designed matter</span></span>
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/">Home</a>
@@ -236,7 +239,7 @@ def main():
         out_dir = PUBLIC_DIR / "articles" / slug
         out_dir.mkdir(parents=True, exist_ok=True)
         (out_dir / "index.html").write_text(
-            build_page(title, description, slug, body_html),
+            build_page(title, description, slug, body_html, fmt=meta.get("type", "article")),
             encoding="utf-8",
         )
         articles.append({
