@@ -1,0 +1,416 @@
+project: brand-exploration
+format: image
+version: v8
+motifs:
+- id: particle-ribbon
+  name: Particle ribbon
+  base: a wide field of tiny indigo particles drifting and condensing into a single
+    luminous diagonal ribbon across warm off-white paper, abstract and calm
+- id: ink-wash
+  name: Ink wash
+  base: layered translucent indigo ink washes on absorbent warm paper, organic feathered
+    edges, quiet tonal depth, no recognizable objects
+- id: moire-circles
+  name: "Moir\xE9 circles"
+  base: "a few large overlapping translucent indigo circles on cream paper, creating\
+    \ a soft moir\xE9 interference pattern, minimalist and meditative"
+- id: constellation-threads
+  name: Constellation threads
+  base: a sparse constellation of small indigo points connected by hair-thin threads,
+    suggesting an invisible geometry on warm paper
+- id: shadow-geometry
+  name: Shadow geometry
+  base: a minimal abstract architectural form casting a long soft indigo shadow across
+    a warm paper surface, strong negative space
+- id: stroke-dissolution
+  name: Stroke dissolution
+  base: a single bold indigo brush stroke that dissolves into fine indigo particles
+    toward the right, warm off-white paper, elegant motion
+- id: folded-light
+  name: Folded light
+  base: abstract folded paper planes and surfaces catching a soft indigo light, deep
+    warm paper shadows, sculptural but not photographic
+- id: scale-shards
+  name: Scale shards
+  base: geometric indigo shards and triangles arranged in a quiet gradient of scale
+    from large to small, warm paper background, crisp and premium
+variants:
+- id: wide
+  aspect: '16:9'
+  modifier: cinematic wide framing, full-bleed background, detail pushed toward the
+    edges
+- id: square
+  aspect: '1:1'
+  modifier: tight centered composition, balanced symmetry, contained negative space
+- id: quiet
+  aspect: '16:9'
+  modifier: extremely sparse, vast empty paper, only a few luminous elements
+style_suffix: 'editorial scientific minimalism, warm off-white #faf9f6 paper background,
+  single indigo #3d4db3 light and ink, strict two-color palette with subtle tonal
+  gradients only within these two colors, no gradients into cyan or purple, solid
+  flat colors preferred, generous negative space, calm and premium, abstract, no text,
+  no people, no flowers, no neon, no 3D render, no cyan no teal no light blue no purple
+  no orange no gold'
+scenes:
+- motif_id: particle-ribbon
+  motif_name: Particle ribbon
+  variant_id: wide
+  version: v8
+  aspect: '16:9'
+  filename: assets/images/v8/particle-ribbon_wide_v8.jpg
+  prompt: 'a wide field of tiny indigo particles drifting and condensing into a single
+    luminous diagonal ribbon across warm off-white paper, abstract and calm; cinematic
+    wide framing, full-bleed background, detail pushed toward the edges; editorial
+    scientific minimalism, warm off-white #faf9f6 paper background, single indigo
+    #3d4db3 light and ink, strict two-color palette with subtle tonal gradients only
+    within these two colors, no gradients into cyan or purple, solid flat colors preferred,
+    generous negative space, calm and premium, abstract, no text, no people, no flowers,
+    no neon, no 3D render, no cyan no teal no light blue no purple no orange no gold'
+  status: generated
+- motif_id: particle-ribbon
+  motif_name: Particle ribbon
+  variant_id: square
+  version: v8
+  aspect: '1:1'
+  filename: assets/images/v8/particle-ribbon_square_v8.jpg
+  prompt: 'a wide field of tiny indigo particles drifting and condensing into a single
+    luminous diagonal ribbon across warm off-white paper, abstract and calm; tight
+    centered composition, balanced symmetry, contained negative space; editorial scientific
+    minimalism, warm off-white #faf9f6 paper background, single indigo #3d4db3 light
+    and ink, strict two-color palette with subtle tonal gradients only within these
+    two colors, no gradients into cyan or purple, solid flat colors preferred, generous
+    negative space, calm and premium, abstract, no text, no people, no flowers, no
+    neon, no 3D render, no cyan no teal no light blue no purple no orange no gold'
+  status: generated
+- motif_id: particle-ribbon
+  motif_name: Particle ribbon
+  variant_id: quiet
+  version: v8
+  aspect: '16:9'
+  filename: assets/images/v8/particle-ribbon_quiet_v8.jpg
+  prompt: 'a wide field of tiny indigo particles drifting and condensing into a single
+    luminous diagonal ribbon across warm off-white paper, abstract and calm; extremely
+    sparse, vast empty paper, only a few luminous elements; editorial scientific minimalism,
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 light and ink,
+    strict two-color palette with subtle tonal gradients only within these two colors,
+    no gradients into cyan or purple, solid flat colors preferred, generous negative
+    space, calm and premium, abstract, no text, no people, no flowers, no neon, no
+    3D render, no cyan no teal no light blue no purple no orange no gold'
+  status: generated
+- motif_id: ink-wash
+  motif_name: Ink wash
+  variant_id: wide
+  version: v8
+  aspect: '16:9'
+  filename: assets/images/v8/ink-wash_wide_v8.jpg
+  prompt: 'layered translucent indigo ink washes on absorbent warm paper, organic
+    feathered edges, quiet tonal depth, no recognizable objects; cinematic wide framing,
+    full-bleed background, detail pushed toward the edges; editorial scientific minimalism,
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 light and ink,
+    strict two-color palette with subtle tonal gradients only within these two colors,
+    no gradients into cyan or purple, solid flat colors preferred, generous negative
+    space, calm and premium, abstract, no text, no people, no flowers, no neon, no
+    3D render, no cyan no teal no light blue no purple no orange no gold'
+  status: generated
+- motif_id: ink-wash
+  motif_name: Ink wash
+  variant_id: square
+  version: v8
+  aspect: '1:1'
+  filename: assets/images/v8/ink-wash_square_v8.jpg
+  prompt: 'layered translucent indigo ink washes on absorbent warm paper, organic
+    feathered edges, quiet tonal depth, no recognizable objects; tight centered composition,
+    balanced symmetry, contained negative space; editorial scientific minimalism,
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 light and ink,
+    strict two-color palette with subtle tonal gradients only within these two colors,
+    no gradients into cyan or purple, solid flat colors preferred, generous negative
+    space, calm and premium, abstract, no text, no people, no flowers, no neon, no
+    3D render, no cyan no teal no light blue no purple no orange no gold'
+  status: generated
+- motif_id: ink-wash
+  motif_name: Ink wash
+  variant_id: quiet
+  version: v8
+  aspect: '16:9'
+  filename: assets/images/v8/ink-wash_quiet_v8.jpg
+  prompt: 'layered translucent indigo ink washes on absorbent warm paper, organic
+    feathered edges, quiet tonal depth, no recognizable objects; extremely sparse,
+    vast empty paper, only a few luminous elements; editorial scientific minimalism,
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 light and ink,
+    strict two-color palette with subtle tonal gradients only within these two colors,
+    no gradients into cyan or purple, solid flat colors preferred, generous negative
+    space, calm and premium, abstract, no text, no people, no flowers, no neon, no
+    3D render, no cyan no teal no light blue no purple no orange no gold'
+  status: generated
+- motif_id: moire-circles
+  motif_name: "Moir\xE9 circles"
+  variant_id: wide
+  version: v8
+  aspect: '16:9'
+  filename: assets/images/v8/moire-circles_wide_v8.jpg
+  prompt: "a few large overlapping translucent indigo circles on cream paper, creating\
+    \ a soft moir\xE9 interference pattern, minimalist and meditative; cinematic wide\
+    \ framing, full-bleed background, detail pushed toward the edges; editorial scientific\
+    \ minimalism, warm off-white #faf9f6 paper background, single indigo #3d4db3 light\
+    \ and ink, strict two-color palette with subtle tonal gradients only within these\
+    \ two colors, no gradients into cyan or purple, solid flat colors preferred, generous\
+    \ negative space, calm and premium, abstract, no text, no people, no flowers,\
+    \ no neon, no 3D render, no cyan no teal no light blue no purple no orange no\
+    \ gold"
+  status: generated
+- motif_id: moire-circles
+  motif_name: "Moir\xE9 circles"
+  variant_id: square
+  version: v8
+  aspect: '1:1'
+  filename: assets/images/v8/moire-circles_square_v8.jpg
+  prompt: "a few large overlapping translucent indigo circles on cream paper, creating\
+    \ a soft moir\xE9 interference pattern, minimalist and meditative; tight centered\
+    \ composition, balanced symmetry, contained negative space; editorial scientific\
+    \ minimalism, warm off-white #faf9f6 paper background, single indigo #3d4db3 light\
+    \ and ink, strict two-color palette with subtle tonal gradients only within these\
+    \ two colors, no gradients into cyan or purple, solid flat colors preferred, generous\
+    \ negative space, calm and premium, abstract, no text, no people, no flowers,\
+    \ no neon, no 3D render, no cyan no teal no light blue no purple no orange no\
+    \ gold"
+  status: generated
+- motif_id: moire-circles
+  motif_name: "Moir\xE9 circles"
+  variant_id: quiet
+  version: v8
+  aspect: '16:9'
+  filename: assets/images/v8/moire-circles_quiet_v8.jpg
+  prompt: "a few large overlapping translucent indigo circles on cream paper, creating\
+    \ a soft moir\xE9 interference pattern, minimalist and meditative; extremely sparse,\
+    \ vast empty paper, only a few luminous elements; editorial scientific minimalism,\
+    \ warm off-white #faf9f6 paper background, single indigo #3d4db3 light and ink,\
+    \ strict two-color palette with subtle tonal gradients only within these two colors,\
+    \ no gradients into cyan or purple, solid flat colors preferred, generous negative\
+    \ space, calm and premium, abstract, no text, no people, no flowers, no neon,\
+    \ no 3D render, no cyan no teal no light blue no purple no orange no gold"
+  status: generated
+- motif_id: constellation-threads
+  motif_name: Constellation threads
+  variant_id: wide
+  version: v8
+  aspect: '16:9'
+  filename: assets/images/v8/constellation-threads_wide_v8.jpg
+  prompt: 'a sparse constellation of small indigo points connected by hair-thin threads,
+    suggesting an invisible geometry on warm paper; cinematic wide framing, full-bleed
+    background, detail pushed toward the edges; editorial scientific minimalism, warm
+    off-white #faf9f6 paper background, single indigo #3d4db3 light and ink, strict
+    two-color palette with subtle tonal gradients only within these two colors, no
+    gradients into cyan or purple, solid flat colors preferred, generous negative
+    space, calm and premium, abstract, no text, no people, no flowers, no neon, no
+    3D render, no cyan no teal no light blue no purple no orange no gold'
+  status: generated
+- motif_id: constellation-threads
+  motif_name: Constellation threads
+  variant_id: square
+  version: v8
+  aspect: '1:1'
+  filename: assets/images/v8/constellation-threads_square_v8.jpg
+  prompt: 'a sparse constellation of small indigo points connected by hair-thin threads,
+    suggesting an invisible geometry on warm paper; tight centered composition, balanced
+    symmetry, contained negative space; editorial scientific minimalism, warm off-white
+    #faf9f6 paper background, single indigo #3d4db3 light and ink, strict two-color
+    palette with subtle tonal gradients only within these two colors, no gradients
+    into cyan or purple, solid flat colors preferred, generous negative space, calm
+    and premium, abstract, no text, no people, no flowers, no neon, no 3D render,
+    no cyan no teal no light blue no purple no orange no gold'
+  status: generated
+- motif_id: constellation-threads
+  motif_name: Constellation threads
+  variant_id: quiet
+  version: v8
+  aspect: '16:9'
+  filename: assets/images/v8/constellation-threads_quiet_v8.jpg
+  prompt: 'a sparse constellation of small indigo points connected by hair-thin threads,
+    suggesting an invisible geometry on warm paper; extremely sparse, vast empty paper,
+    only a few luminous elements; editorial scientific minimalism, warm off-white
+    #faf9f6 paper background, single indigo #3d4db3 light and ink, strict two-color
+    palette with subtle tonal gradients only within these two colors, no gradients
+    into cyan or purple, solid flat colors preferred, generous negative space, calm
+    and premium, abstract, no text, no people, no flowers, no neon, no 3D render,
+    no cyan no teal no light blue no purple no orange no gold'
+  status: generated
+- motif_id: shadow-geometry
+  motif_name: Shadow geometry
+  variant_id: wide
+  version: v8
+  aspect: '16:9'
+  filename: assets/images/v8/shadow-geometry_wide_v8.jpg
+  prompt: 'a minimal abstract architectural form casting a long soft indigo shadow
+    across a warm paper surface, strong negative space; cinematic wide framing, full-bleed
+    background, detail pushed toward the edges; editorial scientific minimalism, warm
+    off-white #faf9f6 paper background, single indigo #3d4db3 light and ink, strict
+    two-color palette with subtle tonal gradients only within these two colors, no
+    gradients into cyan or purple, solid flat colors preferred, generous negative
+    space, calm and premium, abstract, no text, no people, no flowers, no neon, no
+    3D render, no cyan no teal no light blue no purple no orange no gold'
+  status: generated
+- motif_id: shadow-geometry
+  motif_name: Shadow geometry
+  variant_id: square
+  version: v8
+  aspect: '1:1'
+  filename: assets/images/v8/shadow-geometry_square_v8.jpg
+  prompt: 'a minimal abstract architectural form casting a long soft indigo shadow
+    across a warm paper surface, strong negative space; tight centered composition,
+    balanced symmetry, contained negative space; editorial scientific minimalism,
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 light and ink,
+    strict two-color palette with subtle tonal gradients only within these two colors,
+    no gradients into cyan or purple, solid flat colors preferred, generous negative
+    space, calm and premium, abstract, no text, no people, no flowers, no neon, no
+    3D render, no cyan no teal no light blue no purple no orange no gold'
+  status: generated
+- motif_id: shadow-geometry
+  motif_name: Shadow geometry
+  variant_id: quiet
+  version: v8
+  aspect: '16:9'
+  filename: assets/images/v8/shadow-geometry_quiet_v8.jpg
+  prompt: 'a minimal abstract architectural form casting a long soft indigo shadow
+    across a warm paper surface, strong negative space; extremely sparse, vast empty
+    paper, only a few luminous elements; editorial scientific minimalism, warm off-white
+    #faf9f6 paper background, single indigo #3d4db3 light and ink, strict two-color
+    palette with subtle tonal gradients only within these two colors, no gradients
+    into cyan or purple, solid flat colors preferred, generous negative space, calm
+    and premium, abstract, no text, no people, no flowers, no neon, no 3D render,
+    no cyan no teal no light blue no purple no orange no gold'
+  status: generated
+- motif_id: stroke-dissolution
+  motif_name: Stroke dissolution
+  variant_id: wide
+  version: v8
+  aspect: '16:9'
+  filename: assets/images/v8/stroke-dissolution_wide_v8.jpg
+  prompt: 'a single bold indigo brush stroke that dissolves into fine indigo particles
+    toward the right, warm off-white paper, elegant motion; cinematic wide framing,
+    full-bleed background, detail pushed toward the edges; editorial scientific minimalism,
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 light and ink,
+    strict two-color palette with subtle tonal gradients only within these two colors,
+    no gradients into cyan or purple, solid flat colors preferred, generous negative
+    space, calm and premium, abstract, no text, no people, no flowers, no neon, no
+    3D render, no cyan no teal no light blue no purple no orange no gold'
+  status: generated
+- motif_id: stroke-dissolution
+  motif_name: Stroke dissolution
+  variant_id: square
+  version: v8
+  aspect: '1:1'
+  filename: assets/images/v8/stroke-dissolution_square_v8.jpg
+  prompt: 'a single bold indigo brush stroke that dissolves into fine indigo particles
+    toward the right, warm off-white paper, elegant motion; tight centered composition,
+    balanced symmetry, contained negative space; editorial scientific minimalism,
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 light and ink,
+    strict two-color palette with subtle tonal gradients only within these two colors,
+    no gradients into cyan or purple, solid flat colors preferred, generous negative
+    space, calm and premium, abstract, no text, no people, no flowers, no neon, no
+    3D render, no cyan no teal no light blue no purple no orange no gold'
+  status: generated
+- motif_id: stroke-dissolution
+  motif_name: Stroke dissolution
+  variant_id: quiet
+  version: v8
+  aspect: '16:9'
+  filename: assets/images/v8/stroke-dissolution_quiet_v8.jpg
+  prompt: 'a single bold indigo brush stroke that dissolves into fine indigo particles
+    toward the right, warm off-white paper, elegant motion; extremely sparse, vast
+    empty paper, only a few luminous elements; editorial scientific minimalism, warm
+    off-white #faf9f6 paper background, single indigo #3d4db3 light and ink, strict
+    two-color palette with subtle tonal gradients only within these two colors, no
+    gradients into cyan or purple, solid flat colors preferred, generous negative
+    space, calm and premium, abstract, no text, no people, no flowers, no neon, no
+    3D render, no cyan no teal no light blue no purple no orange no gold'
+  status: generated
+- motif_id: folded-light
+  motif_name: Folded light
+  variant_id: wide
+  version: v8
+  aspect: '16:9'
+  filename: assets/images/v8/folded-light_wide_v8.jpg
+  prompt: 'abstract folded paper planes and surfaces catching a soft indigo light,
+    deep warm paper shadows, sculptural but not photographic; cinematic wide framing,
+    full-bleed background, detail pushed toward the edges; editorial scientific minimalism,
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 light and ink,
+    strict two-color palette with subtle tonal gradients only within these two colors,
+    no gradients into cyan or purple, solid flat colors preferred, generous negative
+    space, calm and premium, abstract, no text, no people, no flowers, no neon, no
+    3D render, no cyan no teal no light blue no purple no orange no gold'
+  status: generated
+- motif_id: folded-light
+  motif_name: Folded light
+  variant_id: square
+  version: v8
+  aspect: '1:1'
+  filename: assets/images/v8/folded-light_square_v8.jpg
+  prompt: 'abstract folded paper planes and surfaces catching a soft indigo light,
+    deep warm paper shadows, sculptural but not photographic; tight centered composition,
+    balanced symmetry, contained negative space; editorial scientific minimalism,
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 light and ink,
+    strict two-color palette with subtle tonal gradients only within these two colors,
+    no gradients into cyan or purple, solid flat colors preferred, generous negative
+    space, calm and premium, abstract, no text, no people, no flowers, no neon, no
+    3D render, no cyan no teal no light blue no purple no orange no gold'
+  status: generated
+- motif_id: folded-light
+  motif_name: Folded light
+  variant_id: quiet
+  version: v8
+  aspect: '16:9'
+  filename: assets/images/v8/folded-light_quiet_v8.jpg
+  prompt: 'abstract folded paper planes and surfaces catching a soft indigo light,
+    deep warm paper shadows, sculptural but not photographic; extremely sparse, vast
+    empty paper, only a few luminous elements; editorial scientific minimalism, warm
+    off-white #faf9f6 paper background, single indigo #3d4db3 light and ink, strict
+    two-color palette with subtle tonal gradients only within these two colors, no
+    gradients into cyan or purple, solid flat colors preferred, generous negative
+    space, calm and premium, abstract, no text, no people, no flowers, no neon, no
+    3D render, no cyan no teal no light blue no purple no orange no gold'
+  status: generated
+- motif_id: scale-shards
+  motif_name: Scale shards
+  variant_id: wide
+  version: v8
+  aspect: '16:9'
+  filename: assets/images/v8/scale-shards_wide_v8.jpg
+  prompt: 'geometric indigo shards and triangles arranged in a quiet gradient of scale
+    from large to small, warm paper background, crisp and premium; cinematic wide
+    framing, full-bleed background, detail pushed toward the edges; editorial scientific
+    minimalism, warm off-white #faf9f6 paper background, single indigo #3d4db3 light
+    and ink, strict two-color palette with subtle tonal gradients only within these
+    two colors, no gradients into cyan or purple, solid flat colors preferred, generous
+    negative space, calm and premium, abstract, no text, no people, no flowers, no
+    neon, no 3D render, no cyan no teal no light blue no purple no orange no gold'
+  status: generated
+- motif_id: scale-shards
+  motif_name: Scale shards
+  variant_id: square
+  version: v8
+  aspect: '1:1'
+  filename: assets/images/v8/scale-shards_square_v8.jpg
+  prompt: 'geometric indigo shards and triangles arranged in a quiet gradient of scale
+    from large to small, warm paper background, crisp and premium; tight centered
+    composition, balanced symmetry, contained negative space; editorial scientific
+    minimalism, warm off-white #faf9f6 paper background, single indigo #3d4db3 light
+    and ink, strict two-color palette with subtle tonal gradients only within these
+    two colors, no gradients into cyan or purple, solid flat colors preferred, generous
+    negative space, calm and premium, abstract, no text, no people, no flowers, no
+    neon, no 3D render, no cyan no teal no light blue no purple no orange no gold'
+  status: generated
+- motif_id: scale-shards
+  motif_name: Scale shards
+  variant_id: quiet
+  version: v8
+  aspect: '16:9'
+  filename: assets/images/v8/scale-shards_quiet_v8.jpg
+  prompt: 'geometric indigo shards and triangles arranged in a quiet gradient of scale
+    from large to small, warm paper background, crisp and premium; extremely sparse,
+    vast empty paper, only a few luminous elements; editorial scientific minimalism,
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 light and ink,
+    strict two-color palette with subtle tonal gradients only within these two colors,
+    no gradients into cyan or purple, solid flat colors preferred, generous negative
+    space, calm and premium, abstract, no text, no people, no flowers, no neon, no
+    3D render, no cyan no teal no light blue no purple no orange no gold'
+  status: generated

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lupine Science — Brand Asset Library (v8)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #faf9f6; --paper-deep: #f2efe7;
+      --ink: #16171d; --ink-soft: #4c4e58; --ink-faint: #6e707a;
+      --indigo: #3d4db3; --indigo-deep: #2e3a87; --indigo-wash: rgba(61,77,179,0.08);
+      --rule: #e2dfd4; --rule-soft: #ece9e0;
+      --serif: "Newsreader", Georgia, serif;
+      --mono: "IBM Plex Mono", ui-monospace, monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--serif); background: var(--paper); color: var(--ink);
+      font-size: 16px; line-height: 1.6;
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    header {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+      padding: 18px clamp(20px, 5vw, 64px);
+      background: rgba(250,249,246,0.92); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule-soft);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+    .brand b { font-weight: 600; font-size: 16px; }
+    .brand span { font-family: var(--mono); font-size: 10.5px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; }
+    main { max-width: 1600px; margin: 0 auto; padding: clamp(40px, 8vh, 80px) clamp(20px, 5vw, 64px); }
+    h1 { font-size: clamp(32px, 5vw, 56px); font-weight: 400; letter-spacing: -0.02em; margin-bottom: 8px; }
+    h1 em { font-style: italic; color: var(--indigo); }
+    .lede { color: var(--ink-soft); font-size: 18px; max-width: 75ch; margin-bottom: 40px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 28px;
+    }
+    .card {
+      background: rgba(255,255,255,0.5); border: 1px solid var(--rule); border-radius: 8px;
+      overflow: hidden;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 18px 42px rgba(22,23,29,0.08); border-color: var(--indigo); }
+    .card img { display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; background: var(--paper-deep); }
+    .card[data-aspect="1:1"] img { aspect-ratio: 1/1; }
+    .card figcaption {
+      padding: 14px 16px;
+      display: flex; justify-content: space-between; align-items: baseline;
+      font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .card figcaption strong { font-family: var(--serif); font-size: 15px; font-weight: 500; text-transform: none; letter-spacing: 0; }
+    .card figcaption span { color: var(--ink-faint); }
+    .stats {
+      margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--rule);
+      font-family: var(--mono); font-size: 12px; color: var(--ink-soft);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/" aria-label="Lupine Science">
+      <b>Lupine Science</b>
+      <span>Brand Asset Library</span>
+    </a>
+  </header>
+  <main>
+    <h1>Abstract asset library <em>v8.</em></h1>
+    <p class="lede">Twenty-four visually captivating brand textures, strokes, shadows, and geometries. All locked to the warm-paper + indigo palette, with no research anchoring — ready for articles, decks, social cards, and campaigns.</p>
+    <div class="grid">
+      <figure class="card" data-aspect="16:9">
+  <img src="assets/images/v8/constellation-threads_quiet_v8.jpg" alt="Constellation Threads — quiet">
+  <figcaption>
+    <strong>Constellation Threads</strong>
+    <span>quiet · 16:9</span>
+  </figcaption>
+</figure>
+<figure class="card" data-aspect="1:1">
+  <img src="assets/images/v8/constellation-threads_square_v8.jpg" alt="Constellation Threads — square">
+  <figcaption>
+    <strong>Constellation Threads</strong>
+    <span>square · 1:1</span>
+  </figcaption>
+</figure>
+<figure class="card" data-aspect="16:9">
+  <img src="assets/images/v8/constellation-threads_wide_v8.jpg" alt="Constellation Threads — wide">
+  <figcaption>
+    <strong>Constellation Threads</strong>
+    <span>wide · 16:9</span>
+  </figcaption>
+</figure>
+<figure class="card" data-aspect="16:9">
+  <img src="assets/images/v8/folded-light_quiet_v8.jpg" alt="Folded Light — quiet">
+  <figcaption>
+    <strong>Folded Light</strong>
+    <span>quiet · 16:9</span>
+  </figcaption>
+</figure>
+<figure class="card" data-aspect="1:1">
+  <img src="assets/images/v8/folded-light_square_v8.jpg" alt="Folded Light — square">
+  <figcaption>
+    <strong>Folded Light</strong>
+    <span>square · 1:1</span>
+  </figcaption>
+</figure>
+<figure class="card" data-aspect="16:9">
+  <img src="assets/images/v8/folded-light_wide_v8.jpg" alt="Folded Light — wide">
+  <figcaption>
+    <strong>Folded Light</strong>
+    <span>wide · 16:9</span>
+  </figcaption>
+</figure>
+<figure class="card" data-aspect="16:9">
+  <img src="assets/images/v8/ink-wash_quiet_v8.jpg" alt="Ink Wash — quiet">
+  <figcaption>
+    <strong>Ink Wash</strong>
+    <span>quiet · 16:9</span>
+  </figcaption>
+</figure>
+<figure class="card" data-aspect="1:1">
+  <img src="assets/images/v8/ink-wash_square_v8.jpg" alt="Ink Wash — square">
+  <figcaption>
+    <strong>Ink Wash</strong>
+    <span>square · 1:1</span>
+  </figcaption>
+</figure>
+<figure class="card" data-aspect="16:9">
+  <img src="assets/images/v8/ink-wash_wide_v8.jpg" alt="Ink Wash — wide">
+  <figcaption>
+    <strong>Ink Wash</strong>
+    <span>wide · 16:9</span>
+  </figcaption>
+</figure>
+<figure class="card" data-aspect="16:9">
+  <img src="assets/images/v8/moire-circles_quiet_v8.jpg" alt="Moire Circles — quiet">
+  <figcaption>
+    <strong>Moire Circles</strong>
+    <span>quiet · 16:9</span>
+  </figcaption>
+</figure>
+<figure class="card" data-aspect="1:1">
+  <img src="assets/images/v8/moire-circles_square_v8.jpg" alt="Moire Circles — square">
+  <figcaption>
+    <strong>Moire Circles</strong>
+    <span>square · 1:1</span>
+  </figcaption>
+</figure>
+<figure class="card" data-aspect="16:9">
+  <img src="assets/images/v8/moire-circles_wide_v8.jpg" alt="Moire Circles — wide">
+  <figcaption>
+    <strong>Moire Circles</strong>
+    <span>wide · 16:9</span>
+  </figcaption>
+</figure>
+<figure class="card" data-aspect="16:9">
+  <img src="assets/images/v8/particle-ribbon_quiet_v8.jpg" alt="Particle Ribbon — quiet">
+  <figcaption>
+    <strong>Particle Ribbon</strong>
+    <span>quiet · 16:9</span>
+  </figcaption>
+</figure>
+<figure class="card" data-aspect="1:1">
+  <img src="assets/images/v8/particle-ribbon_square_v8.jpg" alt="Particle Ribbon — square">
+  <figcaption>
+    <strong>Particle Ribbon</strong>
+    <span>square · 1:1</span>
+  </figcaption>
+</figure>
+<figure class="card" data-aspect="16:9">
+  <img src="assets/images/v8/particle-ribbon_wide_v8.jpg" alt="Particle Ribbon — wide">
+  <figcaption>
+    <strong>Particle Ribbon</strong>
+    <span>wide · 16:9</span>
+  </figcaption>
+</figure>
+<figure class="card" data-aspect="16:9">
+  <img src="assets/images/v8/scale-shards_quiet_v8.jpg" alt="Scale Shards — quiet">
+  <figcaption>
+    <strong>Scale Shards</strong>
+    <span>quiet · 16:9</span>
+  </figcaption>
+</figure>
+<figure class="card" data-aspect="1:1">
+  <img src="assets/images/v8/scale-shards_square_v8.jpg" alt="Scale Shards — square">
+  <figcaption>
+    <strong>Scale Shards</strong>
+    <span>square · 1:1</span>
+  </figcaption>
+</figure>
+<figure class="card" data-aspect="16:9">
+  <img src="assets/images/v8/scale-shards_wide_v8.jpg" alt="Scale Shards — wide">
+  <figcaption>
+    <strong>Scale Shards</strong>
+    <span>wide · 16:9</span>
+  </figcaption>
+</figure>
+<figure class="card" data-aspect="16:9">
+  <img src="assets/images/v8/shadow-geometry_quiet_v8.jpg" alt="Shadow Geometry — quiet">
+  <figcaption>
+    <strong>Shadow Geometry</strong>
+    <span>quiet · 16:9</span>
+  </figcaption>
+</figure>
+<figure class="card" data-aspect="1:1">
+  <img src="assets/images/v8/shadow-geometry_square_v8.jpg" alt="Shadow Geometry — square">
+  <figcaption>
+    <strong>Shadow Geometry</strong>
+    <span>square · 1:1</span>
+  </figcaption>
+</figure>
+<figure class="card" data-aspect="16:9">
+  <img src="assets/images/v8/shadow-geometry_wide_v8.jpg" alt="Shadow Geometry — wide">
+  <figcaption>
+    <strong>Shadow Geometry</strong>
+    <span>wide · 16:9</span>
+  </figcaption>
+</figure>
+<figure class="card" data-aspect="16:9">
+  <img src="assets/images/v8/stroke-dissolution_quiet_v8.jpg" alt="Stroke Dissolution — quiet">
+  <figcaption>
+    <strong>Stroke Dissolution</strong>
+    <span>quiet · 16:9</span>
+  </figcaption>
+</figure>
+<figure class="card" data-aspect="1:1">
+  <img src="assets/images/v8/stroke-dissolution_square_v8.jpg" alt="Stroke Dissolution — square">
+  <figcaption>
+    <strong>Stroke Dissolution</strong>
+    <span>square · 1:1</span>
+  </figcaption>
+</figure>
+<figure class="card" data-aspect="16:9">
+  <img src="assets/images/v8/stroke-dissolution_wide_v8.jpg" alt="Stroke Dissolution — wide">
+  <figcaption>
+    <strong>Stroke Dissolution</strong>
+    <span>wide · 16:9</span>
+  </figcaption>
+</figure>
+    </div>
+    <p class="stats">24 assets · 8 motifs · 3 variants each (wide, square, quiet)</p>
+  </main>
+</body>
+</html>
