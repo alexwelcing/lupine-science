@@ -8,7 +8,7 @@ import yaml
 
 PROJECT = pathlib.Path(__file__).resolve().parent.parent
 STORYBOARD = PROJECT / "storyboard.yaml"
-ASSETS = PROJECT / "assets" / "images"
+ASSETS_ROOT = PROJECT / "assets" / "images"
 CLIENT = pathlib.Path.home() / ".hermes" / "skills" / "lupine-media-director" / "scripts" / "minimax_client.py"
 
 
@@ -30,14 +30,18 @@ def run_image(prompt: str, aspect: str, output: pathlib.Path):
 def main():
     sb = yaml.safe_load(STORYBOARD.read_text())
     style = " ".join(sb["style_suffix"].split())
+    version = sb.get("version", "")
     scenes = []
+
+    ASSETS = ASSETS_ROOT / version if version else ASSETS_ROOT
 
     for motif in sb["motifs"]:
         for variant in sb["variants"]:
             prompt = (
                 f"{motif['base']}; {variant['modifier']}; {style}"
             )
-            filename = f"{motif['id']}_{variant['id']}.jpg"
+            suffix = f"_{version}" if version else ""
+            filename = f"{motif['id']}_{variant['id']}{suffix}.jpg"
             output = ASSETS / filename
             print(f"\n=== {motif['name']} / {variant['id']} ===")
             print(prompt[:200] + "…")
@@ -46,8 +50,9 @@ def main():
                 "motif_id": motif["id"],
                 "motif_name": motif["name"],
                 "variant_id": variant["id"],
+                "version": version,
                 "aspect": variant["aspect"],
-                "filename": f"assets/images/{filename}",
+                "filename": f"assets/images/{version + '/' if version else ''}{filename}",
                 "prompt": prompt,
                 "status": "generated",
             })
