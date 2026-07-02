@@ -1,6 +1,6 @@
 project: brand-exploration
 format: image
-version: v2
+version: v5
 motifs:
 - id: shape-of-wrongness
   name: Shape of wrongness
@@ -30,204 +30,192 @@ variants:
 - id: quiet
   aspect: '16:9'
   modifier: extremely sparse, vast empty paper, only a few luminous elements
-style_suffix: 'editorial scientific minimalism, strict two-color palette of warm off-white
-  #faf9f6 paper and indigo #3d4db3 only, no cyan no teal no purple no orange no gold
-  no green, clean vector lines, luminous indigo accent, near-duotone, generous negative
-  space, calm and premium, no text, no people, no flowers, no neon, no glowing circuits,
-  not photographic, not 3D render, like a figure in a beautiful physics monograph,
-  high detail toward the edges'
+style_suffix: 'risograph print, halftone indigo #3d4db3 on warm off-white #faf9f6
+  paper, high contrast, flat color fields, no gradients, no photographic detail, bold
+  graphic shapes, two colors only, no cyan no teal no purple no orange no gold no
+  green, generous negative space, no text, no people, no flowers, no neon, no 3D render,
+  scientific illustration, physics monograph figure'
 scenes:
 - motif_id: shape-of-wrongness
   motif_name: Shape of wrongness
   variant_id: wide
-  version: v2
+  version: v5
   aspect: '16:9'
-  filename: assets/images/v2/shape-of-wrongness_wide_v2.jpg
+  filename: assets/images/v5/shape-of-wrongness_wide_v5.jpg
   prompt: "faint scattered directional error vectors across a warm paper field gracefully\
     \ collapsing and aligning onto a single luminous indigo ribbon \u2014 a low-dimensional\
     \ manifold emerging from chaos; cinematic wide framing, full-bleed background,\
-    \ detail pushed toward the edges; editorial scientific minimalism, strict two-color\
-    \ palette of warm off-white #faf9f6 paper and indigo #3d4db3 only, no cyan no\
-    \ teal no purple no orange no gold no green, clean vector lines, luminous indigo\
-    \ accent, near-duotone, generous negative space, calm and premium, no text, no\
-    \ people, no flowers, no neon, no glowing circuits, not photographic, not 3D render,\
-    \ like a figure in a beautiful physics monograph, high detail toward the edges"
+    \ detail pushed toward the edges; risograph print, halftone indigo #3d4db3 on\
+    \ warm off-white #faf9f6 paper, high contrast, flat color fields, no gradients,\
+    \ no photographic detail, bold graphic shapes, two colors only, no cyan no teal\
+    \ no purple no orange no gold no green, generous negative space, no text, no people,\
+    \ no flowers, no neon, no 3D render, scientific illustration, physics monograph\
+    \ figure"
   status: generated
 - motif_id: shape-of-wrongness
   motif_name: Shape of wrongness
   variant_id: square
-  version: v2
+  version: v5
   aspect: '1:1'
-  filename: assets/images/v2/shape-of-wrongness_square_v2.jpg
+  filename: assets/images/v5/shape-of-wrongness_square_v5.jpg
   prompt: "faint scattered directional error vectors across a warm paper field gracefully\
     \ collapsing and aligning onto a single luminous indigo ribbon \u2014 a low-dimensional\
     \ manifold emerging from chaos; tight centered composition, balanced symmetry,\
-    \ contained negative space; editorial scientific minimalism, strict two-color\
-    \ palette of warm off-white #faf9f6 paper and indigo #3d4db3 only, no cyan no\
-    \ teal no purple no orange no gold no green, clean vector lines, luminous indigo\
-    \ accent, near-duotone, generous negative space, calm and premium, no text, no\
-    \ people, no flowers, no neon, no glowing circuits, not photographic, not 3D render,\
-    \ like a figure in a beautiful physics monograph, high detail toward the edges"
+    \ contained negative space; risograph print, halftone indigo #3d4db3 on warm off-white\
+    \ #faf9f6 paper, high contrast, flat color fields, no gradients, no photographic\
+    \ detail, bold graphic shapes, two colors only, no cyan no teal no purple no orange\
+    \ no gold no green, generous negative space, no text, no people, no flowers, no\
+    \ neon, no 3D render, scientific illustration, physics monograph figure"
   status: generated
 - motif_id: shape-of-wrongness
   motif_name: Shape of wrongness
   variant_id: dense
-  version: v2
+  version: v5
   aspect: '16:9'
-  filename: assets/images/v2/shape-of-wrongness_dense_v2.jpg
+  filename: assets/images/v5/shape-of-wrongness_dense_v5.jpg
   prompt: "faint scattered directional error vectors across a warm paper field gracefully\
     \ collapsing and aligning onto a single luminous indigo ribbon \u2014 a low-dimensional\
     \ manifold emerging from chaos; richer density of elements, more vectors or nodes,\
-    \ stronger texture; editorial scientific minimalism, strict two-color palette\
-    \ of warm off-white #faf9f6 paper and indigo #3d4db3 only, no cyan no teal no\
-    \ purple no orange no gold no green, clean vector lines, luminous indigo accent,\
-    \ near-duotone, generous negative space, calm and premium, no text, no people,\
-    \ no flowers, no neon, no glowing circuits, not photographic, not 3D render, like\
-    \ a figure in a beautiful physics monograph, high detail toward the edges"
+    \ stronger texture; risograph print, halftone indigo #3d4db3 on warm off-white\
+    \ #faf9f6 paper, high contrast, flat color fields, no gradients, no photographic\
+    \ detail, bold graphic shapes, two colors only, no cyan no teal no purple no orange\
+    \ no gold no green, generous negative space, no text, no people, no flowers, no\
+    \ neon, no 3D render, scientific illustration, physics monograph figure"
   status: generated
 - motif_id: shape-of-wrongness
   motif_name: Shape of wrongness
   variant_id: quiet
-  version: v2
+  version: v5
   aspect: '16:9'
-  filename: assets/images/v2/shape-of-wrongness_quiet_v2.jpg
+  filename: assets/images/v5/shape-of-wrongness_quiet_v5.jpg
   prompt: "faint scattered directional error vectors across a warm paper field gracefully\
     \ collapsing and aligning onto a single luminous indigo ribbon \u2014 a low-dimensional\
     \ manifold emerging from chaos; extremely sparse, vast empty paper, only a few\
-    \ luminous elements; editorial scientific minimalism, strict two-color palette\
-    \ of warm off-white #faf9f6 paper and indigo #3d4db3 only, no cyan no teal no\
-    \ purple no orange no gold no green, clean vector lines, luminous indigo accent,\
-    \ near-duotone, generous negative space, calm and premium, no text, no people,\
-    \ no flowers, no neon, no glowing circuits, not photographic, not 3D render, like\
-    \ a figure in a beautiful physics monograph, high detail toward the edges"
+    \ luminous elements; risograph print, halftone indigo #3d4db3 on warm off-white\
+    \ #faf9f6 paper, high contrast, flat color fields, no gradients, no photographic\
+    \ detail, bold graphic shapes, two colors only, no cyan no teal no purple no orange\
+    \ no gold no green, generous negative space, no text, no people, no flowers, no\
+    \ neon, no 3D render, scientific illustration, physics monograph figure"
   status: generated
 - motif_id: bits-to-atoms
   motif_name: Bits to atoms
   variant_id: wide
-  version: v2
+  version: v5
   aspect: '16:9'
-  filename: assets/images/v2/bits-to-atoms_wide_v2.jpg
+  filename: assets/images/v5/bits-to-atoms_wide_v5.jpg
   prompt: 'a field of tiny digital glyphs and pixels on the left dissolving and re-forming
     into a precise crystalline atomic lattice on the right; the crossing from the
     digital to the physical; cinematic wide framing, full-bleed background, detail
-    pushed toward the edges; editorial scientific minimalism, strict two-color palette
-    of warm off-white #faf9f6 paper and indigo #3d4db3 only, no cyan no teal no purple
-    no orange no gold no green, clean vector lines, luminous indigo accent, near-duotone,
-    generous negative space, calm and premium, no text, no people, no flowers, no
-    neon, no glowing circuits, not photographic, not 3D render, like a figure in a
-    beautiful physics monograph, high detail toward the edges'
+    pushed toward the edges; risograph print, halftone indigo #3d4db3 on warm off-white
+    #faf9f6 paper, high contrast, flat color fields, no gradients, no photographic
+    detail, bold graphic shapes, two colors only, no cyan no teal no purple no orange
+    no gold no green, generous negative space, no text, no people, no flowers, no
+    neon, no 3D render, scientific illustration, physics monograph figure'
   status: generated
 - motif_id: bits-to-atoms
   motif_name: Bits to atoms
   variant_id: square
-  version: v2
+  version: v5
   aspect: '1:1'
-  filename: assets/images/v2/bits-to-atoms_square_v2.jpg
+  filename: assets/images/v5/bits-to-atoms_square_v5.jpg
   prompt: 'a field of tiny digital glyphs and pixels on the left dissolving and re-forming
     into a precise crystalline atomic lattice on the right; the crossing from the
     digital to the physical; tight centered composition, balanced symmetry, contained
-    negative space; editorial scientific minimalism, strict two-color palette of warm
-    off-white #faf9f6 paper and indigo #3d4db3 only, no cyan no teal no purple no
-    orange no gold no green, clean vector lines, luminous indigo accent, near-duotone,
-    generous negative space, calm and premium, no text, no people, no flowers, no
-    neon, no glowing circuits, not photographic, not 3D render, like a figure in a
-    beautiful physics monograph, high detail toward the edges'
+    negative space; risograph print, halftone indigo #3d4db3 on warm off-white #faf9f6
+    paper, high contrast, flat color fields, no gradients, no photographic detail,
+    bold graphic shapes, two colors only, no cyan no teal no purple no orange no gold
+    no green, generous negative space, no text, no people, no flowers, no neon, no
+    3D render, scientific illustration, physics monograph figure'
   status: generated
 - motif_id: bits-to-atoms
   motif_name: Bits to atoms
   variant_id: dense
-  version: v2
+  version: v5
   aspect: '16:9'
-  filename: assets/images/v2/bits-to-atoms_dense_v2.jpg
+  filename: assets/images/v5/bits-to-atoms_dense_v5.jpg
   prompt: 'a field of tiny digital glyphs and pixels on the left dissolving and re-forming
     into a precise crystalline atomic lattice on the right; the crossing from the
     digital to the physical; richer density of elements, more vectors or nodes, stronger
-    texture; editorial scientific minimalism, strict two-color palette of warm off-white
-    #faf9f6 paper and indigo #3d4db3 only, no cyan no teal no purple no orange no
-    gold no green, clean vector lines, luminous indigo accent, near-duotone, generous
-    negative space, calm and premium, no text, no people, no flowers, no neon, no
-    glowing circuits, not photographic, not 3D render, like a figure in a beautiful
-    physics monograph, high detail toward the edges'
+    texture; risograph print, halftone indigo #3d4db3 on warm off-white #faf9f6 paper,
+    high contrast, flat color fields, no gradients, no photographic detail, bold graphic
+    shapes, two colors only, no cyan no teal no purple no orange no gold no green,
+    generous negative space, no text, no people, no flowers, no neon, no 3D render,
+    scientific illustration, physics monograph figure'
   status: generated
 - motif_id: bits-to-atoms
   motif_name: Bits to atoms
   variant_id: quiet
-  version: v2
+  version: v5
   aspect: '16:9'
-  filename: assets/images/v2/bits-to-atoms_quiet_v2.jpg
+  filename: assets/images/v5/bits-to-atoms_quiet_v5.jpg
   prompt: 'a field of tiny digital glyphs and pixels on the left dissolving and re-forming
     into a precise crystalline atomic lattice on the right; the crossing from the
     digital to the physical; extremely sparse, vast empty paper, only a few luminous
-    elements; editorial scientific minimalism, strict two-color palette of warm off-white
-    #faf9f6 paper and indigo #3d4db3 only, no cyan no teal no purple no orange no
-    gold no green, clean vector lines, luminous indigo accent, near-duotone, generous
-    negative space, calm and premium, no text, no people, no flowers, no neon, no
-    glowing circuits, not photographic, not 3D render, like a figure in a beautiful
-    physics monograph, high detail toward the edges'
+    elements; risograph print, halftone indigo #3d4db3 on warm off-white #faf9f6 paper,
+    high contrast, flat color fields, no gradients, no photographic detail, bold graphic
+    shapes, two colors only, no cyan no teal no purple no orange no gold no green,
+    generous negative space, no text, no people, no flowers, no neon, no 3D render,
+    scientific illustration, physics monograph figure'
   status: generated
 - motif_id: upstream-cascade
   motif_name: Upstream cascade
   variant_id: wide
-  version: v2
+  version: v5
   aspect: '16:9'
-  filename: assets/images/v2/upstream-cascade_wide_v2.jpg
+  filename: assets/images/v5/upstream-cascade_wide_v5.jpg
   prompt: 'a single point of indigo light rippling outward through a vast faint lattice
     of interconnected nodes, conveying scale and consequence; cinematic wide framing,
-    full-bleed background, detail pushed toward the edges; editorial scientific minimalism,
-    strict two-color palette of warm off-white #faf9f6 paper and indigo #3d4db3 only,
-    no cyan no teal no purple no orange no gold no green, clean vector lines, luminous
-    indigo accent, near-duotone, generous negative space, calm and premium, no text,
-    no people, no flowers, no neon, no glowing circuits, not photographic, not 3D
-    render, like a figure in a beautiful physics monograph, high detail toward the
-    edges'
+    full-bleed background, detail pushed toward the edges; risograph print, halftone
+    indigo #3d4db3 on warm off-white #faf9f6 paper, high contrast, flat color fields,
+    no gradients, no photographic detail, bold graphic shapes, two colors only, no
+    cyan no teal no purple no orange no gold no green, generous negative space, no
+    text, no people, no flowers, no neon, no 3D render, scientific illustration, physics
+    monograph figure'
   status: generated
 - motif_id: upstream-cascade
   motif_name: Upstream cascade
   variant_id: square
-  version: v2
+  version: v5
   aspect: '1:1'
-  filename: assets/images/v2/upstream-cascade_square_v2.jpg
+  filename: assets/images/v5/upstream-cascade_square_v5.jpg
   prompt: 'a single point of indigo light rippling outward through a vast faint lattice
     of interconnected nodes, conveying scale and consequence; tight centered composition,
-    balanced symmetry, contained negative space; editorial scientific minimalism,
-    strict two-color palette of warm off-white #faf9f6 paper and indigo #3d4db3 only,
-    no cyan no teal no purple no orange no gold no green, clean vector lines, luminous
-    indigo accent, near-duotone, generous negative space, calm and premium, no text,
-    no people, no flowers, no neon, no glowing circuits, not photographic, not 3D
-    render, like a figure in a beautiful physics monograph, high detail toward the
-    edges'
+    balanced symmetry, contained negative space; risograph print, halftone indigo
+    #3d4db3 on warm off-white #faf9f6 paper, high contrast, flat color fields, no
+    gradients, no photographic detail, bold graphic shapes, two colors only, no cyan
+    no teal no purple no orange no gold no green, generous negative space, no text,
+    no people, no flowers, no neon, no 3D render, scientific illustration, physics
+    monograph figure'
   status: generated
 - motif_id: upstream-cascade
   motif_name: Upstream cascade
   variant_id: dense
-  version: v2
+  version: v5
   aspect: '16:9'
-  filename: assets/images/v2/upstream-cascade_dense_v2.jpg
+  filename: assets/images/v5/upstream-cascade_dense_v5.jpg
   prompt: 'a single point of indigo light rippling outward through a vast faint lattice
     of interconnected nodes, conveying scale and consequence; richer density of elements,
-    more vectors or nodes, stronger texture; editorial scientific minimalism, strict
-    two-color palette of warm off-white #faf9f6 paper and indigo #3d4db3 only, no
-    cyan no teal no purple no orange no gold no green, clean vector lines, luminous
-    indigo accent, near-duotone, generous negative space, calm and premium, no text,
-    no people, no flowers, no neon, no glowing circuits, not photographic, not 3D
-    render, like a figure in a beautiful physics monograph, high detail toward the
-    edges'
+    more vectors or nodes, stronger texture; risograph print, halftone indigo #3d4db3
+    on warm off-white #faf9f6 paper, high contrast, flat color fields, no gradients,
+    no photographic detail, bold graphic shapes, two colors only, no cyan no teal
+    no purple no orange no gold no green, generous negative space, no text, no people,
+    no flowers, no neon, no 3D render, scientific illustration, physics monograph
+    figure'
   status: generated
 - motif_id: upstream-cascade
   motif_name: Upstream cascade
   variant_id: quiet
-  version: v2
+  version: v5
   aspect: '16:9'
-  filename: assets/images/v2/upstream-cascade_quiet_v2.jpg
+  filename: assets/images/v5/upstream-cascade_quiet_v5.jpg
   prompt: 'a single point of indigo light rippling outward through a vast faint lattice
     of interconnected nodes, conveying scale and consequence; extremely sparse, vast
-    empty paper, only a few luminous elements; editorial scientific minimalism, strict
-    two-color palette of warm off-white #faf9f6 paper and indigo #3d4db3 only, no
-    cyan no teal no purple no orange no gold no green, clean vector lines, luminous
-    indigo accent, near-duotone, generous negative space, calm and premium, no text,
-    no people, no flowers, no neon, no glowing circuits, not photographic, not 3D
-    render, like a figure in a beautiful physics monograph, high detail toward the
-    edges'
+    empty paper, only a few luminous elements; risograph print, halftone indigo #3d4db3
+    on warm off-white #faf9f6 paper, high contrast, flat color fields, no gradients,
+    no photographic detail, bold graphic shapes, two colors only, no cyan no teal
+    no purple no orange no gold no green, generous negative space, no text, no people,
+    no flowers, no neon, no 3D render, scientific illustration, physics monograph
+    figure'
   status: generated
 note: Initial batch built from existing brand assets; MiniMax token limit reached
   during live generation.
