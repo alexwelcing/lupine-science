@@ -6,11 +6,12 @@
   <title>The Order Is Right, the Size Is Wrong — Lupine Science</title>
   <meta name="description" content="Foundation machine-learned interatomic potentials (CHGNet, MACE-MP, MACE-MPA-0) measured across 21 materials and up to 9 properties against 228 published reference values">
   <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://lupine.science/articles/the-order-is-right-the-size-is-wrong/">
   <meta property="og:title" content="The Order Is Right, the Size Is Wrong — Lupine Science">
   <meta property="og:description" content="Foundation machine-learned interatomic potentials (CHGNet, MACE-MP, MACE-MPA-0) measured across 21 materials and up to 9 properties against 228 published reference values">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://lupine.science/articles/the-order-is-right-the-size-is-wrong/">
-  <meta property="og:image" content="https://lupine.science/og-mof-formalization.png">
+  <meta property="og:image" content="https://lupine.science/og-lupine-science.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -18,13 +19,13 @@
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
   <link rel="icon" type="image/png" href="/lupine-science-icon.png">
   <link rel="apple-touch-icon" href="/lupine-science-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/articles/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Order Is Right, the Size Is Wrong","description":"Foundation machine-learned interatomic potentials (CHGNet, MACE-MP, MACE-MPA-0) measured across 21 materials and up to 9 properties against 228 published reference values","datePublished":"2026-07-02","url":"https://lupine.science/articles/the-order-is-right-the-size-is-wrong/","mainEntityOfPage":"https://lupine.science/articles/the-order-is-right-the-size-is-wrong/","image":"https://lupine.science/og-lupine-science.png","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png"}}}</script>
 </head>
 <body>
-  <a class="skip" href="#article">Skip to article</a>
+  <a class="skip" href="#content">Skip to content</a>
   <header class="site-header">
     <a class="mark" href="/" aria-label="Lupine Science">
       <svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
@@ -59,29 +60,22 @@
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/">Home</a>
-      <a href="/articles/">Articles</a>
+      <a href="/articles/" aria-current="page">Articles</a>
       <a href="https://library.lupine.science">Library</a>
       <a href="https://lupi.live">LUPI</a>
     </nav>
   </header>
-  <main id="article" class="article-shell">
+  <main id="content" class="article-shell">
     <article class="article">
       <h1>The Order Is Right, the Size Is Wrong</h1>
-<figure class="article-hero" aria-labelledby="hero-caption">
-  <video autoplay loop muted playsinline poster="hero.jpg" aria-label="MOF discovery flywheel: formalize, simulate, synthesize, feedback.">
-    <source src="hero.mp4" type="video/mp4">
-    <img src="hero.jpg" alt="MOF discovery flywheel: formalize, simulate, synthesize, feedback.">
-  </video>
-  <figcaption id="hero-caption">The formalized discovery loop: define makeability rules, simulate candidates, synthesize the certified ones, and feed the results back into stronger rules.</figcaption>
-</figure>
-<div class="article-meta">
+<aside class="article-meta" aria-label="Article metadata">
 <p><strong>Field note from the live lab</strong></p>
 <p><strong>Date:</strong> 2026-07-02
 <strong>Scope:</strong> Foundation machine-learned interatomic potentials (CHGNet, MACE-MP, MACE-MPA-0) measured across 21 materials and up to 9 properties against 228 published reference values
 <strong>Status:</strong> Live evidence — every number below is sealed as a machine-checked theorem over provenance-hashed data; kills and corrections are preserved in the record
 <strong>Artifacts:</strong> manuscript, pre-registration with amendments, 100+ Lean theorems, and the full evidence corpus in the <a href="https://github.com/alexwelcing/lupine-rhizo/pull/14">repository</a> and <a href="https://library.lupine.science">Library</a></p>
-</div>
-<hr />
+</aside>
+<hr>
 <h2>What we asked</h2>
 <p>Foundation potentials promise density-functional accuracy at classical cost.
 On bulk properties they nearly deliver: across our matrix, lattice constants
@@ -94,7 +88,7 @@ correctable, and honest about its own limits.</p>
 <h2>What did not survive</h2>
 <p>We pre-registered the obvious hypotheses first, with coupling-aware nulls —
 statistical controls that grant the physics its own internal correlations
-before crediting any model with "shared structure."</p>
+before crediting any model with &quot;shared structure.&quot;</p>
 <p>Two headline hypotheses died. Cross-property error is <strong>not</strong> low-dimensional
 in the linear sense: participation ratios sit inside the null band. And
 apparent cross-model alignment — raw cosine similarities as high as 0.96 —
@@ -152,27 +146,30 @@ direction of honesty.</p>
 <h2>What this means if you run simulations</h2>
 <ul>
 <li><strong>Screening today:</strong> rankings from these models are already trustworthy
-  where we measured (surfaces, vacancies, bulk moduli) — pick candidates
-  with confidence, and treat MPtrj stacking-fault rankings as unusable.</li>
+where we measured (surfaces, vacancies, bulk moduli) — pick candidates
+with confidence, and treat MPtrj stacking-fault rankings as unusable.</li>
 <li><strong>Certification:</strong> a handful of anchor measurements per property family,
-  plus the family exponent, buys a several-fold error reduction at zero
-  additional simulation cost.</li>
+plus the family exponent, buys a several-fold error reduction at zero
+additional simulation cost.</li>
 <li><strong>Boundaries:</strong> where the order is broken, no monotone fix exists — we
-  will show you the proof rather than a worse number.</li>
+will show you the proof rather than a worse number.</li>
 </ul>
 <p>The registered next tests — hcp metals, alloys, a continuous-coordinate
 field for forces — are in the record with their kill conditions. If they
 break the picture, that will be published here with the same prominence.</p>
-<hr />
+<hr>
 <p><em>Evidence trail: pre-registration and amendments, confirmatory artifacts,
 statistical hardening, the manuscript with its five-figure hashed pipeline,
 and the Lean modules are in the <a href="https://github.com/alexwelcing/lupine-rhizo">repository</a>
 and the <a href="https://library.lupine.science">Lupine Library</a>. The ledger's
 records landed under <code>y-matrix-2026-07-02</code>.</em></p>
+
     </article>
   </main>
-  <footer class="site-footer">
-    <p>Lupine Science · founder Alex Welcing · <a href="mailto:alex@lupinesci.com">alex@lupinesci.com</a></p>
+  <footer class="foot">
+    <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
+    <span><b>Lupine Science</b> · founder Alex Welcing · <a href="mailto:alex@lupinesci.com">alex@lupinesci.com</a></span>
+    <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
   </footer>
 </body>
 </html>
