@@ -293,7 +293,9 @@
     .ledger li.loading { color: var(--ink-faint); font-style: italic; }
     .ledger .hash { color: var(--ink-soft); }
     .ledger .when { color: var(--ink-faint); }
-    .ledger .msg { display: block; margin-top: 2px; font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--ink-soft); }
+    /* one line, ellipsized: live commit messages of any length keep every
+       row the same height, so the ledger swap can never shift layout */
+    .ledger .msg { display: block; margin-top: 2px; font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     /* under ledger focus, the rail lights ochre */
     body[data-focus="ledger"] .ledger .hash { color: var(--ochre); }
     body[data-focus="ledger"] .ledger li { border-color: var(--ochre-wash); }
@@ -1099,7 +1101,10 @@
       ];
       function render(rows) {
         if (!list) return;
-        list.innerHTML = rows.slice(0, 5).map((r) =>
+        // exactly as many rows as the pre-rendered fallback: the live swap
+        // must never change the rail's height — content stays under the
+        // ledger's min-height floor, so layout cannot shift
+        list.innerHTML = rows.slice(0, 4).map((r) =>
           `<li><span class="hash">${r.sha}</span> <span class="when">${r.date}</span><span class="msg">${r.msg.replace(/</g, "&lt;")}</span></li>`
         ).join("");
       }
