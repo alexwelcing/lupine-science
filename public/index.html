@@ -339,6 +339,9 @@
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: clamp(28px, 4vw, 64px); border-top: 1px solid var(--rule); padding-top: 36px;
     }
+    /* links share one baseline row regardless of column text length */
+    .b-grid article { display: flex; flex-direction: column; }
+    .b-grid article a { margin-top: auto; }
     .b-grid h3 { font-size: 1.16rem; font-weight: 500; line-height: 1.32; margin: 0 0 10px; }
     .b-grid p { font-size: 0.98rem; line-height: 1.62; color: var(--ink-soft); margin: 0 0 14px; }
     .b-grid a { font-family: var(--mono); font-size: 13px; color: var(--indigo); }
