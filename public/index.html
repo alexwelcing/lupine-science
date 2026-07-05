@@ -681,7 +681,7 @@
       if (!FOCUS[name]) name = "objective";
       tgt = { ...FOCUS[name] };
       body.setAttribute("data-focus", name);
-      document.querySelectorAll(".term, .legend button").forEach((b) =>
+      document.querySelectorAll("button.term, .legend button").forEach((b) =>
         b.setAttribute("aria-pressed", String(b.dataset.focus === name)));
       document.querySelectorAll(".panel").forEach((p) => {
         if (p.dataset.panel === name) p.setAttribute("data-active", "");

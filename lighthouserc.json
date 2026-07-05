@@ -10,6 +10,7 @@
       "numberOfRuns": 3,
       "settings": {
         "preset": "desktop",
+        "chromeFlags": "--no-sandbox --headless=new",
         "skipAudits": ["uses-http2", "is-on-https", "redirects-http", "uses-long-cache-ttl"]
       }
     },
