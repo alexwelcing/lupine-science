@@ -109,6 +109,49 @@ for (const pattern of forbiddenClaims) {
   if (pattern.test(index)) fail(`index.html contains forbidden publication-status claim: ${pattern}`);
 }
 
+// the claims policy applies to every shipped page, not just the front door
+function walkHtml(dir, out = []) {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, entry.name);
+    if (entry.isDirectory()) walkHtml(p, out);
+    else if (entry.name.endsWith('.html')) out.push(p);
+  }
+  return out;
+}
+// Articles may cite other groups' published work; what they must never do is
+// claim publication status for OUR paper.
+const forbiddenFirstPersonClaims = [
+  /(our|this)\s+(paper|preprint|manuscript|work)\s+(was\s+|is\s+|has\s+been\s+)?(accepted|published|submitted)/i,
+  /we\s+(have\s+)?(submitted|published)\b/i,
+];
+for (const file of walkHtml(path.join(PUBLIC, 'articles'))) {
+  const html = fs.readFileSync(file, 'utf8');
+  const rel = path.relative(ROOT, file);
+  for (const pattern of forbiddenFirstPersonClaims) {
+    if (pattern.test(html)) fail(`${rel} contains forbidden publication-status claim: ${pattern}`);
+  }
+  if (/fonts\.googleapis\.com|fonts\.gstatic\.com/.test(html)) {
+    fail(`${rel} references Google Fonts — fonts must stay self-hosted`);
+  }
+}
+
+// sitemap must cover exactly what ships: every article page, no phantoms
+{
+  const slugs = fs.readdirSync(path.join(PUBLIC, 'articles'), { withFileTypes: true })
+    .filter((e) => e.isDirectory() && fs.existsSync(path.join(PUBLIC, 'articles', e.name, 'index.html')))
+    .map((e) => e.name);
+  for (const slug of slugs) {
+    if (!sitemap.includes(`https://lupine.science/articles/${slug}/`)) {
+      fail(`sitemap.xml missing /articles/${slug}/ — run: node scripts/build-sitemap.mjs`);
+    }
+  }
+  for (const m of sitemap.matchAll(/<loc>https:\/\/lupine\.science(\/[^<]*)<\/loc>/g)) {
+    const p = m[1];
+    const asFile = path.join(PUBLIC, p.replace(/^\//, ''), 'index.html');
+    if (p !== '/' && !fs.existsSync(asFile)) fail(`sitemap.xml lists ${p} but no page ships there`);
+  }
+}
+
 if (/\bpeer[-\s]?reviewed\b/i.test(index) && !/\bnot\s+yet\s+peer[-\s]?reviewed\b/i.test(index)) {
   fail('index.html mentions peer review without the required "not yet peer-reviewed" qualifier');
 }
