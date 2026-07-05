@@ -25,6 +25,8 @@ const HERO_CAPTIONS = {
     'The launch film: from fantasy frameworks to makeable materials. Generated with AI tools, composited with open-source software — possibilities made trustworthy by process.',
   'from-fantasy-frameworks-to-makeable-materials':
     'The formalized discovery loop: define makeability rules, simulate candidates, synthesize the certified ones, and feed the results back into stronger rules.',
+  'the-order-is-right-the-size-is-wrong':
+    'The error field, drawn by the front door’s live instrument in its ∇ᵧE focus — each comet a model’s dominant error direction, computed from the committed benchmark data.',
 };
 
 const MARK_SVG = `<svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
@@ -73,7 +75,6 @@ function heroFigure(slug) {
   const hasMp4 = fs.existsSync(path.join(dir, 'hero.mp4'));
   if (!hasJpg && !hasMp4) return '';
   const caption = HERO_CAPTIONS[slug] || '';
-  const poster = pictureSources(slug, 'hero');
   if (hasMp4 && hasJpg) {
     return `<figure class="article-hero"${caption ? ' aria-labelledby="hero-caption"' : ''}>
   <video preload="none" loop muted playsinline poster="/articles/${slug}/hero.jpg" width="1280" height="720" data-autoplay aria-label="${esc(caption || 'Article film')}">
@@ -81,17 +82,20 @@ function heroFigure(slug) {
   </video>
 ${caption ? `  <figcaption id="hero-caption">${caption}</figcaption>\n` : ''}</figure>`;
   }
+  // image hero is the LCP element: eager, high priority
+  const poster = pictureSources(slug, 'hero', { eager: true });
   return `<figure class="article-hero"${caption ? ' aria-labelledby="hero-caption"' : ''}>
   ${poster}
 ${caption ? `  <figcaption id="hero-caption">${caption}</figcaption>\n` : ''}</figure>`;
 }
 
-function pictureSources(slug, base) {
+function pictureSources(slug, base, { eager = false } = {}) {
   const dir = path.join(OUT, slug);
   const avif = fs.existsSync(path.join(dir, `${base}.avif`));
   const webp = fs.existsSync(path.join(dir, `${base}.webp`));
+  const loading = eager ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"';
   return `<picture>
-${avif ? `    <source srcset="/articles/${slug}/${base}.avif" type="image/avif">\n` : ''}${webp ? `    <source srcset="/articles/${slug}/${base}.webp" type="image/webp">\n` : ''}    <img src="/articles/${slug}/${base}.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+${avif ? `    <source srcset="/articles/${slug}/${base}.avif" type="image/avif">\n` : ''}${webp ? `    <source srcset="/articles/${slug}/${base}.webp" type="image/webp">\n` : ''}    <img src="/articles/${slug}/${base}.jpg" alt="" width="1280" height="720" ${loading} decoding="async">
   </picture>`;
 }
 
@@ -112,7 +116,7 @@ const PLAY_SCRIPT = `<script>
 })();
 </script>`;
 
-function head({ title, description, url, ogImage, jsonld, isArticle }) {
+function head({ title, description, url, ogImage, jsonld, isArticle, preloadImage }) {
   return `<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${esc(title)}</title>
@@ -133,7 +137,7 @@ function head({ title, description, url, ogImage, jsonld, isArticle }) {
   <link rel="apple-touch-icon" href="/lupine-science-icon.png">
   <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/articles/styles.css">
+${preloadImage ? `  <link rel="preload" href="${preloadImage}" as="image" fetchpriority="high">\n` : ''}  <link rel="stylesheet" href="/articles/styles.css">
   <script type="application/ld+json">${JSON.stringify(jsonld)}</script>`;
 }
 
@@ -196,10 +200,13 @@ function buildArticle(raw, slug) {
   };
 
   const needsPlayer = /data-autoplay/.test(body);
+  // the hero poster is the LCP element on video-hero pages — fetch it first
+  const hasMp4 = fs.existsSync(path.join(OUT, slug, 'hero.mp4'));
+  const preloadImage = hasMp4 && hasJpg ? `/articles/${slug}/hero.jpg` : undefined;
   const page = `<!doctype html>
 <html lang="en">
 <head>
-  ${head({ title: `${title} — Lupine Science`, description, url, ogImage, jsonld, isArticle: true })}
+  ${head({ title: `${title} — Lupine Science`, description, url, ogImage, jsonld, isArticle: true, preloadImage })}
 </head>
 <body>
 ${chrome(`  <main id="content" class="article-shell">
