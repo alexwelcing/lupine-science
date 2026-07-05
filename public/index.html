@@ -291,15 +291,56 @@
     .rail-note .row { display: flex; gap: 7px; align-items: baseline; margin-bottom: 8px; }
     .rail-note .d { width: 7px; height: 7px; border-radius: 50%; flex: none; transform: translateY(3px); }
     .rail-note .d.wp { background: var(--ochre); } .rail-note .d.ok { background: var(--verified); }
-    .rail-note .cite { font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--ink-soft); margin-top: 10px; }
+    .rail-note .d.mof { background: var(--indigo-deep); }
+    .rail-note .cite { font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--ink-soft); margin-top: 10px; display: block; }
+    .rail-note a { text-decoration: underline; text-decoration-color: var(--indigo-line); text-underline-offset: 2px; }
+
+    /* ════════ BENEATH — the substance, one scroll down ════════ */
+    .beneath {
+      position: relative; z-index: 4;
+      padding: clamp(64px, 9vh, 120px) clamp(44px, 7vw, 156px) clamp(30px, 4vh, 56px);
+      max-width: 1560px; margin: 0 auto;
+    }
+    .b-label {
+      font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.24em;
+      text-transform: uppercase; color: var(--indigo); margin: 0 0 16px;
+    }
+    .b-head h2 {
+      font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 400; line-height: 1.16;
+      letter-spacing: -0.012em; margin: 0 0 42px; max-width: 24ch;
+    }
+    .b-head h2 em { color: var(--indigo); }
+    .b-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: clamp(28px, 4vw, 64px); border-top: 1px solid var(--rule); padding-top: 36px;
+    }
+    .b-grid h3 { font-size: 1.16rem; font-weight: 500; line-height: 1.32; margin: 0 0 10px; }
+    .b-grid p { font-size: 0.98rem; line-height: 1.62; color: var(--ink-soft); margin: 0 0 14px; }
+    .b-grid a { font-family: var(--mono); font-size: 13px; color: var(--indigo); }
+    .b-grid .ar, .b-all .ar { display: inline-block; transition: transform 200ms var(--ease); }
+    .b-grid a:hover .ar, .b-all a:hover .ar { transform: translateX(4px); }
+    .b-notebook { margin-top: clamp(64px, 9vh, 110px); }
+    .b-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 2.6vw, 40px); }
+    .b-cards a {
+      display: block; border-top: 1px solid var(--rule); padding: 20px 6px 18px;
+      transition: background 240ms var(--ease), border-color 240ms var(--ease);
+    }
+    .b-cards a:hover { background: var(--indigo-wash); border-color: var(--indigo-line); }
+    .b-cards .d8 { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); }
+    .b-cards h3 { font-size: 1.22rem; font-weight: 500; line-height: 1.26; margin: 9px 0 8px; }
+    .b-cards p { font-size: 0.94rem; line-height: 1.56; color: var(--ink-soft); margin: 0; }
+    .b-all { margin: 28px 0 0; font-family: var(--mono); font-size: 13px; }
+    .b-all a { color: var(--indigo); }
 
     /* ════════ FOOT — colophon ════════ */
     .foot {
-      grid-column: main / end; grid-row: foot; z-index: 4;
-      display: flex; justify-content: space-between; gap: 12px 32px; flex-wrap: wrap;
-      padding: 22px 0 26px; margin-top: 18px; border-top: 1px solid var(--rule);
+      display: flex; justify-content: space-between; gap: 14px 32px; flex-wrap: wrap; align-items: baseline;
+      padding: 26px clamp(44px, 7vw, 156px) 36px; margin: clamp(36px, 6vh, 72px) auto 0;
+      max-width: 1560px; border-top: 1px solid var(--rule);
       font-family: var(--mono); font-size: 13px; color: var(--ink-faint);
     }
+    .receipts { flex-basis: 100%; font-size: 12px; letter-spacing: 0.02em; color: var(--ink-faint); }
+    .receipts b { color: var(--ochre); font-weight: 600; }
     .foot .creed { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--ink-soft); }
     .foot a { color: var(--ink-soft); border-bottom: 1px solid transparent; transition: all 180ms; }
     .foot a:hover { color: var(--indigo); border-color: var(--indigo); }
@@ -338,7 +379,9 @@
       .panel:not([data-active]) { display: none; }
       .rail-ledger { padding-top: 26px; border-top: 1px solid var(--rule); }
       .rail-note { margin-top: 24px; }
-      .foot { padding-bottom: 34px; }
+      .beneath { padding-left: 22px; padding-right: 22px; }
+      .b-grid, .b-cards { grid-template-columns: 1fr; }
+      .foot { padding: 26px 22px 40px; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -468,16 +511,66 @@
       </ul>
       <div class="rail-note">
         <div class="row"><span class="d wp"></span><span>Working paper in preparation — not yet peer-reviewed. The full record lives in the open repository.</span></div>
+        <div class="row"><span class="d mof"></span><span>On the field: MOF-5 · Zn₄O(BDC)₃ — real published crystallography, <a href="/data/mof5_structure.json">drawn from the committed structure</a>.<span class="cite">Li, Eddaoudi, O’Keeffe &amp; Yaghi, Nature 402, 276 (1999) · COD 1516287</span></span></div>
       </div>
     </aside>
 
-    <!-- ════ FOOT ════ -->
-    <footer class="foot">
-      <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
-      <span><b>Lupine Science</b> · founder Alex Welcing · <a href="mailto:alex@lupinesci.com">alex@lupinesci.com</a></span>
-      <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
-    </footer>
   </main>
+
+  <!-- ════ BENEATH THE INSTRUMENT — the substance, one scroll down ════ -->
+  <section class="beneath" aria-label="What this unlocks">
+    <header class="b-head">
+      <p class="b-label">What this unlocks</p>
+      <h2>Trustworthy prediction changes what a lab <em>dares to try.</em></h2>
+    </header>
+    <div class="b-grid">
+      <article>
+        <h3>Batteries that hold more and degrade slower.</h3>
+        <p>Energy storage lives and dies on electrode and electrolyte materials. When a model's errors are characterized, a lab can trust its shortlist — and spend the year on the ten candidates that matter instead of the thousand that don't.</p>
+        <a href="https://library.lupine.science">Read the research <span class="ar">→</span></a>
+      </article>
+      <article>
+        <h3>Catalysts that make clean industry affordable.</h3>
+        <p>From green hydrogen to carbon capture, the cost curve is a materials problem. Correctable simulation means screening chemistries at software speed — while knowing exactly when the simulation can be trusted.</p>
+        <a href="https://lupi.live">See the instrument <span class="ar">→</span></a>
+      </article>
+      <article>
+        <h3>Frameworks designed for jobs no known material can do.</h3>
+        <p>Metal-organic frameworks can be built atom-by-atom for capture, storage and sensing. The crystal drawn above is real, published crystallography — and our prospectus for makeable MOFs is in the notebook below.</p>
+        <a href="/articles/from-fantasy-frameworks-to-makeable-materials/">Read the prospectus <span class="ar">→</span></a>
+      </article>
+    </div>
+
+    <div class="b-notebook">
+      <p class="b-label">From the notebook</p>
+      <div class="b-cards">
+        <a href="/articles/the-order-is-right-the-size-is-wrong/">
+          <span class="d8">2026·07·02</span>
+          <h3>The Order Is Right, the Size Is Wrong</h3>
+          <p>Foundation potentials measured across 21 materials against 228 published reference values — mapping the environment error field.</p>
+        </a>
+        <a href="/articles/why-lupine-science/">
+          <span class="d8">2026·06·30</span>
+          <h3>Why Lupine Science?</h3>
+          <p>What problem we are solving, and why the answer is not more models — it is makeability you can check.</p>
+        </a>
+        <a href="/articles/from-fantasy-frameworks-to-makeable-materials/">
+          <span class="d8">2026·06·25</span>
+          <h3>From Fantasy Frameworks to Makeable Materials</h3>
+          <p>A prospectus for formalized MOF discovery: theorem-proved certificates of synthesizability, and the loop that closes with a lab.</p>
+        </a>
+      </div>
+      <p class="b-all"><a href="/articles/">All articles <span class="ar">→</span></a></p>
+    </div>
+  </section>
+
+  <!-- ════ COLOPHON ════ -->
+  <footer class="foot">
+    <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
+    <span><b>Lupine Science</b> · founder Alex Welcing · <a href="mailto:alex@lupinesci.com">alex@lupinesci.com</a></span>
+    <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
+    <span class="receipts" id="receipts"></span>
+  </footer>
 
   <div class="tip" id="tip" role="status" aria-live="polite"></div>
 
@@ -541,12 +634,42 @@
       .then((raw) => { if (Array.isArray(raw) && raw.length) { M = process(raw); injectProv(); } })
       .catch(() => {});
 
+    /* ───────────────────────────────────────────────────────────
+       REAL MATTER — one cavity of MOF-5 (Zn₄O(BDC)₃), from the committed
+       crystal structure (COD 1516287; Yaghi et al., Nature 402, 276).
+       The canvas renders these coordinates directly: published atoms,
+       not an artist's impression.
+       ─────────────────────────────────────────────────────────── */
+    const MATTERLINK = "/data/mof5_structure.json";
+    let MOF = null;             // { els, pos, bonds, rmax, zn: [indices] }
+    let onMatterReady = () => {};
+    fetch(MATTERLINK)
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((raw) => {
+        // hydrogens are omitted from the drawing, as in standard MOF renders
+        const keep = [];
+        raw.elements.forEach((el, i) => { if (el !== "H") keep.push(i); });
+        const remap = new Map(keep.map((old, now) => [old, now]));
+        const els = keep.map((i) => raw.elements[i]);
+        const pos = keep.map((i) => raw.positions[i]);
+        const bonds = raw.bonds
+          .filter(([a, b]) => remap.has(a) && remap.has(b))
+          .map(([a, b]) => [remap.get(a), remap.get(b)]);
+        let rmax = 0;
+        for (const p of pos) rmax = Math.max(rmax, Math.hypot(p[0], p[1], p[2]));
+        const zn = [];
+        els.forEach((el, i) => { if (el === "Zn") zn.push(i); });
+        MOF = { els, pos, bonds, rmax, zn, proj: new Array(pos.length) };
+        onMatterReady();
+      })
+      .catch(() => {});
+
     /* per-term targets for the manifold + the resolved panel */
     const FOCUS = {
-      objective:    { converge: 0.55, ribbon: 0.92, vector: 0.5,  ledger: 0.35, ochre: 0.0, spectrum: 0.2,  fan: 0.2  },
-      manifold:     { converge: 0.96, ribbon: 1.0,  vector: 0.16, ledger: 0.22, ochre: 0.0, spectrum: 1.0,  fan: 0.10 },
-      errorvectors: { converge: 0.40, ribbon: 0.5,  vector: 1.0,  ledger: 0.18, ochre: 0.0, spectrum: 0.12, fan: 1.0  },
-      ledger:       { converge: 0.7,  ribbon: 0.82, vector: 0.28, ledger: 1.0,  ochre: 1.0, spectrum: 0.18, fan: 0.12 },
+      objective:    { converge: 0.55, ribbon: 0.92, vector: 0.5,  ledger: 0.35, ochre: 0.0, spectrum: 0.2,  fan: 0.2,  matter: 0.92 },
+      manifold:     { converge: 0.96, ribbon: 1.0,  vector: 0.16, ledger: 0.22, ochre: 0.0, spectrum: 1.0,  fan: 0.10, matter: 0.2  },
+      errorvectors: { converge: 0.40, ribbon: 0.5,  vector: 1.0,  ledger: 0.18, ochre: 0.0, spectrum: 0.12, fan: 1.0,  matter: 0.34 },
+      ledger:       { converge: 0.7,  ribbon: 0.82, vector: 0.28, ledger: 1.0,  ochre: 1.0, spectrum: 0.18, fan: 0.12, matter: 0.55 },
     };
     const cur = { ...FOCUS.objective };
     let tgt = { ...FOCUS.objective };
@@ -615,7 +738,9 @@
           const r3 = frac(Math.sin(i * 39.425) * 9123.77);
           // bias samples toward the right/centre so the lower-left reading zone stays calm
           const u = 0.32 + r1 * 0.72;
-          pts.push({ u: Math.min(u, 1), sy: (r2 - 0.5), ph: r3 * 6.283, sp: 0.4 + r3 * 0.9, pot: i % M.n });
+          // every third sample is "corrected": it settles onto a real lattice site
+          pts.push({ u: Math.min(u, 1), sy: (r2 - 0.5), ph: r3 * 6.283, sp: 0.4 + r3 * 0.9, pot: i % M.n,
+                     site: i % 3 === 0 ? (i * 7) % 97 : -1 });
         }
       }
       const frac = (x) => x - Math.floor(x);
@@ -638,13 +763,13 @@
           const m = rectOf(".mark"); if (m) zones.push(m);
           STAGE = { x0: w * 0.04, x1: w * 0.96, y0: h * 0.15, y1: h * 0.97 };
         } else {
-          [".horizon", ".legend", ".reading .panel[data-active]", ".rail-ledger", ".foot"]
+          [".horizon", ".legend", ".reading .panel[data-active]", ".rail-ledger"]
             .forEach((s) => { const z = rectOf(s); if (z) zones.push(z); });
           const m = rectOf(".mark"); if (m) zones.push({ l: m.l, t: m.t, r: Math.min(m.r, m.l + 250), bo: m.bo });
           const rd = rectOf(".reading .panel[data-active]") || rectOf(".reading");
-          const rl = rectOf(".rail-ledger"), lg = rectOf(".legend"), ft = rectOf(".foot");
+          const rl = rectOf(".rail-ledger"), lg = rectOf(".legend");
           STAGE = { x0: (rd ? rd.r : w * 0.34) + 28, x1: (rl ? rl.l : w * 0.95) - 28,
-                    y0: (lg ? lg.bo : h * 0.26) + 30, y1: (ft ? ft.t : h * 0.92) - 22 };
+                    y0: (lg ? lg.bo : h * 0.26) + 30, y1: h * 0.94 };
         }
         STAGE.cx = (STAGE.x0 + STAGE.x1) / 2; STAGE.cy = (STAGE.y0 + STAGE.y1) / 2;
         STAGE.w = STAGE.x1 - STAGE.x0; STAGE.h = STAGE.y1 - STAGE.y0;
@@ -771,6 +896,68 @@
         comet(cx, cy, Math.atan2(my, mx), L * 0.82, a * 0.6, OCH);   // consensus direction
       }
 
+      /* ── real matter: the MOF-5 cavity, drawn from published coordinates ──
+         Orthographic projection of the committed structure, slowly turning.
+         Zn nodes in deep indigo, carboxylate O in ochre, C in ink — the same
+         dialect as the rest of the instrument. The projected Zn positions
+         are kept so converging error-particles can land on real lattice
+         sites: the math correcting real matter, literally. */
+      let latticeXY = [];
+      function drawMatter(time) {
+        latticeXY.length = 0;
+        if (!MOF || cur.matter < 0.03) return;
+        const cx = STAGE.cx + STAGE.w * 0.02;
+        const cy = STAGE.y0 + STAGE.h * (mobileMQ.matches ? 0.5 : 0.4);
+        const R = Math.min(STAGE.w, STAGE.h) * (mobileMQ.matches ? 0.38 : 0.37);
+        const A = cur.matter * clearAt(cx, cy);
+        if (A < 0.03 || R < 40) return;
+        const s = R / MOF.rmax;
+        const ry = time * 0.11, rx = -0.42;                 // slow turn, gentle tilt
+        const cyr = Math.cos(ry), syr = Math.sin(ry), cxr = Math.cos(rx), sxr = Math.sin(rx);
+        const breath = 1 + 0.012 * Math.sin(time * 0.5);
+        scrim(cx, cy, R * 1.5, cur.matter * 0.8);
+        // project all atoms
+        const P = MOF.proj;
+        for (let i = 0; i < MOF.pos.length; i++) {
+          const p = MOF.pos[i];
+          const x1 = p[0] * cyr + p[2] * syr;
+          const z1 = -p[0] * syr + p[2] * cyr;
+          const y1 = p[1] * cxr - z1 * sxr;
+          const z2 = p[1] * sxr + z1 * cxr;
+          P[i] = [cx + x1 * s * breath, cy + y1 * s * breath, z2 / MOF.rmax]; // z in [-1,1]
+        }
+        // bonds, painter's order, depth-cued
+        const order = MOF.bonds.map((b, i) => [i, (P[b[0]][2] + P[b[1]][2]) / 2]).sort((a, b) => a[1] - b[1]);
+        ctx.lineCap = "round";
+        for (const [bi, z] of order) {
+          const [i, j] = MOF.bonds[bi];
+          const d = (z + 1) / 2;                             // 0 far → 1 near
+          const m = Math.min(clearAt(P[i][0], P[i][1]), clearAt(P[j][0], P[j][1]));
+          if (m <= 0.02) continue;
+          ctx.strokeStyle = `rgba(${INK},${A * m * (0.13 + 0.34 * d)})`;
+          ctx.lineWidth = 0.8 + 0.7 * d;
+          ctx.beginPath(); ctx.moveTo(P[i][0], P[i][1]); ctx.lineTo(P[j][0], P[j][1]); ctx.stroke();
+        }
+        // atoms, far to near
+        const aorder = P.map((p, i) => [i, p[2]]).sort((a, b) => a[1] - b[1]);
+        for (const [i, z] of aorder) {
+          const d = (z + 1) / 2;
+          const m = clearAt(P[i][0], P[i][1]); if (m <= 0.02) continue;
+          const el = MOF.els[i];
+          const rgb = el === "Zn" ? "46,58,135" : el === "O" ? OCH : INK;
+          const r = (el === "Zn" ? 3.1 : el === "O" ? 2.0 : 1.45) * (0.62 + 0.5 * d);
+          const a = A * m * (0.30 + 0.62 * d);
+          if (el === "Zn") {                                 // metal nodes glow like the focal bloom
+            const g = ctx.createRadialGradient(P[i][0], P[i][1], 0, P[i][0], P[i][1], r * 3.4);
+            g.addColorStop(0, `rgba(${IND},${a * 0.5})`); g.addColorStop(1, `rgba(${IND},0)`);
+            ctx.fillStyle = g; ctx.beginPath(); ctx.arc(P[i][0], P[i][1], r * 3.4, 0, 6.2832); ctx.fill();
+            if (z > -0.1) latticeXY.push([P[i][0], P[i][1]]);
+          }
+          ctx.fillStyle = `rgba(${rgb},${a})`;
+          ctx.beginPath(); ctx.arc(P[i][0], P[i][1], r, 0, 6.2832); ctx.fill();
+        }
+      }
+
       function frame(ts) {
         if (!t0) t0 = ts; const time = (ts - t0) / 1000;
         for (const k in cur) cur[k] += (tgt[k] - cur[k]) * 0.045;
@@ -818,14 +1005,22 @@
         for (let s = 0; s <= 110; s++) { const u = s / 110, x = u * w, y = spineY(u, time, amp); s === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); }
         ctx.stroke(); ctx.restore();
 
+        drawMatter(time);
+
         // scattered error samples collapsing onto the spine, with vectors.
         // converged band-thickness per sample = its potential's real √(λ₂/λ₁)
         for (const p of pts) {
           const pot = M.pots[p.pot % M.n] || { thin: 0.3 };
-          const x = p.u * w, ribY = spineY(p.u, time, amp);
+          let x = p.u * w, ribY = spineY(p.u, time, amp);
           const wide = p.sy * h * 0.46;
           const spread = wide * (1 + (pot.thin - 1) * cur.converge);
-          const y = ribY + spread + Math.sin(time * p.sp + p.ph) * h * 0.06 * (1 - 0.55 * cur.converge);
+          let y = ribY + spread + Math.sin(time * p.sp + p.ph) * h * 0.06 * (1 - 0.55 * cur.converge);
+          // a share of the corrected samples settle onto real Zn lattice sites
+          if (p.site >= 0 && latticeXY.length) {
+            const t2 = latticeXY[p.site % latticeXY.length];
+            const k = cur.matter * (0.55 + 0.45 * Math.sin(time * 0.4 + p.ph) ** 2) * 0.8;
+            x += (t2[0] - x) * k; y += (t2[1] - y) * k;
+          }
           const cm = clearAt(x, y); if (cm <= 0.02) continue;   // never sit on text
           const aligned = Math.atan2(slope(p.u, time, amp) * w, w);
           const ang = p.ph + (aligned - p.ph) * Math.max(cur.converge, cur.vector);
@@ -862,6 +1057,11 @@
       }
 
       resize(); addEventListener("resize", resize, { passive: true });
+      // when the structure arrives after the reduced-motion single frame,
+      // draw one more so the crystal appears in the still image too
+      onMatterReady = () => {
+        if (reduced) { t0 = 0; requestAnimationFrame((ts) => { frame(ts); cancelAnimationFrame(raf); }); }
+      };
       if (reduced) { requestAnimationFrame((ts) => { for (const k in cur) cur[k] = tgt[k]; frame(ts); cancelAnimationFrame(raf); }); }
       else {
         raf = requestAnimationFrame(frame);
@@ -932,6 +1132,26 @@
           })
           .catch(() => { /* fallback already visible */ });
       }
+    })();
+
+    /* ── receipts: this page, measured by the visitor's own browser.
+       The same ethos as the benchmark figures above: nothing typed in. ── */
+    (() => {
+      const el = document.getElementById("receipts");
+      if (!el || typeof performance === "undefined" || !performance.getEntriesByType) return;
+      setTimeout(() => {
+        try {
+          const nav = performance.getEntriesByType("navigation")[0];
+          if (!nav) return;
+          let bytes = nav.transferSize || 0;
+          for (const r of performance.getEntriesByType("resource")) bytes += r.transferSize || 0;
+          const paint = performance.getEntriesByType("paint").find((p) => p.name === "first-contentful-paint");
+          const fp = paint ? ` · first paint ${(paint.startTime / 1000).toFixed(2)} s` : "";
+          el.innerHTML = nav.transferSize === 0
+            ? `this visit · served from your cache · <b>0 KB</b> over the wire · measured by your browser, not claimed by ours`
+            : `this visit · <b>${Math.round(bytes / 1024)} KB</b> over the wire · no framework, no tracker${fp} · measured by your browser, not claimed by ours`;
+        } catch { /* the line simply doesn't render */ }
+      }, 1400);
     })();
 
     setFocus("objective");
