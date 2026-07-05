@@ -205,10 +205,19 @@ jobs:
 
       - name: Security headers are live
         run: |
-          hdrs=$(curl -sI https://lupine.science/ -m 10)
-          echo "$hdrs" | grep -qi "content-security-policy" || { echo "::error::CSP header missing on production"; exit 1; }
-          echo "$hdrs" | grep -qi "strict-transport-security" || { echo "::error::HSTS header missing on production"; exit 1; }
-          echo "Security headers verified"
+          # the custom domain can lag the deployment by a few seconds while
+          # Pages cuts over — retry like the other smoke tests
+          for i in 1 2 3 4 5; do
+            hdrs=$(curl -sI https://lupine.science/ -m 10 || true)
+            if echo "$hdrs" | grep -qi "content-security-policy" && echo "$hdrs" | grep -qi "strict-transport-security"; then
+              echo "Security headers verified"
+              exit 0
+            fi
+            echo "Attempt $i: headers not visible yet, retrying..."
+            sleep 10
+          done
+          echo "::error::CSP/HSTS headers missing on production after retries"
+          exit 1
 
       - name: Show output
         run: echo "${{ steps.deploy.outputs.url }}"
