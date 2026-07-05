@@ -45,7 +45,6 @@ lupine.science/
     llms-full.txt
     brand.json
     og-lupine-science.png
-    hero-cyanotype.png
   Dockerfile
   nginx.conf
   README.md

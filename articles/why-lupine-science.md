@@ -50,7 +50,7 @@ This is the story we want to tell first. A thirty-second film about the moment a
 
 <figure class="article-video" aria-labelledby="launch-caption">
   <video controls playsinline poster="/articles/why-lupine-science/hero.jpg" aria-label="Lupine Science launch film">
-    <source src="/launch-video.mp4" type="video/mp4">
+    <source src="/articles/why-lupine-science/hero.mp4" type="video/mp4">
   </video>
   <figcaption id="launch-caption">Lupine Science launch film: from prediction to makeability.</figcaption>
 </figure>

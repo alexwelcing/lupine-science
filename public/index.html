@@ -19,11 +19,41 @@
   <link rel="icon" type="image/png" href="/lupine-science-icon.png">
   <link rel="apple-touch-icon" href="/lupine-science-icon.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/newsreader-italic-var.woff2" as="font" type="font/woff2" crossorigin>
 
   <style>
+    /* Self-hosted, subset to the glyphs this site uses (scripts/build-fonts.mjs).
+       No third party sits between a visitor and first paint. */
+    @font-face {
+      font-family: "Newsreader";
+      src: url("/fonts/newsreader-var.woff2") format("woff2");
+      font-style: normal; font-weight: 300 600; font-stretch: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Newsreader";
+      src: url("/fonts/newsreader-italic-var.woff2") format("woff2");
+      font-style: italic; font-weight: 300 600; font-stretch: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "IBM Plex Mono";
+      src: url("/fonts/plex-mono-400.woff2") format("woff2");
+      font-style: normal; font-weight: 400; font-display: swap;
+    }
+    @font-face {
+      font-family: "IBM Plex Mono";
+      src: url("/fonts/plex-mono-600.woff2") format("woff2");
+      font-style: normal; font-weight: 500 600; font-display: swap;
+    }
+    /* metric-matched serif fallback so the swap moves nothing */
+    @font-face {
+      font-family: "Newsreader-fallback";
+      src: local("Georgia"), local("Times New Roman");
+      size-adjust: 94%; ascent-override: 90%; descent-override: 26%; line-gap-override: 0%;
+    }
     :root {
       --paper:      #faf9f6;
       --paper-deep: #f2efe7;
@@ -40,7 +70,7 @@
       --ochre-wash:  rgba(168, 119, 43, 0.10);
       --verified:    #3a8f5b;
 
-      --serif: "Newsreader", Georgia, "Times New Roman", serif;
+      --serif: "Newsreader", "Newsreader-fallback", Georgia, "Times New Roman", serif;
       --mono:  "IBM Plex Mono", ui-monospace, "SF Mono", "Cascadia Mono", monospace;
       --ease: cubic-bezier(0.16, 1, 0.3, 1);
       --settle: 820ms;
@@ -321,7 +351,8 @@
 
   <main class="field">
     <canvas id="ribbon" aria-hidden="true"></canvas>
-    <img class="ribbon-fallback" src="/ribbon-still.jpg" alt="The hyper-ribbon manifold: scattered prediction-error vectors collapsing onto a single low-dimensional indigo ribbon.">
+    <img class="ribbon-fallback" data-src="/ribbon-still.jpg" alt="The hyper-ribbon manifold: scattered prediction-error vectors collapsing onto a single low-dimensional indigo ribbon.">
+    <noscript><style>.ribbon-fallback{opacity:0.85}</style><img class="ribbon-fallback" src="/ribbon-still.jpg" alt="" style="opacity:0.85"></noscript>
 
     <!-- corner mark -->
     <a class="mark" href="/" aria-label="Lupine Science">
@@ -505,7 +536,7 @@
     }
     injectProv();
     // freshen from the served file (same data, proves the wiring is real)
-    fetch(DATALINK, { cache: "no-store" })
+    fetch(DATALINK)
       .then((r) => (r.ok ? r.json() : Promise.reject()))
       .then((raw) => { if (Array.isArray(raw) && raw.length) { M = process(raw); injectProv(); } })
       .catch(() => {});
@@ -566,7 +597,11 @@
     /* ── the manifold renderer ── */
     const canvas = document.getElementById("ribbon");
     const ctx = canvas && canvas.getContext ? canvas.getContext("2d") : null;
-    if (!ctx) { body.classList.add("no-canvas"); }
+    if (!ctx) {
+      body.classList.add("no-canvas");
+      const fb = document.querySelector(".ribbon-fallback[data-src]");
+      if (fb) fb.src = fb.dataset.src;
+    }
     else {
       const INK = "22,23,29", IND = "61,77,179", OCH = "168,119,43";
       let w = 0, h = 0, dpr = 1, raf = 0, t0 = 0, pts = [];
@@ -866,23 +901,37 @@
       }
       // start with the previous hardcoded entries so the rail is never empty
       render(fallback);
-      fetch(`https://api.github.com/repos/${LEDGER_REPO}/commits?sha=main&per_page=5`, { cache: "no-store" })
-        .then((r) => {
-          if (!r.ok) throw new Error(String(r.status));
-          const link = r.headers.get("link") || "";
-          const total = parseLastPage(link);
-          if (heightEl && total) heightEl.textContent = total;
-          return r.json();
+      // memoize the ledger for 10 minutes: instant repeat views, and kind
+      // to GitHub's unauthenticated rate limit
+      const MEMO_KEY = "lupine-ledger-v1";
+      let memo = null;
+      try { memo = JSON.parse(sessionStorage.getItem(MEMO_KEY) || "null"); } catch {}
+      if (memo && Date.now() - memo.at < 600000) {
+        if (heightEl && memo.total) heightEl.textContent = memo.total;
+        render(memo.rows);
+      } else {
+        fetch(`https://api.github.com/repos/${LEDGER_REPO}/commits?sha=main&per_page=5`, {
+          headers: { Accept: "application/vnd.github+json" },
         })
-        .then((commits) => {
-          if (!Array.isArray(commits) || !commits.length) throw new Error("empty");
-          render(commits.map((c) => ({
-            sha: String(c.sha || "").slice(0, 7),
-            date: fmtDate(c.commit && c.commit.committer ? c.commit.committer.date : c.commit.commit_date || ""),
-            msg: String(c.commit && c.commit.message ? c.commit.message.split("\n")[0] : ""),
-          })));
-        })
-        .catch(() => { /* fallback already visible */ });
+          .then((r) => {
+            if (!r.ok) throw new Error(String(r.status));
+            const link = r.headers.get("link") || "";
+            const total = parseLastPage(link);
+            if (heightEl && total) heightEl.textContent = total;
+            return r.json().then((commits) => ({ commits, total }));
+          })
+          .then(({ commits, total }) => {
+            if (!Array.isArray(commits) || !commits.length) throw new Error("empty");
+            const rows = commits.map((c) => ({
+              sha: String(c.sha || "").slice(0, 7),
+              date: fmtDate(c.commit && c.commit.committer ? c.commit.committer.date : c.commit.commit_date || ""),
+              msg: String(c.commit && c.commit.message ? c.commit.message.split("\n")[0] : ""),
+            }));
+            render(rows);
+            try { sessionStorage.setItem(MEMO_KEY, JSON.stringify({ at: Date.now(), total, rows })); } catch {}
+          })
+          .catch(() => { /* fallback already visible */ });
+      }
     })();
 
     setFocus("objective");
