@@ -403,7 +403,10 @@
          being veiled on tablets, where it lands in the fade's densest zone) */
       .mark, .horizon, .reading, .rail-ledger, .beneath, .foot { position: relative; z-index: 4; }
       .mark { padding-top: 18px; }
-      .horizon { padding-top: 38vh; }
+      /* no gradient here on mobile: now that .horizon is positioned, its
+         desktop backdrop would veil the hero band; the band's own fade
+         (.field::before) already guarantees label legibility */
+      .horizon { padding-top: 38vh; background: none; }
       /* comfortable touch targets for the term legend */
       .legend button { padding: 8px 0; }
       .equation { font-size: clamp(26px, 8vw, 44px); }
