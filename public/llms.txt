@@ -20,6 +20,8 @@ Canonical surfaces:
 
 Articles:
 
+- The Trust Layer (2026-07-05) — the founding thesis:
+  https://lupine.science/articles/the-trust-layer/
 - The Order Is Right, the Size Is Wrong (2026-07-02):
   https://lupine.science/articles/the-order-is-right-the-size-is-wrong/
 - Why Lupine Science? (2026-06-30):

@@ -16,7 +16,8 @@ const SRC = path.join(ROOT, 'articles');
 const OUT = path.join(ROOT, 'public', 'articles');
 const SITE = 'https://lupine.science';
 
-const md = new MarkdownIt({ html: true, typographer: false }).use(footnote);
+// typographer: real quotes and apostrophes in prose (code blocks untouched)
+const md = new MarkdownIt({ html: true, typographer: true }).use(footnote);
 
 // Per-article hero captions. A hero figure is emitted only when the media
 // files actually exist next to the article.
@@ -27,6 +28,8 @@ const HERO_CAPTIONS = {
     'The formalized discovery loop: define makeability rules, simulate candidates, synthesize the certified ones, and feed the results back into stronger rules.',
   'the-order-is-right-the-size-is-wrong':
     'The error field, drawn by the front door’s live instrument in its ∇ᵧE focus — each comet a model’s dominant error direction, computed from the committed benchmark data.',
+  'the-trust-layer':
+    'The instrument on the front door: the hyper-ribbon and one cavity of MOF-5, drawn live from committed data — the claim and its receipt in a single scene.',
 };
 
 const MARK_SVG = `<svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
@@ -227,9 +230,11 @@ ${PAGE_SCRIPT}\n</body>
 
 function buildIndex(articles) {
   const cards = articles.map((a) => {
-    const hasJpg = fs.existsSync(path.join(OUT, a.slug, 'hero.jpg'));
-    const thumb = hasJpg
-      ? pictureSources(a.slug, 'hero').replace('width="1280" height="720"', 'class="card-thumb" width="640" height="360"')
+    // cards use dedicated 640w thumbs; full-size heroes stay on the article
+    const base = fs.existsSync(path.join(OUT, a.slug, 'thumb.jpg')) ? 'thumb'
+      : fs.existsSync(path.join(OUT, a.slug, 'hero.jpg')) ? 'hero' : null;
+    const thumb = base
+      ? pictureSources(a.slug, base).replace('width="1280" height="720"', 'class="card-thumb" width="640" height="360"')
       : '<span class="card-thumb card-thumb-empty" aria-hidden="true"><i></i><i></i><i></i></span>';
     return `<li>
   <a class="article-card" href="/articles/${a.slug}/">
