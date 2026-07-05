@@ -21,6 +21,8 @@ fs.mkdirSync(OUT, { recursive: true });
 const VIEWPORTS = [
   { name: 'desktop', width: 1440, height: 900, deviceScaleFactor: 2 },
   { name: 'laptop', width: 1280, height: 800, deviceScaleFactor: 1 },
+  { name: 'tablet', width: 834, height: 1194, deviceScaleFactor: 2, hasTouch: true },
+  { name: 'narrow', width: 1000, height: 900, deviceScaleFactor: 1 },
   { name: 'mobile', width: 390, height: 844, deviceScaleFactor: 3, isMobile: true, hasTouch: true },
 ];
 

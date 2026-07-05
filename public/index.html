@@ -232,6 +232,8 @@
     .panel h1 { font-size: clamp(2.05rem, 4vw, 3.2rem); line-height: 1.03; letter-spacing: -0.024em; }
     .panel h2 { font-size: clamp(1.66rem, 3.2vw, 2.5rem); line-height: 1.08; letter-spacing: -0.018em; }
     .panel h1 em, .panel h2 em { font-style: italic; color: var(--indigo); }
+    /* balanced rag on display headings: no orphaned last words */
+    .panel h1, .panel h2, .b-head h2 { text-wrap: balance; }
     .panel p { margin: 0 0 16px; color: var(--ink-soft); font-size: clamp(1rem, 1.4vw, 1.12rem); line-height: 1.64; }
     .panel p:last-child { margin-bottom: 0; }
     .panel .why { font-style: italic; color: var(--ink); font-size: clamp(1.02rem, 1.4vw, 1.16rem); margin: 8px 0 22px; }
@@ -276,7 +278,13 @@
     .rail-head {
       font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--ink-faint); display: flex; justify-content: space-between; align-items: baseline;
-      padding-bottom: 10px; border-bottom: 1px solid var(--rule);
+      gap: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--rule);
+    }
+    .rail-head span { white-space: nowrap; }
+    /* the rail narrows before the mobile breakpoint — tighten the head so
+       "public ledger" and the height never collide or wrap */
+    @media (max-width: 1160px) {
+      .rail-head { font-size: 10.5px; letter-spacing: 0.1em; }
     }
     .rail-head .h { color: var(--ochre); }
     .ledger {
@@ -387,8 +395,14 @@
       #ribbon, .ribbon-fallback { position: absolute; height: 46vh; top: 0; }
       .field::before { position: absolute; width: 100%; height: 46vh; top: 0; bottom: auto;
         background: linear-gradient(180deg, rgba(250,249,246,0) 50%, var(--paper) 100%); }
+      /* block layout drops grid stacking: re-establish positioning so text
+         paints above the hero band's paper-fade overlay (the label was
+         being veiled on tablets, where it lands in the fade's densest zone) */
+      .mark, .horizon, .reading, .rail-ledger, .beneath, .foot { position: relative; z-index: 4; }
       .mark { padding-top: 18px; }
       .horizon { padding-top: 38vh; }
+      /* comfortable touch targets for the term legend */
+      .legend button { padding: 8px 0; }
       .equation { font-size: clamp(26px, 8vw, 44px); }
       .legend { margin: 16px 0 30px; }
       .reading { max-width: none; margin-bottom: 40px; }
@@ -726,7 +740,11 @@
       el.addEventListener("pointerleave", () => tip.classList.remove("show"));
       el.addEventListener("blur", () => tip.classList.remove("show"));
     }
-    document.querySelectorAll(".term").forEach(bindTip);
+    // tooltips are a hover affordance: on touch devices a tap would pin
+    // them open over the equation and legend, so bind only where hover exists
+    if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      document.querySelectorAll(".term").forEach(bindTip);
+    }
 
     document.querySelectorAll(".term, .legend button").forEach((b) => {
       b.addEventListener("click", () => {
