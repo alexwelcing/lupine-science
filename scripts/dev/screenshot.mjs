@@ -68,6 +68,12 @@ async function capture(browser, vp) {
     }
   }
 
+  // Footer close-up: detail formatting (margins, stacking, email) is
+  // exactly where small-screen sloppiness hides — capture it explicitly.
+  await page.evaluate(() => document.querySelector('.foot')?.scrollIntoView({ block: 'end' }));
+  await page.waitForTimeout(2200); // receipts line renders ~1.4s after load
+  await shot('home-foot');
+
   // Articles index + each article.
   await page.goto(`${BASE}/articles/`, { waitUntil: 'networkidle' });
   await shot('articles-index', true);

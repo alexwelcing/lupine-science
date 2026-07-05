@@ -398,7 +398,10 @@
       .rail-note { margin-top: 24px; }
       .beneath { padding-left: 22px; padding-right: 22px; }
       .b-grid, .b-cards { grid-template-columns: 1fr; }
-      .foot { padding: 26px 22px 40px; }
+      /* colophon stacks cleanly: one item per line, breathing room, no
+         justify-luck — small screens deserve deliberate margins too */
+      .foot { flex-direction: column; align-items: flex-start; gap: 12px; padding: 26px 22px 40px; }
+      .foot .creed { margin-bottom: 2px; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -584,7 +587,7 @@
   <!-- ════ COLOPHON ════ -->
   <footer class="foot">
     <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
-    <span><b>Lupine Science</b> · founder Alex Welcing · <a href="mailto:alex@lupinesci.com">alex@lupinesci.com</a></span>
+    <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
     <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
     <span class="receipts" id="receipts"></span>
   </footer>
@@ -1153,6 +1156,16 @@
           .catch(() => { /* fallback already visible */ });
       }
     })();
+
+    /* ── the founder's email, assembled here so nothing in the HTML source
+       matches an email pattern: proxies that "protect" addresses by
+       rewriting them (and then need a script our CSP rightly blocks)
+       have nothing to find. JS-off visitors see the [at] spelling. ── */
+    document.querySelectorAll("a.mail").forEach((a) => {
+      const addr = `${a.dataset.u}@${a.dataset.d}`;
+      a.href = `mailto:${addr}`;
+      a.textContent = addr;
+    });
 
     /* ── receipts: this page, measured by the visitor's own browser.
        The same ethos as the benchmark figures above: nothing typed in. ── */

@@ -76,7 +76,7 @@
     <source srcset="/articles/the-order-is-right-the-size-is-wrong/hero.webp" type="image/webp">
     <img src="/articles/the-order-is-right-the-size-is-wrong/hero.jpg" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
   </picture>
-    <span class="d8">2026-07-02</span>
+    <span class="d8">2026·07·02</span>
     <h2>The Order Is Right, the Size Is Wrong</h2>
     <p>Foundation machine-learned interatomic potentials (CHGNet, MACE-MP, MACE-MPA-0) measured across 21 materials and up to 9 properties against 228 published reference values</p>
   </a>
@@ -88,7 +88,7 @@
     <source srcset="/articles/why-lupine-science/hero.webp" type="image/webp">
     <img src="/articles/why-lupine-science/hero.jpg" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
   </picture>
-    <span class="d8">2026-06-30</span>
+    <span class="d8">2026·06·30</span>
     <h2>Why Lupine Science?</h2>
     <p>Why we are building Lupine Science, what problem we are solving, and why the answer is not more models—it is makeability you can check.</p>
   </a>
@@ -100,7 +100,7 @@
     <source srcset="/articles/from-fantasy-frameworks-to-makeable-materials/hero.webp" type="image/webp">
     <img src="/articles/from-fantasy-frameworks-to-makeable-materials/hero.jpg" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
   </picture>
-    <span class="d8">2026-06-25</span>
+    <span class="d8">2026·06·25</span>
     <h2>From Fantasy Frameworks to Makeable Materials: A Prospectus for Formalized MOF Discovery</h2>
     <p>Why the next leap in AI-driven materials science needs theorem-proved certificates of synthesizability, and how a lab partnership can close the generate–test–learn loop.</p>
   </a>
@@ -109,8 +109,27 @@
   </main>
   <footer class="foot">
     <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
-    <span><b>Lupine Science</b> · founder Alex Welcing · <a href="mailto:alex@lupinesci.com">alex@lupinesci.com</a></span>
+    <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
     <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
   </footer>
+<script>
+(() => {
+  document.querySelectorAll("a.mail").forEach((a) => {
+    const addr = a.dataset.u + "@" + a.dataset.d;
+    a.href = "mailto:" + addr;
+    a.textContent = addr;
+  });
+  const vids = document.querySelectorAll("video[data-autoplay]");
+  if (!vids.length) return;
+  if (!("IntersectionObserver" in window)) { vids.forEach((v) => { v.preload = "metadata"; }); return; }
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) { e.target.play().catch(() => {}); }
+      else { e.target.pause(); }
+    }
+  }, { rootMargin: "120px" });
+  vids.forEach((v) => io.observe(v));
+})();
+</script>
 </body>
 </html>

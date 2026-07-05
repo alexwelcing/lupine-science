@@ -198,6 +198,9 @@ main, header.site-header, footer.foot { position: relative; z-index: 4; }
   .site-header { flex-wrap: wrap; }
   .site-nav { gap: 16px; }
   .article-list { grid-template-columns: 1fr; }
+  /* colophon stacks cleanly on small screens */
+  .foot { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .foot .creed { margin-bottom: 2px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
