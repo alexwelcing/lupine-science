@@ -78,9 +78,9 @@
 </figure>
 <aside class="article-meta" aria-label="Article metadata">
 <p><strong>Field note from the live lab</strong></p>
-<p><strong>Date:</strong> 2026-07-02
-<strong>Scope:</strong> Foundation machine-learned interatomic potentials (CHGNet, MACE-MP, MACE-MPA-0) measured across 21 materials and up to 9 properties against 228 published reference values
-<strong>Status:</strong> Live evidence — every number below is sealed as a machine-checked theorem over provenance-hashed data; kills and corrections are preserved in the record
+<p><strong>Date:</strong> 2026-07-02<br>
+<strong>Scope:</strong> Foundation machine-learned interatomic potentials (CHGNet, MACE-MP, MACE-MPA-0) measured across 21 materials and up to 9 properties against 228 published reference values<br>
+<strong>Status:</strong> Live evidence — every number below is sealed as a machine-checked theorem over provenance-hashed data; kills and corrections are preserved in the record<br>
 <strong>Artifacts:</strong> manuscript, pre-registration with amendments, 100+ Lean theorems, and the full evidence corpus in the <a href="https://github.com/alexwelcing/lupine-rhizo/pull/14">repository</a> and <a href="https://library.lupine.science">Library</a></p>
 </aside>
 <hr>
@@ -96,12 +96,12 @@ correctable, and honest about its own limits.</p>
 <h2>What did not survive</h2>
 <p>We pre-registered the obvious hypotheses first, with coupling-aware nulls —
 statistical controls that grant the physics its own internal correlations
-before crediting any model with &quot;shared structure.&quot;</p>
+before crediting any model with “shared structure.”</p>
 <p>Two headline hypotheses died. Cross-property error is <strong>not</strong> low-dimensional
 in the linear sense: participation ratios sit inside the null band. And
 apparent cross-model alignment — raw cosine similarities as high as 0.96 —
 sits <em>inside</em> a null that reaches 0.98. A naive analysis would have published
-both as discoveries. The nulls exist so that we don't.</p>
+both as discoveries. The nulls exist so that we don’t.</p>
 <p>The kills are preserved in the registration document alongside a third entry:
 our own first explanation for an iron anomaly, falsified by measurement the
 same day it was written, with the falsification logged in place.</p>
@@ -115,7 +115,7 @@ right; the size is wrong.</p>
 and the two parameters have different owners. The exponent belongs to the
 <em>property family</em> — surfaces sit near α ≈ 1.10 in all four models, across
 two architectures and three training sets — while the prefactor belongs to
-the <em>model's training data</em>, moving from 0.66 (CHGNet) toward 1 (0.98,
+the <em>model’s training data</em>, moving from 0.66 (CHGNet) toward 1 (0.98,
 OMat-lineage MACE) as training distributions improve. Retraining fixes the
 bias and barely touches the exponent.</p>
 <p><strong>A field.</strong> Both regularities are projections of something simpler
@@ -141,7 +141,7 @@ by the Lean proof kernel — the system refuses, with a proof, before a
 core-hour is spent.</p>
 <p>One null result is part of the record: the first-shell field corrects
 energies, not near-equilibrium forces — force error lives in the curvature,
-not the coordination step. That boundary is stated in the manuscript's
+not the coordination step. That boundary is stated in the manuscript’s
 abstract, because knowing where a method stops is most of knowing what it is.</p>
 <h2>Why the proof kernel is in the loop</h2>
 <p>Every claim above — the wins, the kills, the impossibility — is sealed as
@@ -169,15 +169,34 @@ break the picture, that will be published here with the same prominence.</p>
 <p><em>Evidence trail: pre-registration and amendments, confirmatory artifacts,
 statistical hardening, the manuscript with its five-figure hashed pipeline,
 and the Lean modules are in the <a href="https://github.com/alexwelcing/lupine-rhizo">repository</a>
-and the <a href="https://library.lupine.science">Lupine Library</a>. The ledger's
+and the <a href="https://library.lupine.science">Lupine Library</a>. The ledger’s
 records landed under <code>y-matrix-2026-07-02</code>.</em></p>
 
     </article>
   </main>
   <footer class="foot">
     <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
-    <span><b>Lupine Science</b> · founder Alex Welcing · <a href="mailto:alex@lupinesci.com">alex@lupinesci.com</a></span>
+    <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
     <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
   </footer>
+<script>
+(() => {
+  document.querySelectorAll("a.mail").forEach((a) => {
+    const addr = a.dataset.u + "@" + a.dataset.d;
+    a.href = "mailto:" + addr;
+    a.textContent = addr;
+  });
+  const vids = document.querySelectorAll("video[data-autoplay]");
+  if (!vids.length) return;
+  if (!("IntersectionObserver" in window)) { vids.forEach((v) => { v.preload = "metadata"; }); return; }
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) { e.target.play().catch(() => {}); }
+      else { e.target.pause(); }
+    }
+  }, { rootMargin: "120px" });
+  vids.forEach((v) => io.observe(v));
+})();
+</script>
 </body>
 </html>

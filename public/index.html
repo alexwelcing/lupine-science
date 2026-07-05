@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lupine Science — Unlocking the materials that build the future</title>
-  <meta name="description" content="Lupine Science accelerates materials discovery by making AI's predictions of matter trustworthy. The mathematics is how; the materials are why.">
+  <meta name="description" content="The future is made of matter that doesn’t exist yet. Lupine Science makes AI's predictions of matter provable — mathematics a computer checks, evidence anyone can audit — so discovery stops waiting on guesswork.">
   <meta name="robots" content="index,follow">
   <meta property="og:title" content="Lupine Science — Unlocking the materials that build the future">
-  <meta property="og:description" content="Accelerating materials discovery by making AI's predictions of matter trustworthy. The mathematics is how; the materials are why.">
+  <meta property="og:description" content="The future is made of matter that doesn’t exist yet. We make AI's predictions of matter provable, so discovery stops waiting on guesswork.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lupine.science/">
   <meta property="og:image" content="https://lupine.science/og-lupine-science.png">
@@ -232,6 +232,8 @@
     .panel h1 { font-size: clamp(2.05rem, 4vw, 3.2rem); line-height: 1.03; letter-spacing: -0.024em; }
     .panel h2 { font-size: clamp(1.66rem, 3.2vw, 2.5rem); line-height: 1.08; letter-spacing: -0.018em; }
     .panel h1 em, .panel h2 em { font-style: italic; color: var(--indigo); }
+    /* balanced rag on display headings: no orphaned last words */
+    .panel h1, .panel h2, .b-head h2 { text-wrap: balance; }
     .panel p { margin: 0 0 16px; color: var(--ink-soft); font-size: clamp(1rem, 1.4vw, 1.12rem); line-height: 1.64; }
     .panel p:last-child { margin-bottom: 0; }
     .panel .why { font-style: italic; color: var(--ink); font-size: clamp(1.02rem, 1.4vw, 1.16rem); margin: 8px 0 22px; }
@@ -276,7 +278,13 @@
     .rail-head {
       font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--ink-faint); display: flex; justify-content: space-between; align-items: baseline;
-      padding-bottom: 10px; border-bottom: 1px solid var(--rule);
+      gap: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--rule);
+    }
+    .rail-head span { white-space: nowrap; }
+    /* the rail narrows before the mobile breakpoint — tighten the head so
+       "public ledger" and the height never collide or wrap */
+    @media (max-width: 1160px) {
+      .rail-head { font-size: 10.5px; letter-spacing: 0.1em; }
     }
     .rail-head .h { color: var(--ochre); }
     .ledger {
@@ -322,6 +330,19 @@
       font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.24em;
       text-transform: uppercase; color: var(--indigo); margin: 0 0 16px;
     }
+    /* the manifesto strip: three beats of why-now, then our place */
+    .manifesto { padding-bottom: 0; }
+    .m-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: clamp(28px, 4vw, 64px); border-top: 1px solid var(--rule); padding-top: 36px;
+    }
+    .m-grid p { font-size: clamp(1.02rem, 1.35vw, 1.18rem); line-height: 1.58; margin: 0; color: var(--ink-soft); }
+    .m-grid b { display: block; font-weight: 500; color: var(--ink); font-size: clamp(1.14rem, 1.6vw, 1.35rem); margin-bottom: 10px; line-height: 1.28; }
+    .m-grid em, .m-place em { color: var(--indigo); }
+    .m-place {
+      margin: clamp(34px, 5vh, 54px) 0 0; max-width: 62ch;
+      font-size: clamp(1.06rem, 1.5vw, 1.25rem); line-height: 1.6; font-style: italic; color: var(--ink);
+    }
     .b-head h2 {
       font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 400; line-height: 1.16;
       letter-spacing: -0.012em; margin: 0 0 42px; max-width: 11.8em;
@@ -331,6 +352,9 @@
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: clamp(28px, 4vw, 64px); border-top: 1px solid var(--rule); padding-top: 36px;
     }
+    /* links share one baseline row regardless of column text length */
+    .b-grid article { display: flex; flex-direction: column; }
+    .b-grid article a { margin-top: auto; }
     .b-grid h3 { font-size: 1.16rem; font-weight: 500; line-height: 1.32; margin: 0 0 10px; }
     .b-grid p { font-size: 0.98rem; line-height: 1.62; color: var(--ink-soft); margin: 0 0 14px; }
     .b-grid a { font-family: var(--mono); font-size: 13px; color: var(--indigo); }
@@ -387,8 +411,17 @@
       #ribbon, .ribbon-fallback { position: absolute; height: 46vh; top: 0; }
       .field::before { position: absolute; width: 100%; height: 46vh; top: 0; bottom: auto;
         background: linear-gradient(180deg, rgba(250,249,246,0) 50%, var(--paper) 100%); }
+      /* block layout drops grid stacking: re-establish positioning so text
+         paints above the hero band's paper-fade overlay (the label was
+         being veiled on tablets, where it lands in the fade's densest zone) */
+      .mark, .horizon, .reading, .rail-ledger, .beneath, .foot { position: relative; z-index: 4; }
       .mark { padding-top: 18px; }
-      .horizon { padding-top: 38vh; }
+      /* no gradient here on mobile: now that .horizon is positioned, its
+         desktop backdrop would veil the hero band; the band's own fade
+         (.field::before) already guarantees label legibility */
+      .horizon { padding-top: 38vh; background: none; }
+      /* comfortable touch targets for the term legend */
+      .legend button { padding: 8px 0; }
       .equation { font-size: clamp(26px, 8vw, 44px); }
       .legend { margin: 16px 0 30px; }
       .reading { max-width: none; margin-bottom: 40px; }
@@ -397,8 +430,11 @@
       .rail-ledger { padding-top: 26px; border-top: 1px solid var(--rule); }
       .rail-note { margin-top: 24px; }
       .beneath { padding-left: 22px; padding-right: 22px; }
-      .b-grid, .b-cards { grid-template-columns: 1fr; }
-      .foot { padding: 26px 22px 40px; }
+      .b-grid, .b-cards, .m-grid { grid-template-columns: 1fr; gap: 26px; }
+      /* colophon stacks cleanly: one item per line, breathing room, no
+         justify-luck — small screens deserve deliberate margins too */
+      .foot { flex-direction: column; align-items: flex-start; gap: 12px; padding: 26px 22px 40px; }
+      .foot .creed { margin-bottom: 2px; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -449,7 +485,7 @@
 
     <!-- ════ EQUATION HORIZON (the navigation) ════ -->
     <header class="horizon">
-      <p class="label">How we accelerate discovery — click a term to open its evidence</p>
+      <p class="label">Intelligence proposes. Proof makes it real — click a term to open its evidence</p>
       <div class="equation" role="group" aria-label="L of theta equals the integral over the manifold of the squared error-vector norm, plus the ledger term">
         <button type="button" class="term" data-focus="objective" aria-pressed="true"
           data-tip="<b>L(θ)</b> — what we minimize to make a prediction trustworthy: the <em>structured</em> error of a potential θ over all the evidence. The first step to discovering real materials. Click any term to isolate it.">
@@ -483,8 +519,8 @@
       <div class="evidence">
         <article class="panel" data-panel="objective" data-active>
           <p class="tag"><span class="dot"></span>L(θ) · the mission</p>
-          <h1>Unlocking the materials that <em>build the future.</em></h1>
-          <p>AI is learning to design matter — the batteries, catalysts, alloys and chips a civilization runs on — but on simulations that are wrong in structured ways. Lupine makes those predictions trustworthy, so discovery <em>accelerates</em> instead of stalling on guesswork.</p>
+          <h1>The future is made of matter that <em>doesn’t exist yet.</em></h1>
+          <p>Grid-scale batteries, catalysts that make clean industry cheap, carbon that returns to stone — each waits on a material nobody has made. AI is learning to design matter, imagining millions of candidates a day. But a model can be confident and wrong. Lupine makes its predictions <em>provable</em> — mathematics a computer checks, evidence anyone can audit — so the future stops waiting on guesswork.</p>
           <p class="why">The mathematics is <em>how.</em> The materials are <em>why.</em></p>
           <p class="prov"><span class="live-dot2" aria-hidden="true"></span><span id="prov-objective">computing the manifold live from the committed benchmark…</span></p>
           <div class="routes">
@@ -535,6 +571,16 @@
   </main>
 
   <!-- ════ BENEATH THE INSTRUMENT — the substance, one scroll down ════ -->
+  <section class="beneath manifesto" aria-label="Why now">
+    <p class="b-label">Why now — and why in the open</p>
+    <div class="m-grid">
+      <p><b>Imagination stopped being the bottleneck.</b> Generative models propose new materials faster than any lab could ever test them — whole libraries of candidate matter, invented before lunch.</p>
+      <p><b>Simulation stopped being the bottleneck.</b> Machine-learned potentials now test candidates at software speed, and the mathematics of <em>when to believe them</em> is finally tractable.</p>
+      <p><b>Belief is the bottleneck.</b> A lab bets a year of its life on a shortlist. Knowing which predictions deserve that year is the question that gates everything — so it is the one we chose. We answer it with proof, in public: <em>verified once, reusable by everyone.</em></p>
+    </div>
+    <p class="m-place">Model builders gain predictions the world can believe. Labs gain shortlists worth their year. Proofs gain somewhere to matter. That is our place in the ecosystem — <em>the trust layer between imagination and the bench.</em></p>
+  </section>
+
   <section class="beneath" aria-label="What this unlocks">
     <header class="b-head">
       <p class="b-label">What this unlocks</p>
@@ -543,7 +589,7 @@
     <div class="b-grid">
       <article>
         <h3>Batteries that hold more and degrade slower.</h3>
-        <p>Energy storage lives and dies on electrode and electrolyte materials. When a model's errors are characterized, a lab can trust its shortlist — and spend the year on the ten candidates that matter instead of the thousand that don't.</p>
+        <p>Energy storage lives and dies on electrode and electrolyte materials. When a model’s errors are characterized, a lab can trust its shortlist — and spend the year on the ten candidates that matter instead of the thousand that don’t.</p>
         <a href="https://library.lupine.science">Read the research <span class="ar">→</span></a>
       </article>
       <article>
@@ -561,15 +607,15 @@
     <div class="b-notebook">
       <p class="b-label">From the notebook</p>
       <div class="b-cards">
+        <a href="/articles/the-trust-layer/">
+          <span class="d8">2026·07·05</span>
+          <h3>The Trust Layer</h3>
+          <p>Why the future arrives at the speed of belief — the founding thesis, and the proof infrastructure we are building in the open.</p>
+        </a>
         <a href="/articles/the-order-is-right-the-size-is-wrong/">
           <span class="d8">2026·07·02</span>
           <h3>The Order Is Right, the Size Is Wrong</h3>
           <p>Foundation potentials measured across 21 materials against 228 published reference values — mapping the environment error field.</p>
-        </a>
-        <a href="/articles/why-lupine-science/">
-          <span class="d8">2026·06·30</span>
-          <h3>Why Lupine Science?</h3>
-          <p>What problem we are solving, and why the answer is not more models — it is makeability you can check.</p>
         </a>
         <a href="/articles/from-fantasy-frameworks-to-makeable-materials/">
           <span class="d8">2026·06·25</span>
@@ -584,7 +630,7 @@
   <!-- ════ COLOPHON ════ -->
   <footer class="foot">
     <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
-    <span><b>Lupine Science</b> · founder Alex Welcing · <a href="mailto:alex@lupinesci.com">alex@lupinesci.com</a></span>
+    <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
     <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
     <span class="receipts" id="receipts"></span>
   </footer>
@@ -723,7 +769,11 @@
       el.addEventListener("pointerleave", () => tip.classList.remove("show"));
       el.addEventListener("blur", () => tip.classList.remove("show"));
     }
-    document.querySelectorAll(".term").forEach(bindTip);
+    // tooltips are a hover affordance: on touch devices a tap would pin
+    // them open over the equation and legend, so bind only where hover exists
+    if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      document.querySelectorAll(".term").forEach(bindTip);
+    }
 
     document.querySelectorAll(".term, .legend button").forEach((b) => {
       b.addEventListener("click", () => {
@@ -1153,6 +1203,16 @@
           .catch(() => { /* fallback already visible */ });
       }
     })();
+
+    /* ── the founder's email, assembled here so nothing in the HTML source
+       matches an email pattern: proxies that "protect" addresses by
+       rewriting them (and then need a script our CSP rightly blocks)
+       have nothing to find. JS-off visitors see the [at] spelling. ── */
+    document.querySelectorAll("a.mail").forEach((a) => {
+      const addr = `${a.dataset.u}@${a.dataset.d}`;
+      a.href = `mailto:${addr}`;
+      a.textContent = addr;
+    });
 
     /* ── receipts: this page, measured by the visitor's own browser.
        The same ethos as the benchmark figures above: nothing typed in. ── */

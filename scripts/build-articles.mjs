@@ -16,7 +16,8 @@ const SRC = path.join(ROOT, 'articles');
 const OUT = path.join(ROOT, 'public', 'articles');
 const SITE = 'https://lupine.science';
 
-const md = new MarkdownIt({ html: true, typographer: false }).use(footnote);
+// typographer: real quotes and apostrophes in prose (code blocks untouched)
+const md = new MarkdownIt({ html: true, typographer: true }).use(footnote);
 
 // Per-article hero captions. A hero figure is emitted only when the media
 // files actually exist next to the article.
@@ -27,6 +28,8 @@ const HERO_CAPTIONS = {
     'The formalized discovery loop: define makeability rules, simulate candidates, synthesize the certified ones, and feed the results back into stronger rules.',
   'the-order-is-right-the-size-is-wrong':
     'The error field, drawn by the front door’s live instrument in its ∇ᵧE focus — each comet a model’s dominant error direction, computed from the committed benchmark data.',
+  'the-trust-layer':
+    'The instrument on the front door: the hyper-ribbon and one cavity of MOF-5, drawn live from committed data — the claim and its receipt in a single scene.',
 };
 
 const MARK_SVG = `<svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
@@ -99,10 +102,16 @@ ${avif ? `    <source srcset="/articles/${slug}/${base}.avif" type="image/avif">
   </picture>`;
 }
 
-// Lazy-start hero videos only when they scroll into view (preload=none keeps
-// them off the critical path entirely).
-const PLAY_SCRIPT = `<script>
+// One small script on every page: assemble the email client-side (so no
+// email pattern exists in the HTML source for rewriting proxies to mangle),
+// and lazy-start hero videos only when they scroll into view.
+const PAGE_SCRIPT = `<script>
 (() => {
+  document.querySelectorAll("a.mail").forEach((a) => {
+    const addr = a.dataset.u + "@" + a.dataset.d;
+    a.href = "mailto:" + addr;
+    a.textContent = addr;
+  });
   const vids = document.querySelectorAll("video[data-autoplay]");
   if (!vids.length) return;
   if (!("IntersectionObserver" in window)) { vids.forEach((v) => { v.preload = "metadata"; }); return; }
@@ -158,7 +167,7 @@ function chrome(inner) {
 ${inner}
   <footer class="foot">
     <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
-    <span><b>Lupine Science</b> · founder Alex Welcing · <a href="mailto:alex@lupinesci.com">alex@lupinesci.com</a></span>
+    <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
     <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
   </footer>`;
 }
@@ -199,7 +208,6 @@ function buildArticle(raw, slug) {
     publisher: { '@type': 'Organization', name: 'Lupine Science', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/lupine-science-icon.png` } },
   };
 
-  const needsPlayer = /data-autoplay/.test(body);
   // the hero poster is the LCP element on video-hero pages — fetch it first
   const hasMp4 = fs.existsSync(path.join(OUT, slug, 'hero.mp4'));
   const preloadImage = hasMp4 && hasJpg ? `/articles/${slug}/hero.jpg` : undefined;
@@ -214,7 +222,7 @@ ${chrome(`  <main id="content" class="article-shell">
       ${body}
     </article>
   </main>`)}
-${needsPlayer ? PLAY_SCRIPT + '\n' : ''}</body>
+${PAGE_SCRIPT}\n</body>
 </html>
 `;
   return { page, title, description, meta, slug };
@@ -222,14 +230,16 @@ ${needsPlayer ? PLAY_SCRIPT + '\n' : ''}</body>
 
 function buildIndex(articles) {
   const cards = articles.map((a) => {
-    const hasJpg = fs.existsSync(path.join(OUT, a.slug, 'hero.jpg'));
-    const thumb = hasJpg
-      ? pictureSources(a.slug, 'hero').replace('width="1280" height="720"', 'class="card-thumb" width="640" height="360"')
+    // cards use dedicated 640w thumbs; full-size heroes stay on the article
+    const base = fs.existsSync(path.join(OUT, a.slug, 'thumb.jpg')) ? 'thumb'
+      : fs.existsSync(path.join(OUT, a.slug, 'hero.jpg')) ? 'hero' : null;
+    const thumb = base
+      ? pictureSources(a.slug, base).replace('width="1280" height="720"', 'class="card-thumb" width="640" height="360"')
       : '<span class="card-thumb card-thumb-empty" aria-hidden="true"><i></i><i></i><i></i></span>';
     return `<li>
   <a class="article-card" href="/articles/${a.slug}/">
     ${thumb}
-    <span class="d8">${a.meta.date || ''}</span>
+    <span class="d8">${(a.meta.date || '').replaceAll('-', '·')}</span>
     <h2>${a.title}</h2>
     <p>${a.description}</p>
   </a>
@@ -264,6 +274,7 @@ ${chrome(`  <main id="content" class="article-index">
 ${cards}
     </ul>
   </main>`)}
+${PAGE_SCRIPT}
 </body>
 </html>
 `;
