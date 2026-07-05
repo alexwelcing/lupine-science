@@ -35,17 +35,43 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # sitemap lastmod dates come from git history
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install build tooling
+        run: npm ci
+
+      - name: Build must be deterministic (committed output = sources)
+        run: |
+          npm run build
+          git diff --exit-code || { echo "::error::committed output is stale — run 'npm run build' and commit"; exit 1; }
+
+      - name: Verify static surface + performance budget
+        run: npm run verify
+
+  lighthouse:
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: '22'
 
-      - name: Verify static surface
-        run: npm run verify
+      - name: Lighthouse CI (scores gate the deploy)
+        run: npx --yes @lhci/cli@0.15.x autorun --config=lighthouserc.json
 
   deploy-preview:
-    needs: verify
+    needs: [verify, lighthouse]
     if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref_name != 'main')
     runs-on: ubuntu-latest
 
@@ -106,7 +132,7 @@ jobs:
         run: echo "${{ steps.deploy.outputs.url }}"
 
   deploy-production:
-    needs: verify
+    needs: [verify, lighthouse]
     if: (github.event_name == 'push' && github.ref_name == 'main') || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
 
@@ -176,6 +202,13 @@ jobs:
           done
           echo "::error::Custom domain smoke test failed"
           exit 1
+
+      - name: Security headers are live
+        run: |
+          hdrs=$(curl -sI https://lupine.science/ -m 10)
+          echo "$hdrs" | grep -qi "content-security-policy" || { echo "::error::CSP header missing on production"; exit 1; }
+          echo "$hdrs" | grep -qi "strict-transport-security" || { echo "::error::HSTS header missing on production"; exit 1; }
+          echo "Security headers verified"
 
       - name: Show output
         run: echo "${{ steps.deploy.outputs.url }}"

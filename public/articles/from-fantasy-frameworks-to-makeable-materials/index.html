@@ -6,6 +6,7 @@
   <title>From Fantasy Frameworks to Makeable Materials: A Prospectus for Formalized MOF Discovery — Lupine Science</title>
   <meta name="description" content="Why the next leap in AI-driven materials science needs theorem-proved certificates of synthesizability, and how a lab partnership can close the generate–test–learn loop.">
   <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://lupine.science/articles/from-fantasy-frameworks-to-makeable-materials/">
   <meta property="og:title" content="From Fantasy Frameworks to Makeable Materials: A Prospectus for Formalized MOF Discovery — Lupine Science">
   <meta property="og:description" content="Why the next leap in AI-driven materials science needs theorem-proved certificates of synthesizability, and how a lab partnership can close the generate–test–learn loop.">
   <meta property="og:type" content="article">
@@ -18,13 +19,14 @@
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
   <link rel="icon" type="image/png" href="/lupine-science-icon.png">
   <link rel="apple-touch-icon" href="/lupine-science-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/articles/from-fantasy-frameworks-to-makeable-materials/hero.jpg" as="image" fetchpriority="high">
   <link rel="stylesheet" href="/articles/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"From Fantasy Frameworks to Makeable Materials: A Prospectus for Formalized MOF Discovery","description":"Why the next leap in AI-driven materials science needs theorem-proved certificates of synthesizability, and how a lab partnership can close the generate–test–learn loop.","datePublished":"2026-06-25","url":"https://lupine.science/articles/from-fantasy-frameworks-to-makeable-materials/","mainEntityOfPage":"https://lupine.science/articles/from-fantasy-frameworks-to-makeable-materials/","image":"https://lupine.science/articles/from-fantasy-frameworks-to-makeable-materials/hero.jpg","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png"}}}</script>
 </head>
 <body>
-  <a class="skip" href="#article">Skip to article</a>
+  <a class="skip" href="#content">Skip to content</a>
   <header class="site-header">
     <a class="mark" href="/" aria-label="Lupine Science">
       <svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
@@ -59,36 +61,35 @@
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/">Home</a>
-      <a href="/articles/">Articles</a>
+      <a href="/articles/" aria-current="page">Articles</a>
       <a href="https://library.lupine.science">Library</a>
       <a href="https://lupi.live">LUPI</a>
     </nav>
   </header>
-  <main id="article" class="article-shell">
+  <main id="content" class="article-shell">
     <article class="article">
       <h1>From Fantasy Frameworks to Makeable Materials: A Prospectus for Formalized MOF Discovery</h1>
 <figure class="article-hero" aria-labelledby="hero-caption">
-  <video autoplay loop muted playsinline poster="hero.jpg" aria-label="MOF discovery flywheel: formalize, simulate, synthesize, feedback.">
-    <source src="hero.mp4" type="video/mp4">
-    <img src="hero.jpg" alt="MOF discovery flywheel: formalize, simulate, synthesize, feedback.">
+  <video preload="none" loop muted playsinline poster="/articles/from-fantasy-frameworks-to-makeable-materials/hero.jpg" width="1280" height="720" data-autoplay aria-label="The formalized discovery loop: define makeability rules, simulate candidates, synthesize the certified ones, and feed the results back into stronger rules.">
+    <source src="/articles/from-fantasy-frameworks-to-makeable-materials/hero.mp4" type="video/mp4">
   </video>
   <figcaption id="hero-caption">The formalized discovery loop: define makeability rules, simulate candidates, synthesize the certified ones, and feed the results back into stronger rules.</figcaption>
 </figure>
-<div class="article-meta">
+<aside class="article-meta" aria-label="Article metadata">
 <p><strong>A proposal for a joint research-and-formalization program</strong></p>
-<p><strong>Date:</strong> 2026-06-25<br />
-<strong>Scope:</strong> Metal–organic frameworks (MOFs), covalent organic frameworks (COFs), and other high-value reticular / complex molecular structures<br />
-<strong>Description:</strong> Why the next leap in AI-driven materials science needs theorem-proved certificates of synthesizability, and how a lab partnership can close the generate–test–learn loop.<br />
-<strong>Audience:</strong> Investors, materials scientists, and AI-for-science teams<br />
+<p><strong>Date:</strong> 2026-06-25<br>
+<strong>Scope:</strong> Metal–organic frameworks (MOFs), covalent organic frameworks (COFs), and other high-value reticular / complex molecular structures<br>
+<strong>Description:</strong> Why the next leap in AI-driven materials science needs theorem-proved certificates of synthesizability, and how a lab partnership can close the generate–test–learn loop.<br>
+<strong>Audience:</strong> Investors, materials scientists, and AI-for-science teams<br>
 <strong>Status:</strong> Draft for discussion</p>
-</div>
-<hr />
+</aside>
+<hr>
 <h2>The headline</h2>
 <p>Generative AI can now invent millions of new metal–organic frameworks. What it cannot yet do is <strong>promise that any of them can be made</strong>.</p>
-<p>In the first half of 2026, that gap has become the central bottleneck in materials AI. A <em>Chemical Science</em> perspective published in June calls synthetic likelihood “a fundamental challenge” and argues the field must move from performance-driven screening to <strong>synthesis-informed design</strong>, with free energy as the physically grounded metric.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> A January 2026 analysis put the scale of the problem in stark terms: of thousands of computational MOF screenings, only about a dozen had been accompanied by actual synthesis.<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<p>In the first half of 2026, that gap has become the central bottleneck in materials AI. A <em>Chemical Science</em> perspective published in June calls synthetic likelihood “a fundamental challenge” and argues the field must move from performance-driven screening to <strong>synthesis-informed design</strong>, with free energy as the physically grounded metric.<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> A January 2026 analysis put the scale of the problem in stark terms: of thousands of computational MOF screenings, only about a dozen had been accompanied by actual synthesis.<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></p>
 <p>We propose the next phase of the <strong>OpenDistillationFactory</strong> formalization effort: a theorem-proved “makeability layer” for AI-generated materials, built in partnership with a research organization that can both generate structures and test them in a lab.</p>
 <p>The goal is a flywheel in which every simulated candidate carries a formal certificate of validity, every experiment updates the certificate rules, and every cycle makes the next cycle faster.</p>
-<hr />
+<hr>
 <h2>A one-minute primer</h2>
 <p>For readers who do not spend their days inside reticular chemistry or proof assistants:</p>
 <ul>
@@ -98,13 +99,13 @@
 <li><strong>Formalization</strong> means encoding the rules of MOF assembly, stability, and synthesis in a proof assistant (we use <strong>Lean 4</strong>) and proving theorems about them. The output is not a prediction; it is a <strong>certificate</strong>: a machine-checkable argument that a candidate satisfies stated assumptions.</li>
 </ul>
 <p>The question this prospectus answers is: what would a formalized materials-discovery pipeline look like, and why should a materials-generation lab partner with us to build it?</p>
-<hr />
+<hr>
 <h2>Why now? The H1 2026 landscape</h2>
-<p><strong>China</strong> is pushing the synthesis frontier. In May 2026, researchers reported that an alternating electric field can cut MOF synthesis from overnight to 15–60 minutes without added heat or catalysts.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> A June 2026 study described light-driven synthesis “beyond thermodynamic constraints.”<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup> Tsinghua and Nanjing University’s <strong>MOF-LLM</strong> is the first large-language-model system for block-level MOF structure prediction.<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup> Chinese institutions also dominate the patent landscape for covalent organic frameworks.<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup></p>
-<p><strong>The United States</strong> is pushing the generative-model and autonomous-lab frontier. Microsoft’s <strong>MatterGen</strong> demonstrated property-conditioned diffusion for inorganic crystals.<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup> Google DeepMind’s <strong>GNoME</strong> seeded an active-learning recipe that is now being replicated across the field.<sup id="fnref:8"><a class="footnote-ref" href="#fn:8">8</a></sup> Foundation machine-learning interatomic potentials such as <strong>MACE-MP-0</strong> are replacing DFT in production molecular dynamics at national labs.<sup id="fnref:9"><a class="footnote-ref" href="#fn:9">9</a></sup> The NSF AI-for-Materials Research Institutes and DARPA FY2026 materials programs are investing heavily in “scientific AI” that extracts generalizable abstractions from experimental data.<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">10</a></sup><sup id="fnref:11"><a class="footnote-ref" href="#fn:11">11</a></sup></p>
+<p><strong>China</strong> is pushing the synthesis frontier. In May 2026, researchers reported that an alternating electric field can cut MOF synthesis from overnight to 15–60 minutes without added heat or catalysts.<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> A June 2026 study described light-driven synthesis “beyond thermodynamic constraints.”<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup> Tsinghua and Nanjing University’s <strong>MOF-LLM</strong> is the first large-language-model system for block-level MOF structure prediction.<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> Chinese institutions also dominate the patent landscape for covalent organic frameworks.<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></p>
+<p><strong>The United States</strong> is pushing the generative-model and autonomous-lab frontier. Microsoft’s <strong>MatterGen</strong> demonstrated property-conditioned diffusion for inorganic crystals.<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup> Google DeepMind’s <strong>GNoME</strong> seeded an active-learning recipe that is now being replicated across the field.<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup> Foundation machine-learning interatomic potentials such as <strong>MACE-MP-0</strong> are replacing DFT in production molecular dynamics at national labs.<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup> The NSF AI-for-Materials Research Institutes and DARPA FY2026 materials programs are investing heavily in “scientific AI” that extracts generalizable abstractions from experimental data.<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup><sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup></p>
 <p>The common thread: both sides have moved past the “generate more structures” phase and are converging on the same question: <strong>which generated structures are worth making?</strong></p>
 <p>That is a formalization problem in disguise.</p>
-<hr />
+<hr>
 <h2>What formalization adds to each stakeholder</h2>
 <h3>For investors: de-risk the bet</h3>
 <p>Materials AI has produced eye-popping demos, but the path from demo to product is littered with structures that look good on paper and fail in the lab. A formalized pipeline changes the investment case:</p>
@@ -119,7 +120,7 @@
 <ul>
 <li>A shared vocabulary for <strong>valid assembly</strong> (charge balance, valence, topology, no atomic clashes).</li>
 <li>Explicit <strong>stability thresholds</strong> drawn from the literature, not from model optimism.</li>
-<li>A <strong>data-audit layer</strong> that catches the structural errors, duplicate polymorphs, and oxidation-state mistakes that plague curated databases.<sup id="fnref2:12"><a class="footnote-ref" href="#fn:12">12</a></sup></li>
+<li>A <strong>data-audit layer</strong> that catches the structural errors, duplicate polymorphs, and oxidation-state mistakes that plague curated databases.<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup></li>
 <li>Synthesis-condition predicates that connect a candidate structure to a real protocol: solvothermal, electric-field, microwave, or mechanochemical.</li>
 </ul>
 <h3>For AI-for-science teams: correctness as a feature</h3>
@@ -129,7 +130,7 @@
 <li><strong>Benchmarks</strong> defined by provable properties, not just leaderboard rankings.</li>
 <li><strong>Uncertainty quantification</strong> tied to certificate coverage: a candidate is either inside the certified region or flagged as outside.</li>
 </ul>
-<hr />
+<hr>
 <h2>The proposed formalization roadmap</h2>
 <p>We would build the makeability layer as a series of Lean modules. Each module addresses a distinct gap in the current pipeline.</p>
 <h3>1. <code>ReticularAssembly.lean</code> — what is a valid structure?</h3>
@@ -142,7 +143,7 @@
 </ul>
 <p><strong>Key theorem class:</strong> charge balance, valence satisfaction, and net compatibility are decidable for a given assembly.</p>
 <h3>2. <code>Synthesizability.lean</code> — can it be made?</h3>
-<p>The core makeability certificate. It formalizes the free-energy and kinetic-accessibility arguments that the <em>Chemical Science</em> perspective identifies as central:<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<p>The core makeability certificate. It formalizes the free-energy and kinetic-accessibility arguments that the <em>Chemical Science</em> perspective identifies as central:<sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup></p>
 <ul>
 <li>Free-energy window relative to competing phases.</li>
 <li>Linker-strain bounds.</li>
@@ -174,7 +175,7 @@
 <li>Disorder and partial-occupancy flags.</li>
 <li>Experimental vs. simulated provenance.</li>
 </ul>
-<p>This addresses the documented “high structural error rates” in computation-ready MOF databases.<sup id="fnref:12"><a class="footnote-ref" href="#fn:12">12</a></sup></p>
+<p>This addresses the documented “high structural error rates” in computation-ready MOF databases.<sup class="footnote-ref"><a href="#fn12" id="fnref12:1">[12:1]</a></sup></p>
 <h3>6. <code>MultiObjectiveDiscovery.lean</code> — can we optimize multiple properties at once?</h3>
 <p>Pareto-front convergence for conflicting objectives such as CO₂ uptake, water stability, and cost. We would formalize active-learning regret bounds adapted to discrete materials spaces.</p>
 <h3>7. <code>AutonomousLab.lean</code> — can the robot be trusted?</h3>
@@ -185,7 +186,7 @@
 <li>Compliance invariants (temperature, pressure, reagent limits).</li>
 <li>Convergence guarantees: objective improves or uncertainty shrinks under stated assumptions.</li>
 </ul>
-<hr />
+<hr>
 <h2>The partnership flywheel</h2>
 <p>A formalization effort in isolation is valuable; a formalization effort <strong>tethered to a real lab</strong> is transformative. We are looking for a partner organization with:</p>
 <ol>
@@ -226,22 +227,22 @@
 <li><strong>Turns failures into assets.</strong> A failed synthesis, once formalized, becomes a theorem that rules out an entire class of future candidates.</li>
 <li><strong>Builds a defensible knowledge base.</strong> The growing proof library is a durable asset that improves every model the partner trains on it.</li>
 </ul>
-<hr />
+<hr>
 <h2>Where we start</h2>
 <p>We do not propose boiling the ocean. The first 12–18 months would focus on a narrow, high-impact slice:</p>
 <ol>
 <li><strong>ReticularAssembly</strong> for one well-studied MOF family (e.g., Zr-carboxylate MOFs such as UiO-66 / UiO-67).</li>
-<li><strong>Synthesizability</strong> for one synthesis modality (e.g., electric-field-assisted solvothermal synthesis, following the 2026 literature).<sup id="fnref2:3"><a class="footnote-ref" href="#fn:3">3</a></sup></li>
+<li><strong>Synthesizability</strong> for one synthesis modality (e.g., electric-field-assisted solvothermal synthesis, following the 2026 literature).<sup class="footnote-ref"><a href="#fn3" id="fnref3:1">[3:1]</a></sup></li>
 <li><strong>StabilityBound</strong> for one operational stressor (e.g., solvent-removal / activation stability).</li>
 <li><strong>DataAudit</strong> for one public database (e.g., CoRE MOF or a partner-internal dataset).</li>
 <li>A <strong>closed-loop pilot</strong> in which the partner generates candidates, our predicates filter them, the partner synthesizes a prioritized subset, and the results update the predicates.</li>
 </ol>
 <p>This narrow scope lets each side show measurable value before scaling.</p>
-<hr />
+<hr>
 <h2>Why us</h2>
-<p>The <strong>OpenDistillationFactory</strong> project has already built a machine-checkable theory of error geometry for machine-learning interatomic potentials. The most recent milestone, <code>ExactTubularUniversality.lean</code>, closed its last formal gap using a theorem-proved tubular-neighborhood framework and is now fully built by <code>lake build</code> with <strong>zero remaining <code>sorry</code> axioms</strong>. The project inventory currently stands at <strong>85 formally proven lemmas</strong> and <strong>0 documented epistemic gaps</strong>.<sup id="fnref:13"><a class="footnote-ref" href="#fn:13">13</a></sup></p>
+<p>The <strong>OpenDistillationFactory</strong> project has already built a machine-checkable theory of error geometry for machine-learning interatomic potentials. The most recent milestone, <code>ExactTubularUniversality.lean</code>, closed its last formal gap using a theorem-proved tubular-neighborhood framework and is now fully built by <code>lake build</code> with <strong>zero remaining <code>sorry</code> axioms</strong>. The project inventory currently stands at <strong>85 formally proven lemmas</strong> and <strong>0 documented epistemic gaps</strong>.<sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup></p>
 <p>That track record matters because the next phase is harder: we are moving from geometry to chemistry. But the discipline is the same—state assumptions explicitly, prove theorems under those assumptions, and let experimental data tighten the assumptions.</p>
-<hr />
+<hr>
 <h2>Call to action</h2>
 <p>If you are:</p>
 <ul>
@@ -251,56 +252,60 @@
 </ul>
 <p>we would like to talk.</p>
 <p>The next frontier in materials discovery is not generating more structures. It is <strong>proving which ones are worth making</strong>.</p>
-<hr />
+<hr>
 <h2>References and notes</h2>
-<div class="footnotes">
-<hr />
-<ol>
-<li id="fn:1">
-<p>“Interrogating the synthetic likelihood of metal–organic frameworks: a digital discovery perspective,” <em>Chem. Sci.</em>, 2026. DOI: <a href="https://pubs.rsc.org/en/content/articlehtml/2026/sc/d6sc02765b">10.1039/D6SC02765B</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>“Interrogating the synthetic likelihood of metal–organic frameworks: a digital discovery perspective,” <em>Chem. Sci.</em>, 2026. DOI: <a href="https://pubs.rsc.org/en/content/articlehtml/2026/sc/d6sc02765b">10.1039/D6SC02765B</a>. <a href="#fnref1" class="footnote-backref">↩︎</a> <a href="#fnref1:1" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn:2">
-<p>HyperAI, “Highly Accurate and Fast Prediction of MOF Free Energy via Machine Learning,” Jan 2026. <a href="https://hyper.ai/en/news/48685">https://hyper.ai/en/news/48685</a>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<li id="fn2" class="footnote-item"><p>HyperAI, “Highly Accurate and Fast Prediction of MOF Free Energy via Machine Learning,” Jan 2026. <a href="https://hyper.ai/en/news/48685">https://hyper.ai/en/news/48685</a>. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn:3">
-<p><em>Chemistry World</em>, “Electrifying MOF synthesis drastically reduces time it takes to make them,” May 2026. <a href="https://www.chemistryworld.com/news/electrifying-mof-synthesis-drastically-reduces-time-it-takes-to-make-them/4023477.article">https://www.chemistryworld.com/news/electrifying-mof-synthesis-drastically-reduces-time-it-takes-to-make-them/4023477.article</a>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<li id="fn3" class="footnote-item"><p><em>Chemistry World</em>, “Electrifying MOF synthesis drastically reduces time it takes to make them,” May 2026. <a href="https://www.chemistryworld.com/news/electrifying-mof-synthesis-drastically-reduces-time-it-takes-to-make-them/4023477.article">https://www.chemistryworld.com/news/electrifying-mof-synthesis-drastically-reduces-time-it-takes-to-make-them/4023477.article</a>. <a href="#fnref3" class="footnote-backref">↩︎</a> <a href="#fnref3:1" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn:4">
-<p>“Building Frameworks With Light: Breakthrough in Precise Synthesis of MOFs Beyond Thermodynamic Constraints,” <em>Rare Metals</em>, June 2026. <a href="https://www.researchgate.net/publication/407543642_Building_Frameworks_With_Light_Breakthrough_in_Precise_Synthesis_of_MOBs_Beyond_Thermodynamic_Constraints">https://www.researchgate.net/publication/407543642_Building_Frameworks_With_Light_Breakthrough_in_Precise_Synthesis_of_MOBs_Beyond_Thermodynamic_Constraints</a>.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<li id="fn4" class="footnote-item"><p>“Building Frameworks With Light: Breakthrough in Precise Synthesis of MOFs Beyond Thermodynamic Constraints,” <em>Rare Metals</em>, June 2026. <a href="https://www.researchgate.net/publication/407543642_Building_Frameworks_With_Light_Breakthrough_in_Precise_Synthesis_of_MOBs_Beyond_Thermodynamic_Constraints">https://www.researchgate.net/publication/407543642_Building_Frameworks_With_Light_Breakthrough_in_Precise_Synthesis_of_MOBs_Beyond_Thermodynamic_Constraints</a>. <a href="#fnref4" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn:5">
-<p>Pan et al., “Enhancing Spatial Reasoning in Large Language Models for Metal-Organic Frameworks Structure Prediction,” KDD 2026. <a href="https://arxiv.org/html/2601.09285v2">https://arxiv.org/html/2601.09285v2</a>.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<li id="fn5" class="footnote-item"><p>Pan et al., “Enhancing Spatial Reasoning in Large Language Models for Metal-Organic Frameworks Structure Prediction,” KDD 2026. <a href="https://arxiv.org/html/2601.09285v2">https://arxiv.org/html/2601.09285v2</a>. <a href="#fnref5" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn:6">
-<p>PatSnap, “Covalent Organic Framework Technology Landscape 2026,” Apr 2026. <a href="https://www.patsnap.com/resources/blog/articles/cof-technology-landscape-2026-35-patent-insights/">https://www.patsnap.com/resources/blog/articles/cof-technology-landscape-2026-35-patent-insights/</a>.&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<li id="fn6" class="footnote-item"><p>PatSnap, “Covalent Organic Framework Technology Landscape 2026,” Apr 2026. <a href="https://www.patsnap.com/resources/blog/articles/cof-technology-landscape-2026-35-patent-insights/">https://www.patsnap.com/resources/blog/articles/cof-technology-landscape-2026-35-patent-insights/</a>. <a href="#fnref6" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn:7">
-<p>Zeni et al., “A generative model for inorganic materials design,” <em>Nature</em>, Jan 2025. <a href="https://www.nature.com/articles/s41586-025-08628-5">https://www.nature.com/articles/s41586-025-08628-5</a>.&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+<li id="fn7" class="footnote-item"><p>Zeni et al., “A generative model for inorganic materials design,” <em>Nature</em>, Jan 2025. <a href="https://www.nature.com/articles/s41586-025-08628-5">https://www.nature.com/articles/s41586-025-08628-5</a>. <a href="#fnref7" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn:8">
-<p>Merchant et al., “Scaling deep learning for materials discovery,” <em>Nature</em>, Nov 2023; 2026 analysis at <a href="https://iotdigitaltwinplm.com/geometric-deep-learning-materials-discovery-gnome-mattergen-2026/">https://iotdigitaltwinplm.com/geometric-deep-learning-materials-discovery-gnome-mattergen-2026/</a>.&#160;<a class="footnote-backref" href="#fnref:8" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+<li id="fn8" class="footnote-item"><p>Merchant et al., “Scaling deep learning for materials discovery,” <em>Nature</em>, Nov 2023; 2026 analysis at <a href="https://iotdigitaltwinplm.com/geometric-deep-learning-materials-discovery-gnome-mattergen-2026/">https://iotdigitaltwinplm.com/geometric-deep-learning-materials-discovery-gnome-mattergen-2026/</a>. <a href="#fnref8" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn:9">
-<p>MACE-MP-0 and Allegro/MACE class potentials are discussed in the 2026 geometric-deep-learning overview at <a href="https://iotdigitaltwinplm.com/geometric-deep-learning-materials-discovery-gnome-mattergen-2026/">https://iotdigitaltwinplm.com/geometric-deep-learning-materials-discovery-gnome-mattergen-2026/</a>.&#160;<a class="footnote-backref" href="#fnref:9" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+<li id="fn9" class="footnote-item"><p>MACE-MP-0 and Allegro/MACE class potentials are discussed in the 2026 geometric-deep-learning overview at <a href="https://iotdigitaltwinplm.com/geometric-deep-learning-materials-discovery-gnome-mattergen-2026/">https://iotdigitaltwinplm.com/geometric-deep-learning-materials-discovery-gnome-mattergen-2026/</a>. <a href="#fnref9" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn:10">
-<p>GrantedAI, “NSF AI-Materials Institute (NSF AI-MI) (2026).” <a href="https://grantedai.com/grants/nsf-ai-materials-institute-nsf-ai-mi-national-science-foundation-nsf-8eb3788c">https://grantedai.com/grants/nsf-ai-materials-institute-nsf-ai-mi-national-science-foundation-nsf-8eb3788c</a>.&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+<li id="fn10" class="footnote-item"><p>GrantedAI, “NSF AI-Materials Institute (NSF AI-MI) (2026).” <a href="https://grantedai.com/grants/nsf-ai-materials-institute-nsf-ai-mi-national-science-foundation-nsf-8eb3788c">https://grantedai.com/grants/nsf-ai-materials-institute-nsf-ai-mi-national-science-foundation-nsf-8eb3788c</a>. <a href="#fnref10" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn:11">
-<p>DARPA, FY2026 Materials Sciences Studies and Concepts justification. <a href="https://comptroller.war.gov/Portals/45/Documents/defbudget/FY2026/budget_justification/pdfs/03_RDT_and_E/RDTE_Vol1_DARPA_MasterJustificationBook_PB_2026.pdf">https://comptroller.war.gov/Portals/45/Documents/defbudget/FY2026/budget_justification/pdfs/03_RDT_and_E/RDTE_Vol1_DARPA_MasterJustificationBook_PB_2026.pdf</a>.&#160;<a class="footnote-backref" href="#fnref:11" title="Jump back to footnote 11 in the text">&#8617;</a></p>
+<li id="fn11" class="footnote-item"><p>DARPA, FY2026 Materials Sciences Studies and Concepts justification. <a href="https://comptroller.war.gov/Portals/45/Documents/defbudget/FY2026/budget_justification/pdfs/03_RDT_and_E/RDTE_Vol1_DARPA_MasterJustificationBook_PB_2026.pdf">https://comptroller.war.gov/Portals/45/Documents/defbudget/FY2026/budget_justification/pdfs/03_RDT_and_E/RDTE_Vol1_DARPA_MasterJustificationBook_PB_2026.pdf</a>. <a href="#fnref11" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn:12">
-<p>White et al., “High Structural Error Rates in ‘Computation-Ready’ MOF Databases Discovered by Checking Metal Oxidation States,” <em>J. Am. Chem. Soc.</em>, 2025.&#160;<a class="footnote-backref" href="#fnref:12" title="Jump back to footnote 12 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:12" title="Jump back to footnote 12 in the text">&#8617;</a></p>
+<li id="fn12" class="footnote-item"><p>White et al., “High Structural Error Rates in ‘Computation-Ready’ MOF Databases Discovered by Checking Metal Oxidation States,” <em>J. Am. Chem. Soc.</em>, 2025. <a href="#fnref12" class="footnote-backref">↩︎</a> <a href="#fnref12:1" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn:13">
-<p>OpenDistillationFactory <code>Vision.lean</code> inventory, updated 2026-06-25: 85 proven lemmas, 0 documented epistemic gaps; full <code>lake build</code> passes.&#160;<a class="footnote-backref" href="#fnref:13" title="Jump back to footnote 13 in the text">&#8617;</a></p>
+<li id="fn13" class="footnote-item"><p>OpenDistillationFactory <code>Vision.lean</code> inventory, updated 2026-06-25: 85 proven lemmas, 0 documented epistemic gaps; full <code>lake build</code> passes. <a href="#fnref13" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
-</div>
+</section>
+
     </article>
   </main>
-  <footer class="site-footer">
-    <p>Lupine Science · founder Alex Welcing · <a href="mailto:alex@lupinesci.com">alex@lupinesci.com</a></p>
+  <footer class="foot">
+    <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
+    <span><b>Lupine Science</b> · founder Alex Welcing · <a href="mailto:alex@lupinesci.com">alex@lupinesci.com</a></span>
+    <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
   </footer>
+<script>
+(() => {
+  const vids = document.querySelectorAll("video[data-autoplay]");
+  if (!vids.length) return;
+  if (!("IntersectionObserver" in window)) { vids.forEach((v) => { v.preload = "metadata"; }); return; }
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) { e.target.play().catch(() => {}); }
+      else { e.target.pause(); }
+    }
+  }, { rootMargin: "120px" });
+  vids.forEach((v) => io.observe(v));
+})();
+</script>
 </body>
 </html>
