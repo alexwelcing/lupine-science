@@ -2,19 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lupine.science/</loc>
-    <lastmod>2026-07-05</lastmod>
   </url>
   <url>
     <loc>https://lupine.science/articles/</loc>
-    <lastmod>2026-07-05</lastmod>
   </url>
   <url>
     <loc>https://lupine.science/articles/from-fantasy-frameworks-to-makeable-materials/</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-06-25</lastmod>
   </url>
   <url>
     <loc>https://lupine.science/articles/the-order-is-right-the-size-is-wrong/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-02</lastmod>
   </url>
   <url>
     <loc>https://lupine.science/articles/the-trust-layer/</loc>
@@ -22,6 +20,6 @@
   </url>
   <url>
     <loc>https://lupine.science/articles/why-lupine-science/</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-06-30</lastmod>
   </url>
 </urlset>
