@@ -29,7 +29,7 @@ const HERO_CAPTIONS = {
   'the-order-is-right-the-size-is-wrong':
     'The error field, drawn by the front door’s live instrument in its ∇ᵧE focus — each comet a model’s dominant error direction, computed from the committed benchmark data.',
   'the-trust-layer':
-    'The instrument on the front door: the hyper-ribbon and one cavity of MOF-5, drawn live from committed data — the claim and its receipt in a single scene.',
+    'The instrument on the front door: the hyper-ribbon and one cavity of MOF-5, drawn live from committed data.',
 };
 
 const MARK_SVG = `<svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
