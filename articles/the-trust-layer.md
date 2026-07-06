@@ -49,7 +49,7 @@ A company whose thesis is proof cannot ask to be taken on faith, so here is wher
 - The crystal drawn on that page is not an illustration. It is real, published crystallography, rendered from a committed structure file anyone can open.
 - When one of our own ideas has failed, the failure is in the record too. The ledger keeps what happened, not what flattered us.
 
-None of this is a breakthrough announcement. It is something we think is rarer: an epistemic posture you can audit. The claims are modest because the standard is high — and the standard is the product.
+None of this is a breakthrough announcement. It is something we think is rarer: an epistemic posture you can audit. The claims are modest because the standard is high — and the standard is the product. What you cannot check, we have not claimed.
 
 ## Why in the open
 

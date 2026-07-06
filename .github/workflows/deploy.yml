@@ -55,6 +55,23 @@ jobs:
       - name: Verify static surface + performance budget
         run: npm run verify
 
+      - name: Explain failure in run summary
+        if: failure()
+        run: |
+          {
+            echo "## Verify failed — first-line diagnosis"
+            echo ""
+            echo "**Rebuild drift (empty = not the problem):**"
+            echo '```'
+            git diff --stat
+            echo '```'
+            echo "**Verifier output tail:**"
+            echo '```'
+            npm run verify 2>&1 | tail -40
+            echo '```'
+            echo "_If drift is non-empty: run \`npm run build\` locally and commit. If the verifier lists \`[error]\`/\`[over]\` lines, those are the exact failures._"
+          } >> "$GITHUB_STEP_SUMMARY" || true
+
   lighthouse:
     needs: verify
     runs-on: ubuntu-latest
@@ -69,6 +86,18 @@ jobs:
 
       - name: Lighthouse CI (scores gate the deploy)
         run: npx --yes @lhci/cli@0.15.x autorun --config=lighthouserc.json
+
+      - name: Explain failure in run summary
+        if: failure()
+        run: |
+          {
+            echo "## Lighthouse gate failed"
+            echo '```json'
+            cat .lighthouseci/assertion-results.json 2>/dev/null | head -c 4000 || echo "no assertion results file"
+            echo ""
+            echo '```'
+            echo "_Reproduce locally: \`npx @lhci/cli autorun --config=lighthouserc.json\` (CHROME_PATH may be needed). Report links are in the step log above._"
+          } >> "$GITHUB_STEP_SUMMARY" || true
 
   deploy-preview:
     needs: [verify, lighthouse]
