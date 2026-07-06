@@ -4,13 +4,35 @@
 container remains available for local/container smoke tests, but production and
 branch previews are served by Pages.
 
+## CI: watch, don't paste
+
+CI results are part of the system, not something to copy out of the Actions
+tab by hand.
+
+- **After any push:** `npm run ci` — finds the newest run for your branch,
+  polls it to completion, and prints a per-job breakdown with the exact
+  failed steps (and, with `GITHUB_TOKEN` set, the tail of each failing
+  job's log). Exit code mirrors the run, so it can gate follow-up commands.
+  One-shot status without waiting: `npm run ci -- --once`; other branches:
+  `npm run ci -- --branch main`; a specific commit: `npm run ci -- --sha <sha>`.
+- **On failure, read the run summary first.** Both gate jobs write a
+  first-line diagnosis to the GitHub run summary page: the verify job shows
+  rebuild drift (`git diff --stat`) and the verifier's `[error]`/`[over]`
+  lines; the Lighthouse job shows the failed assertions JSON. The summary
+  is designed to make the fix obvious without opening step logs.
+- **Determinism contract:** CI rebuilds everything (`npm run build`) and
+  fails if the committed output differs. If the summary shows drift, the
+  fix is always the same: `npm run build` locally and commit the result.
+  Anything that would make a rebuild non-reproducible (timestamps, clock
+  dates, randomness) belongs in source metadata, not in build steps.
+
 ## Local Checks
 
 Use Git Bash for Node commands on Windows.
 
 ```bash
 npm run verify
-python -m http.server 8080 -d public
+npm run dev        # serves public/ with the production _headers/CSP applied
 ```
 
 Open:

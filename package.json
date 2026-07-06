@@ -8,6 +8,7 @@
   "scripts": {
     "build": "node scripts/build-articles.mjs && node scripts/build-sitemap.mjs && node scripts/build-headers.mjs",
     "verify": "node scripts/check-static.mjs && node scripts/perf-budget.mjs",
+    "ci": "NODE_USE_ENV_PROXY=1 node scripts/dev/ci-watch.mjs",
     "dev": "node scripts/dev/serve.mjs",
     "shots": "node scripts/dev/screenshot.mjs",
     "perf": "node scripts/dev/perf-report.mjs"
