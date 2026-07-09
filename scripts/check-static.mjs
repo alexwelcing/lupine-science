@@ -56,10 +56,47 @@ const requiredIndexSnippets = [
   'https://github.com/alexwelcing/lupine',
   'Working paper in preparation',
   'not yet peer-reviewed',
+  // the receipts line: performance measured client-side, never asserted
+  'measured by your browser, not claimed by ours',
+  // the crystal must stay provenanced: committed data + published source
+  '/data/mof5_structure.json',
+  'Nature 402, 276',
 ];
 
 for (const snippet of requiredIndexSnippets) {
   if (!index.includes(snippet)) fail(`index.html missing required snippet: ${snippet}`);
+}
+
+// perf regression guards: these must never come back
+if (/fonts\.googleapis\.com|fonts\.gstatic\.com/.test(index)) {
+  fail('index.html references Google Fonts — fonts must stay self-hosted');
+}
+if (/cache:\s*["']no-store["']/.test(index)) {
+  fail('index.html uses cache:"no-store" — use HTTP caching instead');
+}
+for (const dead of ['public/hero-cyanotype.png', 'public/launch-video.mp4']) {
+  if (fs.existsSync(path.join(ROOT, dead))) fail(`${dead} is dead weight and must not return`);
+}
+if (!fs.existsSync(path.join(PUBLIC, '_headers'))) fail('missing public/_headers');
+for (const font of [
+  'fonts/newsreader-var.woff2', 'fonts/newsreader-italic-var.woff2',
+  'fonts/plex-mono-400.woff2', 'fonts/plex-mono-600.woff2',
+]) {
+  if (!fs.existsSync(path.join(PUBLIC, font))) fail(`missing public/${font}`);
+}
+if (!fs.existsSync(path.join(PUBLIC, 'data/mof5_structure.json'))) {
+  fail('missing public/data/mof5_structure.json');
+}
+
+// the CSP in _headers must match the inline scripts actually shipped
+try {
+  const { collectScriptHashes } = await import('./build-headers.mjs');
+  const headers = read('public/_headers');
+  for (const hash of collectScriptHashes()) {
+    if (!headers.includes(hash)) fail(`public/_headers CSP is stale: missing ${hash} — run: node scripts/build-headers.mjs`);
+  }
+} catch (e) {
+  fail(`could not verify CSP hashes: ${e.message}`);
 }
 
 const forbiddenClaims = [
@@ -70,6 +107,49 @@ const forbiddenClaims = [
 
 for (const pattern of forbiddenClaims) {
   if (pattern.test(index)) fail(`index.html contains forbidden publication-status claim: ${pattern}`);
+}
+
+// the claims policy applies to every shipped page, not just the front door
+function walkHtml(dir, out = []) {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, entry.name);
+    if (entry.isDirectory()) walkHtml(p, out);
+    else if (entry.name.endsWith('.html')) out.push(p);
+  }
+  return out;
+}
+// Articles may cite other groups' published work; what they must never do is
+// claim publication status for OUR paper.
+const forbiddenFirstPersonClaims = [
+  /(our|this)\s+(paper|preprint|manuscript|work)\s+(was\s+|is\s+|has\s+been\s+)?(accepted|published|submitted)/i,
+  /we\s+(have\s+)?(submitted|published)\b/i,
+];
+for (const file of walkHtml(path.join(PUBLIC, 'articles'))) {
+  const html = fs.readFileSync(file, 'utf8');
+  const rel = path.relative(ROOT, file);
+  for (const pattern of forbiddenFirstPersonClaims) {
+    if (pattern.test(html)) fail(`${rel} contains forbidden publication-status claim: ${pattern}`);
+  }
+  if (/fonts\.googleapis\.com|fonts\.gstatic\.com/.test(html)) {
+    fail(`${rel} references Google Fonts — fonts must stay self-hosted`);
+  }
+}
+
+// sitemap must cover exactly what ships: every article page, no phantoms
+{
+  const slugs = fs.readdirSync(path.join(PUBLIC, 'articles'), { withFileTypes: true })
+    .filter((e) => e.isDirectory() && fs.existsSync(path.join(PUBLIC, 'articles', e.name, 'index.html')))
+    .map((e) => e.name);
+  for (const slug of slugs) {
+    if (!sitemap.includes(`https://lupine.science/articles/${slug}/`)) {
+      fail(`sitemap.xml missing /articles/${slug}/ — run: node scripts/build-sitemap.mjs`);
+    }
+  }
+  for (const m of sitemap.matchAll(/<loc>https:\/\/lupine\.science(\/[^<]*)<\/loc>/g)) {
+    const p = m[1];
+    const asFile = path.join(PUBLIC, p.replace(/^\//, ''), 'index.html');
+    if (p !== '/' && !fs.existsSync(asFile)) fail(`sitemap.xml lists ${p} but no page ships there`);
+  }
 }
 
 if (/\bpeer[-\s]?reviewed\b/i.test(index) && !/\bnot\s+yet\s+peer[-\s]?reviewed\b/i.test(index)) {
