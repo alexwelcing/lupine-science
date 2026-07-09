@@ -31,19 +31,23 @@
 .card .img-wrap { display: block; position: relative; background: var(--paper-deep); }
 .card img { display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; }
 .card[data-aspect="1:1"] img { aspect-ratio: 1/1; }
-.card .overlay {
-  position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: space-between;
-  padding: 12px; opacity: 0; transition: opacity 180ms ease;
-  background: linear-gradient(transparent 60%, rgba(22,23,29,0.35));
-}
-.card:hover .overlay { opacity: 1; }
-.card .overlay a, .card .overlay button {
-  font-family: var(--mono); font-size: 11px; color: #fff;
-  background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.35);
-  padding: 6px 10px; border-radius: 4px; text-decoration: none; cursor: pointer;
-}
-.card .overlay a:hover, .card .overlay button:hover { background: rgba(255,255,255,0.35); }
 .card .body { padding: 14px 16px; }
+.card .actions {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;
+}
+.card .actions .btn {
+  padding: 6px 10px; font-size: 10px; flex: 1 1 auto; justify-content: center;
+}
+.card .actions .btn.secondary { background: #fff; }
+.rating {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+  font-family: var(--mono); font-size: 12px; color: var(--ink-soft);
+  touch-action: manipulation;
+}
+.rating input {
+  flex: 1; min-height: 28px; cursor: pointer;
+}
+.rating output { min-width: 18px; text-align: right; color: var(--indigo); font-weight: 600; }
 .card .meta {
   display: flex; gap: 8px; align-items: center; margin-bottom: 8px;
   font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint);
@@ -137,10 +141,6 @@
     </button>
     <a class="img-wrap" href="/asset/{{ asset.id }}">
       <img src="{{ asset.url }}" alt="{{ asset.motif }} {{ asset.variant }}" loading="lazy">
-      <div class="overlay">
-        <a href="/download/{{ asset.id }}">Download</a>
-        <button class="copy-path" data-path="{{ asset.url }}">Copy path</button>
-      </div>
     </a>
     <div class="body">
       <div class="meta">
@@ -153,8 +153,12 @@
       <p>{{ asset.prompt[:140] }}{% if asset.prompt|length > 140 %}…{% endif %}</p>
       <div class="rating">
         <label>Rating</label>
-        <input type="range" min="0" max="5" value="{{ asset.rating }}" data-id="{{ asset.id }}">
+        <input type="range" min="0" max="5" value="{{ asset.rating }}" data-id="{{ asset.id }}" aria-label="Rate asset">
         <output>{{ asset.rating }}</output>
+      </div>
+      <div class="actions">
+        <a class="btn" href="/download/{{ asset.id }}">Download</a>
+        <button class="btn secondary copy-path" data-path="{{ asset.url }}">Copy path</button>
       </div>
     </div>
   </article>
