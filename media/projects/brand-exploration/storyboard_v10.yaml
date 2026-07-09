@@ -1,0 +1,778 @@
+project: brand-exploration
+format: image
+version: v10
+motifs:
+- id: paper-topography
+  name: Paper topography
+  base: layered cut-paper ridges forming an abstract topographic map, clean elevation
+    contours, flat vector on warm off-white paper
+- id: crystalline-form
+  name: Crystalline form
+  base: a single angular crystal silhouette with one internal facet line, centered,
+    flat vector on warm off-white paper
+- id: meander-pattern
+  name: Meander pattern
+  base: a continuous indigo line meandering in a rhythmic back-and-forth path, centered
+    flat vector on warm off-white paper
+- id: moire-grid
+  name: Moire grid
+  base: two faint offset grids overlapping to create a soft moire interference pattern,
+    centered flat vector on warm off-white paper
+- id: ribbon-knot
+  name: Ribbon knot
+  base: a single indigo ribbon passing through itself to form an abstract knot, centered
+    flat vector on warm off-white paper
+- id: lattice-defect
+  name: Lattice defect
+  base: a regular square lattice with one missing node, creating a subtle void, centered
+    flat vector on warm off-white paper
+- id: radial-array
+  name: Radial array
+  base: evenly spaced indigo marks radiating from a central hollow ring, centered
+    flat vector on warm off-white paper
+- id: interference
+  name: Interference
+  base: two sets of concentric arcs crossing to form an interference fringe pattern,
+    centered flat vector on warm off-white paper
+- id: wavefront
+  name: Wavefront
+  base: parallel curved lines of varying spacing suggesting a propagating wavefront,
+    centered flat vector on warm off-white paper
+- id: phase-transition
+  name: Phase transition
+  base: a field of small dots transitioning from ordered grid to scattered cloud,
+    centered flat vector on warm off-white paper
+- id: isosurface
+  name: Isosurface
+  base: nested closed contours forming an abstract isosurface slice, centered flat
+    vector on warm off-white paper
+- id: network-graph
+  name: Network graph
+  base: a sparse graph of nodes connected by straight indigo edges, centered flat
+    vector on warm off-white paper
+- id: diffraction
+  name: Diffraction
+  base: fine indigo lines fanning out from a narrow central gap, centered flat vector
+    on warm off-white paper
+- id: tessellation
+  name: Tessellation
+  base: a single indigo tile shape repeating in a seamless geometric tessellation,
+    centered flat vector on warm off-white paper
+- id: shadow-arch
+  name: Shadow arch
+  base: overlapping indigo arches casting implied shadows, centered flat vector on
+    warm off-white paper
+- id: field-gradient
+  name: Field gradient
+  base: evenly spaced parallel lines bending around an invisible form, centered flat
+    vector on warm off-white paper
+variants:
+- id: wide
+  aspect: '16:9'
+  modifier: wide banner format with the motif centered and generous negative space,
+    suitable for headers
+- id: square
+  aspect: '1:1'
+  modifier: square canvas with the motif centered and large, generous padding, ready
+    for copy-paste
+- id: quiet
+  aspect: '16:9'
+  modifier: minimal composition with the motif small and off-center, abundant warm
+    off-white negative space
+style_suffix: 'abstract geometric composition, solid warm off-white #faf9f6 paper
+  background, single indigo #3d4db3 ink, flat vector, crisp clean edges, no gradients,
+  no shadows, no 3D render, no photography, no text, no letters, no numbers, no people,
+  no flowers, no neon, no cyan, no teal, no purple, no orange, no gold, brand imagery
+  suitable for print and web'
+scenes:
+- motif_id: paper-topography
+  motif_name: Paper topography
+  variant_id: wide
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/paper-topography_wide_v10.jpg
+  prompt: 'layered cut-paper ridges forming an abstract topographic map, clean elevation
+    contours, flat vector on warm off-white paper; wide banner format with the motif
+    centered and generous negative space, suitable for headers; abstract geometric
+    composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
+    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
+    photography, no text, no letters, no numbers, no people, no flowers, no neon,
+    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
+    and web'
+  status: generated
+- motif_id: paper-topography
+  motif_name: Paper topography
+  variant_id: square
+  version: v10
+  aspect: '1:1'
+  filename: assets/images/v10/paper-topography_square_v10.jpg
+  prompt: 'layered cut-paper ridges forming an abstract topographic map, clean elevation
+    contours, flat vector on warm off-white paper; square canvas with the motif centered
+    and large, generous padding, ready for copy-paste; abstract geometric composition,
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: paper-topography
+  motif_name: Paper topography
+  variant_id: quiet
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/paper-topography_quiet_v10.jpg
+  prompt: 'layered cut-paper ridges forming an abstract topographic map, clean elevation
+    contours, flat vector on warm off-white paper; minimal composition with the motif
+    small and off-center, abundant warm off-white negative space; abstract geometric
+    composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
+    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
+    photography, no text, no letters, no numbers, no people, no flowers, no neon,
+    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
+    and web'
+  status: generated
+- motif_id: crystalline-form
+  motif_name: Crystalline form
+  variant_id: wide
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/crystalline-form_wide_v10.jpg
+  prompt: 'a single angular crystal silhouette with one internal facet line, centered,
+    flat vector on warm off-white paper; wide banner format with the motif centered
+    and generous negative space, suitable for headers; abstract geometric composition,
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: crystalline-form
+  motif_name: Crystalline form
+  variant_id: square
+  version: v10
+  aspect: '1:1'
+  filename: assets/images/v10/crystalline-form_square_v10.jpg
+  prompt: 'a single angular crystal silhouette with one internal facet line, centered,
+    flat vector on warm off-white paper; square canvas with the motif centered and
+    large, generous padding, ready for copy-paste; abstract geometric composition,
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: crystalline-form
+  motif_name: Crystalline form
+  variant_id: quiet
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/crystalline-form_quiet_v10.jpg
+  prompt: 'a single angular crystal silhouette with one internal facet line, centered,
+    flat vector on warm off-white paper; minimal composition with the motif small
+    and off-center, abundant warm off-white negative space; abstract geometric composition,
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: meander-pattern
+  motif_name: Meander pattern
+  variant_id: wide
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/meander-pattern_wide_v10.jpg
+  prompt: 'a continuous indigo line meandering in a rhythmic back-and-forth path,
+    centered flat vector on warm off-white paper; wide banner format with the motif
+    centered and generous negative space, suitable for headers; abstract geometric
+    composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
+    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
+    photography, no text, no letters, no numbers, no people, no flowers, no neon,
+    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
+    and web'
+  status: generated
+- motif_id: meander-pattern
+  motif_name: Meander pattern
+  variant_id: square
+  version: v10
+  aspect: '1:1'
+  filename: assets/images/v10/meander-pattern_square_v10.jpg
+  prompt: 'a continuous indigo line meandering in a rhythmic back-and-forth path,
+    centered flat vector on warm off-white paper; square canvas with the motif centered
+    and large, generous padding, ready for copy-paste; abstract geometric composition,
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: meander-pattern
+  motif_name: Meander pattern
+  variant_id: quiet
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/meander-pattern_quiet_v10.jpg
+  prompt: 'a continuous indigo line meandering in a rhythmic back-and-forth path,
+    centered flat vector on warm off-white paper; minimal composition with the motif
+    small and off-center, abundant warm off-white negative space; abstract geometric
+    composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
+    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
+    photography, no text, no letters, no numbers, no people, no flowers, no neon,
+    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
+    and web'
+  status: generated
+- motif_id: moire-grid
+  motif_name: Moire grid
+  variant_id: wide
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/moire-grid_wide_v10.jpg
+  prompt: 'two faint offset grids overlapping to create a soft moire interference
+    pattern, centered flat vector on warm off-white paper; wide banner format with
+    the motif centered and generous negative space, suitable for headers; abstract
+    geometric composition, solid warm off-white #faf9f6 paper background, single indigo
+    #3d4db3 ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render,
+    no photography, no text, no letters, no numbers, no people, no flowers, no neon,
+    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
+    and web'
+  status: generated
+- motif_id: moire-grid
+  motif_name: Moire grid
+  variant_id: square
+  version: v10
+  aspect: '1:1'
+  filename: assets/images/v10/moire-grid_square_v10.jpg
+  prompt: 'two faint offset grids overlapping to create a soft moire interference
+    pattern, centered flat vector on warm off-white paper; square canvas with the
+    motif centered and large, generous padding, ready for copy-paste; abstract geometric
+    composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
+    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
+    photography, no text, no letters, no numbers, no people, no flowers, no neon,
+    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
+    and web'
+  status: generated
+- motif_id: moire-grid
+  motif_name: Moire grid
+  variant_id: quiet
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/moire-grid_quiet_v10.jpg
+  prompt: 'two faint offset grids overlapping to create a soft moire interference
+    pattern, centered flat vector on warm off-white paper; minimal composition with
+    the motif small and off-center, abundant warm off-white negative space; abstract
+    geometric composition, solid warm off-white #faf9f6 paper background, single indigo
+    #3d4db3 ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render,
+    no photography, no text, no letters, no numbers, no people, no flowers, no neon,
+    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
+    and web'
+  status: generated
+- motif_id: ribbon-knot
+  motif_name: Ribbon knot
+  variant_id: wide
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/ribbon-knot_wide_v10.jpg
+  prompt: 'a single indigo ribbon passing through itself to form an abstract knot,
+    centered flat vector on warm off-white paper; wide banner format with the motif
+    centered and generous negative space, suitable for headers; abstract geometric
+    composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
+    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
+    photography, no text, no letters, no numbers, no people, no flowers, no neon,
+    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
+    and web'
+  status: generated
+- motif_id: ribbon-knot
+  motif_name: Ribbon knot
+  variant_id: square
+  version: v10
+  aspect: '1:1'
+  filename: assets/images/v10/ribbon-knot_square_v10.jpg
+  prompt: 'a single indigo ribbon passing through itself to form an abstract knot,
+    centered flat vector on warm off-white paper; square canvas with the motif centered
+    and large, generous padding, ready for copy-paste; abstract geometric composition,
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: ribbon-knot
+  motif_name: Ribbon knot
+  variant_id: quiet
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/ribbon-knot_quiet_v10.jpg
+  prompt: 'a single indigo ribbon passing through itself to form an abstract knot,
+    centered flat vector on warm off-white paper; minimal composition with the motif
+    small and off-center, abundant warm off-white negative space; abstract geometric
+    composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
+    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
+    photography, no text, no letters, no numbers, no people, no flowers, no neon,
+    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
+    and web'
+  status: generated
+- motif_id: lattice-defect
+  motif_name: Lattice defect
+  variant_id: wide
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/lattice-defect_wide_v10.jpg
+  prompt: 'a regular square lattice with one missing node, creating a subtle void,
+    centered flat vector on warm off-white paper; wide banner format with the motif
+    centered and generous negative space, suitable for headers; abstract geometric
+    composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
+    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
+    photography, no text, no letters, no numbers, no people, no flowers, no neon,
+    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
+    and web'
+  status: generated
+- motif_id: lattice-defect
+  motif_name: Lattice defect
+  variant_id: square
+  version: v10
+  aspect: '1:1'
+  filename: assets/images/v10/lattice-defect_square_v10.jpg
+  prompt: 'a regular square lattice with one missing node, creating a subtle void,
+    centered flat vector on warm off-white paper; square canvas with the motif centered
+    and large, generous padding, ready for copy-paste; abstract geometric composition,
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: lattice-defect
+  motif_name: Lattice defect
+  variant_id: quiet
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/lattice-defect_quiet_v10.jpg
+  prompt: 'a regular square lattice with one missing node, creating a subtle void,
+    centered flat vector on warm off-white paper; minimal composition with the motif
+    small and off-center, abundant warm off-white negative space; abstract geometric
+    composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
+    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
+    photography, no text, no letters, no numbers, no people, no flowers, no neon,
+    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
+    and web'
+  status: generated
+- motif_id: radial-array
+  motif_name: Radial array
+  variant_id: wide
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/radial-array_wide_v10.jpg
+  prompt: 'evenly spaced indigo marks radiating from a central hollow ring, centered
+    flat vector on warm off-white paper; wide banner format with the motif centered
+    and generous negative space, suitable for headers; abstract geometric composition,
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: radial-array
+  motif_name: Radial array
+  variant_id: square
+  version: v10
+  aspect: '1:1'
+  filename: assets/images/v10/radial-array_square_v10.jpg
+  prompt: 'evenly spaced indigo marks radiating from a central hollow ring, centered
+    flat vector on warm off-white paper; square canvas with the motif centered and
+    large, generous padding, ready for copy-paste; abstract geometric composition,
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: radial-array
+  motif_name: Radial array
+  variant_id: quiet
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/radial-array_quiet_v10.jpg
+  prompt: 'evenly spaced indigo marks radiating from a central hollow ring, centered
+    flat vector on warm off-white paper; minimal composition with the motif small
+    and off-center, abundant warm off-white negative space; abstract geometric composition,
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: interference
+  motif_name: Interference
+  variant_id: wide
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/interference_wide_v10.jpg
+  prompt: 'two sets of concentric arcs crossing to form an interference fringe pattern,
+    centered flat vector on warm off-white paper; wide banner format with the motif
+    centered and generous negative space, suitable for headers; abstract geometric
+    composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
+    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
+    photography, no text, no letters, no numbers, no people, no flowers, no neon,
+    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
+    and web'
+  status: generated
+- motif_id: interference
+  motif_name: Interference
+  variant_id: square
+  version: v10
+  aspect: '1:1'
+  filename: assets/images/v10/interference_square_v10.jpg
+  prompt: 'two sets of concentric arcs crossing to form an interference fringe pattern,
+    centered flat vector on warm off-white paper; square canvas with the motif centered
+    and large, generous padding, ready for copy-paste; abstract geometric composition,
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: interference
+  motif_name: Interference
+  variant_id: quiet
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/interference_quiet_v10.jpg
+  prompt: 'two sets of concentric arcs crossing to form an interference fringe pattern,
+    centered flat vector on warm off-white paper; minimal composition with the motif
+    small and off-center, abundant warm off-white negative space; abstract geometric
+    composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
+    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
+    photography, no text, no letters, no numbers, no people, no flowers, no neon,
+    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
+    and web'
+  status: generated
+- motif_id: wavefront
+  motif_name: Wavefront
+  variant_id: wide
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/wavefront_wide_v10.jpg
+  prompt: 'parallel curved lines of varying spacing suggesting a propagating wavefront,
+    centered flat vector on warm off-white paper; wide banner format with the motif
+    centered and generous negative space, suitable for headers; abstract geometric
+    composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
+    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
+    photography, no text, no letters, no numbers, no people, no flowers, no neon,
+    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
+    and web'
+  status: generated
+- motif_id: wavefront
+  motif_name: Wavefront
+  variant_id: square
+  version: v10
+  aspect: '1:1'
+  filename: assets/images/v10/wavefront_square_v10.jpg
+  prompt: 'parallel curved lines of varying spacing suggesting a propagating wavefront,
+    centered flat vector on warm off-white paper; square canvas with the motif centered
+    and large, generous padding, ready for copy-paste; abstract geometric composition,
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: wavefront
+  motif_name: Wavefront
+  variant_id: quiet
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/wavefront_quiet_v10.jpg
+  prompt: 'parallel curved lines of varying spacing suggesting a propagating wavefront,
+    centered flat vector on warm off-white paper; minimal composition with the motif
+    small and off-center, abundant warm off-white negative space; abstract geometric
+    composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
+    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
+    photography, no text, no letters, no numbers, no people, no flowers, no neon,
+    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
+    and web'
+  status: generated
+- motif_id: phase-transition
+  motif_name: Phase transition
+  variant_id: wide
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/phase-transition_wide_v10.jpg
+  prompt: 'a field of small dots transitioning from ordered grid to scattered cloud,
+    centered flat vector on warm off-white paper; wide banner format with the motif
+    centered and generous negative space, suitable for headers; abstract geometric
+    composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
+    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
+    photography, no text, no letters, no numbers, no people, no flowers, no neon,
+    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
+    and web'
+  status: generated
+- motif_id: phase-transition
+  motif_name: Phase transition
+  variant_id: square
+  version: v10
+  aspect: '1:1'
+  filename: assets/images/v10/phase-transition_square_v10.jpg
+  prompt: 'a field of small dots transitioning from ordered grid to scattered cloud,
+    centered flat vector on warm off-white paper; square canvas with the motif centered
+    and large, generous padding, ready for copy-paste; abstract geometric composition,
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: phase-transition
+  motif_name: Phase transition
+  variant_id: quiet
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/phase-transition_quiet_v10.jpg
+  prompt: 'a field of small dots transitioning from ordered grid to scattered cloud,
+    centered flat vector on warm off-white paper; minimal composition with the motif
+    small and off-center, abundant warm off-white negative space; abstract geometric
+    composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
+    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
+    photography, no text, no letters, no numbers, no people, no flowers, no neon,
+    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
+    and web'
+  status: generated
+- motif_id: isosurface
+  motif_name: Isosurface
+  variant_id: wide
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/isosurface_wide_v10.jpg
+  prompt: 'nested closed contours forming an abstract isosurface slice, centered flat
+    vector on warm off-white paper; wide banner format with the motif centered and
+    generous negative space, suitable for headers; abstract geometric composition,
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: isosurface
+  motif_name: Isosurface
+  variant_id: square
+  version: v10
+  aspect: '1:1'
+  filename: assets/images/v10/isosurface_square_v10.jpg
+  prompt: 'nested closed contours forming an abstract isosurface slice, centered flat
+    vector on warm off-white paper; square canvas with the motif centered and large,
+    generous padding, ready for copy-paste; abstract geometric composition, solid
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat vector,
+    crisp clean edges, no gradients, no shadows, no 3D render, no photography, no
+    text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: isosurface
+  motif_name: Isosurface
+  variant_id: quiet
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/isosurface_quiet_v10.jpg
+  prompt: 'nested closed contours forming an abstract isosurface slice, centered flat
+    vector on warm off-white paper; minimal composition with the motif small and off-center,
+    abundant warm off-white negative space; abstract geometric composition, solid
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat vector,
+    crisp clean edges, no gradients, no shadows, no 3D render, no photography, no
+    text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: network-graph
+  motif_name: Network graph
+  variant_id: wide
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/network-graph_wide_v10.jpg
+  prompt: 'a sparse graph of nodes connected by straight indigo edges, centered flat
+    vector on warm off-white paper; wide banner format with the motif centered and
+    generous negative space, suitable for headers; abstract geometric composition,
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: network-graph
+  motif_name: Network graph
+  variant_id: square
+  version: v10
+  aspect: '1:1'
+  filename: assets/images/v10/network-graph_square_v10.jpg
+  prompt: 'a sparse graph of nodes connected by straight indigo edges, centered flat
+    vector on warm off-white paper; square canvas with the motif centered and large,
+    generous padding, ready for copy-paste; abstract geometric composition, solid
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat vector,
+    crisp clean edges, no gradients, no shadows, no 3D render, no photography, no
+    text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: network-graph
+  motif_name: Network graph
+  variant_id: quiet
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/network-graph_quiet_v10.jpg
+  prompt: 'a sparse graph of nodes connected by straight indigo edges, centered flat
+    vector on warm off-white paper; minimal composition with the motif small and off-center,
+    abundant warm off-white negative space; abstract geometric composition, solid
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat vector,
+    crisp clean edges, no gradients, no shadows, no 3D render, no photography, no
+    text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: diffraction
+  motif_name: Diffraction
+  variant_id: wide
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/diffraction_wide_v10.jpg
+  prompt: 'fine indigo lines fanning out from a narrow central gap, centered flat
+    vector on warm off-white paper; wide banner format with the motif centered and
+    generous negative space, suitable for headers; abstract geometric composition,
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: diffraction
+  motif_name: Diffraction
+  variant_id: square
+  version: v10
+  aspect: '1:1'
+  filename: assets/images/v10/diffraction_square_v10.jpg
+  prompt: 'fine indigo lines fanning out from a narrow central gap, centered flat
+    vector on warm off-white paper; square canvas with the motif centered and large,
+    generous padding, ready for copy-paste; abstract geometric composition, solid
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat vector,
+    crisp clean edges, no gradients, no shadows, no 3D render, no photography, no
+    text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: diffraction
+  motif_name: Diffraction
+  variant_id: quiet
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/diffraction_quiet_v10.jpg
+  prompt: 'fine indigo lines fanning out from a narrow central gap, centered flat
+    vector on warm off-white paper; minimal composition with the motif small and off-center,
+    abundant warm off-white negative space; abstract geometric composition, solid
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat vector,
+    crisp clean edges, no gradients, no shadows, no 3D render, no photography, no
+    text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: tessellation
+  motif_name: Tessellation
+  variant_id: wide
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/tessellation_wide_v10.jpg
+  prompt: 'a single indigo tile shape repeating in a seamless geometric tessellation,
+    centered flat vector on warm off-white paper; wide banner format with the motif
+    centered and generous negative space, suitable for headers; abstract geometric
+    composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
+    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
+    photography, no text, no letters, no numbers, no people, no flowers, no neon,
+    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
+    and web'
+  status: generated
+- motif_id: tessellation
+  motif_name: Tessellation
+  variant_id: square
+  version: v10
+  aspect: '1:1'
+  filename: assets/images/v10/tessellation_square_v10.jpg
+  prompt: 'a single indigo tile shape repeating in a seamless geometric tessellation,
+    centered flat vector on warm off-white paper; square canvas with the motif centered
+    and large, generous padding, ready for copy-paste; abstract geometric composition,
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: tessellation
+  motif_name: Tessellation
+  variant_id: quiet
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/tessellation_quiet_v10.jpg
+  prompt: 'a single indigo tile shape repeating in a seamless geometric tessellation,
+    centered flat vector on warm off-white paper; minimal composition with the motif
+    small and off-center, abundant warm off-white negative space; abstract geometric
+    composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
+    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
+    photography, no text, no letters, no numbers, no people, no flowers, no neon,
+    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
+    and web'
+  status: generated
+- motif_id: shadow-arch
+  motif_name: Shadow arch
+  variant_id: wide
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/shadow-arch_wide_v10.jpg
+  prompt: 'overlapping indigo arches casting implied shadows, centered flat vector
+    on warm off-white paper; wide banner format with the motif centered and generous
+    negative space, suitable for headers; abstract geometric composition, solid warm
+    off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat vector, crisp
+    clean edges, no gradients, no shadows, no 3D render, no photography, no text,
+    no letters, no numbers, no people, no flowers, no neon, no cyan, no teal, no purple,
+    no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: shadow-arch
+  motif_name: Shadow arch
+  variant_id: square
+  version: v10
+  aspect: '1:1'
+  filename: assets/images/v10/shadow-arch_square_v10.jpg
+  prompt: 'overlapping indigo arches casting implied shadows, centered flat vector
+    on warm off-white paper; square canvas with the motif centered and large, generous
+    padding, ready for copy-paste; abstract geometric composition, solid warm off-white
+    #faf9f6 paper background, single indigo #3d4db3 ink, flat vector, crisp clean
+    edges, no gradients, no shadows, no 3D render, no photography, no text, no letters,
+    no numbers, no people, no flowers, no neon, no cyan, no teal, no purple, no orange,
+    no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: shadow-arch
+  motif_name: Shadow arch
+  variant_id: quiet
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/shadow-arch_quiet_v10.jpg
+  prompt: 'overlapping indigo arches casting implied shadows, centered flat vector
+    on warm off-white paper; minimal composition with the motif small and off-center,
+    abundant warm off-white negative space; abstract geometric composition, solid
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat vector,
+    crisp clean edges, no gradients, no shadows, no 3D render, no photography, no
+    text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: field-gradient
+  motif_name: Field gradient
+  variant_id: wide
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/field-gradient_wide_v10.jpg
+  prompt: 'evenly spaced parallel lines bending around an invisible form, centered
+    flat vector on warm off-white paper; wide banner format with the motif centered
+    and generous negative space, suitable for headers; abstract geometric composition,
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: field-gradient
+  motif_name: Field gradient
+  variant_id: square
+  version: v10
+  aspect: '1:1'
+  filename: assets/images/v10/field-gradient_square_v10.jpg
+  prompt: 'evenly spaced parallel lines bending around an invisible form, centered
+    flat vector on warm off-white paper; square canvas with the motif centered and
+    large, generous padding, ready for copy-paste; abstract geometric composition,
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated
+- motif_id: field-gradient
+  motif_name: Field gradient
+  variant_id: quiet
+  version: v10
+  aspect: '16:9'
+  filename: assets/images/v10/field-gradient_quiet_v10.jpg
+  prompt: 'evenly spaced parallel lines bending around an invisible form, centered
+    flat vector on warm off-white paper; minimal composition with the motif small
+    and off-center, abundant warm off-white negative space; abstract geometric composition,
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+    no purple, no orange, no gold, brand imagery suitable for print and web'
+  status: generated

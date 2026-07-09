@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a combined gallery across v1–v5 from the asset directories."""
+"""Build a combined gallery across v1–v10 from the asset directories."""
 import json
 import pathlib
 import re
@@ -39,6 +39,22 @@ MOTIF_NAMES = {
     "wave-packet": "Wave packet",
     "convergence-star": "Convergence star",
     "divergence-burst": "Divergence burst",
+    "paper-topography": "Paper topography",
+    "crystalline-form": "Crystalline form",
+    "meander-pattern": "Meander pattern",
+    "moire-grid": "Moire grid",
+    "ribbon-knot": "Ribbon knot",
+    "lattice-defect": "Lattice defect",
+    "radial-array": "Radial array",
+    "interference": "Interference",
+    "wavefront": "Wavefront",
+    "phase-transition": "Phase transition",
+    "isosurface": "Isosurface",
+    "network-graph": "Network graph",
+    "diffraction": "Diffraction",
+    "tessellation": "Tessellation",
+    "shadow-arch": "Shadow arch",
+    "field-gradient": "Field gradient",
 }
 
 
@@ -97,7 +113,7 @@ def main():
     )
     html = html.replace(
         "A controlled matrix of MiniMax-generated stills across three motifs and four variants.",
-        "All generations (v1–v9) side by side: research motifs, abstract textures, and standalone iconography. Compare how the prompt tightening changed palette, geometry, and readability.",
+        "All generations (v1–v10) side by side: research motifs, abstract textures, and standalone iconography. Compare how the prompt tightening changed palette, geometry, and readability.",
     )
 
     OUT.write_text(html)
