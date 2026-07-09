@@ -80,10 +80,11 @@ variants:
   modifier: minimal composition with the motif small and off-center, abundant warm
     off-white negative space
 style_suffix: 'abstract geometric composition, solid warm off-white #faf9f6 paper
-  background, single indigo #3d4db3 ink, flat vector, crisp clean edges, no gradients,
-  no shadows, no 3D render, no photography, no text, no letters, no numbers, no people,
-  no flowers, no neon, no cyan, no teal, no purple, no orange, no gold, brand imagery
-  suitable for print and web'
+  background, single indigo #3d4db3 ink only, flat vector, crisp clean edges, no gradients,
+  no shadows, no 3D render, no photography, no watercolor, no texture, no shading,
+  no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
+  no purple, no lavender, no light blue, no orange, no gold, no yellow, no amber,
+  no pink, brand imagery suitable for print and web'
 scenes:
 - motif_id: paper-topography
   motif_name: Paper topography
@@ -95,10 +96,11 @@ scenes:
     contours, flat vector on warm off-white paper; wide banner format with the motif
     centered and generous negative space, suitable for headers; abstract geometric
     composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
-    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
-    photography, no text, no letters, no numbers, no people, no flowers, no neon,
-    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
-    and web'
+    ink only, flat vector, crisp clean edges, no gradients, no shadows, no 3D render,
+    no photography, no watercolor, no texture, no shading, no text, no letters, no
+    numbers, no people, no flowers, no neon, no cyan, no teal, no purple, no lavender,
+    no light blue, no orange, no gold, no yellow, no amber, no pink, brand imagery
+    suitable for print and web'
   status: generated
 - motif_id: paper-topography
   motif_name: Paper topography
@@ -109,10 +111,12 @@ scenes:
   prompt: 'layered cut-paper ridges forming an abstract topographic map, clean elevation
     contours, flat vector on warm off-white paper; square canvas with the motif centered
     and large, generous padding, ready for copy-paste; abstract geometric composition,
-    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
-    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
-    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only,
+    flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: paper-topography
   motif_name: Paper topography
@@ -124,10 +128,11 @@ scenes:
     contours, flat vector on warm off-white paper; minimal composition with the motif
     small and off-center, abundant warm off-white negative space; abstract geometric
     composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
-    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
-    photography, no text, no letters, no numbers, no people, no flowers, no neon,
-    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
-    and web'
+    ink only, flat vector, crisp clean edges, no gradients, no shadows, no 3D render,
+    no photography, no watercolor, no texture, no shading, no text, no letters, no
+    numbers, no people, no flowers, no neon, no cyan, no teal, no purple, no lavender,
+    no light blue, no orange, no gold, no yellow, no amber, no pink, brand imagery
+    suitable for print and web'
   status: generated
 - motif_id: crystalline-form
   motif_name: Crystalline form
@@ -138,10 +143,12 @@ scenes:
   prompt: 'a single angular crystal silhouette with one internal facet line, centered,
     flat vector on warm off-white paper; wide banner format with the motif centered
     and generous negative space, suitable for headers; abstract geometric composition,
-    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
-    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
-    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only,
+    flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: crystalline-form
   motif_name: Crystalline form
@@ -152,10 +159,12 @@ scenes:
   prompt: 'a single angular crystal silhouette with one internal facet line, centered,
     flat vector on warm off-white paper; square canvas with the motif centered and
     large, generous padding, ready for copy-paste; abstract geometric composition,
-    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
-    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
-    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only,
+    flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: crystalline-form
   motif_name: Crystalline form
@@ -166,10 +175,12 @@ scenes:
   prompt: 'a single angular crystal silhouette with one internal facet line, centered,
     flat vector on warm off-white paper; minimal composition with the motif small
     and off-center, abundant warm off-white negative space; abstract geometric composition,
-    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
-    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
-    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only,
+    flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: meander-pattern
   motif_name: Meander pattern
@@ -181,10 +192,11 @@ scenes:
     centered flat vector on warm off-white paper; wide banner format with the motif
     centered and generous negative space, suitable for headers; abstract geometric
     composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
-    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
-    photography, no text, no letters, no numbers, no people, no flowers, no neon,
-    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
-    and web'
+    ink only, flat vector, crisp clean edges, no gradients, no shadows, no 3D render,
+    no photography, no watercolor, no texture, no shading, no text, no letters, no
+    numbers, no people, no flowers, no neon, no cyan, no teal, no purple, no lavender,
+    no light blue, no orange, no gold, no yellow, no amber, no pink, brand imagery
+    suitable for print and web'
   status: generated
 - motif_id: meander-pattern
   motif_name: Meander pattern
@@ -195,10 +207,12 @@ scenes:
   prompt: 'a continuous indigo line meandering in a rhythmic back-and-forth path,
     centered flat vector on warm off-white paper; square canvas with the motif centered
     and large, generous padding, ready for copy-paste; abstract geometric composition,
-    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
-    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
-    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only,
+    flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: meander-pattern
   motif_name: Meander pattern
@@ -210,10 +224,11 @@ scenes:
     centered flat vector on warm off-white paper; minimal composition with the motif
     small and off-center, abundant warm off-white negative space; abstract geometric
     composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
-    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
-    photography, no text, no letters, no numbers, no people, no flowers, no neon,
-    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
-    and web'
+    ink only, flat vector, crisp clean edges, no gradients, no shadows, no 3D render,
+    no photography, no watercolor, no texture, no shading, no text, no letters, no
+    numbers, no people, no flowers, no neon, no cyan, no teal, no purple, no lavender,
+    no light blue, no orange, no gold, no yellow, no amber, no pink, brand imagery
+    suitable for print and web'
   status: generated
 - motif_id: moire-grid
   motif_name: Moire grid
@@ -225,10 +240,11 @@ scenes:
     pattern, centered flat vector on warm off-white paper; wide banner format with
     the motif centered and generous negative space, suitable for headers; abstract
     geometric composition, solid warm off-white #faf9f6 paper background, single indigo
-    #3d4db3 ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render,
-    no photography, no text, no letters, no numbers, no people, no flowers, no neon,
-    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
-    and web'
+    #3d4db3 ink only, flat vector, crisp clean edges, no gradients, no shadows, no
+    3D render, no photography, no watercolor, no texture, no shading, no text, no
+    letters, no numbers, no people, no flowers, no neon, no cyan, no teal, no purple,
+    no lavender, no light blue, no orange, no gold, no yellow, no amber, no pink,
+    brand imagery suitable for print and web'
   status: generated
 - motif_id: moire-grid
   motif_name: Moire grid
@@ -240,10 +256,11 @@ scenes:
     pattern, centered flat vector on warm off-white paper; square canvas with the
     motif centered and large, generous padding, ready for copy-paste; abstract geometric
     composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
-    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
-    photography, no text, no letters, no numbers, no people, no flowers, no neon,
-    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
-    and web'
+    ink only, flat vector, crisp clean edges, no gradients, no shadows, no 3D render,
+    no photography, no watercolor, no texture, no shading, no text, no letters, no
+    numbers, no people, no flowers, no neon, no cyan, no teal, no purple, no lavender,
+    no light blue, no orange, no gold, no yellow, no amber, no pink, brand imagery
+    suitable for print and web'
   status: generated
 - motif_id: moire-grid
   motif_name: Moire grid
@@ -255,10 +272,11 @@ scenes:
     pattern, centered flat vector on warm off-white paper; minimal composition with
     the motif small and off-center, abundant warm off-white negative space; abstract
     geometric composition, solid warm off-white #faf9f6 paper background, single indigo
-    #3d4db3 ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render,
-    no photography, no text, no letters, no numbers, no people, no flowers, no neon,
-    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
-    and web'
+    #3d4db3 ink only, flat vector, crisp clean edges, no gradients, no shadows, no
+    3D render, no photography, no watercolor, no texture, no shading, no text, no
+    letters, no numbers, no people, no flowers, no neon, no cyan, no teal, no purple,
+    no lavender, no light blue, no orange, no gold, no yellow, no amber, no pink,
+    brand imagery suitable for print and web'
   status: generated
 - motif_id: ribbon-knot
   motif_name: Ribbon knot
@@ -270,10 +288,11 @@ scenes:
     centered flat vector on warm off-white paper; wide banner format with the motif
     centered and generous negative space, suitable for headers; abstract geometric
     composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
-    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
-    photography, no text, no letters, no numbers, no people, no flowers, no neon,
-    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
-    and web'
+    ink only, flat vector, crisp clean edges, no gradients, no shadows, no 3D render,
+    no photography, no watercolor, no texture, no shading, no text, no letters, no
+    numbers, no people, no flowers, no neon, no cyan, no teal, no purple, no lavender,
+    no light blue, no orange, no gold, no yellow, no amber, no pink, brand imagery
+    suitable for print and web'
   status: generated
 - motif_id: ribbon-knot
   motif_name: Ribbon knot
@@ -284,10 +303,12 @@ scenes:
   prompt: 'a single indigo ribbon passing through itself to form an abstract knot,
     centered flat vector on warm off-white paper; square canvas with the motif centered
     and large, generous padding, ready for copy-paste; abstract geometric composition,
-    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
-    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
-    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only,
+    flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: ribbon-knot
   motif_name: Ribbon knot
@@ -299,10 +320,11 @@ scenes:
     centered flat vector on warm off-white paper; minimal composition with the motif
     small and off-center, abundant warm off-white negative space; abstract geometric
     composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
-    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
-    photography, no text, no letters, no numbers, no people, no flowers, no neon,
-    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
-    and web'
+    ink only, flat vector, crisp clean edges, no gradients, no shadows, no 3D render,
+    no photography, no watercolor, no texture, no shading, no text, no letters, no
+    numbers, no people, no flowers, no neon, no cyan, no teal, no purple, no lavender,
+    no light blue, no orange, no gold, no yellow, no amber, no pink, brand imagery
+    suitable for print and web'
   status: generated
 - motif_id: lattice-defect
   motif_name: Lattice defect
@@ -314,10 +336,11 @@ scenes:
     centered flat vector on warm off-white paper; wide banner format with the motif
     centered and generous negative space, suitable for headers; abstract geometric
     composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
-    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
-    photography, no text, no letters, no numbers, no people, no flowers, no neon,
-    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
-    and web'
+    ink only, flat vector, crisp clean edges, no gradients, no shadows, no 3D render,
+    no photography, no watercolor, no texture, no shading, no text, no letters, no
+    numbers, no people, no flowers, no neon, no cyan, no teal, no purple, no lavender,
+    no light blue, no orange, no gold, no yellow, no amber, no pink, brand imagery
+    suitable for print and web'
   status: generated
 - motif_id: lattice-defect
   motif_name: Lattice defect
@@ -328,10 +351,12 @@ scenes:
   prompt: 'a regular square lattice with one missing node, creating a subtle void,
     centered flat vector on warm off-white paper; square canvas with the motif centered
     and large, generous padding, ready for copy-paste; abstract geometric composition,
-    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
-    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
-    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only,
+    flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: lattice-defect
   motif_name: Lattice defect
@@ -343,10 +368,11 @@ scenes:
     centered flat vector on warm off-white paper; minimal composition with the motif
     small and off-center, abundant warm off-white negative space; abstract geometric
     composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
-    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
-    photography, no text, no letters, no numbers, no people, no flowers, no neon,
-    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
-    and web'
+    ink only, flat vector, crisp clean edges, no gradients, no shadows, no 3D render,
+    no photography, no watercolor, no texture, no shading, no text, no letters, no
+    numbers, no people, no flowers, no neon, no cyan, no teal, no purple, no lavender,
+    no light blue, no orange, no gold, no yellow, no amber, no pink, brand imagery
+    suitable for print and web'
   status: generated
 - motif_id: radial-array
   motif_name: Radial array
@@ -357,10 +383,12 @@ scenes:
   prompt: 'evenly spaced indigo marks radiating from a central hollow ring, centered
     flat vector on warm off-white paper; wide banner format with the motif centered
     and generous negative space, suitable for headers; abstract geometric composition,
-    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
-    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
-    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only,
+    flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: radial-array
   motif_name: Radial array
@@ -371,10 +399,12 @@ scenes:
   prompt: 'evenly spaced indigo marks radiating from a central hollow ring, centered
     flat vector on warm off-white paper; square canvas with the motif centered and
     large, generous padding, ready for copy-paste; abstract geometric composition,
-    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
-    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
-    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only,
+    flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: radial-array
   motif_name: Radial array
@@ -385,10 +415,12 @@ scenes:
   prompt: 'evenly spaced indigo marks radiating from a central hollow ring, centered
     flat vector on warm off-white paper; minimal composition with the motif small
     and off-center, abundant warm off-white negative space; abstract geometric composition,
-    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
-    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
-    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only,
+    flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: interference
   motif_name: Interference
@@ -400,10 +432,11 @@ scenes:
     centered flat vector on warm off-white paper; wide banner format with the motif
     centered and generous negative space, suitable for headers; abstract geometric
     composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
-    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
-    photography, no text, no letters, no numbers, no people, no flowers, no neon,
-    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
-    and web'
+    ink only, flat vector, crisp clean edges, no gradients, no shadows, no 3D render,
+    no photography, no watercolor, no texture, no shading, no text, no letters, no
+    numbers, no people, no flowers, no neon, no cyan, no teal, no purple, no lavender,
+    no light blue, no orange, no gold, no yellow, no amber, no pink, brand imagery
+    suitable for print and web'
   status: generated
 - motif_id: interference
   motif_name: Interference
@@ -414,10 +447,12 @@ scenes:
   prompt: 'two sets of concentric arcs crossing to form an interference fringe pattern,
     centered flat vector on warm off-white paper; square canvas with the motif centered
     and large, generous padding, ready for copy-paste; abstract geometric composition,
-    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
-    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
-    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only,
+    flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: interference
   motif_name: Interference
@@ -429,10 +464,11 @@ scenes:
     centered flat vector on warm off-white paper; minimal composition with the motif
     small and off-center, abundant warm off-white negative space; abstract geometric
     composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
-    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
-    photography, no text, no letters, no numbers, no people, no flowers, no neon,
-    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
-    and web'
+    ink only, flat vector, crisp clean edges, no gradients, no shadows, no 3D render,
+    no photography, no watercolor, no texture, no shading, no text, no letters, no
+    numbers, no people, no flowers, no neon, no cyan, no teal, no purple, no lavender,
+    no light blue, no orange, no gold, no yellow, no amber, no pink, brand imagery
+    suitable for print and web'
   status: generated
 - motif_id: wavefront
   motif_name: Wavefront
@@ -444,10 +480,11 @@ scenes:
     centered flat vector on warm off-white paper; wide banner format with the motif
     centered and generous negative space, suitable for headers; abstract geometric
     composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
-    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
-    photography, no text, no letters, no numbers, no people, no flowers, no neon,
-    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
-    and web'
+    ink only, flat vector, crisp clean edges, no gradients, no shadows, no 3D render,
+    no photography, no watercolor, no texture, no shading, no text, no letters, no
+    numbers, no people, no flowers, no neon, no cyan, no teal, no purple, no lavender,
+    no light blue, no orange, no gold, no yellow, no amber, no pink, brand imagery
+    suitable for print and web'
   status: generated
 - motif_id: wavefront
   motif_name: Wavefront
@@ -458,10 +495,12 @@ scenes:
   prompt: 'parallel curved lines of varying spacing suggesting a propagating wavefront,
     centered flat vector on warm off-white paper; square canvas with the motif centered
     and large, generous padding, ready for copy-paste; abstract geometric composition,
-    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
-    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
-    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only,
+    flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: wavefront
   motif_name: Wavefront
@@ -473,10 +512,11 @@ scenes:
     centered flat vector on warm off-white paper; minimal composition with the motif
     small and off-center, abundant warm off-white negative space; abstract geometric
     composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
-    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
-    photography, no text, no letters, no numbers, no people, no flowers, no neon,
-    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
-    and web'
+    ink only, flat vector, crisp clean edges, no gradients, no shadows, no 3D render,
+    no photography, no watercolor, no texture, no shading, no text, no letters, no
+    numbers, no people, no flowers, no neon, no cyan, no teal, no purple, no lavender,
+    no light blue, no orange, no gold, no yellow, no amber, no pink, brand imagery
+    suitable for print and web'
   status: generated
 - motif_id: phase-transition
   motif_name: Phase transition
@@ -488,10 +528,11 @@ scenes:
     centered flat vector on warm off-white paper; wide banner format with the motif
     centered and generous negative space, suitable for headers; abstract geometric
     composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
-    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
-    photography, no text, no letters, no numbers, no people, no flowers, no neon,
-    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
-    and web'
+    ink only, flat vector, crisp clean edges, no gradients, no shadows, no 3D render,
+    no photography, no watercolor, no texture, no shading, no text, no letters, no
+    numbers, no people, no flowers, no neon, no cyan, no teal, no purple, no lavender,
+    no light blue, no orange, no gold, no yellow, no amber, no pink, brand imagery
+    suitable for print and web'
   status: generated
 - motif_id: phase-transition
   motif_name: Phase transition
@@ -502,10 +543,12 @@ scenes:
   prompt: 'a field of small dots transitioning from ordered grid to scattered cloud,
     centered flat vector on warm off-white paper; square canvas with the motif centered
     and large, generous padding, ready for copy-paste; abstract geometric composition,
-    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
-    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
-    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only,
+    flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: phase-transition
   motif_name: Phase transition
@@ -517,10 +560,11 @@ scenes:
     centered flat vector on warm off-white paper; minimal composition with the motif
     small and off-center, abundant warm off-white negative space; abstract geometric
     composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
-    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
-    photography, no text, no letters, no numbers, no people, no flowers, no neon,
-    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
-    and web'
+    ink only, flat vector, crisp clean edges, no gradients, no shadows, no 3D render,
+    no photography, no watercolor, no texture, no shading, no text, no letters, no
+    numbers, no people, no flowers, no neon, no cyan, no teal, no purple, no lavender,
+    no light blue, no orange, no gold, no yellow, no amber, no pink, brand imagery
+    suitable for print and web'
   status: generated
 - motif_id: isosurface
   motif_name: Isosurface
@@ -531,10 +575,12 @@ scenes:
   prompt: 'nested closed contours forming an abstract isosurface slice, centered flat
     vector on warm off-white paper; wide banner format with the motif centered and
     generous negative space, suitable for headers; abstract geometric composition,
-    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
-    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
-    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only,
+    flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: isosurface
   motif_name: Isosurface
@@ -545,10 +591,12 @@ scenes:
   prompt: 'nested closed contours forming an abstract isosurface slice, centered flat
     vector on warm off-white paper; square canvas with the motif centered and large,
     generous padding, ready for copy-paste; abstract geometric composition, solid
-    warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat vector,
-    crisp clean edges, no gradients, no shadows, no 3D render, no photography, no
-    text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: isosurface
   motif_name: Isosurface
@@ -559,10 +607,12 @@ scenes:
   prompt: 'nested closed contours forming an abstract isosurface slice, centered flat
     vector on warm off-white paper; minimal composition with the motif small and off-center,
     abundant warm off-white negative space; abstract geometric composition, solid
-    warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat vector,
-    crisp clean edges, no gradients, no shadows, no 3D render, no photography, no
-    text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: network-graph
   motif_name: Network graph
@@ -573,10 +623,12 @@ scenes:
   prompt: 'a sparse graph of nodes connected by straight indigo edges, centered flat
     vector on warm off-white paper; wide banner format with the motif centered and
     generous negative space, suitable for headers; abstract geometric composition,
-    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
-    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
-    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only,
+    flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: network-graph
   motif_name: Network graph
@@ -587,10 +639,12 @@ scenes:
   prompt: 'a sparse graph of nodes connected by straight indigo edges, centered flat
     vector on warm off-white paper; square canvas with the motif centered and large,
     generous padding, ready for copy-paste; abstract geometric composition, solid
-    warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat vector,
-    crisp clean edges, no gradients, no shadows, no 3D render, no photography, no
-    text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: network-graph
   motif_name: Network graph
@@ -601,10 +655,12 @@ scenes:
   prompt: 'a sparse graph of nodes connected by straight indigo edges, centered flat
     vector on warm off-white paper; minimal composition with the motif small and off-center,
     abundant warm off-white negative space; abstract geometric composition, solid
-    warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat vector,
-    crisp clean edges, no gradients, no shadows, no 3D render, no photography, no
-    text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: diffraction
   motif_name: Diffraction
@@ -615,10 +671,12 @@ scenes:
   prompt: 'fine indigo lines fanning out from a narrow central gap, centered flat
     vector on warm off-white paper; wide banner format with the motif centered and
     generous negative space, suitable for headers; abstract geometric composition,
-    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
-    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
-    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only,
+    flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: diffraction
   motif_name: Diffraction
@@ -629,10 +687,12 @@ scenes:
   prompt: 'fine indigo lines fanning out from a narrow central gap, centered flat
     vector on warm off-white paper; square canvas with the motif centered and large,
     generous padding, ready for copy-paste; abstract geometric composition, solid
-    warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat vector,
-    crisp clean edges, no gradients, no shadows, no 3D render, no photography, no
-    text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: diffraction
   motif_name: Diffraction
@@ -643,10 +703,12 @@ scenes:
   prompt: 'fine indigo lines fanning out from a narrow central gap, centered flat
     vector on warm off-white paper; minimal composition with the motif small and off-center,
     abundant warm off-white negative space; abstract geometric composition, solid
-    warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat vector,
-    crisp clean edges, no gradients, no shadows, no 3D render, no photography, no
-    text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: tessellation
   motif_name: Tessellation
@@ -658,10 +720,11 @@ scenes:
     centered flat vector on warm off-white paper; wide banner format with the motif
     centered and generous negative space, suitable for headers; abstract geometric
     composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
-    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
-    photography, no text, no letters, no numbers, no people, no flowers, no neon,
-    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
-    and web'
+    ink only, flat vector, crisp clean edges, no gradients, no shadows, no 3D render,
+    no photography, no watercolor, no texture, no shading, no text, no letters, no
+    numbers, no people, no flowers, no neon, no cyan, no teal, no purple, no lavender,
+    no light blue, no orange, no gold, no yellow, no amber, no pink, brand imagery
+    suitable for print and web'
   status: generated
 - motif_id: tessellation
   motif_name: Tessellation
@@ -672,10 +735,12 @@ scenes:
   prompt: 'a single indigo tile shape repeating in a seamless geometric tessellation,
     centered flat vector on warm off-white paper; square canvas with the motif centered
     and large, generous padding, ready for copy-paste; abstract geometric composition,
-    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
-    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
-    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only,
+    flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: tessellation
   motif_name: Tessellation
@@ -687,10 +752,11 @@ scenes:
     centered flat vector on warm off-white paper; minimal composition with the motif
     small and off-center, abundant warm off-white negative space; abstract geometric
     composition, solid warm off-white #faf9f6 paper background, single indigo #3d4db3
-    ink, flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no
-    photography, no text, no letters, no numbers, no people, no flowers, no neon,
-    no cyan, no teal, no purple, no orange, no gold, brand imagery suitable for print
-    and web'
+    ink only, flat vector, crisp clean edges, no gradients, no shadows, no 3D render,
+    no photography, no watercolor, no texture, no shading, no text, no letters, no
+    numbers, no people, no flowers, no neon, no cyan, no teal, no purple, no lavender,
+    no light blue, no orange, no gold, no yellow, no amber, no pink, brand imagery
+    suitable for print and web'
   status: generated
 - motif_id: shadow-arch
   motif_name: Shadow arch
@@ -701,10 +767,12 @@ scenes:
   prompt: 'overlapping indigo arches casting implied shadows, centered flat vector
     on warm off-white paper; wide banner format with the motif centered and generous
     negative space, suitable for headers; abstract geometric composition, solid warm
-    off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat vector, crisp
-    clean edges, no gradients, no shadows, no 3D render, no photography, no text,
-    no letters, no numbers, no people, no flowers, no neon, no cyan, no teal, no purple,
-    no orange, no gold, brand imagery suitable for print and web'
+    off-white #faf9f6 paper background, single indigo #3d4db3 ink only, flat vector,
+    crisp clean edges, no gradients, no shadows, no 3D render, no photography, no
+    watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: shadow-arch
   motif_name: Shadow arch
@@ -715,10 +783,11 @@ scenes:
   prompt: 'overlapping indigo arches casting implied shadows, centered flat vector
     on warm off-white paper; square canvas with the motif centered and large, generous
     padding, ready for copy-paste; abstract geometric composition, solid warm off-white
-    #faf9f6 paper background, single indigo #3d4db3 ink, flat vector, crisp clean
-    edges, no gradients, no shadows, no 3D render, no photography, no text, no letters,
-    no numbers, no people, no flowers, no neon, no cyan, no teal, no purple, no orange,
-    no gold, brand imagery suitable for print and web'
+    #faf9f6 paper background, single indigo #3d4db3 ink only, flat vector, crisp clean
+    edges, no gradients, no shadows, no 3D render, no photography, no watercolor,
+    no texture, no shading, no text, no letters, no numbers, no people, no flowers,
+    no neon, no cyan, no teal, no purple, no lavender, no light blue, no orange, no
+    gold, no yellow, no amber, no pink, brand imagery suitable for print and web'
   status: generated
 - motif_id: shadow-arch
   motif_name: Shadow arch
@@ -729,10 +798,12 @@ scenes:
   prompt: 'overlapping indigo arches casting implied shadows, centered flat vector
     on warm off-white paper; minimal composition with the motif small and off-center,
     abundant warm off-white negative space; abstract geometric composition, solid
-    warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat vector,
-    crisp clean edges, no gradients, no shadows, no 3D render, no photography, no
-    text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only, flat
+    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: field-gradient
   motif_name: Field gradient
@@ -743,10 +814,12 @@ scenes:
   prompt: 'evenly spaced parallel lines bending around an invisible form, centered
     flat vector on warm off-white paper; wide banner format with the motif centered
     and generous negative space, suitable for headers; abstract geometric composition,
-    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
-    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
-    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only,
+    flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: field-gradient
   motif_name: Field gradient
@@ -757,10 +830,12 @@ scenes:
   prompt: 'evenly spaced parallel lines bending around an invisible form, centered
     flat vector on warm off-white paper; square canvas with the motif centered and
     large, generous padding, ready for copy-paste; abstract geometric composition,
-    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
-    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
-    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only,
+    flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
 - motif_id: field-gradient
   motif_name: Field gradient
@@ -771,8 +846,10 @@ scenes:
   prompt: 'evenly spaced parallel lines bending around an invisible form, centered
     flat vector on warm off-white paper; minimal composition with the motif small
     and off-center, abundant warm off-white negative space; abstract geometric composition,
-    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink, flat
-    vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
-    no text, no letters, no numbers, no people, no flowers, no neon, no cyan, no teal,
-    no purple, no orange, no gold, brand imagery suitable for print and web'
+    solid warm off-white #faf9f6 paper background, single indigo #3d4db3 ink only,
+    flat vector, crisp clean edges, no gradients, no shadows, no 3D render, no photography,
+    no watercolor, no texture, no shading, no text, no letters, no numbers, no people,
+    no flowers, no neon, no cyan, no teal, no purple, no lavender, no light blue,
+    no orange, no gold, no yellow, no amber, no pink, brand imagery suitable for print
+    and web'
   status: generated
