@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+{% block title %}Asset Gallery · Lupine Brand Library{% endblock %}
+{% block extra_css %}
+.filter-bar {
+  display: flex; flex-wrap: wrap; gap: 14px; align-items: end;
+  margin-bottom: 28px; padding: 18px; background: var(--paper-card);
+  border: 1px solid var(--rule); border-radius: 10px;
+}
+.filter-group { display: flex; flex-direction: column; gap: 6px; }
+.filter-group label {
+  font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint);
+}
+.filter-group input, .filter-group select {
+  font-family: var(--serif); font-size: 14px; padding: 8px 10px;
+  border: 1px solid var(--rule); border-radius: 5px; background: #fff; color: var(--ink);
+  min-width: 140px;
+}
+.search { flex: 1 1 240px; }
+.search input { width: 100%; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+.card {
+  background: var(--paper-card); border: 1px solid var(--rule); border-radius: 10px;
+  overflow: hidden; position: relative;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+.card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--indigo); }
+.card .img-wrap { display: block; position: relative; background: var(--paper-deep); }
+.card img { display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+.card[data-aspect="1:1"] img { aspect-ratio: 1/1; }
+.card .overlay {
+  position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: space-between;
+  padding: 12px; opacity: 0; transition: opacity 180ms ease;
+  background: linear-gradient(transparent 60%, rgba(22,23,29,0.35));
+}
+.card:hover .overlay { opacity: 1; }
+.card .overlay a, .card .overlay button {
+  font-family: var(--mono); font-size: 11px; color: #fff;
+  background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.35);
+  padding: 6px 10px; border-radius: 4px; text-decoration: none; cursor: pointer;
+}
+.card .overlay a:hover, .card .overlay button:hover { background: rgba(255,255,255,0.35); }
+.card .body { padding: 14px 16px; }
+.card .meta {
+  display: flex; gap: 8px; align-items: center; margin-bottom: 8px;
+  font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint);
+}
+.card .meta .badge { background: var(--indigo-wash); color: var(--indigo-deep); padding: 2px 6px; border-radius: 3px; }
+.card h2 { font-size: 19px; font-weight: 500; margin-bottom: 6px; }
+.card h2 a { color: var(--ink); }
+.card h2 a:hover { text-decoration: none; color: var(--indigo); }
+.card p { font-size: 12px; color: var(--ink-soft); line-height: 1.45; margin-bottom: 10px; }
+.rating {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+  font-family: var(--mono); font-size: 11px; color: var(--ink-soft);
+}
+.rating input { flex: 1; }
+.fav {
+  position: absolute; top: 10px; right: 10px; z-index: 5;
+  width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--rule);
+  background: rgba(255,255,255,0.9); cursor: pointer; font-size: 16px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+.fav:hover, .fav.active { background: var(--indigo); color: #fff; border-color: var(--indigo); }
+.empty {
+  text-align: center; padding: 80px 20px; color: var(--ink-soft);
+  grid-column: 1 / -1;
+}
+{% endblock %}
+{% block content %}
+<h1>Asset <em>gallery.</em></h1>
+<p class="lede">{{ stats.total }} generated stills across {{ stats.versions|length }} versions and {{ stats.motifs|length }} motifs. Search by prompt, motif, version, variant, or tag; favorite and rate the keepers.</p>
+
+<form class="filter-bar" method="get" action="/">
+  <div class="filter-group search">
+    <label for="q">Search</label>
+    <input id="q" name="q" type="search" value="{{ query.q }}" placeholder="motif, prompt, notes…">
+  </div>
+  <div class="filter-group">
+    <label for="version">Version</label>
+    <select id="version" name="version">
+      <option value="">All</option>
+      {% for v in filters.versions %}<option value="{{ v }}" {% if query.version == v %}selected{% endif %}>{{ v }}</option>{% endfor %}
+    </select>
+  </div>
+  <div class="filter-group">
+    <label for="motif">Motif</label>
+    <select id="motif" name="motif">
+      <option value="">All</option>
+      {% for m in filters.motifs %}<option value="{{ m }}" {% if query.motif == m %}selected{% endif %}>{{ m }}</option>{% endfor %}
+    </select>
+  </div>
+  <div class="filter-group">
+    <label for="variant">Variant</label>
+    <select id="variant" name="variant">
+      <option value="">All</option>
+      {% for v in filters.variants %}<option value="{{ v }}" {% if query.variant == v %}selected{% endif %}>{{ v }}</option>{% endfor %}
+    </select>
+  </div>
+  <div class="filter-group">
+    <label for="aspect">Aspect</label>
+    <select id="aspect" name="aspect">
+      <option value="">All</option>
+      {% for a in filters.aspects %}<option value="{{ a }}" {% if query.aspect == a %}selected{% endif %}>{{ a }}</option>{% endfor %}
+    </select>
+  </div>
+  <div class="filter-group">
+    <label for="sort">Sort</label>
+    <select id="sort" name="sort">
+      <option value="newest" {% if query.sort == 'newest' %}selected{% endif %}>Newest</option>
+      <option value="oldest" {% if query.sort == 'oldest' %}selected{% endif %}>Oldest</option>
+      <option value="rating" {% if query.sort == 'rating' %}selected{% endif %}>Top rated</option>
+      <option value="motif" {% if query.sort == 'motif' %}selected{% endif %}>Motif</option>
+      <option value="size" {% if query.sort == 'size' %}selected{% endif %}>Largest</option>
+    </select>
+  </div>
+  <div class="filter-group">
+    <label>&nbsp;</label>
+    <button type="submit" class="btn active">Filter</button>
+  </div>
+  {% if query.favorite or query.tag %}
+  <div class="filter-group">
+    <label>&nbsp;</label>
+    <a href="/" class="btn">Clear</a>
+  </div>
+  {% endif %}
+</form>
+
+<div class="grid">
+  {% for asset in assets %}
+  <article class="card" data-aspect="{{ asset.aspect }}" data-id="{{ asset.id }}">
+    <button class="fav {% if asset.favorite %}active{% endif %}" data-id="{{ asset.id }}" aria-label="Toggle favorite">
+      {% if asset.favorite %}★{% else %}☆{% endif %}
+    </button>
+    <a class="img-wrap" href="/asset/{{ asset.id }}">
+      <img src="{{ asset.url }}" alt="{{ asset.motif }} {{ asset.variant }}" loading="lazy">
+      <div class="overlay">
+        <a href="/download/{{ asset.id }}">Download</a>
+        <button class="copy-path" data-path="{{ asset.url }}">Copy path</button>
+      </div>
+    </a>
+    <div class="body">
+      <div class="meta">
+        <span class="badge">{{ asset.version }}</span>
+        <span>{{ asset.variant }}</span>
+        <span>{{ asset.aspect }}</span>
+        <span>{{ asset.width }}×{{ asset.height }}</span>
+      </div>
+      <h2><a href="/asset/{{ asset.id }}">{{ asset.motif }}</a></h2>
+      <p>{{ asset.prompt[:140] }}{% if asset.prompt|length > 140 %}…{% endif %}</p>
+      <div class="rating">
+        <label>Rating</label>
+        <input type="range" min="0" max="5" value="{{ asset.rating }}" data-id="{{ asset.id }}">
+        <output>{{ asset.rating }}</output>
+      </div>
+    </div>
+  </article>
+  {% else %}
+  <div class="empty">
+    <p>No assets match those filters.</p>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

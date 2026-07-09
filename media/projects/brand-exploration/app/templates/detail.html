@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %}{{ asset.motif }} · {{ asset.version }} · Lupine Brand Library{% endblock %}
+{% block extra_css %}
+.detail {
+  display: grid; grid-template-columns: minmax(300px, 1.2fr) minmax(300px, 0.8fr); gap: 40px;
+}
+@media (max-width: 900px) { .detail { grid-template-columns: 1fr; } }
+.detail img {
+  width: 100%; border-radius: 10px; border: 1px solid var(--rule); box-shadow: var(--shadow);
+}
+.meta-list {
+  list-style: none; margin: 20px 0; padding: 18px; background: var(--paper-card);
+  border: 1px solid var(--rule); border-radius: 10px;
+  font-family: var(--mono); font-size: 12px;
+}
+.meta-list li { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--rule-soft); }
+.meta-list li:last-child { border-bottom: none; }
+.meta-list span { color: var(--ink-soft); }
+.prompt-box {
+  background: #fff; border: 1px solid var(--rule); border-radius: 8px; padding: 16px;
+  font-family: var(--mono); font-size: 12px; line-height: 1.5; color: var(--ink-soft); white-space: pre-wrap;
+}
+.actions { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
+.field { margin-bottom: 18px; }
+.field label {
+  display: block; font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--ink-faint); margin-bottom: 6px;
+}
+.field textarea {
+  width: 100%; min-height: 120px; padding: 12px; border: 1px solid var(--rule); border-radius: 6px;
+  font-family: var(--serif); font-size: 15px; color: var(--ink); background: #fff; resize: vertical;
+}
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.tag {
+  font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em;
+  padding: 4px 10px; border-radius: 4px; background: var(--indigo-wash); color: var(--indigo-deep);
+}
+{% endblock %}
+{% block content %}
+<h1>{{ asset.motif }} <em>{{ asset.version }}</em></h1>
+<p class="lede">{{ asset.variant }} · {{ asset.aspect }} · {{ asset.width }}×{{ asset.height }}</p>
+
+<div class="detail">
+  <div>
+    <img src="{{ asset.url }}" alt="{{ asset.motif }}">
+    <div class="actions">
+      <a href="/download/{{ asset.id }}" class="btn active">Download JPG</a>
+      <button class="btn copy-path" data-path="{{ asset.url }}">Copy path</button>
+      <button class="btn fav-toggle {% if asset.favorite %}active{% endif %}" data-id="{{ asset.id }}">
+        {% if asset.favorite %}★ Favorited{% else %}☆ Add favorite{% endif %}
+      </button>
+    </div>
+  </div>
+  <div>
+    <ul class="meta-list">
+      <li><span>ID</span> <strong>{{ asset.id }}</strong></li>
+      <li><span>Filename</span> <strong>{{ asset.filename }}</strong></li>
+      <li><span>Version</span> <strong>{{ asset.version }}</strong></li>
+      <li><span>Motif</span> <strong>{{ asset.motif }}</strong></li>
+      <li><span>Variant</span> <strong>{{ asset.variant }}</strong></li>
+      <li><span>Aspect</span> <strong>{{ asset.aspect }}</strong></li>
+      <li><span>Dimensions</span> <strong>{{ asset.width }}×{{ asset.height }}</strong></li>
+      <li><span>File size</span> <strong>{{ "%.1f"|format(asset.size_bytes / 1024) }} KB</strong></li>
+      <li><span>Rating</span> <strong>{{ asset.rating }} / 5</strong></li>
+    </ul>
+
+    <h2 style="font-size: 20px; font-weight: 500; margin: 24px 0 12px;">Prompt</h2>
+    <div class="prompt-box">{{ asset.prompt }}</div>
+
+    {% if asset.tags %}
+    <h2 style="font-size: 20px; font-weight: 500; margin: 24px 0 12px;">Tags</h2>
+    <div class="tags">
+      {% for tag in asset.tags %}<a href="/?tag={{ tag }}" class="tag">{{ tag }}</a>{% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="field" style="margin-top: 28px;">
+      <label for="notes">Notes</label>
+      <textarea id="notes" data-id="{{ asset.id }}">{{ asset.notes }}</textarea>
+    </div>
+  </div>
+</div>
+{% endblock %}
