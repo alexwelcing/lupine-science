@@ -1,0 +1,806 @@
+project: brand-exploration
+format: image
+version: v9
+motifs:
+- id: orbit-mark
+  name: Orbit mark
+  base: a minimal atomic icon of a small solid circle with two thin elliptical orbits
+    crossing around it, centered on warm off-white paper, flat vector glyph
+- id: lattice-node
+  name: Lattice node
+  base: a small grid of four dots connected by straight lines forming a square lattice
+    node, centered, flat vector icon on warm off-white paper
+- id: proof-check
+  name: Proof check
+  base: a bold indigo checkmark inside a thin square frame, centered, flat vector
+    icon on warm off-white paper
+- id: error-tick
+  name: Error tick
+  base: a crosshair target with one small tick mark slightly off center, representing
+    measured error, centered flat vector icon on warm off-white paper
+- id: molecule-glyph
+  name: Molecule glyph
+  base: a simple abstract molecule made of three small circles connected by two lines,
+    centered, flat vector icon on warm off-white paper
+- id: bond-angle
+  name: Bond angle
+  base: two thick indigo lines meeting at an acute angle with a small arc showing
+    the angle, centered flat vector icon on warm off-white paper
+- id: calibration-cross
+  name: Calibration cross
+  base: a precise plus sign with small tick marks along each arm like a calibration
+    reticle, centered flat vector icon on warm off-white paper
+- id: trust-shield
+  name: Trust shield
+  base: a shield outline containing a small indigo checkmark, centered flat vector
+    icon on warm off-white paper
+- id: field-line
+  name: Field line
+  base: a single smooth curved indigo line with a small arrowhead, suggesting a vector
+    field, centered flat vector icon on warm off-white paper
+- id: manifold-curve
+  name: Manifold curve
+  base: a continuous indigo ribbon forming a simple loop or lemniscate, centered flat
+    vector icon on warm off-white paper
+- id: atomic-ring
+  name: Atomic ring
+  base: three concentric thin indigo rings with a tiny solid center dot, centered
+    flat vector icon on warm off-white paper
+- id: coordinate-axis
+  name: Coordinate axis
+  base: three thin axes meeting at the bottom-left corner with small arrowheads, centered
+    flat vector icon on warm off-white paper
+- id: hex-cell
+  name: Hex cell
+  base: a single regular hexagon with a small solid indigo dot at its center, centered
+    flat vector icon on warm off-white paper
+- id: wave-packet
+  name: Wave packet
+  base: a smooth sine-wave pulse tapering at both ends, centered flat vector icon
+    on warm off-white paper
+- id: convergence-star
+  name: Convergence star
+  base: several thin indigo lines converging to a single bright point at the center,
+    centered flat vector icon on warm off-white paper
+- id: divergence-burst
+  name: Divergence burst
+  base: several thin indigo lines radiating outward from a small central dot, centered
+    flat vector icon on warm off-white paper
+variants:
+- id: square
+  aspect: '1:1'
+  modifier: square canvas with the icon centered and large, generous padding, ready
+    for copy-paste
+- id: circle
+  aspect: '1:1'
+  modifier: square canvas with the icon enclosed in a faint circular boundary, centered,
+    ready for copy-paste
+- id: wide
+  aspect: '16:9'
+  modifier: wide banner format with the icon centered left and negative space right,
+    suitable for headers
+style_suffix: 'standalone icon design, centered glyph, solid warm off-white #faf9f6
+  background, single indigo #3d4db3 ink, flat vector, crisp clean edges, generous
+  padding around the icon, no text, no letters, no numbers, no people, no flowers,
+  no gradients, no shadows, no 3D render, no photography, no cyan no teal no light
+  blue no purple no orange no gold, iconography suitable for copy-paste'
+scenes:
+- motif_id: orbit-mark
+  motif_name: Orbit mark
+  variant_id: square
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/orbit-mark_square_v9.jpg
+  prompt: 'a minimal atomic icon of a small solid circle with two thin elliptical
+    orbits crossing around it, centered on warm off-white paper, flat vector glyph;
+    square canvas with the icon centered and large, generous padding, ready for copy-paste;
+    standalone icon design, centered glyph, solid warm off-white #faf9f6 background,
+    single indigo #3d4db3 ink, flat vector, crisp clean edges, generous padding around
+    the icon, no text, no letters, no numbers, no people, no flowers, no gradients,
+    no shadows, no 3D render, no photography, no cyan no teal no light blue no purple
+    no orange no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: orbit-mark
+  motif_name: Orbit mark
+  variant_id: circle
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/orbit-mark_circle_v9.jpg
+  prompt: 'a minimal atomic icon of a small solid circle with two thin elliptical
+    orbits crossing around it, centered on warm off-white paper, flat vector glyph;
+    square canvas with the icon enclosed in a faint circular boundary, centered, ready
+    for copy-paste; standalone icon design, centered glyph, solid warm off-white #faf9f6
+    background, single indigo #3d4db3 ink, flat vector, crisp clean edges, generous
+    padding around the icon, no text, no letters, no numbers, no people, no flowers,
+    no gradients, no shadows, no 3D render, no photography, no cyan no teal no light
+    blue no purple no orange no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: orbit-mark
+  motif_name: Orbit mark
+  variant_id: wide
+  version: v9
+  aspect: '16:9'
+  filename: assets/images/v9/orbit-mark_wide_v9.jpg
+  prompt: 'a minimal atomic icon of a small solid circle with two thin elliptical
+    orbits crossing around it, centered on warm off-white paper, flat vector glyph;
+    wide banner format with the icon centered left and negative space right, suitable
+    for headers; standalone icon design, centered glyph, solid warm off-white #faf9f6
+    background, single indigo #3d4db3 ink, flat vector, crisp clean edges, generous
+    padding around the icon, no text, no letters, no numbers, no people, no flowers,
+    no gradients, no shadows, no 3D render, no photography, no cyan no teal no light
+    blue no purple no orange no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: lattice-node
+  motif_name: Lattice node
+  variant_id: square
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/lattice-node_square_v9.jpg
+  prompt: 'a small grid of four dots connected by straight lines forming a square
+    lattice node, centered, flat vector icon on warm off-white paper; square canvas
+    with the icon centered and large, generous padding, ready for copy-paste; standalone
+    icon design, centered glyph, solid warm off-white #faf9f6 background, single indigo
+    #3d4db3 ink, flat vector, crisp clean edges, generous padding around the icon,
+    no text, no letters, no numbers, no people, no flowers, no gradients, no shadows,
+    no 3D render, no photography, no cyan no teal no light blue no purple no orange
+    no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: lattice-node
+  motif_name: Lattice node
+  variant_id: circle
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/lattice-node_circle_v9.jpg
+  prompt: 'a small grid of four dots connected by straight lines forming a square
+    lattice node, centered, flat vector icon on warm off-white paper; square canvas
+    with the icon enclosed in a faint circular boundary, centered, ready for copy-paste;
+    standalone icon design, centered glyph, solid warm off-white #faf9f6 background,
+    single indigo #3d4db3 ink, flat vector, crisp clean edges, generous padding around
+    the icon, no text, no letters, no numbers, no people, no flowers, no gradients,
+    no shadows, no 3D render, no photography, no cyan no teal no light blue no purple
+    no orange no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: lattice-node
+  motif_name: Lattice node
+  variant_id: wide
+  version: v9
+  aspect: '16:9'
+  filename: assets/images/v9/lattice-node_wide_v9.jpg
+  prompt: 'a small grid of four dots connected by straight lines forming a square
+    lattice node, centered, flat vector icon on warm off-white paper; wide banner
+    format with the icon centered left and negative space right, suitable for headers;
+    standalone icon design, centered glyph, solid warm off-white #faf9f6 background,
+    single indigo #3d4db3 ink, flat vector, crisp clean edges, generous padding around
+    the icon, no text, no letters, no numbers, no people, no flowers, no gradients,
+    no shadows, no 3D render, no photography, no cyan no teal no light blue no purple
+    no orange no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: proof-check
+  motif_name: Proof check
+  variant_id: square
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/proof-check_square_v9.jpg
+  prompt: 'a bold indigo checkmark inside a thin square frame, centered, flat vector
+    icon on warm off-white paper; square canvas with the icon centered and large,
+    generous padding, ready for copy-paste; standalone icon design, centered glyph,
+    solid warm off-white #faf9f6 background, single indigo #3d4db3 ink, flat vector,
+    crisp clean edges, generous padding around the icon, no text, no letters, no numbers,
+    no people, no flowers, no gradients, no shadows, no 3D render, no photography,
+    no cyan no teal no light blue no purple no orange no gold, iconography suitable
+    for copy-paste'
+  status: generated
+- motif_id: proof-check
+  motif_name: Proof check
+  variant_id: circle
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/proof-check_circle_v9.jpg
+  prompt: 'a bold indigo checkmark inside a thin square frame, centered, flat vector
+    icon on warm off-white paper; square canvas with the icon enclosed in a faint
+    circular boundary, centered, ready for copy-paste; standalone icon design, centered
+    glyph, solid warm off-white #faf9f6 background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, generous padding around the icon, no text, no letters,
+    no numbers, no people, no flowers, no gradients, no shadows, no 3D render, no
+    photography, no cyan no teal no light blue no purple no orange no gold, iconography
+    suitable for copy-paste'
+  status: generated
+- motif_id: proof-check
+  motif_name: Proof check
+  variant_id: wide
+  version: v9
+  aspect: '16:9'
+  filename: assets/images/v9/proof-check_wide_v9.jpg
+  prompt: 'a bold indigo checkmark inside a thin square frame, centered, flat vector
+    icon on warm off-white paper; wide banner format with the icon centered left and
+    negative space right, suitable for headers; standalone icon design, centered glyph,
+    solid warm off-white #faf9f6 background, single indigo #3d4db3 ink, flat vector,
+    crisp clean edges, generous padding around the icon, no text, no letters, no numbers,
+    no people, no flowers, no gradients, no shadows, no 3D render, no photography,
+    no cyan no teal no light blue no purple no orange no gold, iconography suitable
+    for copy-paste'
+  status: generated
+- motif_id: error-tick
+  motif_name: Error tick
+  variant_id: square
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/error-tick_square_v9.jpg
+  prompt: 'a crosshair target with one small tick mark slightly off center, representing
+    measured error, centered flat vector icon on warm off-white paper; square canvas
+    with the icon centered and large, generous padding, ready for copy-paste; standalone
+    icon design, centered glyph, solid warm off-white #faf9f6 background, single indigo
+    #3d4db3 ink, flat vector, crisp clean edges, generous padding around the icon,
+    no text, no letters, no numbers, no people, no flowers, no gradients, no shadows,
+    no 3D render, no photography, no cyan no teal no light blue no purple no orange
+    no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: error-tick
+  motif_name: Error tick
+  variant_id: circle
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/error-tick_circle_v9.jpg
+  prompt: 'a crosshair target with one small tick mark slightly off center, representing
+    measured error, centered flat vector icon on warm off-white paper; square canvas
+    with the icon enclosed in a faint circular boundary, centered, ready for copy-paste;
+    standalone icon design, centered glyph, solid warm off-white #faf9f6 background,
+    single indigo #3d4db3 ink, flat vector, crisp clean edges, generous padding around
+    the icon, no text, no letters, no numbers, no people, no flowers, no gradients,
+    no shadows, no 3D render, no photography, no cyan no teal no light blue no purple
+    no orange no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: error-tick
+  motif_name: Error tick
+  variant_id: wide
+  version: v9
+  aspect: '16:9'
+  filename: assets/images/v9/error-tick_wide_v9.jpg
+  prompt: 'a crosshair target with one small tick mark slightly off center, representing
+    measured error, centered flat vector icon on warm off-white paper; wide banner
+    format with the icon centered left and negative space right, suitable for headers;
+    standalone icon design, centered glyph, solid warm off-white #faf9f6 background,
+    single indigo #3d4db3 ink, flat vector, crisp clean edges, generous padding around
+    the icon, no text, no letters, no numbers, no people, no flowers, no gradients,
+    no shadows, no 3D render, no photography, no cyan no teal no light blue no purple
+    no orange no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: molecule-glyph
+  motif_name: Molecule glyph
+  variant_id: square
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/molecule-glyph_square_v9.jpg
+  prompt: 'a simple abstract molecule made of three small circles connected by two
+    lines, centered, flat vector icon on warm off-white paper; square canvas with
+    the icon centered and large, generous padding, ready for copy-paste; standalone
+    icon design, centered glyph, solid warm off-white #faf9f6 background, single indigo
+    #3d4db3 ink, flat vector, crisp clean edges, generous padding around the icon,
+    no text, no letters, no numbers, no people, no flowers, no gradients, no shadows,
+    no 3D render, no photography, no cyan no teal no light blue no purple no orange
+    no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: molecule-glyph
+  motif_name: Molecule glyph
+  variant_id: circle
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/molecule-glyph_circle_v9.jpg
+  prompt: 'a simple abstract molecule made of three small circles connected by two
+    lines, centered, flat vector icon on warm off-white paper; square canvas with
+    the icon enclosed in a faint circular boundary, centered, ready for copy-paste;
+    standalone icon design, centered glyph, solid warm off-white #faf9f6 background,
+    single indigo #3d4db3 ink, flat vector, crisp clean edges, generous padding around
+    the icon, no text, no letters, no numbers, no people, no flowers, no gradients,
+    no shadows, no 3D render, no photography, no cyan no teal no light blue no purple
+    no orange no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: molecule-glyph
+  motif_name: Molecule glyph
+  variant_id: wide
+  version: v9
+  aspect: '16:9'
+  filename: assets/images/v9/molecule-glyph_wide_v9.jpg
+  prompt: 'a simple abstract molecule made of three small circles connected by two
+    lines, centered, flat vector icon on warm off-white paper; wide banner format
+    with the icon centered left and negative space right, suitable for headers; standalone
+    icon design, centered glyph, solid warm off-white #faf9f6 background, single indigo
+    #3d4db3 ink, flat vector, crisp clean edges, generous padding around the icon,
+    no text, no letters, no numbers, no people, no flowers, no gradients, no shadows,
+    no 3D render, no photography, no cyan no teal no light blue no purple no orange
+    no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: bond-angle
+  motif_name: Bond angle
+  variant_id: square
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/bond-angle_square_v9.jpg
+  prompt: 'two thick indigo lines meeting at an acute angle with a small arc showing
+    the angle, centered flat vector icon on warm off-white paper; square canvas with
+    the icon centered and large, generous padding, ready for copy-paste; standalone
+    icon design, centered glyph, solid warm off-white #faf9f6 background, single indigo
+    #3d4db3 ink, flat vector, crisp clean edges, generous padding around the icon,
+    no text, no letters, no numbers, no people, no flowers, no gradients, no shadows,
+    no 3D render, no photography, no cyan no teal no light blue no purple no orange
+    no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: bond-angle
+  motif_name: Bond angle
+  variant_id: circle
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/bond-angle_circle_v9.jpg
+  prompt: 'two thick indigo lines meeting at an acute angle with a small arc showing
+    the angle, centered flat vector icon on warm off-white paper; square canvas with
+    the icon enclosed in a faint circular boundary, centered, ready for copy-paste;
+    standalone icon design, centered glyph, solid warm off-white #faf9f6 background,
+    single indigo #3d4db3 ink, flat vector, crisp clean edges, generous padding around
+    the icon, no text, no letters, no numbers, no people, no flowers, no gradients,
+    no shadows, no 3D render, no photography, no cyan no teal no light blue no purple
+    no orange no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: bond-angle
+  motif_name: Bond angle
+  variant_id: wide
+  version: v9
+  aspect: '16:9'
+  filename: assets/images/v9/bond-angle_wide_v9.jpg
+  prompt: 'two thick indigo lines meeting at an acute angle with a small arc showing
+    the angle, centered flat vector icon on warm off-white paper; wide banner format
+    with the icon centered left and negative space right, suitable for headers; standalone
+    icon design, centered glyph, solid warm off-white #faf9f6 background, single indigo
+    #3d4db3 ink, flat vector, crisp clean edges, generous padding around the icon,
+    no text, no letters, no numbers, no people, no flowers, no gradients, no shadows,
+    no 3D render, no photography, no cyan no teal no light blue no purple no orange
+    no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: calibration-cross
+  motif_name: Calibration cross
+  variant_id: square
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/calibration-cross_square_v9.jpg
+  prompt: 'a precise plus sign with small tick marks along each arm like a calibration
+    reticle, centered flat vector icon on warm off-white paper; square canvas with
+    the icon centered and large, generous padding, ready for copy-paste; standalone
+    icon design, centered glyph, solid warm off-white #faf9f6 background, single indigo
+    #3d4db3 ink, flat vector, crisp clean edges, generous padding around the icon,
+    no text, no letters, no numbers, no people, no flowers, no gradients, no shadows,
+    no 3D render, no photography, no cyan no teal no light blue no purple no orange
+    no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: calibration-cross
+  motif_name: Calibration cross
+  variant_id: circle
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/calibration-cross_circle_v9.jpg
+  prompt: 'a precise plus sign with small tick marks along each arm like a calibration
+    reticle, centered flat vector icon on warm off-white paper; square canvas with
+    the icon enclosed in a faint circular boundary, centered, ready for copy-paste;
+    standalone icon design, centered glyph, solid warm off-white #faf9f6 background,
+    single indigo #3d4db3 ink, flat vector, crisp clean edges, generous padding around
+    the icon, no text, no letters, no numbers, no people, no flowers, no gradients,
+    no shadows, no 3D render, no photography, no cyan no teal no light blue no purple
+    no orange no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: calibration-cross
+  motif_name: Calibration cross
+  variant_id: wide
+  version: v9
+  aspect: '16:9'
+  filename: assets/images/v9/calibration-cross_wide_v9.jpg
+  prompt: 'a precise plus sign with small tick marks along each arm like a calibration
+    reticle, centered flat vector icon on warm off-white paper; wide banner format
+    with the icon centered left and negative space right, suitable for headers; standalone
+    icon design, centered glyph, solid warm off-white #faf9f6 background, single indigo
+    #3d4db3 ink, flat vector, crisp clean edges, generous padding around the icon,
+    no text, no letters, no numbers, no people, no flowers, no gradients, no shadows,
+    no 3D render, no photography, no cyan no teal no light blue no purple no orange
+    no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: trust-shield
+  motif_name: Trust shield
+  variant_id: square
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/trust-shield_square_v9.jpg
+  prompt: 'a shield outline containing a small indigo checkmark, centered flat vector
+    icon on warm off-white paper; square canvas with the icon centered and large,
+    generous padding, ready for copy-paste; standalone icon design, centered glyph,
+    solid warm off-white #faf9f6 background, single indigo #3d4db3 ink, flat vector,
+    crisp clean edges, generous padding around the icon, no text, no letters, no numbers,
+    no people, no flowers, no gradients, no shadows, no 3D render, no photography,
+    no cyan no teal no light blue no purple no orange no gold, iconography suitable
+    for copy-paste'
+  status: generated
+- motif_id: trust-shield
+  motif_name: Trust shield
+  variant_id: circle
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/trust-shield_circle_v9.jpg
+  prompt: 'a shield outline containing a small indigo checkmark, centered flat vector
+    icon on warm off-white paper; square canvas with the icon enclosed in a faint
+    circular boundary, centered, ready for copy-paste; standalone icon design, centered
+    glyph, solid warm off-white #faf9f6 background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, generous padding around the icon, no text, no letters,
+    no numbers, no people, no flowers, no gradients, no shadows, no 3D render, no
+    photography, no cyan no teal no light blue no purple no orange no gold, iconography
+    suitable for copy-paste'
+  status: generated
+- motif_id: trust-shield
+  motif_name: Trust shield
+  variant_id: wide
+  version: v9
+  aspect: '16:9'
+  filename: assets/images/v9/trust-shield_wide_v9.jpg
+  prompt: 'a shield outline containing a small indigo checkmark, centered flat vector
+    icon on warm off-white paper; wide banner format with the icon centered left and
+    negative space right, suitable for headers; standalone icon design, centered glyph,
+    solid warm off-white #faf9f6 background, single indigo #3d4db3 ink, flat vector,
+    crisp clean edges, generous padding around the icon, no text, no letters, no numbers,
+    no people, no flowers, no gradients, no shadows, no 3D render, no photography,
+    no cyan no teal no light blue no purple no orange no gold, iconography suitable
+    for copy-paste'
+  status: generated
+- motif_id: field-line
+  motif_name: Field line
+  variant_id: square
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/field-line_square_v9.jpg
+  prompt: 'a single smooth curved indigo line with a small arrowhead, suggesting a
+    vector field, centered flat vector icon on warm off-white paper; square canvas
+    with the icon centered and large, generous padding, ready for copy-paste; standalone
+    icon design, centered glyph, solid warm off-white #faf9f6 background, single indigo
+    #3d4db3 ink, flat vector, crisp clean edges, generous padding around the icon,
+    no text, no letters, no numbers, no people, no flowers, no gradients, no shadows,
+    no 3D render, no photography, no cyan no teal no light blue no purple no orange
+    no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: field-line
+  motif_name: Field line
+  variant_id: circle
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/field-line_circle_v9.jpg
+  prompt: 'a single smooth curved indigo line with a small arrowhead, suggesting a
+    vector field, centered flat vector icon on warm off-white paper; square canvas
+    with the icon enclosed in a faint circular boundary, centered, ready for copy-paste;
+    standalone icon design, centered glyph, solid warm off-white #faf9f6 background,
+    single indigo #3d4db3 ink, flat vector, crisp clean edges, generous padding around
+    the icon, no text, no letters, no numbers, no people, no flowers, no gradients,
+    no shadows, no 3D render, no photography, no cyan no teal no light blue no purple
+    no orange no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: field-line
+  motif_name: Field line
+  variant_id: wide
+  version: v9
+  aspect: '16:9'
+  filename: assets/images/v9/field-line_wide_v9.jpg
+  prompt: 'a single smooth curved indigo line with a small arrowhead, suggesting a
+    vector field, centered flat vector icon on warm off-white paper; wide banner format
+    with the icon centered left and negative space right, suitable for headers; standalone
+    icon design, centered glyph, solid warm off-white #faf9f6 background, single indigo
+    #3d4db3 ink, flat vector, crisp clean edges, generous padding around the icon,
+    no text, no letters, no numbers, no people, no flowers, no gradients, no shadows,
+    no 3D render, no photography, no cyan no teal no light blue no purple no orange
+    no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: manifold-curve
+  motif_name: Manifold curve
+  variant_id: square
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/manifold-curve_square_v9.jpg
+  prompt: 'a continuous indigo ribbon forming a simple loop or lemniscate, centered
+    flat vector icon on warm off-white paper; square canvas with the icon centered
+    and large, generous padding, ready for copy-paste; standalone icon design, centered
+    glyph, solid warm off-white #faf9f6 background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, generous padding around the icon, no text, no letters,
+    no numbers, no people, no flowers, no gradients, no shadows, no 3D render, no
+    photography, no cyan no teal no light blue no purple no orange no gold, iconography
+    suitable for copy-paste'
+  status: generated
+- motif_id: manifold-curve
+  motif_name: Manifold curve
+  variant_id: circle
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/manifold-curve_circle_v9.jpg
+  prompt: 'a continuous indigo ribbon forming a simple loop or lemniscate, centered
+    flat vector icon on warm off-white paper; square canvas with the icon enclosed
+    in a faint circular boundary, centered, ready for copy-paste; standalone icon
+    design, centered glyph, solid warm off-white #faf9f6 background, single indigo
+    #3d4db3 ink, flat vector, crisp clean edges, generous padding around the icon,
+    no text, no letters, no numbers, no people, no flowers, no gradients, no shadows,
+    no 3D render, no photography, no cyan no teal no light blue no purple no orange
+    no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: manifold-curve
+  motif_name: Manifold curve
+  variant_id: wide
+  version: v9
+  aspect: '16:9'
+  filename: assets/images/v9/manifold-curve_wide_v9.jpg
+  prompt: 'a continuous indigo ribbon forming a simple loop or lemniscate, centered
+    flat vector icon on warm off-white paper; wide banner format with the icon centered
+    left and negative space right, suitable for headers; standalone icon design, centered
+    glyph, solid warm off-white #faf9f6 background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, generous padding around the icon, no text, no letters,
+    no numbers, no people, no flowers, no gradients, no shadows, no 3D render, no
+    photography, no cyan no teal no light blue no purple no orange no gold, iconography
+    suitable for copy-paste'
+  status: generated
+- motif_id: atomic-ring
+  motif_name: Atomic ring
+  variant_id: square
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/atomic-ring_square_v9.jpg
+  prompt: 'three concentric thin indigo rings with a tiny solid center dot, centered
+    flat vector icon on warm off-white paper; square canvas with the icon centered
+    and large, generous padding, ready for copy-paste; standalone icon design, centered
+    glyph, solid warm off-white #faf9f6 background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, generous padding around the icon, no text, no letters,
+    no numbers, no people, no flowers, no gradients, no shadows, no 3D render, no
+    photography, no cyan no teal no light blue no purple no orange no gold, iconography
+    suitable for copy-paste'
+  status: generated
+- motif_id: atomic-ring
+  motif_name: Atomic ring
+  variant_id: circle
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/atomic-ring_circle_v9.jpg
+  prompt: 'three concentric thin indigo rings with a tiny solid center dot, centered
+    flat vector icon on warm off-white paper; square canvas with the icon enclosed
+    in a faint circular boundary, centered, ready for copy-paste; standalone icon
+    design, centered glyph, solid warm off-white #faf9f6 background, single indigo
+    #3d4db3 ink, flat vector, crisp clean edges, generous padding around the icon,
+    no text, no letters, no numbers, no people, no flowers, no gradients, no shadows,
+    no 3D render, no photography, no cyan no teal no light blue no purple no orange
+    no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: atomic-ring
+  motif_name: Atomic ring
+  variant_id: wide
+  version: v9
+  aspect: '16:9'
+  filename: assets/images/v9/atomic-ring_wide_v9.jpg
+  prompt: 'three concentric thin indigo rings with a tiny solid center dot, centered
+    flat vector icon on warm off-white paper; wide banner format with the icon centered
+    left and negative space right, suitable for headers; standalone icon design, centered
+    glyph, solid warm off-white #faf9f6 background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, generous padding around the icon, no text, no letters,
+    no numbers, no people, no flowers, no gradients, no shadows, no 3D render, no
+    photography, no cyan no teal no light blue no purple no orange no gold, iconography
+    suitable for copy-paste'
+  status: generated
+- motif_id: coordinate-axis
+  motif_name: Coordinate axis
+  variant_id: square
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/coordinate-axis_square_v9.jpg
+  prompt: 'three thin axes meeting at the bottom-left corner with small arrowheads,
+    centered flat vector icon on warm off-white paper; square canvas with the icon
+    centered and large, generous padding, ready for copy-paste; standalone icon design,
+    centered glyph, solid warm off-white #faf9f6 background, single indigo #3d4db3
+    ink, flat vector, crisp clean edges, generous padding around the icon, no text,
+    no letters, no numbers, no people, no flowers, no gradients, no shadows, no 3D
+    render, no photography, no cyan no teal no light blue no purple no orange no gold,
+    iconography suitable for copy-paste'
+  status: generated
+- motif_id: coordinate-axis
+  motif_name: Coordinate axis
+  variant_id: circle
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/coordinate-axis_circle_v9.jpg
+  prompt: 'three thin axes meeting at the bottom-left corner with small arrowheads,
+    centered flat vector icon on warm off-white paper; square canvas with the icon
+    enclosed in a faint circular boundary, centered, ready for copy-paste; standalone
+    icon design, centered glyph, solid warm off-white #faf9f6 background, single indigo
+    #3d4db3 ink, flat vector, crisp clean edges, generous padding around the icon,
+    no text, no letters, no numbers, no people, no flowers, no gradients, no shadows,
+    no 3D render, no photography, no cyan no teal no light blue no purple no orange
+    no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: coordinate-axis
+  motif_name: Coordinate axis
+  variant_id: wide
+  version: v9
+  aspect: '16:9'
+  filename: assets/images/v9/coordinate-axis_wide_v9.jpg
+  prompt: 'three thin axes meeting at the bottom-left corner with small arrowheads,
+    centered flat vector icon on warm off-white paper; wide banner format with the
+    icon centered left and negative space right, suitable for headers; standalone
+    icon design, centered glyph, solid warm off-white #faf9f6 background, single indigo
+    #3d4db3 ink, flat vector, crisp clean edges, generous padding around the icon,
+    no text, no letters, no numbers, no people, no flowers, no gradients, no shadows,
+    no 3D render, no photography, no cyan no teal no light blue no purple no orange
+    no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: hex-cell
+  motif_name: Hex cell
+  variant_id: square
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/hex-cell_square_v9.jpg
+  prompt: 'a single regular hexagon with a small solid indigo dot at its center, centered
+    flat vector icon on warm off-white paper; square canvas with the icon centered
+    and large, generous padding, ready for copy-paste; standalone icon design, centered
+    glyph, solid warm off-white #faf9f6 background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, generous padding around the icon, no text, no letters,
+    no numbers, no people, no flowers, no gradients, no shadows, no 3D render, no
+    photography, no cyan no teal no light blue no purple no orange no gold, iconography
+    suitable for copy-paste'
+  status: generated
+- motif_id: hex-cell
+  motif_name: Hex cell
+  variant_id: circle
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/hex-cell_circle_v9.jpg
+  prompt: 'a single regular hexagon with a small solid indigo dot at its center, centered
+    flat vector icon on warm off-white paper; square canvas with the icon enclosed
+    in a faint circular boundary, centered, ready for copy-paste; standalone icon
+    design, centered glyph, solid warm off-white #faf9f6 background, single indigo
+    #3d4db3 ink, flat vector, crisp clean edges, generous padding around the icon,
+    no text, no letters, no numbers, no people, no flowers, no gradients, no shadows,
+    no 3D render, no photography, no cyan no teal no light blue no purple no orange
+    no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: hex-cell
+  motif_name: Hex cell
+  variant_id: wide
+  version: v9
+  aspect: '16:9'
+  filename: assets/images/v9/hex-cell_wide_v9.jpg
+  prompt: 'a single regular hexagon with a small solid indigo dot at its center, centered
+    flat vector icon on warm off-white paper; wide banner format with the icon centered
+    left and negative space right, suitable for headers; standalone icon design, centered
+    glyph, solid warm off-white #faf9f6 background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, generous padding around the icon, no text, no letters,
+    no numbers, no people, no flowers, no gradients, no shadows, no 3D render, no
+    photography, no cyan no teal no light blue no purple no orange no gold, iconography
+    suitable for copy-paste'
+  status: generated
+- motif_id: wave-packet
+  motif_name: Wave packet
+  variant_id: square
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/wave-packet_square_v9.jpg
+  prompt: 'a smooth sine-wave pulse tapering at both ends, centered flat vector icon
+    on warm off-white paper; square canvas with the icon centered and large, generous
+    padding, ready for copy-paste; standalone icon design, centered glyph, solid warm
+    off-white #faf9f6 background, single indigo #3d4db3 ink, flat vector, crisp clean
+    edges, generous padding around the icon, no text, no letters, no numbers, no people,
+    no flowers, no gradients, no shadows, no 3D render, no photography, no cyan no
+    teal no light blue no purple no orange no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: wave-packet
+  motif_name: Wave packet
+  variant_id: circle
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/wave-packet_circle_v9.jpg
+  prompt: 'a smooth sine-wave pulse tapering at both ends, centered flat vector icon
+    on warm off-white paper; square canvas with the icon enclosed in a faint circular
+    boundary, centered, ready for copy-paste; standalone icon design, centered glyph,
+    solid warm off-white #faf9f6 background, single indigo #3d4db3 ink, flat vector,
+    crisp clean edges, generous padding around the icon, no text, no letters, no numbers,
+    no people, no flowers, no gradients, no shadows, no 3D render, no photography,
+    no cyan no teal no light blue no purple no orange no gold, iconography suitable
+    for copy-paste'
+  status: generated
+- motif_id: wave-packet
+  motif_name: Wave packet
+  variant_id: wide
+  version: v9
+  aspect: '16:9'
+  filename: assets/images/v9/wave-packet_wide_v9.jpg
+  prompt: 'a smooth sine-wave pulse tapering at both ends, centered flat vector icon
+    on warm off-white paper; wide banner format with the icon centered left and negative
+    space right, suitable for headers; standalone icon design, centered glyph, solid
+    warm off-white #faf9f6 background, single indigo #3d4db3 ink, flat vector, crisp
+    clean edges, generous padding around the icon, no text, no letters, no numbers,
+    no people, no flowers, no gradients, no shadows, no 3D render, no photography,
+    no cyan no teal no light blue no purple no orange no gold, iconography suitable
+    for copy-paste'
+  status: generated
+- motif_id: convergence-star
+  motif_name: Convergence star
+  variant_id: square
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/convergence-star_square_v9.jpg
+  prompt: 'several thin indigo lines converging to a single bright point at the center,
+    centered flat vector icon on warm off-white paper; square canvas with the icon
+    centered and large, generous padding, ready for copy-paste; standalone icon design,
+    centered glyph, solid warm off-white #faf9f6 background, single indigo #3d4db3
+    ink, flat vector, crisp clean edges, generous padding around the icon, no text,
+    no letters, no numbers, no people, no flowers, no gradients, no shadows, no 3D
+    render, no photography, no cyan no teal no light blue no purple no orange no gold,
+    iconography suitable for copy-paste'
+  status: generated
+- motif_id: convergence-star
+  motif_name: Convergence star
+  variant_id: circle
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/convergence-star_circle_v9.jpg
+  prompt: 'several thin indigo lines converging to a single bright point at the center,
+    centered flat vector icon on warm off-white paper; square canvas with the icon
+    enclosed in a faint circular boundary, centered, ready for copy-paste; standalone
+    icon design, centered glyph, solid warm off-white #faf9f6 background, single indigo
+    #3d4db3 ink, flat vector, crisp clean edges, generous padding around the icon,
+    no text, no letters, no numbers, no people, no flowers, no gradients, no shadows,
+    no 3D render, no photography, no cyan no teal no light blue no purple no orange
+    no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: convergence-star
+  motif_name: Convergence star
+  variant_id: wide
+  version: v9
+  aspect: '16:9'
+  filename: assets/images/v9/convergence-star_wide_v9.jpg
+  prompt: 'several thin indigo lines converging to a single bright point at the center,
+    centered flat vector icon on warm off-white paper; wide banner format with the
+    icon centered left and negative space right, suitable for headers; standalone
+    icon design, centered glyph, solid warm off-white #faf9f6 background, single indigo
+    #3d4db3 ink, flat vector, crisp clean edges, generous padding around the icon,
+    no text, no letters, no numbers, no people, no flowers, no gradients, no shadows,
+    no 3D render, no photography, no cyan no teal no light blue no purple no orange
+    no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: divergence-burst
+  motif_name: Divergence burst
+  variant_id: square
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/divergence-burst_square_v9.jpg
+  prompt: 'several thin indigo lines radiating outward from a small central dot, centered
+    flat vector icon on warm off-white paper; square canvas with the icon centered
+    and large, generous padding, ready for copy-paste; standalone icon design, centered
+    glyph, solid warm off-white #faf9f6 background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, generous padding around the icon, no text, no letters,
+    no numbers, no people, no flowers, no gradients, no shadows, no 3D render, no
+    photography, no cyan no teal no light blue no purple no orange no gold, iconography
+    suitable for copy-paste'
+  status: generated
+- motif_id: divergence-burst
+  motif_name: Divergence burst
+  variant_id: circle
+  version: v9
+  aspect: '1:1'
+  filename: assets/images/v9/divergence-burst_circle_v9.jpg
+  prompt: 'several thin indigo lines radiating outward from a small central dot, centered
+    flat vector icon on warm off-white paper; square canvas with the icon enclosed
+    in a faint circular boundary, centered, ready for copy-paste; standalone icon
+    design, centered glyph, solid warm off-white #faf9f6 background, single indigo
+    #3d4db3 ink, flat vector, crisp clean edges, generous padding around the icon,
+    no text, no letters, no numbers, no people, no flowers, no gradients, no shadows,
+    no 3D render, no photography, no cyan no teal no light blue no purple no orange
+    no gold, iconography suitable for copy-paste'
+  status: generated
+- motif_id: divergence-burst
+  motif_name: Divergence burst
+  variant_id: wide
+  version: v9
+  aspect: '16:9'
+  filename: assets/images/v9/divergence-burst_wide_v9.jpg
+  prompt: 'several thin indigo lines radiating outward from a small central dot, centered
+    flat vector icon on warm off-white paper; wide banner format with the icon centered
+    left and negative space right, suitable for headers; standalone icon design, centered
+    glyph, solid warm off-white #faf9f6 background, single indigo #3d4db3 ink, flat
+    vector, crisp clean edges, generous padding around the icon, no text, no letters,
+    no numbers, no people, no flowers, no gradients, no shadows, no 3D render, no
+    photography, no cyan no teal no light blue no purple no orange no gold, iconography
+    suitable for copy-paste'
+  status: generated

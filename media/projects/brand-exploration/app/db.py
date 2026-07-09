@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import pathlib
+import re
 import sqlite3
 from datetime import datetime, timezone
 from typing import Any
@@ -66,13 +67,14 @@ def _aspect(variant: str) -> str:
 
 
 def _extract_meta(rel: pathlib.Path) -> dict[str, Any] | None:
-    """Parse assets/images/{version}/{motif}_{variant}_{version}.jpg."""
+    """Parse assets/images/{version}/{motif}_{variant}_[{version}].jpg."""
     version = rel.parent.name
     name = rel.stem
-    parts = name.rsplit("_", 2)
-    if len(parts) != 3 or not parts[0] or not parts[1]:
+    m = re.match(r"(.+)_(wide|square|dense|quiet|circle)(?:_(v\d+))?$", name)
+    if not m:
         return None
-    motif, variant, _ = parts
+    motif, variant, explicit_version = m.groups()
+    version = explicit_version or version or "v1"
     return {
         "id": str(rel.with_suffix("")).replace("/", "_"),
         "filename": rel.name,

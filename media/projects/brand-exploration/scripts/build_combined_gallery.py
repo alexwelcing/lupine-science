@@ -15,12 +15,36 @@ MOTIF_NAMES = {
     "upstream-cascade": "Upstream cascade",
     "error-vector-alignment": "Error-vector alignment",
     "calibration-grid": "Calibration grid",
+    "particle-ribbon": "Particle ribbon",
+    "ink-wash": "Ink wash",
+    "moire-circles": "Moiré circles",
+    "constellation-threads": "Constellation threads",
+    "shadow-geometry": "Shadow geometry",
+    "stroke-dissolution": "Stroke dissolution",
+    "folded-light": "Folded light",
+    "scale-shards": "Scale shards",
+    "orbit-mark": "Orbit mark",
+    "lattice-node": "Lattice node",
+    "proof-check": "Proof check",
+    "error-tick": "Error tick",
+    "molecule-glyph": "Molecule glyph",
+    "bond-angle": "Bond angle",
+    "calibration-cross": "Calibration cross",
+    "trust-shield": "Trust shield",
+    "field-line": "Field line",
+    "manifold-curve": "Manifold curve",
+    "atomic-ring": "Atomic ring",
+    "coordinate-axis": "Coordinate axis",
+    "hex-cell": "Hex cell",
+    "wave-packet": "Wave packet",
+    "convergence-star": "Convergence star",
+    "divergence-burst": "Divergence burst",
 }
 
 
 def parse_filename(name: str):
     # shape-of-wrongness_wide_v3.jpg or shape-of-wrongness_wide.jpg (v1)
-    m = re.match(r"(.+)_(wide|square|dense|quiet)(?:_(v\d+))?\.jpg", name)
+    m = re.match(r"(.+)_(wide|square|dense|quiet|circle)(?:_(v\d+))?\.jpg", name)
     if not m:
         return None
     motif_id, variant_id, version = m.groups()
@@ -73,7 +97,7 @@ def main():
     )
     html = html.replace(
         "A controlled matrix of MiniMax-generated stills across three motifs and four variants.",
-        "All generations (v1–v7) side by side. Compare how the prompt tightening changed palette, geometry, and readability.",
+        "All generations (v1–v9) side by side: research motifs, abstract textures, and standalone iconography. Compare how the prompt tightening changed palette, geometry, and readability.",
     )
 
     OUT.write_text(html)
