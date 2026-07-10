@@ -22,6 +22,14 @@ const md = new MarkdownIt({ html: true, typographer: true }).use(footnote);
 // Per-article hero captions. A hero figure is emitted only when the media
 // files actually exist next to the article.
 const HERO_CAPTIONS = {
+  'water-and-air-correcting-the-molecules-we-drink-and-breathe':
+    'A smooth field gradient: the error-corrected landscape for water and air purification materials.',
+  'methane-and-refrigerants-cutting-the-non-co2-climate-forcers':
+    'Two indigo wavefronts crossing: correcting non-CO₂ climate forcers from methane to refrigerants.',
+  'critical-minerals-pfas-and-the-remediation-imperative':
+    'A lattice defect highlighted by indigo light: the selective sites behind critical-mineral recovery and PFAS remediation.',
+  'cement-concrete-and-the-weight-of-the-built-world':
+    'A disordered network graph in warm paper and indigo: the atomistic tangle of cement hydrate.',
   'beyond-carbon-the-error-geometry-of-environmental-materials':
     'Scattered error vectors resolving onto a single indigo ribbon: the same shape of wrongness extends beyond carbon to water, air, methane, refrigerants, minerals, PFAS, and cement.',
   'the-02-percent-synthesis-problem':
