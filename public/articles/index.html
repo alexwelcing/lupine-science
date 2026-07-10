@@ -68,6 +68,11 @@
   <main id="content" class="article-index">
     <p class="b-label">From the notebook</p>
     <h1>Research notes, prospectuses, and formalization roadmaps.</h1>
+    <div class="cta proof-pack-cta">
+      <p><strong>Climate partnerships series — download the proof pack</strong></p>
+      <p>A single PDF with all five climate-partnership articles: cover pages, printable layout, and source URLs.</p>
+      <a href="/proof-pack-climate-series.pdf" download>Download proof-pack-climate-series.pdf</a>
+    </div>
     <ul class="article-list">
 <li>
   <a class="article-card" href="/articles/a-field-not-a-neural-net/">
@@ -202,15 +207,32 @@
     a.textContent = addr;
   });
   const vids = document.querySelectorAll("video[data-autoplay]");
-  if (!vids.length) return;
-  if (!("IntersectionObserver" in window)) { vids.forEach((v) => { v.preload = "metadata"; }); return; }
-  const io = new IntersectionObserver((entries) => {
-    for (const e of entries) {
-      if (e.isIntersecting) { e.target.play().catch(() => {}); }
-      else { e.target.pause(); }
+  if (vids.length) {
+    if (!("IntersectionObserver" in window)) { vids.forEach((v) => { v.preload = "metadata"; }); }
+    else {
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) { e.target.play().catch(() => {}); }
+          else { e.target.pause(); }
+        }
+      }, { rootMargin: "120px" });
+      vids.forEach((v) => io.observe(v));
     }
-  }, { rootMargin: "120px" });
-  vids.forEach((v) => io.observe(v));
+  }
+  document.querySelectorAll(".share-copy").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const url = btn.dataset.url;
+      try {
+        await navigator.clipboard.writeText(url);
+      } catch (e) {
+        const ta = document.createElement("textarea");
+        ta.value = url; document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); } finally { ta.remove(); }
+      }
+      const tip = btn.parentElement.querySelector(".share-tooltip");
+      if (tip) { tip.textContent = "Copied!"; setTimeout(() => tip.textContent = "", 1600); }
+    });
+  });
 })();
 </script>
 </body>

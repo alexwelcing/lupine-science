@@ -23,6 +23,7 @@ const BUDGETS = {
 const TEXT = /\.(html|css|js|mjs|json|svg|xml|txt)$/;
 const VIDEO = /\.(mp4|webm)$/;
 const IMAGE = /\.(png|jpe?g|webp|avif|gif|ico)$/;
+const DOWNLOAD = /\.(pdf|zip|gz|tar)$/;
 
 const size = (abs) => {
   const raw = fs.readFileSync(abs);
@@ -81,6 +82,7 @@ for (const page of pages) {
     if (IMAGE.test(asset) && s > BUDGETS.singleImage) {
       failures.push(`${rel2}: image ${kb(s)} > ${kb(BUDGETS.singleImage)}`);
     }
+    if (DOWNLOAD.test(asset)) continue; // user-initiated downloads are not cold-transfer render bytes
     total += s;
   }
   const cap = BUDGETS.page[urlPath] || BUDGETS.page.default;

@@ -156,6 +156,46 @@ main, header.site-header, footer.foot { position: relative; z-index: 4; }
 .article .footnotes p { font-size: 0.9rem; }
 .article sup a { text-decoration: none; color: var(--indigo); font-family: var(--mono); font-size: 0.75em; }
 
+/* ── article share bar ── */
+.share-bar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  margin: 2.4em 0 0; padding: 16px 0 0;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono); font-size: 13px;
+}
+.share-label {
+  color: var(--ink-faint); margin-right: 4px;
+}
+.share-bar a,
+.share-copy {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px; border-radius: 4px;
+  border: 1px solid var(--rule); background: var(--paper, #faf9f6);
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: background 180ms, border-color 180ms, color 180ms;
+}
+.share-bar a:hover,
+.share-bar a:focus,
+.share-copy:hover,
+.share-copy:focus {
+  background: var(--indigo-wash, rgba(61, 77, 179, 0.08));
+  border-color: var(--indigo-line, rgba(61, 77, 179, 0.24));
+  color: var(--indigo, #3d4db3);
+}
+.share-copy {
+  cursor: pointer; font-family: inherit; font-size: inherit;
+}
+.share-tooltip {
+  opacity: 0; color: var(--verified); margin-left: 4px;
+  transition: opacity 120ms;
+}
+.share-tooltip:not(:empty) { opacity: 1; }
+
+@media print {
+  .share-bar { display: none; }
+}
+
 /* ── index page ── */
 .article-index { max-width: 1120px; margin: 0 auto; padding: clamp(48px, 8vh, 96px) 22px 40px; }
 .b-label {

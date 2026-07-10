@@ -114,7 +114,8 @@ ${avif ? `    <source srcset="/articles/${slug}/${base}.avif" type="image/avif">
 
 // One small script on every page: assemble the email client-side (so no
 // email pattern exists in the HTML source for rewriting proxies to mangle),
-// and lazy-start hero videos only when they scroll into view.
+// lazy-start hero videos only when they scroll into view, and power the
+// article "Copy link" share button.
 const PAGE_SCRIPT = `<script>
 (() => {
   document.querySelectorAll("a.mail").forEach((a) => {
@@ -123,15 +124,32 @@ const PAGE_SCRIPT = `<script>
     a.textContent = addr;
   });
   const vids = document.querySelectorAll("video[data-autoplay]");
-  if (!vids.length) return;
-  if (!("IntersectionObserver" in window)) { vids.forEach((v) => { v.preload = "metadata"; }); return; }
-  const io = new IntersectionObserver((entries) => {
-    for (const e of entries) {
-      if (e.isIntersecting) { e.target.play().catch(() => {}); }
-      else { e.target.pause(); }
+  if (vids.length) {
+    if (!("IntersectionObserver" in window)) { vids.forEach((v) => { v.preload = "metadata"; }); }
+    else {
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) { e.target.play().catch(() => {}); }
+          else { e.target.pause(); }
+        }
+      }, { rootMargin: "120px" });
+      vids.forEach((v) => io.observe(v));
     }
-  }, { rootMargin: "120px" });
-  vids.forEach((v) => io.observe(v));
+  }
+  document.querySelectorAll(".share-copy").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const url = btn.dataset.url;
+      try {
+        await navigator.clipboard.writeText(url);
+      } catch (e) {
+        const ta = document.createElement("textarea");
+        ta.value = url; document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); } finally { ta.remove(); }
+      }
+      const tip = btn.parentElement.querySelector(".share-tooltip");
+      if (tip) { tip.textContent = "Copied!"; setTimeout(() => tip.textContent = "", 1600); }
+    });
+  });
 })();
 </script>`;
 
@@ -182,6 +200,19 @@ ${inner}
   </footer>`;
 }
 
+function shareBar(slug, title) {
+  const url = `${SITE}/articles/${slug}/`;
+  const text = encodeURIComponent(title);
+  const urlEnc = encodeURIComponent(url);
+  return `<div class="share-bar" aria-label="Share this article">
+  <span class="share-label">Share</span>
+  <a class="share-x" href="https://twitter.com/intent/tweet?text=${text}&amp;url=${urlEnc}" target="_blank" rel="noopener noreferrer" aria-label="Share on X"><span>X</span></a>
+  <a class="share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=${urlEnc}" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn"><span>LinkedIn</span></a>
+  <button class="share-copy" type="button" data-url="${esc(url)}" aria-label="Copy link"><span>Copy link</span></button>
+  <span class="share-tooltip" role="status" aria-live="polite"></span>
+</div>`;
+}
+
 function buildArticle(raw, slug) {
   let body = md.render(raw);
   body = body.replace('<div class="footnote">', '<div class="footnotes">');
@@ -230,6 +261,7 @@ function buildArticle(raw, slug) {
 ${chrome(`  <main id="content" class="article-shell">
     <article class="article">
       ${body}
+      ${shareBar(slug, title)}
     </article>
   </main>`)}
 ${PAGE_SCRIPT}\n</body>
@@ -280,6 +312,11 @@ function buildIndex(articles) {
 ${chrome(`  <main id="content" class="article-index">
     <p class="b-label">From the notebook</p>
     <h1>Research notes, prospectuses, and formalization roadmaps.</h1>
+    <div class="cta proof-pack-cta">
+      <p><strong>Climate partnerships series — download the proof pack</strong></p>
+      <p>A single PDF with all five climate-partnership articles: cover pages, printable layout, and source URLs.</p>
+      <a href="/proof-pack-climate-series.pdf" download>Download proof-pack-climate-series.pdf</a>
+    </div>
     <ul class="article-list">
 ${cards}
     </ul>

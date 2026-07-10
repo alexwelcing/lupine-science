@@ -133,6 +133,13 @@ Foundation machine-learned interatomic potentials (uMLIPs) match near-DFT accura
 <li><a href="https://glim-think-v1.aw-ab5.workers.dev">Public ledger</a></li>
 </ul>
 
+      <div class="share-bar" aria-label="Share this article">
+  <span class="share-label">Share</span>
+  <a class="share-x" href="https://twitter.com/intent/tweet?text=A%20smooth%2C%20environment-resolved%20error%20field%20underlies%20the%20systematic%20property%20errors%20of%20universal%20machine-learned%20interatomic%20potentials&amp;url=https%3A%2F%2Flupine.science%2Farticles%2Fa-smooth-environment-resolved-error-field%2F" target="_blank" rel="noopener noreferrer" aria-label="Share on X"><span>X</span></a>
+  <a class="share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Flupine.science%2Farticles%2Fa-smooth-environment-resolved-error-field%2F" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn"><span>LinkedIn</span></a>
+  <button class="share-copy" type="button" data-url="https://lupine.science/articles/a-smooth-environment-resolved-error-field/" aria-label="Copy link"><span>Copy link</span></button>
+  <span class="share-tooltip" role="status" aria-live="polite"></span>
+</div>
     </article>
   </main>
   <footer class="foot">
@@ -148,15 +155,32 @@ Foundation machine-learned interatomic potentials (uMLIPs) match near-DFT accura
     a.textContent = addr;
   });
   const vids = document.querySelectorAll("video[data-autoplay]");
-  if (!vids.length) return;
-  if (!("IntersectionObserver" in window)) { vids.forEach((v) => { v.preload = "metadata"; }); return; }
-  const io = new IntersectionObserver((entries) => {
-    for (const e of entries) {
-      if (e.isIntersecting) { e.target.play().catch(() => {}); }
-      else { e.target.pause(); }
+  if (vids.length) {
+    if (!("IntersectionObserver" in window)) { vids.forEach((v) => { v.preload = "metadata"; }); }
+    else {
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) { e.target.play().catch(() => {}); }
+          else { e.target.pause(); }
+        }
+      }, { rootMargin: "120px" });
+      vids.forEach((v) => io.observe(v));
     }
-  }, { rootMargin: "120px" });
-  vids.forEach((v) => io.observe(v));
+  }
+  document.querySelectorAll(".share-copy").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const url = btn.dataset.url;
+      try {
+        await navigator.clipboard.writeText(url);
+      } catch (e) {
+        const ta = document.createElement("textarea");
+        ta.value = url; document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); } finally { ta.remove(); }
+      }
+      const tip = btn.parentElement.querySelector(".share-tooltip");
+      if (tip) { tip.textContent = "Copied!"; setTimeout(() => tip.textContent = "", 1600); }
+    });
+  });
 })();
 </script>
 </body>

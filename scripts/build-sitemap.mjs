@@ -29,6 +29,10 @@ for (const entry of fs.readdirSync(path.join(PUBLIC, 'articles'), { withFileType
   if (!fs.existsSync(path.join(PUBLIC, 'articles', slug, 'index.html'))) continue;
   urls.push({ loc: `${SITE}/articles/${slug}/`, lastmod: articleDate(slug) });
 }
+// Static assets that are not directories but should be discoverable.
+for (const file of ['proof-pack-climate-series.pdf']) {
+  if (fs.existsSync(path.join(PUBLIC, file))) urls.push({ loc: `${SITE}/${file}`, lastmod: null });
+}
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

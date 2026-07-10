@@ -93,3 +93,21 @@ _No items currently under review._
 - [x] Article 3 placeholder
 - [x] Article 4 placeholder
 - [x] Article 5 placeholder
+
+## New Phase: Social, Proof Pack, Environmental Expansion
+
+### Backlog
+- [ ] Add social share buttons (X/Twitter, LinkedIn, copy link) to article pages
+- [ ] Generate downloadable proof-pack PDF of the 5 climate articles
+- [ ] Add proof-pack CTA to articles and /articles/ index
+- [ ] Research and outline environmental-expansion series (water, air quality, methane, refrigerants, critical minerals, PFAS, cement/concrete)
+- [ ] Draft environmental-expansion articles (3–5)
+- [ ] Generate/select hero assets for environmental-expansion articles
+- [ ] Build and publish environmental-expansion articles
+- [ ] Add GitHub Actions CI workflow (`build` + `verify`) before Cloudflare deploy
+- [ ] Add live-site smoke-test script and run it after deploy
+
+### In Progress
+- [ ] Executive director review and prioritization of above
+
+### Done

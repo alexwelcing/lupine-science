@@ -1,26 +1,14 @@
 name: Lupine Science CI / Cloudflare Pages
 
 on:
-  pull_request:
-    paths:
-      - 'public/**'
-      - 'docs/**'
-      - 'scripts/**'
-      - 'package.json'
-      - 'wrangler.toml'
-      - '.github/workflows/deploy.yml'
-  push:
-    paths:
-      - 'public/**'
-      - 'docs/**'
-      - 'scripts/**'
-      - 'package.json'
-      - 'wrangler.toml'
-      - '.github/workflows/deploy.yml'
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: ['*']
   workflow_dispatch: {}
 
 concurrency:
-  group: lupine-science-${{ github.ref }}
+  group: lupine-science-deploy-${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_branch || github.ref }}
   cancel-in-progress: true
 
 permissions:
@@ -30,54 +18,14 @@ env:
   CF_PAGES_PROJECT: lupine-science
 
 jobs:
-  verify:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0   # sitemap lastmod dates come from git history
-
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: npm
-
-      - name: Install build tooling
-        run: npm ci
-
-      - name: Build must be deterministic (committed output = sources)
-        run: |
-          npm run build
-          git diff --exit-code || { echo "::error::committed output is stale — run 'npm run build' and commit"; exit 1; }
-
-      - name: Verify static surface + performance budget
-        run: npm run verify
-
-      - name: Explain failure in run summary
-        if: failure()
-        run: |
-          {
-            echo "## Verify failed — first-line diagnosis"
-            echo ""
-            echo "**Rebuild drift (empty = not the problem):**"
-            echo '```'
-            git diff --stat
-            echo '```'
-            echo "**Verifier output tail:**"
-            echo '```'
-            npm run verify 2>&1 | tail -40
-            echo '```'
-            echo "_If drift is non-empty: run \`npm run build\` locally and commit. If the verifier lists \`[error]\`/\`[over]\` lines, those are the exact failures._"
-          } >> "$GITHUB_STEP_SUMMARY" || true
-
   lighthouse:
-    needs: verify
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -100,13 +48,18 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY" || true
 
   deploy-preview:
-    needs: [verify, lighthouse]
-    if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref_name != 'main')
+    needs: lighthouse
+    if: |
+      github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' &&
+      (github.event.workflow_run.event == 'pull_request' ||
+       (github.event.workflow_run.event == 'push' && github.event.workflow_run.head_branch != 'main'))
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -129,12 +82,12 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          branch="${GITHUB_HEAD_REF:-$GITHUB_REF_NAME}"
+          branch="${{ github.event.workflow_run.head_branch }}"
           log_file="$(mktemp)"
           npx --yes wrangler@latest pages deploy public \
             --project-name "$CF_PAGES_PROJECT" \
             --branch "$branch" \
-            --commit-hash "$GITHUB_SHA" \
+            --commit-hash "${{ github.event.workflow_run.head_sha }}" \
             --commit-dirty=true | tee "$log_file"
           url="$(grep -Eo 'https://[^[:space:]]+\.pages\.dev' "$log_file" | tail -n 1)"
           [ -n "$url" ] || { echo "::error::Could not find Pages deployment URL"; exit 1; }
@@ -161,13 +114,18 @@ jobs:
         run: echo "${{ steps.deploy.outputs.url }}"
 
   deploy-production:
-    needs: [verify, lighthouse]
-    if: (github.event_name == 'push' && github.ref_name == 'main') || github.event_name == 'workflow_dispatch'
+    needs: lighthouse
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.event == 'push' && github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -194,7 +152,7 @@ jobs:
           npx --yes wrangler@latest pages deploy public \
             --project-name "$CF_PAGES_PROJECT" \
             --branch main \
-            --commit-hash "$GITHUB_SHA" \
+            --commit-hash "${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}" \
             --commit-dirty=true | tee "$log_file"
           url="$(grep -Eo 'https://[^[:space:]]+\.pages\.dev' "$log_file" | tail -n 1)"
           [ -n "$url" ] || { echo "::error::Could not find Pages deployment URL"; exit 1; }
@@ -218,19 +176,7 @@ jobs:
           exit 1
 
       - name: Smoke test custom domain
-        run: |
-          for i in 1 2 3 4 5; do
-            health=$(curl -s --fail https://lupine.science/health -m 10 || true)
-            body=$(curl -s --fail https://lupine.science/ -m 10 || true)
-            if [ "$health" = "ok" ] && echo "$body" | grep -q "Evidence before claim"; then
-              echo "Custom domain smoke test passed"
-              exit 0
-            fi
-            echo "Attempt $i: custom domain not ready, retrying..."
-            sleep 10
-          done
-          echo "::error::Custom domain smoke test failed"
-          exit 1
+        run: npm run smoke
 
       - name: Security headers are live
         run: |
@@ -256,4 +202,4 @@ jobs:
         run: |
           curl -X POST https://glim-think-v1.aw-ab5.workers.dev/ops/report \
             -H "Content-Type: application/json" \
-            -d "{\"repo\":\"$GITHUB_REPOSITORY\",\"workflow\":\"$GITHUB_WORKFLOW\",\"run_id\":\"$GITHUB_RUN_ID\",\"status\":\"${{ job.status }}\",\"commit_sha\":\"$GITHUB_SHA\",\"branch\":\"$GITHUB_REF_NAME\",\"service\":\"lupine.science\",\"platform\":\"cloudflare-pages\",\"run_url\":\"$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID\",\"started_at\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}" || true
+            -d "{\"repo\":\"$GITHUB_REPOSITORY\",\"workflow\":\"$GITHUB_WORKFLOW\",\"run_id\":\"$GITHUB_RUN_ID\",\"status\":\"${{ job.status }}\",\"commit_sha\":\"${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}\",\"branch\":\"${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_branch || github.ref_name }}\",\"service\":\"lupine.science\",\"platform\":\"cloudflare-pages\",\"run_url\":\"$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID\",\"started_at\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}" || true

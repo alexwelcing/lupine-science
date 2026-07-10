@@ -147,8 +147,14 @@ for (const file of walkHtml(path.join(PUBLIC, 'articles'))) {
   }
   for (const m of sitemap.matchAll(/<loc>https:\/\/lupine\.science(\/[^<]*)<\/loc>/g)) {
     const p = m[1];
-    const asFile = path.join(PUBLIC, p.replace(/^\//, ''), 'index.html');
-    if (p !== '/' && !fs.existsSync(asFile)) fail(`sitemap.xml lists ${p} but no page ships there`);
+    if (p === '/') continue;
+    if (p.endsWith('/')) {
+      const asFile = path.join(PUBLIC, p.replace(/^\//, ''), 'index.html');
+      if (!fs.existsSync(asFile)) fail(`sitemap.xml lists ${p} but no page ships there`);
+    } else {
+      const asFile = path.join(PUBLIC, p.replace(/^\//, ''));
+      if (!fs.existsSync(asFile)) fail(`sitemap.xml lists ${p} but no file ships there`);
+    }
   }
 }
 
