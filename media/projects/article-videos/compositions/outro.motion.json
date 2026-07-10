@@ -1,0 +1,15 @@
+{
+  "duration": 6,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#outro-mark", "bySec": 1.5 },
+    { "kind": "appearsBy", "selector": "#outro-wordmark", "bySec": 1.75 },
+    { "kind": "appearsBy", "selector": "#outro-cta", "bySec": 2.1 },
+    { "kind": "appearsBy", "selector": "#outro-destination", "bySec": 2.35 },
+    { "kind": "before", "a": "#outro-mark", "b": "#outro-wordmark" },
+    { "kind": "before", "a": "#outro-wordmark", "b": "#outro-cta" },
+    { "kind": "before", "a": "#outro-cta", "b": "#outro-destination" },
+    { "kind": "staysInFrame", "selector": ".outro-lockup" },
+    { "kind": "staysInFrame", "selector": ".outro-lower" },
+    { "kind": "keepsMoving", "withinSelector": ".outro-wash", "maxStaticSec": 1.35 }
+  ]
+}

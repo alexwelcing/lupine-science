@@ -1,0 +1,8 @@
+{
+  "duration": 6,
+  "assertions": [
+    { "kind": "appearsBy", "selector": ".source-line", "bySec": 1.0 },
+    { "kind": "before", "a": ".source-tag", "b": ".source-detail" },
+    { "kind": "staysInFrame", "selector": ".source-panel" }
+  ]
+}

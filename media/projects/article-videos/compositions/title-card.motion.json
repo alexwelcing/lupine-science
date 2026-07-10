@@ -1,0 +1,15 @@
+{
+  "duration": 6,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#title-card-brand", "bySec": 1.1 },
+    { "kind": "appearsBy", "selector": "#title-card-heading", "bySec": 1.6 },
+    { "kind": "appearsBy", "selector": "#title-card-deck", "bySec": 1.8 },
+    { "kind": "before", "a": "#title-card-brand", "b": "#title-card-heading" },
+    { "kind": "before", "a": "#title-card-heading", "b": "#title-card-deck" },
+    { "kind": "appearsBy", "selector": "#title-card-episode", "bySec": 1.1 },
+    { "kind": "staysInFrame", "selector": "#title-card-heading" },
+    { "kind": "staysInFrame", "selector": "#title-card-deck" },
+    { "kind": "staysInFrame", "selector": "#title-card-episode" },
+    { "kind": "keepsMoving", "withinSelector": ".title-card-wash", "maxStaticSec": 1.4 }
+  ]
+}

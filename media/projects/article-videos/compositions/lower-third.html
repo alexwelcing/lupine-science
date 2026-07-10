@@ -1,0 +1,372 @@
+<!doctype html>
+<html
+  lang="en"
+  data-composition-variables='[
+    {"id":"mode","type":"enum","label":"Lower-third mode","default":"source","options":[{"value":"source","label":"Source callout"},{"value":"caption","label":"Narrator caption"}]},
+    {"id":"tag","type":"string","label":"Evidence tag","default":"SOURCE"},
+    {"id":"line","type":"string","label":"Primary line","default":"Evidence, measured."},
+    {"id":"detail","type":"string","label":"Role or source","default":"LUPINE SCIENCE · NOTE 01"}
+  ]'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Lupine Science lower third</title>
+  </head>
+  <body>
+    <!--
+      Host with data-composition-id="lupine-lower-third" and
+      data-composition-src="compositions/lower-third.html". Override mode,
+      tag, line, and detail through data-variable-values. The caption variant
+      ignores tag/detail and occupies the fixed x=192..1728, y=828..954 zone.
+    -->
+    <template>
+      <style>
+        @font-face {
+          font-family: "Newsreader";
+          src: url("compositions/fonts/newsreader-var.woff2") format("woff2");
+          font-style: normal;
+          font-weight: 300 800;
+          font-display: block;
+        }
+
+
+        @font-face {
+          font-family: "IBM Plex Mono";
+          src: url("compositions/fonts/plex-mono-400.woff2") format("woff2");
+          font-style: normal;
+          font-weight: 400;
+          font-display: block;
+        }
+
+        @font-face {
+          font-family: "IBM Plex Mono";
+          src: url("compositions/fonts/plex-mono-600.woff2") format("woff2");
+          font-style: normal;
+          font-weight: 600;
+          font-display: block;
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+
+        #root {
+          position: absolute;
+          inset: 0;
+          width: 1920px;
+          height: 1080px;
+          overflow: hidden;
+          color: #1a1a1a;
+          pointer-events: none;
+        }
+
+        .lower-third-zone {
+          position: absolute;
+          left: 96px;
+          top: 738px;
+          width: 1728px;
+          height: 234px;
+        }
+
+        .source-panel,
+        .caption-panel {
+          position: absolute;
+          background: rgba(250, 249, 246, 0.96);
+          overflow: hidden;
+        }
+
+        .source-panel {
+          left: 0;
+          top: 0;
+          width: 1152px;
+          height: 174px;
+          padding: 16px 40px 12px 40px;
+        }
+
+        .caption-panel {
+          left: 96px;
+          top: 90px;
+          width: 1536px;
+          height: 126px;
+          padding: 4px 64px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+        }
+
+        #root[data-mode="source"] .caption-panel,
+        #root[data-mode="caption"] .source-panel {
+          display: none;
+        }
+
+        .trace {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 4px;
+          background: #3d4db3;
+          transform-origin: left center;
+        }
+
+        .trace-head {
+          position: absolute;
+          right: 0;
+          top: -8px;
+          width: 4px;
+          height: 20px;
+          background: #3d4db3;
+        }
+
+        .registration-tick {
+          position: absolute;
+          right: 28px;
+          top: 24px;
+          width: 44px;
+          height: 44px;
+          border-top: 2px solid #3d4db3;
+          border-right: 2px solid #3d4db3;
+        }
+
+        .registration-tick::before,
+        .registration-tick::after {
+          content: "";
+          position: absolute;
+          background: #3d4db3;
+        }
+
+        .registration-tick::before {
+          right: -2px;
+          top: 18px;
+          width: 18px;
+          height: 2px;
+        }
+
+        .registration-tick::after {
+          right: 18px;
+          top: -2px;
+          width: 2px;
+          height: 18px;
+        }
+
+        .source-content {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          padding-right: 92px;
+          display: grid;
+          grid-template-columns: 180px minmax(0, 1fr);
+          grid-template-rows: 72px 70px;
+          column-gap: 28px;
+          align-items: center;
+        }
+
+        .source-tag,
+        .source-detail {
+          font-family: "IBM Plex Mono", monospace;
+          font-size: 48px;
+          line-height: 1.08;
+          font-weight: 600;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: #3d4db3;
+          white-space: nowrap;
+        }
+
+        .source-tag {
+          grid-column: 1;
+          grid-row: 1;
+        }
+
+        .source-line {
+          grid-column: 2;
+          grid-row: 1;
+          min-width: 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          font-family: "Newsreader", serif;
+          font-size: 58px;
+          line-height: 1.08;
+          font-weight: 500;
+          letter-spacing: -0.015em;
+          color: #1a1a1a;
+        }
+
+        .source-detail {
+          grid-column: 2;
+          grid-row: 2;
+          align-self: center;
+          min-height: 62px;
+          line-height: 62px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          font-size: 48px;
+          font-weight: 400;
+          letter-spacing: 0.04em;
+          color: #6b7c8e;
+        }
+
+        .evidence-dot {
+          position: absolute;
+          left: 204px;
+          bottom: 34px;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #3d4db3;
+        }
+
+        .caption-line {
+          width: 100%;
+          max-height: 118px;
+          overflow: hidden;
+          font-family: "Newsreader", serif;
+          font-size: 50px;
+          line-height: 1.15;
+          font-weight: 500;
+          letter-spacing: -0.01em;
+          color: #1a1a1a;
+        }
+
+        .caption-rule-left,
+        .caption-rule-right {
+          position: absolute;
+          top: 61px;
+          width: 56px;
+          height: 2px;
+          background: #3d4db3;
+        }
+
+        .caption-rule-left {
+          left: 0;
+          transform-origin: right center;
+        }
+
+        .caption-rule-right {
+          right: 0;
+          transform-origin: left center;
+        }
+      </style>
+
+      <div
+        id="root"
+        data-composition-id="lupine-lower-third"
+        data-width="1920"
+        data-height="1080"
+        data-duration="6"
+        data-fps="30"
+        data-mode="source"
+      >
+        <div class="lower-third-zone">
+          <div class="source-panel">
+            <div class="trace"><span class="trace-head"></span></div>
+            <div class="registration-tick" data-layout-ignore></div>
+            <div class="source-content">
+              <div class="source-tag" data-var-text="tag">SOURCE</div>
+              <div class="source-line" data-var-text="line">Evidence, measured.</div>
+              <div class="source-detail" data-var-text="detail">LUPINE SCIENCE · NOTE 01</div>
+              <div class="evidence-dot" data-layout-ignore></div>
+            </div>
+          </div>
+
+          <div class="caption-panel">
+            <div class="trace"></div>
+            <div class="caption-rule-left"></div>
+            <div class="caption-line" data-var-text="line">Evidence, measured.</div>
+            <div class="caption-rule-right"></div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        window.__timelines = window.__timelines || {};
+
+        const root = document.querySelector("#root");
+        const variables = __hyperframes?.getVariables?.() || {};
+        const mode = variables.mode === "caption" ? "caption" : "source";
+        root.dataset.mode = mode;
+        root.querySelector(mode === "caption" ? ".source-panel" : ".caption-panel").remove();
+
+        const tl = gsap.timeline({
+          paused: true,
+          defaults: { duration: 0.5, ease: "power3.out" },
+        });
+
+        if (mode === "caption") {
+          tl.fromTo(
+            ".caption-panel",
+            { opacity: 0 },
+            { opacity: 1, duration: 0.34, ease: "power2.out" },
+            0.08,
+          )
+            .fromTo(
+              ".caption-panel .trace",
+              { scaleX: 0 },
+              { scaleX: 1, duration: 0.4, ease: "power2.inOut" },
+              0.1,
+            )
+            .fromTo(
+              [".caption-rule-left", ".caption-rule-right"],
+              { scaleX: 0, opacity: 0 },
+              { scaleX: 1, opacity: 1, duration: 0.32, stagger: 0.06, ease: "power2.out" },
+              0.34,
+            )
+            .fromTo(
+              ".caption-line",
+              { y: 4, opacity: 0 },
+              { y: 0, opacity: 1, duration: 0.48, ease: "power3.out" },
+              0.42,
+            );
+        } else {
+          tl.fromTo(
+            ".source-panel",
+            { opacity: 0 },
+            { opacity: 1, duration: 0.3, ease: "power2.out" },
+            0.08,
+          )
+            .fromTo(
+              ".source-panel .trace",
+              { scaleX: 0 },
+              { scaleX: 1, duration: 0.4, ease: "power2.inOut" },
+              0.1,
+            )
+            .fromTo(
+              ".trace-head",
+              { scaleY: 0 },
+              { scaleY: 1, duration: 0.24, ease: "power2.out" },
+              0.4,
+            )
+            .fromTo(
+              ".registration-tick",
+              { y: -12, opacity: 0 },
+              { y: 0, opacity: 1, duration: 0.34, ease: "power3.out" },
+              0.38,
+            )
+            .fromTo(
+              ".source-tag",
+              { x: -18, opacity: 0 },
+              { x: 0, opacity: 1, duration: 0.38, ease: "power3.out" },
+              0.38,
+            )
+            .fromTo(
+              ".source-line",
+              { y: 22, opacity: 0 },
+              { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" },
+              0.46,
+            )
+            .fromTo(
+              [".evidence-dot", ".source-detail"],
+              { y: 12, opacity: 0 },
+              { y: 0, opacity: 1, duration: 0.36, stagger: 0.07, ease: "power2.out" },
+              0.62,
+            );
+        }
+
+        window.__timelines["lupine-lower-third"] = tl;
+      </script>
+    </template>
+  </body>
+</html>
