@@ -172,6 +172,9 @@ export function initShare(root, { url, title }) {
 
   if (isMobile) {
     // Mobile: disclosure pattern — a single toggle controls a tray of native links/buttons.
+    // Hide any server-rendered fallback list so it is not duplicated by the tray.
+    if (existingList) existingList.hidden = true;
+
     const toggle = document.createElement('button');
     toggle.type = 'button';
     toggle.className = 'share-toggle';
