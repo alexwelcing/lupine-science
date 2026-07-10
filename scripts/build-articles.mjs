@@ -22,6 +22,16 @@ const md = new MarkdownIt({ html: true, typographer: true }).use(footnote);
 // Per-article hero captions. A hero figure is emitted only when the media
 // files actually exist next to the article.
 const HERO_CAPTIONS = {
+  'the-02-percent-synthesis-problem':
+    'Scattered error vectors resolving onto a single indigo ribbon: the shape of wrongness in generative materials AI.',
+  'a-field-not-a-neural-net':
+    'A smooth field gradient over a sparse lattice: the measured error geometry of universal machine-learned interatomic potentials.',
+  'five-materials-for-5-to-12-gtco2-year':
+    'Five indigo nodes in a sparse constellation: the material bottlenecks that could unlock 5–12 GtCO₂/year.',
+  'from-predicted-crystal-to-commercial-cell':
+    'From bits to atoms: a bold indigo ribbon crossing from abstract structure toward makeable hardware.',
+  'investing-in-the-trust-layer':
+    'Near-parallel error vectors collapsing into alignment: the trust layer for AI-designed matter.',
   'why-lupine-science':
     'The launch film: from fantasy frameworks to makeable materials. Generated with AI tools, composited with open-source software — possibilities made trustworthy by process.',
   'from-fantasy-frameworks-to-makeable-materials':

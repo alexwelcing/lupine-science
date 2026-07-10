@@ -31,7 +31,7 @@ for (const relativePath of [
   'public/data/benchmark_manifold.json',
   'public/lupine-science-icon.png',
   'public/lupine-science-mark.svg',
-  'public/og-lupine-science.png',
+  'public/og-lupine-science.jpg',
   'public/ribbon-still.jpg',
   'Dockerfile',
   'nginx.conf',

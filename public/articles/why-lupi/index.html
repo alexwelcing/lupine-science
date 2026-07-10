@@ -6,12 +6,12 @@
   <title>Why LUPI? — Lupine Science</title>
   <meta name="description" content="Why we built LUPI as a live, install-free window into molecular structures and what it means for research, teaching, and public trust.">
   <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://lupine.science/articles/why-lupi/">
   <meta property="og:title" content="Why LUPI? — Lupine Science">
   <meta property="og:description" content="Why we built LUPI as a live, install-free window into molecular structures and what it means for research, teaching, and public trust.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://lupine.science/articles/why-lupi/">
-  <meta property="og:image" content="https://lupine.science/articles/why-lupi/hero.jpg">
-  <meta name="twitter:image" content="https://lupine.science/articles/why-lupi/hero.jpg">
+  <meta property="og:image" content="https://lupine.science/og-lupine-science.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -19,13 +19,14 @@
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
   <link rel="icon" type="image/png" href="/lupine-science-icon.png">
   <link rel="apple-touch-icon" href="/lupine-science-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/articles/why-lupi/hero.jpg" as="image" fetchpriority="high">
   <link rel="stylesheet" href="/articles/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Why LUPI?","description":"Why we built LUPI as a live, install-free window into molecular structures and what it means for research, teaching, and public trust.","datePublished":"2026-06-30","url":"https://lupine.science/articles/why-lupi/","mainEntityOfPage":"https://lupine.science/articles/why-lupi/","image":"https://lupine.science/articles/why-lupi/hero.jpg","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png"}}}</script>
 </head>
-<body class="format-article">
-  <a class="skip" href="#article">Skip to article</a>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
   <header class="site-header">
     <a class="mark" href="/" aria-label="Lupine Science">
       <svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
@@ -56,43 +57,41 @@
     <path d="M244 142 C251 124 261 124 268 142 C262 136 250 136 244 142Z"/><path d="M244 207 C252 186 263 186 271 207 C263 199 252 199 244 207Z"/><path d="M242 296 C252 272 265 272 274 296 C264 286 252 286 242 296Z"/>
   </g>
 </svg>
-      <span><b>Lupine Science</b> <span class="tld">the trust layer for AI-designed matter</span></span>
+      <span><b>Lupine Science</b> <span class="tld">accelerating materials discovery</span></span>
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/">Home</a>
-      <a href="/articles/">Articles</a>
+      <a href="/articles/" aria-current="page">Articles</a>
       <a href="https://library.lupine.science">Library</a>
       <a href="https://lupi.live">LUPI</a>
     </nav>
   </header>
-  <main id="article" class="article-shell">
+  <main id="content" class="article-shell">
     <article class="article">
       <h1>Why LUPI?</h1>
-<figure class="article-hero" aria-labelledby="hero-caption">
-  <video autoplay loop muted playsinline poster="hero.jpg" aria-label="MOF discovery flywheel: formalize, simulate, synthesize, feedback.">
-    <source src="hero.mp4" type="video/mp4">
-    <img src="hero.jpg" alt="MOF discovery flywheel: formalize, simulate, synthesize, feedback.">
+<figure class="article-hero">
+  <video preload="none" loop muted playsinline poster="/articles/why-lupi/hero.jpg" width="1280" height="720" data-autoplay aria-label="Article film">
+    <source src="/articles/why-lupi/hero.mp4" type="video/mp4">
   </video>
-  <figcaption id="hero-caption">The formalized discovery loop: define makeability rules, simulate candidates, synthesize the certified ones, and feed the results back into stronger rules.</figcaption>
 </figure>
-<div class="article-meta">
+<aside class="article-meta" aria-label="Article metadata">
 <p><strong>The vision behind the viewer</strong></p>
-<p><strong>Date:</strong> 2026-06-30<br />
-<strong>Scope:</strong> A browser-native molecular viewer for makeability<br />
-<strong>Description:</strong> Why we built LUPI as a live, install-free window into molecular structures and what it means for research, teaching, and public trust.<br />
-<strong>Audience:</strong> Materials scientists, chemists, educators, and the curious public<br />
+<p><strong>Date:</strong> 2026-06-30<br>
+<strong>Scope:</strong> A browser-native molecular viewer for makeability<br>
+<strong>Description:</strong> Why we built LUPI as a live, install-free window into molecular structures and what it means for research, teaching, and public trust.<br>
+<strong>Audience:</strong> Materials scientists, chemists, educators, and the curious public<br>
 <strong>Status:</strong> Published</p>
-</div>
-<hr />
+</aside>
+<hr>
 <h2>The belief</h2>
 <p>Molecular structures should not live behind a paywall, a download, or a command line. The moment you want to see what a prediction actually looks like, the tool should already be open in your browser.</p>
 <p>That is the idea behind <strong>LUPI</strong> (<code>lupi.live</code>): a lightweight, web-native molecular viewer that turns structures into something anyone can rotate, measure, and share. No installation. No account. No friction between the data and your eyes.</p>
-<hr />
+<hr>
 <h2>The problem in one sentence</h2>
 <p><strong>Most molecular viewers are either too heavy to share or too simple to trust.</strong></p>
 <p>Desktop tools are powerful, but they trap knowledge on a single machine. Screenshot culture replaces real exploration. Lightweight web viewers, meanwhile, often sacrifice accuracy: they render pretty balls-and-sticks but hide the coordinates, the uncertainty, and the context that make a structure meaningful.</p>
 <p>LUPI sits in the middle. It is built for the web first, with enough fidelity to inspect real predictions and enough simplicity to drop into a paper, a slide, or a classroom.</p>
-<hr />
+<hr>
 <h2>What we are building</h2>
 <p>LUPI is the public face of Lupine Science. It has three jobs:</p>
 <ol>
@@ -107,11 +106,11 @@
 </li>
 </ol>
 <p>Under the hood, LUPI connects back to the same formalized makeability record that powers Lupine Science: a growing chain of commitments, simulations, and certificates that say not just <em>what</em> a structure is, but <em>why</em> we believe it can be made.</p>
-<hr />
+<hr>
 <h2>The launch film</h2>
-<p>This thirty-second film is LUPI's first public introduction: a sequence of molecular scenes, narrated and scored, that moves from a single structure to the idea of a shared, inspectable world of makeable materials.</p>
+<p>This thirty-second film is LUPI’s first public introduction: a sequence of molecular scenes, narrated and scored, that moves from a single structure to the idea of a shared, inspectable world of makeable materials.</p>
 <p>The film is generated with AI tools and composited with open-source software. The same principle applies to the viewer itself: <strong>AI gives us the picture; rigorous process gives us something we can share.</strong></p>
-<hr />
+<hr>
 <h2>Why now</h2>
 <p>Three things make a browser-native viewer the right shape for this moment:</p>
 <ul>
@@ -120,15 +119,37 @@
 <li><strong>Open science norms</strong> are pushing data and tools toward public, inspectable interfaces rather than static figures.</li>
 </ul>
 <p>LUPI is our bet that the winning interface for molecular discovery will be the one that lets a stranger walk up to a structure and understand it in seconds.</p>
-<hr />
+<hr>
 <h2>The invitation</h2>
 <p>LUPI is live. Try it, break it, and tell us what you need.</p>
 <p>If you have structures you want to share, students you want to teach, or simulations you want the world to see, we want to hear from you.</p>
 <p><strong>Visit <a href="https://lupi.live">lupi.live</a>.</strong></p>
+
     </article>
   </main>
-  <footer class="site-footer">
-    <p>Lupine Science · founder Alex Welcing · <a href="mailto:alex@lupinesci.com">alex@lupinesci.com</a></p>
+  <footer class="foot">
+    <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
+    <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
+    <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
   </footer>
+<script>
+(() => {
+  document.querySelectorAll("a.mail").forEach((a) => {
+    const addr = a.dataset.u + "@" + a.dataset.d;
+    a.href = "mailto:" + addr;
+    a.textContent = addr;
+  });
+  const vids = document.querySelectorAll("video[data-autoplay]");
+  if (!vids.length) return;
+  if (!("IntersectionObserver" in window)) { vids.forEach((v) => { v.preload = "metadata"; }); return; }
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) { e.target.play().catch(() => {}); }
+      else { e.target.pause(); }
+    }
+  }, { rootMargin: "120px" });
+  vids.forEach((v) => io.observe(v));
+})();
+</script>
 </body>
 </html>

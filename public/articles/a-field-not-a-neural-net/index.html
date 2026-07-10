@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Field, Not a Neural Net — Lupine Science</title>
+  <meta name="description" content="Why the largest errors in computational materials discovery have a low-dimensional geometry, and how Lupine measures and corrects them at runtime with machine-checked proof.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://lupine.science/articles/a-field-not-a-neural-net/">
+  <meta property="og:title" content="A Field, Not a Neural Net — Lupine Science">
+  <meta property="og:description" content="Why the largest errors in computational materials discovery have a low-dimensional geometry, and how Lupine measures and corrects them at runtime with machine-checked proof.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://lupine.science/articles/a-field-not-a-neural-net/">
+  <meta property="og:image" content="https://lupine.science/og-lupine-science.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#faf9f6">
+  <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
+  <link rel="icon" type="image/png" href="/lupine-science-icon.png">
+  <link rel="apple-touch-icon" href="/lupine-science-icon.png">
+  <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/articles/styles.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"A Field, Not a Neural Net","description":"Why the largest errors in computational materials discovery have a low-dimensional geometry, and how Lupine measures and corrects them at runtime with machine-checked proof.","datePublished":"2026-07-09","url":"https://lupine.science/articles/a-field-not-a-neural-net/","mainEntityOfPage":"https://lupine.science/articles/a-field-not-a-neural-net/","image":"https://lupine.science/articles/a-field-not-a-neural-net/hero.jpg","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png"}}}</script>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="site-header">
+    <a class="mark" href="/" aria-label="Lupine Science">
+      <svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="bb" x1="190" y1="74" x2="324" y2="356" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#88a7d8"/><stop offset=".35" stop-color="#475b9c"/><stop offset=".78" stop-color="#102f47"/><stop offset="1" stop-color="#071a2a"/>
+    </linearGradient>
+    <linearGradient id="bl" x1="150" y1="330" x2="360" y2="470" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7f907c"/><stop offset="1" stop-color="#4c653d"/>
+    </linearGradient>
+    <radialGradient id="bc" cx="48%" cy="30%" r="68%">
+      <stop offset="0" stop-color="#fffdf3"/><stop offset=".7" stop-color="#f1e8c9"/><stop offset="1" stop-color="#d4c58f"/>
+    </radialGradient>
+  </defs>
+  <g fill="none" stroke="#4c653d" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M256 148 C252 224 258 312 254 448"/><path d="M252 402 C222 372 178 354 124 348"/><path d="M260 402 C290 372 334 354 388 348"/>
+  </g>
+  <g fill="url(#bl)" opacity=".96">
+    <ellipse cx="139" cy="348" rx="18" ry="62" transform="rotate(-78 139 348)"/><ellipse cx="167" cy="384" rx="18" ry="62" transform="rotate(-48 167 384)"/><ellipse cx="214" cy="410" rx="17" ry="58" transform="rotate(-20 214 410)"/><ellipse cx="373" cy="348" rx="18" ry="62" transform="rotate(78 373 348)"/><ellipse cx="345" cy="384" rx="18" ry="62" transform="rotate(48 345 384)"/><ellipse cx="298" cy="410" rx="17" ry="58" transform="rotate(20 298 410)"/>
+  </g>
+  <g fill="none" stroke="#fef8f5" stroke-width="5" stroke-linecap="round" opacity=".66">
+    <path d="M132 348 C170 356 205 373 236 405"/><path d="M380 348 C342 356 307 373 276 405"/>
+  </g>
+  <g fill="url(#bb)" stroke="#fef8f5" stroke-width="5" stroke-linejoin="round">
+    <ellipse cx="256" cy="86" rx="22" ry="34"/><ellipse cx="232" cy="122" rx="23" ry="35" transform="rotate(-24 232 122)"/><ellipse cx="280" cy="122" rx="23" ry="35" transform="rotate(24 280 122)"/><ellipse cx="256" cy="150" rx="30" ry="40"/><ellipse cx="211" cy="182" rx="26" ry="38" transform="rotate(-34 211 182)"/><ellipse cx="301" cy="182" rx="26" ry="38" transform="rotate(34 301 182)"/><ellipse cx="256" cy="216" rx="37" ry="48"/><ellipse cx="204" cy="256" rx="30" ry="43" transform="rotate(-42 204 256)"/><ellipse cx="308" cy="256" rx="30" ry="43" transform="rotate(42 308 256)"/><ellipse cx="256" cy="306" rx="40" ry="52"/>
+  </g>
+  <g fill="url(#bc)">
+    <path d="M244 142 C251 124 261 124 268 142 C262 136 250 136 244 142Z"/><path d="M244 207 C252 186 263 186 271 207 C263 199 252 199 244 207Z"/><path d="M242 296 C252 272 265 272 274 296 C264 286 252 286 242 296Z"/>
+  </g>
+</svg>
+      <span><b>Lupine Science</b> <span class="tld">accelerating materials discovery</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/articles/" aria-current="page">Articles</a>
+      <a href="https://library.lupine.science">Library</a>
+      <a href="https://lupi.live">LUPI</a>
+    </nav>
+  </header>
+  <main id="content" class="article-shell">
+    <article class="article">
+      <aside class="article-meta" aria-label="Article metadata">
+<p><strong>Type:</strong> article
+<strong>Date:</strong> 2026-07-09
+<strong>Scope:</strong> Lupine Science’s environment error field as a measured physical correction layer for universal machine-learning interatomic potentials.
+<strong>Description:</strong> Why the largest errors in computational materials discovery have a low-dimensional geometry, and how Lupine measures and corrects them at runtime with machine-checked proof.
+<strong>Audience:</strong> sophisticated materials, mechanical, and chemical engineers; climate-tech investors
+<strong>Status:</strong> Draft</p>
+</aside>
+<h1>A Field, Not a Neural Net</h1>
+<figure class="article-hero" aria-labelledby="hero-caption">
+  <picture>
+    <img src="/articles/a-field-not-a-neural-net/hero.jpg" alt="" width="1280" height="720" loading="eager" fetchpriority="high" decoding="async">
+  </picture>
+  <figcaption id="hero-caption">A smooth field gradient over a sparse lattice: the measured error geometry of universal machine-learned interatomic potentials.</figcaption>
+</figure>
+<p>The dominant narrative in computational materials science is that bigger models trained on more data will close the gap between prediction and synthesis. The evidence points elsewhere. Google DeepMind’s GNoME predicted 2.2 million crystals; only 736 had been independently synthesized by late 2023, a 0.2% validation rate<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>. The A-Lab autonomous synthesis facility reported a 63% success rate, but subsequent critique showed that two-thirds of its “novel” targets were already-known disordered phases, collapsing the true discovery rate toward zero<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>. The problem is not that the models are too small. It is that their errors have a shape — a systematic, low-dimensional geometry in the space of local atomic environments — and the field has been treating that shape as noise.</p>
+<p>Lupine Science starts from the opposite premise. The wrongness of universal machine-learning interatomic potentials (uMLIPs) is not random. It is a smooth function of coordination number, measurable from a handful of anchor observables, and correctable at runtime with analytic forces. This article explains the environment error field: what it is, how it is measured rather than learned, and why the distinction matters for climate-critical materials discovery.</p>
+<h2>The Field Hypothesis</h2>
+<p>A uMLIP such as CHGNet, MACE-MP-0, or M3GNet evaluates atomic energies in milliseconds, enabling screening campaigns that would be economically impossible with density functional theory (DFT). On bulk formation energies the best models reach mean absolute errors of 29–81 meV/atom, close to the intrinsic accuracy of the DFT functionals on which they were trained<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>. But functional materials do not operate as bulk crystals. Ion conduction, catalytic turnover, and hydrolytic stability all depend on under-coordinated environments — vacancies, surfaces, and transition states — where uMLIPs fail most severely: defect formation energies carry 71% mean absolute percentage error, and ion migration barriers are underestimated by more than 60%<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>.</p>
+<p>The error is not an inescapable property of machine learning. It is a predictable consequence of training data. Databases such as the Materials Project trajectories, OMat24, and Alexandria are dominated by near-equilibrium, closed-shell bulk structures in which every atom sits close to its high-symmetry coordination. A smooth regressor trained on that distribution interpolates accurately at the bulk coordination but extrapolates with correlated bias into under-coordinated regimes: surfaces, vacancies, transition states, and grain boundaries<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>.</p>
+<p>Lupine formalizes this observation as the environment error field. For a given configuration, the total systematic energy error of a uMLIP is approximated by a sum over atoms of a per-atom error that depends only on the atom’s local coordination number $c$:</p>
+<p>$$E^{\text{model}} - E^{\text{ref}} \approx \sum_i P(c_i).$$</p>
+<p>For a perfect face-centered-cubic (fcc) bulk atom, $c = 12$, and the field is defined to be zero — consistent with the empirical fact that uMLIPs are already accurate in the bulk. The field $P©$ is therefore not a universal constant fitted across all materials; it is a material-specific and model-specific measured quantity, anchored to the physics of bond counting.</p>
+<h2>Measured, Not Learned</h2>
+<p>The critical difference between the Lupine field and previous correction strategies is that the field is measured, not learned. Delta-ML trains a separate model to learn the discrepancy between a fast baseline and an accurate target; it requires per-system retraining and abundant reference data<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup>. Fine-tuning updates uMLIP weights on target-system data; it works when curated training sets exist, which they do not for unexplored composition spaces<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup>. Both approaches treat the error as an arbitrary function to be discovered from data.</p>
+<p>Lupine imposes the functional form. A cubic spline through three standard anchor observables — the (100) surface probing $c=8$, the (111) surface probing $c=9$, and the vacancy formation energy probing $c=11$ — is fixed by the boundary condition $P(12) = 0$. Linear continuation below $c=8$ predicts the error at $c=7$, which corresponds to the (110) surface energy. That observable is never fitted during field construction; it is predicted blind.</p>
+<p>Each anchor samples a different coordination deficit relative to the bulk reference. Because the same coordination numbers recur across materials that share a crystal structure family, the spline transfers across properties within that family — surface energies, vacancy formation energies, and migration barriers — without additional DFT oracle calls. The correction is measured in the sense that geometry dictates the functional form and only the three knot values are empirical.</p>
+<h2>The r = 0.906 Result</h2>
+<p>The empirical test is strict blind prediction. Across 36 independent (model, material) combinations, the field predicts the signed error of the never-fitted (110) surface energy with Pearson correlation $r = 0.906$ ($p = 10^{-4}$, 95% confidence interval [0.82, 0.96]), using zero adjustable parameters<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup>.</p>
+<p>The per-model breakdown is informative. CHGNet v0.4.2 achieves $r = 0.86$ ($p &lt; 0.01$). MACE-MP-0 small achieves $r = 0.90$ ($p &lt; 0.01$). MACE-MPA-0, trained on the larger OMat24 non-equilibrium dataset, achieves $r = 0.96$ ($p &lt; 0.001$). MACE-MP-0 medium is the one non-significant case at $r = 0.47$ ($p = 0.10$)<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup>. That exception matters: it bounds the field’s domain rather than refuting it. The OMat24-trained model performs best because its training distribution already samples more under-coordinated configurations, supporting the hypothesis that the field captures a real training-data bias rather than an accidental correlation.</p>
+<p>An honest null is essential. Because (100), (111), and (110) facets of the same material are structurally correlated, a naïve permutation null would be too permissive. The reported null distribution, with mean $r = 0.44$, is generated by permuting within models across 10,000 draws, preserving the structural correlation. The measured $r = 0.906$ survives this conservative test.</p>
+<p>At integer-scaled precision of $10^{-4}$ J/m$^2$, 26 of 36 cells improve strictly over the predict-zero baseline, with median residual dropping from 0.104 to 0.066 J/m$^2$<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup>. The number is 26, not 27 — a distinction that becomes important when the same pipeline is subjected to machine-checked proof.</p>
+<h2>Runtime Correction</h2>
+<p>The field inverts naturally into an additive correction energy:</p>
+<p>$$E_{\text{corr}} = -\sum_i P(c_i).$$</p>
+<p>Because the field is negative where the model underpredicts — the typical case for defects and surfaces — the correction raises under-coordinated configurations toward the reference energy. Forces follow analytically from the chain rule, $F_{\text{corr}} = -\nabla E_{\text{corr}} = \sum_i P’(c_i) \nabla c_i$, so molecular dynamics conserves energy and structure relaxations follow proper gradients. Force accuracy was verified against numerical differentiation to $10^{-6}$ eV/Å on rattled slabs<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup>.</p>
+<p>The correction layer deploys beside any existing uMLIP calculator without retraining its weights. Coordination computation is a local neighbor-list operation, so the overhead is small: 15.6% on CHGNet steps in the current Python implementation<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup>. A compiled pair-style overlay in LAMMPS would reduce that below 1%, because coordination reduces to a few floating-point operations per neighbor pair. Even with the present overhead, a corrected uMLIP remains approximately $10^5$ times faster than DFT<sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup>.</p>
+<p>Validation confirms selective correction. The fitted observables recover exactly in closure tests, demonstrating that the bond-counting field survives real structural relaxation. The blind (110) facet improves 6.5× for Ni (9.7% error to 1.5%) and 2.0× for Cu (28.0% to 13.7%). Bulk lattice constants are unchanged, because the correction vanishes identically at $c = 12$<sup class="footnote-ref"><a href="#fn14" id="fnref14">[14]</a></sup>.</p>
+<h2>Machine-Checked Proof</h2>
+<p>Statistical validation has a well-known limitation: it cannot catch bugs in the analysis code, and it applies only to the samples tested. Lupine adds a formal verification layer. Every quantitative claim — ordering relations, correction bounds, and impossibility results — is encoded as a Lean 4 theorem over integer-scaled data carrying SHA-256 provenance of the source files. The formalization currently comprises 8 modules, 77 build-locked theorems, approximately 225 declarations, and zero <code>sorry</code> proofs<sup class="footnote-ref"><a href="#fn15" id="fnref15">[15]</a></sup>.</p>
+<p>The theorems fall into three categories. Ordering claims are inequality chains verified by the Lean kernel at fixed precision, not statistical summaries. Isotonic correction theorems implement the log-affine correction as a Lean function whose outputs the kernel checks against expected ordering properties. Impossibility theorems prove, with concrete counterexample witnesses, where no monotone correction can reconcile a model’s ordering with the reference ordering<sup class="footnote-ref"><a href="#fn16" id="fnref16">[16]</a></sup>.</p>
+<p>The kernel-rejected claim episode illustrates why this matters. A statistical filter initially accepted that 27 of 36 cells improved strictly. When submitted to Lean, the <code>decide</code> tactic refused to prove $813 &lt; 813$; at $10^{-4}$ J/m$^2$ integer precision, one cell’s improvement margin was exactly zero. The corrected count is 26 of 36<sup class="footnote-ref"><a href="#fn17" id="fnref17">[17]</a></sup>. A p-value does not know about integer rounding; the proof kernel does. In a pipeline where each false positive can cost weeks of synthesis effort, the distinction between statistical confidence and mechanical certainty is economically decisive.</p>
+<h2>Where Correction Fails, Lupine Proves Impossibility</h2>
+<p>A verification layer is only as useful as its boundary conditions. Lupine does not claim the field works everywhere; it proves where it cannot work. Three boundary conditions are formally established.</p>
+<p>First, ranking inversions. When a model’s ordering disagrees with the reference ordering, a monotonicity impossibility lemma proves that no monotone correction can map both to their references simultaneously<sup class="footnote-ref"><a href="#fn18" id="fnref18">[18]</a></sup>. The experimentalist receives not a vague uncertainty estimate but a machine-checked statement that the candidate cannot be rescued within the method.</p>
+<p>Second, already-converged cells. Where the raw uMLIP error sits at the noise floor of the anchor observables — for instance, MACE-MPA-0 on certain surfaces — correction adds no value and is refused. The proof flags the redundancy before computational effort is wasted.</p>
+<p>Third, outside the field’s domain. Environments that require second-shell structure or explicit electronic-structure treatment — planar faults, charged defects, strongly correlated oxides — are outside the first-shell coordination approximation. Lupine proves the domain violation and reports the witness<sup class="footnote-ref"><a href="#fn19" id="fnref19">[19]</a></sup>.</p>
+<p>These impossibility proofs are not admissions of weakness. They are the feature that prevents the A-Lab pattern: systematic false positives propagating through an autonomous pipeline because no layer knew how to say no.</p>
+<h2>The Six-Step Loop</h2>
+<p>The field measurement, runtime correction, and formal verification layers close into a six-step discovery cycle:</p>
+<ol>
+<li><strong>Simulate</strong> — run a uMLIP through the standard property pipeline: equation of state, surface slabs, vacancy supercells.</li>
+<li><strong>Identify</strong> — compare predictions to the 228-value provenance-annotated reference database.</li>
+<li><strong>Validate</strong> — check whether errors follow the environment error field; use the three anchors to predict a fourth blind observable.</li>
+<li><strong>Generate</strong> — construct the cubic spline $P©$ and deploy it as an additive correction with analytic forces.</li>
+<li><strong>Verify</strong> — submit every quantitative claim to the Lean 4 kernel; ordering claims become inequalities, correction bounds become isotonic theorems, failures become impossibility lemmas.</li>
+<li><strong>Improve</strong> — run the corrected calculator through the full pipeline. If correction succeeds, report corrected values with theorem certificates. If it fails, the impossibility proof tells the experimentalist why.</li>
+</ol>
+<p>Against DFT, the loop offers comparable defect-energy accuracy at $10^5$× speed. Against raw uMLIPs, it replaces uncontrolled systematic bias with a bounded, measured correction. Against delta-ML and fine-tuning, it eliminates per-system retraining because the spline transfers within a crystal-structure family<sup class="footnote-ref"><a href="#fn20" id="fnref20">[20]</a></sup>. The practical consequence: a $10^6$-structure screening campaign needs no DFT calls, yet every candidate carries a provable accuracy boundary.</p>
+<h2>From Geometry to Climate Targets</h2>
+<p>The field is not an abstract mathematical device. It maps directly onto the defects, surfaces, and transition states that determine climate-critical material performance. In cobalt-free lithium-manganese-rich cathodes, voltage fade is transition-metal migration from octahedral to tetrahedral sites — a hop whose barrier is underestimated when the transition state is under-coordinated. In earth-abundant halide solid electrolytes, ionic conductivity depends exponentially on the Li$^+$ migration barrier; a 60% barrier error changes predicted conductivity by roughly three orders of magnitude. In MOFs for direct air capture, humidity stability is governed by metal-linker hydrolysis at under-coordinated nodes. In electrochemical ammonia catalysts, N$\equiv$N cleavage occurs at surface defect sites. In lead-free perovskite absorbers, Sn$^{2+}$ oxidation and vacancy formation set the stability ceiling<sup class="footnote-ref"><a href="#fn21" id="fnref21">[21]</a></sup>.</p>
+<p>Every one of these properties is a coordination-dependent defect property. Every one is therefore within the domain where a measured error field can correct the prediction, or where an impossibility proof can flag the candidate as unsupported. The next article in this series turns from the method to the targets: five material classes where correction plus verification could unlock 5–12 GtCO$_2$/year.</p>
+<h2>Footnotes</h2>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Google DeepMind, “GNoME: A graph network for materials exploration,” <em>Nature</em> (2023); follow-up synthesis tracking reported 736 independent confirmations out of ~380,000 predicted stable structures by late 2023. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>N. J. Szymanski <em>et al.</em>, “An autonomous laboratory for the accelerated synthesis of novel materials,” <em>Nature</em> (2023); critical commentary on disordered-phase targets summarized in the Lupine Science Strategic Discovery Plan (2026). <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>Benchmarks for CHGNet, MACE-MP-0, M3GNet, EquiformerV2, ORB, and MatterSim on bulk formation energies are compiled in Deng <em>et al.</em> (2024) and the Alexandria/OMat24 model comparison literature. <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>Z. Deng <em>et al.</em>, “Evaluation of universal machine learning interatomic potentials for surfaces, defects, and migration barriers,” <em>npj Computational Materials</em> (2024). <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>Training-data bias toward near-equilibrium configurations is documented in MPtrj, OMat24, and Alexandria dataset papers; see Deng <em>et al.</em> (2024) for the downstream property consequences. <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p>F. Ramprasad <em>et al.</em>, “Machine learning in materials informatics: recent applications and prospects,” <em>npj Computational Materials</em> (2017). <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn7" class="footnote-item"><p>Fine-tuning performance and data requirements for uMLIPs are discussed in the MACE and CHGNet literature; Lupine analysis based on internal screening cost estimates. <a href="#fnref7" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn8" class="footnote-item"><p>Lupine Science internal validation report, “Blind prediction of (110) surface error from three anchor observables” (2026); 36 (model, material) cells, null mean $r = 0.44$. <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn9" class="footnote-item"><p>Per-model correlations and significance levels from the Lupine blind-prediction study (2026). <a href="#fnref9" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn10" class="footnote-item"><p>Strict-improvement counts and median residuals from the Lupine integer-scaled validation dataset (2026). <a href="#fnref10" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn11" class="footnote-item"><p>Force verification against numerical differentiation reported in Lupine Science technical documentation (2026). <a href="#fnref11" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn12" class="footnote-item"><p>Wall-time overhead measured on CHGNet steps in the Python reference implementation; LAMMPS overlay target based on operation counts. <a href="#fnref12" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn13" class="footnote-item"><p>DFT timing estimates from high-throughput DFT campaigns and HEA supercell benchmarks; uMLIP timing from CHGNet/MACE profiling. <a href="#fnref13" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn14" class="footnote-item"><p>Validation table for Ni(110), Cu(110), fitted observables, and bulk lattice constants from Lupine Science runtime correction tests (2026). <a href="#fnref14" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn15" class="footnote-item"><p>Lupine Science Lean 4 formalization: 8 modules, 77 theorems, ~225 declarations, zero <code>sorry</code> proofs (2026). <a href="#fnref15" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn16" class="footnote-item"><p>Categories of formally verified claims described in Lupine Science verification whitepaper (2026). <a href="#fnref16" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn17" class="footnote-item"><p>The kernel-rejected claim episode is documented in Lupine Science verification logs; corrected count is 26 of 36. <a href="#fnref17" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn18" class="footnote-item"><p>Monotonicity impossibility lemma for ranking inversions, formalized in Lupine Science Lean 4 module <code>Impossibility</code> (2026). <a href="#fnref18" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn19" class="footnote-item"><p>Boundary conditions and applicability-domain impossibility proofs from Lupine Science verification documentation (2026). <a href="#fnref19" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn20" class="footnote-item"><p>Comparative analysis of DFT, raw uMLIPs, delta-ML, fine-tuning, and Lupine compiled in Lupine Science Strategic Discovery Plan (2026). <a href="#fnref20" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn21" class="footnote-item"><p>Mapping of the five priority targets to coordination-dependent defect properties is detailed in the Lupine Science Strategic Discovery Plan, Chapter 4 (2026). <a href="#fnref21" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+    </article>
+  </main>
+  <footer class="foot">
+    <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
+    <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
+    <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
+  </footer>
+<script>
+(() => {
+  document.querySelectorAll("a.mail").forEach((a) => {
+    const addr = a.dataset.u + "@" + a.dataset.d;
+    a.href = "mailto:" + addr;
+    a.textContent = addr;
+  });
+  const vids = document.querySelectorAll("video[data-autoplay]");
+  if (!vids.length) return;
+  if (!("IntersectionObserver" in window)) { vids.forEach((v) => { v.preload = "metadata"; }); return; }
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) { e.target.play().catch(() => {}); }
+      else { e.target.pause(); }
+    }
+  }, { rootMargin: "120px" });
+  vids.forEach((v) => io.observe(v));
+})();
+</script>
+</body>
+</html>

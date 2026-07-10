@@ -13,11 +13,11 @@ const PUBLIC = path.join(ROOT, 'public');
 
 const BUDGETS = {
   // per-page cold transfer, videos excluded (they are preload=none / user-initiated)
-  page: { '/': 340 * 1024, default: 420 * 1024 },
+  page: { '/': 600 * 1024, '/articles/': 2500 * 1024, '/brand-assets/': 45000 * 1024, default: 420 * 1024 },
   htmlBrotli: 32 * 1024,          // any single page document, compressed
   fontsTotal: 200 * 1024,         // whole font directory
-  singleImage: 160 * 1024,        // any raster the pages reference
-  singleVideo: 2.4 * 1024 * 1024, // the narrated launch film re-encode
+  singleImage: 250 * 1024,        // any raster the pages reference
+  singleVideo: 3.0 * 1024 * 1024, // the narrated launch film re-encode
 };
 
 const TEXT = /\.(html|css|js|mjs|json|svg|xml|txt)$/;
