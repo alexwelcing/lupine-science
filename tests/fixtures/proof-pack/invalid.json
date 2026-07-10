@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0.0",
+  "metadata": { "slug": "invalid-proof-pack", "title": "Invalid proof pack", "date": "2026-07-10", "status": "draft", "license": "CC BY 4.0" },
+  "summary": { "claim": "Invalid fixture", "verdict": "open", "scope": "Policy test" },
+  "figures": [{ "id": "figure-1", "title": "Bad figure", "path": "bad.svg", "caption": "Invalid references", "sourceIds": ["missing-source"] }],
+  "dataTables": [],
+  "methodology": { "description": "Exercise rejection paths.", "steps": ["Validate."], "artifacts": [] },
+  "credits": { "authors": [{ "name": "Fixture Author", "role": "test" }], "institutions": [{ "name": "Fixture Institution", "role": "test" }] },
+  "bibliography": [
+    {
+      "id": "self-citation",
+      "title": "Lupine Science strategic plan",
+      "type": "research-institution",
+      "url": "https://lupine.science/strategic-plan"
+    },
+    {
+      "id": "marketing",
+      "title": "Amazing materials breakthrough",
+      "type": "research-institution",
+      "url": "https://example.com/company-blog"
+    },
+    {
+      "id": "paper-without-doi",
+      "title": "Unidentifiable paper",
+      "type": "peer-reviewed",
+      "url": "https://example.org/paper"
+    },
+    {
+      "id": "unjustified-exception",
+      "title": "Analyst estimate",
+      "type": "exception",
+      "url": "https://example.net/estimate",
+      "exceptionJustification": "Useful background"
+    }
+  ]
+}

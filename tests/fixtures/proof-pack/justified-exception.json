@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "metadata": { "slug": "exception-proof-pack", "title": "Exception proof pack", "date": "2026-07-10", "status": "review", "license": "CC BY 4.0" },
+  "summary": { "claim": "A vendor states a product specification.", "verdict": "open", "scope": "The source supports only what the vendor publicly states." },
+  "figures": [],
+  "dataTables": [],
+  "methodology": { "description": "Record a narrowly scoped vendor statement.", "steps": ["Review the stated specification."], "artifacts": [] },
+  "credits": { "authors": [{ "name": "Fixture Author", "role": "test" }], "institutions": [{ "name": "Fixture Institution", "role": "test" }] },
+  "bibliography": [{
+    "id": "vendor-specification",
+    "title": "Representative vendor datasheet",
+    "type": "exception",
+    "url": "https://example.com/datasheet",
+    "exceptionJustification": "Used only to document the vendor's own stated product specification; no independent source can establish what the vendor claims."
+  }]
+}

@@ -1,0 +1,26 @@
+{
+  "minimumPages": 60,
+  "pageSize": "612 x 792 pts (letter)",
+  "requiredText": [
+    "The 0.2% Synthesis Problem",
+    "A Field, Not a Neural Net",
+    "Five Materials That Could Unlock 5–12 GtCO₂/Year",
+    "From Predicted Crystal to Commercial Cell",
+    "Investing in the Trust Layer",
+    "CO₂",
+    "—",
+    "–",
+    "“",
+    "”",
+    "’",
+    "×",
+    "≈",
+    "γ",
+    "∑"
+  ],
+  "forbiddenText": [
+    "�",
+    "\\text{model}",
+    "$$"
+  ]
+}

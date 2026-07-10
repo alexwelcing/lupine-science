@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "1.0.0",
+  "metadata": {
+    "slug": "representative-proof-pack",
+    "title": "Representative proof pack",
+    "date": "2026-07-10",
+    "status": "draft",
+    "license": "CC BY 4.0",
+    "version": "1"
+  },
+  "summary": {
+    "claim": "A representative scientific claim.",
+    "verdict": "open",
+    "scope": "Validator fixture only; it makes no substantive scientific assertion.",
+    "limitations": ["Synthetic fixture metadata; cited works are real."]
+  },
+  "figures": [
+    {
+      "id": "figure-1",
+      "title": "Representative figure",
+      "path": "figures/figure-1.svg",
+      "caption": "A fixture figure linked to the cited methodology paper.",
+      "sourceIds": ["deng-2025"]
+    }
+  ],
+  "dataTables": [],
+  "methodology": {
+    "description": "Validate source classes and bibliography references without network access.",
+    "steps": ["Parse the manifest.", "Apply the documented source policy."],
+    "artifacts": []
+  },
+  "credits": {
+    "authors": [{ "name": "Fixture Author", "role": "test fixture" }],
+    "institutions": [{ "name": "Fixture Institution", "role": "test fixture" }]
+  },
+  "bibliography": [
+    {
+      "id": "deng-2025",
+      "title": "Systematic softening in universal machine learning interatomic potentials",
+      "type": "peer-reviewed",
+      "url": "https://doi.org/10.1038/s41524-024-01500-6",
+      "doi": "10.1038/s41524-024-01500-6",
+      "publisher": "npj Computational Materials",
+      "year": 2025
+    },
+    {
+      "id": "nist-mgi-2023",
+      "title": "Economic Analysis of the Materials Genome Initiative",
+      "type": "government",
+      "url": "https://www.nist.gov/",
+      "publisher": "National Institute of Standards and Technology",
+      "year": 2023
+    }
+  ]
+}
