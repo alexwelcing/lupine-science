@@ -79,6 +79,16 @@ const checks = [
     expected: 'Cement, Concrete',
     description: 'cement article shows title'
   },
+  {
+    url: `${BASE_URL}/articles/from-predicted-crystal-to-commercial-cell/`,
+    expected: 'From Predicted Crystal to Commercial Cell',
+    description: 'predicted-crystal article shows title'
+  },
+  {
+    url: `${BASE_URL}/articles/investing-in-the-trust-layer/`,
+    expected: 'Investing in the Trust Layer',
+    description: 'trust-layer investment article shows title'
+  },
 ];
 
 function sleep(ms) {
