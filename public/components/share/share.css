@@ -7,7 +7,7 @@
   --share-border: var(--rule, #e2dfd4);
   --share-bg: var(--paper, #faf9f6);
   --share-bg-hover: var(--indigo-wash, rgba(61, 77, 179, 0.08));
-  --share-focus: var(--indigo-line, rgba(61, 77, 179, 0.24));
+  --share-focus: var(--indigo, #3d4db3);
   --share-gap: 8px;
   --share-icon-size: 18px;
 }
@@ -51,6 +51,8 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  min-width: 44px;
+  min-height: 44px;
   padding: 6px 12px;
   border-radius: 4px;
   border: 1px solid var(--share-border);
@@ -80,8 +82,13 @@
   background: var(--share-bg-hover);
   border-color: var(--share-focus);
   color: var(--share-ink-hover);
-  outline: none;
-  box-shadow: 0 0 0 2px var(--share-focus);
+}
+
+.share-link:focus-visible,
+.share-btn:focus-visible,
+.share-toggle:focus-visible {
+  outline: 2px solid var(--share-focus);
+  outline-offset: 2px;
 }
 
 .share-live {
@@ -110,11 +117,8 @@
   }
 
   .share-menu {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
-    z-index: 10;
+    position: static;
+    flex-basis: 100%;
     list-style: none;
     margin: 6px 0 0;
     padding: 6px;
@@ -156,7 +160,11 @@
   .share-link,
   .share-btn,
   .share-toggle,
-  .share-menu {
-    transition: none;
+  .share-menu,
+  .article .share-link,
+  .article .share-btn,
+  .article .share-toggle {
+    transition: none !important;
+    animation: none !important;
   }
 }

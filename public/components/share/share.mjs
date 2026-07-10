@@ -88,9 +88,16 @@ export function buildShareActions({ url, title }) {
  * Returns a promise that resolves to true on success, false on failure.
  */
 export async function copyUrlToClipboard(url) {
+  const previousActive = document.activeElement;
+  const restoreFocus = () => {
+    if (previousActive && typeof previousActive.focus === 'function') {
+      try { previousActive.focus(); } catch {}
+    }
+  };
   if (typeof navigator !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
     try {
       await navigator.clipboard.writeText(url);
+      restoreFocus();
       return true;
     } catch {
       // Fall through to legacy fallback
@@ -107,8 +114,11 @@ export async function copyUrlToClipboard(url) {
   textarea.select();
   try {
     return doc.execCommand('copy');
+  } catch {
+    return false;
   } finally {
     textarea.remove();
+    restoreFocus();
   }
 }
 
@@ -143,38 +153,36 @@ function createActionItem(action, onCopy, itemRole = 'listitem') {
  * Initialize a single share widget on the given DOM element.
  */
 export function initShare(root, { url, title }) {
-  if (!root || !url) return;
+  if (!root || !url || root.dataset.shareInitialized === 'true') return;
+  root.dataset.shareInitialized = 'true';
   const actions = buildShareActions({ url, title });
 
   const id = root.id || `share-${Math.random().toString(36).slice(2, 8)}`;
   root.id = id;
 
   const isMobile = window.matchMedia('(max-width: 600px)').matches;
+  const rootLabel = root.getAttribute('aria-label') || 'Share this page';
 
-  const label = document.createElement('span');
-  label.className = 'share-label';
-  label.textContent = 'Share';
-
+  // Preserve server-rendered fallback where present; otherwise build from scratch.
+  const existingList = root.querySelector('.share-list');
   const live = document.createElement('span');
   live.className = 'share-live';
   live.setAttribute('aria-live', 'polite');
   live.setAttribute('aria-atomic', 'true');
 
   if (isMobile) {
-    // Mobile: single toggle button that opens an expandable tray of actions
+    // Mobile: disclosure pattern — a single toggle controls a tray of native links/buttons.
     const toggle = document.createElement('button');
     toggle.type = 'button';
     toggle.className = 'share-toggle';
     toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-haspopup', 'true');
     toggle.setAttribute('aria-controls', `${id}-menu`);
-    toggle.setAttribute('aria-label', 'Share this page');
+    toggle.setAttribute('aria-label', rootLabel);
     toggle.innerHTML = `<span aria-hidden="true">↗</span><span class="share-toggle-text">Share</span>`;
 
     const menu = document.createElement('ul');
     menu.id = `${id}-menu`;
     menu.className = 'share-menu';
-    menu.setAttribute('role', 'menu');
     menu.setAttribute('aria-label', 'Share options');
     menu.hidden = true;
 
@@ -193,68 +201,51 @@ export function initShare(root, { url, title }) {
     function menuCopyHandler(labelText) {
       return async (event) => {
         event.preventDefault();
+        const trigger = event.currentTarget;
         const ok = await copyUrlToClipboard(url);
         announce(root, ok ? 'Link copied to clipboard' : 'Could not copy link');
         if (ok) {
-          const text = event.currentTarget.querySelector('.share-action-text');
+          const text = trigger.querySelector('.share-action-text');
           if (text) text.textContent = 'Copied!';
           setTimeout(() => { if (text) text.textContent = labelText; }, 2000);
         }
         closeTray();
+        toggle.focus();
       };
     }
 
     for (const action of actions) {
       const onClick = action.isCopy ? menuCopyHandler(action.label) : undefined;
-      const li = createActionItem(action, onClick, 'none');
-      const control = li.querySelector('button, a');
-      if (control) control.setAttribute('role', 'menuitem');
+      const li = createActionItem(action, onClick, null);
       menu.appendChild(li);
     }
 
-    root.appendChild(label);
     root.appendChild(toggle);
     root.appendChild(menu);
     root.appendChild(live);
 
     toggle.addEventListener('click', () => {
-      if (toggle.getAttribute('aria-expanded') === 'true') closeTray();
-      else openTray();
+      if (toggle.getAttribute('aria-expanded') === 'true') {
+        closeTray();
+        toggle.focus();
+      } else {
+        openTray();
+      }
     });
 
     menu.addEventListener('keydown', (event) => {
-      const items = Array.from(menu.querySelectorAll('[role="menuitem"]'));
-      const index = items.indexOf(document.activeElement);
       if (event.key === 'Escape') {
         event.preventDefault();
         closeTray();
         toggle.focus();
-      } else if (event.key === 'ArrowDown') {
-        event.preventDefault();
-        const next = items[(index + 1) % items.length];
-        next.focus();
-      } else if (event.key === 'ArrowUp') {
-        event.preventDefault();
-        const prev = items[(items.length + index - 1) % items.length];
-        prev.focus();
-      } else if (event.key === 'Tab') {
-        event.preventDefault();
-        if (event.shiftKey) {
-          const prev = items[(items.length + index - 1) % items.length];
-          prev.focus();
-        } else {
-          const next = items[(index + 1) % items.length];
-          next.focus();
-        }
       }
     });
 
     document.addEventListener('click', (event) => {
       if (!root.contains(event.target)) closeTray();
     });
-  } else {
-    // Desktop: visible row of action buttons
-    root.setAttribute('aria-label', 'Share this page');
+  } else if (!existingList) {
+    // Desktop: visible row of action buttons (server did not render fallback)
     const list = document.createElement('ul');
     list.className = 'share-list';
     list.setAttribute('role', 'list');
@@ -263,10 +254,11 @@ export function initShare(root, { url, title }) {
     for (const action of actions) {
       const li = createActionItem(action, async (event) => {
         event.preventDefault();
+        const trigger = event.currentTarget;
         const ok = await copyUrlToClipboard(url);
         announce(root, ok ? 'Link copied to clipboard' : 'Could not copy link');
         if (ok) {
-          const text = event.currentTarget.querySelector('.share-action-text');
+          const text = trigger.querySelector('.share-action-text');
           if (text) text.textContent = 'Copied!';
           setTimeout(() => { if (text) text.textContent = action.label; }, 2000);
         }
@@ -274,8 +266,17 @@ export function initShare(root, { url, title }) {
       list.appendChild(li);
     }
 
-    root.appendChild(label);
     root.appendChild(list);
+    root.appendChild(live);
+  } else {
+    // Desktop: enhance the server-rendered fallback list with Copy handling.
+    existingList.querySelectorAll('a.share-copy, button.share-copy').forEach((btn) => {
+      btn.addEventListener('click', async (event) => {
+        event.preventDefault();
+        const ok = await copyUrlToClipboard(url);
+        announce(root, ok ? 'Link copied to clipboard' : 'Could not copy link');
+      });
+    });
     root.appendChild(live);
   }
 }
