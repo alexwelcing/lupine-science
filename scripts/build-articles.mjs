@@ -22,6 +22,8 @@ const md = new MarkdownIt({ html: true, typographer: true }).use(footnote);
 // Per-article hero captions. A hero figure is emitted only when the media
 // files actually exist next to the article.
 const HERO_CAPTIONS = {
+  'beyond-carbon-the-error-geometry-of-environmental-materials':
+    'Scattered error vectors resolving onto a single indigo ribbon: the same shape of wrongness extends beyond carbon to water, air, methane, refrigerants, minerals, PFAS, and cement.',
   'the-02-percent-synthesis-problem':
     'Scattered error vectors resolving onto a single indigo ribbon: the shape of wrongness in generative materials AI.',
   'a-field-not-a-neural-net':
