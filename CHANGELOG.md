@@ -17,7 +17,7 @@
 ### Platform & Pipeline
 - [Merged] Article top-line metadata redesign: editorial kicker, accessible byline list, no audience label rendered; passes `npm test`, `npm run build`, `npm run lint`, `npm run verify`.\n- [Merged] Publication-quality visual audit of all 20 public pages (60 screenshots); 19 pages flagged with missing assets, CSP-blocked sharing, broken brand library, and a 780 px mobile overflow — findings at `docs/qa/public-pages-visual-audit/REPORT.md`.
 - [Merged] PDF QA audit baseline: 71-page proof pack inspected for fonts/Unicode/margins; P0/P1 findings documented and routed to link-fix + PDF-optimization tasks.
-- [Merged] Controlled Hermes dispatch loop: lowered concurrency to 6, profile session caps to 3, model fallback to `gpt-5.6-sol` → `kimi-k2.7-code` to clear runaway-swarm crashes; added load/memory monitor at `media/projects/laptop-performance/system-monitor.sh`.
+- [Merged] Hermes provider fix: profiles now route through Anthropic `claude-fable-5` (Fable) with `zai`/`glm-5.2` fallback after OpenAI Codex (`gpt-5.6-sol`) hit rate limits and `kimi-coding` returned 404; added active swarm guard at `scripts/monitoring/hermes-swarm-guard.sh` and system health monitor at `scripts/monitoring/system-health.sh`.
 - [Merged] CI: PR/push verification workflow with lint, typecheck, tests, static-link checks, proof-pack generation, and PDF verification.
 - [In Progress] QA/infra audit wave: editorial visual QA, Core Web Vitals, WCAG 2.1 AA, cross-browser/device, pre-publication QA sign-off checklist.
 - [Merged] Live URL smoke-test suite and deployment post-deploy gates in `.github/workflows/deploy.yml`.
@@ -26,7 +26,7 @@
 - [Merged] artdirector/reviewer profiles routed through OpenAI Codex (`gpt-5.6-sol`); Anthropic/Fable OAuth deferred per team direction.
 - [Merged] Social share component (article/video pages, OG/Twitter cards, accessible controls).
 - [Merged] Share component accessibility fix: desktop share list items now expose `role="listitem"` so Lighthouse's `aria-required-children` audit passes.
-- [Blocked] Social share release blocker: CSP prevents controls from rendering and component double-initializes; fix task assigned to software-engineer.
+- [Merged] Social share release fix: CSP `script-src` now allows same-origin modules; server renders no-JS fallback links; module initialization is idempotent; mobile disclosure hides the fallback list; focus, contrast, touch-target, and reduced-motion issues addressed. Reports at `docs/reviews/social-share-accessibility-privacy-review.md` and `docs/reviews/social-share-interactive-test.md`.
 - [In Progress] Downloadable proof packs per article (PDF, manifest, bibliography, UI, CI generation, golden-file diff tests).
 - [In Progress] Environmental expansion series beyond CO₂ (methane/refrigerants, critical minerals/PFAS, water/air purification, cement/concrete).
 - [In Progress] 10-visual-deck brief and design system for every article.
@@ -38,7 +38,7 @@
 - [Merged] Storyboard / beat sheets for: The 0.2% Synthesis Problem, A Field Not a Neural Net, Five Materials That Could Unlock 5–12 GtCO₂/Year, From Predicted Crystal to Commercial Cell, Investing in the Trust Layer.
 - [In Progress] HyperFrames compositions, kinetic titles, data/chart animations, transitions, renders, and frame reviews for the remaining article videos.
 - [Live] `a-field-not-a-neural-net`: director-approved 720p MP4 and poster are now served from `https://lupine.science/videos/`, article page links to the narrated version with `VideoObject` schema, and live smoke tests pass.
-- [In Progress] `the-02-percent-synthesis-problem` final render: frame review REJECT with P0=2/P1=3; P0 fix is now running at elevated priority, P1 fix queued behind it.
+- [Staged] `the-02-percent-synthesis-problem`: P0/P1 fixes approved by independent re-review (t_b2172012), 720p web encode (1.53 MB/min) and WebVTT captions generated, article page links to the narrated version with `VideoObject` schema; awaiting production deploy and live smoke test.
 - [In Progress] HeyGen animation workflow and reviewer/director training.
 
 ---
