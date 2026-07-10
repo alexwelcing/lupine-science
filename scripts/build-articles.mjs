@@ -10,14 +10,37 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import MarkdownIt from 'markdown-it';
 import footnote from 'markdown-it-footnote';
+import katexPlugin from 'markdown-it-katex';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = path.join(ROOT, 'articles');
 const OUT = path.join(ROOT, 'public', 'articles');
+const PUBLIC_ROOT = path.join(ROOT, 'public');
 const SITE = 'https://lupine.science';
 
+const KATEX_SRC = path.join(ROOT, 'node_modules', 'katex', 'dist');
+const KATEX_OUT = path.join(PUBLIC_ROOT, 'katex');
+
+function ensureKatexAssets() {
+  if (!fs.existsSync(KATEX_SRC)) return false;
+  fs.mkdirSync(KATEX_OUT, { recursive: true });
+  for (const name of ['katex.min.css', 'fonts']) {
+    const src = path.join(KATEX_SRC, name);
+    const dst = path.join(KATEX_OUT, name);
+    if (!fs.existsSync(src)) continue;
+    if (fs.statSync(src).isDirectory()) {
+      fs.cpSync(src, dst, { recursive: true, force: true, preserveTimestamps: true });
+    } else {
+      fs.copyFileSync(src, dst);
+    }
+  }
+  return true;
+}
+
 // typographer: real quotes and apostrophes in prose (code blocks untouched)
-const md = new MarkdownIt({ html: true, typographer: true }).use(footnote);
+const md = new MarkdownIt({ html: true, typographer: true })
+  .use(footnote)
+  .use(katexPlugin, { throwOnError: false, trust: false });
 
 // Per-article hero captions. A hero figure is emitted only when the media
 // files actually exist next to the article.
@@ -112,6 +135,22 @@ ${caption ? `  <figcaption id="hero-caption">${caption}</figcaption>\n` : ''}</f
 ${caption ? `  <figcaption id="hero-caption">${caption}</figcaption>\n` : ''}</figure>`;
 }
 
+function wrapInlineFigures(html) {
+  return html.replace(
+    /<p>\s*(<img\s+[^>]*src="([^"]*)"[^>]*>)\s*<em>([\s\S]*?)<\/em>\s*<\/p>/g,
+    (match, imgTag, src, caption) => {
+      const img = imgTag.replace(/^(<img\s+)([^>]*)(\/?>)$/, (m, open, attrs, close) => {
+        const extras = [];
+        if (!/loading\s*=/.test(attrs)) extras.push('loading="lazy"');
+        if (!/decoding\s*=/.test(attrs)) extras.push('decoding="async"');
+        return `${open}${attrs}${extras.length ? ' ' + extras.join(' ') : ''}${close}`;
+      });
+      const safeCaption = caption.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      return `<figure>\n  ${img}\n  <figcaption>${safeCaption}</figcaption>\n</figure>`;
+    }
+  );
+}
+
 function pictureSources(slug, base, { eager = false } = {}) {
   const dir = path.join(OUT, slug);
   const avif = fs.existsSync(path.join(dir, `${base}.avif`));
@@ -163,7 +202,7 @@ const PAGE_SCRIPT = `<script>
 })();
 </script>`;
 
-function head({ title, description, url, ogImage, jsonld, isArticle, preloadImage }) {
+function head({ title, description, url, ogImage, jsonld, isArticle, preloadImage, math }) {
   return `<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${esc(title)}</title>
@@ -184,7 +223,7 @@ function head({ title, description, url, ogImage, jsonld, isArticle, preloadImag
   <link rel="apple-touch-icon" href="/lupine-science-icon.png">
   <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
-${preloadImage ? `  <link rel="preload" href="${preloadImage}" as="image" fetchpriority="high">\n` : ''}  <link rel="stylesheet" href="/articles/styles.css">
+${preloadImage ? `  <link rel="preload" href="${preloadImage}" as="image" fetchpriority="high">\n` : ''}${math ? '  <link rel="stylesheet" href="/katex/katex.min.css">\n' : ''}  <link rel="stylesheet" href="/articles/styles.css">
   <script type="application/ld+json">${JSON.stringify(jsonld)}</script>`;
 }
 
@@ -225,8 +264,12 @@ function shareBar(slug, title) {
 
 function buildArticle(raw, slug) {
   let body = md.render(raw);
+  body = wrapInlineFigures(body);
   body = body.replace('<div class="footnote">', '<div class="footnotes">');
-  // markdown-it-footnote uses <section class="footnotes"> already; also map hr
+  body = body.replace(/<hr class="footnotes-sep">\n?/g, '');
+  body = body.replace('<h2>Footnotes</h2>', '<h2 class="footnotes-heading">Footnotes</h2>');
+  const hasMath = /class="katex"/.test(body) || /<math\b/.test(body) || /<annotation\b/.test(body);
+  // markdown-it-footnote uses <section class="footnotes"> already
   const meta = extractMeta(raw);
   const titleMatch = body.match(/<h1>(.*?)<\/h1>/s);
   const title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '') : slug;
@@ -236,10 +279,22 @@ function buildArticle(raw, slug) {
   // first blockquote is the metadata block → semantic aside
   body = body.replace('<blockquote>', '<aside class="article-meta" aria-label="Article metadata">');
   body = body.replace('</blockquote>', '</aside>');
+  body = body.replace(/<p><strong>(Date|Scope|Description|Audience|Status):<\/strong>/g, (match, key) => `<p class="meta-${key.toLowerCase()}"><strong>${key}:</strong>`);
 
   // hero after the h1, only if media exists
   const hero = heroFigure(slug);
   if (hero) body = body.replace('</h1>', `</h1>\n${hero}`);
+
+  // share bar immediately before the footnotes section / heading, or at the end if there are none
+  const share = shareBar(slug, title);
+  const footnotesHeading = '<h2 class="footnotes-heading">Footnotes</h2>';
+  if (body.includes(footnotesHeading)) {
+    body = body.replace(footnotesHeading, `${share}\n${footnotesHeading}`);
+  } else if (body.includes('<section class="footnotes"')) {
+    body = body.replace('<section class="footnotes"', `${share}\n<section class="footnotes"`);
+  } else {
+    body += '\n' + share;
+  }
 
   const hasJpg = fs.existsSync(path.join(OUT, slug, 'hero.jpg'));
   const ogImage = slug === 'from-fantasy-frameworks-to-makeable-materials'
@@ -265,13 +320,12 @@ function buildArticle(raw, slug) {
   const page = `<!doctype html>
 <html lang="en">
 <head>
-  ${head({ title: `${title} — Lupine Science`, description, url, ogImage, jsonld, isArticle: true, preloadImage })}
+  ${head({ title: `${title} — Lupine Science`, description, url, ogImage, jsonld, isArticle: true, preloadImage, math: hasMath })}
 </head>
 <body>
 ${chrome(`  <main id="content" class="article-shell">
     <article class="article">
       ${body}
-      ${shareBar(slug, title)}
     </article>
   </main>`)}
 ${PAGE_SCRIPT}\n</body>
@@ -336,6 +390,8 @@ ${PAGE_SCRIPT}
 </html>
 `;
 }
+
+ensureKatexAssets();
 
 const sources = fs.readdirSync(SRC).filter((f) => f.endsWith('.md')).sort();
 const articles = [];

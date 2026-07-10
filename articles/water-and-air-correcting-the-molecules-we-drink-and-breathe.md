@@ -5,13 +5,15 @@
 > **Audience:** sophisticated materials, mechanical, and chemical engineers; climate-tech investors
 > **Status:** Draft
 
-![The Human Scale of Water and Air Failure](images/water-and-air-correcting-the-molecules-we-drink-and-breathe-01-global-stakes.jpg)
-*Water scarcity already touches about two billion people and air pollution is linked to millions of premature deaths each year, yet the materials we need to fix both are still designed with computational tools that misread their atomic environments.*
 
 
 # Water and Air: Correcting the Molecules We Drink and Breathe
 
 Water and air are the two environmental systems that touch every human life. We drink water, breathe air, and depend on engineered materials to keep both clean enough to sustain cities, agriculture, and industry. The global reverse-osmosis fleet already produces roughly 97 million cubic metres of desalinated water per day[^1], yet water scarcity still affects about two billion people and the UN projects a 40% global freshwater deficit by 2030 under business-as-usual[^2]. Outdoor air pollution, meanwhile, is linked to an estimated 4–7 million premature deaths each year, with NOx, fine particulates, and volatile organic compounds as the dominant contributors[^3].
+
+
+![The Human Scale of Water and Air Failure](images/water-and-air-correcting-the-molecules-we-drink-and-breathe-01-global-stakes.jpg)
+*Water scarcity already touches about two billion people and air pollution is linked to millions of premature deaths each year, yet the materials we need to fix both are still designed with computational tools that misread their atomic environments.*
 
 Both problems are materials-limited, and both are corrupted by the same computational error. The membranes, sorbents, ion-selective frameworks, and catalysts that would solve them all function in under-coordinated, non-equilibrium atomic environments — pore windows, metal-linker interfaces, exchanged cations, single-atom sites — that universal machine-learning interatomic potentials (uMLIPs) systematically misrepresent. This article walks through the water and air targets from Lupine's environmental-expansion map, explains why raw uMLIPs misrank the candidates, and shows how a measured environment error field recovers predictions that are fast enough to screen and verified enough to trust.
 

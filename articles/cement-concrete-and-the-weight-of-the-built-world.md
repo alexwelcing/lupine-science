@@ -5,13 +5,15 @@
 > **Audience:** sophisticated materials, mechanical, and chemical engineers; climate-tech investors
 > **Status:** Draft
 
-![The 2.8-Gigaton Footprint](images/cement-concrete-and-the-weight-of-the-built-world-01-global-footprint.jpg)
-*Global cement manufacturing emits about 2.8 GtCO₂ annually, with roughly 60% coming from limestone calcination rather than fuel combustion. Sources: IEA/GCCA 2024; IPCC AR6.*
 
 
 # Cement, Concrete, and the Weight of the Built World
 
 Concrete is the most widely used manufactured material on Earth. It forms our roads, bridges, dams, foundations, and a growing share of the cities where most of humanity now lives. The binder that holds concrete together — ordinary Portland cement (OPC) — is also one of the most carbon-intensive commodities produced. Global cement manufacture emits roughly 2.8 GtCO₂ per year, about 8% of anthropogenic CO₂ emissions[^1][^11]. Unlike steel or ammonia, where renewable hydrogen and electric heating can in principle eliminate most emissions, roughly 60% of cement emissions are process emissions: the calcination of limestone (CaCO₃ → CaO + CO₂) releases CO₂ regardless of the fuel source[^1]. Decarbonizing cement therefore requires new chemistries, not just clean kilns.
+
+
+![The 2.8-Gigaton Footprint](images/cement-concrete-and-the-weight-of-the-built-world-01-global-footprint.jpg)
+*Global cement manufacturing emits about 2.8 GtCO₂ annually, with roughly 60% coming from limestone calcination rather than fuel combustion. Sources: IEA/GCCA 2024; IPCC AR6.*
 
 This article, the last in the environmental-expansion series, examines cement as a materials-discovery problem. The pathways to low-carbon cement — alternative binders, alternative clinkers, and CO₂-cured concrete — all depend on phases that are amorphous, metastable, or multi-component. These are exactly the conditions where standard computational methods fail and where universal machine-learning interatomic potentials (uMLIPs) systematically soften the potential energy surface[^2]. Lupine's correction-and-verification method was built for precisely this geometry of wrongness. It measures the error field over local coordination environments, adds analytic corrections at runtime, and proves which predictions are supported and which are synthesis-dependent[^3].
 

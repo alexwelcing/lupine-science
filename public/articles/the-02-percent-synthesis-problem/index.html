@@ -82,50 +82,76 @@
   </picture>
   <figcaption id="hero-caption">Scattered error vectors resolving onto a single indigo ribbon: the shape of wrongness in generative materials AI.</figcaption>
 </figure>
-<p><img src="images/the-02-percent-synthesis-problem-01-synthesis-funnel.jpg" alt="The 0.2% Synthesis Funnel">
-<em>Of 380,000 computationally stable structures reported by GNoME, only 736 had been independently synthesized by late 2023 — a 0.2% validation rate.</em></p>
+<figure>
+  <img src="images/the-02-percent-synthesis-problem-01-synthesis-funnel.jpg" alt="The 0.2% Synthesis Funnel" loading="lazy" decoding="async">
+  <figcaption>Of 380,000 computationally stable structures reported by GNoME, only 736 had been independently synthesized by late 2023 — a 0.2% validation rate.</figcaption>
+</figure>
 <p>Computational materials science is producing candidates faster than laboratories can validate them. Google DeepMind’s GNoME reported 380,000 computationally stable inorganic structures, yet only 736 had been independently synthesized by late 2023 — a 0.2% validation rate<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>. The A-Lab autonomous synthesis facility reported synthesizing 41 of 58 targets, but independent critique found that two-thirds of its “novel” targets were already-known disordered phases, collapsing the true discovery rate toward zero<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>.</p>
 <p>The headline numbers are symptoms, not accidents. They point to a consistent set of bottlenecks between a predicted crystal and a made material. If those bottlenecks remain unaddressed, the climate cost will be measured in gigatonnes of CO₂ and years of missed deployment windows. Batteries alone are directly linked to roughly 20% of the CO₂ reductions required by 2030 and indirectly to another 40%<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>. Clean-energy hardware investment must rise from $1.8 trillion in 2023 to roughly $4.5 trillion per year by the early 2030s if net-zero targets are to stay within reach<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>. Materials discovery is not moving too slowly in absolute terms; it is moving too slowly relative to the scale and urgency of the problem.</p>
 <p>Lupine Science occupies the gap between prediction and synthesis. This article explains why the gap exists and why closing it requires a correction and verification layer rather than a larger generator.</p>
-<p><img src="images/the-02-percent-synthesis-problem-02-four-filters.jpg" alt="Four Filters Between Prediction and Synthesis">
-<em>Four structural filters separate a predicted crystal from a made material.</em></p>
+<figure>
+  <img src="images/the-02-percent-synthesis-problem-02-four-filters.jpg" alt="Four Filters Between Prediction and Synthesis" loading="lazy" decoding="async">
+  <figcaption>Four structural filters separate a predicted crystal from a made material.</figcaption>
+</figure>
 <h2>Why most predicted crystals disappear</h2>
 <p>A recent study that tracked the fate of 736 predicted inorganic materials found that only 0.2% were made and structurally confirmed. The low number is not primarily a failure of synthesis skill. It is the result of four filters that structure generators and fast predictors routinely fail to apply.</p>
 <h3>Filter 1: Computed stability is not synthesizability</h3>
 <p>A structure can be on the convex hull of thermodynamic stability and still be unreachable by any practical chemical route. Most screens rank candidates by DFT energy or a machine-learned surrogate of it, but the real question is whether a precursor path exists that converges to the target rather than to a competing phase, an amorphous intermediate, or decomposition. Real synthesis routes routinely produce metastable phases that convex-hull-only screening eliminates prematurely.</p>
 <h3>Filter 2: Force-field accuracy away from equilibrium</h3>
 <p>Most screening uses universal machine-learning interatomic potentials (uMLIPs) that have never seen the reactive precursors or the real furnace environment. These models are trained on near-equilibrium bulk configurations and systematically soften the potential energy surface in under-coordinated environments such as surfaces, vacancies, and transition states<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>. The consequence is defect and migration-barrier errors that can invert the ranking of candidate materials. A 100 meV barrier error changes the hopping rate by roughly 50× at room temperature, enough to misclassify a fast-ion conductor as an insulator.</p>
-<p><img src="images/the-02-percent-synthesis-problem-04-barrier-error.jpg" alt="A 100 meV Barrier Error Changes Everything">
-<em>A 100 meV barrier error changes ionic hopping rates by roughly 50× at room temperature — enough to misclassify a conductor as an insulator.</em></p>
+<figure>
+  <img src="images/the-02-percent-synthesis-problem-04-barrier-error.jpg" alt="A 100 meV Barrier Error Changes Everything" loading="lazy" decoding="async">
+  <figcaption>A 100 meV barrier error changes ionic hopping rates by roughly 50× at room temperature — enough to misclassify a conductor as an insulator.</figcaption>
+</figure>
 <h3>Filter 3: Disorder and non-stoichiometry</h3>
 <p>Many real materials are not perfectly ordered crystals. Cation disorder, oxygen vacancies, stacking faults, and amorphous surface layers dominate functional behavior, especially in battery cathodes and solid electrolytes. Structure generators usually emit ideal unit cells; predictors usually evaluate them as written. The resulting candidates fail when the synthesized powder is not the predicted crystal.</p>
-<p><img src="images/the-02-percent-synthesis-problem-03-umlip-softening.jpg" alt="Where Universal Potentials Soften">
-<em>Universal machine-learning interatomic potentials systematically soften the potential energy surface away from equilibrium.</em></p>
+<figure>
+  <img src="images/the-02-percent-synthesis-problem-03-umlip-softening.jpg" alt="Where Universal Potentials Soften" loading="lazy" decoding="async">
+  <figcaption>Universal machine-learning interatomic potentials systematically soften the potential energy surface away from equilibrium.</figcaption>
+</figure>
 <h3>Filter 4: The cost of a failed campaign</h3>
 <p>Each filter compounds the next. A candidate that passes an energy screen but fails in synthesis wastes weeks of lab time and thousands of dollars. In our own validation studies the failure rate is closer to 40–60% than 99.8%, but even that rate is too high for high-throughput screening to be economically rational. We estimate that three-quarters of all predictions would drop out before reaching a factory if these four filters were enforced globally.</p>
-<p><img src="images/the-02-percent-synthesis-problem-09-failure-economics.jpg" alt="The Economics of a Failed Campaign">
-<em>Enforcing the four filters would flag roughly three-quarters of predictions before they reach a furnace.</em></p>
+<figure>
+  <img src="images/the-02-percent-synthesis-problem-09-failure-economics.jpg" alt="The Economics of a Failed Campaign" loading="lazy" decoding="async">
+  <figcaption>Enforcing the four filters would flag roughly three-quarters of predictions before they reach a furnace.</figcaption>
+</figure>
 <h2>The climate math</h2>
 <p>The cost of leaving the bottleneck unsolved is not academic. Cobalt-free cathodes are the highest-leverage near-term target because cobalt supply is concentrated: the Democratic Republic of Congo produces roughly 70% of global cobalt<sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup>. Any battery chemistry that removes cobalt while preserving energy density and cycle life removes a geopolitical and ethical constraint on electrification.</p>
-<p><img src="images/the-02-percent-synthesis-problem-06-cobalt-climate.jpg" alt="Cobalt Supply and the Net-Zero Abatement Gap">
-<em>Cobalt-free cathodes remove a supply-chain chokepoint, while clean-energy investment must more than double this decade.</em></p>
+<figure>
+  <img src="images/the-02-percent-synthesis-problem-06-cobalt-climate.jpg" alt="Cobalt Supply and the Net-Zero Abatement Gap" loading="lazy" decoding="async">
+  <figcaption>Cobalt-free cathodes remove a supply-chain chokepoint, while clean-energy investment must more than double this decade.</figcaption>
+</figure>
 <p>More broadly, the International Energy Agency estimates that the clean-energy technologies required for net-zero emissions must abate tens of gigatonnes of CO₂ by 2050<sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup>. Our internal climate analysis suggests that the five material areas we are pursuing could, if fully deployed, abate 5–12 Gt CO₂ yr⁻¹—roughly 10–25% of what the IEA says clean-energy hardware must remove by 2050.</p>
 <p>The window is narrow. A material discovered in 2035 can still shape 2040 deployment; one discovered in 2045 cannot. The difference is measured in cumulative emissions that no later innovation can recover.</p>
-<p><img src="images/the-02-percent-synthesis-problem-07-deployment-window.jpg" alt="The Narrow Deployment Window">
-<em>A material discovered too late cannot recover cumulative emissions already locked in.</em></p>
+<figure>
+  <img src="images/the-02-percent-synthesis-problem-07-deployment-window.jpg" alt="The Narrow Deployment Window" loading="lazy" decoding="async">
+  <figcaption>A material discovered too late cannot recover cumulative emissions already locked in.</figcaption>
+</figure>
 <h2>What correction looks like</h2>
 <p>Closing the gap requires moving from “stable on paper” to “synthesizable in practice.” Lupine’s approach is to learn an error field around each environment rather than to train a bigger model. The field measures how a uMLIP deviates from reference data as a function of local atomic coordination. That correction is applied at runtime with analytic forces, so molecular dynamics and structure relaxations follow proper gradients. The result is a ranked list in which the top candidates are far more likely to survive synthesis, and in which candidates that cannot be rescued are flagged before a furnace is turned on.</p>
-<p><img src="images/the-02-percent-synthesis-problem-05-error-field.jpg" alt="Learning the Environment Error Field">
-<em>Lupine applies a local environment error field at runtime so molecular dynamics follows corrected gradients.</em></p>
+<figure>
+  <img src="images/the-02-percent-synthesis-problem-05-error-field.jpg" alt="Learning the Environment Error Field" loading="lazy" decoding="async">
+  <figcaption>Lupine applies a local environment error field at runtime so molecular dynamics follows corrected gradients.</figcaption>
+</figure>
 <p>The approach is already being validated by the market. POSCO Future M has completed development of lithium-manganese-rich cathode materials and is preparing mass production in 2025<sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup>. General Motors and LG Energy Solution aim to begin commercial production of prismatic lithium-manganese-rich cells by 2028<sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup>. Solid Power is supplying BMW with automotive-scale solid-state cells for qualification testing<sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup>. Factorial Energy has delivered 100+ Ah quasi-solid-state cells to Mercedes-Benz, which is now road-testing a modified EQS sedan with the technology<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup>. These are not laboratory curiosities; they are the endpoints that a corrected screening pipeline must feed.</p>
-<p><img src="images/the-02-percent-synthesis-problem-08-commercial-endpoints.jpg" alt="The Correction Layer Must Feed Real Production">
-<em>Corrected screening must feed partners who are already scaling cobalt-free cathodes and solid-state cells.</em></p>
+<figure>
+  <img src="images/the-02-percent-synthesis-problem-08-commercial-endpoints.jpg" alt="The Correction Layer Must Feed Real Production" loading="lazy" decoding="async">
+  <figcaption>Corrected screening must feed partners who are already scaling cobalt-free cathodes and solid-state cells.</figcaption>
+</figure>
 <h2>From predictions to partners</h2>
 <p>Predictions are necessary but not sufficient. The path from a corrected energy landscape to a commercial material runs through named experimental collaborators who can synthesize, characterize, and scale the top candidates. The next article in this series turns from the diagnosis to the method: how Lupine measures the environment error field, why the field is measured rather than learned, and how machine-checked proof prevents false positives from propagating through an autonomous pipeline.</p>
-<p><img src="images/the-02-percent-synthesis-problem-10-predictions-to-partners.jpg" alt="From Predictions to Partners">
-<em>Corrected predictions must flow into synthesis, characterization, and scale partners — not into another generation cycle.</em></p>
-<h2>Footnotes</h2>
-<hr class="footnotes-sep">
+<figure>
+  <img src="images/the-02-percent-synthesis-problem-10-predictions-to-partners.jpg" alt="From Predictions to Partners" loading="lazy" decoding="async">
+  <figcaption>Corrected predictions must flow into synthesis, characterization, and scale partners — not into another generation cycle.</figcaption>
+</figure>
+<div class="share-bar" aria-label="Share this article">
+  <span class="share-label">Share</span>
+  <a class="share-x" href="https://twitter.com/intent/tweet?text=The%200.2%25%20Synthesis%20Problem&amp;url=https%3A%2F%2Flupine.science%2Farticles%2Fthe-02-percent-synthesis-problem%2F" target="_blank" rel="noopener noreferrer" aria-label="Share on X"><span>X</span></a>
+  <a class="share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Flupine.science%2Farticles%2Fthe-02-percent-synthesis-problem%2F" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn"><span>LinkedIn</span></a>
+  <button class="share-copy" type="button" data-url="https://lupine.science/articles/the-02-percent-synthesis-problem/" aria-label="Copy link"><span>Copy link</span></button>
+  <span class="share-tooltip" role="status" aria-live="polite"></span>
+</div>
+<h2 class="footnotes-heading">Footnotes</h2>
 <section class="footnotes">
 <ol class="footnotes-list">
 <li id="fn1" class="footnote-item"><p>A. Merchant <em>et al.</em>, “Scaling deep learning for materials discovery,” <em>Nature</em> <strong>624</strong>, 80–85 (2023). https://doi.org/10.1038/s41586-023-06735-9 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
@@ -153,13 +179,6 @@
 </ol>
 </section>
 
-      <div class="share-bar" aria-label="Share this article">
-  <span class="share-label">Share</span>
-  <a class="share-x" href="https://twitter.com/intent/tweet?text=The%200.2%25%20Synthesis%20Problem&amp;url=https%3A%2F%2Flupine.science%2Farticles%2Fthe-02-percent-synthesis-problem%2F" target="_blank" rel="noopener noreferrer" aria-label="Share on X"><span>X</span></a>
-  <a class="share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Flupine.science%2Farticles%2Fthe-02-percent-synthesis-problem%2F" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn"><span>LinkedIn</span></a>
-  <button class="share-copy" type="button" data-url="https://lupine.science/articles/the-02-percent-synthesis-problem/" aria-label="Copy link"><span>Copy link</span></button>
-  <span class="share-tooltip" role="status" aria-live="polite"></span>
-</div>
     </article>
   </main>
   <footer class="foot">

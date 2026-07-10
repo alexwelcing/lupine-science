@@ -5,13 +5,15 @@
 > **Audience:** sophisticated materials, mechanical, and chemical engineers; climate-tech investors
 > **Status:** Draft
 
-![One Geometry, Seven Planetary Boundaries](images/beyond-carbon-the-error-geometry-of-environmental-materials-01-seven-domains-one-error.jpg)
-*The same coordination error radiates from bulk equilibrium into the under-coordinated environments that control water, air, methane, refrigerants, minerals, PFAS, and cement.*
 
 
 # Beyond Carbon: The Error Geometry of Environmental Materials
 
 The climate series made a case about predicted materials that do not become made materials. The deeper argument, and the one this series starts from, is that the bottleneck is not climate-specific. It is coordination-specific. Water desalination membranes, methane-to-methanol catalysts, low-GWP refrigerants, PFAS sorbents, low-CO₂ cements, lithium-recovery frameworks, and low-temperature exhaust catalysts all fail for the same reason: their useful behavior is set in under-coordinated, non-equilibrium atomic environments that universal machine-learning interatomic potentials (uMLIPs) systematically misrepresent. The climate problem was one instance of a geometry of wrongness that extends across the periodic table.
+
+
+![One Geometry, Seven Planetary Boundaries](images/beyond-carbon-the-error-geometry-of-environmental-materials-01-seven-domains-one-error.jpg)
+*The same coordination error radiates from bulk equilibrium into the under-coordinated environments that control water, air, methane, refrigerants, minerals, PFAS, and cement.*
 
 This article introduces the environmental-expansion series by mapping that geometry onto seven target areas outside direct CO₂ abatement. The goal is not to claim that computational discovery will solve water scarcity or eliminate forever chemicals on its own. It is to show that each target is (a) materials-limited, (b) corrupted by the same structural failure modes, and (c) addressable by the same correction-and-verification layer that Lupine has built for climate-critical materials.
 

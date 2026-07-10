@@ -206,12 +206,15 @@ async function renderPdf(browser, { url, html, output }) {
     } else {
       await page.goto(url, { waitUntil: 'networkidle' });
     }
+    // Wait for web fonts (including KaTeX) and any math rendering before printing.
+    await page.evaluate(() => document.fonts.ready).catch(() => {});
+    await page.waitForSelector('.katex', { timeout: 5000 }).catch(() => {});
+    await page.waitForTimeout(300);
     await page.pdf({
       path: output,
       format: 'Letter',
       printBackground: true,
-      margin: { top: '0.6in', bottom: '0.6in', left: '0.65in', right: '0.65in' },
-      preferCSSPageSize: false,
+      preferCSSPageSize: true,
     });
   } finally {
     await page.close();

@@ -137,11 +137,15 @@ main, header.site-header, footer.foot { position: relative; z-index: 4; }
 }
 
 /* figures & media */
+.article img { max-width: 100%; height: auto; display: block; }
 .article figure { margin: 2em 0; }
 .article figure img, .article figure video { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
 .article figcaption {
   font-family: var(--mono); font-size: 12.5px; line-height: 1.6; color: var(--ink-faint);
   padding: 10px 2px 0;
+  border-left: 2px solid var(--indigo-line);
+  margin-top: 8px;
+  padding-left: 12px;
 }
 .article-hero { margin: 0 0 2em; }
 
@@ -155,6 +159,13 @@ main, header.site-header, footer.foot { position: relative; z-index: 4; }
 .article .footnotes { font-size: 0.9rem; color: var(--ink-soft); margin-top: 3em; border-top: 1px solid var(--rule); padding-top: 1.2em; }
 .article .footnotes p { font-size: 0.9rem; }
 .article sup a { text-decoration: none; color: var(--indigo); font-family: var(--mono); font-size: 0.75em; }
+.footnote-backref { margin-left: 0.35em; text-decoration: none; }
+.footnote-backref:first-child { margin-left: 0; }
+.footnotes-heading {
+  font-family: var(--mono); font-size: 13px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase; font-variant: small-caps;
+  color: var(--ink-soft); margin: 0 0 1em;
+}
 
 /* ── article share bar ── */
 .share-bar {
@@ -243,13 +254,52 @@ main, header.site-header, footer.foot { position: relative; z-index: 4; }
   .foot { flex-direction: column; align-items: flex-start; gap: 12px; }
   .foot .creed { margin-bottom: 2px; }
 }
+@media (max-width: 600px) {
+  .article-shell { padding-top: 22px; }
+  .article h1 { font-size: clamp(1.7rem, 6.5vw, 2.4rem); margin-bottom: 18px; }
+  .article-meta {
+    font-size: 12px; padding: 10px 0; margin: 18px 0 22px;
+    border-left: 2px solid var(--indigo-line); border-top: none; border-bottom: none;
+    padding-left: 12px;
+  }
+  .article-meta p { font-size: 12px; margin: 0 0 4px; }
+  .article-meta .meta-scope,
+  .article-meta .meta-description,
+  .article-meta .meta-audience { display: none; }
+  .article-meta .meta-date,
+  .article-meta .meta-status { display: inline-block; margin-right: 12px; }
+  .article-meta .meta-status { margin-right: 0; }
+  .site-header { padding-left: 18px; padding-right: 18px; gap: 12px; }
+  .mark { flex-wrap: wrap; }
+  .mark .tld { white-space: nowrap; }
+  .site-nav { gap: 18px; font-size: 12px; }
+  .share-bar { gap: 10px; }
+  .share-bar a,
+  .share-bar button {
+    min-width: 44px; min-height: 44px;
+    padding: 8px 12px; justify-content: center;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+@page {
+  margin: 20mm;
+  @bottom-center {
+    content: counter(page);
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-soft);
+  }
+}
 @media print {
   body::before, body::after { display: none; }
-  .site-header, .foot { display: none; }
+  .site-header, .foot, .share-bar { display: none; }
   .article a { color: inherit; text-decoration: none; }
+  .article img { max-width: 100% !important; }
+  .article figure { break-inside: avoid; }
+  h2, h3 { break-after: avoid; }
+  p { orphans: 3; widows: 3; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════

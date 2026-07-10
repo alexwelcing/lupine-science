@@ -5,13 +5,15 @@
 > **Audience:** sophisticated materials, mechanical, and chemical engineers; climate-tech investors
 > **Status:** Draft
 
-![From millions of predictions to a handful of validated materials](images/investing-in-the-trust-layer-01-generation-funnel.jpg)
-*GNoME proposed 2.2 million candidate crystals, but only 736 had been independently synthesized by late 2023—a 0.2% validation rate that exposes the trust bottleneck in computational materials discovery.*
 
 
 # Investing in the Trust Layer
 
 Computational materials discovery is no longer short on imagination. Structure generators such as Google DeepMind's GNoME have proposed 2.2 million candidate crystals[^1]; universal machine-learned interatomic potentials (uMLIPs) such as CHGNet and MACE evaluate them at roughly 10⁻⁴ seconds per atom-step; and autonomous labs such as the A-Lab at Lawrence Berkeley National Laboratory attempt synthesis around the clock. The scarce resource is no longer the ability to invent or simulate. It is the ability to believe the result.
+
+
+![From millions of predictions to a handful of validated materials](images/investing-in-the-trust-layer-01-generation-funnel.jpg)
+*GNoME proposed 2.2 million candidate crystals, but only 736 had been independently synthesized by late 2023—a 0.2% validation rate that exposes the trust bottleneck in computational materials discovery.*
 
 Belief is scarce because the pipeline is lossy. GNoME reported 380,000 computed-stable structures, yet only 736 had been independently synthesized by late 2023 — a 0.2% validation rate[^1]. A-Lab reported a 63% experimental success rate, but independent critique found that two-thirds of its "novel" targets were known disordered phases misclassified by the generator; the true novel-discovery rate may have been near zero[^2]. These are not failures of ambition. They are structural symptoms of a field that generates faster than it verifies.
 

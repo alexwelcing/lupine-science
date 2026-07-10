@@ -5,13 +5,15 @@
 > **Audience:** sophisticated materials, mechanical, and chemical engineers; climate-tech investors
 > **Status:** Draft
 
-![The Non-CO₂ Warming Lever](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-01-non-co2-warming-lever.jpg)
-*Methane and HFC refrigerants together offer warming avoidance comparable to the entire energy-sector transition, yet both depend on materials that do not yet exist. Sources: UNEP Global Methane Assessment, 2021; UNEP / US EPA Kigali Amendment impact estimates; IPCC AR6.*
 
 
 # Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers
 
 Carbon dioxide dominates climate policy because it accumulates for millennia, but it is not the only molecule warming the atmosphere. Methane and hydrofluorocarbon refrigerants are the two most important non-CO₂ forcers in the near term, and both are constrained by materials that do not yet exist. Cutting anthropogenic methane 30% by 2030 could avoid roughly 0.3 °C of warming by 2040[^1]. Phasing down HFCs under the Kigali Amendment could avoid up to 0.5 °C by 2100[^2]. Together these two targets are comparable to the entire energy-sector decarbonization problem in near-term leverage.
+
+
+![The Non-CO₂ Warming Lever](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-01-non-co2-warming-lever.jpg)
+*Methane and HFC refrigerants together offer warming avoidance comparable to the entire energy-sector transition, yet both depend on materials that do not yet exist. Sources: UNEP Global Methane Assessment, 2021; UNEP / US EPA Kigali Amendment impact estimates; IPCC AR6.*
 
 Yet the tools we use to discover the materials for each target share the same failure mode. Universal machine-learning interatomic potentials (uMLIPs) are trained on bulk, equilibrium configurations, while the functional behaviour of methane-oxidation catalysts, refrigerant fluids, and caloric solids is controlled by under-coordinated environments — surfaces, transition states, radical fragments, and phase boundaries — where uMLIPs systematically soften the potential energy surface by 15–60%[^3]. The result is not merely inaccurate energies; it is inverted candidate rankings, false-positive catalysts, and discarded metastable phases. This article explains how Lupine's measured environment error field corrects those predictions for methane and refrigerant discovery at uMLIP speed, with machine-checked proof of which claims can be believed.
 
