@@ -120,15 +120,33 @@ main, header.site-header, footer.foot { position: relative; z-index: 4; }
 .article a { color: var(--indigo); text-decoration: underline; text-decoration-color: var(--indigo-line); text-underline-offset: 3px; transition: text-decoration-color 180ms; }
 .article a:hover { text-decoration-color: var(--indigo); }
 
-/* metadata block (first blockquote in the source) → margin note */
-.article-meta {
-  font-family: var(--mono); font-size: 13px; line-height: 1.66; color: var(--ink-soft);
-  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
-  padding: 14px 2px; margin: 26px 0 30px;
+/* Article header: deck + byline */
+.article-deck {
+  font-family: var(--serif);
+  font-size: clamp(1.28rem, 2.2vw, 1.5rem);
+  font-weight: 400; line-height: 1.36;
+  color: var(--ink-soft);
+  max-width: 680px;
+  margin: -8px 0 16px;
 }
-.article-meta p { font-size: 13px; margin: 0 0 6px; line-height: 1.6; color: var(--ink-soft); }
-.article-meta p:last-child { margin-bottom: 0; }
-.article-meta strong { color: var(--ink); font-weight: 600; }
+.article-byline {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px;
+  font-family: var(--mono); font-size: 12.5px;
+  color: var(--ink-faint);
+  margin: 0 0 26px;
+}
+.article-byline time { font-variant-numeric: tabular-nums; }
+.byline-sep { opacity: 0.55; }
+.article-status {
+  display: inline-block;
+  font-size: 10.5px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.07em;
+  padding: 3px 8px; border-radius: 999px;
+  border: 1px solid var(--rule);
+  color: var(--ink-soft); background: var(--paper-deep);
+}
+/* legacy metadata block is no longer emitted; hide any stray instance */
+.article-meta { display: none; }
 
 /* true quotations */
 .article blockquote {
@@ -257,18 +275,8 @@ main, header.site-header, footer.foot { position: relative; z-index: 4; }
 @media (max-width: 600px) {
   .article-shell { padding-top: 22px; }
   .article h1 { font-size: clamp(1.7rem, 6.5vw, 2.4rem); margin-bottom: 18px; }
-  .article-meta {
-    font-size: 12px; padding: 10px 0; margin: 18px 0 22px;
-    border-left: 2px solid var(--indigo-line); border-top: none; border-bottom: none;
-    padding-left: 12px;
-  }
-  .article-meta p { font-size: 12px; margin: 0 0 4px; }
-  .article-meta .meta-scope,
-  .article-meta .meta-description,
-  .article-meta .meta-audience { display: none; }
-  .article-meta .meta-date,
-  .article-meta .meta-status { display: inline-block; margin-right: 12px; }
-  .article-meta .meta-status { margin-right: 0; }
+  .article-deck { font-size: 1.15rem; margin: -4px 0 14px; }
+  .article-byline { margin-bottom: 22px; }
   .site-header { padding-left: 18px; padding-right: 18px; gap: 12px; }
   .mark { flex-wrap: wrap; }
   .mark .tld { white-space: nowrap; }

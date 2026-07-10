@@ -106,9 +106,17 @@ const MARK_SVG = `<svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
+function formatDate(iso) {
+  if (!iso) return '';
+  const [y, m, d] = iso.split('-').map(Number);
+  if (!y || !m || !d) return iso;
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  return `${months[m - 1]} ${d}, ${y}`;
+}
+
 function extractMeta(raw) {
   const meta = {};
-  for (const [key, name] of [['date', 'Date'], ['scope', 'Scope'], ['description', 'Description'], ['audience', 'Audience'], ['status', 'Status']]) {
+  for (const [key, name] of [['type', 'Type'], ['date', 'Date'], ['scope', 'Scope'], ['description', 'Description'], ['audience', 'Audience'], ['status', 'Status']]) {
     const m = raw.match(new RegExp(`^> \\*\\*${name}:\\*\\*\\s*(.+?)\\s*$`, 'm'));
     if (m) meta[key] = m[1];
   }
@@ -276,14 +284,26 @@ function buildArticle(raw, slug) {
   const description = meta.description || meta.scope || `A Lupine Science article: ${title}`;
   const url = `${SITE}/articles/${slug}/`;
 
-  // first blockquote is the metadata block → semantic aside
-  body = body.replace('<blockquote>', '<aside class="article-meta" aria-label="Article metadata">');
-  body = body.replace('</blockquote>', '</aside>');
-  body = body.replace(/<p><strong>(Date|Scope|Description|Audience|Status):<\/strong>/g, (match, key) => `<p class="meta-${key.toLowerCase()}"><strong>${key}:</strong>`);
+  // The first blockquote in the source is the metadata block; metadata is
+  // extracted above for JSON-LD and the index, then removed from the body.
+  body = body.replace(/<blockquote>[\s\S]*?<\/blockquote>/, '');
 
-  // hero after the h1, only if media exists
+  // Publication-style header: deck (scope) + byline (date + status), then hero.
+  const headerParts = [];
+  if (meta.scope) {
+    headerParts.push(`<p class="article-deck">${esc(meta.scope)}</p>`);
+  }
+  if (meta.date || meta.status) {
+    const datePart = meta.date ? `<time datetime="${esc(meta.date)}">${formatDate(meta.date)}</time>` : '';
+    const statusPart = meta.status ? `<span class="article-status">${esc(meta.status)}</span>` : '';
+    const sep = datePart && statusPart ? '<span class="byline-sep" aria-hidden="true">·</span>' : '';
+    headerParts.push(`<div class="article-byline">${datePart}${sep}${statusPart}</div>`);
+  }
   const hero = heroFigure(slug);
-  if (hero) body = body.replace('</h1>', `</h1>\n${hero}`);
+  if (headerParts.length || hero) {
+    const inserted = [...headerParts, hero].filter(Boolean).join('\n');
+    body = body.replace('</h1>', `</h1>\n${inserted}`);
+  }
 
   // share bar immediately before the footnotes section / heading, or at the end if there are none
   const share = shareBar(slug, title);
@@ -342,12 +362,13 @@ function buildIndex(articles) {
     const thumb = base
       ? pictureSources(a.slug, base).replace('width="1280" height="720"', 'class="card-thumb" width="640" height="360"')
       : '<span class="card-thumb card-thumb-empty" aria-hidden="true"><i></i><i></i><i></i></span>';
+    const metaLine = [a.meta.date ? formatDate(a.meta.date) : '', a.meta.status ? esc(a.meta.status) : ''].filter(Boolean).join(' · ');
     return `<li>
   <a class="article-card" href="/articles/${a.slug}/">
     ${thumb}
-    <span class="d8">${(a.meta.date || '').replaceAll('-', '·')}</span>
-    <h2>${a.title}</h2>
-    <p>${a.description}</p>
+    <span class="d8">${metaLine}</span>
+    <h2>${esc(a.title)}</h2>
+    <p>${esc(a.meta.scope || a.description)}</p>
   </a>
 </li>`;
   }).join('\n');
