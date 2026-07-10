@@ -270,7 +270,7 @@ To practice the wrangler commands without affecting production, create a branch 
 - **Verify the custom domain, not just the `*.pages.dev` URL.** Cloudflare can cut over the deployment URL before the custom domain.
 - **Wrangler and the Pages API require `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.** If unset, the command fails with a non-interactive auth error.
 - **A rollback does not delete the bad deployment.** After rollback, the bad deployment can still be inspected for debugging.
-- **Static content is cached by Cloudflare.** If smoke tests still fail after a successful promote, purge cache or wait for edge propagation; check `cf-cache-status` in response headers.
+- **Static content is cached by Cloudflare.** If smoke tests still fail after a successful rollback, purge cache or wait for edge propagation; check `cf-cache-status` in response headers.
 - **The site is intentionally static.** If the symptom is a missing article, the cause is usually a build-time or content problem, not a runtime server issue.
 
 ## 10. Reference
