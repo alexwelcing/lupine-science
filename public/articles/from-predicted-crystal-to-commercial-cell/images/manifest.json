@@ -1,0 +1,62 @@
+[
+  {
+    "filename": "from-predicted-crystal-to-commercial-cell-01-prediction-funnel.jpg",
+    "title": "From 2.2 million predicted crystals to 736 synthesized",
+    "type": "data-chart",
+    "caption": "GNoME's crystal generator produced 2.2 million predictions, yet only 736 had been independently synthesized by late 2023 — a 0.2% validation rate that exposes the handoff bottleneck."
+  },
+  {
+    "filename": "from-predicted-crystal-to-commercial-cell-02-handoff-chain.jpg",
+    "title": "Six handoffs, six places for a prediction to fail",
+    "type": "concept-diagram",
+    "caption": "Between a computational screen and a commercial product, a predicted material must survive six sequential handoffs — and current validation rates show most do not."
+  },
+  {
+    "filename": "from-predicted-crystal-to-commercial-cell-03-correction-loop.jpg",
+    "title": "How Lupine makes a uMLIP trustworthy at runtime",
+    "type": "concept-diagram",
+    "caption": "A raw universal machine-learning interatomic potential can underestimate a lithium migration barrier by 60%, shifting conductivity by 5,000×; Lupine's runtime correction and Lean 4 proofs bound that error before the next handoff."
+  },
+  {
+    "filename": "from-predicted-crystal-to-commercial-cell-04-blind-accuracy.jpg",
+    "title": "Zero-parameter blind prediction of surface energies",
+    "type": "evidence-panel",
+    "caption": "Across 36 model-material combinations, Lupine's environment error field achieves r = 0.906 in zero-parameter blind prediction of surface energies."
+  },
+  {
+    "filename": "from-predicted-crystal-to-commercial-cell-05-battery-partner-chain.jpg",
+    "title": "From predicted LMR cathode to GM/LG prismatic cell",
+    "type": "concept-diagram",
+    "caption": "Lupine ranks candidates across more than a million compositions, then passes corrected cathodes through TexPower, Forge Nano, Battery500, and GM/LG toward 2028 production."
+  },
+  {
+    "filename": "from-predicted-crystal-to-commercial-cell-06-climate-scale.jpg",
+    "title": "Cumulative climate opportunity by target",
+    "type": "data-chart",
+    "caption": "Lupine's five target chains — batteries, solid-state electrolytes, carbon removal, ammonia, and solar — map onto gigatonne-scale climate opportunities."
+  },
+  {
+    "filename": "from-predicted-crystal-to-commercial-cell-07-impossibility-flags.jpg",
+    "title": "When correction says \"no\" — impossibility, not just uncertainty",
+    "type": "evidence-panel",
+    "caption": "Seventy-seven Lean 4 theorems let Lupine flag unsupported frameworks or metastable phases before they consume experimental time."
+  },
+  {
+    "filename": "from-predicted-crystal-to-commercial-cell-08-ecosystem-map.jpg",
+    "title": "NREL, UC Berkeley, and ARPA-E create economies of scope",
+    "type": "concept-diagram",
+    "caption": "A single NREL master CRADA and one UC Berkeley campus partnership give Lupine coverage across four of five target chains, while coordinated ARPA-E submissions provide non-dilutive validation."
+  },
+  {
+    "filename": "from-predicted-crystal-to-commercial-cell-09-materials-genome-value.jpg",
+    "title": "The economic case for a verification layer",
+    "type": "data-chart",
+    "caption": "The NIST Materials Genome Initiative estimates $123 billion–$270 billion in annual value from better materials innovation infrastructure, while ARPA-E's portfolio has catalyzed billions in follow-on funding."
+  },
+  {
+    "filename": "from-predicted-crystal-to-commercial-cell-10-crystal-to-cell.jpg",
+    "title": "The scarce resource is trust",
+    "type": "scene-illustration",
+    "caption": "In a discovery ecosystem that must scale from thousands to millions of validated materials per year, the scarce resource is the trust that turns a predicted crystal into a commercial cell."
+  }
+]

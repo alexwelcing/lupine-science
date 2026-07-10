@@ -5,17 +5,29 @@
 > **Audience:** sophisticated materials, mechanical, and chemical engineers; climate-tech investors
 > **Status:** Draft
 
+![The 2.8-Gigaton Footprint](images/cement-concrete-and-the-weight-of-the-built-world-01-global-footprint.jpg)
+*Global cement manufacturing emits about 2.8 GtCO₂ annually, with roughly 60% coming from limestone calcination rather than fuel combustion. Sources: IEA/GCCA 2024; IPCC AR6.*
+
+
 # Cement, Concrete, and the Weight of the Built World
 
 Concrete is the most widely used manufactured material on Earth. It forms our roads, bridges, dams, foundations, and a growing share of the cities where most of humanity now lives. The binder that holds concrete together — ordinary Portland cement (OPC) — is also one of the most carbon-intensive commodities produced. Global cement manufacture emits roughly 2.8 GtCO₂ per year, about 8% of anthropogenic CO₂ emissions[^1][^11]. Unlike steel or ammonia, where renewable hydrogen and electric heating can in principle eliminate most emissions, roughly 60% of cement emissions are process emissions: the calcination of limestone (CaCO₃ → CaO + CO₂) releases CO₂ regardless of the fuel source[^1]. Decarbonizing cement therefore requires new chemistries, not just clean kilns.
 
 This article, the last in the environmental-expansion series, examines cement as a materials-discovery problem. The pathways to low-carbon cement — alternative binders, alternative clinkers, and CO₂-cured concrete — all depend on phases that are amorphous, metastable, or multi-component. These are exactly the conditions where standard computational methods fail and where universal machine-learning interatomic potentials (uMLIPs) systematically soften the potential energy surface[^2]. Lupine's correction-and-verification method was built for precisely this geometry of wrongness. It measures the error field over local coordination environments, adds analytic corrections at runtime, and proves which predictions are supported and which are synthesis-dependent[^3].
 
+![The Process-Emissions Trap](images/cement-concrete-and-the-weight-of-the-built-world-02-calcination-trap.jpg)
+*Clean energy can shrink fuel emissions, but the calcination of limestone releases CO₂ regardless of the heat source. Source: IEA/GCCA 2024.*
+
+
 ## The process-emissions trap
 
 Portland cement is made by heating limestone, clay, and small amounts of iron and aluminum raw materials to about 1,450 °C in a rotary kiln. The product, clinker, is ground with gypsum and often with supplementary cementitious materials (SCMs) such as fly ash or blast-furnace slag. The resulting powder hydrates when mixed with water, forming calcium-silicate-hydrate (C-S-H) gel, the binding phase that gives hardened concrete its strength[^9].
 
 The emissions come from two sources. The first is fuel combustion to reach kiln temperature; this roughly 40% share can be reduced with electrification, biomass, hydrogen, or waste heat, though each option has scaling limits. The second, larger source is the decomposition of calcium carbonate itself. As long as limestone is the primary calcium feedstock, CO₂ is an intrinsic product of the chemistry. The IEA and the Global Cement and Concrete Association estimate that reaching net-zero cement by 2050 will require a combination of energy efficiency, alternative fuels, alternative feedstocks, alternative binders, and post-combustion carbon capture[^1].
+
+![Three Discovery Fronts](images/cement-concrete-and-the-weight-of-the-built-world-06-three-routes.jpg)
+*Low-carbon cement routes range from LC³’s 30–50% clinker reduction to CSA clinkers with 20–35% lower process emissions and CO₂-cured systems that sequester 5–25% binder-mass CO₂. Sources: Scrivener et al. 2018; Habert et al. 2020; Skocek et al. 2021; Sanna et al. 2013.*
+
 
 Alternative binders and clinkers aim to replace or reduce the CaCO₃-derived lime content. Calcined clay combined with limestone (LC³) can cut clinker factors by 30–50% while maintaining performance[^4]. Geopolymers, made from alkali-activated aluminosilicates such as fly ash or slag, avoid Portland chemistry entirely[^5]. Belite-rich or calcium-sulfoaluminate clinkers can be fired at lower temperatures and absorb less limestone-derived CO₂[^6]. CO₂-cured concrete, by contrast, keeps OPC chemistry but replaces part of the hydration pathway with rapid carbonation, turning CO₂ into stable calcium carbonate while gaining early strength[^7]. None of these routes is yet deployable at the scale of ordinary cement, and all of them face materials-science bottlenecks that computation can address — provided the computation is trustworthy.
 
@@ -27,9 +39,17 @@ The most promising alternative binders — slag, fly ash, calcined clay, and geo
 
 These materials are difficult to model with density functional theory (DFT) because DFT is most reliable for well-defined crystalline unit cells with periodic boundary conditions. Amorphous or nanocrystalline models require large supercells and statistical sampling, making DFT prohibitively expensive for screening. uMLIPs are fast enough, but they are trained on bulk equilibrium structures and misrepresent the under-coordinated Si–O and Al–O bonds that dominate dissolution, gelation, and precipitation[^2]. A predicted dissolution rate that is off by a factor of two or three is enough to misrank a binder formulation.
 
+![Where Universal Potentials Lose Trust](images/cement-concrete-and-the-weight-of-the-built-world-03-softening-field.jpg)
+*In dissolved silicates, gel pores, and hydrate interfaces, coordination numbers fall outside the bulk training data and uMLIPs soften energies by 15–60%. Source: Deng et al., npj Comput. Mater. 2025.*
+
+
 The coordination problem is structural. In a crystalline quartz framework, silicon is tetrahedrally coordinated and oxygen is bridging; the local environment is close to the bulk training distribution. In a partially dissolved slag grain or a nascent geopolymer gel, silicon may be present as Q¹, Q², or Q³ species with one, two, or three bridging oxygens, and aluminum may occupy tetrahedral, pentahedral, or octahedral sites depending on pH and charge compensation. These environments have coordination numbers and bond angles that fall outside the bulk distribution, and uMLIPs systematically soften their energies[^2].
 
 Lupine's environment error field treats this as a measurable departure rather than an unknowable model failure. The field is anchored to three observable reference environments and extrapolates to under-coordinated configurations with a smooth, bulk-constrained spline[^3]. For amorphous binder networks, corrected Si–O and Al–O bond energies recover accurate dissolution and gelation energetics, so screens rank formulations by reactivity and durability rather than by training-set bias.
+
+![The Metastability Problem](images/cement-concrete-and-the-weight-of-the-built-world-07-metastability.jpg)
+*Essential phases such as ettringite and AFm are metastable, so convex-hull thermodynamics alone discards the very materials a low-carbon screen must evaluate. Source: Lupine Science, Strategic Discovery Plan.*
+
 
 ### Alternative clinkers: multi-component oxide spaces
 
@@ -39,6 +59,10 @@ Brute-force DFT exploration of these spaces is economically infeasible. A single
 
 The ranking problem is aggravated by metastability. The best-performing clinker/hydrate combinations are often not the equilibrium assemblages predicted by convex-hull thermodynamics. Ettringite, AFm phases, and certain C-S-H compositions are metastable yet functionally essential. Standard computational screens that discard anything above the convex hull therefore discard the most useful phases. Lupine's verification layer addresses this by proving boundaries: it separates predictions that are supported by the measured error field from predictions that depend on synthesis conditions outside the correction domain[^3]. A belite-rich clinker whose hydrate assemblage is robustly ranked can be advanced with confidence; one whose ranking flips under plausible curing variations is flagged as unsupported rather than hidden behind an arbitrary stability cutoff.
 
+![Measure, Correct, Prove](images/cement-concrete-and-the-weight-of-the-built-world-05-correction-loop.jpg)
+*Lupine measures the error field, applies an analytic correction at nearly uMLIP speed, and proves which predictions are supported by 77 build-locked theorems. Source: Lupine Science, Strategic Discovery Plan.*
+
+
 ### CO₂-cured concrete: barrier-controlled carbonation
 
 CO₂ curing is conceptually elegant. Instead of emitting CO₂ during calcination and later capturing it, CO₂-cured concrete uses calcium-rich silicates that react directly with CO₂ to form calcium carbonate and silica gel, producing early strength and sequestering carbon in the product. Carbonatable calcium silicate cements and related systems have demonstrated uptake of 5–25% CO₂ by mass of binder, with some formulations gaining compressive strength within hours[^7][^8]. Solidia and similar processes have reached early commercialization in precast concrete, where controlled curing environments are feasible.
@@ -46,6 +70,10 @@ CO₂ curing is conceptually elegant. Instead of emitting CO₂ during calcinati
 The materials challenge is kinetic. Carbonation proceeds through CO₂ dissolution, diffusion through pores and increasingly dense product layers, and reaction at under-coordinated surface sites. As the carbonate layer thickens, CO₂ diffusion becomes rate-limiting. The microstructure and strength of the final product depend on the competition between carbonation depth, carbonate crystal size, and the residual unreacted core. uMLIPs underestimate the barriers for CO₂ insertion and carbonate diffusion at under-coordinated surface sites because those transition states involve reduced coordination relative to bulk carbonate training data[^2].
 
 Corrected carbonate formation and diffusion barriers change the ranking of candidate calcium-silicate compositions. A composition that appears to carbonate rapidly in a raw uMLIP screen may be a false positive; a composition that looks sluggish may simply have been penalized by systematic softening. The correction recovers the true activation energies for CO₂ insertion and the true thermodynamics of competing hydrated versus carbonated phases, enabling a materials-first design of CO₂-cured binders.
+
+![Correction Restores Rank Order](images/cement-concrete-and-the-weight-of-the-built-world-04-blind-accuracy.jpg)
+*Across 36 blind (model, material) combinations, Lupine’s correction achieves r = 0.906 with zero fitted parameters, recovering trustworthy rank order. Source: Lupine Science, Strategic Discovery Plan.*
+
 
 ## Why computation fails, and how it can succeed
 
@@ -55,11 +83,19 @@ This softening is not random noise. It has a smooth geometric dependence on loca
 
 Blind prediction across 36 (model, material) combinations achieves Pearson r = 0.906 (p = 10⁻⁴, 95% CI [0.82, 0.96]) with zero adjustable parameters[^3]. The result is not a hand-fitted potential but a measured correction that preserves rank order across chemically similar compositions. For cement, that rank-order preservation is critical: a 15% error in dissolution energy can invert the ranking of two binder formulations, sending experiments to the wrong candidate.
 
+![The Partnership Chain](images/cement-concrete-and-the-weight-of-the-built-world-08-lab-to-kiln.jpg)
+*A machine-checked boundary between supported and unsupported claims lets modelers, plant operators, and investors speak the same language.*
+
+
 ## Verification: the line between prediction and promise
 
 Computational materials discovery has a credibility problem. Large-scale crystal-structure predictions have produced millions of candidate materials, but independent synthesis has validated only a tiny fraction. The so-called 0.2% synthesis problem reflects the gap between computable stability and makeable matter[^3]. For cement, the problem is worse because the most interesting phases are not even on the convex hull. A screen that reports only equilibrium stability is not merely incomplete; it can be actively misleading.
 
 Lupine's verification layer uses build-locked Lean 4 theorems to state what is proven and what is not. The current library contains 77 theorems with zero sorry proofs[^3]. In the cement context, this means the system can distinguish three classes of claim: (1) predictions supported by the measured error field, such as relative dissolution energies of chemically similar slag compositions; (2) predictions bounded by explicit uncertainty, such as hydrate assemblages that depend on curing temperature and humidity; and (3) claims that are genuinely synthesis-dependent and cannot be supported by the current model. The third class is not a failure; it is a guardrail. It prevents a team from promising a phase whose stability cannot be separated from the curing path used to make it.
+
+![The Computational Moat](images/cement-concrete-and-the-weight-of-the-built-world-09-speed-advantage.jpg)
+*With >10⁵ candidate compositions to explore and a ~10⁵× speed advantage over DFT, corrected uMLIP screening turns an intractable search into a routine one. Source: Lupine Science, Strategic Discovery Plan.*
+
 
 This discipline matters commercially. Investors and offtake partners routinely ask whether a predicted binder will scale. A probability value or a DFT energy alone cannot answer that question. A machine-checked boundary between supported and unsupported claims can.
 
@@ -68,6 +104,10 @@ This discipline matters commercially. Investors and offtake partners routinely a
 Cement is often treated as a special case — a commodity so cheap, so established, and so geographically fragmented that innovation moves slowly. That view misses the underlying computational structure. The materials that could decarbonize cement are not exotic. They are amorphous oxides, metastable hydrates, carbonated silicates, and multi-component clinkers — the same classes of materials that appear in batteries, catalysts, sorbents, and refrigerants. The failure modes are identical: under-coordinated environments dominate function, composition spaces are too large for DFT, metastable phases outperform equilibrium ones, and systematic errors invert rankings.
 
 The seven target areas in this series — water, air, methane, refrigerants, critical minerals, PFAS, and cement — share one conclusion. The bottleneck is not a shortage of candidate materials; it is a shortage of trustworthy predictions. Trust comes from measuring the shape of the error, correcting it with analytic forces, and proving which predictions can be believed. Cement, with its 2.8 GtCO₂ per year and its amorphous, metastable chemistry, is one of the hardest and largest places to apply that discipline. It is also one of the most consequential.
+
+![From Candidates to Deployed Binders](images/cement-concrete-and-the-weight-of-the-built-world-10-trust-bottleneck.jpg)
+*Millions of candidate materials have been predicted, yet only about 0.2% have been validated by synthesis — closing that trust gap is what unlocks cement’s 2.8 GtCO₂ problem. Sources: Lupine Science, Strategic Discovery Plan; IEA/GCCA 2024; IPCC AR6.*
+
 
 ## Footnotes
 

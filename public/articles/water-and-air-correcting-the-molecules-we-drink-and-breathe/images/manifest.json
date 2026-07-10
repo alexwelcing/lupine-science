@@ -1,0 +1,62 @@
+[
+  {
+    "filename": "water-and-air-correcting-the-molecules-we-drink-and-breathe-01-global-stakes.jpg",
+    "title": "The Human Scale of Water and Air Failure",
+    "type": "data-chart",
+    "caption": "Water scarcity already touches about two billion people and air pollution is linked to millions of premature deaths each year, yet the materials we need to fix both are still designed with computational tools that misread their atomic environments."
+  },
+  {
+    "filename": "water-and-air-correcting-the-molecules-we-drink-and-breathe-02-coordination-error-field.jpg",
+    "title": "The Error Is Coordination, Not Chemistry",
+    "type": "concept-diagram",
+    "caption": "A recent survey of leading uMLIPs shows the potential energy surface is softened by 15\u201360% in under-coordinated environments, with the worst errors in the coordination range that governs pores, metal centres, and single-atom sites."
+  },
+  {
+    "filename": "water-and-air-correcting-the-molecules-we-drink-and-breathe-03-correction-layer.jpg",
+    "title": "The Correction Layer, Applied at Runtime",
+    "type": "concept-diagram",
+    "caption": "The correction is built from measured anchor observables, enforced to vanish in bulk environments, and applied as analytic forces so every molecular dynamics or barrier calculation follows the corrected surface."
+  },
+  {
+    "filename": "water-and-air-correcting-the-molecules-we-drink-and-breathe-04-blind-prediction.jpg",
+    "title": "Blind Prediction Accuracy Across Models and Materials",
+    "type": "data-chart",
+    "caption": "Across 36 blind (model, material) combinations, corrected uMLIPs achieve r = 0.906 with zero adjustable parameters, closing the gap between fast screening and trustworthy energies."
+  },
+  {
+    "filename": "water-and-air-correcting-the-molecules-we-drink-and-breathe-05-water-rankings.jpg",
+    "title": "What Corrected Screening Changes in Water",
+    "type": "evidence-panel",
+    "caption": "In desalination membranes, atmospheric-water sorbents, and lithium-selective frameworks, corrected binding and barrier energies overturn the false priorities that raw uMLIPs produce."
+  },
+  {
+    "filename": "water-and-air-correcting-the-molecules-we-drink-and-breathe-06-market-scale.jpg",
+    "title": "The Markets Touched by Corrected Discovery",
+    "type": "data-chart",
+    "caption": "The materials that corrected discovery could improve sit inside multi-billion-dollar markets: atmospheric water generation, automotive catalysts, and the lithium supply chain for batteries."
+  },
+  {
+    "filename": "water-and-air-correcting-the-molecules-we-drink-and-breathe-07-hidden-risks.jpg",
+    "title": "Hidden Risks: When Soft Barriers Become Real Failures",
+    "type": "concept-diagram",
+    "caption": "Underestimated hydrolysis, redox, and activation barriers translate into collapsed sorbents, cold-start NOx, filter regeneration penalties, and inefficient VOC oxidation in real devices."
+  },
+  {
+    "filename": "water-and-air-correcting-the-molecules-we-drink-and-breathe-08-proof-ecosystem.jpg",
+    "title": "From Peer-Reviewed Anchors to Machine-Checked Proofs",
+    "type": "concept-diagram",
+    "caption": "The correction layer is backed by peer-reviewed anchors and 77 build-locked Lean 4 theorems, so claims that fall outside the measured domain are flagged as bounded uncertainty rather than sold as prediction."
+  },
+  {
+    "filename": "water-and-air-correcting-the-molecules-we-drink-and-breathe-09-speed-moat.jpg",
+    "title": "Accuracy at Screening Speed",
+    "type": "data-chart",
+    "caption": "Corrected uMLIPs stay roughly 10\u2075\u00d7 faster than DFT while adding only 15.6% runtime overhead, making hundred-thousand- to million-candidate screens economically feasible."
+  },
+  {
+    "filename": "water-and-air-correcting-the-molecules-we-drink-and-breathe-10-platform-thesis.jpg",
+    "title": "One Correction Layer for Every Pore and Every Breath",
+    "type": "scene-illustration",
+    "caption": "Because the failure mode is coordination-specific, not climate-specific, one measured and verified correction layer can raise the reliability of discovery across water, air, batteries, and direct air capture."
+  }
+]

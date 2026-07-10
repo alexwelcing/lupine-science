@@ -1,0 +1,62 @@
+[
+  {
+    "filename": "investing-in-the-trust-layer-01-generation-funnel.jpg",
+    "title": "From millions of predictions to a handful of validated materials",
+    "type": "data-chart",
+    "caption": "GNoME proposed 2.2 million candidate crystals, but only 736 had been independently synthesized by late 2023\u2014a 0.2% validation rate that exposes the trust bottleneck in computational materials discovery."
+  },
+  {
+    "filename": "investing-in-the-trust-layer-02-pipeline-leaks.jpg",
+    "title": "The layered pipeline, and where it leaks",
+    "type": "concept-diagram",
+    "caption": "Each stage of the discovery pipeline\u2014generation, prediction, synthesis, validation\u2014introduces systematic errors that cascade downstream, turning high activity into low validated throughput."
+  },
+  {
+    "filename": "investing-in-the-trust-layer-03-error-field.jpg",
+    "title": "Measured error field, not learned",
+    "type": "concept-diagram",
+    "caption": "For fcc metals, Lupine models uMLIP error as a cubic-spline field over first-shell coordination, anchored by three standard observables and constrained to zero at bulk coordination 12."
+  },
+  {
+    "filename": "investing-in-the-trust-layer-04-blind-test-correlation.jpg",
+    "title": "Predicting the error on a never-fitted observable",
+    "type": "data-chart",
+    "caption": "Across 36 model-material combinations, the measured error field predicts the never-fitted \u03b3\u2081\u2081\u2080 surface-energy error with Pearson r = 0.906 (95% CI [0.82, 0.96], p = 10\u207b\u2074) and zero adjustable parameters."
+  },
+  {
+    "filename": "investing-in-the-trust-layer-05-runtime-overlay.jpg",
+    "title": "Runtime compatibility: correct without retraining",
+    "type": "evidence-panel",
+    "caption": "Lupine deploys beside existing CHGNet or MACE calculators as a LAMMPS overlay, adding 15.6% overhead in Python and cutting relative error on blind facets by up to an order of magnitude."
+  },
+  {
+    "filename": "investing-in-the-trust-layer-06-climate-scale.jpg",
+    "title": "Why accuracy matters in gigatonnes",
+    "type": "data-chart",
+    "caption": "Batteries are directly tied to roughly 20% of the CO\u2082 reductions needed by 2030 and indirectly to another 40%, so false positives and false negatives in materials screening carry climate-scale consequences."
+  },
+  {
+    "filename": "investing-in-the-trust-layer-07-phase-zero-risk.jpg",
+    "title": "What is proven, what is on the critical path",
+    "type": "concept-diagram",
+    "caption": "The fcc error field is established; the Phase 0 critical path extends it to bcc, hcp, and layered structures, with a Month 3 go/no-go gate and honest caveats about second-shell corrections and pending validation partners."
+  },
+  {
+    "filename": "investing-in-the-trust-layer-08-partner-flywheel.jpg",
+    "title": "Partnership architecture that deepens the moat",
+    "type": "concept-diagram",
+    "caption": "A master CRADA with NREL and tier-1 experimental collaborators close the loop between prediction and synthesis, turning every validated measurement into a more trustworthy next prediction."
+  },
+  {
+    "filename": "investing-in-the-trust-layer-09-economics-leverage.jpg",
+    "title": "Infrastructure leverage against a trillion-dollar prize",
+    "type": "data-chart",
+    "caption": "Lupine's ~$3.2 million, 36-month budget is tiny against the NIST-estimated $123 billion\u2013$270 billion annual value of improved materials innovation infrastructure, so even one successful target among five justifies the spend."
+  },
+  {
+    "filename": "investing-in-the-trust-layer-10-trust-loop-cta.jpg",
+    "title": "The trust layer for a real-world Replicator",
+    "type": "scene-illustration",
+    "caption": "The trust layer closes the loop between AI-generated candidates, corrected simulations, and experimental validation\u2014turning an abundance of predicted materials into a scarce, defensible set that labs can act on before the climate window closes."
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "filename": "beyond-carbon-the-error-geometry-of-environmental-materials-01-seven-domains-one-error.jpg",
+    "title": "One Geometry, Seven Planetary Boundaries",
+    "type": "scene-illustration",
+    "caption": "The same coordination error radiates from bulk equilibrium into the under-coordinated environments that control water, air, methane, refrigerants, minerals, PFAS, and cement."
+  },
+  {
+    "filename": "beyond-carbon-the-error-geometry-of-environmental-materials-02-coordination-error-curve.jpg",
+    "title": "Error Grows as Coordination Drops",
+    "type": "data-chart",
+    "caption": "A systematic survey shows uMLIPs soften the potential energy surface by 15\u201360% in under-coordinated regions, precisely the coordination range of pores, surfaces, and transition states."
+  },
+  {
+    "filename": "beyond-carbon-the-error-geometry-of-environmental-materials-03-four-filters.jpg",
+    "title": "From Predicted Structure to Buried Breakthrough",
+    "type": "concept-diagram",
+    "caption": "Defect/bulk asymmetry, the combinatorial wall, metastability, and ranking inversion turn a small systematic error into wrong experimental priorities."
+  },
+  {
+    "filename": "beyond-carbon-the-error-geometry-of-environmental-materials-04-blind-prediction-panel.jpg",
+    "title": "Measured Correction, Machine-Checked Proof",
+    "type": "evidence-panel",
+    "caption": "Across 36 blind model\u2013material pairs the error field predicts corrections with r = 0.906, while a build-locked library of 77 Lean 4 theorems bounds what can be believed."
+  },
+  {
+    "filename": "beyond-carbon-the-error-geometry-of-environmental-materials-05-correction-verification-layer.jpg",
+    "title": "Runtime Correction with Proof Boundaries",
+    "type": "concept-diagram",
+    "caption": "A coordination-based error field, three anchor observables, and analytic force corrections let molecular dynamics follow the corrected surface, while proof boundaries stop unsupported claims."
+  },
+  {
+    "filename": "beyond-carbon-the-error-geometry-of-environmental-materials-06-addressable-impact-sankey.jpg",
+    "title": "The Combined Addressable Impact",
+    "type": "data-chart",
+    "caption": "The seven application areas together span billions of people, gigatonnes of CO\u2082, and trillion-dollar supply chains."
+  },
+  {
+    "filename": "beyond-carbon-the-error-geometry-of-environmental-materials-07-ranking-inversion.jpg",
+    "title": "Raw Rankings Hide True Breakthroughs",
+    "type": "evidence-panel",
+    "caption": "A soft potential surface can promote the wrong membrane pore or catalyst site; corrected barriers restore the ranking that experiments should follow."
+  },
+  {
+    "filename": "beyond-carbon-the-error-geometry-of-environmental-materials-08-platform-ecosystem.jpg",
+    "title": "One Layer, Many Industrial Workflows",
+    "type": "concept-diagram",
+    "caption": "Corrected energies for binding, barriers, insertion, migration, and site selectivity feed a single platform that serves seven distinct industrial stacks."
+  },
+  {
+    "filename": "beyond-carbon-the-error-geometry-of-environmental-materials-09-economics-moat.jpg",
+    "title": "Speed That Scales Where DFT Cannot",
+    "type": "data-chart",
+    "caption": "At roughly 10\u2075\u00d7 the speed of DFT and only modest runtime overhead, corrected potentials can search spaces that brute-force quantum chemistry cannot afford."
+  },
+  {
+    "filename": "beyond-carbon-the-error-geometry-of-environmental-materials-10-platform-roadmap.jpg",
+    "title": "The Path From Measured Error to Trust",
+    "type": "scene-illustration",
+    "caption": "Every article in the series will follow the same arc: measure the shape of the error, correct it with analytic forces, and prove which predictions can be believed."
+  }
+]

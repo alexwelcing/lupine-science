@@ -1,0 +1,62 @@
+[
+  {
+    "filename": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers-01-non-co2-warming-lever.jpg",
+    "title": "The Non-CO\u2082 Warming Lever",
+    "type": "data-chart",
+    "caption": "Methane and HFC refrigerants together offer warming avoidance comparable to the entire energy-sector transition, yet both depend on materials that do not yet exist. Sources: UNEP Global Methane Assessment, 2021; UNEP / US EPA Kigali Amendment impact estimates; IPCC AR6."
+  },
+  {
+    "filename": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers-02-umlip-softening-error.jpg",
+    "title": "Where uMLIPs Fail: Systematic Softening in Under-Coordinated Environments",
+    "type": "evidence-panel",
+    "caption": "Universal machine-learning potentials soften the energy surface by 15\u201360% at surfaces, transition states, and radical fragments \u2014 the exact environments that determine catalyst and refrigerant performance. Source: Deng et al., npj Computational Materials, 2025."
+  },
+  {
+    "filename": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers-03-environment-error-field.jpg",
+    "title": "Lupine's Measured Environment Error Field",
+    "type": "concept-diagram",
+    "caption": "The environment error field uses three anchor observables and a bulk constraint to correct under-coordinated predictions without retraining the underlying potential. Source: Lupine Science, Strategic Discovery Plan, Sections 2\u20133."
+  },
+  {
+    "filename": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers-04-blind-prediction-correlation.jpg",
+    "title": "Blind Prediction Accuracy Across 36 (Model, Material) Combinations",
+    "type": "data-chart",
+    "caption": "Blind tests across 36 model-material combinations yield r = 0.906 with no adjustable parameters, giving capital decisions a DFT-accurate signal at uMLIP speed. Source: Lupine Science, Strategic Discovery Plan, Sections 2\u20133."
+  },
+  {
+    "filename": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers-05-methane-to-methanol-scaling.jpg",
+    "title": "Breaking the Scaling Relation in Direct Methane-to-Methanol",
+    "type": "concept-diagram",
+    "caption": "Corrected transition-state barriers can escape the scaling relation that forces active methane catalysts to over-oxidize methanol. Sources: Berkowitz et al., J. Phys. Chem., 1994; IEA / Methanol Institute technology assessments; Grundner et al., Nat. Commun., 2015."
+  },
+  {
+    "filename": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers-06-methane-pyrolysis-temperature.jpg",
+    "title": "Methane Pyrolysis: Lower Temperature, Useful Carbon",
+    "type": "data-chart",
+    "caption": "Molten-metal catalysts can cut methane pyrolysis temperatures from above 1000 \u00b0C to 700\u2013900 \u00b0C, producing hydrogen and a storable solid carbon product. Source: Ab\u00e1nades, Int. J. Hydrogen Energy, 2012."
+  },
+  {
+    "filename": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers-07-refrigerant-gwp-landscape.jpg",
+    "title": "The Refrigerant Trade-Off: GWP, Performance, and Safety",
+    "type": "data-chart",
+    "caption": "Today's refrigerants force a choice between low GWP, high efficiency, and safety; computational screening must explore millions of candidates to find one that satisfies all three. Sources: ASHRAE Standard 34; Velders et al., Climatic Change, 2021."
+  },
+  {
+    "filename": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers-08-caloric-verification-workflow.jpg",
+    "title": "Caloric Materials: From Correction to Verified Discovery",
+    "type": "concept-diagram",
+    "caption": "Caloric materials promise 20\u201350% efficiency gains, but only a verified correction pipeline can separate genuine thermodynamic predictions from microstructure assumptions. Sources: Gutfleisch et al., Adv. Mater., 2011; DOE / ARPA-E; Lupine Science, Strategic Discovery Plan, Sections 2\u20133."
+  },
+  {
+    "filename": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers-09-market-and-timeline.jpg",
+    "title": "Policy Timelines and Addressable Markets",
+    "type": "data-chart",
+    "caption": "Tens of billions of dollars in annual product markets and 2030\u20132047 policy deadlines make fast, verified materials discovery an economic and climate imperative. Sources: Methanol Institute; UNEP Global Methane Assessment, 2021; UNEP / US EPA Kigali Amendment impact estimates."
+  },
+  {
+    "filename": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers-10-common-correction-geometry.jpg",
+    "title": "One Correction Geometry, Many Climate Targets",
+    "type": "concept-diagram",
+    "caption": "Methane, refrigerants, caloric materials, batteries, and direct air capture share the same under-coordination failure mode \u2014 and the same correction geometry. Source: Lupine Science, Strategic Discovery Plan, Sections 2\u20133."
+  }
+]

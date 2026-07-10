@@ -1,0 +1,62 @@
+[
+  {
+    "filename": "critical-minerals-pfas-and-the-remediation-imperative-01-atoms-problem.jpg",
+    "title": "The Atoms Problem Behind the Energy Transition",
+    "type": "data-chart",
+    "caption": "Clean-energy technologies are expected to drive a four- to six-fold increase in mineral demand by 2040, turning atoms into a central constraint on the energy transition. Source: IEA, The Role of Critical Minerals in Clean Energy Transitions, 2022."
+  },
+  {
+    "filename": "critical-minerals-pfas-and-the-remediation-imperative-02-pfas-contamination-map.jpg",
+    "title": "PFAS in the Environment: Eighty Thousand Sites and Counting",
+    "type": "scene-illustration",
+    "caption": "More than eighty thousand PFAS contamination sites have been identified in the United States, with remediation costs reaching one to five million dollars per site per year. Sources: Environmental Working Group / U.S. EPA; industry analyst estimates."
+  },
+  {
+    "filename": "critical-minerals-pfas-and-the-remediation-imperative-03-carbon-fluorine-backbone.jpg",
+    "title": "The Bond That Makes PFAS Forever",
+    "type": "concept-diagram",
+    "caption": "The carbon\u2013fluorine bond, with a dissociation energy of roughly 485 kJ mol\u207b\u00b9, is what makes PFAS both extraordinarily useful and extraordinarily persistent. Source: B. E. Smart, Kirk-Othmer Encyclopedia of Chemical Technology, 4th ed., Wiley, 1994."
+  },
+  {
+    "filename": "critical-minerals-pfas-and-the-remediation-imperative-04-umlip-softening-error.jpg",
+    "title": "Why Raw uMLIPs Misrank Candidates in Under-Coordinated Environments",
+    "type": "evidence-panel",
+    "caption": "A systematic survey found that universal machine-learning interatomic potentials soften the potential energy surface by 15\u201360% in under-coordinated regions, with the largest errors at coordination numbers of four to eight. Source: B. Deng et al., npj Computational Materials 11, 9 (2025)."
+  },
+  {
+    "filename": "critical-minerals-pfas-and-the-remediation-imperative-05-correction-layer.jpg",
+    "title": "The Lupine Correction Layer",
+    "type": "concept-diagram",
+    "caption": "Lupine's environment error field corrects uMLIP predictions at runtime, achieving a Pearson correlation of 0.906 in blind tests while retaining a roughly five-order-of-magnitude speed advantage over DFT. Source: Lupine Science, Strategic Discovery Plan, Sections 2\u20133."
+  },
+  {
+    "filename": "critical-minerals-pfas-and-the-remediation-imperative-06-unified-campaign.jpg",
+    "title": "One Discovery Campaign for Two Imperatives",
+    "type": "concept-diagram",
+    "caption": "The same corrected binding energies, activation barriers, and verification discipline apply whether the goal is recovering critical minerals or destroying PFAS."
+  },
+  {
+    "filename": "critical-minerals-pfas-and-the-remediation-imperative-07-supply-risk-landscape.jpg",
+    "title": "The Geopolitical and Technical Risks of Mineral Supply",
+    "type": "data-chart",
+    "caption": "Roughly seventy percent of mined cobalt comes from a single jurisdiction, while direct recycling could cut energy use by fifty to eighty percent \u2014 if the materials science can be solved. Sources: U.S. Geological Survey / Benchmark Mineral Intelligence; ReCell Center / U.S. DOE; industry analyst estimates."
+  },
+  {
+    "filename": "critical-minerals-pfas-and-the-remediation-imperative-08-recovery-ecosystem.jpg",
+    "title": "The Critical-Mineral Recovery Ecosystem",
+    "type": "concept-diagram",
+    "caption": "Selective sorbents, phosphinic-acid extractants, and direct-recycling reconstruction conditions all rely on accurate binding and migration energies in flexible, under-coordinated environments. Sources: J. E. Plevin et al., Resources, Conservation and Recycling (2024); ReCell Center / U.S. DOE."
+  },
+  {
+    "filename": "critical-minerals-pfas-and-the-remediation-imperative-09-market-opportunity.jpg",
+    "title": "The Economics of Trustworthy Prediction",
+    "type": "data-chart",
+    "caption": "A prediction-trust platform that addresses both critical-mineral recovery and PFAS remediation sits at the intersection of two multi-billion-dollar markets driven by four- to six-fold demand growth. Sources: IEA (2022); industry analyst estimates."
+  },
+  {
+    "filename": "critical-minerals-pfas-and-the-remediation-imperative-10-one-geometry-two-imperatives.jpg",
+    "title": "One Geometry, Two Imperatives",
+    "type": "scene-illustration",
+    "caption": "Critical-mineral recovery and PFAS remediation sit on opposite sides of the industrial metabolism, but they share the same geometry of binding and barrier energies in under-coordinated environments."
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "filename": "cement-concrete-and-the-weight-of-the-built-world-01-global-footprint.jpg",
+    "title": "The 2.8-Gigaton Footprint",
+    "type": "data-chart",
+    "caption": "Global cement manufacturing emits about 2.8 GtCO\u2082 annually, with roughly 60% coming from limestone calcination rather than fuel combustion. Sources: IEA/GCCA 2024; IPCC AR6."
+  },
+  {
+    "filename": "cement-concrete-and-the-weight-of-the-built-world-02-calcination-trap.jpg",
+    "title": "The Process-Emissions Trap",
+    "type": "concept-diagram",
+    "caption": "Clean energy can shrink fuel emissions, but the calcination of limestone releases CO\u2082 regardless of the heat source. Source: IEA/GCCA 2024."
+  },
+  {
+    "filename": "cement-concrete-and-the-weight-of-the-built-world-03-softening-field.jpg",
+    "title": "Where Universal Potentials Lose Trust",
+    "type": "concept-diagram",
+    "caption": "In dissolved silicates, gel pores, and hydrate interfaces, coordination numbers fall outside the bulk training data and uMLIPs soften energies by 15\u201360%. Source: Deng et al., npj Comput. Mater. 2025."
+  },
+  {
+    "filename": "cement-concrete-and-the-weight-of-the-built-world-04-blind-accuracy.jpg",
+    "title": "Correction Restores Rank Order",
+    "type": "evidence-panel",
+    "caption": "Across 36 blind (model, material) combinations, Lupine\u2019s correction achieves r = 0.906 with zero fitted parameters, recovering trustworthy rank order. Source: Lupine Science, Strategic Discovery Plan."
+  },
+  {
+    "filename": "cement-concrete-and-the-weight-of-the-built-world-05-correction-loop.jpg",
+    "title": "Measure, Correct, Prove",
+    "type": "concept-diagram",
+    "caption": "Lupine measures the error field, applies an analytic correction at nearly uMLIP speed, and proves which predictions are supported by 77 build-locked theorems. Source: Lupine Science, Strategic Discovery Plan."
+  },
+  {
+    "filename": "cement-concrete-and-the-weight-of-the-built-world-06-three-routes.jpg",
+    "title": "Three Discovery Fronts",
+    "type": "data-chart",
+    "caption": "Low-carbon cement routes range from LC\u00b3\u2019s 30\u201350% clinker reduction to CSA clinkers with 20\u201335% lower process emissions and CO\u2082-cured systems that sequester 5\u201325% binder-mass CO\u2082. Sources: Scrivener et al. 2018; Habert et al. 2020; Skocek et al. 2021; Sanna et al. 2013."
+  },
+  {
+    "filename": "cement-concrete-and-the-weight-of-the-built-world-07-metastability.jpg",
+    "title": "The Metastability Problem",
+    "type": "concept-diagram",
+    "caption": "Essential phases such as ettringite and AFm are metastable, so convex-hull thermodynamics alone discards the very materials a low-carbon screen must evaluate. Source: Lupine Science, Strategic Discovery Plan."
+  },
+  {
+    "filename": "cement-concrete-and-the-weight-of-the-built-world-08-lab-to-kiln.jpg",
+    "title": "The Partnership Chain",
+    "type": "scene-illustration",
+    "caption": "A machine-checked boundary between supported and unsupported claims lets modelers, plant operators, and investors speak the same language."
+  },
+  {
+    "filename": "cement-concrete-and-the-weight-of-the-built-world-09-speed-advantage.jpg",
+    "title": "The Computational Moat",
+    "type": "data-chart",
+    "caption": "With >10\u2075 candidate compositions to explore and a ~10\u2075\u00d7 speed advantage over DFT, corrected uMLIP screening turns an intractable search into a routine one. Source: Lupine Science, Strategic Discovery Plan."
+  },
+  {
+    "filename": "cement-concrete-and-the-weight-of-the-built-world-10-trust-bottleneck.jpg",
+    "title": "From Candidates to Deployed Binders",
+    "type": "data-chart",
+    "caption": "Millions of candidate materials have been predicted, yet only about 0.2% have been validated by synthesis \u2014 closing that trust gap is what unlocks cement\u2019s 2.8 GtCO\u2082 problem. Sources: Lupine Science, Strategic Discovery Plan; IEA/GCCA 2024; IPCC AR6."
+  }
+]
