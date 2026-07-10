@@ -82,10 +82,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Chromium for HyperFrames snapshots
-        run: npx playwright install chromium
+      - name: Install chrome-headless-shell for HyperFrames snapshots
+        run: |
+          npx @puppeteer/browsers install chrome-headless-shell | tee /tmp/chrome-install.log
+          CHROME_PATH="$(grep -o '/[^ ]*/chrome-headless-shell[^ ]*' /tmp/chrome-install.log | head -1)"
+          echo "HYPERFRAMES_BROWSER_PATH=${CHROME_PATH}" >> "$GITHUB_ENV"
 
       - name: Verify component snapshots against baselines
+        env:
+          HYPERFRAMES_BROWSER_PATH: ${{ env.HYPERFRAMES_BROWSER_PATH }}
         run: |
           cd media/projects/article-videos
           npm run vreg
