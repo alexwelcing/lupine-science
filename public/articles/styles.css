@@ -438,3 +438,31 @@ body.format-tutorial h2::before {
   .callout, .cta, .pullquote { break-inside: avoid; }
   .stat-row { page-break-inside: avoid; }
 }
+
+
+.article-video-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #3d4db3;
+  text-decoration: none;
+  border: 1px solid #d9d8ff;
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  background: #fff;
+  transition: background 0.15s, border-color 0.15s;
+}
+.article-video-link:hover {
+  background: #d9d8ff;
+  border-color: #3d4db3;
+}
+.article-video-link::before {
+  content: '▶';
+  font-size: 0.65rem;
+}

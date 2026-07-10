@@ -1,0 +1,52 @@
+[
+  {
+    "time": 0.0,
+    "visual": "the-02-percent-synthesis-problem-01-synthesis-funnel.jpg",
+    "line": "Okay, so AI just predicted three hundred and eighty thousand new materials. Sounds incredible, right? Here's the catch: only seven hundred and thirty-six had actually been made in a lab by late 2023. That is zero point two percent."
+  },
+  {
+    "time": 9.0,
+    "visual": "the-02-percent-synthesis-problem-02-four-filters.jpg",
+    "line": "Not a rounding error. That gap between prediction and synthesis is the whole problem. See, being stable on a computer is not the same as being synthesizable. There are four filters most screens just blow right through."
+  },
+  {
+    "time": 19.0,
+    "visual": "the-02-percent-synthesis-problem-03-umlip-softening.jpg",
+    "line": "First, the thermodynamic convex hull does not tell you whether a real precursor path exists. Second, universal machine-learning potentials are trained on tidy near-equilibrium crystals, so they systematically soften away from equilibrium."
+  },
+  {
+    "time": 30.0,
+    "visual": "the-02-percent-synthesis-problem-04-barrier-error.jpg",
+    "line": "A tiny hundred millielectronvolt barrier error changes ion hopping by roughly fifty times at room temperature—enough to call a conductor an insulator."
+  },
+  {
+    "time": 38.0,
+    "visual": "the-02-percent-synthesis-problem-09-failure-economics.jpg",
+    "line": "Third, real materials are disordered, non-stoichiometric, full of vacancies and stacking faults. Fourth, every failed candidate wastes weeks of lab time and thousands of dollars."
+  },
+  {
+    "time": 48.0,
+    "visual": "the-02-percent-synthesis-problem-06-cobalt-climate.jpg",
+    "line": "And this matters way beyond the lab. Batteries alone are tied to something like twenty percent of the CO2 cuts we need by 2030. Cobalt-free cathodes could remove a massive supply-chain chokepoint, since seventy percent of cobalt comes from one country: the Democratic Republic of Congo."
+  },
+  {
+    "time": 61.0,
+    "visual": "the-02-percent-synthesis-problem-07-deployment-window.jpg",
+    "line": "Because the window is narrow. A material discovered in 2035 can still shape 2040 deployment. One discovered in 2045 cannot."
+  },
+  {
+    "time": 70.0,
+    "visual": "the-02-percent-synthesis-problem-05-error-field.jpg",
+    "line": "So Lupine is not building a bigger generator. We're building a correction and verification layer—an environment error field that fixes what universal potentials get wrong at runtime, with analytic forces."
+  },
+  {
+    "time": 80.0,
+    "visual": "the-02-percent-synthesis-problem-08-commercial-endpoints.jpg",
+    "line": "The result? Candidates far more likely to survive synthesis, and bad ones flagged before anyone touches a furnace."
+  },
+  {
+    "time": 88.0,
+    "visual": "the-02-percent-synthesis-problem-10-predictions-to-partners.jpg",
+    "line": "We need predictions that flow straight to synthesis, characterization, and scale partners—not into another generation cycle."
+  }
+]

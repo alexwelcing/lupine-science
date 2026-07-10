@@ -89,6 +89,11 @@ const checks = [
     expected: 'Investing in the Trust Layer',
     description: 'trust-layer investment article shows title'
   },
+  {
+    url: `${BASE_URL}/videos/`,
+    expected: 'Article videos',
+    description: 'videos index page shows heading'
+  },
 ];
 
 function sleep(ms) {

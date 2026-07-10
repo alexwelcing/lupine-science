@@ -1,0 +1,12 @@
+# HyperFrames reference clone (large, can be re-cloned)
+hyperframes-ref/
+
+# Rendered MP4 outputs (large binaries; keep only final web copies in public/videos)
+prototype-*/renders/
+prototype-*/node_modules/
+
+# TTS virtual environment
+.venv-tts/
+
+# Audio working files larger than final mix
+prototype-*/audio/narration.vtt

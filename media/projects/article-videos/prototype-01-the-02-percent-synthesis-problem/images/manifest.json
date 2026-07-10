@@ -1,0 +1,62 @@
+[
+  {
+    "filename": "the-02-percent-synthesis-problem-01-synthesis-funnel.jpg",
+    "title": "The 0.2% Synthesis Funnel",
+    "type": "data-chart",
+    "caption": "Of 380,000 computationally stable structures reported by GNoME, only 736 had been independently synthesized by late 2023 \u2014 a 0.2% validation rate."
+  },
+  {
+    "filename": "the-02-percent-synthesis-problem-02-four-filters.jpg",
+    "title": "Four Filters Between Prediction and Synthesis",
+    "type": "concept-diagram",
+    "caption": "Four structural filters separate a predicted crystal from a made material."
+  },
+  {
+    "filename": "the-02-percent-synthesis-problem-03-umlip-softening.jpg",
+    "title": "Where Universal Potentials Soften",
+    "type": "evidence-panel",
+    "caption": "Universal machine-learning interatomic potentials systematically soften the potential energy surface away from equilibrium."
+  },
+  {
+    "filename": "the-02-percent-synthesis-problem-04-barrier-error.jpg",
+    "title": "A 100 meV Barrier Error Changes Everything",
+    "type": "data-chart",
+    "caption": "A 100 meV barrier error changes ionic hopping rates by roughly 50\u00d7 at room temperature \u2014 enough to misclassify a conductor as an insulator."
+  },
+  {
+    "filename": "the-02-percent-synthesis-problem-05-error-field.jpg",
+    "title": "Learning the Environment Error Field",
+    "type": "concept-diagram",
+    "caption": "Lupine applies a local environment error field at runtime so molecular dynamics follows corrected gradients."
+  },
+  {
+    "filename": "the-02-percent-synthesis-problem-06-cobalt-climate.jpg",
+    "title": "Cobalt Supply and the Net-Zero Abatement Gap",
+    "type": "data-chart",
+    "caption": "Cobalt-free cathodes remove a supply-chain chokepoint, while clean-energy investment must more than double this decade."
+  },
+  {
+    "filename": "the-02-percent-synthesis-problem-07-deployment-window.jpg",
+    "title": "The Narrow Deployment Window",
+    "type": "scene-illustration",
+    "caption": "A material discovered too late cannot recover cumulative emissions already locked in."
+  },
+  {
+    "filename": "the-02-percent-synthesis-problem-08-commercial-endpoints.jpg",
+    "title": "The Correction Layer Must Feed Real Production",
+    "type": "scene-illustration",
+    "caption": "Corrected screening must feed partners who are already scaling cobalt-free cathodes and solid-state cells."
+  },
+  {
+    "filename": "the-02-percent-synthesis-problem-09-failure-economics.jpg",
+    "title": "The Economics of a Failed Campaign",
+    "type": "data-chart",
+    "caption": "Enforcing the four filters would flag roughly three-quarters of predictions before they reach a furnace."
+  },
+  {
+    "filename": "the-02-percent-synthesis-problem-10-predictions-to-partners.jpg",
+    "title": "From Predictions to Partners",
+    "type": "concept-diagram",
+    "caption": "Corrected predictions must flow into synthesis, characterization, and scale partners \u2014 not into another generation cycle."
+  }
+]

@@ -123,6 +123,12 @@ function extractMeta(raw) {
   return meta;
 }
 
+
+function videoLink(slug) {
+  const mp4 = path.join(OUT, 'videos', `${slug}.mp4`);
+  if (!fs.existsSync(mp4)) return '';
+  return `<a class="article-video-link" href="/videos/${slug}.mp4" target="_blank" rel="noopener noreferrer">Watch the narrated version</a>`;
+}
 function heroFigure(slug) {
   const dir = path.join(OUT, slug);
   const hasJpg = fs.existsSync(path.join(dir, 'hero.jpg'));
@@ -300,8 +306,9 @@ function buildArticle(raw, slug) {
     headerParts.push(`<div class="article-byline">${datePart}${sep}${statusPart}</div>`);
   }
   const hero = heroFigure(slug);
-  if (headerParts.length || hero) {
-    const inserted = [...headerParts, hero].filter(Boolean).join('\n');
+  const video = videoLink(slug);
+  if (headerParts.length || hero || video) {
+    const inserted = [...headerParts, hero, video].filter(Boolean).join('\n');
     body = body.replace('</h1>', `</h1>\n${inserted}`);
   }
 

@@ -1,0 +1,9 @@
+Okay, so AI just predicted three hundred and eighty thousand new materials. Sounds incredible, right? Here's the catch: only seven hundred and thirty-six had actually been made in a lab by late 2023. That is zero point two percent. Not a rounding error. That gap between prediction and synthesis is the whole problem.
+
+See, being stable on a computer is not the same as being synthesizable. There are four filters most screens just blow right through. First, the thermodynamic convex hull does not tell you whether a real precursor path exists. Second, universal machine-learning potentials are trained on tidy near-equilibrium crystals, so they systematically soften away from equilibrium. A tiny hundred millielectronvolt barrier error changes ion hopping by roughly fifty times at room temperature—enough to call a conductor an insulator. Third, real materials are disordered, non-stoichiometric, full of vacancies and stacking faults. Fourth, every failed candidate wastes weeks of lab time and thousands of dollars.
+
+And this matters way beyond the lab. Batteries alone are tied to something like twenty percent of the CO2 cuts we need by 2030. Cobalt-free cathodes could remove a massive supply-chain chokepoint, since seventy percent of cobalt comes from one country: the Democratic Republic of Congo.
+
+So Lupine is not building a bigger generator. We're building a correction and verification layer—an environment error field that fixes what universal potentials get wrong at runtime, with analytic forces. The result? Candidates far more likely to survive synthesis, and bad ones flagged before anyone touches a furnace.
+
+Because the window is narrow. A material discovered in 2035 can still shape 2040 deployment. One discovered in 2045 cannot. We need predictions that flow straight to synthesis, characterization, and scale partners—not into another generation cycle.
