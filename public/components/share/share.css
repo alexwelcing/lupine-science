@@ -1,0 +1,162 @@
+/* share.css — styles for the reusable Lupine Science share component.
+   Loaded only by pages that include the share widget. */
+
+:root {
+  --share-ink: var(--ink-soft, #4c4e58);
+  --share-ink-hover: var(--indigo, #3d4db3);
+  --share-border: var(--rule, #e2dfd4);
+  --share-bg: var(--paper, #faf9f6);
+  --share-bg-hover: var(--indigo-wash, rgba(61, 77, 179, 0.08));
+  --share-focus: var(--indigo-line, rgba(61, 77, 179, 0.24));
+  --share-gap: 8px;
+  --share-icon-size: 18px;
+}
+
+.share-root {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--share-gap);
+  margin: 2.4em 0 0;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--share-border);
+  font-family: var(--mono, 'IBM Plex Mono', ui-monospace, monospace);
+  font-size: 13px;
+  position: relative;
+}
+
+.share-label {
+  color: var(--ink-faint, #6e707a);
+  margin-right: 4px;
+}
+
+.share-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--share-gap);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.share-list li,
+.share-menu li {
+  margin: 0;
+  padding: 0;
+}
+
+.share-link,
+.share-btn,
+.share-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--share-border);
+  background: var(--share-bg);
+  color: var(--share-ink);
+  text-decoration: none;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  transition: background 180ms, border-color 180ms, color 180ms;
+}
+
+.share-link svg,
+.share-btn svg,
+.share-toggle svg {
+  width: var(--share-icon-size);
+  height: var(--share-icon-size);
+  flex-shrink: 0;
+}
+
+.share-link:hover,
+.share-link:focus,
+.share-btn:hover,
+.share-btn:focus,
+.share-toggle:hover,
+.share-toggle:focus {
+  background: var(--share-bg-hover);
+  border-color: var(--share-focus);
+  color: var(--share-ink-hover);
+  outline: none;
+  box-shadow: 0 0 0 2px var(--share-focus);
+}
+
+.share-live {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Mobile tray */
+@media (max-width: 600px) {
+  .share-root {
+    flex-wrap: nowrap;
+  }
+
+  .share-toggle {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 8px 12px;
+    justify-content: center;
+  }
+
+  .share-toggle-text {
+    margin-left: 4px;
+  }
+
+  .share-menu {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 10;
+    list-style: none;
+    margin: 6px 0 0;
+    padding: 6px;
+    border: 1px solid var(--share-border);
+    border-radius: 6px;
+    background: var(--share-bg);
+    box-shadow: 0 8px 24px rgba(22, 23, 29, 0.08);
+  }
+
+  .share-menu[hidden] {
+    display: none;
+  }
+
+  .share-menu .share-link,
+  .share-menu .share-btn {
+    width: 100%;
+    justify-content: flex-start;
+    min-height: 44px;
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+  }
+
+  .share-menu .share-link:hover,
+  .share-menu .share-link:focus,
+  .share-menu .share-btn:hover,
+  .share-menu .share-btn:focus {
+    background: var(--share-bg-hover);
+  }
+}
+
+@media print {
+  .share-root {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .share-link,
+  .share-btn,
+  .share-toggle,
+  .share-menu {
+    transition: none;
+  }
+}

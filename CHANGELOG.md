@@ -20,9 +20,13 @@
 - [Merged] Controlled Hermes dispatch loop: lowered concurrency to 6, profile session caps to 3, model fallback to `gpt-5.6-sol` → `kimi-k2.7-code` to clear runaway-swarm crashes; added load/memory monitor at `media/projects/laptop-performance/system-monitor.sh`.
 - [Merged] CI: PR/push verification workflow with lint, typecheck, tests, static-link checks, proof-pack generation, and PDF verification.
 - [In Progress] QA/infra audit wave: editorial visual QA, Core Web Vitals, WCAG 2.1 AA, cross-browser/device, pre-publication QA sign-off checklist.
-- [Merged] Live URL smoke-test suite and deployment post-deploy gates in `.github/workflows/deploy.yml`.\n- [Blocked] Production release blocked by missing `cement-concrete-and-the-weight-of-the-built-world.mp4` and 6.1 MB video exceeding 3 MB/min budget; fix task assigned to voice-engineer.\n- [Blocked] Visual audit blockers (missing assets, broken brand library, mobile overflow, CSP-blocked sharing); fix task assigned to web-integrator.
+- [Merged] Live URL smoke-test suite and deployment post-deploy gates in `.github/workflows/deploy.yml`.
+- [Merged] Lighthouse SEO gate fix: footer mail links now carry `href="mailto:alex@lupinesci.com"`, article pages regenerated, footer links underlined; local Lighthouse CI passes all category assertions (performance ≥0.95, accessibility ≥0.95, best-practices ≥0.95, SEO ≥0.95).
+- [Blocked] Production release blocked by missing `cement-concrete-and-the-weight-of-the-built-world.mp4` and 6.1 MB video exceeding 3 MB/min budget; fix task assigned to voice-engineer.\n- [Blocked] Visual audit blockers (missing assets, broken brand library, mobile overflow, CSP-blocked sharing); fix task assigned to web-integrator.
 - [Merged] artdirector/reviewer profiles routed through OpenAI Codex (`gpt-5.6-sol`); Anthropic/Fable OAuth deferred per team direction.
-- [Merged] Social share component (article/video pages, OG/Twitter cards, accessible controls).\n- [Blocked] Social share release blocker: CSP prevents controls from rendering and component double-initializes; fix task assigned to software-engineer.
+- [Merged] Social share component (article/video pages, OG/Twitter cards, accessible controls).
+- [Merged] Share component accessibility fix: desktop share list items now expose `role="listitem"` so Lighthouse's `aria-required-children` audit passes.
+- [Blocked] Social share release blocker: CSP prevents controls from rendering and component double-initializes; fix task assigned to software-engineer.
 - [In Progress] Downloadable proof packs per article (PDF, manifest, bibliography, UI, CI generation, golden-file diff tests).
 - [In Progress] Environmental expansion series beyond CO₂ (methane/refrigerants, critical minerals/PFAS, water/air purification, cement/concrete).
 - [In Progress] 10-visual-deck brief and design system for every article.

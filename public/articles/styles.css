@@ -275,7 +275,7 @@ main, header.site-header, footer.foot { position: relative; z-index: 4; }
   font-family: var(--mono); font-size: 13px; color: var(--ink-faint);
 }
 .foot .creed { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--ink-soft); }
-.foot a { color: var(--ink-soft); border-bottom: 1px solid transparent; transition: all 180ms; }
+.foot a { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 2px; border-bottom: 1px solid transparent; transition: all 180ms; }
 .foot a:hover { color: var(--indigo); border-color: var(--indigo); }
 .foot b { color: var(--ink); font-weight: 600; }
 
