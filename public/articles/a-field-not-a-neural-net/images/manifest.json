@@ -1,0 +1,62 @@
+[
+  {
+    "filename": "a-field-not-a-neural-net-01-synthesis-funnel.jpg",
+    "title": "The synthesis validation bottleneck",
+    "type": "data-chart",
+    "caption": "Predicted materials vastly outrun verified discoveries: GNoME’s 2.2 million crystals produced only 736 confirmed syntheses, while A-Lab’s headline success rate collapsed once duplicates were removed. Sources: Merchant et al., Nature 624, 80–85 (2023); Szymanski et al., Nature 624, 86–91 (2023); Leeman et al., PRX Energy 3, 011002 (2024)."
+  },
+  {
+    "filename": "a-field-not-a-neural-net-02-coordination-error-curve.jpg",
+    "title": "Errors are not noise — they have a shape",
+    "type": "data-chart",
+    "caption": "Where atoms are under-coordinated — surfaces, vacancies, and transition states — universal potentials drift predictably away from reference energies, not randomly. Source: Deng et al., npj Comput. Mater. 11, 9 (2025)."
+  },
+  {
+    "filename": "a-field-not-a-neural-net-03-field-anchors-spline.jpg",
+    "title": "Three anchors fix the field",
+    "type": "concept-diagram",
+    "caption": "Lupine measures the error field from three standard observables and fixes it to zero in the bulk; everything below the lowest anchor is a true blind prediction."
+  },
+  {
+    "filename": "a-field-not-a-neural-net-04-blind-prediction-scatter.jpg",
+    "title": "r = 0.906 blind prediction",
+    "type": "data-chart",
+    "caption": "Across 36 independent combinations, the measured field predicts blind (110) surface-energy errors with r = 0.906, surviving a structurally aware permutation null."
+  },
+  {
+    "filename": "a-field-not-a-neural-net-05-runtime-correction.jpg",
+    "title": "Additive correction, analytic forces",
+    "type": "concept-diagram",
+    "caption": "The correction layer sits beside any existing uMLIP, adds analytic forces, and keeps molecular dynamics conservative while adding only single-digit overhead."
+  },
+  {
+    "filename": "a-field-not-a-neural-net-06-discovery-loop.jpg",
+    "title": "The six-step discovery loop",
+    "type": "concept-diagram",
+    "caption": "Lupine closes field measurement, runtime correction, and machine-checked proof into a six-step loop that terminates in either a certified candidate or a provable reason to stop."
+  },
+  {
+    "filename": "a-field-not-a-neural-net-07-impossibility-boundaries.jpg",
+    "title": "Where correction cannot work, Lupine proves it",
+    "type": "concept-diagram",
+    "caption": "Instead of silent failures, the verification layer returns machine-checked impossibility proofs for ranking inversions, noise-floor cells, and out-of-domain structures."
+  },
+  {
+    "filename": "a-field-not-a-neural-net-08-climate-targets-map.jpg",
+    "title": "From geometry to gigatonnes",
+    "type": "scene-illustration",
+    "caption": "The defects that break climate-critical materials — ion hops, surface catalytic sites, hydrolysis nodes — are exactly the under-coordinated environments the field measures."
+  },
+  {
+    "filename": "a-field-not-a-neural-net-09-speed-accuracy-panel.jpg",
+    "title": "Accuracy without the DFT price tag",
+    "type": "evidence-panel",
+    "caption": "Selective correction cuts surface-energy errors several-fold while leaving bulk lattice constants untouched, preserving uMLIP speed at near-DFT defect accuracy."
+  },
+  {
+    "filename": "a-field-not-a-neural-net-10-field-vs-neural-net.jpg",
+    "title": "A field, not a neural net",
+    "type": "concept-diagram",
+    "caption": "Lupine replaces the arms race for bigger models with a measured field and formal verification, eliminating per-system retraining while raising the standard of evidence."
+  }
+]

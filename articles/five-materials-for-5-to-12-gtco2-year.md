@@ -7,11 +7,17 @@
 
 # Five Materials That Could Unlock 5–12 GtCO₂/Year
 
+![Five Material Classes Could Unlock 5–12 GtCO₂/Year](images/five-materials-for-5-to-12-gtco2-year-01-climate-impact.jpg)
+*Five independently sized material targets sum to an aggregate climate potential of 5–12 GtCO₂/year.*
+
 The difference between a climate model and a climate outcome is usually a material. Batteries need cathodes that survive a thousand cycles. Solid-state cells need electrolytes that conduct lithium without conducting dendrites. Direct air capture needs sorbents that bind CO₂ at 400 ppm and survive humidity. Ammonia synthesis needs catalysts that split dinitrogen without the Haber-Bosch furnace. Solar needs absorbers that rival lead perovskites without the lead. None of these materials exists at the required scale and price.
 
 Lupine Science is not trying to invent them one at a time. We are building a correction-and-verification layer that makes computational discovery trustworthy enough to screen the multi-component spaces where these materials live. The result is a five-target portfolio with a combined climate potential of **5–12 GtCO₂/year**.
 
 This article explains why those five targets were chosen, what makes each one computationally hard, and how a single methodological idea—measuring systematic error as a physical field over local atomic environments—translates into progress across all of them. The aggregate number is not a fundraising flourish; it is the sum of five independently grounded impact estimates, each contingent on solving a specific defect-chemistry problem.
+
+![Why Promising Candidates Fail in the Synthesis Vessel](images/five-materials-for-5-to-12-gtco2-year-02-umlip-softening-error.jpg)
+*Universal machine-learning potentials systematically soften the energy surface at under-coordinated sites, inverting the rankings that determine which candidates reach the lab.*
 
 ## How the targets were selected
 
@@ -23,7 +29,13 @@ Second, **discovery difficulty that has defeated existing methods**. In every ca
 
 Third, a **precise Lupine mechanism**. Each target maps a known failure mode onto a specific correction or proof. LMR cathodes require corrected transition-metal migration barriers. Halide electrolytes require corrected Li⁺ hop barriers. MOFs require corrected hydrolysis energies and impossibility proofs for unsynthesizable frameworks. Ammonia catalysts require corrected N₂ dissociation barriers and selective flags for scaling-relation breakers. Lead-free perovskites require corrected Sn vacancy formation energies and provable boundaries for metastable phases.
 
+![Measuring Error as a Physical Field, Then Correcting It](images/five-materials-for-5-to-12-gtco2-year-03-correction-field-loop.jpg)
+*Systematic error is measured as a physical field over local environments, corrected at runtime, and verified through machine-checked proof rather than p-values.*
+
 The targets are not independent scientific bets. They are five instances of the same defect-mediated problem. This is deliberate: a platform that solves one of them credibly has a path to solving all of them, because the correction layer transfers across any material family whose error field can be anchored to measurable observables.
+
+![The Same Defect-Mediated Failure, Five Different Materials](images/five-materials-for-5-to-12-gtco2-year-05-target-defect-matrix.jpg)
+*Each target is a different expression of the same defect-mediated problem, and each is addressed by the same runtime correction and verification layer.*
 
 ## Batteries: cathodes and electrolytes as a pair
 
@@ -36,6 +48,9 @@ The remaining barrier is voltage fade. LMR cathodes derive excess capacity from 
 The compositional space is enormous. When concentration gradients, coatings, and doping profiles are included, the candidate count exceeds **10⁶**. uMLIPs systematically underestimate the migration barriers that govern voltage fade because the transition state involves under-coordinated metal ions far from the bulk configurations in their training data. The result is candidate rankings that can be wrong by orders of magnitude in ionic mobility. A **100 meV** barrier error changes the hopping rate by roughly e^(E/kBT) ≈ 50× at room temperature, enough to invert the ranking of candidate compositions by ionic mobility.
 
 Lupine’s environment error field corrects those barriers at runtime. The correction is smooth over coordination-number space, so chemically similar compositions receive similar corrections and the true best candidate is not buried by ranking inversion. Formal verification then checks that predicted voltage profiles remain ordered after correction, preventing false-positive synthesis attempts.
+
+![Raw Rankings Discard the Best Candidates](images/five-materials-for-5-to-12-gtco2-year-07-ranking-inversion-risk.jpg)
+*Before correction, the highest-performing candidates can be ranked below also-rans; the correction layer recovers the true ordering and prevents wasted synthesis runs.*
 
 ### Earth-abundant halide solid electrolytes
 
@@ -81,19 +96,36 @@ Metastability adds a second layer of difficulty. Many high-efficiency perovskite
 
 The five targets span batteries, carbon removal, industrial chemicals, and solar, but they share a common structure. In every case, functional performance is determined by defect-mediated properties in multi-component spaces. In every case, raw uMLIPs systematically soften the potential energy surface at the under-coordinated configurations that govern those properties. And in every case, brute-force DFT is too slow to screen the required compositional space.
 
-Lupine’s response is not to train a bigger model. It is to measure the systematic error as a physical field over local atomic environments, correct it at runtime with analytic forces, and verify the resulting claims through machine-checked proof. The environment error field achieves **Pearson r=0.906** in blind prediction of never-fitted surface energies across 36 (model, material) combinations with zero adjustable parameters. Runtime correction adds modest overhead in the current Python implementation and will drop below **1%** in a compiled LAMMPS overlay. **77 build-locked Lean 4 theorems with zero sorry proofs** provide guarantees that statistical validation cannot match. Where correction fails, the platform proves impossibility rather than reporting a p-value, preventing experimental resources from being spent on computationally unsupported candidates.
+Lupine’s response is not to train a bigger model. It is to measure the systematic error as a physical field over local atomic environments, correct it at runtime with analytic forces, and verify the resulting claims through machine-checked proof. The environment error field achieves **Pearson r=0.906** in blind prediction of never-fitted surface energies across 36 (model, material) combinations with zero adjustable parameters.
+
+![Blind Prediction of Surface Energies Across 36 Model–Material Pairs](images/five-materials-for-5-to-12-gtco2-year-04-blind-prediction-accuracy.jpg)
+*Across 36 model–material combinations, the environment error field predicts never-fitted surface energies with Pearson r = 0.906 and zero adjustable parameters.*
+
+Runtime correction adds modest overhead in the current Python implementation and will drop below **1%** in a compiled LAMMPS overlay. **77 build-locked Lean 4 theorems with zero sorry proofs** provide guarantees that statistical validation cannot match. Where correction fails, the platform proves impossibility rather than reporting a p-value, preventing experimental resources from being spent on computationally unsupported candidates.
+
+![How a 100 meV Correction Translates to Gigatonne Impact](images/five-materials-for-5-to-12-gtco2-year-06-impact-funnel.jpg)
+*A sub-0.1 eV correction at the atomic scale propagates into orders-of-magnitude device improvements and gigatonne-scale climate impact.*
 
 This is why the targets form a portfolio rather than a list. The same correction layer that makes LMR cathode screening reliable also makes halide electrolyte, MOF, ammonia catalyst, and perovskite screening reliable. The moat deepens with each campaign: every screen adds validated field measurements, every impossibility proof sharpens the boundary of applicability, and every experimental validation tightens the feedback loop.
+
+![Every Screen Deepens the Moat](images/five-materials-for-5-to-12-gtco2-year-09-moat-feedback-loop.jpg)
+*Every screen, proof, and validation feeds back into the error field, deepening the platform’s moat and lowering the cost of each subsequent discovery campaign.*
 
 ## From predictions to partners
 
 Predictions are necessary but not sufficient. The path from a corrected energy landscape to a commercial material runs through named experimental collaborators who can synthesize, characterize, and scale the top candidates.
+
+![From Corrected Predictions to Named Experimental Partners](images/five-materials-for-5-to-12-gtco2-year-08-partner-ecosystem-map.jpg)
+*Each target is anchored to named labs and companies that can synthesize, characterize, and scale the corrected top candidates.*
 
 For LMR cathodes, the immediate partners are the **Manthiram Laboratory at UT Austin** and **TexPower EV Technologies**, which operates a pilot facility producing NMA cathodes at **>230 mAh/g**[^17]; the **Battery500 Consortium** led by Pacific Northwest National Laboratory, with **350 Wh/kg pouch cells demonstrated at >600 cycles**[^18]; and **Forge Nano**, whose atomic-layer-deposition coatings improve cycle life by **30%+** while reducing resistance[^19]. For halide electrolytes, the Tier-1 list includes the **CEDER Group at UC Berkeley and Lawrence Berkeley National Laboratory**, the **Janek/Zeier Group at the University of Münster**, **Argonne National Laboratory**, and **Solid Power Inc.**
 
 For MOFs, the starting points are **UC Berkeley’s Yaghi and Long groups**, **Northwestern’s Farha Group**, and **BASF**, the first commercial-scale MOF producer at **several hundred tons per year**[^20]. For ammonia catalysts, **DTU’s Chorkendorff group**—which published the landmark Ca-mediated nitrogen reduction result in *Nature Materials* in 2024[^21]—and **Stanford’s SUNCAT Center** provide rigorous verification and computational catalysis expertise. For lead-free perovskites, **NREL**, the **University of Queensland’s Wang Group**—holder of the certified **16.65%** tin-halide record[^22]—and **Tandem PV Inc.** anchor the path from absorber to tandem module.
 
 These partnerships are the subject of the next article in this series. The point here is methodological: a correction layer without experimental partners is an academic exercise, and experimental partners without corrected predictions are flying blind. The 5–12 GtCO₂/year figure is reachable only when the two are coupled, and only if each candidate is validated through the chain of synthesis, characterization, cell or module testing, and scale-up that turns a predicted crystal into a deployable technology.
+
+![From Correction Layer to Deployable Materials](images/five-materials-for-5-to-12-gtco2-year-10-five-year-roadmap.jpg)
+*The path to gigatonne impact runs through a staged chain of corrected predictions, partner synthesis, and device-scale validation.*
 
 ## Footnotes
 

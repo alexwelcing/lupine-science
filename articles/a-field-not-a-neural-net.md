@@ -7,6 +7,9 @@
 
 # A Field, Not a Neural Net
 
+![The synthesis validation bottleneck](images/a-field-not-a-neural-net-01-synthesis-funnel.jpg)
+*Predicted materials vastly outrun verified discoveries: GNoME’s 2.2 million crystals produced only 736 confirmed syntheses, while A-Lab’s headline success rate collapsed once duplicates were removed. Sources: Merchant et al., Nature 624, 80–85 (2023); Szymanski et al., Nature 624, 86–91 (2023); Leeman et al., PRX Energy 3, 011002 (2024).*
+
 The dominant narrative in computational materials science is that bigger models trained on more data will close the gap between prediction and synthesis. The evidence points elsewhere. Google DeepMind’s GNoME predicted 2.2 million crystals; only 736 had been independently synthesized by late 2023, a 0.2% validation rate[^1]. The A-Lab autonomous synthesis facility reported a 63% success rate, but subsequent critique showed that two-thirds of its “novel" targets were already-known disordered phases, collapsing the true discovery rate toward zero[^2]. The problem is not that the models are too small. It is that their errors have a shape — a systematic, low-dimensional geometry in the space of local atomic environments — and the field has been treating that shape as noise.
 
 Lupine Science starts from the opposite premise. The wrongness of universal machine-learning interatomic potentials (uMLIPs) is not random. It is a smooth function of coordination number, measurable from a handful of anchor observables, and correctable at runtime with analytic forces. This article explains the environment error field: what it is, how it is measured rather than learned, and why the distinction matters for climate-critical materials discovery.
@@ -16,6 +19,9 @@ Lupine Science starts from the opposite premise. The wrongness of universal mach
 A uMLIP such as CHGNet, MACE-MP-0, or M3GNet evaluates atomic energies in milliseconds, enabling screening campaigns that would be economically impossible with density functional theory (DFT). On bulk formation energies the best models reach mean absolute errors of 29–81 meV/atom, close to the intrinsic accuracy of the DFT functionals on which they were trained[^3]. But functional materials do not operate as bulk crystals. Ion conduction, catalytic turnover, and hydrolytic stability all depend on under-coordinated environments — vacancies, surfaces, and transition states — where uMLIPs fail most severely: defect formation energies carry large percentage errors, and ion migration barriers are underestimated by more than 60%[^4].
 
 The error is not an inescapable property of machine learning. It is a predictable consequence of training data. Databases such as the Materials Project trajectories, OMat24, and Alexandria are dominated by near-equilibrium, closed-shell bulk structures in which every atom sits close to its high-symmetry coordination. A smooth regressor trained on that distribution interpolates accurately at the bulk coordination but extrapolates with correlated bias into under-coordinated regimes: surfaces, vacancies, transition states, and grain boundaries[^5].
+
+![Errors are not noise — they have a shape](images/a-field-not-a-neural-net-02-coordination-error-curve.jpg)
+*Where atoms are under-coordinated — surfaces, vacancies, and transition states — universal potentials drift predictably away from reference energies, not randomly. Source: Deng et al., npj Comput. Mater. 11, 9 (2025).*
 
 Lupine formalizes this observation as the environment error field. For a given configuration, the total systematic energy error of a uMLIP is approximated by a sum over atoms of a per-atom error that depends only on the atom’s local coordination number $c$:
 
@@ -29,11 +35,17 @@ The critical difference between the Lupine field and previous correction strateg
 
 Lupine imposes the functional form. A cubic spline through three standard anchor observables — the (100) surface probing $c=8$, the (111) surface probing $c=9$, and the vacancy formation energy probing $c=11$ — is fixed by the boundary condition $P(12) = 0$. Linear continuation below $c=8$ predicts the error at $c=7$, which corresponds to the (110) surface energy. That observable is never fitted during field construction; it is predicted blind.
 
+![Three anchors fix the field](images/a-field-not-a-neural-net-03-field-anchors-spline.jpg)
+*Lupine measures the error field from three standard observables and fixes it to zero in the bulk; everything below the lowest anchor is a true blind prediction.*
+
 Each anchor samples a different coordination deficit relative to the bulk reference. Because the same coordination numbers recur across materials that share a crystal structure family, the spline transfers across properties within that family — surface energies, vacancy formation energies, and migration barriers — without additional DFT oracle calls. The correction is measured in the sense that geometry dictates the functional form and only the three knot values are empirical.
 
 ## The r = 0.906 Result
 
 The empirical test is strict blind prediction. Across 36 independent (model, material) combinations, the field predicts the signed error of the never-fitted (110) surface energy with Pearson correlation $r = 0.906$ ($p = 10^{-4}$, 95% confidence interval [0.82, 0.96]), using zero adjustable parameters.
+
+![r = 0.906 blind prediction](images/a-field-not-a-neural-net-04-blind-prediction-scatter.jpg)
+*Across 36 independent combinations, the measured field predicts blind (110) surface-energy errors with r = 0.906, surviving a structurally aware permutation null.*
 
 The per-model breakdown is informative. CHGNet v0.4.2 achieves $r = 0.86$ ($p < 0.01$). MACE-MP-0 small achieves $r = 0.90$ ($p < 0.01$). MACE-MPA-0, trained on the larger OMat24 non-equilibrium dataset, achieves $r = 0.96$ ($p < 0.001$). MACE-MP-0 medium is the one non-significant case at $r = 0.47$ ($p = 0.10$). That exception matters: it bounds the field’s domain rather than refuting it. The OMat24-trained model performs best because its training distribution already samples more under-coordinated configurations, supporting the hypothesis that the field captures a real training-data bias rather than an accidental correlation.
 
@@ -49,9 +61,15 @@ $$E_{\text{corr}} = -\sum_i P(c_i).$$
 
 Because the field is negative where the model underpredicts — the typical case for defects and surfaces — the correction raises under-coordinated configurations toward the reference energy. Forces follow analytically from the chain rule, $F_{\text{corr}} = -\nabla E_{\text{corr}} = \sum_i P'(c_i) \nabla c_i$, so molecular dynamics conserves energy and structure relaxations follow proper gradients. Force accuracy was verified against numerical differentiation to $10^{-6}$ eV/Å on rattled slabs.
 
+![Additive correction, analytic forces](images/a-field-not-a-neural-net-05-runtime-correction.jpg)
+*The correction layer sits beside any existing uMLIP, adds analytic forces, and keeps molecular dynamics conservative while adding only single-digit overhead.*
+
 The correction layer deploys beside any existing uMLIP calculator without retraining its weights. Coordination computation is a local neighbor-list operation, so the overhead is small: 15.6% on CHGNet steps in the current Python implementation. A compiled pair-style overlay in LAMMPS would reduce that below 1%, because coordination reduces to a few floating-point operations per neighbor pair. Even with the present overhead, a corrected uMLIP remains many orders of magnitude faster than DFT.
 
 Validation confirms selective correction. The fitted observables recover exactly in closure tests, demonstrating that the bond-counting field survives real structural relaxation. The blind (110) facet improves 6.5× for Ni (9.7% error to 1.5%) and 2.0× for Cu (28.0% to 13.7%). Bulk lattice constants are unchanged, because the correction vanishes identically at $c = 12$.
+
+![Accuracy without the DFT price tag](images/a-field-not-a-neural-net-09-speed-accuracy-panel.jpg)
+*Selective correction cuts surface-energy errors several-fold while leaving bulk lattice constants untouched, preserving uMLIP speed at near-DFT defect accuracy.*
 
 ## Machine-Checked Proof
 
@@ -64,6 +82,9 @@ The kernel-rejected claim episode illustrates why this matters. A statistical fi
 ## Where Correction Fails, Lupine Proves Impossibility
 
 A verification layer is only as useful as its boundary conditions. Lupine does not claim the field works everywhere; it proves where it cannot work. Three boundary conditions are formally established.
+
+![Where correction cannot work, Lupine proves it](images/a-field-not-a-neural-net-07-impossibility-boundaries.jpg)
+*Instead of silent failures, the verification layer returns machine-checked impossibility proofs for ranking inversions, noise-floor cells, and out-of-domain structures.*
 
 First, ranking inversions. When a model’s ordering disagrees with the reference ordering, a monotonicity impossibility lemma proves that no monotone correction can map both to their references simultaneously. The experimentalist receives not a vague uncertainty estimate but a machine-checked statement that the candidate cannot be rescued within the method.
 
@@ -84,13 +105,24 @@ The field measurement, runtime correction, and formal verification layers close 
 5. **Verify** — submit every quantitative claim to the Lean 4 kernel; ordering claims become inequalities, correction bounds become isotonic theorems, failures become impossibility lemmas.
 6. **Improve** — run the corrected calculator through the full pipeline. If correction succeeds, report corrected values with theorem certificates. If it fails, the impossibility proof tells the experimentalist why.
 
+![The six-step discovery loop](images/a-field-not-a-neural-net-06-discovery-loop.jpg)
+*Lupine closes field measurement, runtime correction, and machine-checked proof into a six-step loop that terminates in either a certified candidate or a provable reason to stop.*
+
 Against DFT, the loop offers comparable defect-energy accuracy at many orders of magnitude higher speed. Against raw uMLIPs, it replaces uncontrolled systematic bias with a bounded, measured correction. Against delta-ML and fine-tuning, it eliminates per-system retraining because the spline transfers within a crystal-structure family. The practical consequence: a $10^6$-structure screening campaign needs no DFT calls, yet every candidate carries a provable accuracy boundary.
 
 ## From Geometry to Climate Targets
 
-The field is not an abstract mathematical device. It maps directly onto the defects, surfaces, and transition states that determine climate-critical material performance. In cobalt-free lithium-manganese-rich cathodes, voltage fade is transition-metal migration from octahedral to tetrahedral sites — a hop whose barrier is underestimated when the transition state is under-coordinated. In earth-abundant halide solid electrolytes, ionic conductivity depends exponentially on the Li$^+$ migration barrier; a 60% barrier error changes predicted conductivity by roughly three orders of magnitude. In MOFs for direct air capture, humidity stability is governed by metal-linker hydrolysis at under-coordinated nodes. In electrochemical ammonia catalysts, N$\equiv$N cleavage occurs at surface defect sites. In lead-free perovskite absorbers, Sn$^{2+}$ oxidation and vacancy formation set the stability ceiling.
+The field is not an abstract mathematical device. It maps directly onto the defects, surfaces, and transition states that determine climate-critical material performance.
+
+![From geometry to gigatonnes](images/a-field-not-a-neural-net-08-climate-targets-map.jpg)
+*The defects that break climate-critical materials — ion hops, surface catalytic sites, hydrolysis nodes — are exactly the under-coordinated environments the field measures.*
+
+In cobalt-free lithium-manganese-rich cathodes, voltage fade is transition-metal migration from octahedral to tetrahedral sites — a hop whose barrier is underestimated when the transition state is under-coordinated. In earth-abundant halide solid electrolytes, ionic conductivity depends exponentially on the Li$^+$ migration barrier; a 60% barrier error changes predicted conductivity by roughly three orders of magnitude. In MOFs for direct air capture, humidity stability is governed by metal-linker hydrolysis at under-coordinated nodes. In electrochemical ammonia catalysts, N$\equiv$N cleavage occurs at surface defect sites. In lead-free perovskite absorbers, Sn$^{2+}$ oxidation and vacancy formation set the stability ceiling.
 
 Every one of these properties is a coordination-dependent defect property. Every one is therefore within the domain where a measured error field can correct the prediction, or where an impossibility proof can flag the candidate as unsupported. The next article in this series turns from the method to the targets: five material classes where correction plus verification could unlock 5–12 GtCO$_2$/year.
+
+![A field, not a neural net](images/a-field-not-a-neural-net-10-field-vs-neural-net.jpg)
+*Lupine replaces the arms race for bigger models with a measured field and formal verification, eliminating per-system retraining while raising the standard of evidence.*
 
 ## Footnotes
 

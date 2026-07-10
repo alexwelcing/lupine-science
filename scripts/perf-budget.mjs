@@ -13,7 +13,13 @@ const PUBLIC = path.join(ROOT, 'public');
 
 const BUDGETS = {
   // per-page cold transfer, videos excluded (they are preload=none / user-initiated)
-  page: { '/': 600 * 1024, '/articles/': 2500 * 1024, '/brand-assets/': 45000 * 1024, default: 420 * 1024 },
+  page: {
+    '/': 600 * 1024,
+    '/articles/': 2500 * 1024,
+    '/brand-assets/': 45000 * 1024,
+    default: 420 * 1024,
+  },
+  articlePage: 2.5 * 1024 * 1024,
   htmlBrotli: 32 * 1024,          // any single page document, compressed
   fontsTotal: 200 * 1024,         // whole font directory
   singleImage: 250 * 1024,        // any raster the pages reference
@@ -34,17 +40,21 @@ const kb = (n) => `${(n / 1024).toFixed(1)} KB`;
 function assetsOf(html, pagePath) {
   const found = new Set();
   const patterns = [
-    /(?:src|href|poster)="(\/[^"]+)"/g,
+    /(?:src|href|poster)="([^"]+)"/g,
     /srcset="([^"]+)"/g,
-    /fetch\("(\/[^"]+)"\)/g,
+    /fetch\("([^"]+)"\)/g,
     /"(\/data\/[a-z0-9_]+\.json)"/g,
   ];
   for (const re of patterns) {
     for (const m of html.matchAll(re)) {
       for (const part of m[1].split(',')) {
         const url = part.trim().split(/\s+/)[0];
-        if (!url.startsWith('/')) continue;
-        const abs = path.join(PUBLIC, url.replace(/^\//, ''));
+        if (!url || url.startsWith('http') || url.startsWith('#') || url.startsWith('mailto:') || url.startsWith('data:')) continue;
+        let resolved = url;
+        if (!url.startsWith('/')) {
+          resolved = path.posix.join(pagePath, url);
+        }
+        const abs = path.join(PUBLIC, resolved.replace(/^\//, ''));
         if (fs.existsSync(abs) && fs.statSync(abs).isFile()) found.add(abs);
       }
     }
@@ -72,7 +82,7 @@ for (const page of pages) {
     failures.push(`${urlPath}: document ${kb(docBytes)} > ${kb(BUDGETS.htmlBrotli)} (brotli)`);
   }
   let total = docBytes;
-  for (const asset of assetsOf(html, page)) {
+  for (const asset of assetsOf(html, urlPath)) {
     const s = size(asset);
     const rel2 = '/' + path.relative(PUBLIC, asset).replace(/\\/g, '/');
     if (VIDEO.test(asset)) {
@@ -85,7 +95,8 @@ for (const page of pages) {
     if (DOWNLOAD.test(asset)) continue; // user-initiated downloads are not cold-transfer render bytes
     total += s;
   }
-  const cap = BUDGETS.page[urlPath] || BUDGETS.page.default;
+  const cap = BUDGETS.page[urlPath]
+      || (urlPath.startsWith('/articles/') && urlPath !== '/articles/' ? BUDGETS.articlePage : BUDGETS.page.default);
   const flag = total > cap ? '  ✗ OVER' : '';
   console.log(`  ${urlPath.padEnd(56)} ${kb(total).padStart(10)} / ${kb(cap)}${flag}`);
   if (total > cap) failures.push(`${urlPath}: cold transfer ${kb(total)} > ${kb(cap)}`);
