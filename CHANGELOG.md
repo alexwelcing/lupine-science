@@ -27,6 +27,7 @@
 - [Merged] Social share component (article/video pages, OG/Twitter cards, accessible controls).
 - [Merged] Share component accessibility fix: desktop share list items now expose `role="listitem"` so Lighthouse's `aria-required-children` audit passes.
 - [Merged] Social share release fix: CSP `script-src` now allows same-origin modules; server renders no-JS fallback links; module initialization is idempotent; mobile disclosure hides the fallback list; focus, contrast, touch-target, and reduced-motion issues addressed. Reports at `docs/reviews/social-share-accessibility-privacy-review.md` and `docs/reviews/social-share-interactive-test.md`.
+- [Merged] Social share consolidated review: merged static + interactive findings into `docs/reviews/social-share-consolidated-review.md`; fixed `copyUrlToClipboard` document/navigator context and focus restoration so unit tests pass; `npm test`, `npm run lint`, `npm run build` all pass.
 - [In Progress] Downloadable proof packs per article (PDF, manifest, bibliography, UI, CI generation, golden-file diff tests).
 - [In Progress] Environmental expansion series beyond CO₂ (methane/refrigerants, critical minerals/PFAS, water/air purification, cement/concrete).
 - [In Progress] 10-visual-deck brief and design system for every article.
