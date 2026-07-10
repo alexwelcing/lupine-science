@@ -119,12 +119,22 @@ Then open the site and verify:
 
 ## Rollback
 
-Use the Cloudflare Pages deployments list to roll back production to a previous
-known-good deployment rather than editing the public page in a panic:
+Use the Cloudflare Pages deployments list to identify the target deployment, then roll back
+production to a previous known-good deployment rather than editing the public page in a panic.
+
+You can roll back from the Cloudflare dashboard (Deployments → three-dot menu on the target
+deployment → **Rollback to this deployment**) or via the Pages API:
 
 ```bash
-wrangler pages deployment list --project-name lupine-science
-wrangler pages deployment promote DEPLOYMENT_ID --project-name lupine-science
+export CLOUDFLARE_API_TOKEN="<token>"
+export CLOUDFLARE_ACCOUNT_ID="<account-id>"
+DEPLOYMENT_ID="<deployment-id>"
+
+curl -fsS -X POST \
+  "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/lupine-science/deployments/$DEPLOYMENT_ID/rollback" \
+  -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{}'
 ```
 
-After rollback, verify `https://lupine.science/` itself, not only Cloud Run.
+After rollback, verify `https://lupine.science/` itself, not only the `*.pages.dev` deployment URL.
