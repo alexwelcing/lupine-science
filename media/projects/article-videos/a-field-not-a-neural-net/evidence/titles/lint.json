@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "errorCount": 0,
+  "warningCount": 0,
+  "infoCount": 5,
+  "findings": [],
+  "filesScanned": 3,
+  "_meta": {
+    "version": "0.7.49",
+    "latestVersion": "0.7.48",
+    "updateAvailable": false
+  }
+}

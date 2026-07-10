@@ -1,0 +1,13 @@
+Okay, so Google DeepMind predicted 2.2 million crystals. Huge. But by late 2023, only 736 had been independently synthesized. The usual response is: build a bigger neural net. What if that is solving the wrong problem?
+
+Universal machine-learning potentials are already fast and pretty accurate for tidy bulk crystals. But real materials work at vacancies, surfaces, and transition states—places where atoms have fewer neighbors. There, errors jump, and ion-migration barriers can be underestimated by more than 60 percent.
+
+Here is the twist: that wrongness is not random. It has a shape. Lupine measures an environment error field based on coordination number—basically, how many neighboring atoms each atom has. No second neural net. No per-system retraining.
+
+Three standard measurements anchor the curve: two surface energies and one vacancy energy. Bulk coordination is fixed at zero error. Then the field predicts a fourth surface—the one-ten facet—blind. Across 36 model-and-material combinations, predicted and measured errors correlate at zero point nine oh six.
+
+Flip that field, add it beside the existing model, and under-coordinated structures move back toward reference energies. The forces are analytic, so simulations stay physically consistent. In tests, nickel surface error dropped from 9.7 to 1.5 percent, while bulk lattice constants stayed unchanged.
+
+And this layer does something most AI pipelines cannot: it can say no. Lean four proofs check every quantitative claim and flag ranking inversions, already-converged cases, or physics outside the field’s domain. One proof even caught a rounding tie and corrected “27 improvements” to 26.
+
+That matters for battery ion hops, carbon-capture frameworks, ammonia catalysts, and perovskite stability—all controlled by under-coordinated defects. So the goal is not more confident predictions. It is fast predictions with measured corrections, certified boundaries, and a provable reason to stop.

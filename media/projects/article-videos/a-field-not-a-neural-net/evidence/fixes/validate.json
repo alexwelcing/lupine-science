@@ -1,0 +1,433 @@
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "contrast": [
+    {
+      "time": 11.729,
+      "selector": "p.kicker",
+      "text": "Prediction gap · 2023",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 11.729,
+      "selector": "p.meta",
+      "text": "GNOME · NATURE 624 · 2023",
+      "ratio": 3.49,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(231,231,239)"
+    },
+    {
+      "time": 11.729,
+      "selector": "span.line",
+      "text": "2.2 million predicted.",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 11.729,
+      "selector": "em",
+      "text": "736 synthesized.",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 11.729,
+      "selector": "p.stat",
+      "text": "2.2M",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 11.729,
+      "selector": "p.label",
+      "text": "Predicted crystal candidates",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 11.729,
+      "selector": "p.caption",
+      "text": "What if a bigger model is solving the wrong proble",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 35.186,
+      "selector": "p.kicker",
+      "text": "Measured field",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 35.186,
+      "selector": "p.meta",
+      "text": "COORDINATION → ERROR GEOMETRY",
+      "ratio": 3.58,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(234,234,240)"
+    },
+    {
+      "time": 35.186,
+      "selector": "span.line",
+      "text": "Wrongness is not random.",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 35.186,
+      "selector": "em",
+      "text": "It has a shape.",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 35.186,
+      "selector": "p.stat.small",
+      "text": "P(c)",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 35.186,
+      "selector": "p.label",
+      "text": "Measured environment error field",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 35.186,
+      "selector": "p.caption",
+      "text": "Coordination is neighbor count. No second neural n",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 58.644,
+      "selector": "p.kicker",
+      "text": "Blind evidence",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 58.644,
+      "selector": "p.meta",
+      "text": "(110) NEVER FITTED · n = 36",
+      "ratio": 4.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 58.644,
+      "selector": "p.stat.small",
+      "text": "r = 0.906",
+      "ratio": 6.27,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(238,239,242)"
+    },
+    {
+      "time": 58.644,
+      "selector": "p.label",
+      "text": "Predicted vs measured error",
+      "ratio": 6.17,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(236,237,242)"
+    },
+    {
+      "time": 58.644,
+      "selector": "p.stat.small",
+      "text": "n = 36",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 58.644,
+      "selector": "p.label",
+      "text": "Model × material combinations",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 82.102,
+      "selector": "p.kicker",
+      "text": "Runtime correction",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 82.102,
+      "selector": "p.meta",
+      "text": "ADDITIVE · ANALYTIC · SELECTIVE",
+      "ratio": 3.63,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(235,236,241)"
+    },
+    {
+      "time": 82.102,
+      "selector": "h1.headline",
+      "text": "Flip the field. Add it beside the model.",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 82.102,
+      "selector": "p.energy",
+      "text": "RAW uMLIPENERGY",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 82.102,
+      "selector": "p.operator",
+      "text": "+",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 82.102,
+      "selector": "p.correction",
+      "text": "−ΣP(cᵢ)MEASURED FIELD",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 82.102,
+      "selector": "p.result",
+      "text": "CORRECTEDREFERENCE BAND",
+      "ratio": 3.61,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(90,138,110)",
+      "bg": "rgb(245,244,244)"
+    },
+    {
+      "time": 82.102,
+      "selector": "p.stat",
+      "text": "9.7% → 1.5%",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 82.102,
+      "selector": "p.label",
+      "text": "NI SURFACE ERROR · BULK UNCHANGED",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 82.102,
+      "selector": "p.caption",
+      "text": "Analytic forces keep simulations physically consis",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 105.559,
+      "selector": "p.kicker",
+      "text": "Climate payoff",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 105.559,
+      "selector": "p.meta",
+      "text": "ONE DEFECT GEOMETRY · FOUR CONTEXTS",
+      "ratio": 3.74,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(239,239,242)"
+    },
+    {
+      "time": 105.559,
+      "selector": "h1.headline",
+      "text": "Under-coordinated defects control the work.",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 105.559,
+      "selector": "div.context",
+      "text": "ION HOPBattery migration barrier",
+      "ratio": 6.22,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(237,238,241)"
+    },
+    {
+      "time": 105.559,
+      "selector": "span",
+      "text": "Battery migration barrier",
+      "ratio": 15.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(245,244,244)"
+    },
+    {
+      "time": 105.559,
+      "selector": "div.context",
+      "text": "MOF HYDROLYSIS NODECarbon-capture framework",
+      "ratio": 6.68,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(247,246,244)"
+    },
+    {
+      "time": 105.559,
+      "selector": "span",
+      "text": "Carbon-capture framework",
+      "ratio": 16.39,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 105.559,
+      "selector": "div.context",
+      "text": "CATALYTIC SURFACE SITEAmmonia catalyst",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 105.559,
+      "selector": "span",
+      "text": "Ammonia catalyst",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 105.559,
+      "selector": "div.context",
+      "text": "VACANCY STABILITYPerovskite stability",
+      "ratio": 6.81,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,248,246)"
+    },
+    {
+      "time": 105.559,
+      "selector": "span",
+      "text": "Perovskite stability",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 105.559,
+      "selector": "p.caption",
+      "text": "Not more confident predictions—measured correction",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    }
+  ],
+  "contrastFailures": 0,
+  "_meta": {
+    "version": "0.7.48",
+    "latestVersion": "0.7.48",
+    "updateAvailable": false
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "duration": 117.288,
+  "samples": [
+    10,
+    15.7,
+    20,
+    32.58,
+    35,
+    47.46,
+    50,
+    66.08,
+    83.66,
+    100.22,
+    111.78,
+    116.5
+  ],
+  "tolerance": 2,
+  "strict": true,
+  "collapseStatic": true,
+  "motionSpec": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/a-field-not-a-neural-net/index.motion.json",
+  "motionSamples": 300,
+  "ok": true,
+  "errorCount": 0,
+  "warningCount": 0,
+  "infoCount": 0,
+  "issueCount": 0,
+  "totalIssueCount": 0,
+  "truncated": false,
+  "issues": [],
+  "_meta": {
+    "version": "0.7.48",
+    "latestVersion": "0.7.48",
+    "updateAvailable": false
+  }
+}
