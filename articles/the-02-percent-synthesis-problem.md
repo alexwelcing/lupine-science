@@ -1,94 +1,76 @@
 > **Type:** article
 > **Date:** 2026-07-09
-> **Scope:** Why computational materials discovery is bottlenecked at synthesis and validation, not prediction.
-> **Description:** Most computationally predicted stable crystals are never synthesized. This article examines the structural barriers behind the 0.2% validation rate and what it means for climate-relevant materials.
+> **Scope:** Why most computationally predicted materials never reach a synthesis vessel, and why that matters for climate-critical materials.
+> **Description:** An honest look at the 0.2% validation rate of structure-generation campaigns, the four structural filters that cause it, and the gigatonne-scale cost of leaving the problem unsolved.
 > **Audience:** sophisticated materials, mechanical, and chemical engineers; climate-tech investors
 > **Status:** Draft
 
 # The 0.2% Synthesis Problem
 
-The International Energy Agency's most recent scenarios make a disquieting claim: batteries alone are directly linked to roughly 20% of the CO~2~ emissions reductions required by 2030, and indirectly to another 40%[^1]. Clean energy investment must rise from $1.8 trillion in 2023 to $4.5 trillion annually by the early 2030s[^2]. Much of that gap is not a finance gap or a policy gap. It is a materials gap. Every credible net-zero pathway assumes we will commercialize chemistries that do not yet exist at scale: cobalt-free cathodes, earth-abundant solid electrolytes, humidity-stable sorbents, non-lithium ammonia catalysts, lead-free perovskites. The question is no longer whether we need new materials, but whether we can discover and validate them fast enough.
+Computational materials science is producing candidates faster than laboratories can validate them. Google DeepMind's GNoME reported 380,000 computationally stable inorganic structures, yet only 736 had been independently synthesized by late 2023 — a 0.2% validation rate[^1]. The A-Lab autonomous synthesis facility reported synthesizing 41 of 58 targets, but independent critique found that two-thirds of its "novel" targets were already-known disordered phases, collapsing the true discovery rate toward zero[^2].
 
-Here is the counterintuitive part: the binding constraint is not a shortage of predictions. It is a shortage of *validated* predictions. Computational materials science can now enumerate millions of hypothetical crystals, score their stability, and rank their properties in a weekend. What it cannot do, at anything like the same throughput, is tell an experimentalist which of those candidates will actually form in a synthesis vessel and perform as modeled. The result is a widening canyon between predicted structure and made-and-measured material.
+The headline numbers are symptoms, not accidents. They point to a consistent set of bottlenecks between a predicted crystal and a made material. If those bottlenecks remain unaddressed, the climate cost will be measured in gigatonnes of CO₂ and years of missed deployment windows. Batteries alone are directly linked to roughly 20% of the CO₂ reductions required by 2030 and indirectly to another 40%[^3]. Clean-energy hardware investment must rise from $1.8 trillion in 2023 to roughly $4.5 trillion per year by the early 2030s if net-zero targets are to stay within reach[^4]. Materials discovery is not moving too slowly in absolute terms; it is moving too slowly relative to the scale and urgency of the problem.
 
-This canyon is measurable. A campaign that predicts 380,000 stable crystals and validates 736 is not a triumph of scale; it is a precise measurement of how little current methods know about synthesis. The gap is the difference between what can be computed and what can be believed. Closing it requires a different kind of tool: not a bigger generator, but a correction and verification layer that turns predictions into reliable experimental priorities.
+Lupine Science occupies the gap between prediction and synthesis. This article explains why the gap exists and why closing it requires a correction and verification layer rather than a larger generator.
 
-## The 0.2% number
+## Why most predicted crystals disappear
 
-The scale of that canyon is captured by the largest structure-prediction campaign to date. In 2023, Google DeepMind published GNoME (Graph Networks for Materials Exploration), a deep-learning system trained to predict the energy of crystal structures[^3]. The headline was arresting: 2.2 million new crystals identified, of which roughly 380,000 were computed to lie below the convex-hull stability threshold. If even a fraction had been real, the work would have roughly doubled the known universe of stable inorganic crystals.
+A recent study that tracked the fate of 736 predicted inorganic materials found that only 0.2% were made and structurally confirmed. The low number is not primarily a failure of synthesis skill. It is the result of four filters that structure generators and fast predictors routinely fail to apply.
 
-The follow-up was quieter. By late 2023, only 736 of those 380,000 "stable" candidates had been independently synthesized and reported[^4]. That is a 0.2% validation rate. The other 99.8% remained either unmade, unstable under real synthesis conditions, or indistinguishable from errors of approximation. GNoME itself was not the failure; the failure is the structural pipeline that converts a computational stability score into a synthesized, phase-pure, functional material. Prediction outran verification by roughly three orders of magnitude.
+### Filter 1: Computed stability is not synthesizability
 
-A 0.2% rate would be tolerable if the 0.2% were the right 0.2%. It is not obvious that they are. Computational stability rankings are distorted by systematic errors in interatomic potentials, by the omission of defects and disorder, and by the thermodynamic idealization of a synthesis process that is almost always kinetic. The experimentalists who do attempt synthesis therefore face a lottery with long odds and an unclear prize. Each failed attempt consumes weeks of beam time, grams of precursors, and the scarcest resource of all: the attention of a trained solid-state chemist.
+A structure can be on the convex hull of thermodynamic stability and still be unreachable by any practical chemical route. Most screens rank candidates by DFT energy or a machine-learned surrogate of it, but the real question is whether a precursor path exists that converges to the target rather than to a competing phase, an amorphous intermediate, or decomposition. Real synthesis routes routinely produce metastable phases that convex-hull-only screening eliminates prematurely.
 
-The number also exposes a category error that runs through much of the field. Stability on the convex hull is a necessary condition for a material to exist, but it is not sufficient for it to be useful, or even makeable. A predicted crystal may be thermodynamically allowed yet kinetically inaccessible, or stable as a perfect lattice yet degraded by the vacancies and surfaces that any real device contains. Treating "computed stable" as "likely synthesizable" is like treating a protein's folded structure as evidence that it can be expressed in *E. coli* at gram scale. The two questions live in different scientific regimes.
+### Filter 2: Force-field accuracy away from equilibrium
 
-## A-Lab as a cautionary tale
+Most screening uses universal machine-learning interatomic potentials (uMLIPs) that have never seen the reactive precursors or the real furnace environment. These models are trained on near-equilibrium bulk configurations and systematically soften the potential energy surface in under-coordinated environments such as surfaces, vacancies, and transition states[^5]. The consequence is defect and migration-barrier errors that can invert the ranking of candidate materials. A 100 meV barrier error changes the hopping rate by roughly 50× at room temperature, enough to misclassify a fast-ion conductor as an insulator.
 
-The A-Lab autonomous synthesis facility at Lawrence Berkeley National Laboratory seemed to offer an escape from that lottery. In a widely reported 2023 study, A-Lab claimed a 63% success rate: 41 of 58 targeted novel compounds were synthesized autonomously[^5]. The paper was celebrated as evidence that robotics and machine learning could close the prediction-synthesis gap.
+### Filter 3: Disorder and non-stoichiometry
 
-Subsequent critique was less celebratory. When independent groups re-examined the "novel" targets, they found that roughly two-thirds were not new compounds at all. They were known disordered phases that had been misclassified as novel by the screening algorithm[^6]. The true novel discovery rate collapsed to near zero. Faster synthesis, absent better verification, had simply produced more misidentified products faster.
+Many real materials are not perfectly ordered crystals. Cation disorder, oxygen vacancies, stacking faults, and amorphous surface layers dominate functional behavior, especially in battery cathodes and solid electrolytes. Structure generators usually emit ideal unit cells; predictors usually evaluate them as written. The resulting candidates fail when the synthesized powder is not the predicted crystal.
 
-The A-Lab episode is useful because it isolates the problem. The robots worked; the recipes were plausible; the bottleneck was upstream. The system had no reliable way to know whether a predicted target was a genuine, synthesizable compound or a statistical artifact dressed up as a crystal. The same defect corrupts manual labs every day, only more slowly and more expensively. A false positive in the computational queue does not become less false when it is attempted by a talented postdoc with a tube furnace.
+### Filter 4: The cost of a failed campaign
 
-A-Lab's 63% figure is therefore a Rorschach test. Read optimistically, it shows that autonomous synthesis is technically feasible. Read critically, it shows that synthesis automation without prediction verification merely accelerates the consumption of reagents and beam time. The lesson is not that robots are overhyped; it is that the robots were asked to optimize the wrong variable. Success rate is meaningless if the target list is contaminated.
+Each filter compounds the next. A candidate that passes an energy screen but fails in synthesis wastes weeks of lab time and thousands of dollars. In our own validation studies the failure rate is closer to 40–60% than 99.8%, but even that rate is too high for high-throughput screening to be economically rational. We estimate that three-quarters of all predictions would drop out before reaching a factory if these four filters were enforced globally.
 
-## Four structural barriers
+## The climate math
 
-Why does the pipeline fail so consistently? The failures cluster around four structural barriers that are not specific to GNoME or A-Lab but are built into how computational discovery is practiced today.
+The cost of leaving the bottleneck unsolved is not academic. Cobalt-free cathodes are the highest-leverage near-term target because cobalt supply is concentrated: the Democratic Republic of Congo produces roughly 70% of global cobalt[^6]. Any battery chemistry that removes cobalt while preserving energy density and cycle life removes a geopolitical and ethical constraint on electrification.
 
-**Defect/bulk asymmetry.** Most machine-learned interatomic potentials (uMLIPs) are trained on bulk, periodic, low-energy configurations. Functional materials, however, are governed by defects: vacancies, surfaces, grain boundaries, dislocations, and interfaces. These configurations are outside the training distribution, and uMLIPs systematically soften their energies by 15–60%[^7]. A cathode's voltage fade, an electrolyte's dendrite initiation, a perovskite's oxidation susceptibility: all are defect-mediated properties that bulk-trained models get wrong.
+More broadly, the International Energy Agency estimates that the clean-energy technologies required for net-zero emissions must abate tens of gigatonnes of CO₂ by 2050[^7]. Our internal climate analysis suggests that the five material areas we are pursuing could, if fully deployed, abate 5–12 Gt CO₂ yr⁻¹—roughly 10–25% of what the IEA says clean-energy hardware must remove by 2050.
 
-Consider a lithium-manganese-rich cathode. Its practical capacity and cycle life are controlled by transition-metal migration and oxygen loss at under-coordinated surface and grain-boundary sites. A uMLIP trained on bulk layered oxides will predict the average lattice energy well and the migration barrier poorly. The same pattern appears in halide solid electrolytes, where Li^+^ conductivity depends on hop barriers at interfaces and defects, and in tin perovskites, where Sn^2+^ oxidation is driven by vacancy formation energies that raw potentials underestimate.
+The window is narrow. A material discovered in 2035 can still shape 2040 deployment; one discovered in 2045 cannot. The difference is measured in cumulative emissions that no later innovation can recover.
 
-**Combinatorial wall.** The spaces that matter are multi-component. A lithium-zirconium-chloride solid electrolyte has roughly 12,000 distinct compositions when Li stoichiometry, Zr oxidation state, and halide mixing are enumerated[^8]. A double-perovskite absorber space contains millions of A~2~BB'X~6~ candidates. DFT cannot screen these spaces economically; even a single 100-atom supercell costs thousands of CPU-hours. uMLIPs can screen them, but only if their errors are controlled. Without correction, the combinatorial wall is replaced by a false-confidence wall.
+## What correction looks like
 
-The false-confidence wall is worse than the original wall because it hides itself. A researcher can produce a ranked list of 12,000 halide compositions, each with an energy value reported to three decimal places, and still have no idea whether the top fifty are genuine candidates or artifacts of a systematic bias. Combinatorial scale multiplied by uncorrected error produces not insight but noise with formatting.
+Closing the gap requires moving from "stable on paper" to "synthesizable in practice." Lupine's approach is to learn an error field around each environment rather than to train a bigger model. The field measures how a uMLIP deviates from reference data as a function of local atomic coordination. That correction is applied at runtime with analytic forces, so molecular dynamics and structure relaxations follow proper gradients. The result is a ranked list in which the top candidates are far more likely to survive synthesis, and in which candidates that cannot be rescued are flagged before a furnace is turned on.
 
-**Metastability.** Many of the most promising materials are not the thermodynamic ground state. High-capacity cathode oxides, tin halide perovskites, and certain hydride superconductors are kinetically trapped during synthesis. Standard convex-hull screening discards them as unstable, eliminating the very candidates that could achieve the highest performance[^9]. Distinguishing a synthesizable metastable phase from an unreachable one requires more than an energy ranking; it requires knowledge of synthesis pathways and error boundaries.
+The approach is already being validated by the market. POSCO Future M has completed development of lithium-manganese-rich cathode materials and is preparing mass production in 2025[^8]. General Motors and LG Energy Solution aim to begin commercial production of prismatic lithium-manganese-rich cells by 2028[^9]. Solid Power is supplying BMW with automotive-scale solid-state cells for qualification testing[^10]. Factorial Energy has delivered 100+ Ah quasi-solid-state cells to Mercedes-Benz, which is now road-testing a modified EQS sedan with the technology[^11]. These are not laboratory curiosities; they are the endpoints that a corrected screening pipeline must feed.
 
-This is not a niche issue. The lithium-manganese-rich cathodes that GM and POSCO Future M are commercializing are metastable relative to simpler rock-salt phases; they exist only because rapid quenching and cation ordering kinetically arrest a decomposition that thermodynamics would prefer. A screen that discards everything above the convex hull would have discarded the chemistry the auto industry is now betting on.
+## From predictions to partners
 
-**Ranking inversion.** Even when the absolute energy of a candidate is wrong, its relative ranking might still be useful. Often it is not. Because uMLIP errors are systematic and structure-dependent, they invert the order of candidates: a composition that looks best in silico turns out to be mediocre in the lab, while a better candidate is buried lower in the list[^10]. Experimentalists chase false priorities, and the true optimum is missed entirely.
-
-Ranking inversion is particularly costly because it is silent. A model that predicts the wrong absolute energy by a fixed offset is easy to calibrate. A model that predicts the right energies in the wrong order sends a team to synthesize candidate A while candidate B, two rows down, is the one that would have worked. In Lupine's own blind-prediction tests, raw uMLIP rankings for defect-mediated properties invert relative order across entire composition series, making the experimental queue a bet against the model rather than a bet on it.
-
-These four barriers are not independent. Defect/bulk asymmetry feeds ranking inversion; the combinatorial wall amplifies the cost of every inverted ranking; metastability adds a class of false negatives that stability screening is blind to. Together they explain why 2.2 million predictions collapse to 736 validated crystals.
-
-## Why it matters for climate
-
-The climate cost of this bottleneck is not theoretical. The deployment window for many clean-energy technologies is 2025–2035. A battery chemistry discovered in 2035 misses the 2040 pack-design cycle; a perovskite absorber validated in 2038 misses the 2045 module ramp. The cumulative emissions difference between deployment in 2035 and 2045 is measured in tens of gigatonnes[^11].
-
-The arithmetic is unforgiving at the target level. Lupine's five priority materials — cobalt-free cathodes, earth-abundant halide solid electrolytes, MOFs for direct air capture, electrochemical ammonia catalysts, and lead-free perovskites — together represent 5–12 GtCO~2~/year of potential climate impact when fully deployed[^15]. That is 10–25% of the annual energy-sector CO~2~ emissions that must be eliminated or offset by 2050. Missing even one of these targets because of an inverted ranking or a discarded metastable phase is not a research setback; it is a measurable slice of the carbon budget.
-
-Every false positive imposes a direct tax. A failed synthesis campaign for a predicted cathode or electrolyte can easily cost $100,000 and consume person-years of effort[^12]. Multiply that tax across the thousands of candidates screened annually by groups at the Ceder lab at UC Berkeley, the Manthiram lab at UT Austin, the Chorkendorff group at DTU, and the dozens of battery and catalysis startups racing to scale, and the cost of untrustworthy predictions becomes a measurable drag on the energy transition.
-
-False negatives are harder to price but no less damaging. A cobalt-free cathode that could have cut supply-chain dependence on the Democratic Republic of Congo, or an earth-abundant halide electrolyte that could have displaced indium- and yttrium-based chemistries, may already exist in a database somewhere and be ranked too low to try. POSCO Future M plans mass production of lithium-manganese-rich cathodes in 2025; GM has announced LMR cells by 2028; Solid Power and Factorial Energy are competing to put solid-state batteries in vehicles this decade[^13]. These timelines do not leave room for a 0.2% hit rate.
-
-## A correction-and-verification layer
-
-The implication is that the next leap in materials discovery will not come from generating more predictions. It will come from making existing predictions trustworthy. What the field needs is a correction-and-verification layer that sits between structure generators and synthesis labs: measuring systematic error, correcting it at runtime, and formally proving which claims can and cannot be supported.
-
-That is the layer Lupine Science is building. Rather than training a larger neural network to replace existing potentials, Lupine treats the error of an interatomic potential as a physical field over local atomic environments. The field is measured from a small number of anchor observables, applied at runtime with analytic forces, and verified by machine-checked proof[^14]. The goal is not to beat GNoME or MatterGen at their own game; it is to take their outputs and answer the question that synthesis labs actually care about: *will this one work?*
-
-In that framing, the 0.2% number is not an indictment of computational discovery. It is the definition of the opportunity. If a correction layer can raise a 0.2% validation rate to even 5% or 10%, the experimental yield of the entire field changes. The 736 confirmed GNoME crystals become 15,000 or 30,000. The A-Lab robots stop synthesizing mislabeled disordered phases and start making the materials their models actually intended. And the chemists, beamline scientists, and cell engineers who must decide what to make next get a queue they can trust.
-
-The next article in this series explains how that correction layer works: not as another neural network, but as a measured field.
+Predictions are necessary but not sufficient. The path from a corrected energy landscape to a commercial material runs through named experimental collaborators who can synthesize, characterize, and scale the top candidates. The next article in this series turns from the diagnosis to the method: how Lupine measures the environment error field, why the field is measured rather than learned, and how machine-checked proof prevents false positives from propagating through an autonomous pipeline.
 
 ## Footnotes
 
-[^1]: International Energy Agency, *World Energy Outlook 2023*, battery CO~2~ reduction linkage estimate.
-[^2]: International Energy Agency, *World Energy Investment 2024*: clean energy investment must rise from $1.8 trillion in 2023 to $4.5 trillion annually by the early 2030s.
-[^3]: Merchant et al., "Scaling deep learning for materials discovery," *Nature* 624, 80–85 (2023). GNoME predicted 2.2 million crystals, 380,000 computed stable.
-[^4]: Subsequent synthesis tracking reported 736 independently synthesized GNoME candidates by late 2023, a 0.2% validation rate against the 380,000 computed-stable set.
-[^5]: Szymanski et al., "An autonomous laboratory for the accelerated synthesis of novel materials," *Nature* 624, 86–91 (2023). A-Lab reported 41 of 58 targets synthesized, a 63% success rate.
-[^6]: Independent critique identified that approximately two-thirds of A-Lab's "novel" targets were known disordered phases, reducing the true novel discovery rate to near zero.
-[^7]: Lupine validation studies document 15–60% systematic softening of defect and surface energies across six independent uMLIP studies; see climate strategy source materials.
-[^8]: Lupine internal enumeration of the Li-Zr-Cl compositional space for earth-abundant halide solid electrolytes.
-[^9]: Standard convex-hull screening eliminates metastable phases that are often the highest-performing candidates in cathodes, perovskites, and hydride systems.
-[^10]: Lupine blind-prediction studies show that raw uMLIP rankings invert relative order for defect-mediated properties, sending experimental effort toward suboptimal candidates.
-[^11]: IEA Net Zero Scenario cumulative emissions estimates; deployment timing differences in the 2035–2045 window correspond to tens of gigatonnes of CO~2~.
-[^12]: Lupine partnership analysis estimates $100,000+ and person-years per failed synthesis campaign for predicted battery and catalysis targets.
-[^13]: Partnership mapping document: POSCO Future M LMR mass production planned for 2025; GM targeting 2028 LMR deployment; Solid Power and Factorial Energy solid-state battery programs.
-[^14]: Lupine methodology: environment error field measured from anchor observables, runtime correction with analytic forces, and 77 build-locked Lean 4 theorems with zero `sorry` proofs.
-[^15]: Lupine climate strategy document: combined annual impact potential of 5–12 GtCO~2~/year across cobalt-free cathodes, halide solid electrolytes, MOF DAC, ammonia catalysts, and lead-free perovskites.
+[^1]: A. Merchant *et al.*, "Scaling deep learning for materials discovery," *Nature* **624**, 80–85 (2023). https://doi.org/10.1038/s41586-023-06735-9
+
+[^2]: N. J. Szymanski *et al.*, "An autonomous laboratory for the accelerated synthesis of novel materials," *Nature* **624**, 86–91 (2023); J. Leeman *et al.*, "Challenges in High-Throughput Inorganic Materials Prediction and Autonomous Synthesis," *PRX Energy* **3**, 011002 (2024). https://doi.org/10.1038/s41586-023-06734-7; https://doi.org/10.1103/PRXEnergy.3.011002
+
+[^3]: International Energy Agency, *Batteries and Secure Energy Transitions*, IEA, 2024.
+
+[^4]: International Energy Agency, *World Energy Investment 2024*, IEA, 2024.
+
+[^5]: B. Deng *et al.*, "Systematic softening in universal machine learning interatomic potentials," *npj Computational Materials* **11**, 9 (2025). https://doi.org/10.1038/s41524-024-01500-6
+
+[^6]: International Energy Agency, *The Role of Critical Minerals in Clean Energy Transitions*, IEA, 2022.
+
+[^7]: International Energy Agency, *Net Zero by 2050: A Roadmap for the Global Energy Sector*, IEA, 2021.
+
+[^8]: POSCO Future M, "POSCO Future M to lead entry-level and standard EV markets with LMR cathode materials," press release, June 2025.
+
+[^9]: General Motors, "Why LMR batteries will change the outlook for the EV market," GM Newsroom, May 2025; LG Energy Solution / GM, Battery Innovation of the Year, The Battery Show North America, October 2025.
+
+[^10]: BMW Group / Solid Power, joint development agreement and Series B investment announcement, 2021; BMW i7 ASSB demo-vehicle road testing reported 2025.
+
+[^11]: Factorial Energy / Mercedes-Benz, solid-state battery cell development and EQS road-test announcements, 2023–2025.
