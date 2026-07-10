@@ -38,7 +38,7 @@
 - [Merged] Storyboard / beat sheets for: The 0.2% Synthesis Problem, A Field Not a Neural Net, Five Materials That Could Unlock 5–12 GtCO₂/Year, From Predicted Crystal to Commercial Cell, Investing in the Trust Layer.
 - [In Progress] HyperFrames compositions, kinetic titles, data/chart animations, transitions, renders, and frame reviews for the remaining article videos.
 - [Live] `a-field-not-a-neural-net`: director-approved 720p MP4 and poster are now served from `https://lupine.science/videos/`, article page links to the narrated version with `VideoObject` schema, and live smoke tests pass.
-- [Staged] `the-02-percent-synthesis-problem`: P0/P1 fixes approved by independent re-review (t_b2172012), 720p web encode (1.53 MB/min) and WebVTT captions generated, article page links to the narrated version with `VideoObject` schema; awaiting production deploy and live smoke test.
+- [Live] `the-02-percent-synthesis-problem`: P0/P1 fixes approved by independent re-review (t_b2172012), 720p web encode (1.53 MB/min) and WebVTT captions generated, article page links to the narrated version with `VideoObject` schema, production deploy and live smoke test passed.
 - [In Progress] HeyGen animation workflow and reviewer/director training.
 
 ---
