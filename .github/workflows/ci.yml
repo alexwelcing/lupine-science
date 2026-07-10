@@ -52,6 +52,9 @@ jobs:
       - name: Install PDF verification tools
         run: sudo apt-get update && sudo apt-get install --yes poppler-utils
 
+      - name: Install Playwright browsers for proof-pack PDF rendering
+        run: npx playwright install chromium
+
       - name: Generate proof pack
         run: npm run proofpack
 
