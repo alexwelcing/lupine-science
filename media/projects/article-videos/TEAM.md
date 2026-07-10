@@ -30,15 +30,19 @@
   - Create `/videos/` index page.
   - Add "Watch narrated version" links to articles.
   - Implement lazy video lightbox and `<link rel="alternate">` tags.
+  - Publish the native caption track, semantic transcript, poster alt text, and accessible player/link name required by the [accessibility policy](docs/accessibility-requirements.md).
 - **Deliverables:** HTML/JS/CSS updates in lupine-science.
 
 ## QA (coder profile)
 - **Tasks:**
   - Render each composition and inspect MP4.
-  - Check captions, audio sync, website perf budgets.
+  - Check the final web encode against the [accessibility policy](docs/accessibility-requirements.md), including captions, transcript, poster alt text, and keyboard access.
+  - Check audio sync and website perf budgets.
   - Run `npm run verify` and `npm run smoke`.
 
 ## Workflow
+
+Render artifacts follow the [file naming and versioning convention](docs/file-naming-and-versioning.md). Create each video's append-only changelog from [the changelog template](templates/video-changelog-template.md).
 
 1. Director green-lights article priority order.
 2. Scriptwriter delivers script + cues.
@@ -47,3 +51,7 @@
 5. QA renders and reviews.
 6. Web integrator publishes links.
 7. Director signs off.
+
+## High-leverage design and research tasks
+
+Flagship scenes, reusable visual systems, consequential research conclusions, and high-cost architecture choices use the [Sol–Fable challenge loop](process/task-instructions.md) before implementation is considered approved. Start from the [copy-ready task template](process/challenge-loop-task-template.md): Sol (`animator`) proposes and clears detailed requirements; Fable (`artdirector` / `reviewer`) sets and protects the bar; the director intervenes only on deadlock, contradiction, or material scope/risk change. Completion summaries must include the template's `feedback` field.

@@ -15,6 +15,9 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers — Lupine Science">
+  <meta name="twitter:description" content="Methane and hydrofluorocarbon refrigerants are the largest non-CO₂ climate levers; this article explains why both are materials-limited and how Lupine's correction-and-verification layer changes the discovery geometry.">
+  <meta name="twitter:image" content="https://lupine.science/og-lupine-science.png">
   <meta name="theme-color" content="#faf9f6">
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
   <link rel="icon" type="image/png" href="/lupine-science-icon.png">
@@ -22,6 +25,7 @@
   <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/articles/styles.css">
+  <link rel="stylesheet" href="/components/share/share.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers","description":"Methane and hydrofluorocarbon refrigerants are the largest non-CO₂ climate levers; this article explains why both are materials-limited and how Lupine's correction-and-verification layer changes the discovery geometry.","datePublished":"2026-07-16","url":"https://lupine.science/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/","mainEntityOfPage":"https://lupine.science/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/","image":"https://lupine.science/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/hero.jpg","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png"}}}</script>
 </head>
 <body>
@@ -69,8 +73,9 @@
     <article class="article">
       
 <h1>Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers</h1>
+<p class="article-kicker" aria-label="Article type">article</p>
 <p class="article-deck">How corrected atomistic predictions can accelerate low-temperature methane conversion and the discovery of low-GWP refrigerants.</p>
-<div class="article-byline"><time datetime="2026-07-16">July 16, 2026</time><span class="byline-sep" aria-hidden="true">·</span><span class="article-status">Draft</span></div>
+<ul class="article-byline" aria-label="Publication details"><li><time datetime="2026-07-16">July 16, 2026</time></li> <li aria-hidden="true"><span class="byline-sep" aria-hidden="true">·</span></li> <li><span class="article-status">Draft</span></li></ul>
 <figure class="article-hero" aria-labelledby="hero-caption">
   <picture>
     <img src="/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/hero.jpg" alt="" width="1280" height="720" loading="eager" fetchpriority="high" decoding="async">
@@ -150,12 +155,8 @@
   <figcaption>Tens of billions of dollars in annual product markets and 2030–2047 policy deadlines make fast, verified materials discovery an economic and climate imperative. Sources: Methanol Institute; UNEP Global Methane Assessment, 2021; UNEP / US EPA Kigali Amendment impact estimates.</figcaption>
 </figure>
 <p>What exists is a correction-and-verification layer that can search these spaces with DFT accuracy and uMLIP speed. The addressable impact is substantial: methane and refrigerants together could avoid 0.5–1 °C of warming, and the associated product markets run to tens of billions of dollars per year. The next articles in this series turn to the recovery and remediation targets — critical minerals, PFAS, and cement — where the same correction geometry applies to equally large problems.</p>
-<div class="share-bar" aria-label="Share this article">
-  <span class="share-label">Share</span>
-  <a class="share-x" href="https://twitter.com/intent/tweet?text=Methane%20and%20Refrigerants%3A%20Cutting%20the%20Non-CO%E2%82%82%20Climate%20Forcers&amp;url=https%3A%2F%2Flupine.science%2Farticles%2Fmethane-and-refrigerants-cutting-the-non-co2-climate-forcers%2F" target="_blank" rel="noopener noreferrer" aria-label="Share on X"><span>X</span></a>
-  <a class="share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Flupine.science%2Farticles%2Fmethane-and-refrigerants-cutting-the-non-co2-climate-forcers%2F" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn"><span>LinkedIn</span></a>
-  <button class="share-copy" type="button" data-url="https://lupine.science/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/" aria-label="Copy link"><span>Copy link</span></button>
-  <span class="share-tooltip" role="status" aria-live="polite"></span>
+<div class="share-root" data-url="https://lupine.science/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/" data-title="Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers" role="group" aria-label="Share this article">
+  <!-- Share widget is rendered by /components/share/share.mjs -->
 </div>
 <h2 class="footnotes-heading">Footnotes</h2>
 <section class="footnotes">
@@ -200,7 +201,8 @@
     <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
     <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
   </footer>
-<script>
+<script type="module">
+import { initAllShareWidgets } from "/components/share/share.mjs";
 (() => {
   document.querySelectorAll("a.mail").forEach((a) => {
     const addr = a.dataset.u + "@" + a.dataset.d;
@@ -220,20 +222,7 @@
       vids.forEach((v) => io.observe(v));
     }
   }
-  document.querySelectorAll(".share-copy").forEach((btn) => {
-    btn.addEventListener("click", async () => {
-      const url = btn.dataset.url;
-      try {
-        await navigator.clipboard.writeText(url);
-      } catch (e) {
-        const ta = document.createElement("textarea");
-        ta.value = url; document.body.appendChild(ta); ta.select();
-        try { document.execCommand("copy"); } finally { ta.remove(); }
-      }
-      const tip = btn.parentElement.querySelector(".share-tooltip");
-      if (tip) { tip.textContent = "Copied!"; setTimeout(() => tip.textContent = "", 1600); }
-    });
-  });
+  initAllShareWidgets();
 })();
 </script>
 </body>

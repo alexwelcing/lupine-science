@@ -15,6 +15,9 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="A smooth, environment-resolved error field underlies the systematic property errors of universal machine-learned interatomic potentials — Lupine Science">
+  <meta name="twitter:description" content="For fcc metals, uMLIP errors project onto a smooth field over local atomic environments. The field predicts a never-fitted property with r = 0.906, converts into a run-time correction, and carries machine-checked applicability boundaries.">
+  <meta name="twitter:image" content="https://lupine.science/og-lupine-science.png">
   <meta name="theme-color" content="#faf9f6">
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
   <link rel="icon" type="image/png" href="/lupine-science-icon.png">
@@ -22,6 +25,7 @@
   <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/articles/styles.css">
+  <link rel="stylesheet" href="/components/share/share.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"A smooth, environment-resolved error field underlies the systematic property errors of universal machine-learned interatomic potentials","description":"For fcc metals, uMLIP errors project onto a smooth field over local atomic environments. The field predicts a never-fitted property with r = 0.906, converts into a run-time correction, and carries machine-checked applicability boundaries.","datePublished":"2026-07-02","url":"https://lupine.science/articles/a-smooth-environment-resolved-error-field/","mainEntityOfPage":"https://lupine.science/articles/a-smooth-environment-resolved-error-field/","image":"https://lupine.science/articles/a-smooth-environment-resolved-error-field/hero.jpg","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png"}}}</script>
 </head>
 <body>
@@ -68,8 +72,9 @@
   <main id="content" class="article-shell">
     <article class="article">
       <h1>A smooth, environment-resolved error field underlies the systematic property errors of universal machine-learned interatomic potentials</h1>
+<p class="article-kicker" aria-label="Article type">proof-pack</p>
 <p class="article-deck">Universal machine-learned interatomic potentials (uMLIPs) err systematically away from equilibrium; we test whether those errors share a single, measurable shape.</p>
-<div class="article-byline"><time datetime="2026-07-02">July 2, 2026</time><span class="byline-sep" aria-hidden="true">·</span><span class="article-status">Published</span></div>
+<ul class="article-byline" aria-label="Publication details"><li><time datetime="2026-07-02">July 2, 2026</time></li> <li aria-hidden="true"><span class="byline-sep" aria-hidden="true">·</span></li> <li><span class="article-status">Published</span></li></ul>
 <figure class="article-hero">
   <picture>
     <img src="/articles/a-smooth-environment-resolved-error-field/hero.jpg" alt="" width="1280" height="720" loading="eager" fetchpriority="high" decoding="async">
@@ -128,12 +133,8 @@ Foundation machine-learned interatomic potentials (uMLIPs) match near-DFT accura
 <li><a href="https://glim-think-v1.aw-ab5.workers.dev">Public ledger</a></li>
 </ul>
 
-<div class="share-bar" aria-label="Share this article">
-  <span class="share-label">Share</span>
-  <a class="share-x" href="https://twitter.com/intent/tweet?text=A%20smooth%2C%20environment-resolved%20error%20field%20underlies%20the%20systematic%20property%20errors%20of%20universal%20machine-learned%20interatomic%20potentials&amp;url=https%3A%2F%2Flupine.science%2Farticles%2Fa-smooth-environment-resolved-error-field%2F" target="_blank" rel="noopener noreferrer" aria-label="Share on X"><span>X</span></a>
-  <a class="share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Flupine.science%2Farticles%2Fa-smooth-environment-resolved-error-field%2F" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn"><span>LinkedIn</span></a>
-  <button class="share-copy" type="button" data-url="https://lupine.science/articles/a-smooth-environment-resolved-error-field/" aria-label="Copy link"><span>Copy link</span></button>
-  <span class="share-tooltip" role="status" aria-live="polite"></span>
+<div class="share-root" data-url="https://lupine.science/articles/a-smooth-environment-resolved-error-field/" data-title="A smooth, environment-resolved error field underlies the systematic property errors of universal machine-learned interatomic potentials" role="group" aria-label="Share this article">
+  <!-- Share widget is rendered by /components/share/share.mjs -->
 </div>
     </article>
   </main>
@@ -142,7 +143,8 @@ Foundation machine-learned interatomic potentials (uMLIPs) match near-DFT accura
     <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
     <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
   </footer>
-<script>
+<script type="module">
+import { initAllShareWidgets } from "/components/share/share.mjs";
 (() => {
   document.querySelectorAll("a.mail").forEach((a) => {
     const addr = a.dataset.u + "@" + a.dataset.d;
@@ -162,20 +164,7 @@ Foundation machine-learned interatomic potentials (uMLIPs) match near-DFT accura
       vids.forEach((v) => io.observe(v));
     }
   }
-  document.querySelectorAll(".share-copy").forEach((btn) => {
-    btn.addEventListener("click", async () => {
-      const url = btn.dataset.url;
-      try {
-        await navigator.clipboard.writeText(url);
-      } catch (e) {
-        const ta = document.createElement("textarea");
-        ta.value = url; document.body.appendChild(ta); ta.select();
-        try { document.execCommand("copy"); } finally { ta.remove(); }
-      }
-      const tip = btn.parentElement.querySelector(".share-tooltip");
-      if (tip) { tip.textContent = "Copied!"; setTimeout(() => tip.textContent = "", 1600); }
-    });
-  });
+  initAllShareWidgets();
 })();
 </script>
 </body>

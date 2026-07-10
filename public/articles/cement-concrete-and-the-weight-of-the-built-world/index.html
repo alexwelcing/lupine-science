@@ -15,6 +15,9 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cement, Concrete, and the Weight of the Built World — Lupine Science">
+  <meta name="twitter:description" content="The final article in the environmental-expansion series argues that cement decarbonization is a prediction-trust problem, and that Lupine's correction-and-verification layer applies directly to its disordered, under-coordinated materials.">
+  <meta name="twitter:image" content="https://lupine.science/og-lupine-science.png">
   <meta name="theme-color" content="#faf9f6">
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
   <link rel="icon" type="image/png" href="/lupine-science-icon.png">
@@ -22,6 +25,7 @@
   <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/articles/styles.css">
+  <link rel="stylesheet" href="/components/share/share.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Cement, Concrete, and the Weight of the Built World","description":"The final article in the environmental-expansion series argues that cement decarbonization is a prediction-trust problem, and that Lupine's correction-and-verification layer applies directly to its disordered, under-coordinated materials.","datePublished":"2026-07-16","url":"https://lupine.science/articles/cement-concrete-and-the-weight-of-the-built-world/","mainEntityOfPage":"https://lupine.science/articles/cement-concrete-and-the-weight-of-the-built-world/","image":"https://lupine.science/articles/cement-concrete-and-the-weight-of-the-built-world/hero.jpg","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png"}}}</script>
 </head>
 <body>
@@ -69,8 +73,9 @@
     <article class="article">
       
 <h1>Cement, Concrete, and the Weight of the Built World</h1>
+<p class="article-kicker" aria-label="Article type">article</p>
 <p class="article-deck">How corrected universal machine-learning interatomic potentials can accelerate low-CO₂ binders, alternative clinkers, and CO₂-cured concrete by taming amorphous and metastable phase chemistry.</p>
-<div class="article-byline"><time datetime="2026-07-16">July 16, 2026</time><span class="byline-sep" aria-hidden="true">·</span><span class="article-status">Draft</span></div>
+<ul class="article-byline" aria-label="Publication details"><li><time datetime="2026-07-16">July 16, 2026</time></li> <li aria-hidden="true"><span class="byline-sep" aria-hidden="true">·</span></li> <li><span class="article-status">Draft</span></li></ul>
 <figure class="article-hero" aria-labelledby="hero-caption">
   <picture>
     <img src="/articles/cement-concrete-and-the-weight-of-the-built-world/hero.jpg" alt="" width="1280" height="720" loading="eager" fetchpriority="high" decoding="async">
@@ -148,12 +153,8 @@
   <img src="images/cement-concrete-and-the-weight-of-the-built-world-10-trust-bottleneck.jpg" alt="From Candidates to Deployed Binders" loading="lazy" decoding="async">
   <figcaption>Millions of candidate materials have been predicted, yet only about 0.2% have been validated by synthesis — closing that trust gap is what unlocks cement’s 2.8 GtCO₂ problem. Sources: Lupine Science, Strategic Discovery Plan; IEA/GCCA 2024; IPCC AR6.</figcaption>
 </figure>
-<div class="share-bar" aria-label="Share this article">
-  <span class="share-label">Share</span>
-  <a class="share-x" href="https://twitter.com/intent/tweet?text=Cement%2C%20Concrete%2C%20and%20the%20Weight%20of%20the%20Built%20World&amp;url=https%3A%2F%2Flupine.science%2Farticles%2Fcement-concrete-and-the-weight-of-the-built-world%2F" target="_blank" rel="noopener noreferrer" aria-label="Share on X"><span>X</span></a>
-  <a class="share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Flupine.science%2Farticles%2Fcement-concrete-and-the-weight-of-the-built-world%2F" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn"><span>LinkedIn</span></a>
-  <button class="share-copy" type="button" data-url="https://lupine.science/articles/cement-concrete-and-the-weight-of-the-built-world/" aria-label="Copy link"><span>Copy link</span></button>
-  <span class="share-tooltip" role="status" aria-live="polite"></span>
+<div class="share-root" data-url="https://lupine.science/articles/cement-concrete-and-the-weight-of-the-built-world/" data-title="Cement, Concrete, and the Weight of the Built World" role="group" aria-label="Share this article">
+  <!-- Share widget is rendered by /components/share/share.mjs -->
 </div>
 <h2 class="footnotes-heading">Footnotes</h2>
 <section class="footnotes">
@@ -192,7 +193,8 @@
     <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
     <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
   </footer>
-<script>
+<script type="module">
+import { initAllShareWidgets } from "/components/share/share.mjs";
 (() => {
   document.querySelectorAll("a.mail").forEach((a) => {
     const addr = a.dataset.u + "@" + a.dataset.d;
@@ -212,20 +214,7 @@
       vids.forEach((v) => io.observe(v));
     }
   }
-  document.querySelectorAll(".share-copy").forEach((btn) => {
-    btn.addEventListener("click", async () => {
-      const url = btn.dataset.url;
-      try {
-        await navigator.clipboard.writeText(url);
-      } catch (e) {
-        const ta = document.createElement("textarea");
-        ta.value = url; document.body.appendChild(ta); ta.select();
-        try { document.execCommand("copy"); } finally { ta.remove(); }
-      }
-      const tip = btn.parentElement.querySelector(".share-tooltip");
-      if (tip) { tip.textContent = "Copied!"; setTimeout(() => tip.textContent = "", 1600); }
-    });
-  });
+  initAllShareWidgets();
 })();
 </script>
 </body>

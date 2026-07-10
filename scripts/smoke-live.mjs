@@ -1,10 +1,13 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+
 /**
  * Live-site smoke test for https://lupine.science/
  *
- * Fetches a set of production URLs and checks that each returns HTTP 200
- * and contains expected text. Retries a few times to tolerate propagation
- * lag after a Cloudflare Pages deploy.
+ * Fetches key pages, validates share metadata, and resolves canonical,
+ * Open Graph image, video, and download URLs. Retries tolerate propagation
+ * lag after a Cloudflare Pages deploy. Preview and production targets can
+ * be checked independently or together through environment variables.
  *
  * Exit code 0 if all checks pass, 1 otherwise.
  */
@@ -100,68 +103,189 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-async function fetchWithRetry(url, expected) {
-  let lastError;
-  for (let attempt = 1; attempt <= ATTEMPTS; attempt++) {
+export function resolveBaseUrls(env = process.env) {
+  const bases = [];
+  if (env.SMOKE_PREVIEW_BASE_URL) bases.push(env.SMOKE_PREVIEW_BASE_URL.replace(/\/$/, ''));
+  if (env.SMOKE_PRODUCTION_BASE_URL) bases.push(env.SMOKE_PRODUCTION_BASE_URL.replace(/\/$/, ''));
+  if (bases.length === 0 && env.SMOKE_BASE_URL) bases.push(env.SMOKE_BASE_URL.replace(/\/$/, ''));
+  return [...new Set(bases)];
+}
+
+function metadataValue(html, property) {
+  const escaped = property.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const propertyFirst = new RegExp(`<meta\\s+[^>]*property=["']${escaped}["'][^>]*content=["']([^"']+)["']`, 'i');
+  const contentFirst = new RegExp(`<meta\\s+[^>]*content=["']([^"']+)["'][^>]*property=["']${escaped}["']`, 'i');
+  return (html.match(propertyFirst) || html.match(contentFirst))?.[1]?.trim() || '';
+}
+
+function linkValue(html, rel) {
+  const escaped = rel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const relFirst = new RegExp(`<link\\s+[^>]*rel=["']${escaped}["'][^>]*href=["']([^"']+)["']`, 'i');
+  const hrefFirst = new RegExp(`<link\\s+[^>]*href=["']([^"']+)["'][^>]*rel=["']${escaped}["']`, 'i');
+  return (html.match(relFirst) || html.match(hrefFirst))?.[1]?.trim() || '';
+}
+
+function extractLinkedResources(baseUrl, html, metadata) {
+  const resources = [
+    { value: metadata.canonical, kind: 'canonical URL' },
+    { value: metadata.ogUrl, kind: 'og:url' },
+    { value: metadata.ogImage, kind: 'og:image' }
+  ];
+  const patterns = [
+    { regex: /<source\b[^>]*\bsrc=["']([^"']+)["'][^>]*>/gi, kind: 'video link', extensions: /\.(mp4|webm|mov|mkv)(?:[?#]|$)/i },
+    { regex: /<a\b[^>]*\bhref=["']([^"']+)["'][^>]*\bdownload(?:\s|=|>|$)/gi, kind: 'download link' },
+    { regex: /<a\b[^>]*\bhref=["']([^"']+\.(?:mp4|webm|mov|mkv|pdf|zip|gz|tar|docx?|xlsx?|pptx?|epub)(?:[?#][^"']*)?)["'][^>]*>/gi, kind: 'linked file' }
+  ];
+
+  for (const { regex, kind, extensions } of patterns) {
+    for (const match of html.matchAll(regex)) {
+      if (!extensions || extensions.test(match[1])) resources.push({ value: match[1], kind });
+    }
+  }
+
+  return resources
+    .filter(resource => resource.value && !/^(?:data:|mailto:|#)/i.test(resource.value))
+    .map(resource => ({ ...resource, url: new URL(resource.value, baseUrl).toString() }));
+}
+
+async function checkUrl(url, { attempts, delayMs, timeoutMs, accept = '*/*' }) {
+  let lastResult = { ok: false, status: 0, error: 'unknown error' };
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    try {
+      let response = await fetch(url, {
+        method: 'HEAD',
+        headers: { Accept: accept },
+        redirect: 'follow',
+        signal: AbortSignal.timeout(timeoutMs)
+      });
+      if (response.status === 405 || response.status === 501) {
+        response = await fetch(url, {
+          method: 'GET',
+          headers: { Accept: accept, Range: 'bytes=0-0' },
+          redirect: 'follow',
+          signal: AbortSignal.timeout(timeoutMs)
+        });
+      }
+      lastResult = { ok: response.ok, status: response.status, statusText: response.statusText };
+    } catch (error) {
+      lastResult = { ok: false, status: 0, error: error.message };
+    }
+    if (lastResult.ok || attempt === attempts) return lastResult;
+    await sleep(delayMs);
+  }
+  return lastResult;
+}
+
+function failureDetail(result) {
+  return result.status ? `HTTP ${result.status}${result.statusText ? ` ${result.statusText}` : ''}` : result.error || 'unreachable';
+}
+
+export async function runSmokeSuite({ baseUrl, paths, attempts = 1, delayMs = 0, timeoutMs = 10_000 }) {
+  const absolute = new URL(baseUrl).toString().replace(/\/$/, '');
+  const failures = [];
+  const assetsChecked = new Set();
+
+  for (const pagePath of paths) {
+    const url = new URL(pagePath, `${absolute}/`).toString();
+    const pageResult = await checkUrl(url, { attempts, delayMs, timeoutMs, accept: 'text/html' });
+    if (!pageResult.ok) {
+      failures.push({ url, message: `page unreachable: ${failureDetail(pageResult)}` });
+      continue;
+    }
+
+    let html;
     try {
       const response = await fetch(url, {
         headers: { Accept: 'text/html' },
-        redirect: 'follow'
+        redirect: 'follow',
+        signal: AbortSignal.timeout(timeoutMs)
       });
+      html = await response.text();
+    } catch (error) {
+      failures.push({ url, message: `page body unreadable: ${error.message}` });
+      continue;
+    }
 
-      if (!response.ok) {
-        lastError = new Error(`HTTP ${response.status} ${response.statusText}`);
-        if (attempt < ATTEMPTS) await sleep(DELAY_MS);
-        continue;
+    const metadata = {
+      title: html.match(/<title\b[^>]*>([^<]+)<\/title>/i)?.[1]?.trim() || '',
+      ogTitle: metadataValue(html, 'og:title'),
+      ogDescription: metadataValue(html, 'og:description'),
+      ogType: metadataValue(html, 'og:type'),
+      ogUrl: metadataValue(html, 'og:url'),
+      ogImage: metadataValue(html, 'og:image'),
+      canonical: linkValue(html, 'canonical')
+    };
+
+    if (!metadata.title) failures.push({ url, message: 'missing <title>' });
+    if (!metadata.ogTitle) failures.push({ url, message: 'missing og:title' });
+    if (!metadata.ogDescription) failures.push({ url, message: 'missing og:description' });
+    if (!metadata.ogType) failures.push({ url, message: 'missing og:type' });
+    if (!metadata.ogUrl) failures.push({ url, message: 'missing og:url' });
+    if (!metadata.ogImage) failures.push({ url, message: 'missing og:image' });
+    if (!metadata.canonical) failures.push({ url, message: 'missing canonical link' });
+
+    const resources = extractLinkedResources(absolute, html, metadata);
+    for (const resource of resources) {
+      assetsChecked.add(resource.url);
+      const result = await checkUrl(resource.url, { attempts, delayMs, timeoutMs });
+      if (!result.ok) {
+        let kind = resource.kind;
+        if (kind === 'linked file') {
+          kind = /\.(?:mp4|webm|mov|mkv)(?:[?#]|$)/i.test(resource.url) ? 'video link' : 'download link';
+        }
+        failures.push({
+          url: resource.url,
+          message: `${kind} broken: ${failureDetail(result)} (${resource.url})`
+        });
       }
-
-      const body = await response.text();
-      if (!body.includes(expected)) {
-        lastError = new Error(`expected text not found: ${expected}`);
-        if (attempt < ATTEMPTS) await sleep(DELAY_MS);
-        continue;
-      }
-
-      return { ok: true };
-    } catch (err) {
-      lastError = err;
-      if (attempt < ATTEMPTS) await sleep(DELAY_MS);
     }
   }
 
-  return { ok: false, error: lastError };
+  return { failures, pagesChecked: paths.length, assetsChecked: [...assetsChecked] };
 }
 
 async function main() {
-  console.log(`Smoke-testing ${BASE_URL} (${ATTEMPTS} attempt(s), ${DELAY_MS}ms delay)`);
+  const targets = resolveBaseUrls(process.env);
+  if (targets.length === 0) targets.push(BASE_URL.replace(/\/$/, ''));
+  const paths = [...new Set(checks.map(check => new URL(check.url).pathname))];
+  const allFailures = [];
 
-  const failures = [];
-  for (const check of checks) {
-    process.stdout.write(`${check.url} ... `);
-    const result = await fetchWithRetry(check.url, check.expected);
-    if (result.ok) {
-      console.log('ok');
-    } else {
-      console.log(`FAIL: ${result.error.message}`);
-      failures.push({ ...check, error: result.error.message });
+  for (const baseUrl of targets) {
+    console.log(`Smoke-testing ${baseUrl} (${ATTEMPTS} attempt(s), ${DELAY_MS}ms delay)`);
+    const result = await runSmokeSuite({
+      baseUrl,
+      paths,
+      attempts: ATTEMPTS,
+      delayMs: DELAY_MS,
+      timeoutMs: Math.max(1, parseInt(process.env.SMOKE_TIMEOUT_MS || '10000', 10))
+    });
+    if (result.failures.length === 0) {
+      console.log(`  PASS: ${result.pagesChecked} pages and ${result.assetsChecked.length} linked resources`);
+      continue;
+    }
+
+    allFailures.push(...result.failures.map(failure => ({ ...failure, baseUrl })));
+    console.error(`  FAIL: ${result.failures.length} problem(s) across ${result.pagesChecked} pages`);
+    for (const failure of result.failures) {
+      console.error(`    - ${failure.url}`);
+      console.error(`      ${failure.message}`);
     }
   }
 
-  console.log('');
-  if (failures.length === 0) {
-    console.log(`All ${checks.length} checks passed.`);
-    process.exit(0);
+  if (allFailures.length > 0) {
+    console.error(`Smoke test failed with ${allFailures.length} actionable problem(s) across ${targets.length} target(s).`);
+    process.exitCode = 1;
+    return;
   }
 
-  console.error(`Smoke test failed: ${failures.length}/${checks.length} URL(s) did not pass.`);
-  for (const f of failures) {
-    console.error(`  - ${f.url}`);
-    console.error(`    ${f.description}: ${f.error}`);
-  }
-  process.exit(1);
+  console.log(`All live smoke checks passed across ${targets.length} target(s).`);
 }
 
-main().catch(err => {
-  console.error(`Unexpected error: ${err.message}`);
-  process.exit(1);
-});
+const isMainModule = process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url;
+
+if (isMainModule) {
+  main().catch(err => {
+    console.error(`Unexpected error: ${err.message}`);
+    process.exit(1);
+  });
+}

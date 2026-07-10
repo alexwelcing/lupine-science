@@ -29,6 +29,14 @@ Roll back **before** debugging the root cause if the site is publicly wrong or u
 | Validate | software-engineer | Run the smoke tests in section 6 and confirm `lupine.science` itself is good. |
 | Root-cause follow-up | devops + the commit author | Fix in a new branch, add a regression test or checklist item, and re-deploy through normal CI. |
 
+Escalation contacts:
+
+| Contact | Role | When to page/escalate |
+|---------|------|-----------------------|
+| `alexwelcing` | Repository owner, production environment approver | Required for GitHub `production` environment approval, Cloudflare account access, or release authority decisions. |
+| `devops` profile / on-call engineer | Cloudflare Pages and GitHub Actions operator | Escalate if the rollback command, Pages dashboard, secrets, DNS, cache, or custom-domain checks fail. |
+| Last deploy merger / commit author | Content or build owner | Escalate after production is safe to root-cause the bad artifact and prepare the forward fix. |
+
 Communication:
 - State: "Rolling back `lupine.science` to deployment `<id>` because `<reason>`".
 - State: "Rollback complete, smoke tests `<pass/fail>`".
@@ -43,6 +51,9 @@ Cloudflare Pages does not expose the commit hash in HTTP headers by default, so 
 Requires `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` to be set.
 
 ```bash
+test -n "$CLOUDFLARE_API_TOKEN" || { echo "missing CLOUDFLARE_API_TOKEN"; exit 1; }
+test -n "$CLOUDFLARE_ACCOUNT_ID" || { echo "missing CLOUDFLARE_ACCOUNT_ID"; exit 1; }
+
 npx wrangler@latest pages deployment list --project-name lupine-science
 ```
 
@@ -98,9 +109,13 @@ export CLOUDFLARE_ACCOUNT_ID="<account-id>"
 
 DEPLOYMENT_ID="<deployment-id-from-section-4>"
 
+test -n "$CLOUDFLARE_API_TOKEN" || { echo "missing CLOUDFLARE_API_TOKEN"; exit 1; }
+test -n "$CLOUDFLARE_ACCOUNT_ID" || { echo "missing CLOUDFLARE_ACCOUNT_ID"; exit 1; }
+test -n "$DEPLOYMENT_ID" || { echo "missing DEPLOYMENT_ID"; exit 1; }
+
 curl -fsS -X POST \
   "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/lupine-science/deployments/$DEPLOYMENT_ID/rollback" \
-  -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+  -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
   -H "Content-Type: application/json" \
   -d '{}'
 ```
@@ -123,6 +138,11 @@ curl -sI https://lupine.science/ | grep -iE "content-security-policy|strict-tran
 
 # homepage content
 curl -fsS https://lupine.science/ | grep "Evidence before claim"
+
+# metadata endpoints
+curl -fsS https://lupine.science/robots.txt >/dev/null
+curl -fsS https://lupine.science/sitemap.xml >/dev/null
+curl -fsS https://lupine.science/llms.txt >/dev/null
 ```
 
 ### 6.2 Full automated smoke suite
@@ -131,30 +151,14 @@ curl -fsS https://lupine.science/ | grep "Evidence before claim"
 npm run smoke
 ```
 
-This tests 16 production URLs (homepage, articles, brand, videos) for HTTP 200 and expected content, with retries.
+This tests the production homepage, article index, article pages, brand page, videos page, canonical links, Open Graph images, video links, and downloadable assets with retries.
 
 Example output of a passing run:
 
 ```text
 Smoke-testing https://lupine.science (5 attempt(s), 10000ms delay)
-https://lupine.science/ ... ok
-https://lupine.science/articles/ ... ok
-https://lupine.science/brand-assets/ ... ok
-https://lupine.science/articles/the-02-percent-synthesis-problem/ ... ok
-https://lupine.science/articles/a-field-not-a-neural-net/ ... ok
-https://lupine.science/articles/five-materials-for-5-to-12-gtco2-year/ ... ok
-https://lupine.science/articles/from-predicted-crystal-to-commercial-cell/ ... ok
-https://lupine.science/articles/investing-in-the-trust-layer/ ... ok
-https://lupine.science/articles/beyond-carbon-the-error-geometry-of-environmental-materials/ ... ok
-https://lupine.science/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/ ... ok
-https://lupine.science/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/ ... ok
-https://lupine.science/articles/critical-minerals-pfas-and-the-remediation-imperative/ ... ok
-https://lupine.science/articles/cement-concrete-and-the-weight-of-the-built-world/ ... ok
-https://lupine.science/articles/from-predicted-crystal-to-commercial-cell/ ... ok
-https://lupine.science/articles/investing-in-the-trust-layer/ ... ok
-https://lupine.science/videos/ ... ok
-
-All 16 checks passed.
+  PASS: 14 pages and 42 linked resources
+All live smoke checks passed across 1 target(s).
 ```
 
 ### 6.3 Manual spot checks
@@ -203,9 +207,9 @@ Current dry-run output:
 {"result":null,"success":false,"errors":[{"code":7003,"message":"Could not route to /client/v4/accounts/ACCOUNT_ID/pages/projects/lupine-science/deployments/DEPLOYMENT_ID/rollback, perhaps your object identifier is invalid?"}]}
 ```
 
-This confirms the endpoint exists and the path is valid; replace `ACCOUNT_ID` and `DEPLOYMENT_ID` with real values to execute.
+This validates the command shape only; a real rollback still requires valid Cloudflare identifiers and the `Authorization` header using `CLOUDFLARE_API_TOKEN`.
 
-### 7.2 Validate smoke tests against the live site (real output)
+### 7.2 Validate smoke tests against the live site
 
 Run:
 
@@ -213,35 +217,24 @@ Run:
 npm run smoke
 ```
 
-Current live result (captured 2026-07-10):
+Passing shape:
 
 ```text
 Smoke-testing https://lupine.science (5 attempt(s), 10000ms delay)
-https://lupine.science/ ... ok
-https://lupine.science/articles/ ... ok
-https://lupine.science/brand-assets/ ... ok
-https://lupine.science/articles/the-02-percent-synthesis-problem/ ... ok
-https://lupine.science/articles/a-field-not-a-neural-net/ ... ok
-https://lupine.science/articles/five-materials-for-5-to-12-gtco2-year/ ... ok
-https://lupine.science/articles/from-predicted-crystal-to-commercial-cell/ ... ok
-https://lupine.science/articles/investing-in-the-trust-layer/ ... ok
-https://lupine.science/articles/beyond-carbon-the-error-geometry-of-environmental-materials/ ... ok
-https://lupine.science/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/ ... ok
-https://lupine.science/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/ ... ok
-https://lupine.science/articles/critical-minerals-pfas-and-the-remediation-imperative/ ... ok
-https://lupine.science/articles/cement-concrete-and-the-weight-of-the-built-world/ ... ok
-https://lupine.science/articles/from-predicted-crystal-to-commercial-cell/ ... ok
-https://lupine.science/articles/investing-in-the-trust-layer/ ... ok
-https://lupine.science/videos/ ... ok
-
-All 16 checks passed.
+  PASS: 14 pages and 42 linked resources
+All live smoke checks passed across 1 target(s).
 ```
+
+If `npm run smoke` prints any `FAIL` rows, keep the incident open and either choose another rollback target or fix the live-site problem before declaring recovery complete.
 
 Health and headers are also verified live:
 
 ```bash
 $ curl -fsS https://lupine.science/health
 ok
+
+$ curl -fsS https://lupine.science/ | grep "Evidence before claim"
+    <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
 
 $ curl -sI https://lupine.science/ | grep -iE "content-security-policy|strict-transport-security"
 strict-transport-security: max-age=31536000; includeSubDomains; preload
@@ -259,7 +252,9 @@ To practice the wrangler commands without affecting production, create a branch 
 - [ ] Rollback command executed.
 - [ ] Custom domain `https://lupine.science/health` returns `ok`.
 - [ ] Security headers present on `https://lupine.science/`.
-- [ ] `npm run smoke` passes all 16 checks.
+- [ ] Homepage contains `Evidence before claim`.
+- [ ] `robots.txt`, `sitemap.xml`, and `llms.txt` are reachable.
+- [ ] `npm run smoke` passes for the production target.
 - [ ] Manual spot checks in section 6.3 completed.
 - [ ] Incident declared resolved.
 - [ ] Follow-up ticket created for root-cause fix and prevention.

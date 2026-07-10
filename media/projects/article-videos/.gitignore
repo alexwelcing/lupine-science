@@ -10,3 +10,7 @@ prototype-*/node_modules/
 
 # Audio working files larger than final mix
 prototype-*/audio/narration.vtt
+
+# Visual regression diffs and re-runs are ephemeral; baselines are committed.
+media/projects/article-videos/components/*/diffs/
+media/projects/article-videos/components/*/snapshots/

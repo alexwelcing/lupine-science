@@ -7,25 +7,39 @@
   "description": "Static public front door for lupine.science",
   "scripts": {
     "build": "node scripts/build-articles.mjs && node scripts/build-sitemap.mjs && node scripts/build-headers.mjs",
+    "lint": "node scripts/lint.mjs",
+    "typecheck": "node scripts/typecheck.mjs",
+    "test": "node --test \"tests/**/*.test.mjs\"",
     "verify": "node scripts/check-static.mjs && node scripts/perf-budget.mjs",
     "smoke": "node scripts/smoke-live.mjs",
     "proofpack": "node scripts/build-proofpack.mjs",
+    "proofpack:validate": "node scripts/validate-proofpack.mjs",
+    "pdf:check": "node scripts/check-pdf.mjs",
     "ci": "NODE_USE_ENV_PROXY=1 node scripts/dev/ci-watch.mjs",
     "dev": "node scripts/dev/serve.mjs",
     "shots": "node scripts/dev/screenshot.mjs",
-    "perf": "node scripts/dev/perf-report.mjs"
+    "perf": "node scripts/dev/perf-report.mjs",
+    "a11y:audit": "node scripts/accessibility-audit.mjs"
   },
   "engines": {
     "node": ">=20.0.0"
   },
   "devDependencies": {
+    "@types/node": "^26.1.1",
+    "axe-core": "^4.12.1",
+    "chrome-launcher": "^1.2.1",
+    "jsdom": "^29.1.1",
     "katex": "^0.17.0",
+    "lighthouse": "^13.4.0",
     "markdown-it": "14.3.0",
     "markdown-it-footnote": "4.0.0",
     "markdown-it-katex": "^2.0.3",
     "pdf-lib": "1.17.1",
+    "pixelmatch": "^7.2.0",
     "playwright-core": "1.61.1",
+    "pngjs": "^7.0.0",
     "sharp": "0.35.3",
-    "subset-font": "2.5.0"
+    "subset-font": "2.5.0",
+    "typescript": "^7.0.2"
   }
 }

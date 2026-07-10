@@ -15,6 +15,9 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Trust Layer — Lupine Science">
+  <meta name="twitter:description" content="AI made imagination and simulation nearly free. Belief is now the bottleneck. We are building the proof infrastructure for designed matter, in the open.">
+  <meta name="twitter:image" content="https://lupine.science/og-lupine-science.png">
   <meta name="theme-color" content="#faf9f6">
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
   <link rel="icon" type="image/png" href="/lupine-science-icon.png">
@@ -22,6 +25,7 @@
   <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/articles/styles.css">
+  <link rel="stylesheet" href="/components/share/share.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Trust Layer","description":"AI made imagination and simulation nearly free. Belief is now the bottleneck. We are building the proof infrastructure for designed matter, in the open.","datePublished":"2026-07-05","url":"https://lupine.science/articles/the-trust-layer/","mainEntityOfPage":"https://lupine.science/articles/the-trust-layer/","image":"https://lupine.science/articles/the-trust-layer/hero.jpg","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png"}}}</script>
 </head>
 <body>
@@ -69,7 +73,7 @@
     <article class="article">
       <h1>The Trust Layer</h1>
 <p class="article-deck">The founding thesis of Lupine Science — verification as the missing infrastructure of AI-driven discovery</p>
-<div class="article-byline"><time datetime="2026-07-05">July 5, 2026</time><span class="byline-sep" aria-hidden="true">·</span><span class="article-status">Published</span></div>
+<ul class="article-byline" aria-label="Publication details"><li><time datetime="2026-07-05">July 5, 2026</time></li> <li aria-hidden="true"><span class="byline-sep" aria-hidden="true">·</span></li> <li><span class="article-status">Published</span></li></ul>
 <figure class="article-hero" aria-labelledby="hero-caption">
   <picture>
     <source srcset="/articles/the-trust-layer/hero.avif" type="image/avif">
@@ -117,12 +121,8 @@
 <p>If you have synthesis data, build models, or invest in this field: the record is open, and we are easy to reach.</p>
 <p><strong>Visit <a href="https://lupine.science">lupine.science</a>. Check us. That is the point.</strong></p>
 
-<div class="share-bar" aria-label="Share this article">
-  <span class="share-label">Share</span>
-  <a class="share-x" href="https://twitter.com/intent/tweet?text=The%20Trust%20Layer&amp;url=https%3A%2F%2Flupine.science%2Farticles%2Fthe-trust-layer%2F" target="_blank" rel="noopener noreferrer" aria-label="Share on X"><span>X</span></a>
-  <a class="share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Flupine.science%2Farticles%2Fthe-trust-layer%2F" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn"><span>LinkedIn</span></a>
-  <button class="share-copy" type="button" data-url="https://lupine.science/articles/the-trust-layer/" aria-label="Copy link"><span>Copy link</span></button>
-  <span class="share-tooltip" role="status" aria-live="polite"></span>
+<div class="share-root" data-url="https://lupine.science/articles/the-trust-layer/" data-title="The Trust Layer" role="group" aria-label="Share this article">
+  <!-- Share widget is rendered by /components/share/share.mjs -->
 </div>
     </article>
   </main>
@@ -131,7 +131,8 @@
     <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
     <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
   </footer>
-<script>
+<script type="module">
+import { initAllShareWidgets } from "/components/share/share.mjs";
 (() => {
   document.querySelectorAll("a.mail").forEach((a) => {
     const addr = a.dataset.u + "@" + a.dataset.d;
@@ -151,20 +152,7 @@
       vids.forEach((v) => io.observe(v));
     }
   }
-  document.querySelectorAll(".share-copy").forEach((btn) => {
-    btn.addEventListener("click", async () => {
-      const url = btn.dataset.url;
-      try {
-        await navigator.clipboard.writeText(url);
-      } catch (e) {
-        const ta = document.createElement("textarea");
-        ta.value = url; document.body.appendChild(ta); ta.select();
-        try { document.execCommand("copy"); } finally { ta.remove(); }
-      }
-      const tip = btn.parentElement.querySelector(".share-tooltip");
-      if (tip) { tip.textContent = "Copied!"; setTimeout(() => tip.textContent = "", 1600); }
-    });
-  });
+  initAllShareWidgets();
 })();
 </script>
 </body>

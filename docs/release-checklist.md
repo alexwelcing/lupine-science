@@ -34,11 +34,27 @@ python -m http.server 8080 -d public
 ## Deploy Verification
 
 - [ ] GitHub workflow includes all files that should trigger deploys.
+- [ ] Production deploy is triggered only by a successful `CI` workflow run on
+      `main`.
+- [ ] Production deploy targets the GitHub `production` environment and waits
+      for approval before running Cloudflare deployment commands.
+- [ ] Production deploy downloads the exact `lupine-science-public-<commit>`
+      artifact from the successful CI run rather than rebuilding deploy output.
+- [ ] The workflow uploads a 90-day `production-deployment-receipt-<commit>`
+      containing the commit, source CI run/artifact, deployment URL, and time.
+- [ ] The `production` environment required reviewers list includes
+      `alexwelcing` (repository owner/maintainer); add only maintainers who are
+      authorized to publish `lupine.science`.
+- [ ] The `production` environment limits deployment branches to protected
+      branches or an explicit `main` rule.
 - [ ] Workflow runs `npm run verify`.
-- [ ] Pull requests and non-`main` branches create Cloudflare Pages previews.
+- [ ] Every pull request creates a Cloudflare Pages preview after successful CI,
+      and the URL appears in both a sticky PR comment and the check summary.
 - [ ] `main` deploys to the `lupine-science` Pages production branch.
 - [ ] `lupine.science` is attached as a Pages custom domain.
 - [ ] `/ops/report` receives non-blocking deploy telemetry.
+- [ ] Production live-verification pass/fail notifications include workflow URL,
+      log excerpts, live-verification artifact name, and rollback command.
 
 ## Live Verification
 

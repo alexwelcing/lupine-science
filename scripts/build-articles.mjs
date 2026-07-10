@@ -117,17 +117,33 @@ function formatDate(iso) {
 function extractMeta(raw) {
   const meta = {};
   for (const [key, name] of [['type', 'Type'], ['date', 'Date'], ['scope', 'Scope'], ['description', 'Description'], ['audience', 'Audience'], ['status', 'Status']]) {
-    const m = raw.match(new RegExp(`^> \\*\\*${name}:\\*\\*\\s*(.+?)\\s*$`, 'm'));
+    const m = raw.match(new RegExp(`^> \\\*\\*${name}:\\\*\\*\\s*(.+?)\\s*$`, 'm'));
     if (m) meta[key] = m[1];
   }
+  // audience is retained for editorial workflow but never rendered to readers
   return meta;
+}
+
+function formatStatus(status) {
+  if (!status) return '';
+  // Normalize common editorial states into a restrained public label.
+  const lower = status.toLowerCase();
+  if (lower.includes('draft')) return 'Draft';
+  if (lower.includes('published') || lower.includes('final')) return 'Published';
+  if (lower.includes('review') || lower.includes('revision')) return 'In review';
+  return status;
 }
 
 
 function videoLink(slug) {
-  const mp4 = path.join(OUT, 'videos', `${slug}.mp4`);
+  const mp4 = path.join(PUBLIC_ROOT, 'videos', `${slug}.mp4`);
   if (!fs.existsSync(mp4)) return '';
   return `<a class="article-video-link" href="/videos/${slug}.mp4" target="_blank" rel="noopener noreferrer">Watch the narrated version</a>`;
+}
+
+function publishedVideoUrl(slug) {
+  const mp4 = path.join(PUBLIC_ROOT, 'videos', `${slug}.mp4`);
+  return fs.existsSync(mp4) ? `${SITE}/videos/${slug}.mp4` : undefined;
 }
 function heroFigure(slug) {
   const dir = path.join(OUT, slug);
@@ -179,7 +195,8 @@ ${avif ? `    <source srcset="/articles/${slug}/${base}.avif" type="image/avif">
 // email pattern exists in the HTML source for rewriting proxies to mangle),
 // lazy-start hero videos only when they scroll into view, and power the
 // article "Copy link" share button.
-const PAGE_SCRIPT = `<script>
+const PAGE_SCRIPT = `<script type="module">
+import { initAllShareWidgets } from "/components/share/share.mjs";
 (() => {
   document.querySelectorAll("a.mail").forEach((a) => {
     const addr = a.dataset.u + "@" + a.dataset.d;
@@ -199,24 +216,11 @@ const PAGE_SCRIPT = `<script>
       vids.forEach((v) => io.observe(v));
     }
   }
-  document.querySelectorAll(".share-copy").forEach((btn) => {
-    btn.addEventListener("click", async () => {
-      const url = btn.dataset.url;
-      try {
-        await navigator.clipboard.writeText(url);
-      } catch (e) {
-        const ta = document.createElement("textarea");
-        ta.value = url; document.body.appendChild(ta); ta.select();
-        try { document.execCommand("copy"); } finally { ta.remove(); }
-      }
-      const tip = btn.parentElement.querySelector(".share-tooltip");
-      if (tip) { tip.textContent = "Copied!"; setTimeout(() => tip.textContent = "", 1600); }
-    });
-  });
+  initAllShareWidgets();
 })();
 </script>`;
 
-function head({ title, description, url, ogImage, jsonld, isArticle, preloadImage, math }) {
+function head({ title, description, url, ogImage, jsonld, isArticle, preloadImage, math, videoUrl }) {
   return `<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${esc(title)}</title>
@@ -231,13 +235,17 @@ function head({ title, description, url, ogImage, jsonld, isArticle, preloadImag
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${esc(title)}">
+  <meta name="twitter:description" content="${esc(description)}">
+  <meta name="twitter:image" content="${ogImage}">
   <meta name="theme-color" content="#faf9f6">
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
   <link rel="icon" type="image/png" href="/lupine-science-icon.png">
   <link rel="apple-touch-icon" href="/lupine-science-icon.png">
   <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
-${preloadImage ? `  <link rel="preload" href="${preloadImage}" as="image" fetchpriority="high">\n` : ''}${math ? '  <link rel="stylesheet" href="/katex/katex.min.css">\n' : ''}  <link rel="stylesheet" href="/articles/styles.css">
+${videoUrl ? `  <link rel="alternate" type="video/mp4" href="${videoUrl}">\n` : ''}${preloadImage ? `  <link rel="preload" href="${preloadImage}" as="image" fetchpriority="high">\n` : ''}${math ? '  <link rel="stylesheet" href="/katex/katex.min.css">\n' : ''}  <link rel="stylesheet" href="/articles/styles.css">
+  <link rel="stylesheet" href="/components/share/share.css">
   <script type="application/ld+json">${JSON.stringify(jsonld)}</script>`;
 }
 
@@ -265,14 +273,8 @@ ${inner}
 
 function shareBar(slug, title) {
   const url = `${SITE}/articles/${slug}/`;
-  const text = encodeURIComponent(title);
-  const urlEnc = encodeURIComponent(url);
-  return `<div class="share-bar" aria-label="Share this article">
-  <span class="share-label">Share</span>
-  <a class="share-x" href="https://twitter.com/intent/tweet?text=${text}&amp;url=${urlEnc}" target="_blank" rel="noopener noreferrer" aria-label="Share on X"><span>X</span></a>
-  <a class="share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=${urlEnc}" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn"><span>LinkedIn</span></a>
-  <button class="share-copy" type="button" data-url="${esc(url)}" aria-label="Copy link"><span>Copy link</span></button>
-  <span class="share-tooltip" role="status" aria-live="polite"></span>
+  return `<div class="share-root" data-url="${esc(url)}" data-title="${esc(title)}" role="group" aria-label="Share this article">
+  <!-- Share widget is rendered by /components/share/share.mjs -->
 </div>`;
 }
 
@@ -287,6 +289,7 @@ function buildArticle(raw, slug) {
   const meta = extractMeta(raw);
   const titleMatch = body.match(/<h1>(.*?)<\/h1>/s);
   const title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '') : slug;
+  // description remains useful for search/social previews; scope is the public deck
   const description = meta.description || meta.scope || `A Lupine Science article: ${title}`;
   const url = `${SITE}/articles/${slug}/`;
 
@@ -294,16 +297,19 @@ function buildArticle(raw, slug) {
   // extracted above for JSON-LD and the index, then removed from the body.
   body = body.replace(/<blockquote>[\s\S]*?<\/blockquote>/, '');
 
-  // Publication-style header: deck (scope) + byline (date + status), then hero.
+  // Publication-style header: kicker (type) + deck (scope) + byline (date + status), then hero.
   const headerParts = [];
+  if (meta.type) {
+    headerParts.push(`<p class="article-kicker" aria-label="Article type">${esc(meta.type)}</p>`);
+  }
   if (meta.scope) {
     headerParts.push(`<p class="article-deck">${esc(meta.scope)}</p>`);
   }
   if (meta.date || meta.status) {
     const datePart = meta.date ? `<time datetime="${esc(meta.date)}">${formatDate(meta.date)}</time>` : '';
-    const statusPart = meta.status ? `<span class="article-status">${esc(meta.status)}</span>` : '';
+    const statusPart = meta.status ? `<span class="article-status">${esc(formatStatus(meta.status))}</span>` : '';
     const sep = datePart && statusPart ? '<span class="byline-sep" aria-hidden="true">·</span>' : '';
-    headerParts.push(`<div class="article-byline">${datePart}${sep}${statusPart}</div>`);
+    headerParts.push(`<ul class="article-byline" aria-label="Publication details">${datePart ? `<li>${datePart}</li>` : ''}${sep ? ` <li aria-hidden="true">${sep}</li>` : ''}${statusPart ? ` <li>${statusPart}</li>` : ''}</ul>`);
   }
   const hero = heroFigure(slug);
   const video = videoLink(slug);
@@ -327,8 +333,12 @@ function buildArticle(raw, slug) {
   const ogImage = slug === 'from-fantasy-frameworks-to-makeable-materials'
     ? `${SITE}/og-mof-formalization.png`
     : `${SITE}/og-lupine-science.png`;
+  const ogImageWidth = 1200;
+  const ogImageHeight = 630;
+  const twitterCard = 'summary_large_image';
+  const videoUrl = publishedVideoUrl(slug);
 
-  const jsonld = {
+  const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: title,
@@ -340,6 +350,25 @@ function buildArticle(raw, slug) {
     author: { '@type': 'Organization', name: 'Lupine Science', url: SITE },
     publisher: { '@type': 'Organization', name: 'Lupine Science', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/lupine-science-icon.png` } },
   };
+  const jsonld = videoUrl ? {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { ...articleJsonLd, '@id': `${url}#article` },
+      {
+        '@type': 'VideoObject',
+        '@id': `${url}#video`,
+        name: title,
+        description,
+        thumbnailUrl: fs.existsSync(path.join(PUBLIC_ROOT, 'videos', `${slug}-poster.jpg`))
+          ? `${SITE}/videos/${slug}-poster.jpg`
+          : articleJsonLd.image,
+        uploadDate: meta.date,
+        contentUrl: videoUrl,
+        embedUrl: url,
+        isPartOf: { '@id': `${url}#article` },
+      },
+    ],
+  } : articleJsonLd;
 
   // the hero poster is the LCP element on video-hero pages — fetch it first
   const hasMp4 = fs.existsSync(path.join(OUT, slug, 'hero.mp4'));
@@ -347,7 +376,7 @@ function buildArticle(raw, slug) {
   const page = `<!doctype html>
 <html lang="en">
 <head>
-  ${head({ title: `${title} — Lupine Science`, description, url, ogImage, jsonld, isArticle: true, preloadImage, math: hasMath })}
+  ${head({ title: `${title} — Lupine Science`, description, url, ogImage, jsonld, isArticle: true, preloadImage, math: hasMath, videoUrl })}
 </head>
 <body>
 ${chrome(`  <main id="content" class="article-shell">
@@ -355,10 +384,11 @@ ${chrome(`  <main id="content" class="article-shell">
       ${body}
     </article>
   </main>`)}
-${PAGE_SCRIPT}\n</body>
+${PAGE_SCRIPT}
+</body>
 </html>
 `;
-  return { page, title, description, meta, slug };
+  return { page, title, description, meta, slug, ogImage, ogImageWidth, ogImageHeight, twitterCard };
 }
 
 function buildIndex(articles) {
@@ -369,7 +399,7 @@ function buildIndex(articles) {
     const thumb = base
       ? pictureSources(a.slug, base).replace('width="1280" height="720"', 'class="card-thumb" width="640" height="360"')
       : '<span class="card-thumb card-thumb-empty" aria-hidden="true"><i></i><i></i><i></i></span>';
-    const metaLine = [a.meta.date ? formatDate(a.meta.date) : '', a.meta.status ? esc(a.meta.status) : ''].filter(Boolean).join(' · ');
+    const metaLine = [a.meta.date ? formatDate(a.meta.date) : '', a.meta.status ? esc(formatStatus(a.meta.status)) : ''].filter(Boolean).join(' · ');
     return `<li>
   <a class="article-card" href="/articles/${a.slug}/">
     ${thumb}

@@ -5,7 +5,6 @@ on:
     workflows: [CI]
     types: [completed]
     branches: ['*']
-  workflow_dispatch: {}
 
 concurrency:
   group: lupine-science-deploy-${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_branch || github.ref }}
@@ -13,13 +12,15 @@ concurrency:
 
 permissions:
   contents: read
+  issues: write
+  pull-requests: write
 
 env:
   CF_PAGES_PROJECT: lupine-science
 
 jobs:
   lighthouse:
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    if: github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -51,23 +52,28 @@ jobs:
     needs: lighthouse
     if: |
       github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' &&
-      (github.event.workflow_run.event == 'pull_request' ||
-       (github.event.workflow_run.event == 'push' && github.event.workflow_run.head_branch != 'main'))
+      github.event.workflow_run.event == 'pull_request'
     runs-on: ubuntu-latest
+    environment:
+      name: preview
+      url: ${{ steps.deploy.outputs.url }}
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      # This job has deployment credentials and a write-capable GITHUB_TOKEN.
+      # Never check out or execute pull-request code here; deploy only the
+      # artifact created by the exact successful CI run.
+      - name: Download site artifact from successful CI run
+        uses: actions/download-artifact@v4
         with:
-          ref: ${{ github.event.workflow_run.head_sha }}
+          name: lupine-science-public-${{ github.event.workflow_run.head_sha }}
+          path: public
+          github-token: ${{ github.token }}
+          run-id: ${{ github.event.workflow_run.id }}
 
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-
-      - name: Verify static surface
-        run: npm run verify
+      - name: Verify downloaded artifact
+        run: |
+          test -f public/index.html
+          test -f public/health
 
       - name: Validate Cloudflare secrets
         run: |
@@ -93,22 +99,86 @@ jobs:
           [ -n "$url" ] || { echo "::error::Could not find Pages deployment URL"; exit 1; }
           echo "url=$url" >> "$GITHUB_OUTPUT"
 
-      - name: Smoke test
+      - name: Smoke test preview deployment
+        env:
+          PREVIEW_URL: ${{ steps.deploy.outputs.url }}
         run: |
-          url="${{ steps.deploy.outputs.url }}"
-          echo "Smoke-testing $url"
-          for i in 1 2 3 4 5; do
-            health=$(curl -s --fail "$url/health" -m 10 || true)
-            body=$(curl -s --fail "$url" -m 10 || true)
-            if [ "$health" = "ok" ] && echo "$body" | grep -q "Evidence before claim"; then
-              echo "Smoke test passed"
+          for attempt in 1 2 3 4 5; do
+            health="$(curl --fail --silent --show-error --max-time 10 "$PREVIEW_URL/health" || true)"
+            homepage="$(curl --fail --silent --show-error --max-time 10 "$PREVIEW_URL/" || true)"
+            if [ "$health" = "ok" ] && grep -q "Evidence before claim" <<<"$homepage"; then
+              echo "Preview smoke test passed"
               exit 0
             fi
-            echo "Attempt $i: content not ready, retrying..."
+            echo "Attempt $attempt failed; waiting for Pages propagation"
             sleep 10
           done
-          echo "::error::Smoke test failed: expected content not found"
+          echo "::error::Preview did not serve the expected health and homepage content"
           exit 1
+
+      - name: Resolve pull request
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          pr_number="$(jq -r '.workflow_run.pull_requests[0].number // empty' "$GITHUB_EVENT_PATH")"
+          if [ -z "$pr_number" ]; then
+            pr_number="$(gh api -H 'Accept: application/vnd.github+json' \
+              "repos/$GITHUB_REPOSITORY/commits/$HEAD_SHA/pulls" \
+              --jq '[.[] | select(.state == "open")][0].number // empty')"
+          fi
+          [ -n "$pr_number" ] || { echo "::error::No open pull request found for $HEAD_SHA"; exit 1; }
+          echo "number=$pr_number" >> "$GITHUB_OUTPUT"
+
+      - name: Post preview URL to PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+          PREVIEW_URL: ${{ steps.deploy.outputs.url }}
+          HEAD_BRANCH: ${{ github.event.workflow_run.head_branch }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          body_file="$(mktemp)"
+          cat > "$body_file" <<EOF
+          <!-- lupine-science-preview -->
+          ✅ Cloudflare Pages preview is ready: $PREVIEW_URL
+
+          Branch: \`$HEAD_BRANCH\`
+          Commit: \`$HEAD_SHA\`
+          Workflow: $RUN_URL
+          EOF
+
+          body="$(cat "$body_file")"
+          comment_id="$(gh api "repos/$GITHUB_REPOSITORY/issues/$PR_NUMBER/comments" --paginate \
+            --jq '.[] | select(.body | contains("<!-- lupine-science-preview -->")) | .id' | tail -n 1)"
+          if [ -n "$comment_id" ]; then
+            gh api --method PATCH "repos/$GITHUB_REPOSITORY/issues/comments/$comment_id" -f "body=$body" >/dev/null
+          else
+            gh api --method POST "repos/$GITHUB_REPOSITORY/issues/$PR_NUMBER/comments" -f "body=$body" >/dev/null
+          fi
+
+      - name: Publish preview in check summary
+        env:
+          PREVIEW_URL: ${{ steps.deploy.outputs.url }}
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          {
+            echo "## Cloudflare Pages preview"
+            echo
+            echo "- Preview: $PREVIEW_URL"
+            echo "- Pull request: #$PR_NUMBER"
+            echo "- Commit: \`$HEAD_SHA\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Report preview deploy status
+        if: always()
+        run: |
+          curl -X POST https://glim-think-v1.aw-ab5.workers.dev/ops/report \
+            -H "Content-Type: application/json" \
+            -d "{\"repo\":\"$GITHUB_REPOSITORY\",\"workflow\":\"$GITHUB_WORKFLOW\",\"run_id\":\"$GITHUB_RUN_ID\",\"status\":\"${{ job.status }}\",\"commit_sha\":\"${{ github.event.workflow_run.head_sha }}\",\"branch\":\"${{ github.event.workflow_run.head_branch }}\",\"service\":\"lupine.science\",\"platform\":\"cloudflare-pages\",\"environment\":\"preview\",\"preview_url\":\"${{ steps.deploy.outputs.url }}\",\"pr_number\":\"${{ steps.pr.outputs.number }}\",\"kanban_task\":\"t_7b0219e1\",\"run_url\":\"$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID\",\"started_at\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}" || true
 
       - name: Show output
         run: echo "${{ steps.deploy.outputs.url }}"
@@ -116,24 +186,42 @@ jobs:
   deploy-production:
     needs: lighthouse
     if: |
-      github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' &&
-       github.event.workflow_run.event == 'push' && github.event.workflow_run.head_branch == 'main')
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.head_branch == 'main'
     runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: ${{ steps.deploy.outputs.url }}
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
+          ref: ${{ github.event.workflow_run.head_sha }}
 
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: '22'
 
-      - name: Verify static surface
-        run: npm run verify
+      - name: Download exact artifact from successful CI run
+        uses: actions/download-artifact@v4
+        with:
+          name: lupine-science-public-${{ github.event.workflow_run.head_sha }}
+          path: public
+          github-token: ${{ github.token }}
+          run-id: ${{ github.event.workflow_run.id }}
+
+      - name: Verify approved artifact identity
+        env:
+          APPROVED_SHA: ${{ github.event.workflow_run.head_sha }}
+          APPROVED_BRANCH: ${{ github.event.workflow_run.head_branch }}
+        run: |
+          test "$APPROVED_BRANCH" = "main"
+          test "$(git rev-parse HEAD)" = "$APPROVED_SHA"
+          test -f public/index.html
+          test -f public/health
 
       - name: Validate Cloudflare secrets
         run: |
@@ -148,7 +236,7 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          log_file="$(mktemp)"
+          log_file="$RUNNER_TEMP/wrangler-production.log"
           npx --yes wrangler@latest pages deploy public \
             --project-name "$CF_PAGES_PROJECT" \
             --branch main \
@@ -158,32 +246,60 @@ jobs:
           [ -n "$url" ] || { echo "::error::Could not find Pages deployment URL"; exit 1; }
           echo "url=$url" >> "$GITHUB_OUTPUT"
 
-      - name: Smoke test deployment URL
+      - name: Record production deployment receipt
+        env:
+          DEPLOY_URL: ${{ steps.deploy.outputs.url }}
+          DEPLOYED_SHA: ${{ github.event.workflow_run.head_sha }}
+          SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
         run: |
-          url="${{ steps.deploy.outputs.url }}"
-          echo "Smoke-testing $url"
-          for i in 1 2 3 4 5; do
-            health=$(curl -s --fail "$url/health" -m 10 || true)
-            body=$(curl -s --fail "$url" -m 10 || true)
-            if [ "$health" = "ok" ] && echo "$body" | grep -q "Evidence before claim"; then
-              echo "Smoke test passed"
-              exit 0
-            fi
-            echo "Attempt $i: content not ready, retrying..."
-            sleep 10
-          done
-          echo "::error::Smoke test failed: expected health and content not found"
-          exit 1
+          jq -n \
+            --arg environment production \
+            --arg branch main \
+            --arg commit_sha "$DEPLOYED_SHA" \
+            --arg source_ci_run_id "$SOURCE_RUN_ID" \
+            --arg source_artifact "lupine-science-public-$DEPLOYED_SHA" \
+            --arg deployment_url "$DEPLOY_URL" \
+            --arg deployed_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            '{environment: $environment, branch: $branch, commit_sha: $commit_sha, source_ci_run_id: $source_ci_run_id, source_artifact: $source_artifact, deployment_url: $deployment_url, deployed_at: $deployed_at}' \
+            > "$RUNNER_TEMP/production-deployment-receipt.json"
+
+      - name: Upload production deployment receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-deployment-receipt-${{ github.event.workflow_run.head_sha }}
+          path: ${{ runner.temp }}/production-deployment-receipt.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Smoke test production deployment URL
+        env:
+          SMOKE_PREVIEW_BASE_URL: ${{ steps.deploy.outputs.url }}
+          SMOKE_ATTEMPTS: '5'
+          SMOKE_DELAY_MS: '10000'
+        run: |
+          set -o pipefail
+          npm run smoke 2>&1 | tee "$RUNNER_TEMP/smoke-deployment-url.log"
 
       - name: Smoke test custom domain
-        run: npm run smoke
+        env:
+          SMOKE_PRODUCTION_BASE_URL: https://lupine.science
+          SMOKE_ATTEMPTS: '5'
+          SMOKE_DELAY_MS: '10000'
+        run: |
+          set -o pipefail
+          npm run smoke 2>&1 | tee "$RUNNER_TEMP/smoke-custom-domain.log"
 
       - name: Security headers are live
         run: |
+          set -o pipefail
+          {
+          echo "Checking https://lupine.science/ for CSP and HSTS headers"
           # the custom domain can lag the deployment by a few seconds while
           # Pages cuts over — retry like the other smoke tests
           for i in 1 2 3 4 5; do
             hdrs=$(curl -sI https://lupine.science/ -m 10 || true)
+            echo "Attempt $i response headers:"
+            echo "$hdrs" | grep -iE "content-security-policy|strict-transport-security|cf-cache-status|server" || true
             if echo "$hdrs" | grep -qi "content-security-policy" && echo "$hdrs" | grep -qi "strict-transport-security"; then
               echo "Security headers verified"
               exit 0
@@ -193,13 +309,126 @@ jobs:
           done
           echo "::error::CSP/HSTS headers missing on production after retries"
           exit 1
+          } 2>&1 | tee "$RUNNER_TEMP/security-headers.log"
 
       - name: Show output
         run: echo "${{ steps.deploy.outputs.url }}"
 
-      - name: Report deploy status
+      - name: Upload live verification logs
         if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-live-verification-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/wrangler-production.log
+            ${{ runner.temp }}/smoke-deployment-url.log
+            ${{ runner.temp }}/smoke-custom-domain.log
+            ${{ runner.temp }}/security-headers.log
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Notify team of live verification result
+        if: always()
+        env:
+          DEPLOY_URL: ${{ steps.deploy.outputs.url }}
+          COMMIT_SHA: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
+          HEAD_BRANCH: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_branch || github.ref_name }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          SLACK_DEPLOY_WEBHOOK_URL: ${{ secrets.SLACK_DEPLOY_WEBHOOK_URL }}
         run: |
-          curl -X POST https://glim-think-v1.aw-ab5.workers.dev/ops/report \
+          status="${{ job.status }}"
+          icon="✅"
+          title="Live verification passed"
+          if [ "$status" != "success" ]; then
+            icon="🚨"
+            title="Live verification failed"
+          fi
+
+          rollback_command='curl -fsS -X POST "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/lupine-science/deployments/<deployment-id>/rollback" -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" -H "Content-Type: application/json" -d '\''{}'\'''
+          log_excerpt_file="$RUNNER_TEMP/live-verification-log-excerpt.txt"
+          : > "$log_excerpt_file"
+          for file in \
+            "$RUNNER_TEMP/wrangler-production.log" \
+            "$RUNNER_TEMP/smoke-deployment-url.log" \
+            "$RUNNER_TEMP/smoke-custom-domain.log" \
+            "$RUNNER_TEMP/security-headers.log"; do
+            if [ -s "$file" ]; then
+              {
+                echo "### $(basename "$file")"
+                tail -n 80 "$file"
+                echo
+              } >> "$log_excerpt_file"
+            fi
+          done
+          if [ ! -s "$log_excerpt_file" ]; then
+            echo "No live verification logs were captured before the job stopped." > "$log_excerpt_file"
+          fi
+
+          # Smoke output prints an actionable URL followed by its failure
+          # category. Surface the first pair above the full log excerpt.
+          SMOKE_FAILURES_FILE="$log_excerpt_file"
+          failing_url="$(grep -m1 -E '^    - https?://' "$SMOKE_FAILURES_FILE" | sed -E 's/^    - //' || true)"
+          failure_category="$(grep -m1 -E '^      (page unreachable|page body unreadable|missing |canonical URL broken|og:url broken|og:image broken|video link broken|download link broken)' "$SMOKE_FAILURES_FILE" | sed -E 's/^      //' || true)"
+          if [ "$status" != "success" ]; then
+            failing_url="${failing_url:-${DEPLOY_URL:-https://lupine.science}}"
+            failure_category="${failure_category:-deployment or security-header verification}"
+          else
+            failing_url="not applicable"
+            failure_category="none"
+          fi
+
+          notification_file="$RUNNER_TEMP/live-verification-notification.md"
+          {
+            echo "## $icon $title"
+            echo
+            echo "Environment: production"
+            echo "Branch: \`$HEAD_BRANCH\`"
+            echo "Commit: \`$COMMIT_SHA\`"
+            echo "Live URL: ${DEPLOY_URL:-https://lupine.science}"
+            echo "Workflow: $RUN_URL"
+            echo "Artifact: \`production-live-verification-$GITHUB_RUN_ID\`"
+            echo "Failure category: $failure_category"
+            echo "Failing URL: $failing_url"
+            echo
+            echo "Rollback command:"
+            echo '```bash'
+            echo "$rollback_command"
+            echo '```'
+            echo
+            echo "Log excerpt:"
+            echo '```text'
+            cat "$log_excerpt_file"
+            echo '```'
+          } > "$notification_file"
+
+          cat "$notification_file" >> "$GITHUB_STEP_SUMMARY"
+
+          if [ -n "$SLACK_DEPLOY_WEBHOOK_URL" ]; then
+            slack_text="$title | ${DEPLOY_URL:-https://lupine.science} | $COMMIT_SHA | category: $failure_category | failing URL: $failing_url | $RUN_URL"
+            curl -fsS -X POST "$SLACK_DEPLOY_WEBHOOK_URL" \
+              -H "Content-Type: application/json" \
+              -d "$(jq -n --arg text "$slack_text" '{text: $text}')" || true
+          fi
+
+          payload="$(jq -n \
+            --arg repo "$GITHUB_REPOSITORY" \
+            --arg workflow "$GITHUB_WORKFLOW" \
+            --arg run_id "$GITHUB_RUN_ID" \
+            --arg status "$status" \
+            --arg commit_sha "$COMMIT_SHA" \
+            --arg branch "$HEAD_BRANCH" \
+            --arg service "lupine.science" \
+            --arg platform "cloudflare-pages" \
+            --arg environment "production" \
+            --arg deployment_url "$DEPLOY_URL" \
+            --arg run_url "$RUN_URL" \
+            --arg started_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --arg notification_type "live-verification" \
+            --arg rollback_command "$rollback_command" \
+            --arg logs "$(cat "$log_excerpt_file")" \
+            --arg notification_markdown "$(cat "$notification_file")" \
+            '{repo: $repo, workflow: $workflow, run_id: $run_id, status: $status, commit_sha: $commit_sha, branch: $branch, service: $service, platform: $platform, environment: $environment, deployment_url: $deployment_url, run_url: $run_url, started_at: $started_at, notification_type: $notification_type, rollback_command: $rollback_command, logs: $logs, notification_markdown: $notification_markdown}')"
+
+          curl -fsS -X POST https://glim-think-v1.aw-ab5.workers.dev/ops/report \
             -H "Content-Type: application/json" \
-            -d "{\"repo\":\"$GITHUB_REPOSITORY\",\"workflow\":\"$GITHUB_WORKFLOW\",\"run_id\":\"$GITHUB_RUN_ID\",\"status\":\"${{ job.status }}\",\"commit_sha\":\"${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}\",\"branch\":\"${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_branch || github.ref_name }}\",\"service\":\"lupine.science\",\"platform\":\"cloudflare-pages\",\"run_url\":\"$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID\",\"started_at\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}" || true
+            -d "$payload" || true
