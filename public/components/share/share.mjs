@@ -88,22 +88,26 @@ export function buildShareActions({ url, title }) {
  * Returns a promise that resolves to true on success, false on failure.
  */
 export async function copyUrlToClipboard(url) {
-  const previousActive = document.activeElement;
+  const doc = this?.document ?? (typeof document !== 'undefined' ? document : undefined);
+  const nav = this?.navigator ?? (typeof navigator !== 'undefined' ? navigator : undefined);
+  const previousActive = doc?.activeElement;
   const restoreFocus = () => {
     if (previousActive && typeof previousActive.focus === 'function') {
       try { previousActive.focus(); } catch {}
     }
   };
-  if (typeof navigator !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
+  if (nav && nav.clipboard && nav.clipboard.writeText) {
     try {
-      await navigator.clipboard.writeText(url);
+      await nav.clipboard.writeText(url);
       restoreFocus();
       return true;
     } catch {
       // Fall through to legacy fallback
     }
   }
-  const doc = this?.document ?? document;
+  if (!doc || !doc.body) {
+    return false;
+  }
   const textarea = doc.createElement('textarea');
   textarea.value = url;
   textarea.setAttribute('aria-hidden', 'true');
