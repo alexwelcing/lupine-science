@@ -1,0 +1,12 @@
+{
+  "name": "lupine-science-data-chart",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare-fixtures": "rm -rf compositions assets fixtures/line/compositions fixtures/line/assets fixtures/points/compositions fixtures/points/assets && mkdir -p compositions fixtures/line/compositions fixtures/points/compositions && cp ../../compositions/data-chart.html ../../compositions/data-chart.motion.json compositions/ && cp -R ../../assets assets && cp compositions/data-chart.html compositions/data-chart.motion.json fixtures/line/compositions/ && cp compositions/data-chart.html compositions/data-chart.motion.json fixtures/points/compositions/ && cp -R assets fixtures/line/assets && cp -R assets fixtures/points/assets",
+    "check": "npm run prepare-fixtures && for target in . fixtures/line fixtures/points; do echo \">>> $target\"; npx --yes hyperframes@0.7.48 lint \"$target\" && npx --yes hyperframes@0.7.48 validate \"$target\" && npx --yes hyperframes@0.7.48 inspect \"$target\" --at 0.3,0.9,1.6,2.8,5.8 --strict || exit 1; done",
+    "snapshot": "npm run prepare-fixtures && rm -rf snapshots && npx --yes hyperframes@0.7.48 snapshot --at 0.3,0.9,1.6,2.8,5.8",
+    "vreg:update": "VREG_UPDATE=1 npm run vreg",
+    "vreg": "npm run snapshot && node scripts/visual-regression.mjs"
+  }
+}
