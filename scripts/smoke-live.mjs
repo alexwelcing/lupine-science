@@ -53,7 +53,32 @@ const checks = [
     url: `${BASE_URL}/articles/investing-in-the-trust-layer/`,
     expected: 'Investing in the Trust Layer',
     description: 'trust layer article shows title'
-  }
+  },
+  {
+    url: `${BASE_URL}/articles/beyond-carbon-the-error-geometry-of-environmental-materials/`,
+    expected: 'Beyond Carbon',
+    description: 'environmental expansion intro article shows title'
+  },
+  {
+    url: `${BASE_URL}/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/`,
+    expected: 'Water and Air',
+    description: 'water and air article shows title'
+  },
+  {
+    url: `${BASE_URL}/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/`,
+    expected: 'Methane and Refrigerants',
+    description: 'methane and refrigerants article shows title'
+  },
+  {
+    url: `${BASE_URL}/articles/critical-minerals-pfas-and-the-remediation-imperative/`,
+    expected: 'Critical Minerals, PFAS',
+    description: 'critical minerals and PFAS article shows title'
+  },
+  {
+    url: `${BASE_URL}/articles/cement-concrete-and-the-weight-of-the-built-world/`,
+    expected: 'Cement, Concrete',
+    description: 'cement article shows title'
+  },
 ];
 
 function sleep(ms) {
