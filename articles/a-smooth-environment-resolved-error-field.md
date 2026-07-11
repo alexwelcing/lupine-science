@@ -64,7 +64,7 @@ Because the field is a function of environments, its inverse is an additive ener
 
 ## Provable boundaries
 
-Correction has jurisdiction only where order survives. Where rankings invert — for example, MACE-MP-small ordering SFE(Ni) ≤ SFE(Al) while references order the reverse — we prove, machine-checked, that no monotone correction can recover both. The proof kernel certifies data-analysis arithmetic and stated inequalities over SHA-256-provenance data; 100+ Lean 4 theorems, zero `sorry`.
+Correction has jurisdiction only where order survives. Where rankings invert — for example, MACE-MP-small ordering SFE(Ni) ≤ SFE(Al) while references order the reverse — we prove, machine-checked, that no monotone correction can recover both. The proof kernel certifies data-analysis arithmetic and stated inequalities over SHA-256-provenance data; 190+ build-locked Lean 4 theorems, zero `sorry`.
 
 ## Conclusion
 

@@ -63,7 +63,7 @@ The partner chain starts with reticular chemistry. UC Berkeley's Omar Yaghi and 
 Lupine's role is to correct hydrolysis-barrier errors and flag unsupported frameworks. Water attack on metal-linker bonds proceeds through under-coordinated transition states — exactly where uMLIPs soften the potential energy surface. Corrected hydrolysis barriers filter frameworks by real-world humidity stability, not idealized gas-phase energy. Amine-functionalized MOF-808 has reached 1.2 mmol/g at 400 ppm and 50% relative humidity[^14].
 
 ![When correction says "no" — impossibility, not just uncertainty](images/from-predicted-crystal-to-commercial-cell-07-impossibility-flags.jpg)
-*Seventy-seven Lean 4 theorems let Lupine flag unsupported frameworks or metastable phases before they consume experimental time.*
+*190 build-locked Lean 4 theorems let Lupine flag unsupported frameworks or metastable phases before they consume experimental time.*
 
 Manufacturing scale runs through BASF, the first commercial MOF producer at several hundred tons per year and exclusive manufacturer of Svante's CALF-20 sorbent[^15]. Svante has deployed MOF-based capture at pilot scale and is planning multi-million-tonne-per-year capture facilities. Climeworks, the world's largest DAC deployer with its Mammoth plant in Iceland, offers field validation.
 
@@ -112,7 +112,7 @@ ARPA-E should be approached with a portfolio strategy rather than individual pro
 
 Partners validate the science; verification makes it trustworthy at scale. Every organization named above has been burned by computational predictions that looked convincing in a paper but failed in the lab. The 0.2% GNoME synthesis rate and the A-Lab disordered-phase episode are warnings that experimental budgets are finite and false positives are expensive.
 
-Lupine's environment error field, runtime correction, and formal verification address this directly. The field achieves r=0.906 blind prediction of never-fitted surface energies across 36 (model, material) combinations with zero adjustable parameters. Runtime correction adds 15.6% overhead in Python and will drop below 1% in a compiled LAMMPS overlay, keeping corrected uMLIPs many orders of magnitude faster than DFT. Seventy-seven build-locked Lean 4 theorems provide machine-checked guarantees. Where correction cannot apply, Lupine proves impossibility rather than reporting a p-value.
+Lupine's environment error field, runtime correction, and formal verification address this directly. The field achieves r=0.906 blind prediction of never-fitted surface energies across 36 (model, material) combinations with zero adjustable parameters. Runtime correction adds 15.6% overhead in Python and will drop below 1% in a compiled LAMMPS overlay, keeping corrected uMLIPs many orders of magnitude faster than DFT. 190 build-locked Lean 4 theorems provide machine-checked guarantees. Where correction cannot apply, Lupine proves impossibility rather than reporting a p-value.
 
 For partners, handoffs carry documentation. A cathode candidate comes with corrected migration barriers and a theorem certificate of the ranking claim. A MOF candidate comes with a hydrolysis-barrier correction and a proof of whether its coordination environment lies inside or outside the field's domain. An ammonia catalyst comes with corrected N₂ dissociation barriers and a flag if scaling-relation breaking requires higher-level treatment. Experimentalists still synthesize and measure; Lupine removes the guesswork about which candidates deserve the work.
 

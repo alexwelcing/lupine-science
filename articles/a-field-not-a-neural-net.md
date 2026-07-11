@@ -73,7 +73,7 @@ Validation confirms selective correction. The fitted observables recover exactly
 
 ## Machine-Checked Proof
 
-Statistical validation has a well-known limitation: it cannot catch bugs in the analysis code, and it applies only to the samples tested. Lupine adds a formal verification layer. Every quantitative claim — ordering relations, correction bounds, and impossibility results — is encoded as a Lean 4 theorem over integer-scaled data carrying SHA-256 provenance of the source files. The formalization currently comprises 8 modules, 77 build-locked theorems, approximately 225 declarations, and zero `sorry` proofs.
+Statistical validation has a well-known limitation: it cannot catch bugs in the analysis code, and it applies only to the samples tested. Lupine adds a formal verification layer. Every quantitative claim — ordering relations, correction bounds, and impossibility results — is encoded as a Lean 4 theorem over integer-scaled data carrying SHA-256 provenance of the source files. The formalization currently comprises 51 modules, 190 build-locked theorems, 427 theorem declarations, approximately 640 declarations, and zero `sorry` proofs.
 
 The theorems fall into three categories. Ordering claims are inequality chains verified by the Lean kernel at fixed precision, not statistical summaries. Isotonic correction theorems implement the log-affine correction as a Lean function whose outputs the kernel checks against expected ordering properties. Impossibility theorems prove, with concrete counterexample witnesses, where no monotone correction can reconcile a model’s ordering with the reference ordering.
 
@@ -107,6 +107,8 @@ The field measurement, runtime correction, and formal verification layers close 
 
 ![The six-step discovery loop](images/a-field-not-a-neural-net-06-discovery-loop.jpg)
 *Lupine closes field measurement, runtime correction, and machine-checked proof into a six-step loop that terminates in either a certified candidate or a provable reason to stop.*
+
+These certificates are no longer only a publication artifact. The field-domain gate, ranking-inversion gate, and barrier-underestimation conservatism check are now wired into the runtime policy engine and the promotion gate. When a prediction carries first-shell coordination data, the system checks whether every atom lies inside the measured field's domain; out-of-domain atoms trigger a `skip_correction` action backed by `FieldDomain.refusal_has_witness`. When a candidate model is promoted, adjacent pairs in its reference and predicted rankings are checked for monotone rescuability; an inverted pair is downgraded automatically because `inversion_defeats_monotone` proves no monotone recalibration can rescue it. Barrier claims are checked against `softened_barrier_underestimates` and `softening_never_hides_conductor`. The mathematics that was proved in Lean now governs what reaches the lab.
 
 Against DFT, the loop offers comparable defect-energy accuracy at many orders of magnitude higher speed. Against raw uMLIPs, it replaces uncontrolled systematic bias with a bounded, measured correction. Against delta-ML and fine-tuning, it eliminates per-system retraining because the spline transfers within a crystal-structure family. The practical consequence: a $10^6$-structure screening campaign needs no DFT calls, yet every candidate carries a provable accuracy boundary.
 

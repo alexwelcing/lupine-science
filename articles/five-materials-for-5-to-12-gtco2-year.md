@@ -60,7 +60,7 @@ Current halide electrolytes such as Li₃InCl₆ and Li₃YCl₆ achieve **1–1
 
 The computational challenge is the same shape as the cathode problem, but the property is Li⁺ hop barrier rather than transition-metal migration. Raw uMLIPs underestimate migration barriers by **60%+** due to PES softening at under-coordinated transition states[^7]. Because ionic conductivity depends exponentially on barrier—σ ∝ e^(−Eₐ/kBT)—a large barrier error changes predicted conductivity by many orders of magnitude at a typical 300 meV barrier and room temperature. Fast-ion conductors are discarded as insulators before an experimentalist ever sees them.
 
-Lupine corrects barriers on a representative halide such as Li₂ZrCl₆ and transfers the field across the Li–M–Cl space because all members share the same close-packed anion sublattice. Grain-boundary screening, which requires 500+ atom supercells where DFT is prohibitively expensive, becomes feasible with corrected uMLIPs. The false-negative elimination that plagues raw uMLIP screening is replaced by a ranked list whose top entries have DFT-level barrier accuracy.
+Lupine corrects barriers on a representative halide such as Li₂ZrCl₆ and transfers the field across the Li–M–Cl space because all members share the same close-packed anion sublattice. The formalization now includes a dedicated rocksalt/halide anchor layout — a single c=5 vacancy anchor with bulk pin at the rocksalt coordination c=6 — so the halide family has the same two-tier measured/anchored field structure as the fcc, bcc, and diamond families. Grain-boundary screening, which requires 500+ atom supercells where DFT is prohibitively expensive, becomes feasible with corrected uMLIPs. The false-negative elimination that plagues raw uMLIP screening is replaced by a ranked list whose top entries have DFT-level barrier accuracy.
 
 ## Carbon removal: MOFs for direct air capture
 
@@ -101,7 +101,7 @@ Lupine’s response is not to train a bigger model. It is to measure the systema
 ![Blind Prediction of Surface Energies Across 36 Model–Material Pairs](images/five-materials-for-5-to-12-gtco2-year-04-blind-prediction-accuracy.jpg)
 *Across 36 model–material combinations, the environment error field predicts never-fitted surface energies with Pearson r = 0.906 and zero adjustable parameters.*
 
-Runtime correction adds modest overhead in the current Python implementation and will drop below **1%** in a compiled LAMMPS overlay. **77 build-locked Lean 4 theorems with zero sorry proofs** provide guarantees that statistical validation cannot match. Where correction fails, the platform proves impossibility rather than reporting a p-value, preventing experimental resources from being spent on computationally unsupported candidates.
+Runtime correction adds modest overhead in the current Python implementation and will drop below **1%** in a compiled LAMMPS overlay. **190 build-locked Lean 4 theorems with zero sorry proofs** provide guarantees that statistical validation cannot match. Where correction fails, the platform proves impossibility rather than reporting a p-value, preventing experimental resources from being spent on computationally unsupported candidates.
 
 ![How a 100 meV Correction Translates to Gigatonne Impact](images/five-materials-for-5-to-12-gtco2-year-06-impact-funnel.jpg)
 *A sub-0.1 eV correction at the atomic scale propagates into orders-of-magnitude device improvements and gigatonne-scale climate impact.*

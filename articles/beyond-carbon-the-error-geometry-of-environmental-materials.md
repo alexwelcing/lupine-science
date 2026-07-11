@@ -76,7 +76,7 @@ The energy transition is mineral-intensive. The IEA projects that clean-energy t
 The ion-selectivity problem is the same binding-energy problem that appears in membranes and catalysts. Li⁺, Na⁺, K⁺, Mg²⁺, Co²⁺/³⁺, Ni²⁺, and Fe³⁺ must be separated in complex mixed streams. Guest-host binding energies in flexible, under-coordinated sorbent pores and organic extractant pockets fall outside the bulk training distribution of uMLIPs, so raw models misrank candidates by 15–60%[^2]. Corrected insertion and site-selectivity energies identify high-selectivity frameworks.
 
 ![Measured Correction, Machine-Checked Proof](images/beyond-carbon-the-error-geometry-of-environmental-materials-04-blind-prediction-panel.jpg)
-*Across 36 blind model–material pairs the error field predicts corrections with r = 0.906, while a build-locked library of 77 Lean 4 theorems bounds what can be believed.*
+*Across 36 blind model–material pairs the error field predicts corrections with r = 0.906, while a build-locked library of 190 Lean 4 theorems bounds what can be believed.*
 
 
 PFAS remediation adds the strongest bond in organic chemistry. The C–F bond dissociation energy is approximately 485 kJ mol⁻¹[^12]. Catalytic defluorination at low temperature requires highly active metal sites that also resist conversion to stable metal fluorides. Predicting C–F activation barriers and metal-fluoride thermodynamics at under-coordinated sites is exactly the correction task. A sorbent that removes PFOA and PFOS at nanogram-per-litre levels, meanwhile, needs fluorophilic pockets of precise size; corrected host-guest binding energies rank MOFs and porous polymers for selectivity over competing ions and natural organic matter.
@@ -101,7 +101,7 @@ Blind prediction across 36 (model, material) combinations achieves Pearson r = 0
 *Every article in the series will follow the same arc: measure the shape of the error, correct it with analytic forces, and prove which predictions can be believed.*
 
 
-Formal verification is what prevents corrected predictions from becoming a new kind of false confidence. Lupine's claims are accompanied by build-locked Lean 4 theorems; the current library contains 77 theorems with zero sorry proofs[^1]. Where the correction cannot be applied — for example, where the local environment falls outside the measured domain, or where a phase is genuinely synthesis-dependent — the system proves impossibility or bounded uncertainty rather than reporting a p-value. That discipline transfers directly to environmental targets: a cement hydrate phase whose stability cannot be separated from curing conditions is flagged as unsupported, not sold as predicted.
+Formal verification is what prevents corrected predictions from becoming a new kind of false confidence. Lupine's claims are accompanied by build-locked Lean 4 theorems; the current library contains 190 build-locked theorems with zero sorry proofs[^1]. Where the correction cannot be applied — for example, where the local environment falls outside the measured domain, or where a phase is genuinely synthesis-dependent — the system proves impossibility or bounded uncertainty rather than reporting a p-value. That discipline transfers directly to environmental targets: a cement hydrate phase whose stability cannot be separated from curing conditions is flagged as unsupported, not sold as predicted.
 
 ## A platform thesis
 
@@ -113,7 +113,7 @@ The next articles in this series walk through the targets in detail. They share 
 
 ## Footnotes
 
-[^1]: Lupine Science, *Strategic Discovery Plan*, Sections 2–3. The plan documents the 0.2% synthesis problem, the environment error field, the r = 0.906 blind-prediction result, the 15.6% runtime overhead, the 77 build-locked Lean 4 theorems, and the boundary conditions for impossibility proofs.
+[^1]: Lupine Science, *Strategic Discovery Plan*, Sections 2–3. The plan documents the 0.2% synthesis problem, the environment error field, the r = 0.906 blind-prediction result, the 15.6% runtime overhead, the 190 build-locked Lean 4 theorems, and the boundary conditions for impossibility proofs.
 
 [^2]: B. Deng *et al.*, "Systematic softening in universal machine learning interatomic potentials," *npj Computational Materials* **11**, 9 (2025). https://doi.org/10.1038/s41524-024-01500-6
 

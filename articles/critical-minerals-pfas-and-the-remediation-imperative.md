@@ -81,7 +81,7 @@ For PFAS, corrected C–F activation barriers filter out false-positive defluori
 *The same corrected binding energies, activation barriers, and verification discipline apply whether the goal is recovering critical minerals or destroying PFAS.*
 
 
-The verification layer is as important as the correction. Lupine's claims are accompanied by build-locked Lean 4 theorems; the current library contains seventy-seven theorems with zero sorry proofs[^12]. Where the correction cannot be applied — for example, where the local environment falls outside the measured domain, or where a phase is genuinely synthesis-dependent — the system proves impossibility or bounded uncertainty rather than emitting a p-value. That discipline matters for both targets. A sorbent whose selectivity depends on an amorphous phase whose structure cannot be separated from synthesis history is flagged as unsupported. A defluorination catalyst whose active site is predicted only under conditions no synthesis can stabilize is not advanced.
+The verification layer is as important as the correction. Lupine's claims are accompanied by build-locked Lean 4 theorems; the current library contains 190 build-locked theorems with zero sorry proofs[^12]. Where the correction cannot be applied — for example, where the local environment falls outside the measured domain, or where a phase is genuinely synthesis-dependent — the system proves impossibility or bounded uncertainty rather than emitting a p-value. That discipline matters for both targets. A sorbent whose selectivity depends on an amorphous phase whose structure cannot be separated from synthesis history is flagged as unsupported. A defluorination catalyst whose active site is predicted only under conditions no synthesis can stabilize is not advanced.
 
 ## What a unified discovery campaign looks like
 
@@ -145,4 +145,4 @@ The next article in this series turns to cement and concrete — the heaviest in
 
 [^11]: B. Deng *et al.*, "Systematic softening in universal machine learning interatomic potentials," *npj Computational Materials* **11**, 9 (2025). https://doi.org/10.1038/s41524-024-01500-6
 
-[^12]: Lupine Science, *Strategic Discovery Plan*, Sections 2–3. The plan documents the environment error field, the r = 0.906 blind-prediction result, the 15.6% runtime overhead, the 77 build-locked Lean 4 theorems, and the boundary conditions for impossibility proofs.
+[^12]: Lupine Science, *Strategic Discovery Plan*, Sections 2–3. The plan documents the environment error field, the r = 0.906 blind-prediction result, the 15.6% runtime overhead, the 190 build-locked Lean 4 theorems, and the boundary conditions for impossibility proofs.

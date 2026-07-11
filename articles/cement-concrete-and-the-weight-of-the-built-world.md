@@ -62,7 +62,7 @@ Brute-force DFT exploration of these spaces is economically infeasible. A single
 The ranking problem is aggravated by metastability. The best-performing clinker/hydrate combinations are often not the equilibrium assemblages predicted by convex-hull thermodynamics. Ettringite, AFm phases, and certain C-S-H compositions are metastable yet functionally essential. Standard computational screens that discard anything above the convex hull therefore discard the most useful phases. Lupine's verification layer addresses this by proving boundaries: it separates predictions that are supported by the measured error field from predictions that depend on synthesis conditions outside the correction domain[^3]. A belite-rich clinker whose hydrate assemblage is robustly ranked can be advanced with confidence; one whose ranking flips under plausible curing variations is flagged as unsupported rather than hidden behind an arbitrary stability cutoff.
 
 ![Measure, Correct, Prove](images/cement-concrete-and-the-weight-of-the-built-world-05-correction-loop.jpg)
-*Lupine measures the error field, applies an analytic correction at nearly uMLIP speed, and proves which predictions are supported by 77 build-locked theorems. Source: Lupine Science, Strategic Discovery Plan.*
+*Lupine measures the error field, applies an analytic correction at nearly uMLIP speed, and proves which predictions are supported by 190 build-locked theorems. Source: Lupine Science, Strategic Discovery Plan.*
 
 
 ### CO₂-cured concrete: barrier-controlled carbonation
@@ -93,7 +93,7 @@ Blind prediction across 36 (model, material) combinations achieves Pearson r = 0
 
 Computational materials discovery has a credibility problem. Large-scale crystal-structure predictions have produced millions of candidate materials, but independent synthesis has validated only a tiny fraction. The so-called 0.2% synthesis problem reflects the gap between computable stability and makeable matter[^3]. For cement, the problem is worse because the most interesting phases are not even on the convex hull. A screen that reports only equilibrium stability is not merely incomplete; it can be actively misleading.
 
-Lupine's verification layer uses build-locked Lean 4 theorems to state what is proven and what is not. The current library contains 77 theorems with zero sorry proofs[^3]. In the cement context, this means the system can distinguish three classes of claim: (1) predictions supported by the measured error field, such as relative dissolution energies of chemically similar slag compositions; (2) predictions bounded by explicit uncertainty, such as hydrate assemblages that depend on curing temperature and humidity; and (3) claims that are genuinely synthesis-dependent and cannot be supported by the current model. The third class is not a failure; it is a guardrail. It prevents a team from promising a phase whose stability cannot be separated from the curing path used to make it.
+Lupine's verification layer uses build-locked Lean 4 theorems to state what is proven and what is not. The current library contains 190 build-locked theorems with zero sorry proofs[^3]. In the cement context, this means the system can distinguish three classes of claim: (1) predictions supported by the measured error field, such as relative dissolution energies of chemically similar slag compositions; (2) predictions bounded by explicit uncertainty, such as hydrate assemblages that depend on curing temperature and humidity; and (3) claims that are genuinely synthesis-dependent and cannot be supported by the current model. The third class is not a failure; it is a guardrail. It prevents a team from promising a phase whose stability cannot be separated from the curing path used to make it.
 
 ![The Computational Moat](images/cement-concrete-and-the-weight-of-the-built-world-09-speed-advantage.jpg)
 *With >10⁵ candidate compositions to explore and a ~10⁵× speed advantage over DFT, corrected uMLIP screening turns an intractable search into a routine one. Source: Lupine Science, Strategic Discovery Plan.*
@@ -117,7 +117,7 @@ The seven target areas in this series — water, air, methane, refrigerants, cri
 
 [^2]: B. Deng *et al.*, "Systematic softening in universal machine learning interatomic potentials," *npj Computational Materials* **11**, 9 (2025). https://doi.org/10.1038/s41524-024-01500-6
 
-[^3]: Lupine Science, *Strategic Discovery Plan*, Sections 2–3. The plan documents the environment error field, the r = 0.906 blind-prediction result, the 15.6% runtime overhead, the 77 build-locked Lean 4 theorems, and the boundary conditions for impossibility proofs.
+[^3]: Lupine Science, *Strategic Discovery Plan*, Sections 2–3. The plan documents the environment error field, the r = 0.906 blind-prediction result, the 15.6% runtime overhead, the 190 build-locked Lean 4 theorems, and the boundary conditions for impossibility proofs.
 
 [^4]: K. Scrivener *et al.*, "Calcined clay limestone cements (LC3)," *Cement and Concrete Research* **114**, 49–56 (2018). https://doi.org/10.1016/j.cemconres.2017.09.003
 

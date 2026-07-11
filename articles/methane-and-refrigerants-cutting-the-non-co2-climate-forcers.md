@@ -103,7 +103,7 @@ Methane and refrigerants appear to be different problems — one a strong C–H 
 
 Lupine's method is not a new force field trained on each application. It is a measured environment error field with three anchor observables, a bulk constraint, and analytic force corrections that add 15.6% overhead in the current Python implementation and are expected to drop below 1% in a compiled overlay[^11]. The same field that corrects battery cathodes and direct-air-capture sorbents corrects methane-activation barriers, refrigerant bond dissociation, and caloric phase transitions because the failure mode is structural, not chemical.
 
-The verification layer is what makes the correction usable for capital decisions. Blind prediction across 36 (model, material) combinations achieves Pearson r = 0.906 (p = 10⁻⁴, 95% CI [0.82, 0.96]) with zero adjustable parameters[^11]. The accompanying 77 build-locked Lean 4 theorems prove the correction bounds and impossibility conditions[^11]. In a refrigerant screen, that means a molecule flagged as safe has a machine-checked argument. In a methane-catalyst campaign, it means a candidate declared scalable has been shown to lie inside the measured correction domain.
+The verification layer is what makes the correction usable for capital decisions. Blind prediction across 36 (model, material) combinations achieves Pearson r = 0.906 (p = 10⁻⁴, 95% CI [0.82, 0.96]) with zero adjustable parameters[^11]. The accompanying 190 build-locked Lean 4 theorems prove the correction bounds and impossibility conditions[^11]. In a refrigerant screen, that means a molecule flagged as safe has a machine-checked argument. In a methane-catalyst campaign, it means a candidate declared scalable has been shown to lie inside the measured correction domain.
 
 ## Why this matters now
 
@@ -137,7 +137,7 @@ What exists is a correction-and-verification layer that can search these spaces 
 
 [^10]: S. Grundner *et al.*, "Single-site trinuclear copper oxygen clusters in mordenite for selective oxidation of methane to methanol," *Nature Communications* **6**, 7546 (2015); overview of Fe/Cu-zeolite direct partial oxidation systems.
 
-[^11]: Lupine Science, *Strategic Discovery Plan*, Sections 2–3. Documents the environment error field, r = 0.906 blind prediction, 15.6% runtime overhead, 77 build-locked Lean 4 theorems, and boundary conditions for impossibility proofs.
+[^11]: Lupine Science, *Strategic Discovery Plan*, Sections 2–3. Documents the environment error field, r = 0.906 blind prediction, 15.6% runtime overhead, 190 build-locked Lean 4 theorems, and boundary conditions for impossibility proofs.
 
 [^12]: A. Abánades, "The challenge of hydrogen production by methane pyrolysis: thermodynamic and kinetic assessment," *International Journal of Hydrogen Energy* **37**, 21, 16218–16225 (2012); molten-metal catalyst literature for low-temperature methane pyrolysis.
 
