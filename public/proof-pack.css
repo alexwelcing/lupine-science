@@ -1,0 +1,211 @@
+/* Lupine Science proof pack — deterministic, offline, print-first. */
+@font-face {
+  font-family: "Newsreader";
+  src: url("/fonts/newsreader-var.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: block;
+}
+@font-face {
+  font-family: "Newsreader";
+  src: url("/fonts/newsreader-italic-var.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 300 600;
+  font-display: block;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/plex-mono-400.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/fonts/plex-mono-600.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+}
+@font-face {
+  font-family: "Proof Unicode";
+  src: url("/fonts/proof-unicode.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: block;
+}
+
+:root {
+  --paper: #faf9f6;
+  --paper-deep: #f2efe7;
+  --ink: #16171d;
+  --ink-soft: #4c4e58;
+  --ink-faint: #6e707a;
+  --rule: #d8d5cb;
+  --indigo: #3d4db3;
+  --indigo-deep: #2e3a87;
+  --indigo-wash: #eceefb;
+  --ochre: #8a5e1f;
+  /* Chromium emits the variable Newsreader files as Type 3 fonts. Some PDF
+     viewers and print engines render those glyphs incorrectly, so the PDF
+     path uses the static, repository-pinned Unicode font as its primary face. */
+  --serif: "Proof Unicode", serif;
+  --mono: "IBM Plex Mono", "Proof Unicode", monospace;
+}
+
+* { box-sizing: border-box; }
+html { background: #deddd8; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--serif);
+  font-size: 10.5pt;
+  line-height: 1.5;
+  font-optical-sizing: auto;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+}
+a { color: var(--indigo-deep); text-decoration-thickness: 0.06em; text-underline-offset: 0.12em; }
+img { display: block; max-width: 100%; height: auto; }
+
+.proof-pack { counter-reset: figure table; }
+.sheet {
+  position: relative;
+  width: 8.5in;
+  min-height: 11in;
+  margin: 18px auto;
+  padding: 0.7in 0.72in 0.68in;
+  background: var(--paper);
+  box-shadow: 0 5px 24px rgba(22, 23, 29, 0.12);
+}
+.sheet:not(.cover)::before {
+  content: "LUPINE SCIENCE  /  PROOF PACK";
+  position: absolute;
+  top: 0.28in;
+  left: 0.72in;
+  right: 0.72in;
+  padding-bottom: 0.08in;
+  border-bottom: 0.5pt solid var(--rule);
+  color: var(--ink-faint);
+  font-family: var(--mono);
+  font-size: 6.8pt;
+  letter-spacing: 0.14em;
+}
+.sheet:not(.cover)::after {
+  content: attr(data-short-title) "  ·  " attr(data-page);
+  position: absolute;
+  bottom: 0.26in;
+  left: 0.72in;
+  right: 0.72in;
+  padding-top: 0.08in;
+  border-top: 0.5pt solid var(--rule);
+  color: var(--ink-faint);
+  font-family: var(--mono);
+  font-size: 6.8pt;
+  letter-spacing: 0.03em;
+}
+
+.cover {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-top: 0.62in;
+}
+.cover-bar { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.wordmark { display: inline-flex; align-items: center; gap: 10px; font-size: 13pt; font-weight: 600; }
+.wordmark img { width: 26px; height: 36px; object-fit: contain; }
+.document-type,
+.eyebrow,
+.meta-label,
+.section-number,
+.caption-label,
+th {
+  font-family: var(--mono);
+  font-size: 7.5pt;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+.document-type { color: var(--indigo); }
+.cover-rule { height: 3px; margin: 0.38in 0 0.62in; background: linear-gradient(90deg, var(--indigo) 0 68%, var(--ochre) 68% 79%, var(--rule) 79%); }
+.cover h1 { max-width: 11.5ch; margin: 0; font-size: 42pt; font-weight: 400; line-height: 0.98; letter-spacing: -0.025em; text-wrap: balance; }
+.cover .deck { max-width: 34em; margin: 0.28in 0 0; color: var(--ink-soft); font-size: 16pt; line-height: 1.28; }
+.cover-evidence {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: auto;
+  border: 1px solid var(--rule);
+  background: var(--rule);
+}
+.cover-evidence div { min-height: 0.82in; padding: 0.16in; background: var(--paper); }
+.cover-evidence strong { display: block; margin-top: 0.06in; color: var(--indigo-deep); font-family: var(--mono); font-size: 12pt; }
+.cover-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 0.12in 0.3in; margin-top: 0.28in; color: var(--ink-soft); font-size: 8.5pt; }
+.cover-meta p { margin: 0; }
+.meta-label { display: block; margin-bottom: 2px; color: var(--ink-faint); }
+
+h2 { margin: 0 0 0.18in; font-size: 24pt; font-weight: 400; line-height: 1.08; letter-spacing: -0.012em; }
+h3 { margin: 0.25in 0 0.08in; font-size: 14pt; font-weight: 500; line-height: 1.2; }
+p { margin: 0 0 0.13in; }
+.lead { color: var(--ink-soft); font-size: 13pt; line-height: 1.4; }
+.section-number { display: block; margin-bottom: 0.08in; color: var(--indigo); }
+.summary-grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 0.3in; }
+.key-findings { margin: 0; padding: 0; list-style: none; }
+.key-findings li { padding: 0.12in 0 0.12in 0.22in; border-top: 0.5pt solid var(--rule); position: relative; }
+.key-findings li::before { content: "◆"; position: absolute; left: 0; top: 0.14in; color: var(--indigo); font-size: 6pt; }
+.key-findings strong { color: var(--indigo-deep); font-family: var(--mono); font-size: 9pt; }
+
+.callout { padding: 0.18in; border: 0.75pt solid #c9cdec; border-left: 3pt solid var(--indigo); background: var(--indigo-wash); }
+.callout p:last-child { margin-bottom: 0; }
+
+.figure { counter-increment: figure; margin: 0 0 0.24in; break-inside: avoid; }
+.figure img { width: 100%; border: 0.5pt solid var(--rule); }
+.figure figcaption { margin-top: 0.08in; color: var(--ink-soft); font-size: 8.5pt; line-height: 1.35; }
+.figure figcaption::before { content: "Figure " counter(figure) ". "; color: var(--ink); font-family: var(--mono); font-size: 7.5pt; font-weight: 600; }
+.figure-source { display: block; margin-top: 3px; color: var(--ink-faint); font-family: var(--mono); font-size: 6.8pt; }
+.figure-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.2in; }
+.sheet[data-page="03"] .figure img { max-height: 3.05in; object-fit: contain; }
+
+.data-table { width: 100%; margin: 0 0 0.24in; border-collapse: collapse; counter-increment: table; font-variant-numeric: tabular-nums; }
+.data-table caption { margin-bottom: 0.08in; text-align: left; font-size: 8.5pt; color: var(--ink-soft); }
+.data-table caption::before { content: "Table " counter(table) ". "; color: var(--ink); font-family: var(--mono); font-size: 7.5pt; font-weight: 600; }
+th { padding: 0.08in; border-top: 1pt solid var(--ink); border-bottom: 0.75pt solid var(--rule); color: var(--ink-soft); text-align: left; }
+td { padding: 0.08in; border-bottom: 0.5pt solid var(--rule); vertical-align: top; }
+td.numeric { font-family: var(--mono); font-size: 8.5pt; text-align: right; white-space: nowrap; }
+
+.methodology { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 0.24in; }
+.methodology dl { margin: 0; }
+.methodology dt { margin-top: 0.1in; color: var(--ink-faint); font-family: var(--mono); font-size: 7pt; text-transform: uppercase; }
+.methodology dd { margin: 2px 0 0; }
+.credits { margin-top: 0.24in; padding-top: 0.16in; border-top: 0.75pt solid var(--rule); }
+.credits-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.12in 0.25in; }
+.credits-list p { margin: 0; }
+
+.bibliography { margin: 0; padding-left: 0.24in; font-size: 8.5pt; line-height: 1.35; }
+.bibliography li { margin: 0 0 0.09in; padding-left: 0.05in; break-inside: avoid; }
+.bibliography a { overflow-wrap: anywhere; }
+.unicode-test { margin-top: 0.28in; padding-top: 0.12in; border-top: 0.5pt solid var(--rule); color: var(--ink-faint); font-size: 8.5pt; }
+.unicode-test p:first-of-type { font-family: "Proof Unicode", serif; }
+.unicode-test code { font-family: var(--mono); font-size: 7.5pt; }
+
+@page { size: Letter; margin: 0; }
+@media print {
+  html, body { background: var(--paper); }
+  .sheet { width: auto; min-height: 11in; margin: 0; box-shadow: none; break-after: page; }
+  .sheet:last-child { break-after: auto; }
+  a { color: inherit; }
+  figure, table, .callout, .credits { break-inside: avoid; }
+  h2, h3, figcaption { break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+}
+
+/* The same 6.98 × 9.62 in live area fits A4 when the PDF is printed at 100%.
+   Browser preview remains Letter to keep builder output deterministic. */
+@media screen and (max-width: 760px) {
+  .sheet { width: 100%; min-height: 0; margin: 0; padding: 28px 22px 52px; box-shadow: none; }
+  .sheet:not(.cover)::before, .sheet:not(.cover)::after { left: 22px; right: 22px; }
+  .summary-grid, .methodology, .figure-row, .credits-list { grid-template-columns: 1fr; }
+  .cover { min-height: 100vh; }
+  .cover h1 { font-size: 34pt; }
+}
