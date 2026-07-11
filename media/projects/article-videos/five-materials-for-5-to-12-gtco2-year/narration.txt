@@ -1,0 +1,13 @@
+The gap between a climate target and an actual climate solution is usually a material. And five missing materials could unlock between five and twelve gigatonnes of carbon dioxide reductions every year. So, what are they?
+
+First, cobalt-free cathodes that push past a thousand charge cycles without voltage fade. Second, solid electrolytes made from abundant elements, so lithium-metal batteries can pass four hundred watt-hours per kilogram without flammable liquid or critical-material pricing.
+
+Third, metal-organic frameworks for direct air capture. They need to grab carbon dioxide at just four hundred parts per million, ignore all that competing water, survive humidity, and stay cheap enough to manufacture by the tonne.
+
+Fourth, an ammonia catalyst that works near room conditions instead of inside the energy-hungry Haber-Bosch process. And fifth, a lead-free perovskite solar absorber that can clear twenty percent efficiency and last twenty-five years without tin oxidizing in minutes.
+
+Different industries, one shared failure. Performance depends on defects, surfaces, and atomic transition states where atoms have fewer neighbors. That is exactly where fast universal models soften the energy landscape and get the ranking wrong. Brute-force quantum calculations can recover the answer, but they are far too slow for millions or trillions of candidates. A one-hundred-milli-electronvolt error can change a predicted hopping rate fifty-fold.
+
+Lupine measures that systematic error as a physical field, corrects it while the model runs, and checks the result with machine-verified proofs. Good candidates move up. Bad ones fall away. And when a prediction leaves the field’s measured domain, the system can refuse to pretend.
+
+Five materials, one correction layer, and a path from plausible crystals to climate hardware that can actually scale.

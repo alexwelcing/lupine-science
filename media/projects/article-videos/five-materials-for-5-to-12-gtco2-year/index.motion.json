@@ -1,0 +1,6 @@
+{
+  "duration": 92.4,
+  "assertions": [
+    {"kind":"appearsBy","selector":"#opening-mark","bySec":0.7}
+  ]
+}

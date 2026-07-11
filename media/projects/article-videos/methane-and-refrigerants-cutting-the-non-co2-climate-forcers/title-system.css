@@ -1,0 +1,38 @@
+/* Methane & Refrigerants episode — kinetic title system.
+ * Pattern follows the director-approved a-field-not-a-neural-net title-system.
+ * All text ≥ 48px. Safe margins: left/right 96px, top/bottom 54px.
+ * Palette: paper #faf9f6, indigo #3d4db3, ink #1a1a1a, slate #6b7c8e.
+ * Fonts: Newsreader (body/display), Plex mono alias (labels) — defined in episode index.html.
+ */
+
+/* ---- Title-card clip (full-frame overlay) ---- */
+.title-system-clip{position:absolute;inset:0;z-index:50;width:1920px;height:1080px;overflow:hidden;pointer-events:none;opacity:0}
+
+/* ---- Title card ---- */
+.title-system-card{position:absolute;inset:0;background:#faf9f6;color:#1a1a1a}
+.title-system-wash{position:absolute;left:-220px;top:-240px;width:980px;height:980px;border-radius:50%;background:radial-gradient(circle,rgba(61,77,179,.2),rgba(61,77,179,0) 68%)}
+.title-system-grid{position:absolute;inset:0;opacity:.14;background-image:linear-gradient(rgba(61,77,179,.18) 2px,transparent 2px),linear-gradient(90deg,rgba(61,77,179,.18) 2px,transparent 2px);background-size:120px 120px;mask-image:linear-gradient(90deg,#1a1a1a 0%,transparent 78%)}
+.title-system-brand{position:absolute;left:120px;top:84px;display:flex;align-items:center;gap:26px;font-size:48px;line-height:1}
+.title-system-brand img{display:block;width:72px;height:72px;object-fit:contain}
+.title-system-rule{position:absolute;left:120px;right:120px;top:206px;height:4px;background:#3d4db3;transform-origin:left center}
+.title-system-copy{position:absolute;left:120px;top:286px;width:1530px}
+.title-system-eyebrow{margin:0 0 30px;color:#3d4db3;font:600 48px/1.15 Plex,monospace;letter-spacing:.08em;text-transform:uppercase}
+.title-system-title{margin:0;width:1480px;font:400 130px/.94 Newsreader,serif;letter-spacing:-.03em}
+.title-system-title em{color:#3d4db3}
+.title-system-deck{position:absolute;left:120px;top:790px;width:1500px;margin:0;font:400 58px/1.18 Newsreader,serif}
+.title-system-index{position:absolute;right:120px;bottom:72px;margin:0;color:#6b7c8e;font:400 48px/1.15 Plex,monospace;letter-spacing:.02em}
+
+/* ---- Section slate (beat transition label) ---- */
+.section-slate{position:absolute;left:120px;top:168px;width:1680px;padding:32px 46px 38px;background:#faf9f6;border-top:4px solid #3d4db3}
+.section-slate::after{content:"";position:absolute;left:0;top:-4px;width:180px;height:4px;background:#1a1a1a}
+.section-number{display:block;margin-bottom:18px;color:#3d4db3;font:600 48px/1 Plex,monospace;letter-spacing:.12em}
+.section-title{display:block;color:#1a1a1a;font:400 86px/.98 Newsreader,serif;letter-spacing:-.025em}
+.section-subtitle{display:block;margin-top:18px;color:#6b7c8e;font:400 48px/1.15 Plex,monospace;letter-spacing:.025em}
+
+/* ---- Lower-third (evidence callout) ---- */
+.article-lower-third{position:absolute;left:96px;top:738px;width:1728px;height:90px;background:#faf9f6;border-top:4px solid #3d4db3}
+.article-lower-third-tag{position:absolute;left:40px;top:21px;color:#3d4db3;font:600 48px/1 Plex,monospace;letter-spacing:.08em}
+.article-lower-third-copy{position:absolute;left:260px;right:40px;top:14px;height:72px}
+.article-lower-third-name{position:absolute;left:0;top:0;width:720px;overflow:hidden;color:#1a1a1a;font:500 56px/1.05 Newsreader,serif;letter-spacing:-.015em;white-space:nowrap;text-overflow:ellipsis}
+.article-lower-third-role{position:absolute;left:760px;right:0;top:8px;overflow:hidden;color:#6b7c8e;font:400 48px/1.05 Plex,monospace;letter-spacing:.015em;white-space:nowrap;text-overflow:ellipsis}
+.article-lower-third-dot{position:absolute;left:222px;top:40px;width:10px;height:10px;border-radius:50%;background:#3d4db3}

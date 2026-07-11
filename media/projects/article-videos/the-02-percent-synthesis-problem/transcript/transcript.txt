@@ -1,0 +1,51 @@
+Okay, so AI predicted three hundred eighty thousand stable new materials.
+
+Huge, right?
+
+But by late 2023, only seven hundred thirty-six had actually been synthesized.
+
+That’s zero point two percent.
+
+And no, this isn’t just labs moving slowly.
+
+A crystal can look perfect on a computer and still have no practical chemical path into existence.
+
+Prediction is scaling.
+
+Synthesizability isn’t.
+
+Most screens skip four brutal filters.
+
+One: can real precursors reach the target instead of some competing phase?
+
+Two: are the forces accurate away from a tidy, equilibrium crystal?
+
+Three: what happens when the material has vacancies, disorder, or stacking faults—like real materials do?
+
+And four: what does failure cost?
+
+Usually weeks of lab time and thousands of dollars.
+
+This is not a tiny accuracy problem.
+
+Miss an ion-migration barrier by one hundred milli-electronvolts, and the predicted hopping rate changes about fifty-fold at room temperature.
+
+You can literally call a conductor an insulator.
+
+Lupine’s answer isn’t a bigger generator.
+
+It’s a correction and verification layer: an environment error field that measures where universal potentials go wrong, then corrects them at runtime with proper forces.
+
+Better candidates rise.
+
+Bad ones get flagged before the furnace turns on.
+
+That matters because batteries are tied directly to roughly twenty percent of the emissions cuts needed by 2030.
+
+Cobalt-free cathodes could also break a supply chokepoint: about seventy percent of cobalt comes from the Democratic Republic of Congo.
+
+And every decade of delay locks in emissions we cannot recover later.
+
+The goal is simple: predictions that flow to synthesis, characterization, and scale—not another generation cycle.
+
+Read the full article to see how we close the zero-point-two-percent gap.

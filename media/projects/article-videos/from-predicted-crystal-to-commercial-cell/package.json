@@ -1,0 +1,12 @@
+{
+  "name": "lupine-predicted-crystal-commercial-cell",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "npm run lint && npm run validate && npm run inspect",
+    "lint": "npx --yes hyperframes@0.7.48 lint . --json",
+    "validate": "npx --yes hyperframes@0.7.48 validate . --json",
+    "inspect": "npx --yes hyperframes@0.7.48 inspect . --at 1,6,10,14,20,25,30,36,40,44,49,55,58,64,70,74,80,88,94,100,102 --strict --json",
+    "render": "npx --yes hyperframes@0.7.48 render . --resolution 1080p --fps 30 --quality high --strict --output renders/from-predicted-crystal-to-commercial-cell-final-1080p.mp4"
+  }
+}

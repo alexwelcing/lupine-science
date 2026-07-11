@@ -1,0 +1,12 @@
+{
+  "name": "lupine-methane-refrigerants",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "npm run lint && npm run validate && npm run inspect",
+    "lint": "npx --yes hyperframes@0.7.48 lint . --json",
+    "validate": "npx --yes hyperframes@0.7.48 validate . --json",
+    "inspect": "npx --yes hyperframes@0.7.48 inspect . --at 2,8,14,24,30,40,48,62,70,82,90,100,110,125,133 --strict --json",
+    "render": "npx --yes hyperframes@0.7.48 render . --resolution 1080p --fps 30 --quality high --strict --output renders/methane-refrigerants-review-1080p.mp4"
+  }
+}

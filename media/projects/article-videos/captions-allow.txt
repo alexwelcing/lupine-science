@@ -1,0 +1,8 @@
+# Project and scientific vocabulary accepted by scripts/captions.py.
+# Entries are case-insensitive; add only words verified against the source article.
+Lupine
+WebVTT
+CO2
+GtCO2
+PFAS
+GNoME

@@ -1,0 +1,21 @@
+◆  Capturing 12 frames at [1.5s, 15.0s, 20.0s, 33.2s, 45.8s, 54.0s, 66.0s, 70.6s, 77.0s, 86.2s, 98.0s, 105.4s] from titles-qa
+
+   Fonts: 4 loaded
+   Note: added an end-of-timeline frame at 113.49s. Short beats between your --at times may still be skipped — pass them explicitly.
+
+◇  13 snapshots saved to snapshots/
+   snapshots/frame-00-at-1.5s.png
+   snapshots/frame-01-at-15.0s.png
+   snapshots/frame-02-at-20.0s.png
+   snapshots/frame-03-at-33.2s.png
+   snapshots/frame-04-at-45.8s.png
+   snapshots/frame-05-at-54.0s.png
+   snapshots/frame-06-at-66.0s.png
+   snapshots/frame-07-at-70.6s.png
+   snapshots/frame-08-at-77.0s.png
+   snapshots/frame-09-at-86.2s.png
+   snapshots/frame-10-at-98.0s.png
+   snapshots/frame-11-at-105.4s.png
+   snapshots/frame-12-at-113.5s.png
+   contact-sheet-1..2.jpg (grid view for AI review)
+   --describe: GEMINI_API_KEY not set, skipping

@@ -1,0 +1,28 @@
+timestamp_seconds,source,frame,score_10,result,primary_findings
+0.0,rendered MP4: 5-second grid / cue / end proof,frame-00-at-0.0s.png,1,FAIL,blank opening; no marker
+5.0,rendered MP4: 5-second grid / cue / end proof,frame-01-at-5.0s.png,6,FAIL,small labels/provenance
+10.0,rendered MP4: 5-second grid / cue / end proof,frame-02-at-10.0s.png,4,FAIL,transition rule bisects statistics
+15.0,rendered MP4: 5-second grid / cue / end proof,frame-03-at-15.0s.png,6,FAIL,small technical labels
+20.0,rendered MP4: 5-second grid / cue / end proof,frame-04-at-20.0s.png,6,FAIL,small technical labels
+25.0,rendered MP4: 5-second grid / cue / end proof,frame-05-at-25.0s.png,4,FAIL,transition rule bisects content
+30.0,rendered MP4: 5-second grid / cue / end proof,frame-06-at-30.0s.png,6,FAIL,dense small card copy
+35.0,rendered MP4: 5-second grid / cue / end proof,frame-07-at-35.0s.png,6,FAIL,dense small card copy
+40.0,rendered MP4: 5-second grid / cue / end proof,frame-08-at-40.0s.png,6,FAIL,dense small card copy
+45.0,rendered MP4: 5-second grid / cue / end proof,frame-09-at-45.0s.png,6,FAIL,dense small card copy
+49.0,rendered MP4: 5-second grid / cue / end proof,frame-10-at-49.0s.png,4,FAIL,transition rule bisects cards
+50.0,rendered MP4: 5-second grid / cue / end proof,frame-11-at-50.0s.png,5,FAIL,weak/incomplete entrance
+55.0,rendered MP4: 5-second grid / cue / end proof,frame-12-at-55.0s.png,6,FAIL,small axis/source labels
+60.0,rendered MP4: 5-second grid / cue / end proof,frame-13-at-60.0s.png,6,FAIL,small axis/source labels
+62.0,rendered MP4: 5-second grid / cue / end proof,frame-14-at-62.0s.png,4,FAIL,transition rule bisects chart
+65.0,rendered MP4: 5-second grid / cue / end proof,frame-15-at-65.0s.png,6,FAIL,dense small correction copy
+70.0,rendered MP4: 5-second grid / cue / end proof,frame-16-at-70.0s.png,6,FAIL,dense small correction copy
+75.0,rendered MP4: 5-second grid / cue / end proof,frame-17-at-75.0s.png,6,FAIL,dense small correction copy
+80.0,rendered MP4: 5-second grid / cue / end proof,frame-18-at-80.0s.png,4,FAIL,transition rule bisects correction scene
+85.0,rendered MP4: 5-second grid / cue / end proof,frame-19-at-85.0s.png,6,FAIL,small map/chart labels
+90.0,rendered MP4: 5-second grid / cue / end proof,frame-20-at-90.0s.png,6,FAIL,small map/chart labels
+95.0,rendered MP4: 5-second grid / cue / end proof,frame-21-at-95.0s.png,6,FAIL,small map/chart labels
+97.0,rendered MP4: 5-second grid / cue / end proof,frame-22-at-97.0s.png,4,FAIL,transition rule bisects climate evidence
+100.0,rendered MP4: 5-second grid / cue / end proof,frame-23-at-100.0s.png,6,FAIL,small pipeline labels
+103.0,rendered MP4: 5-second grid / cue / end proof,frame-24-at-103.0s.png,8,PASS,settled branded outro
+104.0,rendered MP4: 5-second grid / cue / end proof,frame-25-at-104.0s.png,8,PASS,settled branded outro
+103.3,rendered MP4: 5-second grid / cue / end proof,frame-26-at-103.3s.png,8,PASS,settled branded outro

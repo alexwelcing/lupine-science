@@ -1,0 +1,517 @@
+
+> validate
+> npx --yes hyperframes@0.7.48 validate . --json
+
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "contrast": [
+    {
+      "time": 9.24,
+      "selector": "span.kicker",
+      "text": "Climate gap · portfolio view",
+      "ratio": 6.3,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(245,239,227)"
+    },
+    {
+      "time": 9.24,
+      "selector": "span.meta",
+      "text": "2026 → 2050",
+      "ratio": 4,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(92,102,124)",
+      "bg": "rgb(216,214,220)"
+    },
+    {
+      "time": 9.24,
+      "selector": "h1.claim",
+      "text": "The missing link is matter.",
+      "ratio": 13.94,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(23,33,58)",
+      "bg": "rgb(245,239,227)"
+    },
+    {
+      "time": 9.24,
+      "selector": "em",
+      "text": "matter.",
+      "ratio": 6.3,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(245,239,227)"
+    },
+    {
+      "time": 9.24,
+      "selector": "p.deck.lower-third",
+      "text": "Five plausible crystals. One conditional climate p",
+      "ratio": 14.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(23,33,58)",
+      "bg": "rgb(246,240,228)"
+    },
+    {
+      "time": 9.24,
+      "selector": "div.big",
+      "text": "5–12",
+      "ratio": 6.3,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(245,239,227)"
+    },
+    {
+      "time": 9.24,
+      "selector": "div.mono",
+      "text": "GtCO₂ / YEAR · POTENTIAL",
+      "ratio": 13.92,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(23,33,58)",
+      "bg": "rgb(244,239,227)"
+    },
+    {
+      "time": 9.24,
+      "selector": "div.caption-safe",
+      "text": "TARGET ≠ OUTCOME · FIVE MATERIALS COULD UNLOCK THE",
+      "ratio": 14.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(23,33,58)",
+      "bg": "rgb(246,240,228)"
+    },
+    {
+      "time": 9.24,
+      "selector": "span.source",
+      "text": "ARTICLE INTRO",
+      "ratio": 5.03,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(92,102,124)",
+      "bg": "rgb(245,239,228)"
+    },
+    {
+      "time": 27.72,
+      "selector": "span.kicker",
+      "text": "03 · Direct air capture",
+      "ratio": 6.3,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(245,239,227)"
+    },
+    {
+      "time": 27.72,
+      "selector": "span.meta",
+      "text": "MOF PORE ASSAY",
+      "ratio": 4.08,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(92,102,124)",
+      "bg": "rgb(219,216,221)"
+    },
+    {
+      "time": 27.72,
+      "selector": "h1.claim",
+      "text": "Catch scarce CO₂ in wet air.",
+      "ratio": 13.94,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(23,33,58)",
+      "bg": "rgb(245,239,227)"
+    },
+    {
+      "time": 27.72,
+      "selector": "em",
+      "text": "wet air.",
+      "ratio": 6.3,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(245,239,227)"
+    },
+    {
+      "time": 27.72,
+      "selector": "p.deck.lower-third",
+      "text": "A chemically legible pore, tested against scarcity",
+      "ratio": 14.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(23,33,58)",
+      "bg": "rgb(246,240,228)"
+    },
+    {
+      "time": 27.72,
+      "selector": "span.molecule",
+      "text": "CO₂",
+      "ratio": 14.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(23,33,58)",
+      "bg": "rgb(246,240,228)"
+    },
+    {
+      "time": 27.72,
+      "selector": "span.molecule",
+      "text": "H₂O",
+      "ratio": 6.36,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(246,240,228)"
+    },
+    {
+      "time": 27.72,
+      "selector": "div.caption-safe",
+      "text": "400 ppm · 40–70% RH · <$50/kg · MANUFACTURE BY THE",
+      "ratio": 14.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(23,33,58)",
+      "bg": "rgb(246,240,228)"
+    },
+    {
+      "time": 27.72,
+      "selector": "span.source",
+      "text": "ARTICLE § MOFs",
+      "ratio": 5.03,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(92,102,124)",
+      "bg": "rgb(245,239,227)"
+    },
+    {
+      "time": 46.2,
+      "selector": "span.kicker",
+      "text": "04–05 · Fertilizer + solar",
+      "ratio": 6.3,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(245,239,227)"
+    },
+    {
+      "time": 46.2,
+      "selector": "span.meta",
+      "text": "CONDITIONAL TARGETS",
+      "ratio": 4.42,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(92,102,124)",
+      "bg": "rgb(240,223,204)"
+    },
+    {
+      "time": 46.2,
+      "selector": "h1.claim",
+      "text": "Release the heat. Stop the clock.",
+      "ratio": 13.94,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(23,33,58)",
+      "bg": "rgb(245,239,227)"
+    },
+    {
+      "time": 46.2,
+      "selector": "em",
+      "text": "Stop the clock.",
+      "ratio": 6.3,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(245,239,228)"
+    },
+    {
+      "time": 46.2,
+      "selector": "p.deck.lower-third",
+      "text": "Activate N₂ near room conditions. Hold tin in a le",
+      "ratio": 14.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(23,33,58)",
+      "bg": "rgb(246,240,228)"
+    },
+    {
+      "time": 46.2,
+      "selector": "span.mono",
+      "text": "N₂",
+      "ratio": 3.34,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(198,106,36)",
+      "bg": "rgb(245,239,228)"
+    },
+    {
+      "time": 46.2,
+      "selector": "span.big",
+      "text": "Sn²⁺",
+      "ratio": 6.2,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(244,237,224)"
+    },
+    {
+      "time": 46.2,
+      "selector": "span.mono",
+      "text": "OXIDATION RISK",
+      "ratio": 5.19,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(168,63,85)",
+      "bg": "rgb(245,238,225)"
+    },
+    {
+      "time": 46.2,
+      "selector": "div.caption-safe",
+      "text": "NEAR ROOM CONDITIONS · >20% PCE TARGET · >25 YEARS",
+      "ratio": 14.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(23,33,58)",
+      "bg": "rgb(246,240,228)"
+    },
+    {
+      "time": 46.2,
+      "selector": "span.source",
+      "text": "ARTICLE § AMMONIA / SOLAR",
+      "ratio": 5.03,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(92,102,124)",
+      "bg": "rgb(245,239,227)"
+    },
+    {
+      "time": 64.68,
+      "selector": "span.kicker",
+      "text": "One shared failure",
+      "ratio": 6.3,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(245,239,227)"
+    },
+    {
+      "time": 64.68,
+      "selector": "span.meta",
+      "text": "UNDER-COORDINATED GEOMETRY",
+      "ratio": 5.03,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(92,102,124)",
+      "bg": "rgb(245,239,228)"
+    },
+    {
+      "time": 64.68,
+      "selector": "h1.claim",
+      "text": "Fewer neighbors. Softer barriers. Wrong ranks.",
+      "ratio": 13.94,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(23,33,58)",
+      "bg": "rgb(245,239,227)"
+    },
+    {
+      "time": 64.68,
+      "selector": "em",
+      "text": "Softer barriers.",
+      "ratio": 6.3,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(245,239,227)"
+    },
+    {
+      "time": 64.68,
+      "selector": "p.deck.lower-third",
+      "text": "Defect · surface · transition state · vacancy",
+      "ratio": 14.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(23,33,58)",
+      "bg": "rgb(246,240,228)"
+    },
+    {
+      "time": 64.68,
+      "selector": "text",
+      "text": "100 meV",
+      "ratio": 3.34,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(198,106,36)",
+      "bg": "rgb(245,239,227)"
+    },
+    {
+      "time": 64.68,
+      "selector": "div.big",
+      "text": "≈50×",
+      "ratio": 6.3,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(245,239,227)"
+    },
+    {
+      "time": 64.68,
+      "selector": "div.mono",
+      "text": "RATE CHANGE · 10⁶ → 10¹²",
+      "ratio": 13.94,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(23,33,58)",
+      "bg": "rgb(245,239,227)"
+    },
+    {
+      "time": 64.68,
+      "selector": "div.caption-safe",
+      "text": "FAST uMLIP · PES SOFTENING · RANKING INVERSION",
+      "ratio": 14.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(23,33,58)",
+      "bg": "rgb(246,240,228)"
+    },
+    {
+      "time": 64.68,
+      "selector": "span.source",
+      "text": "ARTICLE [2] · § CATHODES",
+      "ratio": 5.03,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(92,102,124)",
+      "bg": "rgb(245,239,227)"
+    },
+    {
+      "time": 83.16,
+      "selector": "span.kicker",
+      "text": "Correct · verify · refuse",
+      "ratio": 6.3,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(245,239,228)"
+    },
+    {
+      "time": 83.16,
+      "selector": "span.meta",
+      "text": "MEASURED DOMAIN ONLY",
+      "ratio": 4.24,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(92,102,124)",
+      "bg": "rgb(224,220,222)"
+    },
+    {
+      "time": 83.16,
+      "selector": "h1.claim",
+      "text": "A correction layer that knows where to stop.",
+      "ratio": 13.94,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(23,33,58)",
+      "bg": "rgb(245,239,227)"
+    },
+    {
+      "time": 83.16,
+      "selector": "em",
+      "text": "where to stop.",
+      "ratio": 6.3,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(245,239,228)"
+    },
+    {
+      "time": 83.16,
+      "selector": "p.deck.lower-third",
+      "text": "RAW MODEL → MEASURED FIELD → E′ = E + ΔE → PROOF K",
+      "ratio": 14.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(23,33,58)",
+      "bg": "rgb(246,240,228)"
+    },
+    {
+      "time": 83.16,
+      "selector": "span.candidate",
+      "text": "A",
+      "ratio": 14.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(23,33,58)",
+      "bg": "rgb(246,240,228)"
+    },
+    {
+      "time": 83.16,
+      "selector": "span.candidate",
+      "text": "B",
+      "ratio": 14.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(23,33,58)",
+      "bg": "rgb(246,240,228)"
+    },
+    {
+      "time": 83.16,
+      "selector": "span.candidate",
+      "text": "C",
+      "ratio": 13.94,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(23,33,58)",
+      "bg": "rgb(245,239,227)"
+    },
+    {
+      "time": 83.16,
+      "selector": "span.pill",
+      "text": "CORRECTED",
+      "ratio": 4.61,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(57,120,92)",
+      "bg": "rgb(246,240,228)"
+    },
+    {
+      "time": 83.16,
+      "selector": "span.pill",
+      "text": "REFUSED",
+      "ratio": 5.28,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(168,63,85)",
+      "bg": "rgb(246,240,228)"
+    },
+    {
+      "time": 83.16,
+      "selector": "div.caption-safe",
+      "text": "GOOD CANDIDATES RISE · BAD ONES FALL · OUT OF DOMA",
+      "ratio": 14.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(23,33,58)",
+      "bg": "rgb(246,240,228)"
+    },
+    {
+      "time": 83.16,
+      "selector": "span.source",
+      "text": "ARTICLE § SYNTHESIS",
+      "ratio": 5.03,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(92,102,124)",
+      "bg": "rgb(245,239,228)"
+    }
+  ],
+  "contrastFailures": 0,
+  "_meta": {
+    "version": "0.7.48",
+    "latestVersion": "0.7.48",
+    "updateAvailable": false
+  }
+}

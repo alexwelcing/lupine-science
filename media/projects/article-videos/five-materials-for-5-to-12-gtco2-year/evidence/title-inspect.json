@@ -1,0 +1,4 @@
+
+> inspect
+> npx --yes hyperframes@0.7.48 inspect . --at 2,6,10.8,13,20,27,32,39,46,51,55,60,65,70,75,80,84,88,91 --strict --json
+

@@ -1,0 +1,17 @@
+
+> lint
+> npx --yes hyperframes@0.7.48 lint . --json
+
+{
+  "ok": true,
+  "errorCount": 0,
+  "warningCount": 0,
+  "infoCount": 0,
+  "findings": [],
+  "filesScanned": 1,
+  "_meta": {
+    "version": "0.7.48",
+    "latestVersion": "0.7.48",
+    "updateAvailable": false
+  }
+}

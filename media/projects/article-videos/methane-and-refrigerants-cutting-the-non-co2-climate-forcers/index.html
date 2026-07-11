@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=1920,height=1080"><title>Methane and Refrigerants · Lupine Science</title><link rel="stylesheet" href="title-system.css">
+<style>
+@font-face{font-family:Newsreader;src:url('assets/brand/newsreader-var.woff2')}
+@font-face{font-family:Newsreader;src:url('assets/brand/newsreader-italic-var.woff2');font-style:italic}
+@font-face{font-family:Plex;src:url('assets/brand/plex-mono-400.woff2')}
+@font-face{font-family:Plex;src:url('assets/brand/plex-mono-600.woff2');font-weight:600}
+:root{--paper:#faf9f6;--ink:#1a1a1a;--indigo:#3d4db3;--amber:#e8a838;--sage:#5a8a6e;--slate:#6b7c8e;--rose:#c75b5b}
+*{box-sizing:border-box}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:var(--paper);color:var(--ink)}
+body{font-family:Newsreader,serif}
+.root{position:relative;width:1920px;height:1080px;overflow:hidden}
+.ground{position:absolute;inset:0;background:var(--paper)}
+.grain{position:absolute;inset:0;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110'%3E%3Cfilter id='n'%3E%3CfeTurbulence seed='23' baseFrequency='.68' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E")}
+.scene{position:absolute;inset:0;width:1920px;height:1080px;opacity:0;overflow:hidden;background-color:var(--paper)}
+.wash{position:absolute;width:980px;height:980px;right:-260px;top:-340px;border-radius:50%;background:radial-gradient(circle,rgba(61,77,179,.2),rgba(61,77,179,0) 70%)}
+.contours{position:absolute;inset:0;opacity:.14;background-image:repeating-radial-gradient(ellipse at 78% 35%,transparent 0 68px,rgba(61,77,179,.45) 70px 72px)}
+.top{position:absolute;left:110px;right:110px;top:64px;height:92px;border-bottom:4px solid var(--indigo);display:flex;justify-content:space-between;align-items:flex-start}
+.kicker,.meta,.label,.source,.mono{font:600 36px/1.15 Plex,monospace;letter-spacing:.045em;text-transform:uppercase}
+.kicker{color:var(--indigo)}
+.meta,.source{color:var(--slate)}
+.claim{position:absolute;left:110px;top:205px;width:800px;margin:0;font-size:86px;line-height:.96;font-weight:420;letter-spacing:-.03em}
+.claim em{color:var(--indigo);font-style:italic}
+.deck{position:absolute;left:110px;top:650px;width:800px;margin:0;padding:20px 26px;border-left:9px solid var(--indigo);background:rgba(250,249,246,.96);font-size:48px;line-height:1.15}
+.viz{position:absolute;right:110px;top:190px;width:810px;height:560px;border:4px solid var(--ink);background:rgba(250,249,246,.9);overflow:hidden}
+.mark{position:absolute;left:110px;bottom:60px;width:72px;height:72px}
+.source{position:absolute;right:110px;bottom:6px}
+.caption-safe{position:absolute;left:300px;right:300px;bottom:52px;height:108px;padding-top:18px;border-top:4px solid var(--indigo);text-align:center;font:600 36px/1.15 Plex,monospace;letter-spacing:.02em}
+.identity-host{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;pointer-events:none;z-index:100}
+#wipe-wash,#wipe-trace{position:absolute;top:0;height:1080px;pointer-events:none;transform-origin:center center}
+#wipe-wash{left:-56px;width:56px;background:rgba(61,77,179,.15);z-index:48}
+#wipe-trace{left:-4px;width:4px;background:var(--indigo);z-index:49}
+/* W1: climate levers */
+#w1 .lever{display:flex;align-items:center;gap:24px;margin-bottom:30px;padding:24px 30px;border:4px solid var(--ink);background:rgba(250,249,246,.96);opacity:0}
+#w1 .lever-icon{width:80px;height:80px;border-radius:50%;background:var(--indigo);display:grid;place-items:center;color:var(--paper);font:600 36px Plex;flex-shrink:0}
+#w1 .lever-info{flex:1}
+#w1 .lever-text{font:500 42px/1.1 Newsreader,serif}
+#w1 .lever-val{font:600 80px/.9 Plex;color:var(--indigo)}
+#w1 .lever-mark{font:600 36px Plex;color:var(--slate);letter-spacing:.04em;flex-shrink:0}
+#w1 .lever-pct{font:600 36px Plex;color:var(--indigo)}
+#w1 .viz{height:610px}
+#w1 .lever{margin-bottom:18px;padding-top:18px;padding-bottom:18px}
+/* W2: split screen */
+#w2 .split{position:absolute;inset:20px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.split-panel{position:relative;border:4px solid var(--ink);background:rgba(250,249,246,.92);padding:24px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.split-panel h3{margin:0 0 16px;font:600 36px/1.1 Plex;color:var(--indigo);letter-spacing:.03em;text-transform:uppercase}
+.split-panel .formula{font:600 64px/1.2 Plex;margin:12px 0}
+.split-panel .arrow{font:600 56px/1 Plex;color:var(--indigo);margin:8px 0}
+.split-panel .desc{font:600 36px/1.15 Plex;color:var(--slate);margin:8px 0}
+.split-panel .missing{margin-top:auto;padding:16px 20px;border:5px dashed var(--rose);font:600 36px Plex;color:var(--rose);letter-spacing:.06em}
+#w2 .viz{height:610px}
+#w2 .split-panel{padding:14px 18px}
+#w2 .split-panel h3{margin-bottom:6px}
+#w2 .split-panel .formula{font-size:52px;margin:2px 0}
+#w2 .split-panel .arrow{font-size:40px;margin:2px 0}
+#w2 .split-panel .desc{margin:2px 0;line-height:1.05}
+#w2 .split-panel .missing{padding:6px 10px}
+/* W3: edge environments */
+#w3 .barrier-label{position:absolute;left:30px;top:16px;font:600 36px Plex;color:var(--slate);letter-spacing:.04em;z-index:5}
+#w3 .barrier-sag{position:absolute;right:40px;top:62px;font:600 56px/.9 Plex;color:var(--rose);z-index:5;background:rgba(250,249,246,.94);padding:2px 8px}
+#w3 .edge-cells{position:absolute;left:30px;right:30px;bottom:24px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px 16px;z-index:4}
+.edge-cell{border:4px solid var(--indigo);background:rgba(250,249,246,.95);display:grid;place-items:center;text-align:center;font:600 36px/1.05 Plex;padding:8px;min-height:70px}
+/* W4: reaction pathway */
+#w4 .pathway{position:absolute;inset:0}
+#w4 .path-node{position:absolute;width:120px;height:120px;border:6px solid var(--ink);border-radius:50%;display:grid;place-items:center;text-align:center;font:600 36px Plex;background:var(--paper);z-index:2}
+#w4 .path-node.product{border-color:var(--indigo);color:var(--indigo)}
+#w4 .path-node.bad{border-color:var(--rose);color:var(--rose)}
+#w4 .path-line{position:absolute;height:7px;transform-origin:left;z-index:1}
+#w4 .path-label{position:absolute;font:600 36px Plex;letter-spacing:.04em;z-index:5;background:rgba(250,249,246,.9);padding:2px 6px}
+/* W5: refrigerant grid */
+#w5 .mol-grid{position:absolute;left:30px;top:30px;width:360px;height:440px;display:grid;grid-template-columns:repeat(10,1fr);gap:6px}
+.mol-cell{width:100%;aspect-ratio:1;border-radius:50%;background:rgba(61,77,179,.18);opacity:0}
+#w5 .filter-stack{position:absolute;right:30px;top:30px;width:360px;display:flex;flex-direction:column;gap:6px}
+.filter-chip{border:4px solid var(--ink);padding:8px 18px;font:600 36px/1.05 Plex;letter-spacing:.025em;background:rgba(250,249,246,.98);position:relative;z-index:2;opacity:0}
+#w5 .radical-tag{position:absolute;left:20px;bottom:10px;width:400px;font:600 36px Plex;color:var(--amber);z-index:1;background:rgba(250,249,246,.92);padding:4px 10px}
+/* W6: correction pipeline */
+#w6 .pipeline-rail{position:absolute;left:30px;right:30px;top:30px;height:8px;background:var(--ink);transform-origin:left;transform:scaleX(0)}
+.pipe-stage{position:absolute;top:70px;width:200px;height:130px;border:4px solid var(--ink);display:grid;place-items:center;text-align:center;font:600 36px/1.1 Plex;background:var(--paper);z-index:2;opacity:0}
+.pipe-stage.lupine{border-color:var(--indigo);color:var(--indigo)}
+#w6 .scatter{position:absolute;left:30px;right:30px;bottom:30px;height:260px;border:4px solid var(--ink);background:rgba(250,249,246,.92)}
+#w6 .stat-line{position:absolute;left:30px;top:230px;font:600 48px Plex;z-index:5;background:rgba(250,249,246,.92);padding:4px 12px}
+#w6 .r-val{font-size:64px;color:var(--indigo)}
+#w6 .scatter-pt{opacity:0}
+/* W7: orbit end card */
+#w7 .orbit-wrap{position:absolute;inset:0;display:grid;place-items:center}
+#w7 .orbit-ring{position:absolute;width:520px;height:520px;border:6px solid rgba(61,77,179,.3);border-radius:50%}
+#w7 .orbit-core{width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(61,77,179,.25),rgba(61,77,179,.08));display:grid;place-items:center;text-align:center;font:500 48px/1.1 Newsreader;color:var(--indigo);z-index:5}
+.orbit-satellite{position:absolute;width:130px;height:130px;border:5px solid var(--indigo);border-radius:50%;display:grid;place-items:center;text-align:center;font:600 36px/1.1 Plex;background:var(--paper);z-index:6}
+#w7 .end-card{position:absolute;left:160px;right:160px;bottom:60px;text-align:center;padding:24px 40px;border-top:4px solid var(--indigo)}
+#w7 .end-card h1{margin:0;font:400 80px/.98 Newsreader,serif;letter-spacing:-.025em}
+#w7 .end-card h1 em{color:var(--indigo);font-style:italic}
+#w7 .end-card p{margin:14px 0 0;font:600 40px Plex;color:var(--slate);letter-spacing:.03em}
+</style></head><body>
+<div class="root" data-composition-id="methane-refrigerants" data-start="0" data-width="1920" data-height="1080" data-duration="139.8" data-fps="30">
+<div class="ground"></div>
+<div class="grain" data-layout-ignore></div>
+<audio id="narration" src="audio/narration-final.wav" data-start="0" data-duration="133.752" data-trim-start="0" data-trim-end="133.752"></audio>
+<div id="logo-sting" class="identity-host" data-layout-ignore data-layout-allow-overlap data-composition-id="logo-sting" data-composition-src="compositions/logo-sting.html" data-start="0" data-duration="4" data-track-index="30" data-width="1920" data-height="1080" data-variable-values='{"seriesLabel":"LUPINE SCIENCE · ARTICLE VIDEO","issue":"FIELD NOTE / 05","proofStatus":"CLIMATE FORCERS · OPEN"}'></div>
+
+<!-- Scene 1: The climate levers beyond carbon (0 - 19.586s) -->
+<section id="w1" class="scene clip" data-start="0" data-duration="19.586" data-track-index="1">
+<div class="wash" data-layout-ignore></div>
+<div class="top"><span class="kicker">Climate levers · 01</span><span class="meta">Beyond CO₂</span></div>
+<h1 class="claim">Carbon dioxide gets headlines. <em>Two other levers</em> buy time.</h1>
+<p class="deck">Cutting methane and phasing down HFC refrigerants could avoid nearly a degree of warming.</p>
+<div class="viz" data-layout-allow-overflow>
+<div class="lever" style="margin-top:18px">
+<div class="lever-icon">CH₄</div>
+<div class="lever-info"><div class="lever-text">Cut methane 30% by 2030</div><div class="lever-val">0.3°C</div></div>
+<div class="lever-mark">BY 2040</div>
+</div>
+<div class="lever">
+<div class="lever-icon">HFC</div>
+<div class="lever-info"><div class="lever-text">Phase down HFC refrigerants</div><div class="lever-val">0.5°C</div></div>
+<div class="lever-mark">BY 2100</div>
+</div>
+<div class="lever-pct" style="text-align:center;margin-top:20px;font-size:48px">= 0.8°C NEAR-TERM LEVERAGE</div>
+</div>
+<img class="mark" src="assets/brand/lupine-science-mark.svg" alt="Lupine Science">
+<span class="source">IPCC · Kigali Amendment</span>
+</section>
+
+<!-- Scene 2: Two targets, one missing-material problem (19.186 - 33.601s) -->
+<section id="w2" class="scene clip" data-start="19.186" data-duration="14.415" data-track-index="2">
+<div class="contours" data-layout-ignore></div>
+<div class="top"><span class="kicker">Missing material · 02</span><span class="meta">Both targets blocked</span></div>
+<h1 class="claim">Both depend on <em>materials we do not have.</em></h1>
+<div class="viz" data-layout-allow-overflow>
+<div class="split">
+<div class="split-panel">
+<h3>METHANE CATALYST</h3>
+<div class="formula">CH₄</div>
+<div class="arrow">↓ CATALYST</div>
+<div class="formula">CH₃OH</div>
+<div class="desc">Without burning the product</div>
+<div class="missing">MATERIAL MISSING</div>
+</div>
+<div class="split-panel">
+<h3>REFRIGERANT</h3>
+<div class="formula">HFC</div>
+<div class="arrow">↓ REPLACE</div>
+<div class="formula">?</div>
+<div class="desc">Efficient · safe · low-warming</div>
+<div class="missing">MATERIAL MISSING</div>
+</div>
+</div>
+</div>
+<img class="mark" src="assets/brand/lupine-science-mark.svg" alt="Lupine Science">
+<span class="source">Article · material gaps</span>
+<div class="caption-safe">EFFICIENT · SAFE · LOW-WARMING · ALL AT ONCE</div>
+</section>
+
+<!-- Scene 3: Where fast models fail (33.201 - 56.027s) -->
+<section id="w3" class="scene clip" data-start="33.201" data-duration="22.826" data-track-index="3">
+<div class="wash" data-layout-ignore></div>
+<div class="top"><span class="kicker">Where models fail · 03</span><span class="meta" data-layout-allow-overlap>Edge physics</span></div>
+<h1 class="claim">Errors hit <em>exactly where these materials work.</em></h1>
+<p class="deck" data-layout-allow-overlap>Surfaces, transition states, radical fragments, and phase boundaries — the physics that decides viability.</p>
+<div class="viz" data-layout-allow-overflow>
+<span class="barrier-label" data-layout-allow-overlap>ENERGY BARRIER · RAW MODEL SAGS</span>
+<span class="barrier-sag">15–60%</span>
+<svg width="100%" height="230" viewBox="0 0 750 300" preserveAspectRatio="none" style="position:absolute;left:0;top:88px">
+<line x1="40" y1="260" x2="720" y2="260" stroke="#1a1a1a" stroke-width="5"/>
+<line x1="40" y1="260" x2="40" y2="20" stroke="#1a1a1a" stroke-width="5"/>
+<path class="barrier-curve-ref" d="M60 240 C180 230 240 50 370 50 S540 230 700 240" fill="none" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round" stroke-dasharray="1100" stroke-dashoffset="1100"/>
+<path class="barrier-curve-raw" d="M60 240 C200 230 270 160 370 160 S520 230 700 240" fill="none" stroke="#c75b5b" stroke-width="8" stroke-linecap="round" stroke-dasharray="1100" stroke-dashoffset="1100"/>
+</svg>
+<div class="edge-cells" data-layout-allow-overflow>
+<div class="edge-cell" data-layout-allow-overlap>SURFACES</div>
+<div class="edge-cell" data-layout-allow-overlap>TRANSITION STATES</div>
+<div class="edge-cell" data-layout-allow-overlap>RADICAL FRAGMENTS</div>
+<div class="edge-cell" data-layout-allow-overlap>PHASE BOUNDARIES</div>
+</div>
+</div>
+<img class="mark" src="assets/brand/lupine-science-mark.svg" alt="Lupine Science">
+<span class="source">Article · universal model errors</span>
+<div class="caption-safe">15–60% SOFTENING · WRONG CANDIDATE RANKED FIRST</div>
+</section>
+
+<!-- Scene 4: Methane's chemical trap (55.627 - 74.947s) -->
+<section id="w4" class="scene clip" data-start="55.627" data-duration="19.32" data-track-index="4">
+<div class="contours" data-layout-ignore></div>
+<div class="top"><span class="kicker">Methane trap · 04</span><span class="meta">C–H bond · brutally strong</span></div>
+<h1 class="claim">The catalyst <em>over-oxidizes</em> the product.</h1>
+<p class="deck">Cracking methane is easy. Stopping at methanol is the hard part — corrected barriers expose the rare sites.</p>
+<div class="viz" data-layout-allow-overflow>
+<div class="pathway">
+<div class="path-node" style="left:20px;top:200px">CH₄</div>
+<div class="path-node product" style="left:300px;top:60px">CH₃OH</div>
+<div class="path-node bad" style="left:580px;top:60px">CO₂</div>
+<div class="path-node product" style="left:300px;top:360px">H₂</div>
+<div class="path-node product" style="left:580px;top:360px">C</div>
+<div class="path-line" style="left:140px;top:260px;width:170px;background:#1a1a1a;transform:rotate(-24deg)"></div>
+<div class="path-line" style="left:420px;top:120px;width:170px;background:#c75b5b"></div>
+<div class="path-line" style="left:140px;top:260px;width:170px;background:#3d4db3;transform:rotate(24deg)"></div>
+<div class="path-line" style="left:420px;top:420px;width:170px;background:#3d4db3"></div>
+<div class="path-label" style="left:120px;top:330px;color:#6b7c8e">CRACK</div>
+<div class="path-label" style="left:420px;top:30px;color:#c75b5b">OVER-OXIDIZE</div>
+<div class="path-label" style="left:100px;top:170px;color:#3d4db3">CORRECTED</div>
+<div class="path-label" style="left:420px;top:320px;color:#3d4db3">H₂ ROUTE</div>
+</div>
+</div>
+<img class="mark" src="assets/brand/lupine-science-mark.svg" alt="Lupine Science">
+<span class="source">Article · methane catalysis</span>
+<div class="caption-safe">CORRECTED BARRIERS OPEN LOWER-TEMPERATURE METHANOL ROUTES</div>
+</section>
+
+<!-- Scene 5: Refrigerants without the ugly compromise (74.547 - 94.851s) -->
+<section id="w5" class="scene clip" data-start="74.547" data-duration="20.304" data-track-index="5">
+<div class="wash" data-layout-ignore></div>
+<div class="top"><span class="kicker">Refrigerant screening · 05</span><span class="meta">Millions of candidates</span></div>
+<h1 class="claim">Screen millions for <em>safety and performance.</em></h1>
+<p class="deck">Safety-critical steps involve radicals and breaking bonds — the same physics raw models misread.</p>
+<div class="viz" data-layout-allow-overflow>
+<div class="mol-grid" aria-hidden="true"></div>
+<div class="filter-stack">
+<div class="filter-chip">VAPOR PRESSURE</div>
+<div class="filter-chip">EFFICIENCY</div>
+<div class="filter-chip">FLAMMABILITY</div>
+<div class="filter-chip">TOXICITY</div>
+<div class="filter-chip">ATMOS. LIFETIME</div>
+</div>
+<div class="radical-tag" style="position:absolute;left:30px;bottom:10px;z-index:10">⚡ RADICAL TRANSITION STATE</div>
+</div>
+<img class="mark" src="assets/brand/lupine-science-mark.svg" alt="Lupine Science">
+<span class="source">Article · refrigerant screening</span>
+<div class="caption-safe">SAME LOW-COORDINATION PHYSICS · RAW MODELS MISREAD</div>
+</section>
+
+<!-- Scene 6: Measure, correct, verify (94.451 - 119.046s) -->
+<section id="w6" class="scene clip" data-start="94.451" data-duration="24.595" data-track-index="6">
+<div class="contours" data-layout-ignore></div>
+<div class="top"><span class="kicker">Measure · correct · verify · 06</span><span class="meta">Runtime correction · no retraining</span></div>
+<h1 class="claim">Anchor a <em>correction field</em> at runtime.</h1>
+<p class="deck">Machine-checked proofs mark which predictions stay inside the measured domain.</p>
+<div class="viz" data-layout-allow-overflow>
+<div class="pipeline-rail"></div>
+<div class="pipe-stage" style="left:30px">MEASURE</div>
+<div class="pipe-stage lupine" style="left:300px">CORRECT AT RUNTIME</div>
+<div class="pipe-stage" style="left:570px">VERIFY</div>
+<svg class="scatter" viewBox="0 0 750 240" aria-label="Blind correlation scatter">
+<line x1="30" y1="220" x2="720" y2="20" stroke="#1a1a1a" stroke-width="4" stroke-dasharray="12 8"/>
+<circle class="scatter-pt" cx="80" cy="195" r="10" fill="#3d4db3"/>
+<circle class="scatter-pt" cx="140" cy="170" r="10" fill="#3d4db3"/>
+<circle class="scatter-pt" cx="200" cy="145" r="10" fill="#3d4db3"/>
+<circle class="scatter-pt" cx="260" cy="125" r="10" fill="#3d4db3"/>
+<circle class="scatter-pt" cx="320" cy="100" r="10" fill="#3d4db3"/>
+<circle class="scatter-pt" cx="380" cy="85" r="10" fill="#3d4db3"/>
+<circle class="scatter-pt" cx="440" cy="70" r="10" fill="#3d4db3"/>
+<circle class="scatter-pt" cx="500" cy="55" r="10" fill="#3d4db3"/>
+<circle class="scatter-pt" cx="560" cy="40" r="10" fill="#3d4db3"/>
+<text x="375" y="235" text-anchor="middle" font-family="Plex,monospace" font-size="36" fill="#6b7c8e">PREDICTED vs MEASURED · n = 36</text>
+</svg>
+<div class="stat-line">r = <span class="r-val">0.906</span> · 0 FITTED PARAM.</div>
+</div>
+<img class="mark" src="assets/brand/lupine-science-mark.svg" alt="Lupine Science">
+<span class="source">Article · 36 blind combinations</span>
+<div class="caption-safe">CORRECTION FIELD · MACHINE-CHECKED · ZERO PARAMETERS</div>
+</section>
+
+<!-- Scene 7: One shared correction geometry (118.646 - 139.8s) -->
+<section id="w7" class="scene clip" data-start="118.646" data-duration="21.154" data-track-index="7">
+<div class="wash" data-layout-ignore></div>
+<div class="top"><span class="kicker">One geometry · 07</span><span class="meta">Before the policy clock runs out</span></div>
+<div class="viz" data-layout-allow-overflow>
+<div class="orbit-wrap">
+<div class="orbit-ring" aria-hidden="true"></div>
+<div class="orbit-core">CORRECTION FIELD</div>
+<div class="orbit-satellite" style="left:80px;top:80px">CH₄ CATALYST</div>
+<div class="orbit-satellite" style="right:80px;top:80px">NEXT-GEN COOLING</div>
+<div class="orbit-satellite" style="left:50%;bottom:40px;transform:translateX(-50%)">TRUST</div>
+</div>
+</div>
+<div class="end-card" data-layout-allow-overlap>
+<h1>One error geometry. <em>Two climate levers.</em></h1>
+<p>VERIFIED DISCOVERY · BEFORE THE CLOCK RUNS OUT</p>
+</div>
+<img class="mark" src="assets/brand/lupine-science-mark.svg" alt="Lupine Science">
+<span class="source">Article conclusion</span>
+</section>
+
+<!-- Kinetic title system: title card, section labels, and evidence lower-thirds -->
+<section id="article-title-card" class="clip title-system-clip" data-layout-ignore data-start="4" data-duration="4.2" data-track-index="20">
+<div class="title-system-card">
+<div class="title-system-wash" data-layout-ignore></div><div class="title-system-grid" data-layout-ignore></div>
+<div class="title-system-brand"><img src="assets/brand/lupine-science-mark.svg#title-lockup" alt="Lupine Science"><span>Lupine Science</span></div>
+<span class="title-system-rule" data-layout-ignore></span>
+<div class="title-system-copy"><p class="title-system-eyebrow">FIELD NOTE / 05 · NON-CO₂ FORCERS</p><h1 class="title-system-title">Methane and Refrigerants: <em>Cutting the Non-CO₂ Climate Forcers</em></h1></div>
+<p class="title-system-deck">Two fast climate levers. One materials-discovery bottleneck.</p><p class="title-system-index">LUPINE SCIENCE · CLIMATE SERIES</p>
+</div>
+</section>
+<section id="section-error" class="clip title-system-clip" data-layout-ignore data-start="19.186" data-duration="2.8" data-track-index="21"><div class="section-slate"><span class="section-number">02 · LOCATE</span><strong class="section-title">The missing-material problem.</strong><span class="section-subtitle">TWO TARGETS · ONE SHARED BOTTLENECK</span></div></section>
+<section id="section-methane" class="clip title-system-clip" data-layout-ignore data-start="33.201" data-duration="2.8" data-track-index="22"><div class="section-slate"><span class="section-number">03 · MEASURE</span><strong class="section-title">Where fast models fail.</strong><span class="section-subtitle">SURFACES · BARRIERS · RADICALS · BOUNDARIES</span></div></section>
+<section id="section-cooling" class="clip title-system-clip" data-layout-ignore data-start="55.627" data-duration="2.8" data-track-index="23"><div class="section-slate"><span class="section-number">04 · ACTIVATE</span><strong class="section-title">Methane's chemical trap.</strong><span class="section-subtitle">BREAK THE C–H BOND · STOP AT METHANOL</span></div></section>
+<section id="section-correct" class="clip title-system-clip" data-layout-ignore data-start="74.547" data-duration="2.8" data-track-index="24"><div class="section-slate"><span class="section-number">05 · SCREEN</span><strong class="section-title">Cooling without compromise.</strong><span class="section-subtitle">SAFE · EFFICIENT · LOW-WARMING</span></div></section>
+<section id="section-payoff" class="clip title-system-clip" data-layout-ignore data-start="94.451" data-duration="2.8" data-track-index="25"><div class="section-slate"><span class="section-number">06 · CORRECT</span><strong class="section-title">Anchor the field at runtime.</strong><span class="section-subtitle">MEASURE · CORRECT · VERIFY</span></div></section>
+<section id="source-barrier-sag" class="clip title-system-clip" data-layout-ignore data-start="39" data-duration="5" data-track-index="26"><div class="article-lower-third"><span class="article-lower-third-tag">ERROR</span><div class="article-lower-third-copy"><strong class="article-lower-third-name">Barrier softening</strong><span class="article-lower-third-role">15–60% · EDGE PHYSICS</span></div><span class="article-lower-third-dot" data-layout-ignore></span></div></section>
+<section id="source-methane-trap" class="clip title-system-clip" data-layout-ignore data-start="62" data-duration="5" data-track-index="27"><div class="article-lower-third"><span class="article-lower-third-tag">FIELD</span><div class="article-lower-third-copy"><strong class="article-lower-third-name">Under-coordinated sites</strong><span class="article-lower-third-role">SURFACES · BARRIERS</span></div><span class="article-lower-third-dot" data-layout-ignore></span></div></section>
+<section id="source-blind-correlation" class="clip title-system-clip" data-layout-ignore data-start="103" data-duration="5.5" data-track-index="28"><div class="article-lower-third"><span class="article-lower-third-tag">PROOF</span><div class="article-lower-third-copy"><strong class="article-lower-third-name">Blind validation</strong><span class="article-lower-third-role">r = 0.906 · n = 36</span></div><span class="article-lower-third-dot" data-layout-ignore></span></div></section>
+
+<div id="outro" class="identity-host" data-layout-ignore data-layout-allow-overlap data-composition-id="outro" data-composition-src="compositions/outro.html" data-start="133.8" data-duration="6" data-track-index="31" data-width="1920" data-height="1080" data-variable-values='{"cta":"Read about the non-CO₂ climate forcers.","destination":"LUPINE.SCIENCE / METHANE","proofLabel":"TWO LEVERS · ONE FIX"}'></div>
+<span id="wipe-wash" data-layout-ignore></span>
+<span id="wipe-trace" data-layout-ignore></span>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script><script src="title-system.js"></script>
+<script>
+window.__timelines = window.__timelines || {};
+
+/* Build molecular grid for w5 */
+var molGrid = document.querySelector('#w5 .mol-grid');
+for (var i = 0; i < 50; i++) {
+  var cell = document.createElement('i');
+  cell.className = 'mol-cell';
+  molGrid.appendChild(cell);
+}
+
+var tl = gsap.timeline({ paused: true });
+
+/* Scene definitions: [id, start, end] */
+var scenes = [
+  ['#w1', 0, 19.586],
+  ['#w2', 19.186, 33.601],
+  ['#w3', 33.201, 56.027],
+  ['#w4', 55.627, 74.947],
+  ['#w5', 74.547, 94.851],
+  ['#w6', 94.451, 119.046],
+  ['#w7', 118.646, 139.8]
+];
+
+/* Scene entrance choreography */
+scenes.forEach(function(scene, i) {
+  var id = scene[0], s = scene[1];
+  if (i === 0) tl.fromTo(id, { opacity: 0 }, { opacity: 1, duration: 0.01, ease: 'none', immediateRender: false }, s);
+  tl.fromTo(id + ' .kicker', { opacity: 0, x: -65 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out', immediateRender: false }, s + 0.08);
+  tl.fromTo(id + ' .meta', { opacity: 0, x: 65 }, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out', immediateRender: false }, s + 0.14);
+  if (document.querySelector(id + ' .claim')) tl.fromTo(id + ' .claim', { opacity: 0, x: i % 2 ? 80 : -80 }, { opacity: 1, x: 0, duration: 0.7, ease: 'expo.out', immediateRender: false }, s + 0.25);
+  if (document.querySelector(id + ' .deck')) tl.fromTo(id + ' .deck', { opacity: 0, y: 42 }, { opacity: 1, y: 0, duration: 0.55, ease: 'circ.out', immediateRender: false }, s + 0.62);
+  if (document.querySelector(id + ' .viz')) tl.fromTo(id + ' .viz', { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.75, ease: 'back.out(1.25)', immediateRender: false }, s + 0.48);
+  if (document.querySelector(id + ' .caption-safe')) tl.fromTo(id + ' .caption-safe', { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out', immediateRender: false }, s + 1.05);
+});
+
+/* Indigo-line wipe transition between scenes */
+function addIndigoWipe(outgoing, incoming, at, duration) {
+  duration = duration || 0.4;
+  tl.fromTo(incoming, { x: -1920, opacity: 1 }, { x: 0, opacity: 1, duration: duration, ease: 'power2.inOut', immediateRender: false }, at);
+  tl.fromTo(outgoing, { x: 0, opacity: 1 }, { x: 96, opacity: 0.78, duration: duration, ease: 'power2.inOut', immediateRender: false }, at);
+  tl.fromTo('#wipe-trace', { x: 0, opacity: 1, scaleY: 0.9 }, { x: 1924, opacity: 1, scaleY: 1, duration: duration, ease: 'power2.inOut', immediateRender: false }, at);
+  tl.fromTo('#wipe-wash', { x: 0, opacity: 1 }, { x: 1976, opacity: 1, duration: duration, ease: 'power2.inOut', immediateRender: false }, at);
+  tl.to(['#wipe-trace', '#wipe-wash'], { opacity: 0, duration: duration * 0.2, ease: 'power1.out' }, at + duration * 0.8);
+}
+
+scenes.slice(0, -1).forEach(function(scene, i) {
+  var duration = i === 2 ? 0.5 : 0.4;
+  addIndigoWipe(scene[0], scenes[i + 1][0], scenes[i + 1][1] - duration, duration);
+});
+
+/* W1: climate levers */
+tl.fromTo('#w1 .lever', { opacity: 0, x: -90 }, { opacity: 1, x: 0, duration: 0.6, stagger: 1.5, ease: 'power3.out', immediateRender: false }, 8.35);
+tl.fromTo('#w1 .lever-val', { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.5, stagger: 1.5, ease: 'back.out(1.5)', immediateRender: false }, 8.75);
+tl.fromTo('#w1 .lever-pct', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.6, ease: 'expo.out', immediateRender: false }, 14);
+
+/* W2: split panels */
+tl.fromTo('#w2 .split-panel', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.6, ease: 'power3.out', immediateRender: false }, 20);
+tl.fromTo('#w2 .arrow', { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.4, stagger: 0.6, ease: 'back.out(1.8)', immediateRender: false }, 20.6);
+tl.fromTo('#w2 .missing', { opacity: 0, scale: 1.3 }, { opacity: 1, scale: 1, duration: 0.5, stagger: 0.4, ease: 'expo.out', immediateRender: false }, 27);
+
+/* W3: barrier curves + edge cells */
+tl.fromTo('#w3 .barrier-curve-ref', { strokeDashoffset: 1100 }, { strokeDashoffset: 0, duration: 1.4, ease: 'power2.inOut', immediateRender: false }, 38);
+tl.fromTo('#w3 .barrier-curve-raw', { strokeDashoffset: 1100 }, { strokeDashoffset: 0, duration: 1.4, ease: 'power2.inOut', immediateRender: false }, 39.5);
+tl.fromTo('#w3 .barrier-sag', { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out', immediateRender: false }, 41);
+tl.fromTo('#w3 .edge-cell', { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.4, stagger: 0.3, ease: 'back.out(1.5)', immediateRender: false }, 46);
+
+/* W4: reaction pathway */
+tl.fromTo('#w4 .path-node', { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.45, stagger: 0.3, ease: 'back.out(1.4)', immediateRender: false }, 56.3);
+tl.fromTo('#w4 .path-line', { scaleX: 0 }, { scaleX: 1, duration: 0.5, stagger: 0.2, ease: 'power3.inOut', immediateRender: false }, 57);
+tl.fromTo('#w4 .path-label', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.2, ease: 'power2.out', immediateRender: false }, 58);
+
+/* W5: molecular grid + filters */
+tl.fromTo('#w5 .mol-cell', { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.18, stagger: { amount: 1.5, from: 'start' }, ease: 'power2.out', immediateRender: false }, 77.5);
+tl.fromTo('#w5 .filter-chip', { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.4, stagger: 0.4, ease: 'power3.out', immediateRender: false }, 79.2);
+tl.fromTo('#w5 .radical-tag', { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'expo.out', immediateRender: false }, 85);
+
+/* W6: pipeline + scatter */
+tl.fromTo('#w6 .pipeline-rail', { scaleX: 0 }, { scaleX: 1, duration: 1.2, ease: 'power3.inOut', immediateRender: false }, 97.4);
+tl.fromTo('#w6 .pipe-stage', { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.45, stagger: 0.5, ease: 'back.out(1.5)', immediateRender: false }, 97.7);
+tl.fromTo('#w6 .scatter-pt', { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.3, stagger: 0.06, ease: 'back.out(1.6)', immediateRender: false }, 103);
+tl.fromTo('#w6 .stat-line', { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.6, ease: 'expo.out', immediateRender: false }, 107);
+tl.fromTo('#w6 .r-val', { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, duration: 0.5, ease: 'back.out(1.8)', immediateRender: false }, 108);
+
+/* W7: orbit system + end card */
+tl.fromTo('#w7 .orbit-ring', { opacity: 0, scale: 0.5, rotation: -30 }, { opacity: 1, scale: 1, rotation: 0, duration: 1.2, ease: 'expo.out', immediateRender: false }, 119.2);
+tl.fromTo('#w7 .orbit-core', { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.7, ease: 'back.out(1.5)', immediateRender: false }, 120);
+tl.to('#w7 .orbit-ring', { rotation: 20, duration: 18, ease: 'none' }, 120.5);
+tl.fromTo('#w7 .orbit-satellite', { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.5, stagger: 0.3, ease: 'back.out(1.6)', immediateRender: false }, 121);
+tl.fromTo('#w7 .end-card', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out', immediateRender: false }, 125);
+
+window.addArticleTitleSystem(tl);
+window.__timelines['methane-refrigerants'] = tl;
+</script>
+</body></html>

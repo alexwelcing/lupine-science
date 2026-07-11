@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Critical Minerals + PFAS — kinetic titles</title>
+    <style>
+      @font-face { font-family: "Newsreader"; src: url("assets/brand/newsreader-var.woff2") format("woff2"); font-weight: 300 700; font-display: block; }
+      @font-face { font-family: "IBM Plex Mono"; src: url("assets/brand/plex-mono-400.woff2") format("woff2"); font-weight: 400; font-display: block; }
+      @font-face { font-family: "IBM Plex Mono"; src: url("assets/brand/plex-mono-600.woff2") format("woff2"); font-weight: 600; font-display: block; }
+      * { box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; margin: 0; overflow: hidden; background: transparent; }
+      #critical-pfas-titles { position: relative; width: 1920px; height: 1080px; overflow: hidden; color: #1a1a1a; }
+      .clip { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; }
+      .title-ground { position: absolute; inset: 0; background: #faf9f6; }
+      .title-wash { position: absolute; left: -180px; top: -250px; width: 1100px; height: 1100px; border-radius: 50%; background: radial-gradient(circle, rgba(61,77,179,.22), rgba(61,77,179,0) 69%); }
+      .title-grid { position: absolute; inset: 0; opacity: .16; background-image: linear-gradient(rgba(61,77,179,.20) 2px, transparent 2px), linear-gradient(90deg, rgba(61,77,179,.20) 2px, transparent 2px); background-size: 120px 120px; mask-image: linear-gradient(90deg, #1a1a1a, transparent 80%); }
+      .brand { position: absolute; left: 120px; top: 84px; display: flex; align-items: center; gap: 24px; }
+      .brand img { display: block; width: 72px; height: 72px; }
+      .brand span { font: 500 48px/1 Newsreader, serif; }
+      .kicker { position: absolute; right: 120px; top: 96px; margin: 0; color: #3d4db3; font: 600 48px/1.2 "IBM Plex Mono", monospace; letter-spacing: .08em; }
+      .title-rule { position: absolute; left: 120px; top: 738px; width: 1600px; height: 4px; background: #3d4db3; transform-origin: left center; }
+      .title-rule::after { content: ""; position: absolute; left: 445px; bottom: 0; width: 4px; height: 524px; background: #3d4db3; }
+      .title-copy { position: absolute; left: 590px; top: 245px; width: 1130px; margin: 0; font: 400 112px/.96 Newsreader, serif; letter-spacing: -.025em; }
+      .title-copy span { display: block; }
+      .title-copy em { color: #3d4db3; font-style: italic; }
+      .title-deck { position: absolute; left: 590px; top: 770px; width: 1130px; margin: 0; font: 400 52px/1.18 Newsreader, serif; }
+      .title-index { position: absolute; left: 96px; top: 452px; margin: 0; color: #3d4db3; font: 600 48px/1.08 "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; }
+      .title-index small { display: block; margin-top: 20px; font-size: 48px; font-weight: 400; letter-spacing: .04em; }
+      .section-wrap { position: absolute; left: 96px; top: 84px; width: 1728px; height: 176px; overflow: hidden; }
+      .section-rule { position: absolute; left: 0; top: 0; width: 1728px; height: 4px; background: #3d4db3; transform-origin: left center; }
+      .section-stylus { position: absolute; left: 0; top: 0; width: 8px; height: 20px; background: #3d4db3; }
+      .section-number { position: absolute; left: 0; top: 34px; width: 180px; color: #3d4db3; font: 600 48px/1 "IBM Plex Mono", monospace; letter-spacing: .06em; }
+      .section-label { position: absolute; left: 220px; top: 24px; margin: 0; font: 500 72px/1 Newsreader, serif; letter-spacing: -.015em; }
+      .section-proof { position: absolute; right: 0; top: 114px; color: #6b7c8e; font: 400 48px/1 "IBM Plex Mono", monospace; letter-spacing: .02em; }
+      .lower-wrap { position: absolute; left: 96px; top: 738px; width: 1728px; height: 234px; }
+      .lower-panel { position: absolute; left: 0; top: 0; width: 1400px; height: 174px; overflow: hidden; background: rgba(250,249,246,.98); }
+      .lower-rule { position: absolute; left: 0; top: 0; width: 1400px; height: 4px; background: #3d4db3; transform-origin: left center; }
+      .lower-stylus { position: absolute; left: 0; top: 0; width: 8px; height: 20px; background: #3d4db3; }
+      .lower-tag { position: absolute; left: 36px; top: 28px; width: 210px; color: #3d4db3; font: 600 48px/1 "IBM Plex Mono", monospace; letter-spacing: .06em; }
+      .lower-claim { position: absolute; left: 270px; top: 22px; width: 1080px; margin: 0; overflow: hidden; white-space: nowrap; font: 500 58px/1.08 Newsreader, serif; letter-spacing: -.015em; }
+      .lower-detail { position: absolute; left: 270px; top: 104px; color: #6b7c8e; font: 400 48px/1 "IBM Plex Mono", monospace; letter-spacing: .02em; white-space: nowrap; }
+      .safe-mark { position: absolute; right: 0; top: 0; width: 42px; height: 42px; border-top: 3px solid #3d4db3; border-right: 3px solid #3d4db3; }
+    </style>
+  </head>
+  <body>
+    <div id="critical-pfas-titles" data-composition-id="critical-pfas-kinetic-titles" data-start="0" data-width="1920" data-height="1080" data-duration="112.392" data-fps="30">
+      <section id="title-card" class="clip" data-start="0" data-duration="6.2" data-track-index="0">
+        <div class="title-ground"></div><div class="title-wash" data-layout-ignore></div><div class="title-grid" data-layout-ignore></div>
+        <div class="brand"><img src="assets/brand/lupine-science-mark.svg" alt="Lupine Science" /><span>Lupine Science</span></div>
+        <p class="kicker">ARTICLE VIDEO · REMEDIATION</p><div class="title-rule"></div>
+        <h1 class="title-copy"><span>Critical Minerals,</span><span><em>PFAS,</em> and the</span><span>Remediation Imperative</span></h1>
+        <p class="title-deck">Recover what we need. Destroy what we don’t.</p>
+        <p class="title-index">TWO CAMPAIGNS<small>ONE MODEL ERROR</small></p>
+      </section>
+
+      <section id="section-mineral-squeeze" class="clip section-card" data-start="14.141" data-duration="3.4" data-track-index="1"><div class="section-wrap"><div class="section-rule"></div><div class="section-stylus"></div><span class="section-number">02 / 07</span><h2 class="section-label">The mineral squeeze</h2><span class="section-proof">4–6× DEMAND · 2040</span></div></section>
+      <section id="section-forever-bond" class="clip section-card" data-start="30.88" data-duration="3.4" data-track-index="1"><div class="section-wrap"><div class="section-rule"></div><div class="section-stylus"></div><span class="section-number">03 / 07</span><h2 class="section-label">The forever bond</h2><span class="section-proof">CAPTURE → DESTROY</span></div></section>
+      <section id="section-screening-lies" class="clip section-card" data-start="47.22" data-duration="3.4" data-track-index="1"><div class="section-wrap"><div class="section-rule"></div><div class="section-stylus"></div><span class="section-number">04 / 07</span><h2 class="section-label">Why screening lies</h2><span class="section-proof">15–60% ERROR</span></div></section>
+      <section id="section-local-physics" class="clip section-card" data-start="64.966" data-duration="3.4" data-track-index="1"><div class="section-wrap"><div class="section-rule"></div><div class="section-stylus"></div><span class="section-number">05 / 07</span><h2 class="section-label">Correct the local physics</h2><span class="section-proof">ENERGIES + FORCES</span></div></section>
+      <section id="section-two-campaigns" class="clip section-card" data-start="81.5" data-duration="3.4" data-track-index="1"><div class="section-wrap"><div class="section-rule"></div><div class="section-stylus"></div><span class="section-number">06 / 07</span><h2 class="section-label">One layer. Two campaigns.</h2><span class="section-proof">RECOVERY ↔ REMEDIATION</span></div></section>
+      <section id="section-payoff" class="clip section-card" data-start="98.58" data-duration="3.4" data-track-index="1"><div class="section-wrap"><div class="section-rule"></div><div class="section-stylus"></div><span class="section-number">07 / 07</span><h2 class="section-label">The remediation imperative</h2><span class="section-proof">KEEP VALUE · REMOVE HARM</span></div></section>
+
+      <section id="lower-demand" class="clip lower-third" data-start="15.0" data-duration="5.4" data-track-index="2"><div class="lower-wrap"><div class="lower-panel"><div class="lower-rule"></div><div class="lower-stylus"></div><span class="lower-tag">DEMAND</span><p class="lower-claim">4–6× clean-energy minerals by 2040</p><span class="lower-detail">RECYCLE · URBAN MINE · EXTRACT</span></div><span class="safe-mark"></span></div></section>
+      <section id="lower-bond" class="clip lower-third" data-start="38.26" data-duration="5.7" data-track-index="2"><div class="lower-wrap"><div class="lower-panel"><div class="lower-rule"></div><div class="lower-stylus"></div><span class="lower-tag">BOND</span><p class="lower-claim">C–F · about 485 kJ/mol</p><span class="lower-detail">CAPTURE IS NOT DESTRUCTION</span></div><span class="safe-mark"></span></div></section>
+      <section id="lower-error" class="clip lower-third" data-start="53.6" data-duration="6.2" data-track-index="2"><div class="lower-wrap"><div class="lower-panel"><div class="lower-rule"></div><div class="lower-stylus"></div><span class="lower-tag">ERROR</span><p class="lower-claim">Raw models soften edge physics</p><span class="lower-detail">PORES · VACANCIES · SURFACES</span></div><span class="safe-mark"></span></div></section>
+      <section id="lower-domain" class="clip lower-third" data-start="92.375" data-duration="5.6" data-track-index="2"><div class="lower-wrap"><div class="lower-panel"><div class="lower-rule"></div><div class="lower-stylus"></div><span class="lower-tag">BOUND</span><p class="lower-claim">Unsupported predictions stop here</p><span class="lower-detail">MACHINE-CHECKED DOMAIN GATE</span></div><span class="safe-mark"></span></div></section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const root = document.querySelector("#critical-pfas-titles");
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo(root.querySelector(".title-wash"), { opacity: 0, scale: .9 }, { opacity: 1, scale: 1, duration: 1.1, ease: "sine.out" }, .08)
+        .fromTo(root.querySelector(".title-grid"), { opacity: 0 }, { opacity: .16, duration: .8, ease: "power1.out" }, .12)
+        .fromTo(root.querySelector(".title-rule"), { scaleX: 0 }, { scaleX: 1, duration: .7, ease: "power2.inOut" }, .16)
+        .fromTo(root.querySelector(".brand"), { x: -34, opacity: 0 }, { x: 0, opacity: 1, duration: .56, ease: "expo.out" }, .28)
+        .fromTo(root.querySelector(".kicker"), { x: 42, opacity: 0 }, { x: 0, opacity: 1, duration: .48, ease: "power3.out" }, .36)
+        .fromTo(root.querySelector(".title-copy"), { y: 116, opacity: 0 }, { y: 0, opacity: 1, duration: .82, ease: "expo.out" }, .54)
+        .fromTo(root.querySelector(".title-index"), { x: -38, opacity: 0 }, { x: 0, opacity: 1, duration: .54, ease: "power3.out" }, .92)
+        .fromTo(root.querySelector(".title-deck"), { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: .5, ease: "power3.out" }, 1.08)
+        .fromTo(root.querySelector(".title-wash"), { x: 0, y: 0, scale: 1 }, { x: 48, y: 18, scale: 1.035, duration: 4.9, ease: "sine.inOut" }, 1.25);
+
+      root.querySelectorAll(".section-card").forEach((clip) => {
+        const at = Number(clip.dataset.start);
+        const wrap = clip.querySelector(".section-wrap");
+        tl.fromTo(clip.querySelector(".section-rule"), { scaleX: 0 }, { scaleX: 1, duration: .42, ease: "power2.inOut", immediateRender: false }, at)
+          .fromTo(clip.querySelector(".section-stylus"), { x: 0, opacity: 0 }, { x: 1720, opacity: 1, duration: .42, ease: "power2.inOut", immediateRender: false }, at)
+          .fromTo(clip.querySelector(".section-number"), { opacity: 0 }, { opacity: 1, duration: .34, ease: "power3.out", immediateRender: false }, at + .22)
+          .fromTo(clip.querySelector(".section-label"), { y: 48, opacity: 0 }, { y: 0, opacity: 1, duration: .5, ease: "expo.out", immediateRender: false }, at + .28)
+          .fromTo(clip.querySelector(".section-proof"), { x: 30, opacity: 0 }, { x: 0, opacity: 1, duration: .42, ease: "power3.out", immediateRender: false }, at + .4)
+          .to(wrap, { opacity: 0, duration: .34, ease: "power2.inOut" }, at + 3.05);
+      });
+
+      root.querySelectorAll(".lower-third").forEach((clip) => {
+        const at = Number(clip.dataset.start);
+        const panel = clip.querySelector(".lower-panel");
+        const stylus = clip.querySelector(".lower-stylus");
+        const duration = Number(clip.dataset.duration);
+        tl.fromTo(panel, { opacity: 0 }, { opacity: 1, duration: .2, ease: "power2.out", immediateRender: false }, at)
+          .fromTo(clip.querySelector(".lower-rule"), { scaleX: 0 }, { scaleX: 1, duration: .42, ease: "power2.inOut", immediateRender: false }, at + .04)
+          .fromTo(stylus, { x: 0, opacity: 0 }, { x: 1392, opacity: 1, duration: .42, ease: "power2.inOut", immediateRender: false }, at + .04)
+          .fromTo(clip.querySelector(".lower-tag"), { x: -18, opacity: 0 }, { x: 0, opacity: 1, duration: .34, ease: "power3.out", immediateRender: false }, at + .28)
+          .fromTo(clip.querySelector(".lower-claim"), { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: .48, ease: "expo.out", immediateRender: false }, at + .32)
+          .fromTo(clip.querySelector(".lower-detail"), { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: .38, ease: "power3.out", immediateRender: false }, at + .48)
+          .fromTo(stylus, { x: 1392 }, { x: 24, duration: Math.max(2.4, duration - 1.3), ease: "sine.inOut", immediateRender: false }, at + .72)
+          .to(panel, { opacity: 0, duration: .32, ease: "power2.inOut" }, at + duration - .36);
+      });
+      window.__timelines["critical-pfas-kinetic-titles"] = tl;
+    </script>
+  </body>
+</html>

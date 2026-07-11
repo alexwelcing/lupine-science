@@ -1,0 +1,197 @@
+      Lupine Science                                                   EVIDENCE PROOF PACK · V1.0
+
+
+
+
+CLIMATE MATERIALS PORTFOLIO
+
+
+
+Five Materials
+That Could
+Unlock 5–
+12 GtCO₂/Year
+A compact, auditable record of the article’s claims, source figures, data,
+methods, and institutional responsibility.
+
+
+
+
+  EVIDENCE STATUS               FIGURES                           REFERENCES
+
+  Reviewed                      2 selected                        4 cited
+
+
+PUBLISHED                                    DOCUMENT ID
+July 9, 2026                                 LS-PP-2026-005
+
+AUTHOR / INSTITUTION                         CANONICAL SOURCE
+Alex Welcing · Lupine Science                lupine.science/articles/five-materials-for-5-to-12-gtco2-
+                                             year/
+LUPINE SCIENCE / PROOF PACK
+
+
+
+01 / EXECUTIVE SUMMARY
+
+
+What the evidence supports
+Five material classes share a defect-mediated
+                                                               EVIDENCE VERDICT
+prediction problem. Correcting systematic                      Supported as a portfolio thesis.
+model error at under-coordinated environments
+may improve which candidates reach synthesis.                  The aggregate range is an independently
+                                                               sourced opportunity estimate, not a
+                                                               forecast. Each pathway retains technical,
+◆   Claim. The portfolio’s combined climate opportunity
+                                                               policy, and scale-up uncertainty.
+    is estimated at 5–12 GtCO₂/year, conditional on
+    successful development and deployment.
+
+◆   Mechanism. Ranking errors arise where universal
+    potentials soften transition states, surfaces, and
+    defects.
+
+◆
+    Boundary. This pack records evidence and
+    assumptions; it does not represent experimental
+    validation of every candidate.
+
+
+
+Reader orientation
+The following pages preserve representative article figures with captions, a compact data table, the
+methodology note, credits, and a bibliography. Figure numbering and source lines remain stable between
+builds.
+
+
+
+
+Five materials · 02
+LUPINE SCIENCE / PROOF PACK
+
+
+
+02 / KEY FIGURES
+
+
+The claim, then the mechanism
+
+
+
+
+Figure 1. Five independently sized material targets sum to an aggregate climate potential of 5–12 GtCO₂ /year.
+Source: Lupine Science synthesis of cited sector literature; see bibliography and article source notes.
+
+
+
+
+Figure 2. Across 36 model–material combinations, the environment error field predicts never-fitted surface energies with
+Pearson r = 0.906 and zero adjustable parameters.
+Source: analysis described in the linked article; preserve axis labels and never crop plotted annotations.
+
+
+
+
+Five materials · 03
+LUPINE SCIENCE / PROOF PACK
+
+
+
+03 / DATA AND METHOD
+
+
+Inspectable values and assumptions
+Table 1. Representative targets carried from the article into the proof pack.
+
+
+ MATERIAL PATHWAY                              DECISION METRIC                                     TARGET
+
+
+ Cobalt-free LMR cathode                       Cell-level energy density                                 >300 Wh/kg
+
+
+ Halide solid electrolyte                      Ionic conductivity                                         >10 mS/cm
+
+
+ MOF sorbent                                   CO₂ working capacity at 400 ppm                            >2 mmol/g
+
+
+ Ammonia catalyst                              Energy efficiency                                                >60%
+
+
+ Lead-free perovskite                          Certified conversion efficiency                                  >20%
+
+
+
+METHOD RECORD
+
+UNIT OF ANALYSIS                                     Methodology note
+Material class and defect-mediated
+performance metric                                   Claims are selected from the article’s explicit quantitative
+                                                     statements. Each retained chart must have a descriptive
+EVIDENCE CUTOFF
+                                                     alternative text, visible caption, source line, and corresponding
+July 9, 2026
+                                                     bibliography entry. Values are copied without reinterpretation;
+VERSIONING                                           transformations and exclusions must be stated here.
+Deterministic HTML/CSS build; source
+URL and document ID printed on cover                 Builds run entirely from repository assets. No runtime
+                                                     network requests, remote fonts, analytics, animation, or hidden
+KNOWN LIMITATIONS
+                                                     interactive state are permitted in the PDF path.
+Impact ranges are conditional scenarios;
+commercial outcomes are not guaranteed.
+
+
+
+AUTHOR AND INSTITUTION CREDITS
+Author                                                           Institution
+Alex Welcing                                                     Lupine Science
+
+Editorial review                                                 Data and figure provenance
+[Reviewer name / role]                                           Article source notes and bibliography
+
+
+
+
+Five materials · 04
+LUPINE SCIENCE / PROOF PACK
+
+
+
+04 / BIBLIOGRAPHY
+
+
+Sources and audit trail
+ 1. International Energy Agency. Batteries and Secure Energy Transitions. IEA, 2024.
+
+ 2. Deng, B. et al. “Systematic softening in universal machine learning interatomic potentials.” npj Computational Materials
+    11, 9 (2025). doi:10.1038/s41524-024-01500-6.
+
+ 3. IPCC. Climate Change 2022: Mitigation of Climate Change. Working Group III contribution to AR6. Cambridge University
+    Press, 2022.
+
+ 4. Royal Society. Ammonia: Zero-Carbon Fertiliser, Fuel and Energy Store. Policy briefing, 2020.
+
+
+Audit links
+Canonical article: lupine.science/articles/five-materials-for-5-to-12-gtco2-year/
+
+Every production pack must add links to the underlying dataset, analysis/code, and archived figure manifest
+when those artifacts exist.
+
+
+
+REQUIRED FONT AND EXTRACTION TEST STRING
+CO₂ · CH₄ · GtCO₂/year · en dash – · em dash — · “curly quotes” · α β γ Δ μ σ ∑ ∂ ≈ ≤ ≥ ± × · José García · Zoë Šimůnková ·
+François L’Écuyer
+
+All production PDFs must embed Unicode-capable font subsets with ToUnicode maps. No remote font fallback is
+allowed.
+
+
+
+
+Five materials · 05
+

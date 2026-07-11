@@ -1,0 +1,1999 @@
+{
+  "policy": "paper + ink + indigo + at most one semantic accent per frame",
+  "accentTokens": {
+    "rose": "rgb(199, 91, 91)",
+    "amber": "rgb(232, 168, 56)",
+    "sage": "rgb(90, 138, 110)"
+  },
+  "generatedAt": "2026-07-10T23:15:07.293Z",
+  "samples": [
+    {
+      "time": 12,
+      "scene": "scene-gap",
+      "active": [
+        "rose"
+      ],
+      "counts": {
+        "rose": 12,
+        "amber": 0,
+        "sage": 0
+      },
+      "hits": {
+        "rose": [
+          {
+            "selector": "route risk",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "route risk",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "route risk",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "route risk",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "route risk",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "route risk",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": null,
+            "property": "fill",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::before",
+            "property": "fill",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::after",
+            "property": "fill",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": null,
+            "property": "fill",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::before",
+            "property": "fill",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::after",
+            "property": "fill",
+            "value": "rgb(199, 91, 91)"
+          }
+        ],
+        "amber": [],
+        "sage": []
+      }
+    },
+    {
+      "time": 15,
+      "scene": "scene-gap",
+      "active": [
+        "rose"
+      ],
+      "counts": {
+        "rose": 12,
+        "amber": 0,
+        "sage": 0
+      },
+      "hits": {
+        "rose": [
+          {
+            "selector": "route risk",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "route risk",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "route risk",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "route risk",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "route risk",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "route risk",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": null,
+            "property": "fill",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::before",
+            "property": "fill",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::after",
+            "property": "fill",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": null,
+            "property": "fill",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::before",
+            "property": "fill",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::after",
+            "property": "fill",
+            "value": "rgb(199, 91, 91)"
+          }
+        ],
+        "amber": [],
+        "sage": []
+      }
+    },
+    {
+      "time": 24,
+      "scene": "scene-gap",
+      "active": [
+        "rose"
+      ],
+      "counts": {
+        "rose": 12,
+        "amber": 0,
+        "sage": 0
+      },
+      "hits": {
+        "rose": [
+          {
+            "selector": "route risk",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "route risk",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "route risk",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "route risk",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "route risk",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "route risk",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": null,
+            "property": "fill",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::before",
+            "property": "fill",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::after",
+            "property": "fill",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": null,
+            "property": "fill",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::before",
+            "property": "fill",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::after",
+            "property": "fill",
+            "value": "rgb(199, 91, 91)"
+          }
+        ],
+        "amber": [],
+        "sage": []
+      }
+    },
+    {
+      "time": 28,
+      "scene": "scene-filters",
+      "active": [
+        "rose"
+      ],
+      "counts": {
+        "rose": 15,
+        "amber": 0,
+        "sage": 0
+      },
+      "hits": {
+        "rose": [
+          {
+            "selector": "risk route",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk route",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk route",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk route",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk route",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk route",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          }
+        ],
+        "amber": [],
+        "sage": []
+      }
+    },
+    {
+      "time": 37,
+      "scene": "scene-filters",
+      "active": [
+        "rose"
+      ],
+      "counts": {
+        "rose": 15,
+        "amber": 0,
+        "sage": 0
+      },
+      "hits": {
+        "rose": [
+          {
+            "selector": "risk route",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk route",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk route",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk route",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk route",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk route",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          }
+        ],
+        "amber": [],
+        "sage": []
+      }
+    },
+    {
+      "time": 46,
+      "scene": "scene-filters",
+      "active": [
+        "rose"
+      ],
+      "counts": {
+        "rose": 15,
+        "amber": 0,
+        "sage": 0
+      },
+      "hits": {
+        "rose": [
+          {
+            "selector": "risk route",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk route",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk route",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk route",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk route",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk route",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "risk",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          }
+        ],
+        "amber": [],
+        "sage": []
+      }
+    },
+    {
+      "time": 50,
+      "scene": "scene-error",
+      "active": [
+        "amber"
+      ],
+      "counts": {
+        "rose": 0,
+        "amber": 15,
+        "sage": 0
+      },
+      "hits": {
+        "rose": [],
+        "amber": [
+          {
+            "selector": "trace warn",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "trace warn",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "trace warn",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#ion-predicted",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#ion-predicted",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::before",
+            "property": "color",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::before",
+            "property": "borderTopColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::before",
+            "property": "borderRightColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::before",
+            "property": "borderBottomColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::before",
+            "property": "borderLeftColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::after",
+            "property": "color",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::after",
+            "property": "borderTopColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::after",
+            "property": "borderRightColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::after",
+            "property": "borderBottomColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::after",
+            "property": "borderLeftColor",
+            "value": "rgb(232, 168, 56)"
+          }
+        ],
+        "sage": []
+      }
+    },
+    {
+      "time": 56,
+      "scene": "scene-error",
+      "active": [
+        "amber"
+      ],
+      "counts": {
+        "rose": 0,
+        "amber": 16,
+        "sage": 0
+      },
+      "hits": {
+        "rose": [],
+        "amber": [
+          {
+            "selector": "trace warn",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "trace warn",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "trace warn",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#ion-predicted",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#ion-predicted",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#ion-predicted",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::before",
+            "property": "color",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::before",
+            "property": "borderTopColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::before",
+            "property": "borderRightColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::before",
+            "property": "borderBottomColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::before",
+            "property": "borderLeftColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::after",
+            "property": "color",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::after",
+            "property": "borderTopColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::after",
+            "property": "borderRightColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::after",
+            "property": "borderBottomColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::after",
+            "property": "borderLeftColor",
+            "value": "rgb(232, 168, 56)"
+          }
+        ],
+        "sage": []
+      }
+    },
+    {
+      "time": 61,
+      "scene": "scene-error",
+      "active": [
+        "amber"
+      ],
+      "counts": {
+        "rose": 0,
+        "amber": 21,
+        "sage": 0
+      },
+      "hits": {
+        "rose": [],
+        "amber": [
+          {
+            "selector": "trace warn",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "trace warn",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "trace warn",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#ion-predicted",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#ion-predicted",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#ion-predicted",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": null,
+            "property": "color",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": null,
+            "property": "borderTopColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": null,
+            "property": "borderRightColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": null,
+            "property": "borderBottomColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": null,
+            "property": "borderLeftColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::before",
+            "property": "color",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::before",
+            "property": "borderTopColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::before",
+            "property": "borderRightColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::before",
+            "property": "borderBottomColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::before",
+            "property": "borderLeftColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::after",
+            "property": "color",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::after",
+            "property": "borderTopColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::after",
+            "property": "borderRightColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::after",
+            "property": "borderBottomColor",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "#classification",
+            "pseudo": "::after",
+            "property": "borderLeftColor",
+            "value": "rgb(232, 168, 56)"
+          }
+        ],
+        "sage": []
+      }
+    },
+    {
+      "time": 64,
+      "scene": "scene-correction",
+      "active": [
+        "rose"
+      ],
+      "counts": {
+        "rose": 28,
+        "amber": 0,
+        "sage": 0
+      },
+      "hits": {
+        "rose": [
+          {
+            "selector": "error-vector",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": null,
+            "property": "color",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": null,
+            "property": "borderTopColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": null,
+            "property": "borderRightColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": null,
+            "property": "borderBottomColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": null,
+            "property": "borderLeftColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::before",
+            "property": "color",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::before",
+            "property": "borderTopColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::before",
+            "property": "borderRightColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::before",
+            "property": "borderBottomColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::before",
+            "property": "borderLeftColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::after",
+            "property": "color",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::after",
+            "property": "borderTopColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::after",
+            "property": "borderRightColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::after",
+            "property": "borderBottomColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::after",
+            "property": "borderLeftColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "strike",
+            "pseudo": null,
+            "property": "backgroundColor",
+            "value": "rgb(199, 91, 91)"
+          }
+        ],
+        "amber": [],
+        "sage": []
+      }
+    },
+    {
+      "time": 68,
+      "scene": "scene-correction",
+      "active": [
+        "rose"
+      ],
+      "counts": {
+        "rose": 28,
+        "amber": 0,
+        "sage": 0
+      },
+      "hits": {
+        "rose": [
+          {
+            "selector": "error-vector",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": null,
+            "property": "color",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": null,
+            "property": "borderTopColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": null,
+            "property": "borderRightColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": null,
+            "property": "borderBottomColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": null,
+            "property": "borderLeftColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::before",
+            "property": "color",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::before",
+            "property": "borderTopColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::before",
+            "property": "borderRightColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::before",
+            "property": "borderBottomColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::before",
+            "property": "borderLeftColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::after",
+            "property": "color",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::after",
+            "property": "borderTopColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::after",
+            "property": "borderRightColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::after",
+            "property": "borderBottomColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::after",
+            "property": "borderLeftColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "strike",
+            "pseudo": null,
+            "property": "backgroundColor",
+            "value": "rgb(199, 91, 91)"
+          }
+        ],
+        "amber": [],
+        "sage": []
+      }
+    },
+    {
+      "time": 76,
+      "scene": "scene-correction",
+      "active": [
+        "rose"
+      ],
+      "counts": {
+        "rose": 28,
+        "amber": 0,
+        "sage": 0
+      },
+      "hits": {
+        "rose": [
+          {
+            "selector": "error-vector",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": null,
+            "property": "color",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": null,
+            "property": "borderTopColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": null,
+            "property": "borderRightColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": null,
+            "property": "borderBottomColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": null,
+            "property": "borderLeftColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::before",
+            "property": "color",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::before",
+            "property": "borderTopColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::before",
+            "property": "borderRightColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::before",
+            "property": "borderBottomColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::before",
+            "property": "borderLeftColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::after",
+            "property": "color",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::after",
+            "property": "borderTopColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::after",
+            "property": "borderRightColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::after",
+            "property": "borderBottomColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::after",
+            "property": "borderLeftColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "strike",
+            "pseudo": null,
+            "property": "backgroundColor",
+            "value": "rgb(199, 91, 91)"
+          }
+        ],
+        "amber": [],
+        "sage": []
+      }
+    },
+    {
+      "time": 79,
+      "scene": "scene-correction",
+      "active": [
+        "rose"
+      ],
+      "counts": {
+        "rose": 28,
+        "amber": 0,
+        "sage": 0
+      },
+      "hits": {
+        "rose": [
+          {
+            "selector": "error-vector",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "error-vector",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": null,
+            "property": "color",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": null,
+            "property": "borderTopColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": null,
+            "property": "borderRightColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": null,
+            "property": "borderBottomColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": null,
+            "property": "borderLeftColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::before",
+            "property": "color",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::before",
+            "property": "borderTopColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::before",
+            "property": "borderRightColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::before",
+            "property": "borderBottomColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::before",
+            "property": "borderLeftColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::after",
+            "property": "color",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::after",
+            "property": "borderTopColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::after",
+            "property": "borderRightColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::after",
+            "property": "borderBottomColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "B",
+            "pseudo": "::after",
+            "property": "borderLeftColor",
+            "value": "rgb(199, 91, 91)"
+          },
+          {
+            "selector": "strike",
+            "pseudo": null,
+            "property": "backgroundColor",
+            "value": "rgb(199, 91, 91)"
+          }
+        ],
+        "amber": [],
+        "sage": []
+      }
+    },
+    {
+      "time": 82,
+      "scene": "scene-stakes",
+      "active": [
+        "amber"
+      ],
+      "counts": {
+        "rose": 0,
+        "amber": 8,
+        "sage": 0
+      },
+      "hits": {
+        "rose": [],
+        "amber": [
+          {
+            "selector": "map-drc",
+            "pseudo": "::before",
+            "property": "fill",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "map-drc",
+            "pseudo": "::after",
+            "property": "fill",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "map-callout",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "map-callout",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "map-callout",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": {},
+            "pseudo": null,
+            "property": "fill",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::before",
+            "property": "fill",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::after",
+            "property": "fill",
+            "value": "rgb(232, 168, 56)"
+          }
+        ],
+        "sage": []
+      }
+    },
+    {
+      "time": 86,
+      "scene": "scene-stakes",
+      "active": [
+        "amber"
+      ],
+      "counts": {
+        "rose": 0,
+        "amber": 9,
+        "sage": 0
+      },
+      "hits": {
+        "rose": [],
+        "amber": [
+          {
+            "selector": "map-drc",
+            "pseudo": null,
+            "property": "fill",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "map-drc",
+            "pseudo": "::before",
+            "property": "fill",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "map-drc",
+            "pseudo": "::after",
+            "property": "fill",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "map-callout",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "map-callout",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "map-callout",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": {},
+            "pseudo": null,
+            "property": "fill",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::before",
+            "property": "fill",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::after",
+            "property": "fill",
+            "value": "rgb(232, 168, 56)"
+          }
+        ],
+        "sage": []
+      }
+    },
+    {
+      "time": 90,
+      "scene": "scene-stakes",
+      "active": [
+        "amber"
+      ],
+      "counts": {
+        "rose": 0,
+        "amber": 9,
+        "sage": 0
+      },
+      "hits": {
+        "rose": [],
+        "amber": [
+          {
+            "selector": "map-drc",
+            "pseudo": null,
+            "property": "fill",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "map-drc",
+            "pseudo": "::before",
+            "property": "fill",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "map-drc",
+            "pseudo": "::after",
+            "property": "fill",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "map-callout",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "map-callout",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "map-callout",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": {},
+            "pseudo": null,
+            "property": "fill",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::before",
+            "property": "fill",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::after",
+            "property": "fill",
+            "value": "rgb(232, 168, 56)"
+          }
+        ],
+        "sage": []
+      }
+    },
+    {
+      "time": 96,
+      "scene": "scene-stakes",
+      "active": [
+        "amber"
+      ],
+      "counts": {
+        "rose": 0,
+        "amber": 9,
+        "sage": 0
+      },
+      "hits": {
+        "rose": [],
+        "amber": [
+          {
+            "selector": "map-drc",
+            "pseudo": null,
+            "property": "fill",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "map-drc",
+            "pseudo": "::before",
+            "property": "fill",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "map-drc",
+            "pseudo": "::after",
+            "property": "fill",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "map-callout",
+            "pseudo": null,
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "map-callout",
+            "pseudo": "::before",
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": "map-callout",
+            "pseudo": "::after",
+            "property": "stroke",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": {},
+            "pseudo": null,
+            "property": "fill",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::before",
+            "property": "fill",
+            "value": "rgb(232, 168, 56)"
+          },
+          {
+            "selector": {},
+            "pseudo": "::after",
+            "property": "fill",
+            "value": "rgb(232, 168, 56)"
+          }
+        ],
+        "sage": []
+      }
+    }
+  ],
+  "violations": [],
+  "pass": true
+}

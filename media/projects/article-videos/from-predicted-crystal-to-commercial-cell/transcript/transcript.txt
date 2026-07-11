@@ -1,0 +1,13 @@
+A predicted crystal is not a material. A powder is not a battery cell. And a cell is definitely not an electric truck. Between the computer and the road? A whole chain of handoffs where great ideas quietly die.
+
+Google DeepMind generated two point two million crystal predictions. Three hundred eighty thousand looked stable. By late 2023, only seven hundred thirty-six had been independently synthesized. So, yeah, we do not have a prediction shortage. We have a trust problem.
+
+A candidate has to survive synthesis, coating, cell fabrication, live testing, module integration, and manufacturing scale-up. No single lab owns that entire chain. And every partner needs to know the last result is solid before spending time and money on the next step.
+
+Here is how bad one error gets. Universal machine-learning potentials can underestimate a lithium migration barrier by sixty percent. That can move predicted room-temperature conductivity by about five thousand times. A promising solid electrolyte may only be promising because the model softened the hard part.
+
+Lupine sits between prediction and experiment. Its environment error field measures where universal potentials fail, corrects them at runtime with analytic forces, and attaches machine-checked proofs to the claims. The partner does not get another ranked spreadsheet. They get a candidate with a bounded error budget.
+
+That same layer can travel five very different routes: cobalt-free cathodes, solid electrolytes, carbon-capture frameworks, ammonia catalysts, and lead-free solar absorbers. The partners change. The job does not. Correct the risky physics, flag what the model cannot support, and send experimentalists fewer, better bets.
+
+Because scaling materials discovery is not about generating the next million crystals. It is about building enough trust for one crystal to make it through the lab, the factory, and into a commercial cell. Read the full partner map at Lupine Science.

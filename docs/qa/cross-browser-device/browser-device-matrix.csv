@@ -1,0 +1,6 @@
+profile,engine,device_mode,execution,public_pages,status,limitation
+chrome-desktop-native,Google Chrome 150.0.7871.114,1440x900 mouse,Native Linux browser,22/22,EXECUTED,None
+firefox-desktop-playwright,Firefox 151.0,1440x900 mouse,Playwright-managed real Firefox engine on Linux,22/22,EXECUTED,Not the separately installed Firefox 152 Snap because Playwright requires its patched Firefox build
+safari-desktop-emulated,WebKit 26.5,1440x900 mouse,Playwright WebKit on Linux,0/22,BLOCKED,Not native macOS Safari; launch blocked by missing host dependencies
+mobile-safari-emulated,WebKit 26.5,iPhone 13 viewport/touch/UA,Playwright device emulation on Linux,0/22,BLOCKED,Not iOS hardware or native Safari; launch blocked by missing host dependencies
+android-chrome-emulated,Google Chrome 150.0.7871.114,Pixel 7 viewport/touch/UA,Device emulation in native Linux Chrome,22/22,EXECUTED,Not Android hardware

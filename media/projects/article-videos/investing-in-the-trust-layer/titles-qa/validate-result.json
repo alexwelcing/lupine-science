@@ -1,0 +1,53 @@
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "contrast": [
+    {
+      "time": 35.1,
+      "selector": "span.trust-section-number",
+      "text": "02 / 06",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 35.1,
+      "selector": "h2.trust-section-label",
+      "text": "Where Lupine sits",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 105.3,
+      "selector": "span.trust-section-number",
+      "text": "06 / 06",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 105.3,
+      "selector": "h2.trust-section-label",
+      "text": "The investment thesis",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    }
+  ],
+  "contrastFailures": 0,
+  "_meta": {
+    "version": "0.7.48",
+    "latestVersion": "0.7.48",
+    "updateAvailable": false
+  }
+}

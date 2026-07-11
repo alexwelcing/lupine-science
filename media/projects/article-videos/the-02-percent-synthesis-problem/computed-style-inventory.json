@@ -1,0 +1,773 @@
+{
+  "generatedAt": "2026-07-10T23:15:26.213Z",
+  "source": "live computed styles from Chromium at 1920x1080",
+  "textElements": 95,
+  "minimumComputedFontSize": 36,
+  "policy": {
+    "bodyExplanatoryMinimumPx": 48,
+    "labelAxisCalloutMinimumPx": 36
+  },
+  "violations": [],
+  "inventory": [
+    {
+      "selector": "span.marker-series",
+      "text": "LUPINE SCIENCE · FIELD NOTE 01/07",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "div.marker-proof",
+      "text": "predicted stable → synthesized. The measured yield is",
+      "fontSize": 88,
+      "fontFamily": "Newsreader",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "b",
+      "text": "380,000",
+      "fontSize": 88,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "b",
+      "text": "736",
+      "fontSize": 88,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "b",
+      "text": "0.2%.",
+      "fontSize": 88,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "span.marker-source",
+      "text": "GNoME · LATE 2023 · ARTICLE [1]",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "span",
+      "text": "FIELD NOTE · 01/07",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "span",
+      "text": "ARTICLE [1]",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "div.eyebrow",
+      "text": "Computed stable → synthesized",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "h1.scene-title",
+      "text": "The field almost",
+      "fontSize": 132,
+      "fontFamily": "Newsreader",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "em.indigo",
+      "text": "vanishes.",
+      "fontSize": 132,
+      "fontFamily": "Newsreader",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "#predicted-count",
+      "text": "380,000",
+      "fontSize": 104,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "div.ratio-label",
+      "text": "AI-predicted stable materials",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "#made-count",
+      "text": "736",
+      "fontSize": 104,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "div.ratio-label",
+      "text": "synthesized by late 2023",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "#ratio-stat",
+      "text": "0.2%",
+      "fontSize": 176,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "div.source",
+      "text": "Synthesized / computed stable",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "span",
+      "text": "THE REAL GAP · 02/07",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "span",
+      "text": "CONVEX HULL ≠ REACTION PATH",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "h2",
+      "text": "Stable on paper is not the same as",
+      "fontSize": 92,
+      "fontFamily": "Newsreader",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "em.indigo",
+      "text": "made in practice.",
+      "fontSize": 92,
+      "fontFamily": "Newsreader",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "h3",
+      "text": "Stable on paper",
+      "fontSize": 58,
+      "fontFamily": "Newsreader",
+      "policy": "body/explanatory",
+      "floor": 48
+    },
+    {
+      "selector": "div.path-label",
+      "text": "PREDICTION ↑ · EQUILIBRIUM CRYSTAL",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "h3",
+      "text": "Made in practice",
+      "fontSize": 58,
+      "fontFamily": "Newsreader",
+      "policy": "body/explanatory",
+      "floor": 48
+    },
+    {
+      "selector": "div.path-label",
+      "text": "SYNTHESIZABILITY — · COMPETING PHASE / DECOMPOSITION",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "span",
+      "text": "SCREEN BEFORE THE FURNACE · 03/07",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "span",
+      "text": "FILTER 01/04 → 04/04",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "h2",
+      "text": "Four brutal filters separate a prediction from a material.",
+      "fontSize": 92,
+      "fontFamily": "Newsreader",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "span.gate-num",
+      "text": "01 / ROUTE",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "h3",
+      "text": "Can precursors reach it?",
+      "fontSize": 48,
+      "fontFamily": "Newsreader",
+      "policy": "body/explanatory",
+      "floor": 48
+    },
+    {
+      "selector": "p",
+      "text": "Target phase versus competing phase",
+      "fontSize": 48,
+      "fontFamily": "Newsreader",
+      "policy": "body/explanatory",
+      "floor": 48
+    },
+    {
+      "selector": "span.gate-num",
+      "text": "02 / REAL FORCES",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "h3",
+      "text": "Are off-equilibrium forces right?",
+      "fontSize": 48,
+      "fontFamily": "Newsreader",
+      "policy": "body/explanatory",
+      "floor": 48
+    },
+    {
+      "selector": "p",
+      "text": "Tidy crystals hide weak gradients",
+      "fontSize": 48,
+      "fontFamily": "Newsreader",
+      "policy": "body/explanatory",
+      "floor": 48
+    },
+    {
+      "selector": "span.gate-num",
+      "text": "03 / DISORDER",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "h3",
+      "text": "What survives real defects?",
+      "fontSize": 48,
+      "fontFamily": "Newsreader",
+      "policy": "body/explanatory",
+      "floor": 48
+    },
+    {
+      "selector": "p",
+      "text": "Vacancy · disorder · stacking fault",
+      "fontSize": 48,
+      "fontFamily": "Newsreader",
+      "policy": "body/explanatory",
+      "floor": 48
+    },
+    {
+      "selector": "span.gate-num",
+      "text": "04 / COST",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "h3",
+      "text": "What does failure cost?",
+      "fontSize": 48,
+      "fontFamily": "Newsreader",
+      "policy": "body/explanatory",
+      "floor": 48
+    },
+    {
+      "selector": "p",
+      "text": "Weeks of lab time + $000s",
+      "fontSize": 48,
+      "fontFamily": "Newsreader",
+      "policy": "body/explanatory",
+      "floor": 48
+    },
+    {
+      "selector": "span",
+      "text": "ION-MIGRATION BARRIER · 04/07",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "span",
+      "text": "ARTICLE [5]",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "div.bracket",
+      "text": "100 meV",
+      "fontSize": 38,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "div.source",
+      "text": "REACTION COORDINATE →",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "div.eyebrow",
+      "text": "Arrhenius rate sensitivity",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "h2",
+      "text": "Small barrier miss. Category-changing result.",
+      "fontSize": 92,
+      "fontFamily": "Newsreader",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "#rate-stat",
+      "text": "≈50×",
+      "fontSize": 112,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "div.source",
+      "text": "PREDICTED CLASS",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "#classification",
+      "text": "INSULATOR",
+      "fontSize": 58,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "span",
+      "text": "MEASURE → CORRECT → VERIFY · 05/07",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "span",
+      "text": "LOCAL ENVIRONMENT / PROPER GRADIENTS",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "h2",
+      "text": "Lupine adds a correction layer—",
+      "fontSize": 82,
+      "fontFamily": "Newsreader",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "em.indigo",
+      "text": "not a bigger generator.",
+      "fontSize": 82,
+      "fontFamily": "Newsreader",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "div.eyebrow",
+      "text": "Measured local-environment error · ΔF (eV/Å)",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "span",
+      "text": "· force residuals",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "b",
+      "text": "BEFORE",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "span",
+      "text": "· proper gradients",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "em",
+      "text": "AFTER",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "div.eyebrow",
+      "text": "01 / measure",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "h3",
+      "text": "Universal potential misses local forces",
+      "fontSize": 48,
+      "fontFamily": "Newsreader",
+      "policy": "body/explanatory",
+      "floor": 48
+    },
+    {
+      "selector": "div.source.rose",
+      "text": "FLAG ΔF > 0.10 eV/Å",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "div.eyebrow",
+      "text": "02 / correct",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "h3",
+      "text": "Analytic correction aligns energy + forces",
+      "fontSize": 48,
+      "fontFamily": "Newsreader",
+      "policy": "body/explanatory",
+      "floor": 48
+    },
+    {
+      "selector": "div.source",
+      "text": "SUPPORTED ↑ · DIVERTED",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "span",
+      "text": "THE CLIMATE MATH · 06/07",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "span",
+      "text": "ARTICLE [3] [6]",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "h2",
+      "text": "Verification speed becomes deployment leverage.",
+      "fontSize": 92,
+      "fontFamily": "Newsreader",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "div.eyebrow",
+      "text": "Cobalt supply concentration",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "div.stake-stat.amber",
+      "text": "DRC ≈70%",
+      "fontSize": 82,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "h3",
+      "text": "One geographic chokepoint constrains cathode supply.",
+      "fontSize": 48,
+      "fontFamily": "Newsreader",
+      "policy": "body/explanatory",
+      "floor": 48
+    },
+    {
+      "selector": "text.map-label.accent",
+      "text": "DEMOCRATIC REPUBLIC",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "text.map-label.accent",
+      "text": "OF CONGO",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "text.map-label",
+      "text": "≈70% GLOBAL COBALT",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "text.map-label",
+      "text": "MINE SUPPLY",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "text.map-label",
+      "text": "AFRICA · SIMPLIFIED GEOGRAPHIC FORM",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "#cuts-stat",
+      "text": "≈20%",
+      "fontSize": 82,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "h3",
+      "text": "Direct 2030 cuts tied to batteries",
+      "fontSize": 48,
+      "fontFamily": "Newsreader",
+      "policy": "body/explanatory",
+      "floor": 48
+    },
+    {
+      "selector": "text.chart-label",
+      "text": "0%",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "text.chart-label",
+      "text": "100% NEEDED CUTS",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "text.chart-label",
+      "text": "BATTERIES · 20%",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "div.stake-stat.amber",
+      "text": "+10 yr",
+      "fontSize": 82,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "h3",
+      "text": "Delay adds unrecoverable cumulative emissions",
+      "fontSize": 48,
+      "fontFamily": "Newsreader",
+      "policy": "body/explanatory",
+      "floor": 48
+    },
+    {
+      "selector": "text.chart-label",
+      "text": "2026",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "text.chart-label",
+      "text": "2036 · YEAR",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "text.chart-label",
+      "text": "GtCO₂e CUMULATIVE ↑",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "span",
+      "text": "PROOF-FIRST MATERIALS DISCOVERY · 07/07",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "span",
+      "text": "THE GOAL IS SIMPLE",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "div.stage",
+      "text": "PREDICT",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "div.stage",
+      "text": "CORRECT",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "div.stage",
+      "text": "SYNTHESIZE",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "div.stage",
+      "text": "CHARACTERIZE",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "div.stage",
+      "text": "SCALE",
+      "fontSize": 36,
+      "fontFamily": "Plex",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "div.thesis",
+      "text": "From stable on paper to",
+      "fontSize": 86,
+      "fontFamily": "Newsreader",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "em.indigo",
+      "text": "synthesizable in practice.",
+      "fontSize": 86,
+      "fontFamily": "Newsreader",
+      "policy": "label/axis/callout",
+      "floor": 36
+    },
+    {
+      "selector": "div.return",
+      "text": "RETURN TO ANOTHER GENERATION CYCLE",
+      "fontSize": 48,
+      "fontFamily": "Newsreader",
+      "policy": "body/explanatory",
+      "floor": 48
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "frame-01",
+    "expected": "PASS",
+    "class": "positive",
+    "teaches": "claim/evidence hierarchy, brand, scale, density"
+  },
+  {
+    "id": "frame-02",
+    "expected": "PASS",
+    "class": "positive",
+    "teaches": "direct-labelled data field and visible hierarchy"
+  },
+  {
+    "id": "frame-03",
+    "expected": "PASS",
+    "class": "positive",
+    "teaches": "scientific mechanism rather than decorative science"
+  },
+  {
+    "id": "frame-04",
+    "expected": "REJECT",
+    "class": "negative",
+    "teaches": "static slide, sparse frame, wrong fonts and palette"
+  },
+  {
+    "id": "frame-05",
+    "expected": "REJECT",
+    "class": "negative",
+    "teaches": "overlap, unreadable 28 px copy, unsafe placement"
+  },
+  {
+    "id": "frame-06",
+    "expected": "REJECT",
+    "class": "negative",
+    "teaches": "off-brand dark neon and generic AI imagery"
+  },
+  {
+    "id": "frame-07",
+    "expected": "REJECT",
+    "class": "edge",
+    "teaches": "polish does not override the 36 px label floor"
+  },
+  {
+    "id": "frame-08",
+    "expected": "HOLD",
+    "class": "edge",
+    "teaches": "a still cannot prove motion; request timeline evidence"
+  }
+]

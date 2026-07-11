@@ -1,0 +1,3281 @@
+{
+  "title": "From Predicted Crystal to Commercial Cell",
+  "source_audio": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/from-predicted-crystal-to-commercial-cell/audio/narration-ana-final.wav",
+  "audio_duration_seconds": 102.288,
+  "word_count": 299,
+  "timing_method": "faster-whisper small.en word alignment, corrected to the recorded narration text",
+  "words": [
+    {
+      "index": 1,
+      "word": "A",
+      "start": 0.0,
+      "end": 0.22,
+      "start_time": "00:00:00.000",
+      "end_time": "00:00:00.220",
+      "confidence": 0.4347,
+      "cue": 1
+    },
+    {
+      "index": 2,
+      "word": "predicted",
+      "start": 0.22,
+      "end": 0.46,
+      "start_time": "00:00:00.220",
+      "end_time": "00:00:00.460",
+      "confidence": 0.895,
+      "cue": 1
+    },
+    {
+      "index": 3,
+      "word": "crystal",
+      "start": 0.46,
+      "end": 0.9,
+      "start_time": "00:00:00.460",
+      "end_time": "00:00:00.900",
+      "confidence": 0.9901,
+      "cue": 1
+    },
+    {
+      "index": 4,
+      "word": "is",
+      "start": 0.9,
+      "end": 1.1,
+      "start_time": "00:00:00.900",
+      "end_time": "00:00:01.100",
+      "confidence": 0.9919,
+      "cue": 1
+    },
+    {
+      "index": 5,
+      "word": "not",
+      "start": 1.1,
+      "end": 1.28,
+      "start_time": "00:00:01.100",
+      "end_time": "00:00:01.280",
+      "confidence": 0.9862,
+      "cue": 1
+    },
+    {
+      "index": 6,
+      "word": "a",
+      "start": 1.28,
+      "end": 1.4,
+      "start_time": "00:00:01.280",
+      "end_time": "00:00:01.400",
+      "confidence": 0.9812,
+      "cue": 1
+    },
+    {
+      "index": 7,
+      "word": "material",
+      "start": 1.4,
+      "end": 1.74,
+      "start_time": "00:00:01.400",
+      "end_time": "00:00:01.740",
+      "confidence": 0.9938,
+      "cue": 1
+    },
+    {
+      "index": 8,
+      "word": "A",
+      "start": 2.38,
+      "end": 2.52,
+      "start_time": "00:00:02.380",
+      "end_time": "00:00:02.520",
+      "confidence": 0.9891,
+      "cue": 2
+    },
+    {
+      "index": 9,
+      "word": "powder",
+      "start": 2.52,
+      "end": 2.76,
+      "start_time": "00:00:02.520",
+      "end_time": "00:00:02.760",
+      "confidence": 0.9823,
+      "cue": 2
+    },
+    {
+      "index": 10,
+      "word": "is",
+      "start": 2.76,
+      "end": 2.94,
+      "start_time": "00:00:02.760",
+      "end_time": "00:00:02.940",
+      "confidence": 0.9974,
+      "cue": 2
+    },
+    {
+      "index": 11,
+      "word": "not",
+      "start": 2.94,
+      "end": 3.12,
+      "start_time": "00:00:02.940",
+      "end_time": "00:00:03.120",
+      "confidence": 0.9977,
+      "cue": 2
+    },
+    {
+      "index": 12,
+      "word": "a",
+      "start": 3.12,
+      "end": 3.26,
+      "start_time": "00:00:03.120",
+      "end_time": "00:00:03.260",
+      "confidence": 0.9967,
+      "cue": 2
+    },
+    {
+      "index": 13,
+      "word": "battery",
+      "start": 3.26,
+      "end": 3.46,
+      "start_time": "00:00:03.260",
+      "end_time": "00:00:03.460",
+      "confidence": 0.9943,
+      "cue": 2
+    },
+    {
+      "index": 14,
+      "word": "cell",
+      "start": 3.46,
+      "end": 3.76,
+      "start_time": "00:00:03.460",
+      "end_time": "00:00:03.760",
+      "confidence": 0.997,
+      "cue": 2
+    },
+    {
+      "index": 15,
+      "word": "And",
+      "start": 4.4,
+      "end": 4.52,
+      "start_time": "00:00:04.400",
+      "end_time": "00:00:04.520",
+      "confidence": 0.9725,
+      "cue": 3
+    },
+    {
+      "index": 16,
+      "word": "a",
+      "start": 4.52,
+      "end": 4.64,
+      "start_time": "00:00:04.520",
+      "end_time": "00:00:04.640",
+      "confidence": 0.9808,
+      "cue": 3
+    },
+    {
+      "index": 17,
+      "word": "cell",
+      "start": 4.64,
+      "end": 4.8,
+      "start_time": "00:00:04.640",
+      "end_time": "00:00:04.800",
+      "confidence": 0.9974,
+      "cue": 3
+    },
+    {
+      "index": 18,
+      "word": "is",
+      "start": 4.8,
+      "end": 4.98,
+      "start_time": "00:00:04.800",
+      "end_time": "00:00:04.980",
+      "confidence": 0.9973,
+      "cue": 3
+    },
+    {
+      "index": 19,
+      "word": "definitely",
+      "start": 4.98,
+      "end": 5.26,
+      "start_time": "00:00:04.980",
+      "end_time": "00:00:05.260",
+      "confidence": 0.9893,
+      "cue": 3
+    },
+    {
+      "index": 20,
+      "word": "not",
+      "start": 5.26,
+      "end": 5.58,
+      "start_time": "00:00:05.260",
+      "end_time": "00:00:05.580",
+      "confidence": 0.996,
+      "cue": 3
+    },
+    {
+      "index": 21,
+      "word": "an",
+      "start": 5.58,
+      "end": 5.72,
+      "start_time": "00:00:05.580",
+      "end_time": "00:00:05.720",
+      "confidence": 0.9959,
+      "cue": 3
+    },
+    {
+      "index": 22,
+      "word": "electric",
+      "start": 5.72,
+      "end": 6.0,
+      "start_time": "00:00:05.720",
+      "end_time": "00:00:06.000",
+      "confidence": 0.9937,
+      "cue": 3
+    },
+    {
+      "index": 23,
+      "word": "truck",
+      "start": 6.0,
+      "end": 6.34,
+      "start_time": "00:00:06.000",
+      "end_time": "00:00:06.340",
+      "confidence": 0.9977,
+      "cue": 3
+    },
+    {
+      "index": 24,
+      "word": "Between",
+      "start": 7.2,
+      "end": 7.22,
+      "start_time": "00:00:07.200",
+      "end_time": "00:00:07.220",
+      "confidence": 0.981,
+      "cue": 4
+    },
+    {
+      "index": 25,
+      "word": "the",
+      "start": 7.22,
+      "end": 7.36,
+      "start_time": "00:00:07.220",
+      "end_time": "00:00:07.360",
+      "confidence": 0.9935,
+      "cue": 4
+    },
+    {
+      "index": 26,
+      "word": "computer",
+      "start": 7.36,
+      "end": 7.62,
+      "start_time": "00:00:07.360",
+      "end_time": "00:00:07.620",
+      "confidence": 0.9975,
+      "cue": 4
+    },
+    {
+      "index": 27,
+      "word": "and",
+      "start": 7.62,
+      "end": 7.88,
+      "start_time": "00:00:07.620",
+      "end_time": "00:00:07.880",
+      "confidence": 0.9881,
+      "cue": 4
+    },
+    {
+      "index": 28,
+      "word": "the",
+      "start": 7.88,
+      "end": 7.98,
+      "start_time": "00:00:07.880",
+      "end_time": "00:00:07.980",
+      "confidence": 0.9958,
+      "cue": 4
+    },
+    {
+      "index": 29,
+      "word": "road",
+      "start": 7.98,
+      "end": 8.2,
+      "start_time": "00:00:07.980",
+      "end_time": "00:00:08.200",
+      "confidence": 0.9963,
+      "cue": 4
+    },
+    {
+      "index": 30,
+      "word": "A",
+      "start": 8.78,
+      "end": 8.92,
+      "start_time": "00:00:08.780",
+      "end_time": "00:00:08.920",
+      "confidence": 0.8976,
+      "cue": 5
+    },
+    {
+      "index": 31,
+      "word": "whole",
+      "start": 8.92,
+      "end": 9.12,
+      "start_time": "00:00:08.920",
+      "end_time": "00:00:09.120",
+      "confidence": 0.9985,
+      "cue": 5
+    },
+    {
+      "index": 32,
+      "word": "chain",
+      "start": 9.12,
+      "end": 9.32,
+      "start_time": "00:00:09.120",
+      "end_time": "00:00:09.320",
+      "confidence": 0.9968,
+      "cue": 5
+    },
+    {
+      "index": 33,
+      "word": "of",
+      "start": 9.32,
+      "end": 9.48,
+      "start_time": "00:00:09.320",
+      "end_time": "00:00:09.480",
+      "confidence": 0.9994,
+      "cue": 5
+    },
+    {
+      "index": 34,
+      "word": "handoffs",
+      "start": 9.48,
+      "end": 9.88,
+      "start_time": "00:00:09.480",
+      "end_time": "00:00:09.880",
+      "confidence": 0.7864,
+      "cue": 5
+    },
+    {
+      "index": 35,
+      "word": "where",
+      "start": 9.88,
+      "end": 10.14,
+      "start_time": "00:00:09.880",
+      "end_time": "00:00:10.140",
+      "confidence": 0.7373,
+      "cue": 5
+    },
+    {
+      "index": 36,
+      "word": "great",
+      "start": 10.14,
+      "end": 10.36,
+      "start_time": "00:00:10.140",
+      "end_time": "00:00:10.360",
+      "confidence": 0.99,
+      "cue": 5
+    },
+    {
+      "index": 37,
+      "word": "ideas",
+      "start": 10.36,
+      "end": 10.7,
+      "start_time": "00:00:10.360",
+      "end_time": "00:00:10.700",
+      "confidence": 0.9984,
+      "cue": 5
+    },
+    {
+      "index": 38,
+      "word": "quietly",
+      "start": 10.7,
+      "end": 11.04,
+      "start_time": "00:00:10.700",
+      "end_time": "00:00:11.040",
+      "confidence": 0.9944,
+      "cue": 5
+    },
+    {
+      "index": 39,
+      "word": "die",
+      "start": 11.04,
+      "end": 11.36,
+      "start_time": "00:00:11.040",
+      "end_time": "00:00:11.360",
+      "confidence": 0.9861,
+      "cue": 5
+    },
+    {
+      "index": 40,
+      "word": "Google",
+      "start": 12.08,
+      "end": 12.22,
+      "start_time": "00:00:12.080",
+      "end_time": "00:00:12.220",
+      "confidence": 0.9799,
+      "cue": 6
+    },
+    {
+      "index": 41,
+      "word": "DeepMind",
+      "start": 12.22,
+      "end": 12.66,
+      "start_time": "00:00:12.220",
+      "end_time": "00:00:12.660",
+      "confidence": 0.955,
+      "cue": 6
+    },
+    {
+      "index": 42,
+      "word": "generated",
+      "start": 12.66,
+      "end": 13.1,
+      "start_time": "00:00:12.660",
+      "end_time": "00:00:13.100",
+      "confidence": 0.9912,
+      "cue": 6
+    },
+    {
+      "index": 43,
+      "word": "two",
+      "start": 13.1,
+      "end": 13.296,
+      "start_time": "00:00:13.100",
+      "end_time": "00:00:13.296",
+      "confidence": 0.9834,
+      "cue": 6
+    },
+    {
+      "index": 44,
+      "word": "point",
+      "start": 13.296,
+      "end": 13.624,
+      "start_time": "00:00:13.296",
+      "end_time": "00:00:13.624",
+      "confidence": 0.9834,
+      "cue": 6
+    },
+    {
+      "index": 45,
+      "word": "two",
+      "start": 13.624,
+      "end": 13.82,
+      "start_time": "00:00:13.624",
+      "end_time": "00:00:13.820",
+      "confidence": 0.9834,
+      "cue": 6
+    },
+    {
+      "index": 46,
+      "word": "million",
+      "start": 13.82,
+      "end": 14.02,
+      "start_time": "00:00:13.820",
+      "end_time": "00:00:14.020",
+      "confidence": 0.9501,
+      "cue": 6
+    },
+    {
+      "index": 47,
+      "word": "crystal",
+      "start": 14.02,
+      "end": 14.42,
+      "start_time": "00:00:14.020",
+      "end_time": "00:00:14.420",
+      "confidence": 0.9705,
+      "cue": 6
+    },
+    {
+      "index": 48,
+      "word": "predictions",
+      "start": 14.42,
+      "end": 14.94,
+      "start_time": "00:00:14.420",
+      "end_time": "00:00:14.940",
+      "confidence": 0.998,
+      "cue": 6
+    },
+    {
+      "index": 49,
+      "word": "Three",
+      "start": 15.74,
+      "end": 15.932,
+      "start_time": "00:00:15.740",
+      "end_time": "00:00:15.932",
+      "confidence": 0.9502,
+      "cue": 7
+    },
+    {
+      "index": 50,
+      "word": "hundred",
+      "start": 15.932,
+      "end": 16.202,
+      "start_time": "00:00:15.932",
+      "end_time": "00:00:16.202",
+      "confidence": 0.9502,
+      "cue": 7
+    },
+    {
+      "index": 51,
+      "word": "eighty",
+      "start": 16.202,
+      "end": 16.432,
+      "start_time": "00:00:16.202",
+      "end_time": "00:00:16.432",
+      "confidence": 0.9502,
+      "cue": 7
+    },
+    {
+      "index": 52,
+      "word": "thousand",
+      "start": 16.432,
+      "end": 16.74,
+      "start_time": "00:00:16.432",
+      "end_time": "00:00:16.740",
+      "confidence": 0.9502,
+      "cue": 7
+    },
+    {
+      "index": 53,
+      "word": "looked",
+      "start": 16.74,
+      "end": 16.94,
+      "start_time": "00:00:16.740",
+      "end_time": "00:00:16.940",
+      "confidence": 0.6954,
+      "cue": 7
+    },
+    {
+      "index": 54,
+      "word": "stable",
+      "start": 16.94,
+      "end": 17.36,
+      "start_time": "00:00:16.940",
+      "end_time": "00:00:17.360",
+      "confidence": 0.998,
+      "cue": 7
+    },
+    {
+      "index": 55,
+      "word": "By",
+      "start": 18.0,
+      "end": 18.14,
+      "start_time": "00:00:18.000",
+      "end_time": "00:00:18.140",
+      "confidence": 0.9956,
+      "cue": 8
+    },
+    {
+      "index": 56,
+      "word": "late",
+      "start": 18.14,
+      "end": 18.34,
+      "start_time": "00:00:18.140",
+      "end_time": "00:00:18.340",
+      "confidence": 0.998,
+      "cue": 8
+    },
+    {
+      "index": 57,
+      "word": "2023",
+      "start": 18.34,
+      "end": 19.18,
+      "start_time": "00:00:18.340",
+      "end_time": "00:00:19.180",
+      "confidence": 0.9886,
+      "cue": 8
+    },
+    {
+      "index": 58,
+      "word": "only",
+      "start": 19.46,
+      "end": 19.6,
+      "start_time": "00:00:19.460",
+      "end_time": "00:00:19.600",
+      "confidence": 0.9955,
+      "cue": 8
+    },
+    {
+      "index": 59,
+      "word": "seven",
+      "start": 19.6,
+      "end": 19.805,
+      "start_time": "00:00:19.600",
+      "end_time": "00:00:19.805",
+      "confidence": 0.996,
+      "cue": 8
+    },
+    {
+      "index": 60,
+      "word": "hundred",
+      "start": 19.805,
+      "end": 20.091,
+      "start_time": "00:00:19.805",
+      "end_time": "00:00:20.091",
+      "confidence": 0.996,
+      "cue": 8
+    },
+    {
+      "index": 61,
+      "word": "thirty-six",
+      "start": 20.091,
+      "end": 20.46,
+      "start_time": "00:00:20.091",
+      "end_time": "00:00:20.460",
+      "confidence": 0.996,
+      "cue": 8
+    },
+    {
+      "index": 62,
+      "word": "had",
+      "start": 20.46,
+      "end": 20.84,
+      "start_time": "00:00:20.460",
+      "end_time": "00:00:20.840",
+      "confidence": 0.9868,
+      "cue": 8
+    },
+    {
+      "index": 63,
+      "word": "been",
+      "start": 20.84,
+      "end": 20.98,
+      "start_time": "00:00:20.840",
+      "end_time": "00:00:20.980",
+      "confidence": 0.9993,
+      "cue": 8
+    },
+    {
+      "index": 64,
+      "word": "independently",
+      "start": 20.98,
+      "end": 21.48,
+      "start_time": "00:00:20.980",
+      "end_time": "00:00:21.480",
+      "confidence": 0.9978,
+      "cue": 8
+    },
+    {
+      "index": 65,
+      "word": "synthesized",
+      "start": 21.48,
+      "end": 22.2,
+      "start_time": "00:00:21.480",
+      "end_time": "00:00:22.200",
+      "confidence": 0.9783,
+      "cue": 8
+    },
+    {
+      "index": 66,
+      "word": "So",
+      "start": 22.74,
+      "end": 23.0,
+      "start_time": "00:00:22.740",
+      "end_time": "00:00:23.000",
+      "confidence": 0.9918,
+      "cue": 9
+    },
+    {
+      "index": 67,
+      "word": "yeah",
+      "start": 23.12,
+      "end": 23.3,
+      "start_time": "00:00:23.120",
+      "end_time": "00:00:23.300",
+      "confidence": 0.9749,
+      "cue": 9
+    },
+    {
+      "index": 68,
+      "word": "we",
+      "start": 23.48,
+      "end": 23.62,
+      "start_time": "00:00:23.480",
+      "end_time": "00:00:23.620",
+      "confidence": 0.9978,
+      "cue": 9
+    },
+    {
+      "index": 69,
+      "word": "do",
+      "start": 23.62,
+      "end": 23.72,
+      "start_time": "00:00:23.620",
+      "end_time": "00:00:23.720",
+      "confidence": 0.9912,
+      "cue": 9
+    },
+    {
+      "index": 70,
+      "word": "not",
+      "start": 23.72,
+      "end": 23.88,
+      "start_time": "00:00:23.720",
+      "end_time": "00:00:23.880",
+      "confidence": 0.9974,
+      "cue": 9
+    },
+    {
+      "index": 71,
+      "word": "have",
+      "start": 23.88,
+      "end": 24.04,
+      "start_time": "00:00:23.880",
+      "end_time": "00:00:24.040",
+      "confidence": 0.9987,
+      "cue": 9
+    },
+    {
+      "index": 72,
+      "word": "a",
+      "start": 24.04,
+      "end": 24.14,
+      "start_time": "00:00:24.040",
+      "end_time": "00:00:24.140",
+      "confidence": 0.9972,
+      "cue": 9
+    },
+    {
+      "index": 73,
+      "word": "prediction",
+      "start": 24.14,
+      "end": 24.38,
+      "start_time": "00:00:24.140",
+      "end_time": "00:00:24.380",
+      "confidence": 0.9988,
+      "cue": 9
+    },
+    {
+      "index": 74,
+      "word": "shortage",
+      "start": 24.38,
+      "end": 24.78,
+      "start_time": "00:00:24.380",
+      "end_time": "00:00:24.780",
+      "confidence": 0.999,
+      "cue": 9
+    },
+    {
+      "index": 75,
+      "word": "We",
+      "start": 25.4,
+      "end": 25.66,
+      "start_time": "00:00:25.400",
+      "end_time": "00:00:25.660",
+      "confidence": 0.9969,
+      "cue": 10
+    },
+    {
+      "index": 76,
+      "word": "have",
+      "start": 25.66,
+      "end": 25.8,
+      "start_time": "00:00:25.660",
+      "end_time": "00:00:25.800",
+      "confidence": 0.9988,
+      "cue": 10
+    },
+    {
+      "index": 77,
+      "word": "a",
+      "start": 25.8,
+      "end": 25.92,
+      "start_time": "00:00:25.800",
+      "end_time": "00:00:25.920",
+      "confidence": 0.9985,
+      "cue": 10
+    },
+    {
+      "index": 78,
+      "word": "trust",
+      "start": 25.92,
+      "end": 26.12,
+      "start_time": "00:00:25.920",
+      "end_time": "00:00:26.120",
+      "confidence": 0.9845,
+      "cue": 10
+    },
+    {
+      "index": 79,
+      "word": "problem",
+      "start": 26.12,
+      "end": 26.52,
+      "start_time": "00:00:26.120",
+      "end_time": "00:00:26.520",
+      "confidence": 0.9994,
+      "cue": 10
+    },
+    {
+      "index": 80,
+      "word": "A",
+      "start": 27.1,
+      "end": 27.28,
+      "start_time": "00:00:27.100",
+      "end_time": "00:00:27.280",
+      "confidence": 0.9942,
+      "cue": 11
+    },
+    {
+      "index": 81,
+      "word": "candidate",
+      "start": 27.28,
+      "end": 27.52,
+      "start_time": "00:00:27.280",
+      "end_time": "00:00:27.520",
+      "confidence": 0.9992,
+      "cue": 11
+    },
+    {
+      "index": 82,
+      "word": "has",
+      "start": 27.52,
+      "end": 27.8,
+      "start_time": "00:00:27.520",
+      "end_time": "00:00:27.800",
+      "confidence": 0.9982,
+      "cue": 11
+    },
+    {
+      "index": 83,
+      "word": "to",
+      "start": 27.8,
+      "end": 27.94,
+      "start_time": "00:00:27.800",
+      "end_time": "00:00:27.940",
+      "confidence": 0.9978,
+      "cue": 11
+    },
+    {
+      "index": 84,
+      "word": "survive",
+      "start": 27.94,
+      "end": 28.24,
+      "start_time": "00:00:27.940",
+      "end_time": "00:00:28.240",
+      "confidence": 0.9988,
+      "cue": 11
+    },
+    {
+      "index": 85,
+      "word": "synthesis",
+      "start": 28.24,
+      "end": 28.64,
+      "start_time": "00:00:28.240",
+      "end_time": "00:00:28.640",
+      "confidence": 0.9878,
+      "cue": 11
+    },
+    {
+      "index": 86,
+      "word": "coating",
+      "start": 28.64,
+      "end": 29.18,
+      "start_time": "00:00:28.640",
+      "end_time": "00:00:29.180",
+      "confidence": 0.1588,
+      "cue": 11
+    },
+    {
+      "index": 87,
+      "word": "cell",
+      "start": 29.46,
+      "end": 29.68,
+      "start_time": "00:00:29.460",
+      "end_time": "00:00:29.680",
+      "confidence": 0.9226,
+      "cue": 11
+    },
+    {
+      "index": 88,
+      "word": "fabrication",
+      "start": 29.68,
+      "end": 30.18,
+      "start_time": "00:00:29.680",
+      "end_time": "00:00:30.180",
+      "confidence": 0.9971,
+      "cue": 11
+    },
+    {
+      "index": 89,
+      "word": "live",
+      "start": 30.54,
+      "end": 30.68,
+      "start_time": "00:00:30.540",
+      "end_time": "00:00:30.680",
+      "confidence": 0.8431,
+      "cue": 11
+    },
+    {
+      "index": 90,
+      "word": "testing",
+      "start": 30.68,
+      "end": 31.04,
+      "start_time": "00:00:30.680",
+      "end_time": "00:00:31.040",
+      "confidence": 0.7129,
+      "cue": 11
+    },
+    {
+      "index": 91,
+      "word": "module",
+      "start": 31.32,
+      "end": 31.52,
+      "start_time": "00:00:31.320",
+      "end_time": "00:00:31.520",
+      "confidence": 0.9692,
+      "cue": 11
+    },
+    {
+      "index": 92,
+      "word": "integration",
+      "start": 31.52,
+      "end": 32.0,
+      "start_time": "00:00:31.520",
+      "end_time": "00:00:32.000",
+      "confidence": 0.9974,
+      "cue": 11
+    },
+    {
+      "index": 93,
+      "word": "and",
+      "start": 32.36,
+      "end": 32.5,
+      "start_time": "00:00:32.360",
+      "end_time": "00:00:32.500",
+      "confidence": 0.9912,
+      "cue": 11
+    },
+    {
+      "index": 94,
+      "word": "manufacturing",
+      "start": 32.5,
+      "end": 33.0,
+      "start_time": "00:00:32.500",
+      "end_time": "00:00:33.000",
+      "confidence": 0.9974,
+      "cue": 11
+    },
+    {
+      "index": 95,
+      "word": "scale-up",
+      "start": 33.0,
+      "end": 33.5,
+      "start_time": "00:00:33.000",
+      "end_time": "00:00:33.500",
+      "confidence": 0.8458,
+      "cue": 11
+    },
+    {
+      "index": 96,
+      "word": "No",
+      "start": 34.1,
+      "end": 34.26,
+      "start_time": "00:00:34.100",
+      "end_time": "00:00:34.260",
+      "confidence": 0.9829,
+      "cue": 12
+    },
+    {
+      "index": 97,
+      "word": "single",
+      "start": 34.26,
+      "end": 34.58,
+      "start_time": "00:00:34.260",
+      "end_time": "00:00:34.580",
+      "confidence": 0.9968,
+      "cue": 12
+    },
+    {
+      "index": 98,
+      "word": "lab",
+      "start": 34.58,
+      "end": 34.82,
+      "start_time": "00:00:34.580",
+      "end_time": "00:00:34.820",
+      "confidence": 0.9957,
+      "cue": 12
+    },
+    {
+      "index": 99,
+      "word": "owns",
+      "start": 34.82,
+      "end": 35.04,
+      "start_time": "00:00:34.820",
+      "end_time": "00:00:35.040",
+      "confidence": 0.9944,
+      "cue": 12
+    },
+    {
+      "index": 100,
+      "word": "that",
+      "start": 35.04,
+      "end": 35.24,
+      "start_time": "00:00:35.040",
+      "end_time": "00:00:35.240",
+      "confidence": 0.9889,
+      "cue": 12
+    },
+    {
+      "index": 101,
+      "word": "entire",
+      "start": 35.24,
+      "end": 35.54,
+      "start_time": "00:00:35.240",
+      "end_time": "00:00:35.540",
+      "confidence": 0.9974,
+      "cue": 12
+    },
+    {
+      "index": 102,
+      "word": "chain",
+      "start": 35.54,
+      "end": 35.86,
+      "start_time": "00:00:35.540",
+      "end_time": "00:00:35.860",
+      "confidence": 0.9959,
+      "cue": 12
+    },
+    {
+      "index": 103,
+      "word": "And",
+      "start": 36.52,
+      "end": 36.62,
+      "start_time": "00:00:36.520",
+      "end_time": "00:00:36.620",
+      "confidence": 0.9477,
+      "cue": 13
+    },
+    {
+      "index": 104,
+      "word": "every",
+      "start": 36.62,
+      "end": 36.88,
+      "start_time": "00:00:36.620",
+      "end_time": "00:00:36.880",
+      "confidence": 0.9808,
+      "cue": 13
+    },
+    {
+      "index": 105,
+      "word": "partner",
+      "start": 36.88,
+      "end": 37.12,
+      "start_time": "00:00:36.880",
+      "end_time": "00:00:37.120",
+      "confidence": 0.9942,
+      "cue": 13
+    },
+    {
+      "index": 106,
+      "word": "needs",
+      "start": 37.12,
+      "end": 37.34,
+      "start_time": "00:00:37.120",
+      "end_time": "00:00:37.340",
+      "confidence": 0.9981,
+      "cue": 13
+    },
+    {
+      "index": 107,
+      "word": "to",
+      "start": 37.34,
+      "end": 37.56,
+      "start_time": "00:00:37.340",
+      "end_time": "00:00:37.560",
+      "confidence": 0.9982,
+      "cue": 13
+    },
+    {
+      "index": 108,
+      "word": "know",
+      "start": 37.56,
+      "end": 37.68,
+      "start_time": "00:00:37.560",
+      "end_time": "00:00:37.680",
+      "confidence": 0.9988,
+      "cue": 13
+    },
+    {
+      "index": 109,
+      "word": "the",
+      "start": 37.68,
+      "end": 37.8,
+      "start_time": "00:00:37.680",
+      "end_time": "00:00:37.800",
+      "confidence": 0.9566,
+      "cue": 13
+    },
+    {
+      "index": 110,
+      "word": "last",
+      "start": 37.8,
+      "end": 38.0,
+      "start_time": "00:00:37.800",
+      "end_time": "00:00:38.000",
+      "confidence": 0.9948,
+      "cue": 13
+    },
+    {
+      "index": 111,
+      "word": "result",
+      "start": 38.0,
+      "end": 38.28,
+      "start_time": "00:00:38.000",
+      "end_time": "00:00:38.280",
+      "confidence": 0.9952,
+      "cue": 13
+    },
+    {
+      "index": 112,
+      "word": "is",
+      "start": 38.28,
+      "end": 38.46,
+      "start_time": "00:00:38.280",
+      "end_time": "00:00:38.460",
+      "confidence": 0.9946,
+      "cue": 13
+    },
+    {
+      "index": 113,
+      "word": "solid",
+      "start": 38.46,
+      "end": 38.74,
+      "start_time": "00:00:38.460",
+      "end_time": "00:00:38.740",
+      "confidence": 0.9913,
+      "cue": 13
+    },
+    {
+      "index": 114,
+      "word": "before",
+      "start": 38.74,
+      "end": 39.02,
+      "start_time": "00:00:38.740",
+      "end_time": "00:00:39.020",
+      "confidence": 0.9813,
+      "cue": 13
+    },
+    {
+      "index": 115,
+      "word": "spending",
+      "start": 39.02,
+      "end": 39.32,
+      "start_time": "00:00:39.020",
+      "end_time": "00:00:39.320",
+      "confidence": 0.9984,
+      "cue": 13
+    },
+    {
+      "index": 116,
+      "word": "time",
+      "start": 39.32,
+      "end": 39.62,
+      "start_time": "00:00:39.320",
+      "end_time": "00:00:39.620",
+      "confidence": 0.995,
+      "cue": 13
+    },
+    {
+      "index": 117,
+      "word": "and",
+      "start": 39.62,
+      "end": 39.8,
+      "start_time": "00:00:39.620",
+      "end_time": "00:00:39.800",
+      "confidence": 0.9965,
+      "cue": 13
+    },
+    {
+      "index": 118,
+      "word": "money",
+      "start": 39.8,
+      "end": 39.96,
+      "start_time": "00:00:39.800",
+      "end_time": "00:00:39.960",
+      "confidence": 0.9991,
+      "cue": 13
+    },
+    {
+      "index": 119,
+      "word": "on",
+      "start": 39.96,
+      "end": 40.18,
+      "start_time": "00:00:39.960",
+      "end_time": "00:00:40.180",
+      "confidence": 0.9946,
+      "cue": 13
+    },
+    {
+      "index": 120,
+      "word": "the",
+      "start": 40.18,
+      "end": 40.28,
+      "start_time": "00:00:40.180",
+      "end_time": "00:00:40.280",
+      "confidence": 0.9976,
+      "cue": 13
+    },
+    {
+      "index": 121,
+      "word": "next",
+      "start": 40.28,
+      "end": 40.42,
+      "start_time": "00:00:40.280",
+      "end_time": "00:00:40.420",
+      "confidence": 0.9992,
+      "cue": 13
+    },
+    {
+      "index": 122,
+      "word": "step",
+      "start": 40.42,
+      "end": 40.7,
+      "start_time": "00:00:40.420",
+      "end_time": "00:00:40.700",
+      "confidence": 0.9987,
+      "cue": 13
+    },
+    {
+      "index": 123,
+      "word": "Here",
+      "start": 41.36,
+      "end": 41.5,
+      "start_time": "00:00:41.360",
+      "end_time": "00:00:41.500",
+      "confidence": 0.9949,
+      "cue": 14
+    },
+    {
+      "index": 124,
+      "word": "is",
+      "start": 41.5,
+      "end": 41.64,
+      "start_time": "00:00:41.500",
+      "end_time": "00:00:41.640",
+      "confidence": 0.9088,
+      "cue": 14
+    },
+    {
+      "index": 125,
+      "word": "how",
+      "start": 41.64,
+      "end": 41.8,
+      "start_time": "00:00:41.640",
+      "end_time": "00:00:41.800",
+      "confidence": 0.9958,
+      "cue": 14
+    },
+    {
+      "index": 126,
+      "word": "bad",
+      "start": 41.8,
+      "end": 42.0,
+      "start_time": "00:00:41.800",
+      "end_time": "00:00:42.000",
+      "confidence": 0.9848,
+      "cue": 14
+    },
+    {
+      "index": 127,
+      "word": "one",
+      "start": 42.0,
+      "end": 42.22,
+      "start_time": "00:00:42.000",
+      "end_time": "00:00:42.220",
+      "confidence": 0.9672,
+      "cue": 14
+    },
+    {
+      "index": 128,
+      "word": "error",
+      "start": 42.22,
+      "end": 42.46,
+      "start_time": "00:00:42.220",
+      "end_time": "00:00:42.460",
+      "confidence": 0.9942,
+      "cue": 14
+    },
+    {
+      "index": 129,
+      "word": "gets",
+      "start": 42.46,
+      "end": 42.76,
+      "start_time": "00:00:42.460",
+      "end_time": "00:00:42.760",
+      "confidence": 0.9973,
+      "cue": 14
+    },
+    {
+      "index": 130,
+      "word": "Universal",
+      "start": 43.38,
+      "end": 43.8,
+      "start_time": "00:00:43.380",
+      "end_time": "00:00:43.800",
+      "confidence": 0.9395,
+      "cue": 15
+    },
+    {
+      "index": 131,
+      "word": "machine-learning",
+      "start": 43.8,
+      "end": 44.38,
+      "start_time": "00:00:43.800",
+      "end_time": "00:00:44.380",
+      "confidence": 0.8414,
+      "cue": 15
+    },
+    {
+      "index": 132,
+      "word": "potentials",
+      "start": 44.38,
+      "end": 44.96,
+      "start_time": "00:00:44.380",
+      "end_time": "00:00:44.960",
+      "confidence": 0.9945,
+      "cue": 15
+    },
+    {
+      "index": 133,
+      "word": "can",
+      "start": 44.96,
+      "end": 45.08,
+      "start_time": "00:00:44.960",
+      "end_time": "00:00:45.080",
+      "confidence": 0.9968,
+      "cue": 15
+    },
+    {
+      "index": 134,
+      "word": "underestimate",
+      "start": 45.08,
+      "end": 45.48,
+      "start_time": "00:00:45.080",
+      "end_time": "00:00:45.480",
+      "confidence": 0.9899,
+      "cue": 15
+    },
+    {
+      "index": 135,
+      "word": "a",
+      "start": 45.48,
+      "end": 45.76,
+      "start_time": "00:00:45.480",
+      "end_time": "00:00:45.760",
+      "confidence": 0.9588,
+      "cue": 15
+    },
+    {
+      "index": 136,
+      "word": "lithium",
+      "start": 45.76,
+      "end": 45.96,
+      "start_time": "00:00:45.760",
+      "end_time": "00:00:45.960",
+      "confidence": 0.9528,
+      "cue": 15
+    },
+    {
+      "index": 137,
+      "word": "migration",
+      "start": 45.96,
+      "end": 46.38,
+      "start_time": "00:00:45.960",
+      "end_time": "00:00:46.380",
+      "confidence": 0.6914,
+      "cue": 15
+    },
+    {
+      "index": 138,
+      "word": "barrier",
+      "start": 46.38,
+      "end": 46.8,
+      "start_time": "00:00:46.380",
+      "end_time": "00:00:46.800",
+      "confidence": 0.997,
+      "cue": 15
+    },
+    {
+      "index": 139,
+      "word": "by",
+      "start": 46.8,
+      "end": 47.0,
+      "start_time": "00:00:46.800",
+      "end_time": "00:00:47.000",
+      "confidence": 0.9983,
+      "cue": 15
+    },
+    {
+      "index": 140,
+      "word": "sixty",
+      "start": 47.0,
+      "end": 47.308,
+      "start_time": "00:00:47.000",
+      "end_time": "00:00:47.308",
+      "confidence": 0.8917,
+      "cue": 15
+    },
+    {
+      "index": 141,
+      "word": "percent",
+      "start": 47.308,
+      "end": 47.74,
+      "start_time": "00:00:47.308",
+      "end_time": "00:00:47.740",
+      "confidence": 0.8917,
+      "cue": 15
+    },
+    {
+      "index": 142,
+      "word": "That",
+      "start": 47.74,
+      "end": 48.46,
+      "start_time": "00:00:47.740",
+      "end_time": "00:00:48.460",
+      "confidence": 0.9933,
+      "cue": 16
+    },
+    {
+      "index": 143,
+      "word": "can",
+      "start": 48.46,
+      "end": 48.64,
+      "start_time": "00:00:48.460",
+      "end_time": "00:00:48.640",
+      "confidence": 0.9978,
+      "cue": 16
+    },
+    {
+      "index": 144,
+      "word": "move",
+      "start": 48.64,
+      "end": 48.82,
+      "start_time": "00:00:48.640",
+      "end_time": "00:00:48.820",
+      "confidence": 0.992,
+      "cue": 16
+    },
+    {
+      "index": 145,
+      "word": "predicted",
+      "start": 48.82,
+      "end": 49.14,
+      "start_time": "00:00:48.820",
+      "end_time": "00:00:49.140",
+      "confidence": 0.5974,
+      "cue": 16
+    },
+    {
+      "index": 146,
+      "word": "room-temperature",
+      "start": 49.14,
+      "end": 49.7,
+      "start_time": "00:00:49.140",
+      "end_time": "00:00:49.700",
+      "confidence": 0.9678,
+      "cue": 16
+    },
+    {
+      "index": 147,
+      "word": "conductivity",
+      "start": 49.7,
+      "end": 50.34,
+      "start_time": "00:00:49.700",
+      "end_time": "00:00:50.340",
+      "confidence": 0.9972,
+      "cue": 16
+    },
+    {
+      "index": 148,
+      "word": "by",
+      "start": 50.34,
+      "end": 50.54,
+      "start_time": "00:00:50.340",
+      "end_time": "00:00:50.540",
+      "confidence": 0.9957,
+      "cue": 16
+    },
+    {
+      "index": 149,
+      "word": "about",
+      "start": 50.54,
+      "end": 50.76,
+      "start_time": "00:00:50.540",
+      "end_time": "00:00:50.760",
+      "confidence": 0.9966,
+      "cue": 16
+    },
+    {
+      "index": 150,
+      "word": "five",
+      "start": 50.76,
+      "end": 50.947,
+      "start_time": "00:00:50.760",
+      "end_time": "00:00:50.947",
+      "confidence": 0.7617,
+      "cue": 16
+    },
+    {
+      "index": 151,
+      "word": "thousand",
+      "start": 50.947,
+      "end": 51.32,
+      "start_time": "00:00:50.947",
+      "end_time": "00:00:51.320",
+      "confidence": 0.7617,
+      "cue": 16
+    },
+    {
+      "index": 152,
+      "word": "times",
+      "start": 51.32,
+      "end": 51.66,
+      "start_time": "00:00:51.320",
+      "end_time": "00:00:51.660",
+      "confidence": 0.9926,
+      "cue": 16
+    },
+    {
+      "index": 153,
+      "word": "A",
+      "start": 52.3,
+      "end": 52.42,
+      "start_time": "00:00:52.300",
+      "end_time": "00:00:52.420",
+      "confidence": 0.9937,
+      "cue": 17
+    },
+    {
+      "index": 154,
+      "word": "promising",
+      "start": 52.42,
+      "end": 52.72,
+      "start_time": "00:00:52.420",
+      "end_time": "00:00:52.720",
+      "confidence": 0.9544,
+      "cue": 17
+    },
+    {
+      "index": 155,
+      "word": "solid",
+      "start": 52.72,
+      "end": 53.1,
+      "start_time": "00:00:52.720",
+      "end_time": "00:00:53.100",
+      "confidence": 0.9948,
+      "cue": 17
+    },
+    {
+      "index": 156,
+      "word": "electrolyte",
+      "start": 53.1,
+      "end": 53.68,
+      "start_time": "00:00:53.100",
+      "end_time": "00:00:53.680",
+      "confidence": 0.9611,
+      "cue": 17
+    },
+    {
+      "index": 157,
+      "word": "may",
+      "start": 53.68,
+      "end": 53.78,
+      "start_time": "00:00:53.680",
+      "end_time": "00:00:53.780",
+      "confidence": 0.992,
+      "cue": 17
+    },
+    {
+      "index": 158,
+      "word": "only",
+      "start": 53.78,
+      "end": 54.02,
+      "start_time": "00:00:53.780",
+      "end_time": "00:00:54.020",
+      "confidence": 0.9906,
+      "cue": 17
+    },
+    {
+      "index": 159,
+      "word": "be",
+      "start": 54.02,
+      "end": 54.16,
+      "start_time": "00:00:54.020",
+      "end_time": "00:00:54.160",
+      "confidence": 0.9977,
+      "cue": 17
+    },
+    {
+      "index": 160,
+      "word": "promising",
+      "start": 54.16,
+      "end": 54.5,
+      "start_time": "00:00:54.160",
+      "end_time": "00:00:54.500",
+      "confidence": 0.9994,
+      "cue": 17
+    },
+    {
+      "index": 161,
+      "word": "because",
+      "start": 54.5,
+      "end": 54.86,
+      "start_time": "00:00:54.500",
+      "end_time": "00:00:54.860",
+      "confidence": 0.9505,
+      "cue": 17
+    },
+    {
+      "index": 162,
+      "word": "the",
+      "start": 54.86,
+      "end": 55.0,
+      "start_time": "00:00:54.860",
+      "end_time": "00:00:55.000",
+      "confidence": 0.9958,
+      "cue": 17
+    },
+    {
+      "index": 163,
+      "word": "model",
+      "start": 55.0,
+      "end": 55.2,
+      "start_time": "00:00:55.000",
+      "end_time": "00:00:55.200",
+      "confidence": 0.9796,
+      "cue": 17
+    },
+    {
+      "index": 164,
+      "word": "softened",
+      "start": 55.2,
+      "end": 55.54,
+      "start_time": "00:00:55.200",
+      "end_time": "00:00:55.540",
+      "confidence": 0.3425,
+      "cue": 17
+    },
+    {
+      "index": 165,
+      "word": "the",
+      "start": 55.54,
+      "end": 55.74,
+      "start_time": "00:00:55.540",
+      "end_time": "00:00:55.740",
+      "confidence": 0.9948,
+      "cue": 17
+    },
+    {
+      "index": 166,
+      "word": "hard",
+      "start": 55.74,
+      "end": 55.92,
+      "start_time": "00:00:55.740",
+      "end_time": "00:00:55.920",
+      "confidence": 0.9984,
+      "cue": 17
+    },
+    {
+      "index": 167,
+      "word": "part",
+      "start": 55.92,
+      "end": 56.18,
+      "start_time": "00:00:55.920",
+      "end_time": "00:00:56.180",
+      "confidence": 0.9989,
+      "cue": 17
+    },
+    {
+      "index": 168,
+      "word": "Lupine",
+      "start": 56.82,
+      "end": 57.1,
+      "start_time": "00:00:56.820",
+      "end_time": "00:00:57.100",
+      "confidence": 0.5871,
+      "cue": 18
+    },
+    {
+      "index": 169,
+      "word": "sits",
+      "start": 57.1,
+      "end": 57.28,
+      "start_time": "00:00:57.100",
+      "end_time": "00:00:57.280",
+      "confidence": 0.9725,
+      "cue": 18
+    },
+    {
+      "index": 170,
+      "word": "between",
+      "start": 57.28,
+      "end": 57.64,
+      "start_time": "00:00:57.280",
+      "end_time": "00:00:57.640",
+      "confidence": 0.9949,
+      "cue": 18
+    },
+    {
+      "index": 171,
+      "word": "prediction",
+      "start": 57.64,
+      "end": 58.02,
+      "start_time": "00:00:57.640",
+      "end_time": "00:00:58.020",
+      "confidence": 0.9885,
+      "cue": 18
+    },
+    {
+      "index": 172,
+      "word": "and",
+      "start": 58.02,
+      "end": 58.28,
+      "start_time": "00:00:58.020",
+      "end_time": "00:00:58.280",
+      "confidence": 0.9931,
+      "cue": 18
+    },
+    {
+      "index": 173,
+      "word": "experiment",
+      "start": 58.28,
+      "end": 58.74,
+      "start_time": "00:00:58.280",
+      "end_time": "00:00:58.740",
+      "confidence": 0.9954,
+      "cue": 18
+    },
+    {
+      "index": 174,
+      "word": "Its",
+      "start": 59.46,
+      "end": 59.58,
+      "start_time": "00:00:59.460",
+      "end_time": "00:00:59.580",
+      "confidence": 0.7806,
+      "cue": 19
+    },
+    {
+      "index": 175,
+      "word": "environment",
+      "start": 59.58,
+      "end": 59.94,
+      "start_time": "00:00:59.580",
+      "end_time": "00:00:59.940",
+      "confidence": 0.8588,
+      "cue": 19
+    },
+    {
+      "index": 176,
+      "word": "error",
+      "start": 59.94,
+      "end": 60.28,
+      "start_time": "00:00:59.940",
+      "end_time": "00:01:00.280",
+      "confidence": 0.6876,
+      "cue": 19
+    },
+    {
+      "index": 177,
+      "word": "field",
+      "start": 60.28,
+      "end": 60.54,
+      "start_time": "00:01:00.280",
+      "end_time": "00:01:00.540",
+      "confidence": 0.9879,
+      "cue": 19
+    },
+    {
+      "index": 178,
+      "word": "measures",
+      "start": 60.54,
+      "end": 60.86,
+      "start_time": "00:01:00.540",
+      "end_time": "00:01:00.860",
+      "confidence": 0.996,
+      "cue": 19
+    },
+    {
+      "index": 179,
+      "word": "where",
+      "start": 60.86,
+      "end": 61.1,
+      "start_time": "00:01:00.860",
+      "end_time": "00:01:01.100",
+      "confidence": 0.8021,
+      "cue": 19
+    },
+    {
+      "index": 180,
+      "word": "universal",
+      "start": 61.1,
+      "end": 61.52,
+      "start_time": "00:01:01.100",
+      "end_time": "00:01:01.520",
+      "confidence": 0.9688,
+      "cue": 19
+    },
+    {
+      "index": 181,
+      "word": "potentials",
+      "start": 61.52,
+      "end": 62.06,
+      "start_time": "00:01:01.520",
+      "end_time": "00:01:02.060",
+      "confidence": 0.976,
+      "cue": 19
+    },
+    {
+      "index": 182,
+      "word": "fail",
+      "start": 62.06,
+      "end": 62.26,
+      "start_time": "00:01:02.060",
+      "end_time": "00:01:02.260",
+      "confidence": 0.9868,
+      "cue": 19
+    },
+    {
+      "index": 183,
+      "word": "corrects",
+      "start": 62.52,
+      "end": 62.86,
+      "start_time": "00:01:02.520",
+      "end_time": "00:01:02.860",
+      "confidence": 0.9896,
+      "cue": 19
+    },
+    {
+      "index": 184,
+      "word": "them",
+      "start": 62.86,
+      "end": 62.96,
+      "start_time": "00:01:02.860",
+      "end_time": "00:01:02.960",
+      "confidence": 0.9893,
+      "cue": 19
+    },
+    {
+      "index": 185,
+      "word": "at",
+      "start": 62.96,
+      "end": 63.12,
+      "start_time": "00:01:02.960",
+      "end_time": "00:01:03.120",
+      "confidence": 0.9967,
+      "cue": 19
+    },
+    {
+      "index": 186,
+      "word": "runtime",
+      "start": 63.12,
+      "end": 63.44,
+      "start_time": "00:01:03.120",
+      "end_time": "00:01:03.440",
+      "confidence": 0.4933,
+      "cue": 19
+    },
+    {
+      "index": 187,
+      "word": "with",
+      "start": 63.44,
+      "end": 63.62,
+      "start_time": "00:01:03.440",
+      "end_time": "00:01:03.620",
+      "confidence": 0.9967,
+      "cue": 19
+    },
+    {
+      "index": 188,
+      "word": "analytic",
+      "start": 63.62,
+      "end": 63.96,
+      "start_time": "00:01:03.620",
+      "end_time": "00:01:03.960",
+      "confidence": 0.9888,
+      "cue": 19
+    },
+    {
+      "index": 189,
+      "word": "forces",
+      "start": 63.96,
+      "end": 64.36,
+      "start_time": "00:01:03.960",
+      "end_time": "00:01:04.360",
+      "confidence": 0.995,
+      "cue": 19
+    },
+    {
+      "index": 190,
+      "word": "and",
+      "start": 64.36,
+      "end": 64.8,
+      "start_time": "00:01:04.360",
+      "end_time": "00:01:04.800",
+      "confidence": 0.224,
+      "cue": 19
+    },
+    {
+      "index": 191,
+      "word": "attaches",
+      "start": 64.8,
+      "end": 65.16,
+      "start_time": "00:01:04.800",
+      "end_time": "00:01:05.160",
+      "confidence": 0.9953,
+      "cue": 19
+    },
+    {
+      "index": 192,
+      "word": "machine-checked",
+      "start": 65.16,
+      "end": 65.68,
+      "start_time": "00:01:05.160",
+      "end_time": "00:01:05.680",
+      "confidence": 0.9269,
+      "cue": 19
+    },
+    {
+      "index": 193,
+      "word": "proofs",
+      "start": 65.68,
+      "end": 65.98,
+      "start_time": "00:01:05.680",
+      "end_time": "00:01:05.980",
+      "confidence": 0.9949,
+      "cue": 19
+    },
+    {
+      "index": 194,
+      "word": "to",
+      "start": 65.98,
+      "end": 66.16,
+      "start_time": "00:01:05.980",
+      "end_time": "00:01:06.160",
+      "confidence": 0.9976,
+      "cue": 19
+    },
+    {
+      "index": 195,
+      "word": "the",
+      "start": 66.16,
+      "end": 66.24,
+      "start_time": "00:01:06.160",
+      "end_time": "00:01:06.240",
+      "confidence": 0.993,
+      "cue": 19
+    },
+    {
+      "index": 196,
+      "word": "claims",
+      "start": 66.24,
+      "end": 66.52,
+      "start_time": "00:01:06.240",
+      "end_time": "00:01:06.520",
+      "confidence": 0.9902,
+      "cue": 19
+    },
+    {
+      "index": 197,
+      "word": "The",
+      "start": 67.18,
+      "end": 67.32,
+      "start_time": "00:01:07.180",
+      "end_time": "00:01:07.320",
+      "confidence": 0.9605,
+      "cue": 20
+    },
+    {
+      "index": 198,
+      "word": "partner",
+      "start": 67.32,
+      "end": 67.54,
+      "start_time": "00:01:07.320",
+      "end_time": "00:01:07.540",
+      "confidence": 0.9708,
+      "cue": 20
+    },
+    {
+      "index": 199,
+      "word": "does",
+      "start": 67.54,
+      "end": 67.8,
+      "start_time": "00:01:07.540",
+      "end_time": "00:01:07.800",
+      "confidence": 0.9892,
+      "cue": 20
+    },
+    {
+      "index": 200,
+      "word": "not",
+      "start": 67.8,
+      "end": 68.0,
+      "start_time": "00:01:07.800",
+      "end_time": "00:01:08.000",
+      "confidence": 0.994,
+      "cue": 20
+    },
+    {
+      "index": 201,
+      "word": "get",
+      "start": 68.0,
+      "end": 68.14,
+      "start_time": "00:01:08.000",
+      "end_time": "00:01:08.140",
+      "confidence": 0.9984,
+      "cue": 20
+    },
+    {
+      "index": 202,
+      "word": "another",
+      "start": 68.14,
+      "end": 68.42,
+      "start_time": "00:01:08.140",
+      "end_time": "00:01:08.420",
+      "confidence": 0.9963,
+      "cue": 20
+    },
+    {
+      "index": 203,
+      "word": "ranked",
+      "start": 68.42,
+      "end": 68.66,
+      "start_time": "00:01:08.420",
+      "end_time": "00:01:08.660",
+      "confidence": 0.9831,
+      "cue": 20
+    },
+    {
+      "index": 204,
+      "word": "spreadsheet",
+      "start": 68.66,
+      "end": 69.1,
+      "start_time": "00:01:08.660",
+      "end_time": "00:01:09.100",
+      "confidence": 0.9756,
+      "cue": 20
+    },
+    {
+      "index": 205,
+      "word": "They",
+      "start": 69.74,
+      "end": 69.9,
+      "start_time": "00:01:09.740",
+      "end_time": "00:01:09.900",
+      "confidence": 0.9893,
+      "cue": 21
+    },
+    {
+      "index": 206,
+      "word": "get",
+      "start": 69.9,
+      "end": 70.04,
+      "start_time": "00:01:09.900",
+      "end_time": "00:01:10.040",
+      "confidence": 0.9962,
+      "cue": 21
+    },
+    {
+      "index": 207,
+      "word": "a",
+      "start": 70.04,
+      "end": 70.14,
+      "start_time": "00:01:10.040",
+      "end_time": "00:01:10.140",
+      "confidence": 0.9979,
+      "cue": 21
+    },
+    {
+      "index": 208,
+      "word": "candidate",
+      "start": 70.14,
+      "end": 70.44,
+      "start_time": "00:01:10.140",
+      "end_time": "00:01:10.440",
+      "confidence": 0.996,
+      "cue": 21
+    },
+    {
+      "index": 209,
+      "word": "with",
+      "start": 70.44,
+      "end": 70.66,
+      "start_time": "00:01:10.440",
+      "end_time": "00:01:10.660",
+      "confidence": 0.9983,
+      "cue": 21
+    },
+    {
+      "index": 210,
+      "word": "a",
+      "start": 70.66,
+      "end": 70.78,
+      "start_time": "00:01:10.660",
+      "end_time": "00:01:10.780",
+      "confidence": 0.9864,
+      "cue": 21
+    },
+    {
+      "index": 211,
+      "word": "bounded",
+      "start": 70.78,
+      "end": 70.98,
+      "start_time": "00:01:10.780",
+      "end_time": "00:01:10.980",
+      "confidence": 0.9744,
+      "cue": 21
+    },
+    {
+      "index": 212,
+      "word": "error",
+      "start": 70.98,
+      "end": 71.3,
+      "start_time": "00:01:10.980",
+      "end_time": "00:01:11.300",
+      "confidence": 0.9739,
+      "cue": 21
+    },
+    {
+      "index": 213,
+      "word": "budget",
+      "start": 71.3,
+      "end": 71.6,
+      "start_time": "00:01:11.300",
+      "end_time": "00:01:11.600",
+      "confidence": 0.9981,
+      "cue": 21
+    },
+    {
+      "index": 214,
+      "word": "That",
+      "start": 72.28,
+      "end": 72.44,
+      "start_time": "00:01:12.280",
+      "end_time": "00:01:12.440",
+      "confidence": 0.9848,
+      "cue": 22
+    },
+    {
+      "index": 215,
+      "word": "same",
+      "start": 72.44,
+      "end": 72.68,
+      "start_time": "00:01:12.440",
+      "end_time": "00:01:12.680",
+      "confidence": 0.9994,
+      "cue": 22
+    },
+    {
+      "index": 216,
+      "word": "layer",
+      "start": 72.68,
+      "end": 72.92,
+      "start_time": "00:01:12.680",
+      "end_time": "00:01:12.920",
+      "confidence": 0.9912,
+      "cue": 22
+    },
+    {
+      "index": 217,
+      "word": "can",
+      "start": 72.92,
+      "end": 73.14,
+      "start_time": "00:01:12.920",
+      "end_time": "00:01:13.140",
+      "confidence": 0.9982,
+      "cue": 22
+    },
+    {
+      "index": 218,
+      "word": "travel",
+      "start": 73.14,
+      "end": 73.4,
+      "start_time": "00:01:13.140",
+      "end_time": "00:01:13.400",
+      "confidence": 0.9963,
+      "cue": 22
+    },
+    {
+      "index": 219,
+      "word": "five",
+      "start": 73.4,
+      "end": 73.68,
+      "start_time": "00:01:13.400",
+      "end_time": "00:01:13.680",
+      "confidence": 0.8282,
+      "cue": 22
+    },
+    {
+      "index": 220,
+      "word": "very",
+      "start": 73.68,
+      "end": 73.92,
+      "start_time": "00:01:13.680",
+      "end_time": "00:01:13.920",
+      "confidence": 0.9842,
+      "cue": 22
+    },
+    {
+      "index": 221,
+      "word": "different",
+      "start": 73.92,
+      "end": 74.18,
+      "start_time": "00:01:13.920",
+      "end_time": "00:01:14.180",
+      "confidence": 0.9994,
+      "cue": 22
+    },
+    {
+      "index": 222,
+      "word": "routes",
+      "start": 74.18,
+      "end": 74.46,
+      "start_time": "00:01:14.180",
+      "end_time": "00:01:14.460",
+      "confidence": 0.9973,
+      "cue": 22
+    },
+    {
+      "index": 223,
+      "word": "cobalt-free",
+      "start": 74.84,
+      "end": 75.24,
+      "start_time": "00:01:14.840",
+      "end_time": "00:01:15.240",
+      "confidence": 0.9212,
+      "cue": 22
+    },
+    {
+      "index": 224,
+      "word": "cathodes",
+      "start": 75.24,
+      "end": 75.66,
+      "start_time": "00:01:15.240",
+      "end_time": "00:01:15.660",
+      "confidence": 0.9827,
+      "cue": 22
+    },
+    {
+      "index": 225,
+      "word": "solid",
+      "start": 76.0,
+      "end": 76.18,
+      "start_time": "00:01:16.000",
+      "end_time": "00:01:16.180",
+      "confidence": 0.9985,
+      "cue": 22
+    },
+    {
+      "index": 226,
+      "word": "electrolytes",
+      "start": 76.18,
+      "end": 76.78,
+      "start_time": "00:01:16.180",
+      "end_time": "00:01:16.780",
+      "confidence": 0.9916,
+      "cue": 22
+    },
+    {
+      "index": 227,
+      "word": "carbon-capture",
+      "start": 77.0,
+      "end": 77.5,
+      "start_time": "00:01:17.000",
+      "end_time": "00:01:17.500",
+      "confidence": 0.8796,
+      "cue": 22
+    },
+    {
+      "index": 228,
+      "word": "frameworks",
+      "start": 77.5,
+      "end": 77.96,
+      "start_time": "00:01:17.500",
+      "end_time": "00:01:17.960",
+      "confidence": 0.9917,
+      "cue": 22
+    },
+    {
+      "index": 229,
+      "word": "ammonia",
+      "start": 78.3,
+      "end": 78.54,
+      "start_time": "00:01:18.300",
+      "end_time": "00:01:18.540",
+      "confidence": 0.999,
+      "cue": 22
+    },
+    {
+      "index": 230,
+      "word": "catalysts",
+      "start": 78.54,
+      "end": 79.1,
+      "start_time": "00:01:18.540",
+      "end_time": "00:01:19.100",
+      "confidence": 0.9982,
+      "cue": 22
+    },
+    {
+      "index": 231,
+      "word": "and",
+      "start": 79.36,
+      "end": 79.5,
+      "start_time": "00:01:19.360",
+      "end_time": "00:01:19.500",
+      "confidence": 0.9967,
+      "cue": 22
+    },
+    {
+      "index": 232,
+      "word": "lead-free",
+      "start": 79.5,
+      "end": 79.84,
+      "start_time": "00:01:19.500",
+      "end_time": "00:01:19.840",
+      "confidence": 0.9238,
+      "cue": 22
+    },
+    {
+      "index": 233,
+      "word": "solar",
+      "start": 79.84,
+      "end": 80.16,
+      "start_time": "00:01:19.840",
+      "end_time": "00:01:20.160",
+      "confidence": 0.9934,
+      "cue": 22
+    },
+    {
+      "index": 234,
+      "word": "absorbers",
+      "start": 80.16,
+      "end": 80.62,
+      "start_time": "00:01:20.160",
+      "end_time": "00:01:20.620",
+      "confidence": 0.9939,
+      "cue": 22
+    },
+    {
+      "index": 235,
+      "word": "The",
+      "start": 81.28,
+      "end": 81.44,
+      "start_time": "00:01:21.280",
+      "end_time": "00:01:21.440",
+      "confidence": 0.9957,
+      "cue": 23
+    },
+    {
+      "index": 236,
+      "word": "partners",
+      "start": 81.44,
+      "end": 81.76,
+      "start_time": "00:01:21.440",
+      "end_time": "00:01:21.760",
+      "confidence": 0.6212,
+      "cue": 23
+    },
+    {
+      "index": 237,
+      "word": "change",
+      "start": 81.76,
+      "end": 82.08,
+      "start_time": "00:01:21.760",
+      "end_time": "00:01:22.080",
+      "confidence": 0.9838,
+      "cue": 23
+    },
+    {
+      "index": 238,
+      "word": "The",
+      "start": 82.76,
+      "end": 82.94,
+      "start_time": "00:01:22.760",
+      "end_time": "00:01:22.940",
+      "confidence": 0.9954,
+      "cue": 24
+    },
+    {
+      "index": 239,
+      "word": "job",
+      "start": 82.94,
+      "end": 83.14,
+      "start_time": "00:01:22.940",
+      "end_time": "00:01:23.140",
+      "confidence": 0.999,
+      "cue": 24
+    },
+    {
+      "index": 240,
+      "word": "does",
+      "start": 83.14,
+      "end": 83.32,
+      "start_time": "00:01:23.140",
+      "end_time": "00:01:23.320",
+      "confidence": 0.9947,
+      "cue": 24
+    },
+    {
+      "index": 241,
+      "word": "not",
+      "start": 83.32,
+      "end": 83.58,
+      "start_time": "00:01:23.320",
+      "end_time": "00:01:23.580",
+      "confidence": 0.9985,
+      "cue": 24
+    },
+    {
+      "index": 242,
+      "word": "Correct",
+      "start": 84.42,
+      "end": 84.62,
+      "start_time": "00:01:24.420",
+      "end_time": "00:01:24.620",
+      "confidence": 0.8655,
+      "cue": 25
+    },
+    {
+      "index": 243,
+      "word": "the",
+      "start": 84.62,
+      "end": 84.66,
+      "start_time": "00:01:24.620",
+      "end_time": "00:01:24.660",
+      "confidence": 0.9926,
+      "cue": 25
+    },
+    {
+      "index": 244,
+      "word": "risky",
+      "start": 84.66,
+      "end": 84.84,
+      "start_time": "00:01:24.660",
+      "end_time": "00:01:24.840",
+      "confidence": 0.987,
+      "cue": 25
+    },
+    {
+      "index": 245,
+      "word": "physics",
+      "start": 84.84,
+      "end": 85.24,
+      "start_time": "00:01:24.840",
+      "end_time": "00:01:25.240",
+      "confidence": 0.9982,
+      "cue": 25
+    },
+    {
+      "index": 246,
+      "word": "flag",
+      "start": 85.24,
+      "end": 85.74,
+      "start_time": "00:01:25.240",
+      "end_time": "00:01:25.740",
+      "confidence": 0.2994,
+      "cue": 25
+    },
+    {
+      "index": 247,
+      "word": "what",
+      "start": 85.74,
+      "end": 85.96,
+      "start_time": "00:01:25.740",
+      "end_time": "00:01:25.960",
+      "confidence": 0.9956,
+      "cue": 25
+    },
+    {
+      "index": 248,
+      "word": "the",
+      "start": 85.96,
+      "end": 86.06,
+      "start_time": "00:01:25.960",
+      "end_time": "00:01:26.060",
+      "confidence": 0.9973,
+      "cue": 25
+    },
+    {
+      "index": 249,
+      "word": "model",
+      "start": 86.06,
+      "end": 86.28,
+      "start_time": "00:01:26.060",
+      "end_time": "00:01:26.280",
+      "confidence": 0.9971,
+      "cue": 25
+    },
+    {
+      "index": 250,
+      "word": "cannot",
+      "start": 86.28,
+      "end": 86.54,
+      "start_time": "00:01:26.280",
+      "end_time": "00:01:26.540",
+      "confidence": 0.9548,
+      "cue": 25
+    },
+    {
+      "index": 251,
+      "word": "support",
+      "start": 86.54,
+      "end": 86.94,
+      "start_time": "00:01:26.540",
+      "end_time": "00:01:26.940",
+      "confidence": 0.9979,
+      "cue": 25
+    },
+    {
+      "index": 252,
+      "word": "and",
+      "start": 87.16,
+      "end": 87.32,
+      "start_time": "00:01:27.160",
+      "end_time": "00:01:27.320",
+      "confidence": 0.9964,
+      "cue": 25
+    },
+    {
+      "index": 253,
+      "word": "send",
+      "start": 87.32,
+      "end": 87.5,
+      "start_time": "00:01:27.320",
+      "end_time": "00:01:27.500",
+      "confidence": 0.9962,
+      "cue": 25
+    },
+    {
+      "index": 254,
+      "word": "experimentalists",
+      "start": 87.5,
+      "end": 88.3,
+      "start_time": "00:01:27.500",
+      "end_time": "00:01:28.300",
+      "confidence": 0.9941,
+      "cue": 25
+    },
+    {
+      "index": 255,
+      "word": "fewer",
+      "start": 88.3,
+      "end": 88.6,
+      "start_time": "00:01:28.300",
+      "end_time": "00:01:28.600",
+      "confidence": 0.9946,
+      "cue": 25
+    },
+    {
+      "index": 256,
+      "word": "better",
+      "start": 88.86,
+      "end": 89.04,
+      "start_time": "00:01:28.860",
+      "end_time": "00:01:29.040",
+      "confidence": 0.9979,
+      "cue": 25
+    },
+    {
+      "index": 257,
+      "word": "bets",
+      "start": 89.04,
+      "end": 89.28,
+      "start_time": "00:01:29.040",
+      "end_time": "00:01:29.280",
+      "confidence": 0.9494,
+      "cue": 25
+    },
+    {
+      "index": 258,
+      "word": "Because",
+      "start": 90.02,
+      "end": 90.24,
+      "start_time": "00:01:30.020",
+      "end_time": "00:01:30.240",
+      "confidence": 0.9794,
+      "cue": 26
+    },
+    {
+      "index": 259,
+      "word": "scaling",
+      "start": 90.24,
+      "end": 90.54,
+      "start_time": "00:01:30.240",
+      "end_time": "00:01:30.540",
+      "confidence": 0.9313,
+      "cue": 26
+    },
+    {
+      "index": 260,
+      "word": "materials",
+      "start": 90.54,
+      "end": 91.0,
+      "start_time": "00:01:30.540",
+      "end_time": "00:01:31.000",
+      "confidence": 0.8982,
+      "cue": 26
+    },
+    {
+      "index": 261,
+      "word": "discovery",
+      "start": 91.0,
+      "end": 91.4,
+      "start_time": "00:01:31.000",
+      "end_time": "00:01:31.400",
+      "confidence": 0.9722,
+      "cue": 26
+    },
+    {
+      "index": 262,
+      "word": "is",
+      "start": 91.4,
+      "end": 91.7,
+      "start_time": "00:01:31.400",
+      "end_time": "00:01:31.700",
+      "confidence": 0.9826,
+      "cue": 26
+    },
+    {
+      "index": 263,
+      "word": "not",
+      "start": 91.7,
+      "end": 91.9,
+      "start_time": "00:01:31.700",
+      "end_time": "00:01:31.900",
+      "confidence": 0.9945,
+      "cue": 26
+    },
+    {
+      "index": 264,
+      "word": "about",
+      "start": 91.9,
+      "end": 92.1,
+      "start_time": "00:01:31.900",
+      "end_time": "00:01:32.100",
+      "confidence": 0.997,
+      "cue": 26
+    },
+    {
+      "index": 265,
+      "word": "generating",
+      "start": 92.1,
+      "end": 92.48,
+      "start_time": "00:01:32.100",
+      "end_time": "00:01:32.480",
+      "confidence": 0.997,
+      "cue": 26
+    },
+    {
+      "index": 266,
+      "word": "the",
+      "start": 92.48,
+      "end": 92.66,
+      "start_time": "00:01:32.480",
+      "end_time": "00:01:32.660",
+      "confidence": 0.9955,
+      "cue": 26
+    },
+    {
+      "index": 267,
+      "word": "next",
+      "start": 92.66,
+      "end": 92.84,
+      "start_time": "00:01:32.660",
+      "end_time": "00:01:32.840",
+      "confidence": 0.9983,
+      "cue": 26
+    },
+    {
+      "index": 268,
+      "word": "million",
+      "start": 92.84,
+      "end": 93.12,
+      "start_time": "00:01:32.840",
+      "end_time": "00:01:33.120",
+      "confidence": 0.9837,
+      "cue": 26
+    },
+    {
+      "index": 269,
+      "word": "crystals",
+      "start": 93.12,
+      "end": 93.52,
+      "start_time": "00:01:33.120",
+      "end_time": "00:01:33.520",
+      "confidence": 0.9908,
+      "cue": 26
+    },
+    {
+      "index": 270,
+      "word": "It",
+      "start": 94.24,
+      "end": 94.4,
+      "start_time": "00:01:34.240",
+      "end_time": "00:01:34.400",
+      "confidence": 0.9894,
+      "cue": 27
+    },
+    {
+      "index": 271,
+      "word": "is",
+      "start": 94.4,
+      "end": 94.5,
+      "start_time": "00:01:34.400",
+      "end_time": "00:01:34.500",
+      "confidence": 0.9869,
+      "cue": 27
+    },
+    {
+      "index": 272,
+      "word": "about",
+      "start": 94.5,
+      "end": 94.7,
+      "start_time": "00:01:34.500",
+      "end_time": "00:01:34.700",
+      "confidence": 0.9989,
+      "cue": 27
+    },
+    {
+      "index": 273,
+      "word": "building",
+      "start": 94.7,
+      "end": 95.0,
+      "start_time": "00:01:34.700",
+      "end_time": "00:01:35.000",
+      "confidence": 0.9983,
+      "cue": 27
+    },
+    {
+      "index": 274,
+      "word": "enough",
+      "start": 95.0,
+      "end": 95.22,
+      "start_time": "00:01:35.000",
+      "end_time": "00:01:35.220",
+      "confidence": 0.9984,
+      "cue": 27
+    },
+    {
+      "index": 275,
+      "word": "trust",
+      "start": 95.22,
+      "end": 95.48,
+      "start_time": "00:01:35.220",
+      "end_time": "00:01:35.480",
+      "confidence": 0.9888,
+      "cue": 27
+    },
+    {
+      "index": 276,
+      "word": "for",
+      "start": 95.48,
+      "end": 95.74,
+      "start_time": "00:01:35.480",
+      "end_time": "00:01:35.740",
+      "confidence": 0.9951,
+      "cue": 27
+    },
+    {
+      "index": 277,
+      "word": "one",
+      "start": 95.74,
+      "end": 95.92,
+      "start_time": "00:01:35.740",
+      "end_time": "00:01:35.920",
+      "confidence": 0.9779,
+      "cue": 27
+    },
+    {
+      "index": 278,
+      "word": "crystal",
+      "start": 95.92,
+      "end": 96.24,
+      "start_time": "00:01:35.920",
+      "end_time": "00:01:36.240",
+      "confidence": 0.9956,
+      "cue": 27
+    },
+    {
+      "index": 279,
+      "word": "to",
+      "start": 96.24,
+      "end": 96.44,
+      "start_time": "00:01:36.240",
+      "end_time": "00:01:36.440",
+      "confidence": 0.9896,
+      "cue": 27
+    },
+    {
+      "index": 280,
+      "word": "make",
+      "start": 96.44,
+      "end": 96.56,
+      "start_time": "00:01:36.440",
+      "end_time": "00:01:36.560",
+      "confidence": 0.9989,
+      "cue": 27
+    },
+    {
+      "index": 281,
+      "word": "it",
+      "start": 96.56,
+      "end": 96.7,
+      "start_time": "00:01:36.560",
+      "end_time": "00:01:36.700",
+      "confidence": 0.9975,
+      "cue": 27
+    },
+    {
+      "index": 282,
+      "word": "through",
+      "start": 96.7,
+      "end": 96.82,
+      "start_time": "00:01:36.700",
+      "end_time": "00:01:36.820",
+      "confidence": 0.9943,
+      "cue": 27
+    },
+    {
+      "index": 283,
+      "word": "the",
+      "start": 96.82,
+      "end": 96.98,
+      "start_time": "00:01:36.820",
+      "end_time": "00:01:36.980",
+      "confidence": 0.991,
+      "cue": 27
+    },
+    {
+      "index": 284,
+      "word": "lab",
+      "start": 96.98,
+      "end": 97.16,
+      "start_time": "00:01:36.980",
+      "end_time": "00:01:37.160",
+      "confidence": 0.9979,
+      "cue": 27
+    },
+    {
+      "index": 285,
+      "word": "the",
+      "start": 97.42,
+      "end": 97.5,
+      "start_time": "00:01:37.420",
+      "end_time": "00:01:37.500",
+      "confidence": 0.9981,
+      "cue": 27
+    },
+    {
+      "index": 286,
+      "word": "factory",
+      "start": 97.5,
+      "end": 97.78,
+      "start_time": "00:01:37.500",
+      "end_time": "00:01:37.780",
+      "confidence": 0.9976,
+      "cue": 27
+    },
+    {
+      "index": 287,
+      "word": "and",
+      "start": 98.14,
+      "end": 98.26,
+      "start_time": "00:01:38.140",
+      "end_time": "00:01:38.260",
+      "confidence": 0.9986,
+      "cue": 27
+    },
+    {
+      "index": 288,
+      "word": "into",
+      "start": 98.26,
+      "end": 98.48,
+      "start_time": "00:01:38.260",
+      "end_time": "00:01:38.480",
+      "confidence": 0.9952,
+      "cue": 27
+    },
+    {
+      "index": 289,
+      "word": "a",
+      "start": 98.48,
+      "end": 98.6,
+      "start_time": "00:01:38.480",
+      "end_time": "00:01:38.600",
+      "confidence": 0.9979,
+      "cue": 27
+    },
+    {
+      "index": 290,
+      "word": "commercial",
+      "start": 98.6,
+      "end": 98.82,
+      "start_time": "00:01:38.600",
+      "end_time": "00:01:38.820",
+      "confidence": 0.9991,
+      "cue": 27
+    },
+    {
+      "index": 291,
+      "word": "cell",
+      "start": 98.82,
+      "end": 99.16,
+      "start_time": "00:01:38.820",
+      "end_time": "00:01:39.160",
+      "confidence": 0.9947,
+      "cue": 27
+    },
+    {
+      "index": 292,
+      "word": "Read",
+      "start": 99.82,
+      "end": 99.96,
+      "start_time": "00:01:39.820",
+      "end_time": "00:01:39.960",
+      "confidence": 0.9906,
+      "cue": 28
+    },
+    {
+      "index": 293,
+      "word": "the",
+      "start": 99.96,
+      "end": 100.12,
+      "start_time": "00:01:39.960",
+      "end_time": "00:01:40.120",
+      "confidence": 0.9848,
+      "cue": 28
+    },
+    {
+      "index": 294,
+      "word": "full",
+      "start": 100.12,
+      "end": 100.3,
+      "start_time": "00:01:40.120",
+      "end_time": "00:01:40.300",
+      "confidence": 0.9684,
+      "cue": 28
+    },
+    {
+      "index": 295,
+      "word": "partner",
+      "start": 100.3,
+      "end": 100.6,
+      "start_time": "00:01:40.300",
+      "end_time": "00:01:40.600",
+      "confidence": 0.9469,
+      "cue": 28
+    },
+    {
+      "index": 296,
+      "word": "map",
+      "start": 100.6,
+      "end": 100.8,
+      "start_time": "00:01:40.600",
+      "end_time": "00:01:40.800",
+      "confidence": 0.9938,
+      "cue": 28
+    },
+    {
+      "index": 297,
+      "word": "at",
+      "start": 100.8,
+      "end": 101.02,
+      "start_time": "00:01:40.800",
+      "end_time": "00:01:41.020",
+      "confidence": 0.945,
+      "cue": 28
+    },
+    {
+      "index": 298,
+      "word": "Lupine",
+      "start": 101.02,
+      "end": 101.28,
+      "start_time": "00:01:41.020",
+      "end_time": "00:01:41.280",
+      "confidence": 0.8723,
+      "cue": 28
+    },
+    {
+      "index": 299,
+      "word": "Science",
+      "start": 101.28,
+      "end": 101.5,
+      "start_time": "00:01:41.280",
+      "end_time": "00:01:41.500",
+      "confidence": 0.8368,
+      "cue": 28
+    }
+  ],
+  "cues": [
+    {
+      "cue": 1,
+      "start": 0.0,
+      "end": 1.74,
+      "start_time": "00:00:00.000",
+      "end_time": "00:00:01.740",
+      "start_word": 1,
+      "end_word": 7,
+      "text": "A predicted crystal is not a material."
+    },
+    {
+      "cue": 2,
+      "start": 2.38,
+      "end": 3.76,
+      "start_time": "00:00:02.380",
+      "end_time": "00:00:03.760",
+      "start_word": 8,
+      "end_word": 14,
+      "text": "A powder is not a battery cell."
+    },
+    {
+      "cue": 3,
+      "start": 4.4,
+      "end": 6.34,
+      "start_time": "00:00:04.400",
+      "end_time": "00:00:06.340",
+      "start_word": 15,
+      "end_word": 23,
+      "text": "And a cell is definitely not an electric truck."
+    },
+    {
+      "cue": 4,
+      "start": 7.2,
+      "end": 8.2,
+      "start_time": "00:00:07.200",
+      "end_time": "00:00:08.200",
+      "start_word": 24,
+      "end_word": 29,
+      "text": "Between the computer and the road?"
+    },
+    {
+      "cue": 5,
+      "start": 8.78,
+      "end": 11.36,
+      "start_time": "00:00:08.780",
+      "end_time": "00:00:11.360",
+      "start_word": 30,
+      "end_word": 39,
+      "text": "A whole chain of handoffs where great ideas quietly die."
+    },
+    {
+      "cue": 6,
+      "start": 12.08,
+      "end": 14.94,
+      "start_time": "00:00:12.080",
+      "end_time": "00:00:14.940",
+      "start_word": 40,
+      "end_word": 48,
+      "text": "Google DeepMind generated two point two million crystal predictions."
+    },
+    {
+      "cue": 7,
+      "start": 15.74,
+      "end": 17.36,
+      "start_time": "00:00:15.740",
+      "end_time": "00:00:17.360",
+      "start_word": 49,
+      "end_word": 54,
+      "text": "Three hundred eighty thousand looked stable."
+    },
+    {
+      "cue": 8,
+      "start": 18.0,
+      "end": 22.2,
+      "start_time": "00:00:18.000",
+      "end_time": "00:00:22.200",
+      "start_word": 55,
+      "end_word": 65,
+      "text": "By late 2023, only seven hundred thirty-six had been independently synthesized."
+    },
+    {
+      "cue": 9,
+      "start": 22.74,
+      "end": 24.78,
+      "start_time": "00:00:22.740",
+      "end_time": "00:00:24.780",
+      "start_word": 66,
+      "end_word": 74,
+      "text": "So, yeah, we do not have a prediction shortage."
+    },
+    {
+      "cue": 10,
+      "start": 25.4,
+      "end": 26.52,
+      "start_time": "00:00:25.400",
+      "end_time": "00:00:26.520",
+      "start_word": 75,
+      "end_word": 79,
+      "text": "We have a trust problem."
+    },
+    {
+      "cue": 11,
+      "start": 27.1,
+      "end": 33.5,
+      "start_time": "00:00:27.100",
+      "end_time": "00:00:33.500",
+      "start_word": 80,
+      "end_word": 95,
+      "text": "A candidate has to survive synthesis, coating, cell fabrication, live testing, module integration, and manufacturing scale-up."
+    },
+    {
+      "cue": 12,
+      "start": 34.1,
+      "end": 35.86,
+      "start_time": "00:00:34.100",
+      "end_time": "00:00:35.860",
+      "start_word": 96,
+      "end_word": 102,
+      "text": "No single lab owns that entire chain."
+    },
+    {
+      "cue": 13,
+      "start": 36.52,
+      "end": 40.7,
+      "start_time": "00:00:36.520",
+      "end_time": "00:00:40.700",
+      "start_word": 103,
+      "end_word": 122,
+      "text": "And every partner needs to know the last result is solid before spending time and money on the next step."
+    },
+    {
+      "cue": 14,
+      "start": 41.36,
+      "end": 42.76,
+      "start_time": "00:00:41.360",
+      "end_time": "00:00:42.760",
+      "start_word": 123,
+      "end_word": 129,
+      "text": "Here is how bad one error gets."
+    },
+    {
+      "cue": 15,
+      "start": 43.38,
+      "end": 47.74,
+      "start_time": "00:00:43.380",
+      "end_time": "00:00:47.740",
+      "start_word": 130,
+      "end_word": 141,
+      "text": "Universal machine-learning potentials can underestimate a lithium migration barrier by sixty percent."
+    },
+    {
+      "cue": 16,
+      "start": 47.74,
+      "end": 51.66,
+      "start_time": "00:00:47.740",
+      "end_time": "00:00:51.660",
+      "start_word": 142,
+      "end_word": 152,
+      "text": "That can move predicted room-temperature conductivity by about five thousand times."
+    },
+    {
+      "cue": 17,
+      "start": 52.3,
+      "end": 56.18,
+      "start_time": "00:00:52.300",
+      "end_time": "00:00:56.180",
+      "start_word": 153,
+      "end_word": 167,
+      "text": "A promising solid electrolyte may only be promising because the model softened the hard part."
+    },
+    {
+      "cue": 18,
+      "start": 56.82,
+      "end": 58.74,
+      "start_time": "00:00:56.820",
+      "end_time": "00:00:58.740",
+      "start_word": 168,
+      "end_word": 173,
+      "text": "Lupine sits between prediction and experiment."
+    },
+    {
+      "cue": 19,
+      "start": 59.46,
+      "end": 66.52,
+      "start_time": "00:00:59.460",
+      "end_time": "00:01:06.520",
+      "start_word": 174,
+      "end_word": 196,
+      "text": "Its environment error field measures where universal potentials fail, corrects them at runtime with analytic forces, and attaches machine-checked proofs to the claims."
+    },
+    {
+      "cue": 20,
+      "start": 67.18,
+      "end": 69.1,
+      "start_time": "00:01:07.180",
+      "end_time": "00:01:09.100",
+      "start_word": 197,
+      "end_word": 204,
+      "text": "The partner does not get another ranked spreadsheet."
+    },
+    {
+      "cue": 21,
+      "start": 69.74,
+      "end": 71.6,
+      "start_time": "00:01:09.740",
+      "end_time": "00:01:11.600",
+      "start_word": 205,
+      "end_word": 213,
+      "text": "They get a candidate with a bounded error budget."
+    },
+    {
+      "cue": 22,
+      "start": 72.28,
+      "end": 80.62,
+      "start_time": "00:01:12.280",
+      "end_time": "00:01:20.620",
+      "start_word": 214,
+      "end_word": 234,
+      "text": "That same layer can travel five very different routes: cobalt-free cathodes, solid electrolytes, carbon-capture frameworks, ammonia catalysts, and lead-free solar absorbers."
+    },
+    {
+      "cue": 23,
+      "start": 81.28,
+      "end": 82.08,
+      "start_time": "00:01:21.280",
+      "end_time": "00:01:22.080",
+      "start_word": 235,
+      "end_word": 237,
+      "text": "The partners change."
+    },
+    {
+      "cue": 24,
+      "start": 82.76,
+      "end": 83.58,
+      "start_time": "00:01:22.760",
+      "end_time": "00:01:23.580",
+      "start_word": 238,
+      "end_word": 241,
+      "text": "The job does not."
+    },
+    {
+      "cue": 25,
+      "start": 84.42,
+      "end": 89.28,
+      "start_time": "00:01:24.420",
+      "end_time": "00:01:29.280",
+      "start_word": 242,
+      "end_word": 257,
+      "text": "Correct the risky physics, flag what the model cannot support, and send experimentalists fewer, better bets."
+    },
+    {
+      "cue": 26,
+      "start": 90.02,
+      "end": 93.52,
+      "start_time": "00:01:30.020",
+      "end_time": "00:01:33.520",
+      "start_word": 258,
+      "end_word": 269,
+      "text": "Because scaling materials discovery is not about generating the next million crystals."
+    },
+    {
+      "cue": 27,
+      "start": 94.24,
+      "end": 99.16,
+      "start_time": "00:01:34.240",
+      "end_time": "00:01:39.160",
+      "start_word": 270,
+      "end_word": 291,
+      "text": "It is about building enough trust for one crystal to make it through the lab, the factory, and into a commercial cell."
+    },
+    {
+      "cue": 28,
+      "start": 99.82,
+      "end": 101.5,
+      "start_time": "00:01:39.820",
+      "end_time": "00:01:41.500",
+      "start_word": 292,
+      "end_word": 299,
+      "text": "Read the full partner map at Lupine Science."
+    }
+  ]
+}

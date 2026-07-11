@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1920, height=1080" />
+  <title>The 0.2% Synthesis Problem</title>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+    @font-face{font-family:Newsreader;src:url("assets/fonts/newsreader-var.woff2") format("woff2");font-weight:300 700}
+    @font-face{font-family:Plex;src:url("assets/fonts/plex-mono-400.woff2") format("woff2");font-weight:400}
+    @font-face{font-family:Plex;src:url("assets/fonts/plex-mono-600.woff2") format("woff2");font-weight:600}
+    :root{--paper:#faf9f6;--ink:#1a1a1a;--indigo:#3d4db3;--amber:#e8a838;--sage:#5a8a6e;--slate:#6b7c8e;--rose:#c75b5b}
+    *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--paper);color:var(--ink)}
+    #synthesis-root{position:relative;width:1920px;height:1080px;overflow:hidden}
+    .ground{position:absolute;inset:0;background-color:var(--paper);background-image:radial-gradient(circle at 82% 18%,rgba(61,77,179,.18),rgba(61,77,179,0) 33%),repeating-linear-gradient(0deg,rgba(26,26,26,.025) 0,rgba(26,26,26,.025) 1px,transparent 1px,transparent 9px)}
+    .clip{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;padding:132px 120px 126px}
+    .clip:after{content:"";position:absolute;left:120px;right:120px;bottom:104px;height:2px;background:var(--indigo);opacity:.5}
+    .chrome{position:absolute;top:56px;left:120px;right:120px;display:flex;justify-content:space-between;align-items:center;font:600 36px/1 Plex;letter-spacing:.1em;color:var(--indigo)}
+    .mark{width:72px;height:72px;object-fit:contain}.eyebrow,.source,.micro{font-family:Plex;text-transform:uppercase;letter-spacing:.08em}.eyebrow{font-size:36px;font-weight:600;color:var(--indigo)}.source{font-size:36px;line-height:1.2;color:var(--slate)}
+    h1,h2,p{margin:0}h1,h2{font-family:Newsreader;font-weight:400;letter-spacing:-.03em}h1{font-size:148px;line-height:.91}h2{font-size:92px;line-height:.98}.lede{font:400 48px/1.22 Newsreader}.mono{font-family:Plex}.indigo{color:var(--indigo)}.rose{color:var(--rose)}.amber{color:var(--amber)}.sage{color:var(--sage)}
+    .split{height:100%;display:grid;grid-template-columns:1.12fr .88fr;gap:76px;align-items:center}.panel{border:2px solid var(--indigo);border-radius:10px;padding:42px;background:rgba(250,249,246,.82)}
+    .rule{display:block;width:100%;height:4px;background:var(--indigo);transform-origin:left center}.scene-title{max-width:1200px}.big-stat{font:600 176px/.9 Plex;letter-spacing:-.07em;color:var(--indigo)}
+    svg{overflow:visible}.axis,.trace,.rail,.route,.contour{fill:none;stroke:var(--indigo);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.muted{stroke:var(--slate)}.risk{stroke:var(--rose)}.warn{stroke:var(--amber)}.ok{stroke:var(--sage)}
+    .grid-field{display:grid;grid-template-columns:repeat(12,22px);gap:12px;width:max-content}.tile{width:22px;height:22px;border:2px solid var(--indigo);opacity:.34}.tile.kept{background:var(--indigo);opacity:1}
+    #scene-hook h1{font-size:132px}#scene-gap>h2,#scene-filters>h2,#scene-stakes>h2{margin-top:44px}#scene-correction>h2{margin-top:52px;font-size:82px;line-height:.94;max-width:1580px}
+    .ratio{display:grid;grid-template-columns:1.35fr .65fr;gap:30px;align-items:end;margin-top:30px}#scene-hook h1{font-size:132px}#scene-hook .ratio .big-stat{font-size:104px;letter-spacing:-.08em}.ratio-label{font:400 36px/1.2 Plex;color:var(--slate);text-transform:uppercase}.funnel{clip-path:polygon(0 0,100% 0,58% 100%,42% 100%);height:230px;border:4px solid var(--indigo);background:repeating-linear-gradient(90deg,rgba(61,77,179,.18) 0 12px,transparent 12px 25px)}
+    .worlds{display:grid;grid-template-columns:1fr 1fr;gap:58px;margin-top:24px}.world{position:relative;height:570px;border-top:4px solid var(--indigo);padding-top:28px}.world h3{font:400 58px/1 Newsreader;margin:0 0 22px}.world svg{display:block;height:300px}.lattice{display:grid;grid-template-columns:repeat(6,34px);gap:28px;padding:34px}.atom{width:34px;height:34px;border-radius:50%;background:var(--indigo)}.path-label{font:400 36px/1.18 Plex;color:var(--slate);max-width:760px}
+    .gates{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 28px;margin-top:14px}.gate{position:relative;height:304px;padding:20px 28px;border:3px solid var(--indigo);border-radius:10px;background:rgba(250,249,246,.86);overflow:hidden;transform-origin:center}.gate-num{font:600 36px/1.1 Plex;color:var(--indigo)}.gate h3{font:400 48px/1 Newsreader;margin:8px 0 6px;max-width:66%}.gate p{font:400 48px/1.08 Newsreader;color:var(--slate);max-width:72%}.gate-icon{position:absolute;right:24px;bottom:22px;width:27%;height:132px}.candidate{position:absolute;width:28px;height:28px;border-radius:50%;background:var(--indigo);top:1004px;left:150px}#scene-filters:after{bottom:38px}
+    .barrier-layout{display:grid;grid-template-columns:1.3fr .7fr;gap:70px;align-items:center;height:100%}.chart{height:640px;position:relative}.chart svg{position:absolute;inset:0;width:100%;height:100%}.ion{fill:var(--paper);stroke-width:7}.bracket{position:absolute;right:28%;top:140px;font:600 38px Plex;color:var(--amber);border-left:4px solid var(--amber);padding-left:18px}.classify{border:4px solid var(--indigo);padding:42px 28px}.classify .state{font:600 58px/1 Plex;color:var(--amber);margin-top:28px}.rate{font:600 112px/.9 Plex;color:var(--indigo);margin-top:60px}
+    .mechanism{display:grid;grid-template-columns:1.55fr .75fr;gap:34px;align-items:stretch;margin-top:18px}.field-proof{height:430px;border:4px solid var(--indigo);padding:20px 34px;position:relative;background:rgba(250,249,246,.86)}.field-proof svg{width:100%;height:260px;display:block}.field-proof .legend{position:absolute;left:34px;right:34px;bottom:18px;display:flex;gap:34px;font:600 36px/1 Plex;color:var(--slate)}.field-proof .legend b{color:var(--rose)}.field-proof .legend em{color:var(--indigo);font-style:normal}.contour-before,.contour-after,.error-vector,.corrected-vector{fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}.contour-before{stroke:var(--slate)}.contour-after{stroke:var(--indigo)}.error-vector{stroke:var(--rose)}.corrected-vector{stroke:var(--indigo)}.field-node{fill:var(--ink)}.correction-side{display:grid;grid-template-rows:1fr 1fr;gap:14px}.proof-step{border-top:5px solid var(--indigo);padding:14px 56px 14px 24px;position:relative;background:rgba(250,249,246,.82)}.proof-step h3{font:400 48px/.96 Newsreader;margin:4px 0 8px}.proof-step svg{width:100%;height:34px}.proof-step .source{font-size:36px;color:var(--indigo);white-space:nowrap}.strike{position:absolute;right:22px;top:58px;width:6px;height:94px;background:var(--rose);transform:rotate(8deg);transform-origin:center}
+    .stakes{display:grid;grid-template-columns:1.18fr .82fr;grid-template-rows:292px 292px;gap:14px 42px;margin-top:22px}.stake{border-top:5px solid var(--indigo);padding-top:16px;position:relative}.stake-stat{font:600 82px/.88 Plex;color:var(--indigo)}.stake h3{font:400 48px/1.02 Newsreader;margin:8px 0}.supply-proof{grid-row:1/3}.supply-map{width:100%;height:286px;display:block;margin-top:2px}.map-africa{fill:rgba(61,77,179,.10);stroke:var(--slate);stroke-width:5}.map-drc{fill:var(--amber);stroke:var(--ink);stroke-width:4}.map-callout{stroke:var(--amber);stroke-width:5;fill:none}.map-label{font:600 36px Plex;fill:var(--ink)}.map-label.accent{fill:var(--ink)}.battery-axis,.emissions-axis{width:100%;height:78px;display:block}.chart-axis{stroke:var(--ink);stroke-width:4;fill:none}.chart-mark{fill:var(--indigo)}.delay-area{fill:rgba(232,168,56,.55)}.chart-label{font:600 36px Plex;fill:var(--slate)}
+    .pipeline{display:grid;grid-template-columns:repeat(5,1fr);gap:26px;margin-top:128px}.stage{position:relative;border-top:5px solid var(--indigo);padding-top:28px;font:600 36px/1.2 Plex;color:var(--indigo);letter-spacing:.02em}.stage:after{content:"→";position:absolute;right:-28px;top:-30px;font:400 48px Newsreader}.stage:last-child:after{display:none}.thesis{font:400 86px/1 Newsreader;max-width:1500px;margin-top:82px}.return{font:400 48px/1.15 Newsreader;color:var(--rose);margin-top:28px;text-decoration:line-through}
+    .identity-host{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;pointer-events:none;z-index:40}
+    .transition-line{display:none}
+    .first-frame-marker.clip{inset:0;width:1920px;height:1080px;padding:56px 120px 104px;z-index:60;display:flex;flex-direction:column;justify-content:space-between;background:var(--paper);color:var(--indigo)}.first-frame-marker:after{display:none}.first-frame-marker .marker-series{font:600 36px/1 Plex;letter-spacing:.1em}.first-frame-marker .marker-proof{max-width:1500px;font:400 88px/.98 Newsreader;letter-spacing:-.03em}.first-frame-marker .marker-proof b{font:600 88px/.9 Plex;letter-spacing:-.06em}.first-frame-marker .marker-source{font:600 36px/1.2 Plex;letter-spacing:.06em}
+    #wipe-wash,#wipe-trace{position:absolute;top:0;height:1080px;z-index:30;pointer-events:none;transform-origin:center center}
+    #wipe-wash{left:-48px;width:48px;background:rgba(61,77,179,.15)}
+    #wipe-trace{left:-4px;width:4px;background:var(--indigo)}
+  </style>
+</head>
+<body>
+<div id="synthesis-root" data-composition-id="synthesis-problem" data-start="0" data-width="1920" data-height="1080" data-duration="105" data-fps="30">
+  <div class="ground"></div>
+  <audio id="narration" src="assets/audio/narration.wav" data-start="0" data-duration="95.4" data-track-index="10" data-volume="1"></audio>
+  <div id="first-frame-episode-marker" class="clip first-frame-marker" data-layout-allow-occlusion data-start="0" data-duration="0.6" data-track-index="12"><span class="marker-series">LUPINE SCIENCE · FIELD NOTE 01/07</span><div class="marker-proof"><b>380,000</b> predicted stable → <b>736</b> synthesized. The measured yield is <b>0.2%.</b></div><span class="marker-source">GNoME · LATE 2023 · ARTICLE [1]</span></div>
+  <div id="logo-sting" class="identity-host" data-layout-allow-overlap data-layout-allow-occlusion data-composition-id="logo-sting" data-composition-src="compositions/logo-sting.html" data-start="0" data-duration="4" data-track-index="8" data-variable-values='{"seriesLabel":"LUPINE SCIENCE · ARTICLE VIDEO","issue":"FIELD NOTE / 01","proofStatus":"SYNTHESIS GAP · 0.2%"}'></div>
+
+  <section id="scene-hook" class="clip" data-start="0" data-duration="10" data-track-index="1">
+    <div class="chrome"><img class="mark" src="assets/brand/lupine-science-mark.svg" alt="Lupine Science"/><span>FIELD NOTE · 01/07</span><span>ARTICLE [1]</span></div>
+    <div class="split">
+      <div><div class="eyebrow">Computed stable → synthesized</div><h1 class="scene-title">The field almost <em class="indigo">vanishes.</em></h1><div class="ratio"><div><div id="predicted-count" class="big-stat">380,000</div><div class="ratio-label">AI-predicted stable materials</div></div><div><div id="made-count" class="big-stat">736</div><div class="ratio-label">synthesized by late 2023</div></div></div></div>
+      <div><div class="grid-field" id="candidate-field"></div><div class="funnel" id="hook-funnel"></div><div id="ratio-stat" class="big-stat" style="margin-top:28px">0.2%</div><div class="source">Synthesized / computed stable</div></div>
+    </div><div class="transition-line"></div>
+  </section>
+
+  <section id="scene-gap" class="clip" data-start="9.6" data-duration="15.4" data-track-index="2">
+    <div class="chrome"><span>THE REAL GAP · 02/07</span><span>CONVEX HULL ≠ REACTION PATH</span></div>
+    <h2>Stable on paper is not the same as <em class="indigo">made in practice.</em></h2>
+    <div class="worlds">
+      <div class="world"><h3>Stable on paper</h3><div class="lattice" id="perfect-lattice"></div><div class="path-label">PREDICTION ↑ · EQUILIBRIUM CRYSTAL</div></div>
+      <div class="world"><h3>Made in practice</h3><svg viewBox="0 0 700 370" aria-label="reaction paths"><path class="route" d="M40 300 C190 275 220 95 380 110 S560 130 650 50"/><path class="route risk" d="M40 300 C190 275 220 95 370 115 S490 255 650 245"/><path class="route risk" d="M40 300 C190 275 230 160 350 190 S520 330 650 320"/><circle cx="650" cy="50" r="18" fill="#3d4db3"/><circle cx="650" cy="245" r="18" fill="#c75b5b"/><circle cx="650" cy="320" r="18" fill="#c75b5b"/></svg><div class="path-label">SYNTHESIZABILITY — · COMPETING PHASE / DECOMPOSITION</div></div>
+    </div><div class="transition-line"></div>
+  </section>
+
+  <section id="scene-filters" class="clip" data-start="24.6" data-duration="24.4" data-track-index="3">
+    <div class="chrome"><span>SCREEN BEFORE THE FURNACE · 03/07</span><span>FILTER 01/04 → 04/04</span></div>
+    <h2>Four brutal filters separate a prediction from a material.</h2>
+    <div class="gates">
+      <div class="gate"><span class="gate-num">01 / ROUTE</span><h3>Can precursors reach it?</h3><p data-layout-allow-occlusion>Target phase versus competing phase</p><svg class="gate-icon" viewBox="0 0 330 190"><path class="route" d="M15 145 C100 145 100 40 300 40"/><path class="risk route" d="M15 145 C120 145 135 160 300 160"/></svg></div>
+      <div class="gate"><span class="gate-num">02 / REAL FORCES</span><h3>Are off-equilibrium forces right?</h3><p data-layout-allow-occlusion>Tidy crystals hide weak gradients</p><svg class="gate-icon" viewBox="0 0 330 190"><path class="muted route" d="M15 135 C90 70 160 80 310 45"/><path class="risk route" d="M15 135 C80 90 180 165 310 145"/></svg></div>
+      <div class="gate"><span class="gate-num">03 / DISORDER</span><h3>What survives real defects?</h3><p data-layout-allow-occlusion>Vacancy · disorder · stacking fault</p><svg class="gate-icon" viewBox="0 0 330 190"><g fill="#3d4db3"><circle cx="45" cy="45" r="12"/><circle cx="105" cy="45" r="12"/><circle cx="165" cy="45" r="12"/><circle cx="285" cy="45" r="12"/><circle cx="65" cy="105" r="12"/><circle cx="125" cy="105" r="12"/><circle cx="205" cy="105" r="12"/><circle cx="265" cy="105" r="12"/></g><circle cx="165" cy="105" r="18" fill="none" stroke="#c75b5b" stroke-width="4"/></svg></div>
+      <div class="gate"><span class="gate-num">04 / COST</span><h3>What does failure cost?</h3><p data-layout-allow-occlusion>Weeks of lab time + $000s</p><svg class="gate-icon" viewBox="0 0 330 190"><rect x="20" y="35" width="290" height="130" fill="none" stroke="#3d4db3" stroke-width="4"/><path class="risk" d="M45 80 H285 M45 125 H235"/><path class="risk" d="M255 125 L285 155 M285 125 L255 155"/></svg></div>
+    </div><div class="candidate" data-layout-allow-occlusion></div><div class="transition-line"></div>
+  </section>
+
+  <section id="scene-error" class="clip" data-start="48.6" data-duration="13.4" data-track-index="4">
+    <div class="chrome"><span>ION-MIGRATION BARRIER · 04/07</span><span>ARTICLE [5]</span></div>
+    <div class="barrier-layout"><div class="chart"><svg viewBox="0 0 1030 640" preserveAspectRatio="none"><path class="axis" d="M4 10 V636 H1025"/><path class="trace muted" d="M0 610 C170 600 240 520 370 360 S570 120 710 360 S870 600 1030 610"/><path class="trace warn" d="M0 610 C170 600 240 535 370 405 S570 220 710 405 S870 600 1030 610"/><circle id="ion-reference" class="ion muted" cx="18" cy="606" r="13"/><circle id="ion-predicted" class="ion warn" cx="18" cy="606" r="13"/></svg><div class="bracket" style="color:var(--ink);border-color:var(--indigo)">100 meV</div><div class="source" style="position:absolute;left:10px;bottom:8px">REACTION COORDINATE →</div></div><div><div class="eyebrow">Arrhenius rate sensitivity</div><h2>Small barrier miss. Category-changing result.</h2><div id="rate-stat" class="rate">≈50×</div><div class="classify" data-layout-allow-overflow><div class="source">PREDICTED CLASS</div><div id="classification" class="state amber">INSULATOR</div></div></div></div><div class="transition-line"></div>
+  </section>
+
+  <section id="scene-correction" class="clip" data-start="61.5" data-duration="18.5" data-track-index="5">
+    <div class="chrome"><span>MEASURE → CORRECT → VERIFY · 05/07</span><span>LOCAL ENVIRONMENT / PROPER GRADIENTS</span></div>
+    <h2>Lupine adds a correction layer—<em class="indigo">not a bigger generator.</em></h2>
+    <div class="mechanism">
+      <div class="field-proof" data-layout-allow-overflow><div class="eyebrow">Measured local-environment error · ΔF (eV/Å)</div><svg viewBox="0 0 1000 360" aria-label="Before and after local environment force correction"><path class="contour-before" d="M80 284 C154 70 362 40 470 175 S710 324 920 82"/><path class="contour-before" d="M75 316 C210 185 318 112 474 224 S748 286 925 128"/><path class="contour-after" d="M72 292 C190 232 292 92 466 116 S708 255 928 150"/><g><circle class="field-node" cx="220" cy="210" r="13"/><circle class="field-node" cx="440" cy="125" r="13"/><circle class="field-node" cx="650" cy="240" r="13"/><circle class="field-node" cx="820" cy="150" r="13"/></g><g class="measured-vectors"><path class="error-vector" d="M220 210 l-88 -60 l18 -2 m-18 2 l6 18"/><path class="error-vector" d="M440 125 l70 -78 l-2 18 m2 -18 l-18 4"/><path class="error-vector" d="M650 240 l92 48 l-18 2 m18 -2 l-7 -17"/><path class="error-vector" d="M820 150 l75 -50 l-8 17 m8 -17 l-18 0"/></g><g class="corrected-vectors"><path class="corrected-vector" d="M220 210 l42 -22"/><path class="corrected-vector" d="M440 125 l38 14"/><path class="corrected-vector" d="M650 240 l-38 -28"/><path class="corrected-vector" d="M820 150 l-44 12"/></g></svg><div class="legend"><span><b>BEFORE</b> · force residuals</span><span><em>AFTER</em> · proper gradients</span></div></div>
+      <div class="correction-side"><div class="proof-step"><div class="eyebrow">01 / measure</div><h3 data-layout-allow-occlusion>Universal potential misses local forces</h3><div class="strike" data-layout-allow-occlusion></div><div class="source rose">FLAG ΔF &gt; 0.10 eV/Å</div></div><div class="proof-step"><div class="eyebrow">02 / correct</div><h3>Analytic correction aligns energy + forces</h3><svg viewBox="0 0 520 120"><path class="contour-before" d="M10 102 C105 10 180 110 265 46 S410 88 510 18"/><path class="contour-after" d="M10 100 C110 74 158 28 265 30 S410 76 510 96"/></svg><div class="source">SUPPORTED ↑ · DIVERTED</div></div></div>
+    </div><div class="transition-line"></div>
+  </section>
+
+  <section id="scene-stakes" class="clip" data-start="79.6" data-duration="17.4" data-track-index="6">
+    <div class="chrome"><span>THE CLIMATE MATH · 06/07</span><span>ARTICLE [3] [6]</span></div>
+    <h2>Verification speed becomes deployment leverage.</h2>
+    <div class="stakes">
+      <div class="stake supply-proof" data-layout-allow-overflow><div class="eyebrow">Cobalt supply concentration</div><div class="stake-stat amber">DRC ≈70%</div><h3>One geographic chokepoint constrains cathode supply.</h3><svg class="supply-map" viewBox="0 0 920 500" aria-label="Simplified map of Africa highlighting the Democratic Republic of Congo"><path class="map-africa" d="M165 36 L310 18 430 52 545 42 650 98 720 174 687 246 626 282 598 362 518 454 424 478 368 410 310 330 238 292 192 222 106 180 86 112 Z"/><path class="map-drc" d="M382 214 l58 -24 54 30 18 62 -42 54 -78 -8 -38 -52 z"/><path class="map-callout" d="M470 258 C610 232 680 168 790 132"/><circle cx="470" cy="258" r="10" fill="#e8a838"/><text class="map-label accent" x="665" y="102">DEMOCRATIC REPUBLIC</text><text class="map-label accent" x="665" y="144">OF CONGO</text><text class="map-label" x="665" y="194">≈70% GLOBAL COBALT</text><text class="map-label" x="665" y="234">MINE SUPPLY</text><text class="map-label" x="116" y="474">AFRICA · SIMPLIFIED GEOGRAPHIC FORM</text></svg></div>
+      <div class="stake" data-layout-allow-overflow><div id="cuts-stat" class="stake-stat">≈20%</div><h3>Direct 2030 cuts tied to batteries</h3><svg class="battery-axis" viewBox="0 0 640 120"><path class="chart-axis" d="M8 94 H620"/><rect class="chart-mark battery-mark" x="8" y="48" width="122" height="46"/><text class="chart-label" x="8" y="116">0%</text><text class="chart-label" x="548" y="116">100% NEEDED CUTS</text><text class="chart-label" x="144" y="80">BATTERIES · 20%</text></svg></div>
+      <div class="stake" data-layout-allow-overflow><div class="stake-stat amber">+10 yr</div><h3>Delay adds unrecoverable cumulative emissions</h3><svg class="emissions-axis" viewBox="0 0 640 130"><path class="chart-axis" d="M8 8 V104 H624"/><path class="delay-area" d="M8 104 L8 92 220 74 410 48 624 10 624 104 Z"/><text class="chart-label" x="8" y="126">2026</text><text class="chart-label" x="538" y="126">2036 · YEAR</text><text class="chart-label" x="24" y="28">GtCO₂e CUMULATIVE ↑</text></svg></div>
+    </div><div class="transition-line"></div>
+  </section>
+
+  <section id="scene-pipeline" class="clip" data-start="96.6" data-duration="6.4" data-track-index="7">
+    <div class="chrome"><span>PROOF-FIRST MATERIALS DISCOVERY · 07/07</span><span>THE GOAL IS SIMPLE</span></div>
+    <div class="pipeline"><div class="stage">PREDICT</div><div class="stage">CORRECT</div><div class="stage">SYNTHESIZE</div><div class="stage">CHARACTERIZE</div><div class="stage">SCALE</div></div>
+    <div class="thesis">From stable on paper to <em class="indigo">synthesizable in practice.</em></div><div class="return">RETURN TO ANOTHER GENERATION CYCLE</div><div class="transition-line"></div>
+  </section>
+
+  <div id="outro" class="identity-host" data-layout-allow-overlap data-composition-id="outro" data-composition-src="compositions/outro.html" data-start="100.5" data-duration="4.5" data-track-index="9" data-variable-values='{"cta":"Read the full article.","destination":"LUPINE.SCIENCE / ARTICLES / 0.2% GAP","proofLabel":"READ · TRACE · QUESTION"}'></div>
+  <span id="wipe-wash" data-layout-ignore></span><span id="wipe-trace" data-layout-ignore></span>
+</div>
+<script>
+  const field=document.querySelector("#candidate-field");
+  for(let i=0;i<72;i++){const tile=document.createElement("span");tile.className="tile"+(i<4?" kept":"");field.appendChild(tile)}
+  const lattice=document.querySelector("#perfect-lattice");
+  for(let i=0;i<24;i++){const atom=document.createElement("span");atom.className="atom";lattice.appendChild(atom)}
+  window.__timelines=window.__timelines||{};
+  const tl=gsap.timeline({paused:true});
+  const draw=(selector,start,duration=.9,stagger=.12)=>{
+    document.querySelectorAll(selector).forEach((path,index)=>{
+      const length=path.getTotalLength();
+      path.style.strokeDasharray=`${length}`;
+      path.style.strokeDashoffset=`${length}`;
+      tl.to(path,{strokeDashoffset:0,duration,ease:"power2.out"},start+index*stagger);
+    });
+  };
+  const count=(selector,from,to,start,duration,format)=>{
+    const node=document.querySelector(selector);
+    const value={n:from};
+    tl.to(value,{n:to,duration,ease:"power2.out",onUpdate:()=>{node.textContent=format(value.n)}},start);
+  };
+  const enter=(scene,start)=>{
+    tl.fromTo(scene,{opacity:0},{opacity:1,duration:.4,ease:"power2.out"},start);
+    const headings=document.querySelectorAll(scene+" h1, "+scene+" h2");
+    const labels=document.querySelectorAll(scene+" .eyebrow, "+scene+" .source");
+    if(headings.length)tl.from(headings,{opacity:0,y:44,duration:.7,ease:"power3.out"},start+.12);
+    if(labels.length)tl.from(labels,{opacity:0,duration:.35,stagger:.06,ease:"power2.out"},start+.12);
+  };
+  enter("#scene-hook",0);enter("#scene-gap",9.6);enter("#scene-filters",24.6);enter("#scene-error",48.6);enter("#scene-correction",61.5);enter("#scene-stakes",79.6);enter("#scene-pipeline",96.6);
+  count("#predicted-count",0,380000,.35,2.9,n=>Math.round(n).toLocaleString("en-US"));
+  count("#made-count",0,736,6.45,.85,n=>Math.round(n).toLocaleString("en-US"));
+  count("#ratio-stat",0,.2,8.05,.55,n=>`${n.toFixed(1)}%`);
+  tl.from("#scene-hook .mark",{opacity:0,scale:.8,duration:.6,ease:"back.out(1.4)"},.3)
+    .from("#candidate-field .tile",{opacity:0,scale:2.2,duration:.45,stagger:{amount:1.8,from:"edges"},ease:"power3.out"},.5)
+    .from("#hook-funnel",{opacity:0,scaleY:.2,duration:.8,ease:"power2.out",transformOrigin:"top center"},3.5)
+    .from("#made-count",{opacity:0,y:40,duration:.6,ease:"power3.out"},6.7)
+    .from("#ratio-stat",{opacity:0,scale:1.5,duration:.55,ease:"back.out(1.5)"},8.1);
+  tl.from("#scene-gap .world",{opacity:0,y:35,duration:.45,stagger:.12,ease:"power3.out"},9.68)
+    .from("#perfect-lattice .atom",{opacity:0,scale:0,duration:.3,stagger:{amount:.45,from:"center"},ease:"back.out(1.4)"},9.78)
+  draw("#scene-gap .route",13.4,1.2,.2);
+  tl.from("#scene-filters .gate",{opacity:0,y:55,duration:.42,stagger:.08,ease:"power3.out"},24.68)
+    .from("#scene-filters .gate-icon > *",{opacity:0,scale:.7,duration:.4,stagger:.05,ease:"power2.out",transformOrigin:"center center"},24.82)
+    .to("#scene-filters .candidate",{x:1540,duration:16,ease:"none"},28);
+  draw("#scene-filters .gate-icon path",24.86,.45,.1);
+  const gates=gsap.utils.toArray("#scene-filters .gate");
+  [28,33,38,43].forEach((at,index)=>{
+    tl.to(gates.filter((_,gateIndex)=>gateIndex!==index),{opacity:.28,scale:.97,duration:.35,ease:"power2.out"},at)
+      .to(gates[index],{opacity:1,scale:1,duration:.35,ease:"power2.out"},at);
+  });
+  tl.to(gates,{opacity:1,scale:1,duration:.4,ease:"power2.out"},47.4);
+  tl.from("#scene-error .chart",{opacity:0,y:24,duration:.32,ease:"power2.out"},48.68);
+  draw("#scene-error .axis",48.72,.28,0);
+  draw("#scene-error .trace",49.15,1.05,.25);
+  count("#rate-stat",1,50,54.5,1.25,n=>`≈${Math.round(n)}×`);
+  const classificationState={n:0};
+  tl.to(classificationState,{n:1,duration:.12,ease:"none",onUpdate:()=>{document.querySelector("#classification").textContent=classificationState.n<.5?"CONDUCTOR":"INSULATOR"}},58.2);
+  tl.from("#scene-error .ion",{opacity:0,scale:0,duration:.25,ease:"back.out(1.5)",transformOrigin:"center"},54.25)
+    .to("#ion-reference",{x:980,duration:2.2,ease:"power1.inOut"},54.55)
+    .to("#ion-predicted",{x:980,duration:.7,ease:"power2.inOut"},55.25)
+    .from("#scene-error .bracket",{opacity:0,scaleY:0,duration:.6,ease:"power2.out",transformOrigin:"bottom"},52.2)
+    .from("#rate-stat",{opacity:0,scale:.7,duration:.65,ease:"back.out(1.4)"},54.5)
+    .from("#classification",{opacity:0,x:45,duration:.45,ease:"power3.out"},58.2);
+  tl.from("#scene-correction .field-proof",{opacity:0,y:45,duration:.42,ease:"power3.out"},61.58)
+    .from("#scene-correction .proof-step",{opacity:0,x:40,duration:.4,stagger:.18,ease:"power3.out"},61.72)
+    .from("#scene-correction .strike",{scaleX:0,duration:.5,ease:"power2.out",transformOrigin:"left"},64.2)
+    .from("#scene-correction .field-node",{opacity:0,scale:0,duration:.35,stagger:.1,ease:"back.out(1.4)",transformOrigin:"center"},65.2);
+  tl.to("#scene-correction .proof-step:nth-child(2)",{opacity:.28,duration:.3,ease:"power2.out"},64.1)
+    .to("#scene-correction .proof-step:nth-child(1)",{opacity:.28,duration:.35,ease:"power2.out"},68.7)
+    .to("#scene-correction .proof-step:nth-child(2)",{opacity:1,duration:.35,ease:"power2.out"},68.7);
+  draw("#scene-correction .contour-before",65.7,.9,.16);
+  draw("#scene-correction .error-vector",67,.55,.1);
+  draw("#scene-correction .contour-after",69,.95,.16);
+  draw("#scene-correction .corrected-vector",70.2,.5,.1);
+  count("#cuts-stat",0,20,82,1.1,n=>`≈${Math.round(n)}%`);
+  count("#scene-stakes .supply-proof .stake-stat",0,70,85.1,1,n=>`DRC ≈${Math.round(n)}%`);
+  count("#scene-stakes .stake:nth-child(3) .stake-stat",0,10,89,1.1,n=>`+${Math.round(n)} yr`);
+  tl.from("#scene-stakes .stake",{opacity:0,y:45,duration:.38,stagger:.1,ease:"power3.out"},79.68)
+    .from("#scene-stakes .battery-mark",{scaleX:0,duration:1.1,ease:"power3.out",transformOrigin:"left center"},82)
+    .from("#scene-stakes .map-drc",{opacity:0,scale:.6,duration:.7,ease:"back.out(1.4)",transformOrigin:"center"},85.2)
+    .from("#scene-stakes .delay-area",{scaleX:0,duration:1.2,ease:"power2.out",transformOrigin:"left bottom"},89);
+  const stakes=gsap.utils.toArray("#scene-stakes .stake");
+  tl.to(stakes.filter((_,index)=>index!==1),{opacity:.28,duration:.35,ease:"power2.out"},81.5)
+    .to(stakes[1],{opacity:1,duration:.35,ease:"power2.out"},81.5)
+    .to(stakes.filter((_,index)=>index!==0),{opacity:.28,duration:.35,ease:"power2.out"},84.2)
+    .to(stakes[0],{opacity:1,duration:.35,ease:"power2.out"},84.2)
+    .to(stakes.filter((_,index)=>index!==2),{opacity:.28,duration:.35,ease:"power2.out"},88.4)
+    .to(stakes[2],{opacity:1,duration:.35,ease:"power2.out"},88.4);
+  draw("#scene-stakes .battery-axis .chart-axis",81.7,.6,0);
+  draw("#scene-stakes .map-africa, #scene-stakes .map-callout",84.2,.9,.35);
+  draw("#scene-stakes .emissions-axis .chart-axis",88.5,.65,0);
+  tl.from("#scene-stakes .chart-label, #scene-stakes .map-label",{opacity:0,duration:.35,stagger:.06,ease:"power1.out"},84.8);
+  tl.from("#scene-pipeline .thesis",{opacity:0,y:34,duration:.38,ease:"power3.out"},96.64)
+    .from("#scene-pipeline .stage",{opacity:0,y:35,duration:.3,stagger:.08,ease:"power3.out"},96.72)
+    .from("#scene-pipeline .return",{opacity:0,x:-30,duration:.5,ease:"power2.out"},100.2);
+  const addIndigoWipe=(outgoing,incoming,at,duration=.4)=>{
+    tl.fromTo(incoming,{x:-1920,opacity:1},{x:0,opacity:1,duration,ease:"power2.inOut"},at);
+    tl.fromTo(outgoing,{x:0,opacity:1},{x:96,opacity:.78,duration,ease:"power2.inOut"},at);
+    tl.to(outgoing,{opacity:0,duration:.01,ease:"none"},at+duration-.01);
+    tl.fromTo("#wipe-trace",{x:0,opacity:1,scaleY:.9},{x:1924,opacity:1,scaleY:1,duration,ease:"power2.inOut"},at);
+    tl.fromTo("#wipe-wash",{x:0,opacity:1},{x:1968,opacity:1,duration,ease:"power2.inOut"},at);
+    tl.to(["#wipe-trace","#wipe-wash"],{opacity:0,duration:duration*.2,ease:"power1.out"},at+duration*.8);
+  };
+  addIndigoWipe("#scene-hook","#scene-gap",9.6);
+  addIndigoWipe("#scene-gap","#scene-filters",24.6);
+  addIndigoWipe("#scene-filters","#scene-error",48.6);
+  addIndigoWipe("#scene-error","#scene-correction",61.5,.5);
+  addIndigoWipe("#scene-correction","#scene-stakes",79.6);
+  addIndigoWipe("#scene-stakes","#scene-pipeline",96.6);
+  window.__timelines["synthesis-problem"]=tl;
+</script>
+</body>
+</html>

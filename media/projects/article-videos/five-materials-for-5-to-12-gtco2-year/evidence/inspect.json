@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "duration": 92.4,
+  "samples": [
+    5.133,
+    15.4,
+    25.667,
+    35.933,
+    46.2,
+    56.467,
+    66.733,
+    77,
+    87.267
+  ],
+  "tolerance": 2,
+  "strict": true,
+  "collapseStatic": true,
+  "motionSpec": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/five-materials-for-5-to-12-gtco2-year/index.motion.json",
+  "motionSamples": 300,
+  "ok": true,
+  "errorCount": 0,
+  "warningCount": 0,
+  "infoCount": 0,
+  "issueCount": 0,
+  "totalIssueCount": 0,
+  "truncated": false,
+  "issues": [],
+  "_meta": {
+    "version": "0.7.49",
+    "latestVersion": "0.7.48",
+    "updateAvailable": false
+  }
+}

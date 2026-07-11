@@ -1,0 +1,510 @@
+{
+  "generatedAt": "2026-07-11T11:34:10.604Z",
+  "source": "live computed styles from Chromium at 1920x1080",
+  "textElements": 83,
+  "minimumComputedFontSize": 36,
+  "policy": {
+    "labelAxisCalloutMinimumPx": 36
+  },
+  "violations": [],
+  "inventory": [
+    {
+      "selector": "span.kicker",
+      "text": "Abundance machine \u00b7 01",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.meta",
+      "text": "Generate \u00b7 simulate \u00b7 synthesize",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h1.claim",
+      "text": "What is scarce now?",
+      "fontSize": 92,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "em",
+      "text": "Believing the result.",
+      "fontSize": 92,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "p.deck",
+      "text": "Ideas and compute are abundant. Confidence is the limiting instrument.",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "div.counter.big",
+      "text": "MILLIONS",
+      "fontSize": 136,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.believe",
+      "text": "Can we believe it?",
+      "fontSize": 82,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "span.source",
+      "text": "Article opening \u00b7 [1]",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.caption-safe",
+      "text": "THROUGHPUT \u2260 TRUST",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.kicker",
+      "text": "Trust bottleneck \u00b7 02",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.meta",
+      "text": "Google DeepMind \u00b7 late 2023",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h1.claim",
+      "text": "Only reached independent synthesis.",
+      "fontSize": 92,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "em",
+      "text": "0.2%",
+      "fontSize": 92,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "p.deck",
+      "text": "False positives waste lab weeks. False negatives bury materials we needed yesterday.",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "span.from.big",
+      "text": "380,000",
+      "fontSize": 150,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.to.big",
+      "text": "736",
+      "fontSize": 150,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.loss",
+      "text": "FALSE POSITIVE LAB WEEKS LOST",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.loss",
+      "text": "FALSE NEGATIVE CLIMATE MATERIAL BURIED",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.source",
+      "text": "Article [1]",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.caption-safe",
+      "text": "380,000 COMPUTED STABLE \u2192 736 SYNTHESIZED",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.kicker",
+      "text": "Where Lupine sits \u00b7 03",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.meta",
+      "text": "Partnership \u00b7 not displacement",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h1.claim",
+      "text": "Measure. Correct.",
+      "fontSize": 92,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "em",
+      "text": "Prove.",
+      "fontSize": 92,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "p.deck",
+      "text": "A quality gate between prediction and synthesis, beside the tools laboratories already use.",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "div.stage",
+      "text": "GENERATE",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.stage",
+      "text": "PREDICT",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.stage.lupine",
+      "text": "LUPINE CORRECT + VERIFY",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.stage",
+      "text": "LAB",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.source",
+      "text": "Article \u00b7 layered pipeline",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.caption-safe",
+      "text": "SYSTEMATIC ERROR \u2192 RUNTIME CORRECTION \u2192 SUPPORTED CLAIM",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.kicker",
+      "text": "Three defensible pillars \u00b7 04",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.meta",
+      "text": "Accurate \u00b7 provable \u00b7 deployable",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h1.claim",
+      "text": "The moat has",
+      "fontSize": 92,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "em",
+      "text": "three parts.",
+      "fontSize": 92,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "p.deck",
+      "text": "Measured physics, machine-checked claims, and a runtime overlay that meets existing tools where they are.",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "h3",
+      "text": "MEASURED FIELD",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.stat",
+      "text": "\u0394E",
+      "fontSize": 70,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "p",
+      "text": "DATA INPUT NO RETRAIN",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h3",
+      "text": "LEAN 4",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.theorem-count",
+      "text": "77",
+      "fontSize": 70,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "p",
+      "text": "THEOREMS NO SHORTCUTS",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h3",
+      "text": "LAMMPS OVERLAY",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.stat",
+      "text": "%",
+      "fontSize": 70,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.overhead-count",
+      "text": "15.6",
+      "fontSize": 70,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "p",
+      "text": "PYTHON +15.6% TARGET <1%",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.source",
+      "text": "Article \u00b7 three pillars \u00b7 [6]",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.caption-safe",
+      "text": "CURRENT +15.6% \u00b7 COMPILED TARGET <1%",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.kicker",
+      "text": "Proof must say no \u00b7 05",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.meta",
+      "text": "Statistical filter \u2260 proof",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h1.claim",
+      "text": "Trustworthy systems catch their",
+      "fontSize": 92,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "em",
+      "text": "own mistakes.",
+      "fontSize": 92,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "p.deck",
+      "text": "Lean rejected a plausible claim\u2014and made the result smaller, stronger, and useful.",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "div.score.big",
+      "text": "/ 36",
+      "fontSize": 150,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.score-num",
+      "text": "27",
+      "fontSize": 150,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.verified",
+      "text": "VERIFIED",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.source",
+      "text": "Article \u00b7 machine-checked proof",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.caption-safe",
+      "text": "LEAN KERNEL \u00b7 27 \u2192 26 \u00b7 SAY NO",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.kicker",
+      "text": "Compounding moat \u00b7 06",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.meta",
+      "text": "Proven core \u00b7 honest frontier",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h1.claim",
+      "text": "Every campaign tightens the",
+      "fontSize": 92,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "em",
+      "text": "verified boundary.",
+      "fontSize": 92,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "p.deck",
+      "text": "FCC is proven. Other crystal families and industrial validation remain open work.",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "div.core",
+      "text": "FCC PROVEN",
+      "fontSize": 44,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.wheel-label",
+      "text": "FIELD DATA",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.wheel-label",
+      "text": "EXPERIMENT",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.wheel-label",
+      "text": "PROOF",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.wheel-label",
+      "text": "SCREEN",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.gate",
+      "text": "BCC \u00b7 OPEN",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.gate",
+      "text": "HCP \u00b7 OPEN",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.gate",
+      "text": "LAYERED \u00b7 OPEN",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.gate",
+      "text": "INDUSTRIAL \u00b7 WORK AHEAD",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.source",
+      "text": "Article \u00b7 risk and honesty",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.caption-safe",
+      "text": "HONESTY IS PART OF THE MOAT",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.kicker",
+      "text": "Investment thesis \u00b7 07",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.meta",
+      "text": "Capital efficiency",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h1.claim",
+      "text": "Fewer predictions.",
+      "fontSize": 92,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "em",
+      "text": "Better defended.",
+      "fontSize": 92,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "p.deck",
+      "text": "A smaller portfolio reaches the lab before the climate window closes.",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "div.magic",
+      "text": "ONE MAGIC MATERIAL",
+      "fontSize": 45,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "div.lab",
+      "text": "CORRECT \u2192 VERIFY \u2192 LAB",
+      "fontSize": 46,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span.source",
+      "text": "Investment thesis",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.caption-safe",
+      "text": "INVEST IN THE TRUST LAYER",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    }
+  ]
+}

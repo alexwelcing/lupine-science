@@ -1,0 +1,12 @@
+{
+  "name": "lupine-the-02-percent-synthesis-problem",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "audit:accents": "node scripts/audit-semantic-accents.mjs",
+    "audit:types": "node scripts/computed-style-inventory.mjs",
+    "check": "npm run audit:accents && npm run audit:types && npx --yes hyperframes@0.7.48 lint . && npx --yes hyperframes@0.7.48 validate . && npx --yes hyperframes@0.7.48 inspect . --at 0,2,10,12,25,28,37,46,49,56,62,68,76,80,88,97,99,104 --strict",
+    "snapshot": "rm -rf snapshots && npx --yes hyperframes@0.7.48 snapshot --at 12,15,24,28,37,46,50,56,61,64,68,76,79,82,86,90,96",
+    "render": "npx --yes hyperframes@0.7.48 render . --resolution 1080p --fps 30 --quality high --strict --output renders/the-02-percent-synthesis-problem-final-1080p.mp4"
+  }
+}

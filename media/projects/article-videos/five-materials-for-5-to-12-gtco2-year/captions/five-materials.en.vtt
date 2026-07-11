@@ -1,0 +1,79 @@
+WEBVTT
+
+NOTE Five Materials — synchronized to approved 92.376 s narration master
+
+1
+00:00:00.000 --> 00:00:04.610
+The gap between a climate target and an actual climate solution is usually a material.
+
+2
+00:00:04.610 --> 00:00:10.336
+And five missing materials could unlock between five and twelve gigatonnes of carbon dioxide reductions every year.
+
+3
+00:00:10.336 --> 00:00:11.792
+So, what are they?
+
+4
+00:00:11.792 --> 00:00:16.555
+First, cobalt-free cathodes that push past a thousand charge cycles without voltage fade.
+
+5
+00:00:16.555 --> 00:00:25.145
+Second, solid electrolytes made from abundant elements, so lithium-metal batteries can pass four hundred watt-hours per kilogram without flammable liquid or critical-material pricing.
+
+6
+00:00:25.145 --> 00:00:28.368
+Third, metal-organic frameworks for direct air capture.
+
+7
+00:00:28.368 --> 00:00:36.585
+They need to grab carbon dioxide at just four hundred parts per million, ignore all that competing water, survive humidity, and stay cheap enough to manufacture by the tonne.
+
+8
+00:00:36.585 --> 00:00:42.247
+Fourth, an ammonia catalyst that works near room conditions instead of inside the energy-hungry Haber-Bosch process.
+
+9
+00:00:42.247 --> 00:00:49.535
+And fifth, a lead-free perovskite solar absorber that can clear twenty percent efficiency and last twenty-five years without tin oxidizing in minutes.
+
+10
+00:00:49.535 --> 00:00:52.077
+Different industries, one shared failure.
+
+11
+00:00:52.077 --> 00:00:57.585
+Performance depends on defects, surfaces, and atomic transition states where atoms have fewer neighbors.
+
+12
+00:00:57.585 --> 00:01:02.279
+That is exactly where fast universal models soften the energy landscape and get the ranking wrong.
+
+13
+00:01:02.279 --> 00:01:08.044
+Brute-force quantum calculations can recover the answer, but they are far too slow for millions or trillions of candidates.
+
+14
+00:01:08.044 --> 00:01:12.313
+A one-hundred-milli-electronvolt error can change a predicted hopping rate fifty-fold.
+
+15
+00:01:12.313 --> 00:01:18.968
+Lupine measures that systematic error as a physical field, corrects it while the model runs, and checks the result with machine-verified proofs.
+
+16
+00:01:18.968 --> 00:01:20.580
+Good candidates move up.
+
+17
+00:01:20.580 --> 00:01:22.159
+Bad ones fall away.
+
+18
+00:01:22.159 --> 00:01:26.434
+And when a prediction leaves the field’s measured domain, the system can refuse to pretend.
+
+19
+00:01:26.434 --> 00:01:32.376
+Five materials, one correction layer, and a path from plausible crystals to climate hardware that can actually scale.

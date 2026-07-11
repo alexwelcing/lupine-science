@@ -1,0 +1,548 @@
+{
+  "generatedAt": "2026-07-10T20:06:56.164Z",
+  "canvas": "1920x1080",
+  "textElements": 81,
+  "minimumComputedFontSize": 36,
+  "sub36": [],
+  "bodyElements": [
+    {
+      "selector": ".gate p",
+      "text": "Target phase versus competing phase",
+      "fontSize": 48
+    },
+    {
+      "selector": ".gate p",
+      "text": "Tidy crystals hide weak gradients",
+      "fontSize": 48
+    },
+    {
+      "selector": ".gate p",
+      "text": "Vacancy · disorder · stacking fault",
+      "fontSize": 48
+    },
+    {
+      "selector": ".gate p",
+      "text": "Weeks of lab time + $000s",
+      "fontSize": 48
+    },
+    {
+      "selector": ".mechanism-box h3",
+      "text": "Bigger generator",
+      "fontSize": 48
+    },
+    {
+      "selector": ".mechanism-box h3",
+      "text": "Analytic energy + forces",
+      "fontSize": 48
+    },
+    {
+      "selector": ".stake h3",
+      "text": "of 2030 emissions cuts tied directly to batteries",
+      "fontSize": 48
+    },
+    {
+      "selector": ".stake h3",
+      "text": "of cobalt supply comes from the DRC",
+      "fontSize": 48
+    },
+    {
+      "selector": ".stake h3",
+      "text": "Delay accumulates. Lost cuts do not return.",
+      "fontSize": 48
+    },
+    {
+      "selector": ".return",
+      "text": "RETURN TO ANOTHER GENERATION CYCLE",
+      "fontSize": 48
+    }
+  ],
+  "sub48Body": [],
+  "inventory": [
+    {
+      "selector": "span",
+      "text": "FIELD NOTE · 01/07",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span",
+      "text": "ARTICLE [1]",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.eyebrow",
+      "text": "Computed stable → synthesized",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h1.scene-title",
+      "text": "The field almost vanishes.",
+      "fontSize": 132,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "em.indigo",
+      "text": "vanishes.",
+      "fontSize": 132,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "#predicted-count",
+      "text": "380,000",
+      "fontSize": 104,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.ratio-label",
+      "text": "AI-predicted stable materials",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "#made-count",
+      "text": "736",
+      "fontSize": 104,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.ratio-label",
+      "text": "synthesized by late 2023",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "#ratio-stat",
+      "text": "0.2%",
+      "fontSize": 176,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.source",
+      "text": "Synthesized / computed stable",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span",
+      "text": "THE REAL GAP · 02/07",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span",
+      "text": "CONVEX HULL ≠ REACTION PATH",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h2",
+      "text": "Stable on paper is not the same as made in practice.",
+      "fontSize": 92,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "em.indigo",
+      "text": "made in practice.",
+      "fontSize": 92,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "h3",
+      "text": "Stable on paper",
+      "fontSize": 58,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "div.path-label",
+      "text": "PREDICTION ↑ · EQUILIBRIUM CRYSTAL",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h3",
+      "text": "Made in practice",
+      "fontSize": 58,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "div.path-label",
+      "text": "SYNTHESIZABILITY — · COMPETING PHASE / DECOMPOSITION",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span",
+      "text": "SCREEN BEFORE THE FURNACE · 03/07",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span",
+      "text": "FILTER 01/04 → 04/04",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h2",
+      "text": "Four brutal filters separate a prediction from a material.",
+      "fontSize": 92,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "span.gate-num",
+      "text": "01 / ROUTE",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h3",
+      "text": "Can precursors reach it?",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "p",
+      "text": "Target phase versus competing phase",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "span.gate-num",
+      "text": "02 / REAL FORCES",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h3",
+      "text": "Are off-equilibrium forces right?",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "p",
+      "text": "Tidy crystals hide weak gradients",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "span.gate-num",
+      "text": "03 / DISORDER",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h3",
+      "text": "What survives real defects?",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "p",
+      "text": "Vacancy · disorder · stacking fault",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "span.gate-num",
+      "text": "04 / COST",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h3",
+      "text": "What does failure cost?",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "p",
+      "text": "Weeks of lab time + $000s",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "span",
+      "text": "ION-MIGRATION BARRIER · 04/07",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span",
+      "text": "ARTICLE [5]",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.bracket",
+      "text": "100 meV",
+      "fontSize": 38,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.source",
+      "text": "REACTION COORDINATE →",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.eyebrow",
+      "text": "Arrhenius rate sensitivity",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h2",
+      "text": "Small barrier miss. Category-changing result.",
+      "fontSize": 92,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "#rate-stat",
+      "text": "≈50×",
+      "fontSize": 112,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.source",
+      "text": "PREDICTED CLASS",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "#classification",
+      "text": "INSULATOR",
+      "fontSize": 58,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span",
+      "text": "MEASURE → CORRECT → VERIFY · 05/07",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span",
+      "text": "LOCAL ENVIRONMENT / PROPER GRADIENTS",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h2",
+      "text": "Lupine adds a correction layer—not a bigger generator.",
+      "fontSize": 92,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "em.indigo",
+      "text": "not a bigger generator.",
+      "fontSize": 92,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "div.eyebrow",
+      "text": "Universal potential",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h3",
+      "text": "Bigger generator",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "div.eyebrow",
+      "text": "Environment error field",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.eyebrow",
+      "text": "Runtime correction",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h3",
+      "text": "Analytic energy + forces",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "div.source.indigo",
+      "text": "SUPPORTED · FLAGGED EARLY",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span",
+      "text": "THE CLIMATE MATH · 06/07",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span",
+      "text": "ARTICLE [3] [6]",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h2",
+      "text": "Verification speed becomes deployment leverage.",
+      "fontSize": 92,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "#cuts-stat",
+      "text": "≈20%",
+      "fontSize": 110,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h3",
+      "text": "of 2030 emissions cuts tied directly to batteries",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "div.stake-stat",
+      "text": "≈70%",
+      "fontSize": 110,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h3",
+      "text": "of cobalt supply comes from the DRC",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "div.stake-stat.amber",
+      "text": "+10 yr",
+      "fontSize": 110,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "h3",
+      "text": "Delay accumulates. Lost cuts do not return.",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "span",
+      "text": "PROOF-FIRST MATERIALS DISCOVERY · 07/07",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "span",
+      "text": "THE GOAL IS SIMPLE",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.stage",
+      "text": "PREDICT",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.stage",
+      "text": "CORRECT",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.stage",
+      "text": "SYNTHESIZE",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.stage",
+      "text": "CHARACTERIZE",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.stage",
+      "text": "SCALE",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.thesis",
+      "text": "From stable on paper to synthesizable in practice.",
+      "fontSize": 86,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "em.indigo",
+      "text": "synthesizable in practice.",
+      "fontSize": 86,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "div.return",
+      "text": "RETURN TO ANOTHER GENERATION CYCLE",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "div.wordmark",
+      "text": "Lupine Science",
+      "fontSize": 66,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "div.cta",
+      "text": "Read the full article.",
+      "fontSize": 92,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "div.url",
+      "text": "/articles/the-02-percent-synthesis-problem",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.map.amber-map::after",
+      "text": "\"DRC\"",
+      "fontSize": 36,
+      "fontFamily": "Plex"
+    },
+    {
+      "selector": "div.stage::after",
+      "text": "\"→\"",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "div.stage::after",
+      "text": "\"→\"",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "div.stage::after",
+      "text": "\"→\"",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "div.stage::after",
+      "text": "\"→\"",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    },
+    {
+      "selector": "div.stage::after",
+      "text": "\"→\"",
+      "fontSize": 48,
+      "fontFamily": "Newsreader"
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "file": "public/proof-pack-climate-series.pdf",
+  "bytes": 4368230,
+  "info": {
+    "Creator": "pdf-lib (https://github.com/Hopding/pdf-lib)",
+    "Producer": "pdf-lib (https://github.com/Hopding/pdf-lib)",
+    "CreationDate": "Fri Jul 10 14:09:00 2026 EDT",
+    "ModDate": "Fri Jul 10 14:09:00 2026 EDT",
+    "Custom Metadata": "no",
+    "Metadata Stream": "no",
+    "Tagged": "no",
+    "UserProperties": "no",
+    "Suspects": "no",
+    "Form": "none",
+    "JavaScript": "no",
+    "Pages": "71",
+    "Encrypted": "no",
+    "Page size": "612 x 792 pts (letter)",
+    "Page rot": "0",
+    "File size": "4368230 bytes",
+    "Optimized": "no",
+    "PDF version": "1.7"
+  },
+  "fonts": {
+    "rows": 85,
+    "uniqueNames": [
+      "BAAAAA+LiberationSerif-Bold",
+      "AAAAAA+DejaVuSansMono",
+      "CAAAAA+LiberationSerif-Bold",
+      "AAAAAA+IBMPlexMono-Regular",
+      "BAAAAA+Newsreader16pt-Regular",
+      "CAAAAA+IBMPlexMono-SemiBold",
+      "DAAAAA+Newsreader16pt-Regular",
+      "EAAAAA+DejaVuSansMono-Bold",
+      "FAAAAA+LiberationSerif",
+      "GAAAAA+Newsreader16pt-Regular",
+      "HAAAAA+Newsreader16pt-Regular",
+      "IAAAAA+DejaVuSansMono",
+      "JAAAAA+NotoSans-Regular",
+      "KAAAAA+Newsreader16pt-Regular",
+      "LAAAAA+Newsreader16pt-Italic",
+      "MAAAAA+Newsreader16pt-Regular",
+      "NAAAAA+NotoSansMath-Regular",
+      "EAAAAA+Newsreader16pt-Regular",
+      "FAAAAA+KaTeX_Main-Italic",
+      "GAAAAA+KaTeX_Main-Regular",
+      "HAAAAA+KaTeX_Size2-Regular",
+      "IAAAAA+LiberationSerif",
+      "JAAAAA+KaTeX_Size1-Regular",
+      "LAAAAA+Newsreader16pt-Regular",
+      "MAAAAA+Newsreader16pt-Italic",
+      "NAAAAA+Newsreader16pt-Regular",
+      "OAAAAA+NotoSansMath-Regular",
+      "CAAAAA+LiberationSerif",
+      "DAAAAA+IBMPlexMono-SemiBold",
+      "FAAAAA+DejaVuSansMono",
+      "HAAAAA+LiberationSerif-Bold",
+      "IAAAAA+Newsreader16pt-Regular",
+      "LAAAAA+NotoSansMath-Regular",
+      "OAAAAA+Newsreader16pt-Italic",
+      "PAAAAA+Newsreader16pt-Regular",
+      "GAAAAA+DejaVuSansMono",
+      "HAAAAA+NotoSans-Regular",
+      "JAAAAA+Newsreader16pt-Italic",
+      "EAAAAA+NotoSans-Regular",
+      "HAAAAA+DejaVuSansMono",
+      "JAAAAA+Newsreader16pt-Regular",
+      "KAAAAA+Newsreader16pt-Italic",
+      "MAAAAA+NotoSansMath-Regular"
+    ],
+    "allEmbedded": true,
+    "allUnicodeMapped": true,
+    "type3": [
+      "BAAAAA+Newsreader16pt-Regular",
+      "DAAAAA+Newsreader16pt-Regular",
+      "GAAAAA+Newsreader16pt-Regular",
+      "HAAAAA+Newsreader16pt-Regular",
+      "KAAAAA+Newsreader16pt-Regular",
+      "LAAAAA+Newsreader16pt-Italic",
+      "MAAAAA+Newsreader16pt-Regular",
+      "EAAAAA+Newsreader16pt-Regular",
+      "LAAAAA+Newsreader16pt-Regular",
+      "MAAAAA+Newsreader16pt-Italic",
+      "NAAAAA+Newsreader16pt-Regular",
+      "IAAAAA+Newsreader16pt-Regular",
+      "OAAAAA+Newsreader16pt-Italic",
+      "PAAAAA+Newsreader16pt-Regular",
+      "JAAAAA+Newsreader16pt-Italic",
+      "JAAAAA+Newsreader16pt-Regular",
+      "KAAAAA+Newsreader16pt-Italic"
+    ]
+  },
+  "text": {
+    "characters": 91599,
+    "requiredMarkers": [
+      "The 0.2% Synthesis Problem",
+      "A Field, Not a Neural Net",
+      "Five Materials That Could Unlock 5–12 GtCO₂/Year",
+      "From Predicted Crystal to Commercial Cell",
+      "Investing in the Trust Layer",
+      "CO₂",
+      "—",
+      "–",
+      "“",
+      "”",
+      "’",
+      "×",
+      "≈",
+      "γ",
+      "∑"
+    ],
+    "sparsePages": [
+      12,
+      58
+    ]
+  },
+  "annotations": {
+    "annotationUris": [
+      {
+        "page": 1,
+        "uri": "http://127.0.0.1:40185/"
+      },
+      {
+        "page": 2,
+        "uri": "http://127.0.0.1:40185/videos/the-02-percent-synthesis-problem.mp4"
+      },
+      {
+        "page": 13,
+        "uri": "http://127.0.0.1:40185/"
+      },
+      {
+        "page": 27,
+        "uri": "http://127.0.0.1:40185/"
+      },
+      {
+        "page": 43,
+        "uri": "http://127.0.0.1:40185/"
+      },
+      {
+        "page": 59,
+        "uri": "http://127.0.0.1:40185/"
+      }
+    ],
+    "namedLinks": 152,
+    "unresolvedNamedLinks": 152,
+    "localUris": [
+      {
+        "page": 1,
+        "uri": "http://127.0.0.1:40185/"
+      },
+      {
+        "page": 2,
+        "uri": "http://127.0.0.1:40185/videos/the-02-percent-synthesis-problem.mp4"
+      },
+      {
+        "page": 13,
+        "uri": "http://127.0.0.1:40185/"
+      },
+      {
+        "page": 27,
+        "uri": "http://127.0.0.1:40185/"
+      },
+      {
+        "page": 43,
+        "uri": "http://127.0.0.1:40185/"
+      },
+      {
+        "page": 59,
+        "uri": "http://127.0.0.1:40185/"
+      }
+    ]
+  },
+  "failures": [],
+  "warnings": [
+    "blank/page-number-only pages: 12, 58",
+    "PDF is not tagged for accessibility",
+    "PDF is not linearized/optimized for web delivery",
+    "Type 3 fonts require print-engine spot checks: BAAAAA+Newsreader16pt-Regular, DAAAAA+Newsreader16pt-Regular, GAAAAA+Newsreader16pt-Regular, HAAAAA+Newsreader16pt-Regular, KAAAAA+Newsreader16pt-Regular, LAAAAA+Newsreader16pt-Italic, MAAAAA+Newsreader16pt-Regular, EAAAAA+Newsreader16pt-Regular, LAAAAA+Newsreader16pt-Regular, MAAAAA+Newsreader16pt-Italic, NAAAAA+Newsreader16pt-Regular, IAAAAA+Newsreader16pt-Regular, OAAAAA+Newsreader16pt-Italic, PAAAAA+Newsreader16pt-Regular, JAAAAA+Newsreader16pt-Italic, JAAAAA+Newsreader16pt-Regular, KAAAAA+Newsreader16pt-Italic",
+    "6 link annotations target localhost/127.0.0.1",
+    "152 named link annotations have no destination catalog"
+  ]
+}

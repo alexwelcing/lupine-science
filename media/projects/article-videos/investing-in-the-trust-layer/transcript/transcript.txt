@@ -1,0 +1,13 @@
+AI can generate millions of possible materials, simulate them in microseconds, and send robots to synthesize them around the clock. So what is scarce now? Not ideas. Not compute. The scarce resource is believing the result.
+
+Google DeepMind reported 380,000 stable crystal predictions. By late 2023, only 736 had been independently synthesized. That is zero point two percent. Every false positive wastes lab weeks. Every false negative can bury a climate material we needed yesterday.
+
+Lupine sits between prediction and synthesis—not replacing generators or simulators, but checking their work. It measures systematic model error, corrects that error at runtime, and proves which claims a laboratory can actually trust.
+
+The moat has three parts. First: a measured error field, anchored by standard observables—not another neural net that needs retraining for every material. Second: 77 build-locked Lean 4 theorems, with zero unproven shortcuts. Third: a LAMMPS runtime overlay that works beside tools like C-H-G net and MACE. Today, it adds 15.6 percent overhead. Compiled, the target is below one percent.
+
+And the proof layer is not decorative. Lean once rejected a claim that passed statistical filtering, changing 27 successes to 26. That is the product in miniature: trustworthy infrastructure has to catch its own mistakes—and say no when the evidence does not hold.
+
+Each screening campaign adds measured bias data. Each experiment tightens the next prediction. Each theorem expands the verified boundary. What is proven today is the field for face-centered-cubic metals. Extending it to other crystal families—and securing industrial validation—is still work ahead. That honesty is part of the moat.
+
+So this is not a bet on one magic material. It is a bet on the trust layer that makes discovery more capital-efficient: fewer predictions, better defended, reaching the lab before the climate window closes.

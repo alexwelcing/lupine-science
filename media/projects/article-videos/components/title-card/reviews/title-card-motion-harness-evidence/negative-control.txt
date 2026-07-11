@@ -1,0 +1,5 @@
+# Title-card motion harness negative control
+# Expected: every root-discoverable harness exits non-zero with motion_selector_missing.
+2026-07-11T07:04:48-04:00
+
+>>> npx --yes hyperframes@0.7.48 inspect fixtures/combined-worst-case/motion-harness --strict --json

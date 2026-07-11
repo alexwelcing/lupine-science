@@ -1,0 +1,2899 @@
+{
+  "generatedAt": "2026-07-10T19:40:42.826Z",
+  "base": "http://localhost:8080",
+  "pages": 60,
+  "viewports": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "name": "tablet",
+      "width": 834,
+      "height": 1194,
+      "hasTouch": true
+    },
+    {
+      "name": "mobile",
+      "width": 390,
+      "height": 844,
+      "isMobile": true,
+      "hasTouch": true
+    }
+  ],
+  "results": [
+    {
+      "name": "home",
+      "url": "/",
+      "viewport": "desktop",
+      "size": "1440x900",
+      "status": 200,
+      "screenshot": "screenshots/desktop--home.png",
+      "issues": [],
+      "metrics": {
+        "title": "Lupine Science — Unlocking the materials that build the future",
+        "h1": [
+          "Intelligence became abundant. Verified knowledge did not."
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 3030,
+        "brokenImages": [
+          ""
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "articles-index",
+      "url": "/articles/",
+      "viewport": "desktop",
+      "size": "1440x900",
+      "status": 200,
+      "screenshot": "screenshots/desktop--articles-index.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Articles — Lupine Science",
+        "h1": [
+          "Research notes, prospectuses, and formalization roadmaps."
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 3556,
+        "brokenImages": [
+          "http://localhost:8080/articles/the-order-is-right-the-size-is-wrong/thumb.jpg",
+          "http://localhost:8080/articles/why-lupi/hero.jpg",
+          "http://localhost:8080/articles/why-lupine-science/thumb.jpg",
+          "http://localhost:8080/articles/from-fantasy-frameworks-to-makeable-materials/thumb.jpg"
+        ],
+        "overflowing": [
+          {
+            "tag": "a",
+            "class": "skip",
+            "left": -9999,
+            "right": -9855
+          }
+        ]
+      }
+    },
+    {
+      "name": "videos",
+      "url": "/videos/",
+      "viewport": "desktop",
+      "size": "1440x900",
+      "status": 200,
+      "screenshot": "screenshots/desktop--videos.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+        }
+      ],
+      "metrics": {
+        "title": "Videos — Lupine Science",
+        "h1": [
+          "Article videos."
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 1084,
+        "brokenImages": [
+          "http://localhost:8080/videos/cement-concrete-and-the-weight-of-the-built-world-poster.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "brand-assets",
+      "url": "/brand-assets/",
+      "viewport": "desktop",
+      "size": "1440x900",
+      "status": 200,
+      "screenshot": "screenshots/desktop--brand-assets.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the stylesheet 'https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap' violates the following Content Security Policy directive: \"style-src 'self' 'unsafe-inline'\". Note that 'style-src-elem' was not explicitly set, so 'style-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap csp"
+        },
+        {
+          "kind": "console",
+          "message": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+        }
+      ],
+      "metrics": {
+        "title": "Lupine Science — Brand Assets",
+        "h1": [
+          "Brand assets."
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 19762,
+        "brokenImages": [
+          "http://localhost:8080/brand-assets/assets/images/v10/field-gradient_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/interference_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/interference_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/interference_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/isosurface_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/isosurface_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/isosurface_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/lattice-defect_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/lattice-defect_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/lattice-defect_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/meander-pattern_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/meander-pattern_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/meander-pattern_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/moire-grid_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/moire-grid_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/moire-grid_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/network-graph_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/network-graph_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/network-graph_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/paper-topography_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/paper-topography_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/paper-topography_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/phase-transition_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/phase-transition_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/phase-transition_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/radial-array_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/radial-array_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/radial-array_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/ribbon-knot_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/ribbon-knot_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/ribbon-knot_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/shadow-arch_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/shadow-arch_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/shadow-arch_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/tessellation_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/tessellation_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/tessellation_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/wavefront_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/wavefront_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/wavefront_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/bits-to-atoms_dense_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/bits-to-atoms_quiet_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/bits-to-atoms_square_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/bits-to-atoms_wide_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/shape-of-wrongness_dense_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/shape-of-wrongness_quiet_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/shape-of-wrongness_square_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/shape-of-wrongness_wide_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/upstream-cascade_dense_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/upstream-cascade_quiet_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/upstream-cascade_square_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/upstream-cascade_wide_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/bits-to-atoms_dense_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/bits-to-atoms_quiet_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/bits-to-atoms_square_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/bits-to-atoms_wide_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/shape-of-wrongness_dense_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/shape-of-wrongness_quiet_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/shape-of-wrongness_square_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/shape-of-wrongness_wide_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/upstream-cascade_dense_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/upstream-cascade_quiet_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/upstream-cascade_square_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/upstream-cascade_wide_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/bits-to-atoms_dense_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/bits-to-atoms_quiet_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/bits-to-atoms_square_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/bits-to-atoms_wide_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/shape-of-wrongness_dense_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/shape-of-wrongness_quiet_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/shape-of-wrongness_square_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/shape-of-wrongness_wide_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/upstream-cascade_dense_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/upstream-cascade_quiet_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/upstream-cascade_square_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/upstream-cascade_wide_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/bits-to-atoms_dense_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/bits-to-atoms_quiet_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/bits-to-atoms_square_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/bits-to-atoms_wide_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/shape-of-wrongness_dense_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/shape-of-wrongness_quiet_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/shape-of-wrongness_square_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/shape-of-wrongness_wide_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/upstream-cascade_dense_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/upstream-cascade_quiet_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/upstream-cascade_square_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/upstream-cascade_wide_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/calibration-grid_dense_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/calibration-grid_quiet_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/calibration-grid_square_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/calibration-grid_wide_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/error-vector-alignment_dense_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/error-vector-alignment_quiet_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/error-vector-alignment_square_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/error-vector-alignment_wide_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/shape-of-wrongness_dense_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/shape-of-wrongness_quiet_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/shape-of-wrongness_square_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/shape-of-wrongness_wide_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/calibration-grid_dense_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/calibration-grid_quiet_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/calibration-grid_square_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/calibration-grid_wide_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/error-vector-alignment_dense_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/error-vector-alignment_quiet_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/error-vector-alignment_square_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/error-vector-alignment_wide_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/constellation-threads_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/constellation-threads_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/constellation-threads_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/folded-light_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/folded-light_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/folded-light_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/ink-wash_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/ink-wash_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/ink-wash_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/moire-circles_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/moire-circles_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/moire-circles_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/particle-ribbon_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/particle-ribbon_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/particle-ribbon_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/scale-shards_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/scale-shards_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/scale-shards_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/shadow-geometry_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/shadow-geometry_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/shadow-geometry_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/stroke-dissolution_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/stroke-dissolution_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/stroke-dissolution_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/atomic-ring_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/atomic-ring_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/atomic-ring_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/bond-angle_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/bond-angle_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/bond-angle_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/calibration-cross_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/calibration-cross_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/calibration-cross_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/convergence-star_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/convergence-star_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/convergence-star_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/coordinate-axis_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/coordinate-axis_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/coordinate-axis_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/divergence-burst_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/divergence-burst_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/divergence-burst_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/error-tick_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/error-tick_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/error-tick_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/field-line_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/field-line_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/field-line_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/hex-cell_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/hex-cell_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/hex-cell_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/lattice-node_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/lattice-node_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/lattice-node_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/manifold-curve_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/manifold-curve_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/manifold-curve_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/molecule-glyph_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/molecule-glyph_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/molecule-glyph_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/orbit-mark_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/orbit-mark_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/orbit-mark_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/proof-check_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/proof-check_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/proof-check_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/trust-shield_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/trust-shield_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/trust-shield_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/wave-packet_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/wave-packet_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/wave-packet_wide_v9.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-a-field-not-a-neural-net",
+      "url": "/articles/a-field-not-a-neural-net/",
+      "viewport": "desktop",
+      "size": "1440x900",
+      "status": 200,
+      "screenshot": "screenshots/desktop--article-a-field-not-a-neural-net.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "A Field, Not a Neural Net — Lupine Science",
+        "h1": [
+          "A Field, Not a Neural Net"
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 9627,
+        "brokenImages": [
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-03-field-anchors-spline.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-04-blind-prediction-scatter.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-05-runtime-correction.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-09-speed-accuracy-panel.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-07-impossibility-boundaries.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-06-discovery-loop.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-08-climate-targets-map.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-10-field-vs-neural-net.jpg"
+        ],
+        "overflowing": [
+          {
+            "tag": "a",
+            "class": "skip",
+            "left": -9999,
+            "right": -9855
+          }
+        ]
+      }
+    },
+    {
+      "name": "article-a-smooth-environment-resolved-error-field",
+      "url": "/articles/a-smooth-environment-resolved-error-field/",
+      "viewport": "desktop",
+      "size": "1440x900",
+      "status": 200,
+      "screenshot": "screenshots/desktop--article-a-smooth-environment-resolved-error-field.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "A smooth, environment-resolved error field underlies the systematic property errors of universal machine-learned interatomic potentials — Lupine Science",
+        "h1": [
+          "A smooth, environment-resolved error field underlies the systematic property errors of universal machine-learned interatomic potentials"
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 5569,
+        "brokenImages": [],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-beyond-carbon-the-error-geometry-of-environmental-materials",
+      "url": "/articles/beyond-carbon-the-error-geometry-of-environmental-materials/",
+      "viewport": "desktop",
+      "size": "1440x900",
+      "status": 200,
+      "screenshot": "screenshots/desktop--article-beyond-carbon-the-error-geometry-of-environmental-materials.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Beyond Carbon: The Error Geometry of Environmental Materials — Lupine Science",
+        "h1": [
+          "Beyond Carbon: The Error Geometry of Environmental Materials"
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 9989,
+        "brokenImages": [
+          "http://localhost:8080/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-07-ranking-inversion.jpg",
+          "http://localhost:8080/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-05-correction-verification-layer.jpg",
+          "http://localhost:8080/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-06-addressable-impact-sankey.jpg",
+          "http://localhost:8080/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-08-platform-ecosystem.jpg",
+          "http://localhost:8080/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-04-blind-prediction-panel.jpg",
+          "http://localhost:8080/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-09-economics-moat.jpg",
+          "http://localhost:8080/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-10-platform-roadmap.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-cement-concrete-and-the-weight-of-the-built-world",
+      "url": "/articles/cement-concrete-and-the-weight-of-the-built-world/",
+      "viewport": "desktop",
+      "size": "1440x900",
+      "status": 200,
+      "screenshot": "screenshots/desktop--article-cement-concrete-and-the-weight-of-the-built-world.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Cement, Concrete, and the Weight of the Built World — Lupine Science",
+        "h1": [
+          "Cement, Concrete, and the Weight of the Built World"
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 9744,
+        "brokenImages": [
+          "http://localhost:8080/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-06-three-routes.jpg",
+          "http://localhost:8080/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-03-softening-field.jpg",
+          "http://localhost:8080/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-07-metastability.jpg",
+          "http://localhost:8080/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-05-correction-loop.jpg",
+          "http://localhost:8080/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-04-blind-accuracy.jpg",
+          "http://localhost:8080/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-08-lab-to-kiln.jpg",
+          "http://localhost:8080/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-09-speed-advantage.jpg",
+          "http://localhost:8080/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-10-trust-bottleneck.jpg"
+        ],
+        "overflowing": [
+          {
+            "tag": "a",
+            "class": "skip",
+            "left": -9999,
+            "right": -9855
+          }
+        ]
+      }
+    },
+    {
+      "name": "article-critical-minerals-pfas-and-the-remediation-imperative",
+      "url": "/articles/critical-minerals-pfas-and-the-remediation-imperative/",
+      "viewport": "desktop",
+      "size": "1440x900",
+      "status": 200,
+      "screenshot": "screenshots/desktop--article-critical-minerals-pfas-and-the-remediation-imperative.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Critical Minerals, PFAS, and the Remediation Imperative — Lupine Science",
+        "h1": [
+          "Critical Minerals, PFAS, and the Remediation Imperative"
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 10407,
+        "brokenImages": [
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-07-supply-risk-landscape.jpg",
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-02-pfas-contamination-map.jpg",
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-03-carbon-fluorine-backbone.jpg",
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-04-umlip-softening-error.jpg",
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-05-correction-layer.jpg",
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-06-unified-campaign.jpg",
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-08-recovery-ecosystem.jpg",
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-09-market-opportunity.jpg",
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-10-one-geometry-two-imperatives.jpg"
+        ],
+        "overflowing": [
+          {
+            "tag": "a",
+            "class": "skip",
+            "left": -9999,
+            "right": -9855
+          }
+        ]
+      }
+    },
+    {
+      "name": "article-five-materials-for-5-to-12-gtco2-year",
+      "url": "/articles/five-materials-for-5-to-12-gtco2-year/",
+      "viewport": "desktop",
+      "size": "1440x900",
+      "status": 200,
+      "screenshot": "screenshots/desktop--article-five-materials-for-5-to-12-gtco2-year.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Five Materials That Could Unlock 5–12 GtCO₂/Year — Lupine Science",
+        "h1": [
+          "Five Materials That Could Unlock 5–12 GtCO₂/Year"
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 11339,
+        "brokenImages": [
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-03-correction-field-loop.jpg",
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-05-target-defect-matrix.jpg",
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-07-ranking-inversion-risk.jpg",
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-04-blind-prediction-accuracy.jpg",
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-06-impact-funnel.jpg",
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-09-moat-feedback-loop.jpg",
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-08-partner-ecosystem-map.jpg",
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-10-five-year-roadmap.jpg"
+        ],
+        "overflowing": [
+          {
+            "tag": "a",
+            "class": "skip",
+            "left": -9999,
+            "right": -9855
+          }
+        ]
+      }
+    },
+    {
+      "name": "article-from-fantasy-frameworks-to-makeable-materials",
+      "url": "/articles/from-fantasy-frameworks-to-makeable-materials/",
+      "viewport": "desktop",
+      "size": "1440x900",
+      "status": 200,
+      "screenshot": "screenshots/desktop--article-from-fantasy-frameworks-to-makeable-materials.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "From Fantasy Frameworks to Makeable Materials: A Prospectus for Formalized MOF Discovery — Lupine Science",
+        "h1": [
+          "From Fantasy Frameworks to Makeable Materials: A Prospectus for Formalized MOF Discovery"
+        ],
+        "scrollWidth": 1510,
+        "clientWidth": 1440,
+        "scrollHeight": 10733,
+        "brokenImages": [],
+        "overflowing": [
+          {
+            "tag": "a",
+            "class": "",
+            "left": 394,
+            "right": 1499
+          },
+          {
+            "tag": "a",
+            "class": "",
+            "left": 394,
+            "right": 1494
+          }
+        ]
+      }
+    },
+    {
+      "name": "article-from-predicted-crystal-to-commercial-cell",
+      "url": "/articles/from-predicted-crystal-to-commercial-cell/",
+      "viewport": "desktop",
+      "size": "1440x900",
+      "status": 200,
+      "screenshot": "screenshots/desktop--article-from-predicted-crystal-to-commercial-cell.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "From Predicted Crystal to Commercial Cell — Lupine Science",
+        "h1": [
+          "From Predicted Crystal to Commercial Cell"
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 10926,
+        "brokenImages": [
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-05-battery-partner-chain.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-03-correction-loop.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-06-climate-scale.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-07-impossibility-flags.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-04-blind-accuracy.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-08-ecosystem-map.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-09-materials-genome-value.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-10-crystal-to-cell.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-investing-in-the-trust-layer",
+      "url": "/articles/investing-in-the-trust-layer/",
+      "viewport": "desktop",
+      "size": "1440x900",
+      "status": 200,
+      "screenshot": "screenshots/desktop--article-investing-in-the-trust-layer.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Investing in the Trust Layer — Lupine Science",
+        "h1": [
+          "Investing in the Trust Layer"
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 8723,
+        "brokenImages": [
+          "http://localhost:8080/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-03-error-field.jpg",
+          "http://localhost:8080/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-04-blind-test-correlation.jpg",
+          "http://localhost:8080/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-05-runtime-overlay.jpg",
+          "http://localhost:8080/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-08-partner-flywheel.jpg",
+          "http://localhost:8080/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-06-climate-scale.jpg",
+          "http://localhost:8080/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-07-phase-zero-risk.jpg",
+          "http://localhost:8080/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-09-economics-leverage.jpg",
+          "http://localhost:8080/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-10-trust-loop-cta.jpg"
+        ],
+        "overflowing": [
+          {
+            "tag": "a",
+            "class": "skip",
+            "left": -9999,
+            "right": -9855
+          }
+        ]
+      }
+    },
+    {
+      "name": "article-methane-and-refrigerants-cutting-the-non-co2-climate-forcers",
+      "url": "/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/",
+      "viewport": "desktop",
+      "size": "1440x900",
+      "status": 200,
+      "screenshot": "screenshots/desktop--article-methane-and-refrigerants-cutting-the-non-co2-climate-forcers.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers — Lupine Science",
+        "h1": [
+          "Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers"
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 10498,
+        "brokenImages": [
+          "http://localhost:8080/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-05-methane-to-methanol-scaling.jpg",
+          "http://localhost:8080/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-03-environment-error-field.jpg",
+          "http://localhost:8080/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-06-methane-pyrolysis-temperature.jpg",
+          "http://localhost:8080/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-07-refrigerant-gwp-landscape.jpg",
+          "http://localhost:8080/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-08-caloric-verification-workflow.jpg",
+          "http://localhost:8080/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-04-blind-prediction-correlation.jpg",
+          "http://localhost:8080/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-10-common-correction-geometry.jpg",
+          "http://localhost:8080/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-09-market-and-timeline.jpg"
+        ],
+        "overflowing": [
+          {
+            "tag": "a",
+            "class": "skip",
+            "left": -9999,
+            "right": -9855
+          }
+        ]
+      }
+    },
+    {
+      "name": "article-the-02-percent-synthesis-problem",
+      "url": "/articles/the-02-percent-synthesis-problem/",
+      "viewport": "desktop",
+      "size": "1440x900",
+      "status": 200,
+      "screenshot": "screenshots/desktop--article-the-02-percent-synthesis-problem.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "The 0.2% Synthesis Problem — Lupine Science",
+        "h1": [
+          "The 0.2% Synthesis Problem"
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 6783,
+        "brokenImages": [
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-04-barrier-error.jpg",
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-03-umlip-softening.jpg",
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-09-failure-economics.jpg",
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-06-cobalt-climate.jpg",
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-07-deployment-window.jpg",
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-05-error-field.jpg",
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-08-commercial-endpoints.jpg",
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-10-predictions-to-partners.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-the-order-is-right-the-size-is-wrong",
+      "url": "/articles/the-order-is-right-the-size-is-wrong/",
+      "viewport": "desktop",
+      "size": "1440x900",
+      "status": 200,
+      "screenshot": "screenshots/desktop--article-the-order-is-right-the-size-is-wrong.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "The Order Is Right, the Size Is Wrong — Lupine Science",
+        "h1": [
+          "The Order Is Right, the Size Is Wrong"
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 3961,
+        "brokenImages": [],
+        "overflowing": [
+          {
+            "tag": "a",
+            "class": "skip",
+            "left": -9999,
+            "right": -9855
+          }
+        ]
+      }
+    },
+    {
+      "name": "article-the-trust-layer",
+      "url": "/articles/the-trust-layer/",
+      "viewport": "desktop",
+      "size": "1440x900",
+      "status": 200,
+      "screenshot": "screenshots/desktop--article-the-trust-layer.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "The Trust Layer — Lupine Science",
+        "h1": [
+          "The Trust Layer"
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 4007,
+        "brokenImages": [],
+        "overflowing": [
+          {
+            "tag": "a",
+            "class": "skip",
+            "left": -9999,
+            "right": -9855
+          }
+        ]
+      }
+    },
+    {
+      "name": "article-water-and-air-correcting-the-molecules-we-drink-and-breathe",
+      "url": "/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/",
+      "viewport": "desktop",
+      "size": "1440x900",
+      "status": 200,
+      "screenshot": "screenshots/desktop--article-water-and-air-correcting-the-molecules-we-drink-and-breathe.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Water and Air: Correcting the Molecules We Drink and Breathe — Lupine Science",
+        "h1": [
+          "Water and Air: Correcting the Molecules We Drink and Breathe"
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 9798,
+        "brokenImages": [
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-05-water-rankings.jpg",
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-03-correction-layer.jpg",
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-06-market-scale.jpg",
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-07-hidden-risks.jpg",
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-04-blind-prediction.jpg",
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-08-proof-ecosystem.jpg",
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-09-speed-moat.jpg",
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-10-platform-thesis.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-why-lupi",
+      "url": "/articles/why-lupi/",
+      "viewport": "desktop",
+      "size": "1440x900",
+      "status": 200,
+      "screenshot": "screenshots/desktop--article-why-lupi.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Why LUPI? — Lupine Science",
+        "h1": [
+          "Why LUPI?"
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 3335,
+        "brokenImages": [],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-why-lupine-science",
+      "url": "/articles/why-lupine-science/",
+      "viewport": "desktop",
+      "size": "1440x900",
+      "status": 200,
+      "screenshot": "screenshots/desktop--article-why-lupine-science.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/articles/why-lupine-science/hero.mp4 net::ERR_ABORTED"
+        }
+      ],
+      "metrics": {
+        "title": "Why Lupine Science? — Lupine Science",
+        "h1": [
+          "Why Lupine Science?"
+        ],
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 4232,
+        "brokenImages": [],
+        "overflowing": [
+          {
+            "tag": "a",
+            "class": "skip",
+            "left": -9999,
+            "right": -9855
+          }
+        ]
+      }
+    },
+    {
+      "name": "home",
+      "url": "/",
+      "viewport": "tablet",
+      "size": "834x1194",
+      "status": 200,
+      "screenshot": "screenshots/tablet--home.png",
+      "issues": [],
+      "metrics": {
+        "title": "Lupine Science — Unlocking the materials that build the future",
+        "h1": [
+          "Intelligence became abundant. Verified knowledge did not."
+        ],
+        "scrollWidth": 834,
+        "clientWidth": 834,
+        "scrollHeight": 4256,
+        "brokenImages": [
+          ""
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "articles-index",
+      "url": "/articles/",
+      "viewport": "tablet",
+      "size": "834x1194",
+      "status": 200,
+      "screenshot": "screenshots/tablet--articles-index.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Articles — Lupine Science",
+        "h1": [
+          "Research notes, prospectuses, and formalization roadmaps."
+        ],
+        "scrollWidth": 834,
+        "clientWidth": 834,
+        "scrollHeight": 10732,
+        "brokenImages": [
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/hero.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/hero.jpg",
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/hero.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/hero.jpg",
+          "http://localhost:8080/articles/investing-in-the-trust-layer/hero.jpg",
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/hero.jpg",
+          "http://localhost:8080/articles/the-trust-layer/thumb.jpg",
+          "http://localhost:8080/articles/a-smooth-environment-resolved-error-field/hero.jpg",
+          "http://localhost:8080/articles/the-order-is-right-the-size-is-wrong/thumb.jpg",
+          "http://localhost:8080/articles/why-lupi/hero.jpg",
+          "http://localhost:8080/articles/why-lupine-science/thumb.jpg",
+          "http://localhost:8080/articles/from-fantasy-frameworks-to-makeable-materials/thumb.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "videos",
+      "url": "/videos/",
+      "viewport": "tablet",
+      "size": "834x1194",
+      "status": 200,
+      "screenshot": "screenshots/tablet--videos.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+        }
+      ],
+      "metrics": {
+        "title": "Videos — Lupine Science",
+        "h1": [
+          "Article videos."
+        ],
+        "scrollWidth": 834,
+        "clientWidth": 834,
+        "scrollHeight": 1194,
+        "brokenImages": [
+          "http://localhost:8080/videos/cement-concrete-and-the-weight-of-the-built-world-poster.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "brand-assets",
+      "url": "/brand-assets/",
+      "viewport": "tablet",
+      "size": "834x1194",
+      "status": 200,
+      "screenshot": "screenshots/tablet--brand-assets.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the stylesheet 'https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap' violates the following Content Security Policy directive: \"style-src 'self' 'unsafe-inline'\". Note that 'style-src-elem' was not explicitly set, so 'style-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap csp"
+        }
+      ],
+      "metrics": {
+        "title": "Lupine Science — Brand Assets",
+        "h1": [
+          "Brand assets."
+        ],
+        "scrollWidth": 834,
+        "clientWidth": 834,
+        "scrollHeight": 38063,
+        "brokenImages": [
+          "http://localhost:8080/brand-assets/assets/images/v10/crystalline-form_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/diffraction_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/diffraction_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/diffraction_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/field-gradient_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/field-gradient_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/field-gradient_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/interference_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/interference_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/interference_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/isosurface_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/isosurface_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/isosurface_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/lattice-defect_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/lattice-defect_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/lattice-defect_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/meander-pattern_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/meander-pattern_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/meander-pattern_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/moire-grid_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/moire-grid_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/moire-grid_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/network-graph_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/network-graph_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/network-graph_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/paper-topography_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/paper-topography_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/paper-topography_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/phase-transition_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/phase-transition_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/phase-transition_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/radial-array_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/radial-array_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/radial-array_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/ribbon-knot_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/ribbon-knot_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/ribbon-knot_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/shadow-arch_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/shadow-arch_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/shadow-arch_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/tessellation_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/tessellation_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/tessellation_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/wavefront_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/wavefront_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/wavefront_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/bits-to-atoms_dense_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/bits-to-atoms_quiet_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/bits-to-atoms_square_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/bits-to-atoms_wide_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/shape-of-wrongness_dense_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/shape-of-wrongness_quiet_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/shape-of-wrongness_square_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/shape-of-wrongness_wide_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/upstream-cascade_dense_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/upstream-cascade_quiet_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/upstream-cascade_square_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/upstream-cascade_wide_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/bits-to-atoms_dense_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/bits-to-atoms_quiet_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/bits-to-atoms_square_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/bits-to-atoms_wide_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/shape-of-wrongness_dense_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/shape-of-wrongness_quiet_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/shape-of-wrongness_square_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/shape-of-wrongness_wide_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/upstream-cascade_dense_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/upstream-cascade_quiet_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/upstream-cascade_square_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/upstream-cascade_wide_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/bits-to-atoms_dense_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/bits-to-atoms_quiet_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/bits-to-atoms_square_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/bits-to-atoms_wide_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/shape-of-wrongness_dense_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/shape-of-wrongness_quiet_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/shape-of-wrongness_square_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/shape-of-wrongness_wide_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/upstream-cascade_dense_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/upstream-cascade_quiet_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/upstream-cascade_square_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/upstream-cascade_wide_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/bits-to-atoms_dense_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/bits-to-atoms_quiet_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/bits-to-atoms_square_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/bits-to-atoms_wide_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/shape-of-wrongness_dense_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/shape-of-wrongness_quiet_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/shape-of-wrongness_square_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/shape-of-wrongness_wide_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/upstream-cascade_dense_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/upstream-cascade_quiet_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/upstream-cascade_square_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/upstream-cascade_wide_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/calibration-grid_dense_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/calibration-grid_quiet_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/calibration-grid_square_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/calibration-grid_wide_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/error-vector-alignment_dense_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/error-vector-alignment_quiet_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/error-vector-alignment_square_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/error-vector-alignment_wide_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/shape-of-wrongness_dense_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/shape-of-wrongness_quiet_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/shape-of-wrongness_square_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/shape-of-wrongness_wide_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/calibration-grid_dense_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/calibration-grid_quiet_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/calibration-grid_square_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/calibration-grid_wide_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/error-vector-alignment_dense_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/error-vector-alignment_quiet_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/error-vector-alignment_square_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/error-vector-alignment_wide_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/constellation-threads_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/constellation-threads_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/constellation-threads_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/folded-light_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/folded-light_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/folded-light_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/ink-wash_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/ink-wash_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/ink-wash_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/moire-circles_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/moire-circles_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/moire-circles_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/particle-ribbon_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/particle-ribbon_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/particle-ribbon_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/scale-shards_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/scale-shards_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/scale-shards_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/shadow-geometry_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/shadow-geometry_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/shadow-geometry_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/stroke-dissolution_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/stroke-dissolution_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/stroke-dissolution_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/atomic-ring_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/atomic-ring_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/atomic-ring_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/bond-angle_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/bond-angle_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/bond-angle_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/calibration-cross_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/calibration-cross_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/calibration-cross_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/convergence-star_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/convergence-star_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/convergence-star_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/coordinate-axis_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/coordinate-axis_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/coordinate-axis_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/divergence-burst_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/divergence-burst_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/divergence-burst_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/error-tick_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/error-tick_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/error-tick_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/field-line_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/field-line_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/field-line_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/hex-cell_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/hex-cell_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/hex-cell_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/lattice-node_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/lattice-node_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/lattice-node_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/manifold-curve_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/manifold-curve_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/manifold-curve_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/molecule-glyph_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/molecule-glyph_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/molecule-glyph_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/orbit-mark_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/orbit-mark_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/orbit-mark_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/proof-check_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/proof-check_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/proof-check_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/trust-shield_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/trust-shield_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/trust-shield_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/wave-packet_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/wave-packet_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/wave-packet_wide_v9.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-a-field-not-a-neural-net",
+      "url": "/articles/a-field-not-a-neural-net/",
+      "viewport": "tablet",
+      "size": "834x1194",
+      "status": 200,
+      "screenshot": "screenshots/tablet--article-a-field-not-a-neural-net.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "A Field, Not a Neural Net — Lupine Science",
+        "h1": [
+          "A Field, Not a Neural Net"
+        ],
+        "scrollWidth": 834,
+        "clientWidth": 834,
+        "scrollHeight": 9429,
+        "brokenImages": [
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-03-field-anchors-spline.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-04-blind-prediction-scatter.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-05-runtime-correction.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-09-speed-accuracy-panel.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-07-impossibility-boundaries.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-06-discovery-loop.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-08-climate-targets-map.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-10-field-vs-neural-net.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-a-smooth-environment-resolved-error-field",
+      "url": "/articles/a-smooth-environment-resolved-error-field/",
+      "viewport": "tablet",
+      "size": "834x1194",
+      "status": 200,
+      "screenshot": "screenshots/tablet--article-a-smooth-environment-resolved-error-field.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "A smooth, environment-resolved error field underlies the systematic property errors of universal machine-learned interatomic potentials — Lupine Science",
+        "h1": [
+          "A smooth, environment-resolved error field underlies the systematic property errors of universal machine-learned interatomic potentials"
+        ],
+        "scrollWidth": 834,
+        "clientWidth": 834,
+        "scrollHeight": 5336,
+        "brokenImages": [],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-beyond-carbon-the-error-geometry-of-environmental-materials",
+      "url": "/articles/beyond-carbon-the-error-geometry-of-environmental-materials/",
+      "viewport": "tablet",
+      "size": "834x1194",
+      "status": 200,
+      "screenshot": "screenshots/tablet--article-beyond-carbon-the-error-geometry-of-environmental-materials.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Beyond Carbon: The Error Geometry of Environmental Materials — Lupine Science",
+        "h1": [
+          "Beyond Carbon: The Error Geometry of Environmental Materials"
+        ],
+        "scrollWidth": 834,
+        "clientWidth": 834,
+        "scrollHeight": 9714,
+        "brokenImages": [
+          "http://localhost:8080/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-07-ranking-inversion.jpg",
+          "http://localhost:8080/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-05-correction-verification-layer.jpg",
+          "http://localhost:8080/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-06-addressable-impact-sankey.jpg",
+          "http://localhost:8080/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-08-platform-ecosystem.jpg",
+          "http://localhost:8080/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-04-blind-prediction-panel.jpg",
+          "http://localhost:8080/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-09-economics-moat.jpg",
+          "http://localhost:8080/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-10-platform-roadmap.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-cement-concrete-and-the-weight-of-the-built-world",
+      "url": "/articles/cement-concrete-and-the-weight-of-the-built-world/",
+      "viewport": "tablet",
+      "size": "834x1194",
+      "status": 200,
+      "screenshot": "screenshots/tablet--article-cement-concrete-and-the-weight-of-the-built-world.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Cement, Concrete, and the Weight of the Built World — Lupine Science",
+        "h1": [
+          "Cement, Concrete, and the Weight of the Built World"
+        ],
+        "scrollWidth": 834,
+        "clientWidth": 834,
+        "scrollHeight": 10001,
+        "brokenImages": [
+          "http://localhost:8080/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-03-softening-field.jpg",
+          "http://localhost:8080/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-07-metastability.jpg",
+          "http://localhost:8080/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-05-correction-loop.jpg",
+          "http://localhost:8080/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-04-blind-accuracy.jpg",
+          "http://localhost:8080/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-08-lab-to-kiln.jpg",
+          "http://localhost:8080/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-09-speed-advantage.jpg",
+          "http://localhost:8080/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-10-trust-bottleneck.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-critical-minerals-pfas-and-the-remediation-imperative",
+      "url": "/articles/critical-minerals-pfas-and-the-remediation-imperative/",
+      "viewport": "tablet",
+      "size": "834x1194",
+      "status": 200,
+      "screenshot": "screenshots/tablet--article-critical-minerals-pfas-and-the-remediation-imperative.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Critical Minerals, PFAS, and the Remediation Imperative — Lupine Science",
+        "h1": [
+          "Critical Minerals, PFAS, and the Remediation Imperative"
+        ],
+        "scrollWidth": 834,
+        "clientWidth": 834,
+        "scrollHeight": 10610,
+        "brokenImages": [
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-02-pfas-contamination-map.jpg",
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-03-carbon-fluorine-backbone.jpg",
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-04-umlip-softening-error.jpg",
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-05-correction-layer.jpg",
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-06-unified-campaign.jpg",
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-08-recovery-ecosystem.jpg",
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-09-market-opportunity.jpg",
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-10-one-geometry-two-imperatives.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-five-materials-for-5-to-12-gtco2-year",
+      "url": "/articles/five-materials-for-5-to-12-gtco2-year/",
+      "viewport": "tablet",
+      "size": "834x1194",
+      "status": 200,
+      "screenshot": "screenshots/tablet--article-five-materials-for-5-to-12-gtco2-year.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Five Materials That Could Unlock 5–12 GtCO₂/Year — Lupine Science",
+        "h1": [
+          "Five Materials That Could Unlock 5–12 GtCO₂/Year"
+        ],
+        "scrollWidth": 834,
+        "clientWidth": 834,
+        "scrollHeight": 11559,
+        "brokenImages": [
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-05-target-defect-matrix.jpg",
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-07-ranking-inversion-risk.jpg",
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-04-blind-prediction-accuracy.jpg",
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-06-impact-funnel.jpg",
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-09-moat-feedback-loop.jpg",
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-08-partner-ecosystem-map.jpg",
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-10-five-year-roadmap.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-from-fantasy-frameworks-to-makeable-materials",
+      "url": "/articles/from-fantasy-frameworks-to-makeable-materials/",
+      "viewport": "tablet",
+      "size": "834x1194",
+      "status": 200,
+      "screenshot": "screenshots/tablet--article-from-fantasy-frameworks-to-makeable-materials.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "From Fantasy Frameworks to Makeable Materials: A Prospectus for Formalized MOF Discovery — Lupine Science",
+        "h1": [
+          "From Fantasy Frameworks to Makeable Materials: A Prospectus for Formalized MOF Discovery"
+        ],
+        "scrollWidth": 1207,
+        "clientWidth": 834,
+        "scrollHeight": 10434,
+        "brokenImages": [],
+        "overflowing": [
+          {
+            "tag": "a",
+            "class": "skip",
+            "left": -9999,
+            "right": -9863
+          },
+          {
+            "tag": "a",
+            "class": "",
+            "left": 99,
+            "right": 1204
+          },
+          {
+            "tag": "a",
+            "class": "",
+            "left": 99,
+            "right": 1199
+          }
+        ]
+      }
+    },
+    {
+      "name": "article-from-predicted-crystal-to-commercial-cell",
+      "url": "/articles/from-predicted-crystal-to-commercial-cell/",
+      "viewport": "tablet",
+      "size": "834x1194",
+      "status": 200,
+      "screenshot": "screenshots/tablet--article-from-predicted-crystal-to-commercial-cell.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "From Predicted Crystal to Commercial Cell — Lupine Science",
+        "h1": [
+          "From Predicted Crystal to Commercial Cell"
+        ],
+        "scrollWidth": 834,
+        "clientWidth": 834,
+        "scrollHeight": 10659,
+        "brokenImages": [
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-05-battery-partner-chain.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-03-correction-loop.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-06-climate-scale.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-07-impossibility-flags.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-04-blind-accuracy.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-08-ecosystem-map.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-09-materials-genome-value.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-10-crystal-to-cell.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-investing-in-the-trust-layer",
+      "url": "/articles/investing-in-the-trust-layer/",
+      "viewport": "tablet",
+      "size": "834x1194",
+      "status": 200,
+      "screenshot": "screenshots/tablet--article-investing-in-the-trust-layer.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Investing in the Trust Layer — Lupine Science",
+        "h1": [
+          "Investing in the Trust Layer"
+        ],
+        "scrollWidth": 834,
+        "clientWidth": 834,
+        "scrollHeight": 8960,
+        "brokenImages": [
+          "http://localhost:8080/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-04-blind-test-correlation.jpg",
+          "http://localhost:8080/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-05-runtime-overlay.jpg",
+          "http://localhost:8080/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-08-partner-flywheel.jpg",
+          "http://localhost:8080/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-06-climate-scale.jpg",
+          "http://localhost:8080/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-07-phase-zero-risk.jpg",
+          "http://localhost:8080/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-09-economics-leverage.jpg",
+          "http://localhost:8080/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-10-trust-loop-cta.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-methane-and-refrigerants-cutting-the-non-co2-climate-forcers",
+      "url": "/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/",
+      "viewport": "tablet",
+      "size": "834x1194",
+      "status": 200,
+      "screenshot": "screenshots/tablet--article-methane-and-refrigerants-cutting-the-non-co2-climate-forcers.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers — Lupine Science",
+        "h1": [
+          "Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers"
+        ],
+        "scrollWidth": 834,
+        "clientWidth": 834,
+        "scrollHeight": 10657,
+        "brokenImages": [
+          "http://localhost:8080/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-03-environment-error-field.jpg",
+          "http://localhost:8080/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-06-methane-pyrolysis-temperature.jpg",
+          "http://localhost:8080/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-07-refrigerant-gwp-landscape.jpg",
+          "http://localhost:8080/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-08-caloric-verification-workflow.jpg",
+          "http://localhost:8080/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-04-blind-prediction-correlation.jpg",
+          "http://localhost:8080/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-10-common-correction-geometry.jpg",
+          "http://localhost:8080/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-09-market-and-timeline.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-the-02-percent-synthesis-problem",
+      "url": "/articles/the-02-percent-synthesis-problem/",
+      "viewport": "tablet",
+      "size": "834x1194",
+      "status": 200,
+      "screenshot": "screenshots/tablet--article-the-02-percent-synthesis-problem.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "The 0.2% Synthesis Problem — Lupine Science",
+        "h1": [
+          "The 0.2% Synthesis Problem"
+        ],
+        "scrollWidth": 834,
+        "clientWidth": 834,
+        "scrollHeight": 7077,
+        "brokenImages": [
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-03-umlip-softening.jpg",
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-09-failure-economics.jpg",
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-06-cobalt-climate.jpg",
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-07-deployment-window.jpg",
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-05-error-field.jpg",
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-08-commercial-endpoints.jpg",
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-10-predictions-to-partners.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-the-order-is-right-the-size-is-wrong",
+      "url": "/articles/the-order-is-right-the-size-is-wrong/",
+      "viewport": "tablet",
+      "size": "834x1194",
+      "status": 200,
+      "screenshot": "screenshots/tablet--article-the-order-is-right-the-size-is-wrong.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "The Order Is Right, the Size Is Wrong — Lupine Science",
+        "h1": [
+          "The Order Is Right, the Size Is Wrong"
+        ],
+        "scrollWidth": 834,
+        "clientWidth": 834,
+        "scrollHeight": 3833,
+        "brokenImages": [],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-the-trust-layer",
+      "url": "/articles/the-trust-layer/",
+      "viewport": "tablet",
+      "size": "834x1194",
+      "status": 200,
+      "screenshot": "screenshots/tablet--article-the-trust-layer.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "The Trust Layer — Lupine Science",
+        "h1": [
+          "The Trust Layer"
+        ],
+        "scrollWidth": 834,
+        "clientWidth": 834,
+        "scrollHeight": 3921,
+        "brokenImages": [],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-water-and-air-correcting-the-molecules-we-drink-and-breathe",
+      "url": "/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/",
+      "viewport": "tablet",
+      "size": "834x1194",
+      "status": 200,
+      "screenshot": "screenshots/tablet--article-water-and-air-correcting-the-molecules-we-drink-and-breathe.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Water and Air: Correcting the Molecules We Drink and Breathe — Lupine Science",
+        "h1": [
+          "Water and Air: Correcting the Molecules We Drink and Breathe"
+        ],
+        "scrollWidth": 834,
+        "clientWidth": 834,
+        "scrollHeight": 10051,
+        "brokenImages": [
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-03-correction-layer.jpg",
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-06-market-scale.jpg",
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-07-hidden-risks.jpg",
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-04-blind-prediction.jpg",
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-08-proof-ecosystem.jpg",
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-09-speed-moat.jpg",
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-10-platform-thesis.jpg"
+        ],
+        "overflowing": [
+          {
+            "tag": "a",
+            "class": "skip",
+            "left": -9999,
+            "right": -9863
+          }
+        ]
+      }
+    },
+    {
+      "name": "article-why-lupi",
+      "url": "/articles/why-lupi/",
+      "viewport": "tablet",
+      "size": "834x1194",
+      "status": 200,
+      "screenshot": "screenshots/tablet--article-why-lupi.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Why LUPI? — Lupine Science",
+        "h1": [
+          "Why LUPI?"
+        ],
+        "scrollWidth": 834,
+        "clientWidth": 834,
+        "scrollHeight": 3248,
+        "brokenImages": [],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-why-lupine-science",
+      "url": "/articles/why-lupine-science/",
+      "viewport": "tablet",
+      "size": "834x1194",
+      "status": 200,
+      "screenshot": "screenshots/tablet--article-why-lupine-science.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/articles/why-lupine-science/hero.mp4 net::ERR_ABORTED"
+        }
+      ],
+      "metrics": {
+        "title": "Why Lupine Science? — Lupine Science",
+        "h1": [
+          "Why Lupine Science?"
+        ],
+        "scrollWidth": 834,
+        "clientWidth": 834,
+        "scrollHeight": 4136,
+        "brokenImages": [],
+        "overflowing": [
+          {
+            "tag": "a",
+            "class": "skip",
+            "left": -9999,
+            "right": -9863
+          }
+        ]
+      }
+    },
+    {
+      "name": "home",
+      "url": "/",
+      "viewport": "mobile",
+      "size": "390x844",
+      "status": 200,
+      "screenshot": "screenshots/mobile--home.png",
+      "issues": [],
+      "metrics": {
+        "title": "Lupine Science — Unlocking the materials that build the future",
+        "h1": [
+          "Intelligence became abundant. Verified knowledge did not."
+        ],
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 5287,
+        "brokenImages": [
+          ""
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "articles-index",
+      "url": "/articles/",
+      "viewport": "mobile",
+      "size": "390x844",
+      "status": 200,
+      "screenshot": "screenshots/mobile--articles-index.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Articles — Lupine Science",
+        "h1": [
+          "Research notes, prospectuses, and formalization roadmaps."
+        ],
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 7706,
+        "brokenImages": [
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/hero.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/hero.jpg",
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/hero.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/hero.jpg",
+          "http://localhost:8080/articles/investing-in-the-trust-layer/hero.jpg",
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/hero.jpg",
+          "http://localhost:8080/articles/the-trust-layer/thumb.jpg",
+          "http://localhost:8080/articles/a-smooth-environment-resolved-error-field/hero.jpg",
+          "http://localhost:8080/articles/the-order-is-right-the-size-is-wrong/thumb.jpg",
+          "http://localhost:8080/articles/why-lupi/hero.jpg",
+          "http://localhost:8080/articles/why-lupine-science/thumb.jpg",
+          "http://localhost:8080/articles/from-fantasy-frameworks-to-makeable-materials/thumb.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "videos",
+      "url": "/videos/",
+      "viewport": "mobile",
+      "size": "390x844",
+      "status": 200,
+      "screenshot": "screenshots/mobile--videos.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+        }
+      ],
+      "metrics": {
+        "title": "Videos — Lupine Science",
+        "h1": [
+          "Article videos."
+        ],
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 1587,
+        "brokenImages": [
+          "http://localhost:8080/videos/cement-concrete-and-the-weight-of-the-built-world-poster.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "brand-assets",
+      "url": "/brand-assets/",
+      "viewport": "mobile",
+      "size": "390x844",
+      "status": 200,
+      "screenshot": "screenshots/mobile--brand-assets.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the stylesheet 'https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap' violates the following Content Security Policy directive: \"style-src 'self' 'unsafe-inline'\". Note that 'style-src-elem' was not explicitly set, so 'style-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap csp"
+        }
+      ],
+      "metrics": {
+        "title": "Lupine Science — Brand Assets",
+        "h1": [
+          "Brand assets."
+        ],
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 64354,
+        "brokenImages": [
+          "http://localhost:8080/brand-assets/assets/images/shape-of-wrongness_square.jpg",
+          "http://localhost:8080/brand-assets/assets/images/shape-of-wrongness_wide.jpg",
+          "http://localhost:8080/brand-assets/assets/images/upstream-cascade_dense.jpg",
+          "http://localhost:8080/brand-assets/assets/images/upstream-cascade_quiet.jpg",
+          "http://localhost:8080/brand-assets/assets/images/upstream-cascade_square.jpg",
+          "http://localhost:8080/brand-assets/assets/images/upstream-cascade_wide.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/crystalline-form_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/crystalline-form_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/crystalline-form_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/diffraction_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/diffraction_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/diffraction_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/field-gradient_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/field-gradient_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/field-gradient_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/interference_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/interference_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/interference_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/isosurface_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/isosurface_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/isosurface_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/lattice-defect_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/lattice-defect_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/lattice-defect_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/meander-pattern_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/meander-pattern_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/meander-pattern_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/moire-grid_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/moire-grid_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/moire-grid_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/network-graph_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/network-graph_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/network-graph_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/paper-topography_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/paper-topography_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/paper-topography_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/phase-transition_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/phase-transition_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/phase-transition_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/radial-array_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/radial-array_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/radial-array_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/ribbon-knot_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/ribbon-knot_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/ribbon-knot_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/shadow-arch_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/shadow-arch_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/shadow-arch_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/tessellation_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/tessellation_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/tessellation_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/wavefront_quiet_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/wavefront_square_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v10/wavefront_wide_v10.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/bits-to-atoms_dense_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/bits-to-atoms_quiet_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/bits-to-atoms_square_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/bits-to-atoms_wide_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/shape-of-wrongness_dense_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/shape-of-wrongness_quiet_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/shape-of-wrongness_square_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/shape-of-wrongness_wide_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/upstream-cascade_dense_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/upstream-cascade_quiet_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/upstream-cascade_square_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v2/upstream-cascade_wide_v2.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/bits-to-atoms_dense_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/bits-to-atoms_quiet_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/bits-to-atoms_square_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/bits-to-atoms_wide_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/shape-of-wrongness_dense_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/shape-of-wrongness_quiet_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/shape-of-wrongness_square_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/shape-of-wrongness_wide_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/upstream-cascade_dense_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/upstream-cascade_quiet_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/upstream-cascade_square_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v3/upstream-cascade_wide_v3.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/bits-to-atoms_dense_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/bits-to-atoms_quiet_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/bits-to-atoms_square_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/bits-to-atoms_wide_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/shape-of-wrongness_dense_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/shape-of-wrongness_quiet_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/shape-of-wrongness_square_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/shape-of-wrongness_wide_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/upstream-cascade_dense_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/upstream-cascade_quiet_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/upstream-cascade_square_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v4/upstream-cascade_wide_v4.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/bits-to-atoms_dense_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/bits-to-atoms_quiet_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/bits-to-atoms_square_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/bits-to-atoms_wide_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/shape-of-wrongness_dense_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/shape-of-wrongness_quiet_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/shape-of-wrongness_square_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/shape-of-wrongness_wide_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/upstream-cascade_dense_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/upstream-cascade_quiet_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/upstream-cascade_square_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v5/upstream-cascade_wide_v5.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/calibration-grid_dense_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/calibration-grid_quiet_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/calibration-grid_square_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/calibration-grid_wide_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/error-vector-alignment_dense_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/error-vector-alignment_quiet_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/error-vector-alignment_square_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/error-vector-alignment_wide_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/shape-of-wrongness_dense_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/shape-of-wrongness_quiet_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/shape-of-wrongness_square_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v6/shape-of-wrongness_wide_v6.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/calibration-grid_dense_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/calibration-grid_quiet_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/calibration-grid_square_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/calibration-grid_wide_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/error-vector-alignment_dense_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/error-vector-alignment_quiet_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/error-vector-alignment_square_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v7/error-vector-alignment_wide_v7.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/constellation-threads_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/constellation-threads_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/constellation-threads_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/folded-light_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/folded-light_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/folded-light_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/ink-wash_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/ink-wash_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/ink-wash_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/moire-circles_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/moire-circles_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/moire-circles_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/particle-ribbon_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/particle-ribbon_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/particle-ribbon_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/scale-shards_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/scale-shards_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/scale-shards_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/shadow-geometry_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/shadow-geometry_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/shadow-geometry_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/stroke-dissolution_quiet_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/stroke-dissolution_square_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v8/stroke-dissolution_wide_v8.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/atomic-ring_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/atomic-ring_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/atomic-ring_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/bond-angle_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/bond-angle_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/bond-angle_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/calibration-cross_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/calibration-cross_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/calibration-cross_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/convergence-star_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/convergence-star_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/convergence-star_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/coordinate-axis_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/coordinate-axis_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/coordinate-axis_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/divergence-burst_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/divergence-burst_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/divergence-burst_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/error-tick_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/error-tick_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/error-tick_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/field-line_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/field-line_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/field-line_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/hex-cell_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/hex-cell_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/hex-cell_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/lattice-node_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/lattice-node_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/lattice-node_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/manifold-curve_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/manifold-curve_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/manifold-curve_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/molecule-glyph_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/molecule-glyph_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/molecule-glyph_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/orbit-mark_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/orbit-mark_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/orbit-mark_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/proof-check_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/proof-check_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/proof-check_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/trust-shield_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/trust-shield_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/trust-shield_wide_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/wave-packet_circle_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/wave-packet_square_v9.jpg",
+          "http://localhost:8080/brand-assets/assets/images/v9/wave-packet_wide_v9.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-a-field-not-a-neural-net",
+      "url": "/articles/a-field-not-a-neural-net/",
+      "viewport": "mobile",
+      "size": "390x844",
+      "status": 200,
+      "screenshot": "screenshots/mobile--article-a-field-not-a-neural-net.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "A Field, Not a Neural Net — Lupine Science",
+        "h1": [
+          "A Field, Not a Neural Net"
+        ],
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 13999,
+        "brokenImages": [
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-02-coordination-error-curve.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-03-field-anchors-spline.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-04-blind-prediction-scatter.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-05-runtime-correction.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-09-speed-accuracy-panel.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-07-impossibility-boundaries.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-06-discovery-loop.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-08-climate-targets-map.jpg",
+          "http://localhost:8080/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-10-field-vs-neural-net.jpg"
+        ],
+        "overflowing": [
+          {
+            "tag": "math",
+            "class": "",
+            "left": 358,
+            "right": 409
+          },
+          {
+            "tag": "semantics",
+            "class": "",
+            "left": 358,
+            "right": 409
+          },
+          {
+            "tag": "mrow",
+            "class": "",
+            "left": 358,
+            "right": 409
+          },
+          {
+            "tag": "mn",
+            "class": "",
+            "left": 389,
+            "right": 399
+          },
+          {
+            "tag": "mn",
+            "class": "",
+            "left": 399,
+            "right": 409
+          },
+          {
+            "tag": "math",
+            "class": "",
+            "left": 360,
+            "right": 401
+          },
+          {
+            "tag": "semantics",
+            "class": "",
+            "left": 360,
+            "right": 401
+          },
+          {
+            "tag": "mrow",
+            "class": "",
+            "left": 360,
+            "right": 401
+          },
+          {
+            "tag": "mn",
+            "class": "",
+            "left": 391,
+            "right": 401
+          },
+          {
+            "tag": "math",
+            "class": "",
+            "left": 323,
+            "right": 399
+          },
+          {
+            "tag": "semantics",
+            "class": "",
+            "left": 323,
+            "right": 399
+          },
+          {
+            "tag": "mrow",
+            "class": "",
+            "left": 323,
+            "right": 399
+          },
+          {
+            "tag": "mn",
+            "class": "",
+            "left": 390,
+            "right": 399
+          },
+          {
+            "tag": "math",
+            "class": "",
+            "left": 288,
+            "right": 527
+          },
+          {
+            "tag": "semantics",
+            "class": "",
+            "left": 288,
+            "right": 527
+          },
+          {
+            "tag": "mrow",
+            "class": "",
+            "left": 288,
+            "right": 527
+          },
+          {
+            "tag": "msub",
+            "class": "",
+            "left": 370,
+            "right": 394
+          },
+          {
+            "tag": "mo",
+            "class": "",
+            "left": 400,
+            "right": 411
+          },
+          {
+            "tag": "msub",
+            "class": "",
+            "left": 420,
+            "right": 442
+          },
+          {
+            "tag": "mo",
+            "class": "",
+            "left": 420,
+            "right": 434
+          }
+        ]
+      }
+    },
+    {
+      "name": "article-a-smooth-environment-resolved-error-field",
+      "url": "/articles/a-smooth-environment-resolved-error-field/",
+      "viewport": "mobile",
+      "size": "390x844",
+      "status": 200,
+      "screenshot": "screenshots/mobile--article-a-smooth-environment-resolved-error-field.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "A smooth, environment-resolved error field underlies the systematic property errors of universal machine-learned interatomic potentials — Lupine Science",
+        "h1": [
+          "A smooth, environment-resolved error field underlies the systematic property errors of universal machine-learned interatomic potentials"
+        ],
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 6132,
+        "brokenImages": [],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-beyond-carbon-the-error-geometry-of-environmental-materials",
+      "url": "/articles/beyond-carbon-the-error-geometry-of-environmental-materials/",
+      "viewport": "mobile",
+      "size": "390x844",
+      "status": 200,
+      "screenshot": "screenshots/mobile--article-beyond-carbon-the-error-geometry-of-environmental-materials.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Beyond Carbon: The Error Geometry of Environmental Materials — Lupine Science",
+        "h1": [
+          "Beyond Carbon: The Error Geometry of Environmental Materials"
+        ],
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 14353,
+        "brokenImages": [
+          "http://localhost:8080/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-02-coordination-error-curve.jpg",
+          "http://localhost:8080/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-07-ranking-inversion.jpg",
+          "http://localhost:8080/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-05-correction-verification-layer.jpg",
+          "http://localhost:8080/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-06-addressable-impact-sankey.jpg",
+          "http://localhost:8080/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-08-platform-ecosystem.jpg",
+          "http://localhost:8080/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-04-blind-prediction-panel.jpg",
+          "http://localhost:8080/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-09-economics-moat.jpg",
+          "http://localhost:8080/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-10-platform-roadmap.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-cement-concrete-and-the-weight-of-the-built-world",
+      "url": "/articles/cement-concrete-and-the-weight-of-the-built-world/",
+      "viewport": "mobile",
+      "size": "390x844",
+      "status": 200,
+      "screenshot": "screenshots/mobile--article-cement-concrete-and-the-weight-of-the-built-world.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Cement, Concrete, and the Weight of the Built World — Lupine Science",
+        "h1": [
+          "Cement, Concrete, and the Weight of the Built World"
+        ],
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 15127,
+        "brokenImages": [
+          "http://localhost:8080/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-06-three-routes.jpg",
+          "http://localhost:8080/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-03-softening-field.jpg",
+          "http://localhost:8080/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-07-metastability.jpg",
+          "http://localhost:8080/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-05-correction-loop.jpg",
+          "http://localhost:8080/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-04-blind-accuracy.jpg",
+          "http://localhost:8080/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-08-lab-to-kiln.jpg",
+          "http://localhost:8080/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-09-speed-advantage.jpg",
+          "http://localhost:8080/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-10-trust-bottleneck.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-critical-minerals-pfas-and-the-remediation-imperative",
+      "url": "/articles/critical-minerals-pfas-and-the-remediation-imperative/",
+      "viewport": "mobile",
+      "size": "390x844",
+      "status": 200,
+      "screenshot": "screenshots/mobile--article-critical-minerals-pfas-and-the-remediation-imperative.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Critical Minerals, PFAS, and the Remediation Imperative — Lupine Science",
+        "h1": [
+          "Critical Minerals, PFAS, and the Remediation Imperative"
+        ],
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 16554,
+        "brokenImages": [
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-07-supply-risk-landscape.jpg",
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-02-pfas-contamination-map.jpg",
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-03-carbon-fluorine-backbone.jpg",
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-04-umlip-softening-error.jpg",
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-05-correction-layer.jpg",
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-06-unified-campaign.jpg",
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-08-recovery-ecosystem.jpg",
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-09-market-opportunity.jpg",
+          "http://localhost:8080/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-10-one-geometry-two-imperatives.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-five-materials-for-5-to-12-gtco2-year",
+      "url": "/articles/five-materials-for-5-to-12-gtco2-year/",
+      "viewport": "mobile",
+      "size": "390x844",
+      "status": 200,
+      "screenshot": "screenshots/mobile--article-five-materials-for-5-to-12-gtco2-year.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Five Materials That Could Unlock 5–12 GtCO₂/Year — Lupine Science",
+        "h1": [
+          "Five Materials That Could Unlock 5–12 GtCO₂/Year"
+        ],
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 17312,
+        "brokenImages": [
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-03-correction-field-loop.jpg",
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-05-target-defect-matrix.jpg",
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-07-ranking-inversion-risk.jpg",
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-04-blind-prediction-accuracy.jpg",
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-06-impact-funnel.jpg",
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-09-moat-feedback-loop.jpg",
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-08-partner-ecosystem-map.jpg",
+          "http://localhost:8080/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-10-five-year-roadmap.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-from-fantasy-frameworks-to-makeable-materials",
+      "url": "/articles/from-fantasy-frameworks-to-makeable-materials/",
+      "viewport": "mobile",
+      "size": "390x844",
+      "status": 200,
+      "screenshot": "screenshots/mobile--article-from-fantasy-frameworks-to-makeable-materials.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "From Fantasy Frameworks to Makeable Materials: A Prospectus for Formalized MOF Discovery — Lupine Science",
+        "h1": [
+          "From Fantasy Frameworks to Makeable Materials: A Prospectus for Formalized MOF Discovery"
+        ],
+        "scrollWidth": 1170,
+        "clientWidth": 390,
+        "scrollHeight": 15063,
+        "brokenImages": [],
+        "overflowing": [
+          {
+            "tag": "code",
+            "class": "",
+            "left": 41,
+            "right": 540
+          },
+          {
+            "tag": "a",
+            "class": "",
+            "left": 62,
+            "right": 393
+          },
+          {
+            "tag": "a",
+            "class": "",
+            "left": 62,
+            "right": 1167
+          },
+          {
+            "tag": "a",
+            "class": "",
+            "left": 62,
+            "right": 401
+          },
+          {
+            "tag": "a",
+            "class": "",
+            "left": 62,
+            "right": 1162
+          }
+        ]
+      }
+    },
+    {
+      "name": "article-from-predicted-crystal-to-commercial-cell",
+      "url": "/articles/from-predicted-crystal-to-commercial-cell/",
+      "viewport": "mobile",
+      "size": "390x844",
+      "status": 200,
+      "screenshot": "screenshots/mobile--article-from-predicted-crystal-to-commercial-cell.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "From Predicted Crystal to Commercial Cell — Lupine Science",
+        "h1": [
+          "From Predicted Crystal to Commercial Cell"
+        ],
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 16195,
+        "brokenImages": [
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-02-handoff-chain.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-05-battery-partner-chain.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-03-correction-loop.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-06-climate-scale.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-07-impossibility-flags.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-04-blind-accuracy.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-08-ecosystem-map.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-09-materials-genome-value.jpg",
+          "http://localhost:8080/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-10-crystal-to-cell.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-investing-in-the-trust-layer",
+      "url": "/articles/investing-in-the-trust-layer/",
+      "viewport": "mobile",
+      "size": "390x844",
+      "status": 200,
+      "screenshot": "screenshots/mobile--article-investing-in-the-trust-layer.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Investing in the Trust Layer — Lupine Science",
+        "h1": [
+          "Investing in the Trust Layer"
+        ],
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 12555,
+        "brokenImages": [
+          "http://localhost:8080/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-03-error-field.jpg",
+          "http://localhost:8080/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-04-blind-test-correlation.jpg",
+          "http://localhost:8080/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-05-runtime-overlay.jpg",
+          "http://localhost:8080/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-08-partner-flywheel.jpg",
+          "http://localhost:8080/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-06-climate-scale.jpg",
+          "http://localhost:8080/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-07-phase-zero-risk.jpg",
+          "http://localhost:8080/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-09-economics-leverage.jpg",
+          "http://localhost:8080/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-10-trust-loop-cta.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-methane-and-refrigerants-cutting-the-non-co2-climate-forcers",
+      "url": "/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/",
+      "viewport": "mobile",
+      "size": "390x844",
+      "status": 200,
+      "screenshot": "screenshots/mobile--article-methane-and-refrigerants-cutting-the-non-co2-climate-forcers.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers — Lupine Science",
+        "h1": [
+          "Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers"
+        ],
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 16125,
+        "brokenImages": [
+          "http://localhost:8080/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-05-methane-to-methanol-scaling.jpg",
+          "http://localhost:8080/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-03-environment-error-field.jpg",
+          "http://localhost:8080/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-06-methane-pyrolysis-temperature.jpg",
+          "http://localhost:8080/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-07-refrigerant-gwp-landscape.jpg",
+          "http://localhost:8080/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-08-caloric-verification-workflow.jpg",
+          "http://localhost:8080/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-04-blind-prediction-correlation.jpg",
+          "http://localhost:8080/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-10-common-correction-geometry.jpg",
+          "http://localhost:8080/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-09-market-and-timeline.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-the-02-percent-synthesis-problem",
+      "url": "/articles/the-02-percent-synthesis-problem/",
+      "viewport": "mobile",
+      "size": "390x844",
+      "status": 200,
+      "screenshot": "screenshots/mobile--article-the-02-percent-synthesis-problem.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "The 0.2% Synthesis Problem — Lupine Science",
+        "h1": [
+          "The 0.2% Synthesis Problem"
+        ],
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 9231,
+        "brokenImages": [
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-04-barrier-error.jpg",
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-03-umlip-softening.jpg",
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-09-failure-economics.jpg",
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-06-cobalt-climate.jpg",
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-07-deployment-window.jpg",
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-05-error-field.jpg",
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-08-commercial-endpoints.jpg",
+          "http://localhost:8080/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-10-predictions-to-partners.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-the-order-is-right-the-size-is-wrong",
+      "url": "/articles/the-order-is-right-the-size-is-wrong/",
+      "viewport": "mobile",
+      "size": "390x844",
+      "status": 200,
+      "screenshot": "screenshots/mobile--article-the-order-is-right-the-size-is-wrong.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "The Order Is Right, the Size Is Wrong — Lupine Science",
+        "h1": [
+          "The Order Is Right, the Size Is Wrong"
+        ],
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 5400,
+        "brokenImages": [],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-the-trust-layer",
+      "url": "/articles/the-trust-layer/",
+      "viewport": "mobile",
+      "size": "390x844",
+      "status": 200,
+      "screenshot": "screenshots/mobile--article-the-trust-layer.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "The Trust Layer — Lupine Science",
+        "h1": [
+          "The Trust Layer"
+        ],
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 5264,
+        "brokenImages": [],
+        "overflowing": [
+          {
+            "tag": "a",
+            "class": "skip",
+            "left": -9999,
+            "right": -9863
+          }
+        ]
+      }
+    },
+    {
+      "name": "article-water-and-air-correcting-the-molecules-we-drink-and-breathe",
+      "url": "/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/",
+      "viewport": "mobile",
+      "size": "390x844",
+      "status": 200,
+      "screenshot": "screenshots/mobile--article-water-and-air-correcting-the-molecules-we-drink-and-breathe.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Water and Air: Correcting the Molecules We Drink and Breathe — Lupine Science",
+        "h1": [
+          "Water and Air: Correcting the Molecules We Drink and Breathe"
+        ],
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 14502,
+        "brokenImages": [
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-02-coordination-error-field.jpg",
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-05-water-rankings.jpg",
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-03-correction-layer.jpg",
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-06-market-scale.jpg",
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-07-hidden-risks.jpg",
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-04-blind-prediction.jpg",
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-08-proof-ecosystem.jpg",
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-09-speed-moat.jpg",
+          "http://localhost:8080/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-10-platform-thesis.jpg"
+        ],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-why-lupi",
+      "url": "/articles/why-lupi/",
+      "viewport": "mobile",
+      "size": "390x844",
+      "status": 200,
+      "screenshot": "screenshots/mobile--article-why-lupi.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        }
+      ],
+      "metrics": {
+        "title": "Why LUPI? — Lupine Science",
+        "h1": [
+          "Why LUPI?"
+        ],
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 4040,
+        "brokenImages": [],
+        "overflowing": []
+      }
+    },
+    {
+      "name": "article-why-lupine-science",
+      "url": "/articles/why-lupine-science/",
+      "viewport": "mobile",
+      "size": "390x844",
+      "status": 200,
+      "screenshot": "screenshots/mobile--article-why-lupine-science.png",
+      "issues": [
+        {
+          "kind": "console",
+          "message": "Loading the script 'http://localhost:8080/components/share/share.mjs' violates the following Content Security Policy directive: \"script-src 'sha256-GrJipvnO0tHWxdxJZ2E6vx/iqGh0l6SSwmaSRmRFrz8=' 'sha256-SP9Vzs6ksmjJjWCqXxjcBJFaZIrcNAlBb5h3+n4BOhE='\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/components/share/share.mjs csp"
+        },
+        {
+          "kind": "requestfailed",
+          "message": "http://localhost:8080/articles/why-lupine-science/hero.mp4 net::ERR_ABORTED"
+        }
+      ],
+      "metrics": {
+        "title": "Why Lupine Science? — Lupine Science",
+        "h1": [
+          "Why Lupine Science?"
+        ],
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 4920,
+        "brokenImages": [],
+        "overflowing": [
+          {
+            "tag": "a",
+            "class": "skip",
+            "left": -9999,
+            "right": -9863
+          }
+        ]
+      }
+    }
+  ]
+}
