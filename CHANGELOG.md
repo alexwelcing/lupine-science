@@ -42,6 +42,12 @@
 - [Live] `the-02-percent-synthesis-problem`: P0/P1 fixes approved by independent re-review (t_b2172012), 720p web encode (1.53 MB/min) and WebVTT captions generated, article page links to the narrated version with `VideoObject` schema, production deploy and live smoke test passed.
 - [Live] `methane-and-refrigerants-cutting-the-non-co2-climate-forcers`: HyperFrames composition, kinetic titles, data/chart animations, transitions, and logo sting completed; P0/P1 frame fixes approved by re-review (t_cb9b51d5); audio normalized to −16 LUFS and WebVTT captions added; 720p web encode (1.81 MB/min) under budget; director approved for web; article page and `/videos/` index wired with `VideoObject` schema; production deploy and live smoke test passed (MP4 served as `video/mp4`, 4,211,492 bytes).
 - [In Progress] HeyGen animation workflow and reviewer/director training.
+- [Merged] Director profile routed to Anthropic `claude-fable-5` (Fable); voice-engineer/reviewer/animator remain on OpenAI Codex `gpt-5.6-sol` (Sol) so the two models can set/clear each other's bars.
+- [Merged] `critical-minerals-pfas-and-the-remediation-imperative`: director final-render review rejected the initial publish because the mastered narration overgeneralized the EPA 4 ng/L threshold ('capture molecules') and storyboard timing notes were inconsistent. The premature web publish was reverted (commit 64bcbf2) before it reached production.
+- [Merged] `critical-minerals-pfas-and-the-remediation-imperative`: script, spoken transcript, and TTS input updated to qualify the claim as 'capture PFOA and PFOS down to the EPA limit: four nanograms per liter each'; storyboard transition/overlap math and outro fade timing reconciled (commit 3e19116).
+- [In Progress] `critical-minerals-pfas-and-the-remediation-imperative`: kanban tasks t_f41bb201 (voice-engineer, Sol) → t_db727c15 (animator, Sol) → t_22b978c8 (director, Fable) created to regenerate corrected narration, re-render, and re-review before republishing.
+- [Merged] Laptop performance monitoring: `npm run monitor:laptop` added to crontab every 15 minutes; `scripts/monitoring/hermes-swarm-guard.sh` runs every minute to cull runaway Hermes workers under load/memory pressure.
+- [Blocked] `cement-concrete-and-the-weight-of-the-built-world` and related ready pipeline tasks scheduled in Hermes until the rejected 16:11 narration is replaced with an approved 300–340-word script and regenerated audio/timing.
 
 ---
 
