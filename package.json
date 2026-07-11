@@ -22,7 +22,8 @@
     "shots": "node scripts/dev/screenshot.mjs",
     "perf": "node scripts/dev/perf-report.mjs",
     "a11y:audit": "node scripts/accessibility-audit.mjs",
-    "monitor:laptop": "node scripts/monitoring/laptop-diagnostics.mjs"
+    "monitor:laptop": "node scripts/monitoring/laptop-diagnostics.mjs",
+    "monitor:cleanup": "bash scripts/monitoring/cleanup-hermes-artifacts.sh"
   },
   "engines": {
     "node": ">=20.0.0"
