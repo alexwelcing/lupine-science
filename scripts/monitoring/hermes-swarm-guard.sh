@@ -15,7 +15,7 @@ MAX_HERMES_PROCS=8
 MAX_SINGLE_CPU=80.0
 MAX_USED_MEM_PERCENT=85
 
-hermes_count=$(pgrep -c 'hermes -p' || true)
+hermes_count=$(pgrep -fc 'hermes -p' || true)
 load_1m=$(uptime | awk -F'load average:' '{print $2}' | awk '{print $1}' | tr -d ',')
 mem_used_pct=$(free | awk '/Mem:/ {printf "%.1f", $3/$2 * 100.0}')
 
