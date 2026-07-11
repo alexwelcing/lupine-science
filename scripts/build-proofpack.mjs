@@ -1,26 +1,42 @@
 #!/usr/bin/env node
-// Builds public/proof-pack-climate-series.pdf from the five climate
-// partnership articles. Each article gets a cover page (title, date, URL)
-// followed by its rendered article pages.
+// Generalized proof-pack builder.
+//
+// Modes:
+//   --consolidated          Build the legacy climate-series combined PDF.
+//   --all                   Build one PDF + JSON manifest per eligible article.
+//   --slug <slug>           Build one article only.
+//   --out-dir <dir>         Output directory for per-article packs (default: public/proof-packs/).
+//
+// An article is eligible when public/articles/<slug>/<slug>.proofpack.json exists.
+// The per-article PDF uses public/proof-pack-template/index.html populated from the
+// manifest and the article's existing figures in public/articles/<slug>/images/.
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
+import crypto from 'node:crypto';
+import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
-import { PDFDocument } from 'pdf-lib';
+import { PDFDocument, PDFName } from 'pdf-lib';
+import { validateProofPack, formatIssues } from './validate-proofpack.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC = path.join(ROOT, 'public');
-const OUT = path.join(PUBLIC, 'proof-pack-climate-series.pdf');
+const DEFAULT_OUT_DIR = path.join(PUBLIC, 'proof-packs');
+const CONSOLIDATED_OUT = path.join(PUBLIC, 'proof-pack-climate-series.pdf');
+const TEMPLATE_PATH = path.join(PUBLIC, 'proof-pack-template', 'index.html');
 const TMP = path.join(ROOT, '.proofpack');
 
-const SLUGS = [
+const CLIMATE_SLUGS = [
   'the-02-percent-synthesis-problem',
   'a-field-not-a-neural-net',
   'five-materials-for-5-to-12-gtco2-year',
   'from-predicted-crystal-to-commercial-cell',
   'investing-in-the-trust-layer',
 ];
+
+const UNICODE_COVERAGE_STRING =
+  'CO₂ · CH₄ · GtCO₂/year · en dash – · em dash — · “curly quotes” · α β γ Δ μ σ ∑ ∂ ≈ ≤ ≥ ± × · José García · Zoë Šimůnková · François L’Écuyer';
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -35,8 +51,17 @@ const MIME = {
   '.webp': 'image/webp',
   '.avif': 'image/avif',
   '.woff2': 'font/woff2',
+  '.ttf': 'font/ttf',
   '.pdf': 'application/pdf',
 };
+
+function sha256(filePath) {
+  return crypto.createHash('sha256').update(fs.readFileSync(filePath)).digest('hex');
+}
+
+function sha256String(text) {
+  return crypto.createHash('sha256').update(text, 'utf8').digest('hex');
+}
 
 function startServer() {
   return new Promise((resolve) => {
@@ -69,7 +94,7 @@ function startServer() {
   });
 }
 
-function extractMeta(html, slug) {
+function extractArticleMeta(html, slug) {
   const titleMatch = html.match(/<meta property="og:title" content="([^"]+)"/);
   const title = titleMatch ? titleMatch[1].replace(/\s*—\s*Lupine Science$/, '').trim() : slug;
   const ldMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
@@ -80,6 +105,12 @@ function extractMeta(html, slug) {
       const data = JSON.parse(ldMatch[1]);
       if (data.datePublished) date = data.datePublished;
       if (data.url) url = data.url;
+      if (Array.isArray(data['@graph'])) {
+        for (const item of data['@graph']) {
+          if (item.datePublished && !date) date = item.datePublished;
+          if (item.url && !url) url = item.url;
+        }
+      }
     } catch {}
   }
   if (!date) {
@@ -89,7 +120,413 @@ function extractMeta(html, slug) {
   return { title, date, url };
 }
 
-function coverHtml({ title, date, url, baseUrl }) {
+function formatDate(iso) {
+  if (!iso) return '';
+  const [y, m, d] = iso.split('-').map(Number);
+  if (!y || !m || !d) return iso;
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  return `${months[m - 1]} ${d}, ${y}`;
+}
+
+function shortTitleFrom(title, max = 28) {
+  if (title.length <= max) return title;
+  const truncated = title.slice(0, max);
+  const lastSpace = truncated.lastIndexOf(' ');
+  return (lastSpace > 10 ? truncated.slice(0, lastSpace) : truncated) + '…';
+}
+
+function domainFrom(url) {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return url;
+  }
+}
+
+function escapeHtml(text) {
+  return String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function renderCitation(source) {
+  const parts = [];
+  if (source.publisher && source.year) {
+    parts.push(`${source.publisher}, ${source.year}.`);
+  } else if (source.publisher) {
+    parts.push(`${source.publisher}.`);
+  } else if (source.year) {
+    parts.push(`${source.year}.`);
+  }
+  let citation = `<em>${escapeHtml(source.title)}</em>`;
+  if (parts.length) citation += ` ${escapeHtml(parts.join(' '))}`;
+  if (source.url) {
+    citation += ` <a href="${escapeHtml(source.url)}">${escapeHtml(source.url)}</a>`;
+  }
+  return citation;
+}
+
+function getValue(obj, path) {
+  const parts = path.split('.');
+  let current = obj;
+  for (const part of parts) {
+    if (current == null) return undefined;
+    if (part === 'this') {
+      // 'this' refers to the current context; keep current as-is.
+      continue;
+    }
+    current = current[part];
+  }
+  return current;
+}
+
+function renderTemplate(template, data) {
+  // Minimal template engine supporting:
+  //   {{path.to.value}}         escaped substitution
+  //   {{{path.to.value}}}       raw HTML substitution
+  //   {{#each path.to.array}} ... {{this.field}} ... {{/each}}
+  //   {{#if path.to.value}} ... {{/if}}
+  // Handles nested blocks by parsing token positions rather than regex recursion.
+  const TAG_RE = /{{{([\w.]+)}}}|{{([{#/])([\w.]+)(?:\s+([\w.]+))?}}/g;
+
+  function replaceVars(chunk, ctx) {
+    return chunk
+      .replace(/{{{([\w.]+)}}}/g, (_, key) => getValue(ctx, key) ?? '')
+      .replace(/{{([\w.]+)}}/g, (_, key) => escapeHtml(getValue(ctx, key) ?? ''));
+  }
+
+  function parseTags(templateStr) {
+    const tags = [];
+    let match;
+    while ((match = TAG_RE.exec(templateStr)) !== null) {
+      if (match[1]) {
+        tags.push({
+          type: 'raw',
+          raw: match[0],
+          key: match[1],
+          index: match.index,
+          end: match.index + match[0].length,
+        });
+      } else {
+        tags.push({
+          type: match[2] === '#' ? 'block' : match[2] === '/' ? 'close' : 'var',
+          raw: match[0],
+          kind: match[3],
+          path: match[4],
+          index: match.index,
+          end: match.index + match[0].length,
+        });
+      }
+    }
+    return tags;
+  }
+
+  function findMatchingClose(tags, openIndex) {
+    const openTag = tags[openIndex];
+    let depth = 1;
+    for (let i = openIndex + 1; i < tags.length; i++) {
+      const tag = tags[i];
+      if (tag.type === 'block' && tag.kind === openTag.kind) {
+        depth++;
+      } else if (tag.type === 'close' && tag.kind === openTag.kind) {
+        depth--;
+        if (depth === 0) return i;
+      }
+    }
+    return -1;
+  }
+
+  function renderChunk(templateStr, ctx = data) {
+    const tags = parseTags(templateStr);
+    if (tags.length === 0) return replaceVars(templateStr, ctx);
+
+    let result = '';
+    let lastIndex = 0;
+    for (let i = 0; i < tags.length; i++) {
+      const tag = tags[i];
+      if (tag.index < lastIndex) continue;
+      result += replaceVars(templateStr.slice(lastIndex, tag.index), ctx);
+
+      if (tag.type === 'var' || tag.type === 'raw') {
+        result += replaceVars(tag.raw, ctx);
+        lastIndex = tag.end;
+      } else if (tag.type === 'block') {
+        const closeIndex = findMatchingClose(tags, i);
+        if (closeIndex === -1) {
+          throw new Error(`unclosed block: ${tag.raw}`);
+        }
+        const body = templateStr.slice(tag.end, tags[closeIndex].index);
+        if (tag.kind === 'each') {
+          const arr = getValue(ctx, tag.path);
+          if (Array.isArray(arr) && arr.length > 0) {
+            result += arr.map((item) => renderChunk(body, item)).join('');
+          }
+        } else if (tag.kind === 'if') {
+          const value = getValue(ctx, tag.path);
+          if (value) result += renderChunk(body, ctx);
+        }
+        lastIndex = tags[closeIndex].end;
+        i = closeIndex;
+      } else {
+        // Close tag should only be reached through block handling.
+        lastIndex = tag.end;
+      }
+    }
+    result += replaceVars(templateStr.slice(lastIndex), ctx);
+    return result;
+  }
+
+  return renderChunk(template, data);
+}
+
+function findEligibleSlugs() {
+  const slugs = [];
+  const articlesDir = path.join(PUBLIC, 'articles');
+  if (!fs.existsSync(articlesDir)) return slugs;
+  for (const entry of fs.readdirSync(articlesDir, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    const slug = entry.name;
+    const manifestPath = path.join(articlesDir, slug, `${slug}.proofpack.json`);
+    if (fs.existsSync(manifestPath)) slugs.push(slug);
+  }
+  return slugs.sort();
+}
+
+function loadManifest(slug) {
+  const manifestPath = path.join(PUBLIC, 'articles', slug, `${slug}.proofpack.json`);
+  const raw = fs.readFileSync(manifestPath, 'utf8');
+  const manifest = JSON.parse(raw);
+  const issues = validateProofPack(manifest);
+  const errors = issues.filter((issue) => issue.severity === 'error');
+  if (errors.length) {
+    throw new Error(`manifest validation failed for ${slug}:\n${formatIssues(errors)}`);
+  }
+  return { manifest, manifestPath };
+}
+
+function buildView(slug, manifest, articleMeta) {
+  const articleDir = path.join(PUBLIC, 'articles', slug);
+  const title = manifest.metadata.title || articleMeta.title;
+  const date = manifest.metadata.date || articleMeta.date;
+  const canonicalUrl = manifest.metadata.articleUrl || articleMeta.url;
+  const authorName = manifest.credits.authors?.[0]?.name ?? '';
+  const institutionName = manifest.credits.institutions?.[0]?.name ?? '';
+
+  const figures = manifest.figures.map((figure) => {
+    const src = figure.path.startsWith('http')
+      ? figure.path
+      : `/articles/${slug}/${figure.path}`;
+    const sourceIds = figure.sourceIds || [];
+    const sources = sourceIds.map((id) => manifest.bibliography.find((s) => s.id === id)).filter(Boolean);
+    const sourceLine = sources.map((s) => s.publisher || s.title).join('; ') || 'Article source notes';
+    return {
+      ...figure,
+      src,
+      alt: figure.alt ?? figure.title,
+      sourceLine,
+    };
+  });
+
+  const dataTables = manifest.dataTables.map((table) => {
+    const headers = table.headers || [];
+    const rows = (table.rows || []).map((row) => ({
+      cells: headers.map((header) => ({
+        value: row[header.key] ?? '',
+        numeric: !!header.numeric,
+      })),
+    }));
+    return { ...table, headers, rows };
+  });
+
+  const bibliography = manifest.bibliography.map((source) => ({
+    ...source,
+    citation: renderCitation(source),
+  }));
+
+  return {
+    metadata: {
+      ...manifest.metadata,
+      title,
+      date,
+      articleUrl: canonicalUrl,
+    },
+    summary: manifest.summary,
+    figures,
+    dataTables,
+    methodology: manifest.methodology,
+    credits: {
+      ...manifest.credits,
+      authorName,
+      institutionName,
+    },
+    bibliography,
+    auditLinks: manifest.auditLinks || [],
+    formattedDate: formatDate(date),
+    authorLine: `${authorName} · ${institutionName}`,
+    canonicalDomain: domainFrom(canonicalUrl),
+    shortTitle: shortTitleFrom(title),
+    figureCount: figures.length,
+    referenceCount: bibliography.length,
+    unicodeCoverageString: UNICODE_COVERAGE_STRING,
+  };
+}
+
+function renderPackHtml(slug, manifest, articleMeta) {
+  const template = fs.readFileSync(TEMPLATE_PATH, 'utf8');
+  const view = buildView(slug, manifest, articleMeta);
+  return renderTemplate(template, view);
+}
+
+async function renderPdf(browser, { url, output, title, deterministicDate }) {
+  const page = await browser.newPage();
+  try {
+    await page.route('**/*', (route) => {
+      const requestUrl = route.request().url();
+      if (/^(?:https?:\/\/)?(?:127\.0\.0\.1|localhost)(?::|\/|$)/i.test(requestUrl)) {
+        route.continue();
+      } else {
+        route.abort('internetdisconnected');
+      }
+    });
+    await page.goto(url, { waitUntil: 'networkidle' });
+    await page.evaluate(() => document.fonts.ready).catch(() => {});
+    // Wait for images to decode.
+    await page.evaluate(() =>
+      Promise.all(
+        Array.from(document.images)
+          .filter((img) => !img.complete)
+          .map((img) => new Promise((resolve) => { img.onload = img.onerror = resolve; }))
+      )
+    ).catch(() => {});
+    await page.waitForTimeout(200);
+    await page.pdf({
+      path: output,
+      format: 'Letter',
+      printBackground: true,
+      preferCSSPageSize: true,
+      tagged: false,
+    });
+  } finally {
+    await page.close();
+  }
+
+  await normalizePdf(output, { title, deterministicDate });
+}
+
+async function normalizePdf(output, { title, deterministicDate }) {
+  const bytes = fs.readFileSync(output);
+  const doc = await PDFDocument.load(bytes, { updateMetadata: false });
+  doc.setTitle(title);
+  doc.setAuthor('Lupine Science');
+  doc.setSubject('Evidence proof pack');
+  doc.setCreator('lupine-science/scripts/build-proofpack.mjs');
+  doc.setProducer('lupine-science/scripts/build-proofpack.mjs');
+  doc.setCreationDate(deterministicDate);
+  doc.setModificationDate(deterministicDate);
+  // Remove any existing ID to reduce cross-run variance.
+  try {
+    const trailer = doc.context.trailer;
+    if (trailer && trailer.get) {
+      const idArray = trailer.get(PDFName.of('ID'));
+      if (idArray) trailer.set(PDFName.of('ID'), doc.context.obj([]));
+    }
+  } catch {
+    // Best-effort: some pdf-lib versions do not expose trailer directly.
+  }
+  fs.writeFileSync(output, await doc.save({ useObjectStreams: false, updateMetadata: false }));
+}
+
+async function buildPerArticle(browser, slug, outDir, baseUrl) {
+  const articlePath = path.join(PUBLIC, 'articles', slug, 'index.html');
+  if (!fs.existsSync(articlePath)) throw new Error(`missing article HTML: ${articlePath}`);
+  const { manifest, manifestPath } = loadManifest(slug);
+  const articleMeta = extractArticleMeta(fs.readFileSync(articlePath, 'utf8'), slug);
+
+  const html = renderPackHtml(slug, manifest, articleMeta);
+  const htmlPath = path.join(PUBLIC, '.proofpack-render', `${slug}.html`);
+  fs.mkdirSync(path.dirname(htmlPath), { recursive: true });
+  fs.writeFileSync(htmlPath, html);
+
+  const pdfName = `${slug}.proofpack.pdf`;
+  const manifestName = `${slug}.proofpack.json`;
+  const pdfPath = path.join(outDir, pdfName);
+  const outputManifestPath = path.join(outDir, manifestName);
+
+  await renderPdf(browser, {
+    url: `${baseUrl}/.proofpack-render/${slug}.html`,
+    output: pdfPath,
+    title: manifest.metadata.title,
+    deterministicDate: new Date(`${manifest.metadata.date}T00:00:00Z`),
+  });
+
+  const articleDir = path.join(PUBLIC, 'articles', slug);
+  const figureChecksums = {};
+  for (const figure of manifest.figures) {
+    const figurePath = path.join(articleDir, figure.path);
+    if (fs.existsSync(figurePath)) {
+      figureChecksums[figure.path] = sha256(figurePath);
+    }
+  }
+
+  const outputManifest = {
+    schemaVersion: '1.0.0',
+    generatedAt: new Date().toISOString(),
+    build: {
+      script: 'scripts/build-proofpack.mjs',
+      mode: 'per-article',
+      slug,
+    },
+    inputs: {
+      manifest: {
+        path: path.relative(ROOT, manifestPath),
+        sha256: sha256(manifestPath),
+      },
+      articleHtml: {
+        path: path.relative(ROOT, articlePath),
+        sha256: sha256(articlePath),
+      },
+      figures: figureChecksums,
+      renderedHtml: {
+        path: path.relative(ROOT, htmlPath),
+        sha256: sha256String(html),
+      },
+    },
+    output: {
+      pdf: {
+        path: path.relative(ROOT, pdfPath),
+        sha256: sha256(pdfPath),
+        bytes: fs.statSync(pdfPath).size,
+      },
+    },
+  };
+  fs.writeFileSync(outputManifestPath, `${JSON.stringify(outputManifest, null, 2)}\n`);
+  return { slug, pdfPath, manifestPath: outputManifestPath };
+}
+
+function cleanStaleOutputs(outDir, eligibleSlugs) {
+  if (!fs.existsSync(outDir)) return;
+  const expected = new Set(
+    eligibleSlugs.flatMap((slug) => [`${slug}.proofpack.pdf`, `${slug}.proofpack.json`])
+  );
+  for (const entry of fs.readdirSync(outDir, { withFileTypes: true })) {
+    if (!entry.isFile()) continue;
+    if (entry.name.endsWith('.proofpack.pdf') || entry.name.endsWith('.proofpack.json')) {
+      if (!expected.has(entry.name)) {
+        fs.rmSync(path.join(outDir, entry.name));
+        console.log(`cleaned stale output: ${entry.name}`);
+      }
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// Consolidated (legacy climate-series) mode
+// --------------------------------------------------------------------------
+
+function legacyCoverHtml({ title, date, url, baseUrl }) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -198,7 +635,7 @@ function coverHtml({ title, date, url, baseUrl }) {
 </html>`;
 }
 
-async function renderPdf(browser, { url, html, output }) {
+async function legacyRenderPdf(browser, { url, html, output }) {
   const page = await browser.newPage();
   try {
     if (html) {
@@ -206,7 +643,6 @@ async function renderPdf(browser, { url, html, output }) {
     } else {
       await page.goto(url, { waitUntil: 'networkidle' });
     }
-    // Wait for web fonts (including KaTeX) and any math rendering before printing.
     await page.evaluate(() => document.fonts.ready).catch(() => {});
     await page.waitForSelector('.katex', { timeout: 5000 }).catch(() => {});
     await page.waitForTimeout(300);
@@ -231,48 +667,114 @@ async function mergePdfs(paths, output) {
   fs.writeFileSync(output, await merged.save());
 }
 
+async function buildConsolidated(browser, baseUrl) {
+  const perArticlePaths = [];
+  for (const slug of CLIMATE_SLUGS) {
+    const articlePath = path.join(PUBLIC, 'articles', slug, 'index.html');
+    if (!fs.existsSync(articlePath)) throw new Error(`missing ${articlePath}`);
+    const html = fs.readFileSync(articlePath, 'utf8');
+    const meta = extractArticleMeta(html, slug);
+    console.log(`rendering: ${meta.title}`);
+
+    const coverFile = path.join(TMP, `${slug}-cover.pdf`);
+    const articleFile = path.join(TMP, `${slug}.pdf`);
+    await legacyRenderPdf(browser, {
+      url: baseUrl,
+      html: legacyCoverHtml({ ...meta, baseUrl }),
+      output: coverFile,
+    });
+    await legacyRenderPdf(browser, {
+      url: `${baseUrl}/articles/${slug}/`,
+      output: articleFile,
+    });
+    perArticlePaths.push(coverFile, articleFile);
+  }
+
+  await mergePdfs(perArticlePaths, CONSOLIDATED_OUT);
+  const sizeMB = fs.statSync(CONSOLIDATED_OUT).size / (1024 * 1024);
+  console.log(`consolidated proof pack written: ${CONSOLIDATED_OUT} (${sizeMB.toFixed(2)} MB)`);
+  if (sizeMB >= 20) {
+    throw new Error(`PDF is ${sizeMB.toFixed(2)} MB, above the 20 MB budget`);
+  }
+}
+
+// --------------------------------------------------------------------------
+// CLI
+// --------------------------------------------------------------------------
+
+function parseArgs(argv) {
+  const options = {
+    mode: null,
+    slug: '',
+    outDir: DEFAULT_OUT_DIR,
+  };
+  const args = [...argv];
+  while (args.length) {
+    const arg = args.shift();
+    if (arg === '--consolidated') options.mode = 'consolidated';
+    else if (arg === '--all') options.mode = 'all';
+    else if (arg === '--slug') {
+      options.mode = 'slug';
+      options.slug = args.shift();
+    } else if (arg === '--out-dir') {
+      options.outDir = path.resolve(ROOT, args.shift());
+    } else if (arg === '--help' || arg === '-h') {
+      console.log(`usage: node scripts/build-proofpack.mjs [options]
+
+options:
+  --consolidated          Build public/proof-pack-climate-series.pdf (legacy mode).
+  --all                   Build one PDF + JSON manifest for every eligible article.
+  --slug <slug>           Build one article only.
+  --out-dir <dir>         Output directory for per-article packs (default: public/proof-packs/).
+  --help                  Show this message.`);
+      process.exit(0);
+    } else {
+      throw new Error(`unknown option: ${arg}`);
+    }
+  }
+  if (!options.mode) {
+    throw new Error('no mode selected; use --consolidated, --all, or --slug <slug> (see --help)');
+  }
+  if (options.mode === 'slug' && !options.slug) {
+    throw new Error('--slug requires a value');
+  }
+  return options;
+}
+
 async function main() {
   const startedAt = Date.now();
-  if (fs.existsSync(TMP)) fs.rmSync(TMP, { recursive: true });
+  const options = parseArgs(process.argv.slice(2));
+
+  if (fs.existsSync(TMP)) fs.rmSync(TMP, { recursive: true, force: true });
   fs.mkdirSync(TMP, { recursive: true });
 
   const { server, baseUrl } = await startServer();
   let browser;
   try {
     browser = await chromium.launch({ headless: true });
-    const perArticlePaths = [];
-    for (const slug of SLUGS) {
-      const articlePath = path.join(PUBLIC, 'articles', slug, 'index.html');
-      if (!fs.existsSync(articlePath)) throw new Error(`missing ${articlePath}`);
-      const html = fs.readFileSync(articlePath, 'utf8');
-      const meta = extractMeta(html, slug);
-      console.log(`rendering: ${meta.title}`);
 
-      const coverFile = path.join(TMP, `${slug}-cover.pdf`);
-      const articleFile = path.join(TMP, `${slug}.pdf`);
-      await renderPdf(browser, {
-        url: baseUrl,
-        html: coverHtml({ ...meta, baseUrl }),
-        output: coverFile,
-      });
-      await renderPdf(browser, {
-        url: `${baseUrl}/articles/${slug}/`,
-        output: articleFile,
-      });
-      perArticlePaths.push(coverFile, articleFile);
+    if (options.mode === 'consolidated') {
+      await buildConsolidated(browser, baseUrl);
+    } else {
+      fs.mkdirSync(options.outDir, { recursive: true });
+      const eligible = options.mode === 'all' ? findEligibleSlugs() : [options.slug];
+      if (options.mode === 'all') cleanStaleOutputs(options.outDir, eligible);
+
+      for (const slug of eligible) {
+        console.log(`building proof pack: ${slug}`);
+        const result = await buildPerArticle(browser, slug, options.outDir, baseUrl);
+        console.log(`  PDF: ${result.pdfPath}`);
+        console.log(`  manifest: ${result.manifestPath}`);
+      }
     }
 
-    await mergePdfs(perArticlePaths, OUT);
-    const sizeMB = fs.statSync(OUT).size / (1024 * 1024);
-    console.log(`proof pack written: ${OUT} (${sizeMB.toFixed(2)} MB)`);
-    if (sizeMB >= 20) {
-      throw new Error(`PDF is ${sizeMB.toFixed(2)} MB, above the 20 MB budget`);
-    }
     console.log(`finished in ${Date.now() - startedAt} ms`);
   } finally {
     if (browser) await browser.close();
     server.close();
     fs.rmSync(TMP, { recursive: true, force: true });
+    const renderDir = path.join(PUBLIC, '.proofpack-render');
+    if (fs.existsSync(renderDir)) fs.rmSync(renderDir, { recursive: true, force: true });
   }
 }
 

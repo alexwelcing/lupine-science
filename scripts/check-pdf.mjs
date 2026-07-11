@@ -139,6 +139,7 @@ export async function inspectPdf(pdfPath, expectationsPath = DEFAULT_EXPECTATION
     },
     text: {
       characters: text.length,
+      normalized: normalizedText,
       requiredMarkers: expectations.requiredText,
       sparsePages,
     },

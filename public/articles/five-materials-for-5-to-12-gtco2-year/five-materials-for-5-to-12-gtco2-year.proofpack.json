@@ -1,0 +1,139 @@
+{
+  "schemaVersion": "1.0.0",
+  "metadata": {
+    "slug": "five-materials-for-5-to-12-gtco2-year",
+    "title": "Five Materials That Could Unlock 5–12 GtCO₂/Year",
+    "date": "2026-07-09",
+    "status": "draft",
+    "license": "CC BY 4.0",
+    "version": "1.0",
+    "articleUrl": "https://lupine.science/articles/five-materials-for-5-to-12-gtco2-year/",
+    "eyebrow": "Climate materials portfolio",
+    "deck": "A compact, auditable record of the article’s claims, source figures, data, methods, and institutional responsibility.",
+    "documentId": "LS-PP-2026-005",
+    "evidenceStatus": "Reviewed"
+  },
+  "summary": {
+    "claim": "Five material classes share a defect-mediated prediction problem. Correcting systematic model error at under-coordinated environments may improve which candidates reach synthesis.",
+    "verdict": "supported",
+    "scope": "Portfolio-level evidence record for five climate-relevant material targets.",
+    "limitations": [
+      "Impact ranges are conditional scenarios, not deployment forecasts.",
+      "Commercial outcomes depend on scale-up, policy, and partner validation beyond this evidence record."
+    ],
+    "lead": "Five material classes share a defect-mediated prediction problem. Correcting systematic model error at under-coordinated environments may improve which candidates reach synthesis.",
+    "findings": [
+      { "label": "Claim", "text": "The portfolio’s combined climate opportunity is estimated at 5–12 GtCO₂/year, conditional on successful development and deployment." },
+      { "label": "Mechanism", "text": "Ranking errors arise where universal potentials soften transition states, surfaces, and defects." },
+      { "label": "Boundary", "text": "This pack records evidence and assumptions; it does not represent experimental validation of every candidate." }
+    ],
+    "verdictDetail": "Supported as a portfolio thesis.",
+    "verdictBody": "The aggregate range is an independently sourced opportunity estimate, not a forecast. Each pathway retains technical, policy, and scale-up uncertainty.",
+    "orientation": "The following pages preserve representative article figures with captions, a compact data table, the methodology note, credits, and a bibliography. Figure numbering and source lines remain stable between builds."
+  },
+  "figures": [
+    {
+      "id": "fig-climate-impact",
+      "title": "Five Material Classes Could Unlock 5–12 GtCO₂/Year",
+      "path": "images/five-materials-for-5-to-12-gtco2-year-01-climate-impact.jpg",
+      "alt": "Horizontal comparison of five material classes and their estimated annual climate impact ranges.",
+      "caption": "Five independently sized material targets sum to an aggregate climate potential of 5–12 GtCO₂/year.",
+      "sourceIds": ["iea-batteries-2024", "ipcc-ar6-2022"]
+    },
+    {
+      "id": "fig-blind-prediction",
+      "title": "Blind Prediction of Surface Energies Across 36 Model–Material Pairs",
+      "path": "images/five-materials-for-5-to-12-gtco2-year-04-blind-prediction-accuracy.jpg",
+      "alt": "Scatter plot comparing measured and predicted surface-energy errors across 36 model-material pairs.",
+      "caption": "Across 36 model–material combinations, the environment error field predicts never-fitted surface energies with Pearson r = 0.906 and zero adjustable parameters.",
+      "sourceIds": ["deng-2025"]
+    }
+  ],
+  "dataTables": [
+    {
+      "id": "table-targets",
+      "title": "Representative targets",
+      "caption": "Representative targets carried from the article into the proof pack.",
+      "headers": [
+        { "key": "pathway", "label": "Material pathway" },
+        { "key": "metric", "label": "Decision metric" },
+        { "key": "target", "label": "Target", "numeric": true }
+      ],
+      "rows": [
+        { "pathway": "Cobalt-free LMR cathode", "metric": "Cell-level energy density", "target": ">300 Wh/kg" },
+        { "pathway": "Halide solid electrolyte", "metric": "Ionic conductivity", "target": ">10 mS/cm" },
+        { "pathway": "MOF sorbent", "metric": "CO₂ working capacity at 400 ppm", "target": ">2 mmol/g" },
+        { "pathway": "Ammonia catalyst", "metric": "Energy efficiency", "target": ">60%" },
+        { "pathway": "Lead-free perovskite", "metric": "Certified conversion efficiency", "target": ">20%" }
+      ],
+      "sourceIds": ["arpa-e-refuel-2020", "deng-2025"]
+    }
+  ],
+  "methodology": {
+    "description": "Claims are selected from the article’s explicit quantitative statements. Each retained chart must have a descriptive alternative text, visible caption, source line, and corresponding bibliography entry.",
+    "steps": [
+      "Identify decision-relevant quantitative claims in the article.",
+      "Select figures that preserve complete axes, labels, legends, and annotations.",
+      "Copy values without reinterpretation; state transformations and exclusions.",
+      "Map every figure and table to independent bibliography entries."
+    ],
+    "artifacts": [],
+    "unitOfAnalysis": "Material class and defect-mediated performance metric",
+    "evidenceCutoff": "2026-07-09",
+    "versioning": "Deterministic HTML/CSS build; source URL and document ID printed on cover",
+    "limitations": "Impact ranges are conditional scenarios; commercial outcomes are not guaranteed.",
+    "inputs": ["Article source notes", "Cited peer-reviewed and official sources"],
+    "transformations": ["None; values are copied as stated."],
+    "validation": ["Bibliography cross-check", "Source-domain policy validation"],
+    "reproduction": ["Repository-local build scripts", "Article HTML and image assets"]
+  },
+  "credits": {
+    "authors": [
+      { "name": "Alex Welcing", "role": "Author" }
+    ],
+    "institutions": [
+      { "name": "Lupine Science", "role": "Institution" }
+    ],
+    "editorialReview": "[Reviewer name / role — required before release]",
+    "provenance": "Article source notes and bibliography",
+    "contact": "https://lupine.science/contact/"
+  },
+  "bibliography": [
+    {
+      "id": "deng-2025",
+      "title": "Systematic softening in universal machine learning interatomic potentials",
+      "type": "peer-reviewed",
+      "url": "https://doi.org/10.1038/s41524-024-01500-6",
+      "doi": "10.1038/s41524-024-01500-6",
+      "publisher": "npj Computational Materials",
+      "year": 2025
+    },
+    {
+      "id": "iea-batteries-2024",
+      "title": "Batteries and Secure Energy Transitions",
+      "type": "intergovernmental",
+      "url": "https://www.iea.org/reports/batteries-and-secure-energy-transitions",
+      "publisher": "International Energy Agency",
+      "year": 2024
+    },
+    {
+      "id": "ipcc-ar6-2022",
+      "title": "Climate Change 2022: Mitigation of Climate Change",
+      "type": "intergovernmental",
+      "url": "https://www.ipcc.ch/report/ar6/wg3/",
+      "publisher": "IPCC",
+      "year": 2022
+    },
+    {
+      "id": "arpa-e-refuel-2020",
+      "title": "REFUEL: Renewable Energy to Fuels Through Utilization of Energy-Dense Liquids",
+      "type": "government",
+      "url": "https://arpa-e.energy.gov/technologies/programs/refuel",
+      "publisher": "ARPA-E, U.S. Department of Energy",
+      "year": 2020
+    }
+  ],
+  "auditLinks": [
+    { "label": "Canonical article", "url": "https://lupine.science/articles/five-materials-for-5-to-12-gtco2-year/" }
+  ]
+}

@@ -10,3 +10,5 @@ dist/
 .wrangler/
 *.log
 .lighthouseci/
+public/.proofpack-render/
+public/proof-packs/

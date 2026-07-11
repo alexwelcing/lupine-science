@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lupine.science/schemas/proof-pack.schema.json",
+  "title": "Lupine Science proof-pack manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "metadata", "summary", "figures", "dataTables", "methodology", "credits", "bibliography"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["slug", "title", "date", "status", "license"],
+      "properties": {
+        "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "title": { "type": "string", "minLength": 1 },
+        "date": { "type": "string", "format": "date" },
+        "status": { "enum": ["draft", "review", "published", "withdrawn"] },
+        "license": { "type": "string", "minLength": 1 },
+        "articleUrl": { "type": "string", "format": "uri" },
+        "version": { "type": "string", "minLength": 1 },
+        "eyebrow": { "type": "string", "minLength": 1 },
+        "deck": { "type": "string", "minLength": 1 },
+        "documentId": { "type": "string", "minLength": 1 },
+        "evidenceStatus": { "type": "string", "minLength": 1 }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["claim", "verdict", "scope"],
+      "properties": {
+        "claim": { "type": "string", "minLength": 1 },
+        "verdict": { "enum": ["supported", "refuted", "open", "mixed"] },
+        "scope": { "type": "string", "minLength": 1 },
+        "limitations": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "lead": { "type": "string", "minLength": 1 },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["label", "text"],
+            "properties": {
+              "label": { "type": "string", "minLength": 1 },
+              "text": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "verdictDetail": { "type": "string", "minLength": 1 },
+        "verdictBody": { "type": "string", "minLength": 1 },
+        "orientation": { "type": "string", "minLength": 1 }
+      }
+    },
+    "figures": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/figure" }
+    },
+    "dataTables": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/dataTable" }
+    },
+    "methodology": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["description", "steps", "artifacts"],
+      "properties": {
+        "description": { "type": "string", "minLength": 1 },
+        "steps": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+        "artifacts": { "type": "array", "items": { "$ref": "#/$defs/link" } },
+        "unitOfAnalysis": { "type": "string", "minLength": 1 },
+        "evidenceCutoff": { "type": "string", "minLength": 1 },
+        "versioning": { "type": "string", "minLength": 1 },
+        "limitations": { "type": "string", "minLength": 1 },
+        "inputs": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "transformations": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "validation": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "reproduction": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "credits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authors", "institutions"],
+      "properties": {
+        "authors": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/credit" } },
+        "institutions": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/credit" } },
+        "editorialReview": { "type": "string", "minLength": 1 },
+        "provenance": { "type": "string", "minLength": 1 },
+        "contact": { "type": "string", "format": "uri" }
+      }
+    },
+    "bibliography": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/source" }
+    },
+    "auditLinks": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/link" }
+    }
+  },
+  "$defs": {
+    "link": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "url"],
+      "properties": {
+        "label": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri" },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "figure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "path", "caption", "sourceIds"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+        "title": { "type": "string", "minLength": 1 },
+        "path": { "type": "string", "minLength": 1 },
+        "alt": { "type": "string", "minLength": 1 },
+        "caption": { "type": "string", "minLength": 1 },
+        "sourceIds": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "dataTable": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "caption", "headers", "rows", "sourceIds"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+        "title": { "type": "string", "minLength": 1 },
+        "caption": { "type": "string", "minLength": 1 },
+        "headers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["key", "label"],
+            "properties": {
+              "key": { "type": "string", "minLength": 1 },
+              "label": { "type": "string", "minLength": 1 },
+              "numeric": { "type": "boolean" }
+            }
+          }
+        },
+        "rows": { "type": "array", "items": { "type": "object" } },
+        "sourceIds": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "credit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "role"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "role": { "type": "string", "minLength": 1 },
+        "orcid": { "type": "string", "pattern": "^https://orcid.org/[0-9X-]+$" }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "type", "url"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+        "title": { "type": "string", "minLength": 1 },
+        "type": { "enum": ["peer-reviewed", "government", "intergovernmental", "research-institution", "exception"] },
+        "url": { "type": "string", "format": "uri" },
+        "doi": { "type": "string", "pattern": "^10\\.[0-9]{4,9}/\\S+$" },
+        "publisher": { "type": "string", "minLength": 1 },
+        "year": { "type": "integer", "minimum": 1600, "maximum": 2200 },
+        "exceptionJustification": { "type": "string", "minLength": 40 }
+      }
+    }
+  }
+}

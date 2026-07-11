@@ -1,0 +1,27 @@
+{
+  "minimumPages": 1,
+  "pageSize": "612 x 792 pts (letter)",
+  "requiredText": [
+    "Five Materials",
+    "CO₂",
+    "CH₄",
+    "GtCO₂/year",
+    "—",
+    "–",
+    "“",
+    "”",
+    "’",
+    "×",
+    "≈",
+    "γ",
+    "∑",
+    "José García",
+    "Zoë Šimůnková",
+    "François L’Écuyer"
+  ],
+  "forbiddenText": [
+    "�",
+    "{{",
+    "}}"
+  ]
+}

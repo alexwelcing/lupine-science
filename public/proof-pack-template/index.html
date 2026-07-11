@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{metadata.title}} — Lupine Science</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/proof-pack.css">
+</head>
+<body>
+<main class="proof-pack" aria-label="Proof pack preview">
+  <section class="sheet cover" aria-labelledby="proof-title">
+    <div class="cover-bar">
+      <div class="wordmark"><img src="/lupine-science-mark.svg" alt=""><span>Lupine Science</span></div>
+      <span class="document-type">Evidence proof pack · v{{metadata.version}}</span>
+    </div>
+    <div class="cover-rule" aria-hidden="true"></div>
+    <span class="eyebrow">{{metadata.eyebrow}}</span>
+    <h1 id="proof-title">{{metadata.title}}</h1>
+    <p class="deck">{{metadata.deck}}</p>
+    <div class="cover-evidence" aria-label="Document summary">
+      <div><span class="meta-label">Evidence status</span><strong>{{metadata.evidenceStatus}}</strong></div>
+      <div><span class="meta-label">Figures</span><strong>{{figureCount}} selected</strong></div>
+      <div><span class="meta-label">References</span><strong>{{referenceCount}} cited</strong></div>
+    </div>
+    <div class="cover-meta">
+      <p><span class="meta-label">Published</span>{{formattedDate}}</p>
+      <p><span class="meta-label">Document ID</span>{{metadata.documentId}}</p>
+      <p><span class="meta-label">Author / institution</span>{{authorLine}}</p>
+      <p><span class="meta-label">Canonical source</span>{{canonicalDomain}}</p>
+    </div>
+  </section>
+
+  <section class="sheet" data-short-title="{{shortTitle}}" data-page="02" aria-labelledby="summary-title">
+    <span class="section-number">01 / Executive summary</span>
+    <h2 id="summary-title">What the evidence supports</h2>
+    <div class="summary-grid">
+      <div>
+        <p class="lead">{{summary.lead}}</p>
+        <ul class="key-findings">
+          {{#each summary.findings}}
+          <li><strong>{{this.label}}.</strong> {{this.text}}</li>
+          {{/each}}
+        </ul>
+      </div>
+      <aside class="callout" aria-labelledby="verdict-title">
+        <span class="meta-label" id="verdict-title">Evidence verdict</span>
+        <p><strong>{{summary.verdictDetail}}</strong></p>
+        <p>{{summary.verdictBody}}</p>
+      </aside>
+    </div>
+    <h3>Reader orientation</h3>
+    <p>{{summary.orientation}}</p>
+  </section>
+
+  <section class="sheet" data-short-title="{{shortTitle}}" data-page="03" aria-labelledby="figures-title">
+    <span class="section-number">02 / Key figures</span>
+    <h2 id="figures-title">The claim, then the mechanism</h2>
+    {{#each figures}}
+    <figure class="figure">
+      <img src="{{this.src}}" alt="{{this.alt}}">
+      <figcaption>{{this.caption}}<span class="figure-source">Source: {{this.sourceLine}}</span></figcaption>
+    </figure>
+    {{/each}}
+  </section>
+
+  <section class="sheet" data-short-title="{{shortTitle}}" data-page="04" aria-labelledby="data-title">
+    <span class="section-number">03 / Data and method</span>
+    <h2 id="data-title">Inspectable values and assumptions</h2>
+    {{#each dataTables}}
+    <table class="data-table">
+      <caption>{{this.caption}}</caption>
+      <thead><tr>{{#each this.headers}}<th scope="col">{{this.label}}</th>{{/each}}</tr></thead>
+      <tbody>
+        {{#each this.rows}}
+        <tr>{{#each this.cells}}<td{{#if this.numeric}} class="numeric"{{/if}}>{{this.value}}</td>{{/each}}</tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{/each}}
+    <div class="methodology">
+      <div>
+        <span class="meta-label">Method record</span>
+        <dl>
+          <dt>Unit of analysis</dt><dd>{{methodology.unitOfAnalysis}}</dd>
+          <dt>Evidence cutoff</dt><dd>{{methodology.evidenceCutoff}}</dd>
+          <dt>Versioning</dt><dd>{{methodology.versioning}}</dd>
+          <dt>Known limitations</dt><dd>{{methodology.limitations}}</dd>
+        </dl>
+      </div>
+      <div>
+        <h3>Methodology note</h3>
+        <p>{{methodology.description}}</p>
+        <p>Builds run entirely from repository assets. No runtime network requests, remote fonts, analytics, animation, or hidden interactive state are permitted in the PDF path.</p>
+      </div>
+    </div>
+    <div class="credits" aria-labelledby="credits-title">
+      <span class="meta-label" id="credits-title">Author and institution credits</span>
+      <div class="credits-list">
+        <p><strong>Author</strong><br>{{credits.authorName}}</p>
+        <p><strong>Institution</strong><br>{{credits.institutionName}}</p>
+        <p><strong>Editorial review</strong><br>{{credits.editorialReview}}</p>
+        <p><strong>Data and figure provenance</strong><br>{{credits.provenance}}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet" data-short-title="{{shortTitle}}" data-page="05" aria-labelledby="references-title">
+    <span class="section-number">04 / Bibliography</span>
+    <h2 id="references-title">Sources and audit trail</h2>
+    <ol class="bibliography">
+      {{#each bibliography}}
+      <li>{{{this.citation}}}</li>
+      {{/each}}
+    </ol>
+    <h3>Audit links</h3>
+    {{#each auditLinks}}
+    <p>{{this.label}}: <a href="{{this.url}}">{{this.url}}</a></p>
+    {{/each}}
+    <p>Every production pack must add links to the underlying dataset, analysis/code, and archived figure manifest when those artifacts exist.</p>
+    <div class="unicode-test" aria-label="Unicode font coverage test">
+      <span class="meta-label">Required font and extraction test string</span>
+      <p>{{unicodeCoverageString}}</p>
+      <p><code>All production PDFs must embed Unicode-capable font subsets with ToUnicode maps. No remote font fallback is allowed.</code></p>
+    </div>
+  </section>
+</main>
+</body>
+</html>
