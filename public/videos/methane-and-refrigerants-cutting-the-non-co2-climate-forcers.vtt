@@ -1,0 +1,81 @@
+WEBVTT
+
+1
+00:00:00.100 --> 00:00:02.941
+Carbon dioxide gets the headlines.
+
+2
+00:00:02.891 --> 00:00:09.968
+But cutting methane thirty percent by 2030 could avoid about zero point three degrees of warming by 2040.
+
+3
+00:00:09.968 --> 00:00:16.908
+Phasing down HFC refrigerants could avoid up to another zero point five degrees by 2100.
+
+4
+00:00:16.908 --> 00:00:19.586
+That is huge near-term leverage.
+
+5
+00:00:19.586 --> 00:00:24.470
+Here is the twist: both targets depend on materials we do not have yet.
+
+6
+00:00:24.470 --> 00:00:33.601
+We need catalysts that convert stranded methane without burning the product, and refrigerants that are efficient, safe, and low-warming, all at once.
+
+7
+00:00:33.601 --> 00:00:37.182
+Fast atomistic AI should help search the options.
+
+8
+00:00:37.182 --> 00:00:46.440
+Except its biggest errors happen exactly where these materials work: surfaces, transition states, radical fragments, and phase boundaries.
+
+9
+00:00:46.440 --> 00:00:56.027
+In those under-coordinated environments, universal models can soften the energy landscape by fifteen to sixty percent, and rank the wrong candidate first.
+
+10
+00:00:56.027 --> 00:00:59.639
+Methane's carbon-hydrogen bond is brutally strong.
+
+11
+00:00:59.639 --> 00:01:07.235
+A catalyst active enough to crack it often holds the methanol product too tightly and over-oxidizes it into carbon dioxide.
+
+12
+00:01:07.235 --> 00:01:14.947
+Corrected barriers can expose rare sites that break this trap, and open lower-temperature methanol or cleaner hydrogen routes.
+
+13
+00:01:14.947 --> 00:01:18.930
+Refrigerants face a different-looking version of the same problem.
+
+14
+00:01:18.930 --> 00:01:27.341
+Millions of molecules must be screened for vapor pressure, efficiency, flammability, toxicity, and atmospheric lifetime.
+
+15
+00:01:27.341 --> 00:01:34.851
+The safety-critical steps involve radicals and breaking bonds, the same low-coordination physics that raw models misread.
+
+16
+00:01:34.851 --> 00:01:43.548
+Lupine measures the error versus atomic coordination, anchors a correction field, and applies it at runtime, without retraining the base model.
+
+17
+00:01:43.548 --> 00:01:48.474
+Then machine-checked proofs mark which predictions stay inside the measured domain.
+
+18
+00:01:48.474 --> 00:01:59.046
+Across thirty-six blind model-and-material combinations, corrected predictions reached a correlation of zero point nine zero six, with zero adjustable parameters.
+
+19
+00:01:59.046 --> 00:02:04.576
+Methane catalysts and next-generation cooling are not separate discovery stories.
+
+20
+00:02:04.576 --> 00:02:13.707
+They share one hidden error geometry, and one chance to turn fast screening into evidence we can actually trust, before the policy clock runs out.
