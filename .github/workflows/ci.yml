@@ -12,8 +12,84 @@ permissions:
   contents: read
 
 jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint source
+        run: npm run lint
+
+      - name: Report lint failure
+        if: failure()
+        run: echo '### Lint failed — run `npm run lint` locally.' >> "$GITHUB_STEP_SUMMARY"
+
+  typecheck:
+    name: Type check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Report type-check failure
+        if: failure()
+        run: echo '### Type check failed — run `npm run typecheck` locally.' >> "$GITHUB_STEP_SUMMARY"
+
+  unit-tests:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install system PDF/QA tools
+        run: sudo apt-get update && sudo apt-get install --yes poppler-utils
+
+      - name: Install Playwright browser
+        run: npx playwright install chromium
+
+      - name: Run unit tests
+        run: npm test
+
+      - name: Report unit-test failure
+        if: failure()
+        run: echo '### Unit tests failed — run `npm test` locally.' >> "$GITHUB_STEP_SUMMARY"
+
   build:
     name: Build site
+    needs: [lint, typecheck, unit-tests]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -34,20 +110,11 @@ jobs:
         working-directory: media/projects/article-videos
         run: npm run check
 
-      - name: Lint source
-        run: npm run lint
-
-      - name: Type check (or verify no TypeScript sources)
-        run: npm run typecheck
-
       - name: Install system PDF/QA tools before tests
         run: sudo apt-get update && sudo apt-get install --yes poppler-utils
 
       - name: Install Playwright browsers for proof-pack tests and PDF rendering
         run: npx playwright install chromium
-
-      - name: Run unit tests
-        run: npm test
 
       - name: Build site
         run: npm run build

@@ -118,6 +118,27 @@ function walkHtml(dir, out = []) {
   }
   return out;
 }
+
+// Root-relative files referenced by shipped HTML must exist at build time.
+for (const file of walkHtml(PUBLIC)) {
+  const html = fs.readFileSync(file, 'utf8');
+  const references = [];
+  for (const match of html.matchAll(/\b(?:src|poster|href)="(\/[^"]+)"/g)) references.push(match[1]);
+  for (const match of html.matchAll(/\bsrcset="([^"]+)"/g)) {
+    for (const candidate of match[1].split(',')) references.push(candidate.trim().split(/\s+/)[0]);
+  }
+  for (const reference of references) {
+    const pathname = decodeURIComponent(new URL(reference, 'https://lupine.science').pathname);
+    if (pathname.endsWith('/') || reference.includes('#')) continue;
+    if (!fs.existsSync(path.join(PUBLIC, pathname.slice(1)))) {
+      fail(`${path.relative(ROOT, file)} references missing asset ${pathname}`);
+    }
+  }
+  if (/fonts\.(?:googleapis|gstatic)\.com/.test(html)) {
+    fail(`${path.relative(ROOT, file)} references Google Fonts — fonts must stay self-hosted`);
+  }
+}
+
 // Articles may cite other groups' published work; what they must never do is
 // claim publication status for OUR paper.
 const forbiddenFirstPersonClaims = [

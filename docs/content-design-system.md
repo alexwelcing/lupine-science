@@ -37,7 +37,7 @@ Lupine publishes many kinds of knowledge. They must all feel like one institutio
 
 ### Article
 - **Purpose:** Research note, essay, or announcement.
-- **Structure:** title → meta block → hero media → body → optional footnotes.
+- **Structure:** title → editorial header (optional type kicker, scope deck, date/status byline) → hero media → body → optional footnotes.
 - **Tone:** rigorous but readable; one big idea.
 - **Hero:** image or video, 16:9 or 3:2.
 
@@ -80,7 +80,7 @@ Lupine publishes many kinds of knowledge. They must all feel like one institutio
 
 ## 4. Frontmatter (Markdown convention)
 
-The first blockquote in any `.md` file is treated as metadata by `build-articles.py`. Use this shape:
+The first blockquote in any `.md` file is treated as metadata by `scripts/build-articles.mjs`. Use this shape:
 
 ```markdown
 > **Title:** Why Lupine Science?
@@ -108,8 +108,19 @@ The build script adds `format-<type>` to the `<body>` class for format-specific 
 
 Use these Markdown + HTML patterns. Classes are styled in `/articles/styles.css`.
 
-### Meta block
-Generated automatically from the first blockquote. Renders as `.article-meta`.
+### Editorial article header
+
+Generated automatically from the first metadata blockquote. The reader-facing hierarchy is:
+
+1. `.article-kicker` — optional `Type`, rendered as a compact indigo publication label.
+2. `h1` — the article title from the Markdown body.
+3. `.article-deck` — `Scope`, promoted to a plain-language standfirst.
+4. `.article-byline` — semantic list containing the human-formatted `Date` and normalized `Status`.
+5. `.article-hero` — image or video, when available.
+
+`Description` remains available to search, social previews, structured data, and index cards. `Audience` is editorial planning metadata only and must never appear in the reader-facing article. The legacy `.article-meta` form-like block is not emitted.
+
+The component is responsive without changing information hierarchy: the deck reduces from `1.28–1.5rem` to `1.15rem` below 600px, and the byline wraps naturally. The publication details use a semantic list and `<time datetime="…">`; the decorative separator is hidden from assistive technology.
 
 ### Hero figure
 Use the first `<figure>` after the title, or let the build script insert `hero.jpg` / `hero.mp4`.

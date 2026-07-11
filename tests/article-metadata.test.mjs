@@ -65,13 +65,15 @@ describe('article top-line metadata', () => {
     assert.match(html, /<ul class="article-byline"[^>]*>.*<time datetime="[^"]+">[^<]+<\/time>/s);
   });
 
-  it('applies the kicker plus deck stack in the correct order', () => {
+  it('applies the kicker, title, deck, and byline stack in the correct order', () => {
     const html = readArticle('a-field-not-a-neural-net');
     const kicker = html.match(/<p class="article-kicker"[^>]*>.*?<\/p>/s)?.[0] || '';
+    const title = html.match(/<h1>.*?<\/h1>/s)?.[0] || '';
     const deck = html.match(/<p class="article-deck">.*?<\/p>/s)?.[0] || '';
     const byline = html.match(/<ul class="article-byline"[^>]*>.*?<\/ul>/s)?.[0] || '';
-    assert.ok(kicker.length && deck.length && byline.length, 'expected kicker, deck, and byline');
-    assert.ok(html.indexOf(kicker) < html.indexOf(deck), 'kicker must come before deck');
+    assert.ok(kicker.length && title.length && deck.length && byline.length, 'expected kicker, title, deck, and byline');
+    assert.ok(html.indexOf(kicker) < html.indexOf(title), 'kicker must come before title');
+    assert.ok(html.indexOf(title) < html.indexOf(deck), 'title must come before deck');
     assert.ok(html.indexOf(deck) < html.indexOf(byline), 'deck must come before byline');
   });
 });

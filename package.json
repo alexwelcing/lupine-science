@@ -15,6 +15,7 @@
     "proofpack": "node scripts/build-proofpack.mjs --consolidated",
     "proofpack:all": "node scripts/build-proofpack.mjs --all",
     "proofpack:slug": "node scripts/build-proofpack.mjs --slug",
+    "proofpack:update-goldens": "node scripts/update-proofpack-goldens.mjs",
     "proofpack:validate": "node scripts/validate-proofpack.mjs",
     "pdf:check": "node scripts/check-pdf.mjs",
     "ci": "NODE_USE_ENV_PROXY=1 node scripts/dev/ci-watch.mjs",

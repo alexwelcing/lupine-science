@@ -330,11 +330,11 @@ function buildArticle(raw, slug) {
   // extracted above for JSON-LD and the index, then removed from the body.
   body = body.replace(/<blockquote>[\s\S]*?<\/blockquote>/, '');
 
-  // Publication-style header: kicker (type) + deck (scope) + byline (date + status), then hero.
-  const headerParts = [];
+  // Publication-style header: kicker (type) + title + deck (scope) + byline (date + status), then hero.
   if (meta.type) {
-    headerParts.push(`<p class="article-kicker" aria-label="Article type">${esc(meta.type)}</p>`);
+    body = body.replace('<h1>', `<p class="article-kicker" aria-label="Article type">${esc(meta.type)}</p>\n<h1>`);
   }
+  const headerParts = [];
   if (meta.scope) {
     headerParts.push(`<p class="article-deck">${esc(meta.scope)}</p>`);
   }
@@ -446,12 +446,13 @@ ${PAGE_SCRIPT}
 }
 
 function buildIndex(articles) {
-  const cards = articles.map((a) => {
+  const cards = articles.map((a, index) => {
     // cards use dedicated 640w thumbs; full-size heroes stay on the article
     const base = fs.existsSync(path.join(OUT, a.slug, 'thumb.jpg')) ? 'thumb'
       : fs.existsSync(path.join(OUT, a.slug, 'hero.jpg')) ? 'hero' : null;
     const thumb = base
-      ? pictureSources(a.slug, base).replace('width="1280" height="720"', 'class="card-thumb" width="640" height="360"')
+      ? pictureSources(a.slug, base, { eager: index === 0 })
+          .replace('width="1280" height="720"', 'class="card-thumb" width="640" height="360"')
       : '<span class="card-thumb card-thumb-empty" aria-hidden="true"><i></i><i></i><i></i></span>';
     const metaLine = [a.meta.date ? formatDate(a.meta.date) : '', a.meta.status ? esc(formatStatus(a.meta.status)) : ''].filter(Boolean).join(' · ');
     return `<li>

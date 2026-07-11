@@ -643,6 +643,16 @@ async function legacyRenderPdf(browser, { url, html, output }) {
     } else {
       await page.goto(url, { waitUntil: 'networkidle' });
     }
+    await page.addStyleTag({ content: `
+      @font-face {
+        font-family: "Proof Unicode";
+        src: url("${new URL('/fonts/proof-unicode.ttf', url)}") format("truetype");
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: block;
+      }
+      :root { --serif: "Proof Unicode", serif; }
+    ` });
     await page.evaluate(() => document.fonts.ready).catch(() => {});
     await page.waitForSelector('.katex', { timeout: 5000 }).catch(() => {});
     await page.waitForTimeout(300);

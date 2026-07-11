@@ -1045,7 +1045,16 @@
         }
       }
 
+      let lastPaint = 0;
       function frame(ts) {
+        // Keep the ambient canvas below the browser's interaction budget.
+        // The drawing is intentionally slow-moving, so 30 fps is visually
+        // equivalent while leaving alternate frames free for input work.
+        if (lastPaint && ts - lastPaint < 32) {
+          raf = requestAnimationFrame(frame);
+          return;
+        }
+        lastPaint = ts;
         if (!t0) t0 = ts; const time = (ts - t0) / 1000;
         for (const k in cur) cur[k] += (tgt[k] - cur[k]) * 0.045;
         ctx.clearRect(0, 0, w, h);
@@ -1146,10 +1155,11 @@
       resize(); addEventListener("resize", resize, { passive: true });
       // when the structure arrives after the reduced-motion single frame,
       // draw one more so the crystal appears in the still image too
+      const staticCanvas = reduced || mobileMQ.matches;
       onMatterReady = () => {
-        if (reduced) { t0 = 0; requestAnimationFrame((ts) => { frame(ts); cancelAnimationFrame(raf); }); }
+        if (staticCanvas) { t0 = 0; requestAnimationFrame((ts) => { frame(ts); cancelAnimationFrame(raf); }); }
       };
-      if (reduced) { requestAnimationFrame((ts) => { for (const k in cur) cur[k] = tgt[k]; frame(ts); cancelAnimationFrame(raf); }); }
+      if (staticCanvas) { requestAnimationFrame((ts) => { for (const k in cur) cur[k] = tgt[k]; frame(ts); cancelAnimationFrame(raf); }); }
       else {
         raf = requestAnimationFrame(frame);
         document.addEventListener("visibilitychange", () => {
