@@ -27,24 +27,44 @@ kill_oldest_hermes() {
   local n="${1:-1}"
   # Sort by start time (etimes) ascending, kill the oldest hermes -p workers.
   # Exclude the gateway itself if it is running (hermes gateway run).
-  mapfile -t victims < <(ps -eo pid,etimes,comm,args | awk '$4 ~ /hermes/ && $5 == "-p" {print $2, $1}' | sort -n | head -n "${n}" | awk '{print $2}')
-  for pid in "${victims[@]}"; do
-    if [[ -n "${pid}" ]] && kill -TERM "${pid}" 2>/dev/null; then
+  # ps 'comm' for these workers is 'hermes'; $4 is the python interpreter path,
+  # $5 is the hermes binary path, and $6 is '-p'. The kanban task id is the
+  # last argument (e.g., t_xxxxxxxx).
+  mapfile -t victim_lines < <(ps -eo pid,etimes,comm,args | awk '$3 ~ /hermes/ && $6 == "-p" {print $2, $1, $NF}' | sort -n | head -n "${n}")
+  local pids=()
+  local task_ids=()
+  for line in "${victim_lines[@]}"; do
+    read -r _ pid task_id <<< "${line}"
+    if [[ -n "${pid}" ]]; then
+      pids+=("${pid}")
+      [[ "${task_id}" == t_* ]] && task_ids+=("${task_id}")
+    fi
+  done
+
+  for pid in "${pids[@]}"; do
+    if kill -TERM "${pid}" 2>/dev/null; then
       alert "sent SIGTERM to oldest hermes worker pid=${pid}"
     fi
   done
   sleep 3
-  for pid in "${victims[@]}"; do
-    if [[ -n "${pid}" ]] && kill -0 "${pid}" 2>/dev/null; then
+  for pid in "${pids[@]}"; do
+    if kill -0 "${pid}" 2>/dev/null; then
       kill -9 "${pid}" 2>/dev/null || true
       alert "sent SIGKILL to stubborn hermes worker pid=${pid}"
+    fi
+  done
+
+  # Reclaim the killed tasks so the dispatcher knows they are free.
+  for task_id in "${task_ids[@]}"; do
+    if hermes kanban reclaim "${task_id}" 2>/dev/null; then
+      alert "reclaimed kanban task ${task_id} after worker termination"
     fi
   done
 }
 
 # Check total hermes workers
 if (( hermes_count > MAX_HERMES_PROCS )); then
-  local excess=$((hermes_count - MAX_HERMES_PROCS))
+  excess=$((hermes_count - MAX_HERMES_PROCS))
   alert "hermes worker count ${hermes_count} exceeds ${MAX_HERMES_PROCS}; culling ${excess} oldest"
   kill_oldest_hermes "${excess}"
 fi
