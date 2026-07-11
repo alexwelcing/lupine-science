@@ -1,9 +1,8 @@
-> **Type:** article
 > **Date:** 2026-07-16
-> **Scope:** Why critical-mineral recovery and PFAS remediation share the same computational bottleneck — accurate binding and activation energies in under-coordinated environments — and how Lupine's correction layer addresses both.
-> **Description:** Article four of the environmental-expansion series links critical-mineral recycling, direct lithium extraction, and PFAS destruction through a common materials-discovery problem solvable by corrected uMLIPs and machine-checked verification.
-> **Audience:** sophisticated materials, mechanical, and chemical engineers; climate-tech investors
+> **Deck:** Why critical-mineral recovery and PFAS remediation share the same computational bottleneck — accurate binding and activation energies in under-coordinated environments — and how Lupine's correction layer addresses both.
+> **Summary:** Article four of the environmental-expansion series links critical-mineral recycling, direct lithium extraction, and PFAS destruction through a common materials-discovery problem solvable by corrected uMLIPs and machine-checked verification.
 > **Status:** Draft
+
 
 # Critical Minerals, PFAS, and the Remediation Imperative
 
@@ -68,7 +67,7 @@ The error is not random noise. It has a smooth, measurable structure that correl
 Lupine's environment error field measures the systematic departure between uMLIP predictions and higher-fidelity reference data as a function of local atomic environment. For a reference bulk environment — fcc atoms with coordination number twelve — the error is defined as zero. Three anchor observables calibrate the field, and a cubic spline with the bulk constraint predicts the error at environments the field was never directly fitted to. The result is a correction that can be applied at runtime to uMLIP forces and energies[^12].
 
 ![The Lupine Correction Layer](images/critical-minerals-pfas-and-the-remediation-imperative-05-correction-layer.jpg)
-*Lupine's environment error field corrects uMLIP predictions at runtime, achieving a Pearson correlation of 0.906 in blind tests while retaining a roughly five-order-of-magnitude speed advantage over DFT. Source: Lupine Science, Strategic Discovery Plan, Sections 2–3.*
+*Lupine's environment error field corrects uMLIP predictions at runtime, achieving a Pearson correlation of 0.906 in blind tests while retaining a roughly five-order-of-magnitude speed advantage over DFT. Source: Lupine Science formalization library and repository (https://library.lupine.science, https://github.com/alexwelcing/lupine-rhizo).*
 
 
 Blind prediction across thirty-six (model, material) combinations achieves Pearson r = 0.906 (p = 10⁻⁴, 95% CI [0.82, 0.96]) with zero adjustable parameters[^12]. Runtime correction adds analytic forces to the uMLIP gradients, so molecular dynamics and structural relaxations follow the corrected potential energy surface. Corrected uMLIPs retain a speed advantage of roughly five orders of magnitude over density functional theory, making hundred-thousand- to million-candidate screens feasible[^12].
@@ -145,4 +144,4 @@ The next article in this series turns to cement and concrete — the heaviest in
 
 [^11]: B. Deng *et al.*, "Systematic softening in universal machine learning interatomic potentials," *npj Computational Materials* **11**, 9 (2025). https://doi.org/10.1038/s41524-024-01500-6
 
-[^12]: Lupine Science, *Strategic Discovery Plan*, Sections 2–3. The plan documents the environment error field, the r = 0.906 blind-prediction result, the 15.6% runtime overhead, the 190 build-locked Lean 4 theorems, and the boundary conditions for impossibility proofs.
+[^12]: Lupine Science. The build-locked formalization is published in the [open Lean 4 library](https://library.lupine.science) and [source repository](https://github.com/alexwelcing/lupine-rhizo).906 blind-prediction result, the 15.6% runtime overhead, the 190 build-locked Lean 4 theorems, and the boundary conditions for impossibility proofs.

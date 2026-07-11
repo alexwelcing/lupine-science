@@ -1,15 +1,9 @@
 # Research Guide Title
 
 > **Type:** research-guide
->
 > **Date:** YYYY-MM-DD
->
-> **Scope:** Protocol or method name
->
-> **Description:** What the reader will be able to do after following this guide.
->
-> **Audience:** Computational materials labs, MLIP builders
->
+> **Deck:** Protocol or method name
+> **Summary:** What the reader will be able to do after following this guide.
 > **Status:** Draft
 
 <p class="lead">State the objective: by the end of this guide you will have run X and produced Y.</p>

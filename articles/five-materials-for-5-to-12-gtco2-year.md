@@ -1,9 +1,8 @@
-> **Type:** article
 > **Date:** 2026-07-09
-> **Scope:** A portfolio-level view of the five material classes Lupine Science is targeting for climate impact.
-> **Description:** Five computationally intractable materials—cobalt-free cathodes, halide solid electrolytes, MOF sorbents, ammonia catalysts, and lead-free perovskites—could unlock 5–12 GtCO₂/year, but only if the predictions sent to labs are corrected and verified first.
-> **Audience:** sophisticated materials, mechanical, and chemical engineers; climate-tech investors
+> **Deck:** A portfolio-level view of the five material classes Lupine Science is targeting for climate impact.
+> **Summary:** Five computationally intractable materials—cobalt-free cathodes, halide solid electrolytes, MOF sorbents, ammonia catalysts, and lead-free perovskites—could unlock 5–12 GtCO₂/year, but only if the predictions sent to labs are corrected and verified first.
 > **Status:** Draft
+
 
 # Five Materials That Could Unlock 5–12 GtCO₂/Year
 

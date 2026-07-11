@@ -1,11 +1,9 @@
 # From Fantasy Frameworks to Makeable Materials: A Prospectus for Formalized MOF Discovery
 
 > **A proposal for a joint research-and-formalization program**
->
 > **Date:** 2026-06-25  
-> **Scope:** Metal–organic frameworks (MOFs), covalent organic frameworks (COFs), and other high-value reticular / complex molecular structures  
-> **Description:** Why the next leap in AI-driven materials science needs theorem-proved certificates of synthesizability, and how a lab partnership can close the generate–test–learn loop.  
-> **Audience:** Investors, materials scientists, and AI-for-science teams  
+> **Deck:** Metal–organic frameworks (MOFs), covalent organic frameworks (COFs), and other high-value reticular / complex molecular structures  
+> **Summary:** Why the next leap in AI-driven materials science needs theorem-proved certificates of synthesizability, and how a lab partnership can close the generate–test–learn loop.  
 > **Status:** Draft for discussion
 
 ---

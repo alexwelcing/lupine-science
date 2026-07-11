@@ -119,9 +119,10 @@ function extractMeta(raw) {
   for (const [key, name] of [
     ['type', 'Type'],
     ['date', 'Date'],
-    ['scope', 'Scope'],
-    ['description', 'Description'],
-    ['audience', 'Audience'],
+    ['deck', 'Deck'],
+    ['summary', 'Summary'],
+    ['scope', 'Scope'],          // legacy alias for Deck
+    ['description', 'Description'], // legacy alias for Summary
     ['status', 'Status'],
     ['ogTitle', 'OG Title'],
     ['ogDescription', 'OG Description'],
@@ -132,7 +133,7 @@ function extractMeta(raw) {
     const m = raw.match(new RegExp(`^> \\\*\\*${name}:\\\*\\*\\s*(.+?)\\s*$`, 'm'));
     if (m) meta[key] = m[1];
   }
-  // audience is retained for editorial workflow but never rendered to readers
+  // Audience is intentionally not parsed: we do not label readers in public copy.
   return meta;
 }
 
@@ -322,21 +323,24 @@ function buildArticle(raw, slug) {
   const meta = extractMeta(raw);
   const titleMatch = body.match(/<h1>(.*?)<\/h1>/s);
   const title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '') : slug;
-  // description remains useful for search/social previews; scope is the public deck
-  const description = meta.description || meta.scope || `A Lupine Science article: ${title}`;
+  // Summary/deck priority: new labels first, legacy aliases as fallbacks.
+  const description = meta.summary || meta.description || meta.deck || meta.scope || `A Lupine Science article: ${title}`;
+  const deck = meta.deck || meta.scope;
   const url = `${SITE}/articles/${slug}/`;
 
   // The first blockquote in the source is the metadata block; metadata is
   // extracted above for JSON-LD and the index, then removed from the body.
   body = body.replace(/<blockquote>[\s\S]*?<\/blockquote>/, '');
 
-  // Publication-style header: kicker (type) + title + deck (scope) + byline (date + status), then hero.
-  if (meta.type) {
-    body = body.replace('<h1>', `<p class="article-kicker" aria-label="Article type">${esc(meta.type)}</p>\n<h1>`);
-  }
+  // Publication-style header: kicker + title + deck + byline (date + status), then hero.
+  // Articles default to "Research note"; other document types keep their explicit label.
+  const kicker = (!meta.type || meta.type.toLowerCase() === 'article')
+    ? 'Research note'
+    : esc(meta.type);
+  body = body.replace('<h1>', `<p class="article-kicker" aria-label="Article type">${kicker}</p>\n<h1>`);
   const headerParts = [];
-  if (meta.scope) {
-    headerParts.push(`<p class="article-deck">${esc(meta.scope)}</p>`);
+  if (deck) {
+    headerParts.push(`<p class="article-deck">${esc(deck)}</p>`);
   }
   if (meta.date || meta.status) {
     const datePart = meta.date ? `<time datetime="${esc(meta.date)}">${formatDate(meta.date)}</time>` : '';
@@ -460,7 +464,7 @@ function buildIndex(articles) {
     ${thumb}
     <span class="d8">${metaLine}</span>
     <h2>${esc(a.title)}</h2>
-    <p>${esc(a.meta.scope || a.description)}</p>
+    <p>${esc(a.meta.deck || a.meta.summary || a.meta.scope || a.description)}</p>
   </a>
 </li>`;
   }).join('\n');

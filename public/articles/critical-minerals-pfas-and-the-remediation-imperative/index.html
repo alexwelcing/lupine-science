@@ -73,7 +73,7 @@
   <main id="content" class="article-shell">
     <article class="article">
       
-<p class="article-kicker" aria-label="Article type">article</p>
+<p class="article-kicker" aria-label="Article type">Research note</p>
 <h1>Critical Minerals, PFAS, and the Remediation Imperative</h1>
 <p class="article-deck">Why critical-mineral recovery and PFAS remediation share the same computational bottleneck — accurate binding and activation energies in under-coordinated environments — and how Lupine's correction layer addresses both.</p>
 <ul class="article-byline" aria-label="Publication details"><li><time datetime="2026-07-16">July 16, 2026</time></li> <li aria-hidden="true"><span class="byline-sep" aria-hidden="true">·</span></li> <li><span class="article-status">Draft</span></li></ul>
@@ -126,7 +126,7 @@
 <p>Lupine’s environment error field measures the systematic departure between uMLIP predictions and higher-fidelity reference data as a function of local atomic environment. For a reference bulk environment — fcc atoms with coordination number twelve — the error is defined as zero. Three anchor observables calibrate the field, and a cubic spline with the bulk constraint predicts the error at environments the field was never directly fitted to. The result is a correction that can be applied at runtime to uMLIP forces and energies<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup>.</p>
 <figure>
   <img src="images/critical-minerals-pfas-and-the-remediation-imperative-05-correction-layer.jpg" alt="The Lupine Correction Layer" loading="lazy" decoding="async">
-  <figcaption>Lupine’s environment error field corrects uMLIP predictions at runtime, achieving a Pearson correlation of 0.906 in blind tests while retaining a roughly five-order-of-magnitude speed advantage over DFT. Source: Lupine Science, Strategic Discovery Plan, Sections 2–3.</figcaption>
+  <figcaption>Lupine’s environment error field corrects uMLIP predictions at runtime, achieving a Pearson correlation of 0.906 in blind tests while retaining a roughly five-order-of-magnitude speed advantage over DFT. Source: Lupine Science formalization library and repository (https://library.lupine.science, https://github.com/alexwelcing/lupine-rhizo).</figcaption>
 </figure>
 <p>Blind prediction across thirty-six (model, material) combinations achieves Pearson r = 0.906 (p = 10⁻⁴, 95% CI [0.82, 0.96]) with zero adjustable parameters<sup class="footnote-ref"><a href="#fn12" id="fnref12:1">[12:1]</a></sup>. Runtime correction adds analytic forces to the uMLIP gradients, so molecular dynamics and structural relaxations follow the corrected potential energy surface. Corrected uMLIPs retain a speed advantage of roughly five orders of magnitude over density functional theory, making hundred-thousand- to million-candidate screens feasible<sup class="footnote-ref"><a href="#fn12" id="fnref12:2">[12:2]</a></sup>.</p>
 <p>For critical-mineral recovery, the same corrected insertion and site-selectivity energies that rank battery cathode compositions can rank selective sorbents for Li⁺ recovery. Corrected metal–ligand binding energies predict Co²⁺/³⁺ versus Ni²⁺ separation in phosphinic-acid, amine, and hydroxamic-acid extractants without empirical fitting. Corrected Li⁺ migration and oxygen-vacancy formation energies guide direct-recycling re-lithiation conditions for degraded layered-oxide cathodes.</p>
@@ -196,7 +196,7 @@
 </li>
 <li id="fn11" class="footnote-item"><p>B. Deng <em>et al.</em>, “Systematic softening in universal machine learning interatomic potentials,” <em>npj Computational Materials</em> <strong>11</strong>, 9 (2025). https://doi.org/10.1038/s41524-024-01500-6 <a href="#fnref11" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn12" class="footnote-item"><p>Lupine Science, <em>Strategic Discovery Plan</em>, Sections 2–3. The plan documents the environment error field, the r = 0.906 blind-prediction result, the 15.6% runtime overhead, the 190 build-locked Lean 4 theorems, and the boundary conditions for impossibility proofs. <a href="#fnref12" class="footnote-backref">↩︎</a> <a href="#fnref12:1" class="footnote-backref">↩︎</a> <a href="#fnref12:2" class="footnote-backref">↩︎</a> <a href="#fnref12:3" class="footnote-backref">↩︎</a></p>
+<li id="fn12" class="footnote-item"><p>Lupine Science. The build-locked formalization is published in the <a href="https://library.lupine.science">open Lean 4 library</a> and <a href="https://github.com/alexwelcing/lupine-rhizo">source repository</a>.906 blind-prediction result, the 15.6% runtime overhead, the 190 build-locked Lean 4 theorems, and the boundary conditions for impossibility proofs. <a href="#fnref12" class="footnote-backref">↩︎</a> <a href="#fnref12:1" class="footnote-backref">↩︎</a> <a href="#fnref12:2" class="footnote-backref">↩︎</a> <a href="#fnref12:3" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>

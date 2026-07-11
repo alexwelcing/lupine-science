@@ -1,11 +1,9 @@
 # Why Lupine Science?
 
 > **The vision behind the work**
->
 > **Date:** 2026-06-30  
-> **Scope:** Trustworthy AI for materials discovery  
-> **Description:** Why we are building Lupine Science, what problem we are solving, and why the answer is not more models—it is makeability you can check.  
-> **Audience:** Investors, materials scientists, AI-for-science teams, and the curious public  
+> **Deck:** Trustworthy AI for materials discovery  
+> **Summary:** Why we are building Lupine Science, what problem we are solving, and why the answer is not more models—it is makeability you can check.  
 > **Status:** Published
 
 ---

@@ -1,15 +1,9 @@
 # A smooth, environment-resolved error field underlies the systematic property errors of universal machine-learned interatomic potentials
 
 > **Type:** proof-pack
->
 > **Date:** 2026-07-02
->
-> **Scope:** Universal machine-learned interatomic potentials (uMLIPs) err systematically away from equilibrium; we test whether those errors share a single, measurable shape.
->
-> **Description:** For fcc metals, uMLIP errors project onto a smooth field over local atomic environments. The field predicts a never-fitted property with r = 0.906, converts into a run-time correction, and carries machine-checked applicability boundaries.
->
-> **Audience:** Investors, materials scientists, ML-for-science teams, reviewers
->
+> **Deck:** Universal machine-learned interatomic potentials (uMLIPs) err systematically away from equilibrium; we test whether those errors share a single, measurable shape.
+> **Summary:** For fcc metals, uMLIP errors project onto a smooth field over local atomic environments. The field predicts a never-fitted property with r = 0.906, converts into a run-time correction, and carries machine-checked applicability boundaries.
 > **Status:** Published
 
 <div class="callout claim">

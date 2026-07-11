@@ -1,10 +1,7 @@
-> **Type:** article
 > **Date:** 2026-07-16
-> **Scope:** Why the same under-coordination error that corrupts climate-materials predictions also corrupts water, air, methane, refrigerant, mineral, PFAS, and cement discovery.
-> **Description:** The first article in the environmental-expansion series shows that the Lupine correction-and-verification layer is a platform for any material whose function is controlled by under-coordinated environments.
-> **Audience:** sophisticated materials, mechanical, and chemical engineers; climate-tech investors
+> **Deck:** Why the same under-coordination error that corrupts climate-materials predictions also corrupts water, air, methane, refrigerant, mineral, PFAS, and cement discovery.
+> **Summary:** The first article in the environmental-expansion series shows that the Lupine correction-and-verification layer is a platform for any material whose function is controlled by under-coordinated environments.
 > **Status:** Draft
-
 
 
 # Beyond Carbon: The Error Geometry of Environmental Materials
@@ -113,7 +110,7 @@ The next articles in this series walk through the targets in detail. They share 
 
 ## Footnotes
 
-[^1]: Lupine Science, *Strategic Discovery Plan*, Sections 2–3. The plan documents the 0.2% synthesis problem, the environment error field, the r = 0.906 blind-prediction result, the 15.6% runtime overhead, the 190 build-locked Lean 4 theorems, and the boundary conditions for impossibility proofs.
+[^1]: Lupine Science. The build-locked formalization is published in the [open Lean 4 library](https://library.lupine.science) and [source repository](https://github.com/alexwelcing/lupine-rhizo).
 
 [^2]: B. Deng *et al.*, "Systematic softening in universal machine learning interatomic potentials," *npj Computational Materials* **11**, 9 (2025). https://doi.org/10.1038/s41524-024-01500-6
 

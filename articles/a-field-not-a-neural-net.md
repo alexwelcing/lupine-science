@@ -1,9 +1,8 @@
-> **Type:** article
 > **Date:** 2026-07-09
-> **Scope:** Lupine Science’s environment error field as a measured physical correction layer for universal machine-learning interatomic potentials.
-> **Description:** Why the largest errors in computational materials discovery have a low-dimensional geometry, and how Lupine measures and corrects them at runtime with machine-checked proof.
-> **Audience:** sophisticated materials, mechanical, and chemical engineers; climate-tech investors
+> **Deck:** Lupine Science’s environment error field as a measured physical correction layer for universal machine-learning interatomic potentials.
+> **Summary:** Why the largest errors in computational materials discovery have a low-dimensional geometry, and how Lupine measures and corrects them at runtime with machine-checked proof.
 > **Status:** Draft
+
 
 # A Field, Not a Neural Net
 

@@ -1,10 +1,7 @@
-> **Type:** article
 > **Date:** 2026-07-16
-> **Scope:** How corrected atomistic predictions can accelerate low-temperature methane conversion and the discovery of low-GWP refrigerants.
-> **Description:** Methane and hydrofluorocarbon refrigerants are the largest non-CO₂ climate levers; this article explains why both are materials-limited and how Lupine's correction-and-verification layer changes the discovery geometry.
-> **Audience:** sophisticated materials, mechanical, and chemical engineers; climate-tech investors
+> **Deck:** How corrected atomistic predictions can accelerate low-temperature methane conversion and the discovery of low-GWP refrigerants.
+> **Summary:** Methane and hydrofluorocarbon refrigerants are the largest non-CO₂ climate levers; this article explains why both are materials-limited and how Lupine's correction-and-verification layer changes the discovery geometry.
 > **Status:** Draft
-
 
 
 # Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers
@@ -42,7 +39,7 @@ The direct route has been a long-standing target. Homogeneous systems using Fe- 
 Breaking scaling relations is a materials-discovery problem that sits exactly at the boundary of what atomistic screening can address. Candidate active sites — single-metal cations in zeolite frameworks, single-atom alloys, confined metal clusters, metal-oxide interfaces — number in the thousands when framework, dopant, and support variations are included. Density functional theory (DFT) is accurate enough for any one candidate but economically impossible across the full space. Raw uMLIPs are fast enough but misrank the candidates because the C–H activation barrier, the O-insertion step, and the desorption energy of methanol all involve under-coordinated metal environments.
 
 ![Lupine's Measured Environment Error Field](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-03-environment-error-field.jpg)
-*The environment error field uses three anchor observables and a bulk constraint to correct under-coordinated predictions without retraining the underlying potential. Source: Lupine Science, Strategic Discovery Plan, Sections 2–3.*
+*The environment error field uses three anchor observables and a bulk constraint to correct under-coordinated predictions without retraining the underlying potential. Source: Lupine Science formalization library and repository (https://library.lupine.science, https://github.com/alexwelcing/lupine-rhizo).*
 
 
 Lupine's environment error field addresses this by measuring and correcting the systematic error as a function of local coordination. For a reference bulk environment, such as fcc metal with coordination number twelve, the error is defined as zero. Three anchor observables fix the field, and a cubic spline with the bulk constraint predicts the correction at lower-coordination environments the field was never directly fitted to[^11]. The corrected barrier for CH₄ dissociation on an under-coordinated site recovers DFT-level accuracy while retaining uMLIP speed, filtering out the false-positive low-temperature catalysts that raw uMLIPs would promote.
@@ -76,7 +73,7 @@ Fluorine-free synthetic refrigerants are attractive because they can be engineer
 Each of those properties depends on under-coordinated environments. Vapor pressure and latent heat come from intermolecular potentials. Transport properties depend on collision dynamics and radical intermediates. Flammability and atmospheric lifetime are controlled by C–H and C–F bond dissociation energies in radical transition states — precisely the open-shell, low-coordination configurations where uMLIPs fail[^3]. A generic force field may rank bulk thermodynamics adequately but will misrank combustion chemistry and decomposition pathways.
 
 ![Caloric Materials: From Correction to Verified Discovery](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-08-caloric-verification-workflow.jpg)
-*Caloric materials promise 20–50% efficiency gains, but only a verified correction pipeline can separate genuine thermodynamic predictions from microstructure assumptions. Sources: Gutfleisch et al., Adv. Mater., 2011; DOE / ARPA-E; Lupine Science, Strategic Discovery Plan, Sections 2–3.*
+*Caloric materials promise 20–50% efficiency gains, but only a verified correction pipeline can separate genuine thermodynamic predictions from microstructure assumptions. Sources: Gutfleisch et al., Adv. Mater., 2011; DOE / ARPA-E.*
 
 
 Lupine's correction layer changes the screen in three ways. First, corrected intermolecular potentials recover accurate vapor pressure, latent heat, and transport properties for candidate fluids, filtering the millions of molecules down to a tractable set. Second, corrected C–H and C–F bond dissociation energies in radical transition states improve flammability and atmospheric-lifetime predictions, which are safety-critical. Third, the verification layer flags molecules whose decomposition pathways fall outside the measured correction domain, preventing false-negative exclusions of unusual but safe candidates.
@@ -86,7 +83,7 @@ Lupine's correction layer changes the screen in three ways. First, corrected int
 An even more radical path eliminates the working fluid entirely. Solid-state refrigeration exploits caloric effects — magnetocaloric, electrocaloric, and elastocaloric — in which an external field drives an entropy change near room temperature. The technology is attractive because it removes refrigerant leakage and can, in principle, exceed vapor-compression efficiency by 20–50%[^15].
 
 ![Blind Prediction Accuracy Across 36 (Model, Material) Combinations](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-04-blind-prediction-correlation.jpg)
-*Blind tests across 36 model-material combinations yield r = 0.906 with no adjustable parameters, giving capital decisions a DFT-accurate signal at uMLIP speed. Source: Lupine Science, Strategic Discovery Plan, Sections 2–3.*
+*Blind tests across 36 model-material combinations yield r = 0.906 with no adjustable parameters, giving capital decisions a DFT-accurate signal at uMLIP speed. Source: Lupine Science formalization library and repository (https://library.lupine.science, https://github.com/alexwelcing/lupine-rhizo).*
 
 
 The materials problem is phase transitions. Magnetocaloric alloys near room temperature, such as LaFeSi-based compounds and Heusler alloys, undergo first-order phase transitions with large entropy changes but also hysteresis losses. The hysteresis comes from nucleation, twin boundaries, and metastable intermediate phases — all under-coordinated environments that uMLIPs soften. A screen based on equilibrium thermodynamics discards the metastable phases that often deliver the best caloric response, while raw uMLIPs misrank the transition temperatures and hysteresis widths.
@@ -98,7 +95,7 @@ Corrected transition-state and twin-boundary energies rank candidates by the com
 Methane and refrigerants appear to be different problems — one a strong C–H bond, the other a thermodynamic cycle — but they share the same computational pathology. The useful physics happens in under-coordinated environments: the C–H activation transition state, the metal-carbon binding site in a molten alloy, the radical transition state of a refrigerant molecule, the twin boundary of a caloric alloy. In each case uMLIPs soften the potential energy surface and corrupt the ranking. In each case the error has a geometrically regular shape that can be measured, corrected at runtime, and verified with proof.
 
 ![One Correction Geometry, Many Climate Targets](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-10-common-correction-geometry.jpg)
-*Methane, refrigerants, caloric materials, batteries, and direct air capture share the same under-coordination failure mode — and the same correction geometry. Source: Lupine Science, Strategic Discovery Plan, Sections 2–3.*
+*Methane, refrigerants, caloric materials, batteries, and direct air capture share the same under-coordination failure mode — and the same correction geometry. Source: Lupine Science formalization library and repository (https://library.lupine.science, https://github.com/alexwelcing/lupine-rhizo).*
 
 
 Lupine's method is not a new force field trained on each application. It is a measured environment error field with three anchor observables, a bulk constraint, and analytic force corrections that add 15.6% overhead in the current Python implementation and are expected to drop below 1% in a compiled overlay[^11]. The same field that corrects battery cathodes and direct-air-capture sorbents corrects methane-activation barriers, refrigerant bond dissociation, and caloric phase transitions because the failure mode is structural, not chemical.
@@ -137,7 +134,7 @@ What exists is a correction-and-verification layer that can search these spaces 
 
 [^10]: S. Grundner *et al.*, "Single-site trinuclear copper oxygen clusters in mordenite for selective oxidation of methane to methanol," *Nature Communications* **6**, 7546 (2015); overview of Fe/Cu-zeolite direct partial oxidation systems.
 
-[^11]: Lupine Science, *Strategic Discovery Plan*, Sections 2–3. Documents the environment error field, r = 0.906 blind prediction, 15.6% runtime overhead, 190 build-locked Lean 4 theorems, and boundary conditions for impossibility proofs.
+[^11]: Lupine Science. The build-locked formalization is published in the [open Lean 4 library](https://library.lupine.science) and [source repository](https://github.com/alexwelcing/lupine-rhizo).
 
 [^12]: A. Abánades, "The challenge of hydrogen production by methane pyrolysis: thermodynamic and kinetic assessment," *International Journal of Hydrogen Energy* **37**, 21, 16218–16225 (2012); molten-metal catalyst literature for low-temperature methane pyrolysis.
 

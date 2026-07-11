@@ -1,11 +1,9 @@
 # The Trust Layer
 
 > **Why belief is now the bottleneck in materials discovery**
->
 > **Date:** 2026-07-05  
-> **Scope:** The founding thesis of Lupine Science — verification as the missing infrastructure of AI-driven discovery  
-> **Description:** AI made imagination and simulation nearly free. Belief is now the bottleneck. We are building the proof infrastructure for designed matter, in the open.  
-> **Audience:** Investors, scientists, and anyone allocating research time or capital  
+> **Deck:** The founding thesis of Lupine Science — verification as the missing infrastructure of AI-driven discovery  
+> **Summary:** AI made imagination and simulation nearly free. Belief is now the bottleneck. We are building the proof infrastructure for designed matter, in the open.  
 > **Status:** Published
 
 ---

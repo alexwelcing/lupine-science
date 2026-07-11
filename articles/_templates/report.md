@@ -1,15 +1,9 @@
 # Report Title
 
 > **Type:** report
->
 > **Date:** YYYY-MM-DD
->
-> **Scope:** Project or experiment name
->
-> **Description:** One-sentence summary of the report's findings.
->
-> **Audience:** Internal team, collaborators, investors
->
+> **Deck:** Project or experiment name
+> **Summary:** One-sentence summary of the report's findings.
 > **Status:** Draft
 
 <p class="lead">A short executive summary: what was done, what was found, and what happens next.</p>

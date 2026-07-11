@@ -1,10 +1,7 @@
-> **Type:** article
 > **Date:** 2026-07-16
-> **Scope:** How corrected uMLIPs recover accurate binding and barrier predictions for water desalination, atmospheric harvesting, lithium-selective extraction, and air-quality catalysts.
-> **Description:** Water and air quality depend on materials that separate and transform molecules in under-coordinated environments; this article shows how Lupine's correction layer fixes the uMLIP errors that corrupt their discovery.
-> **Audience:** sophisticated materials, mechanical, and chemical engineers; climate-tech investors
+> **Deck:** How corrected uMLIPs recover accurate binding and barrier predictions for water desalination, atmospheric harvesting, lithium-selective extraction, and air-quality catalysts.
+> **Summary:** Water and air quality depend on materials that separate and transform molecules in under-coordinated environments; this article shows how Lupine's correction layer fixes the uMLIP errors that corrupt their discovery.
 > **Status:** Draft
-
 
 
 # Water and Air: Correcting the Molecules We Drink and Breathe
@@ -129,7 +126,7 @@ Lupine's correction-and-verification method was built for climate-critical mater
 
 [^4]: B. Deng *et al.*, "Systematic softening in universal machine learning interatomic potentials," *npj Computational Materials* **11**, 9 (2025). https://doi.org/10.1038/s41524-024-01500-6
 
-[^5]: Lupine Science, *Strategic Discovery Plan*, Sections 2–3. The plan documents the environment error field, the r = 0.906 blind-prediction result, the 15.6% runtime overhead, the 190 build-locked Lean 4 theorems, and the boundary conditions for impossibility proofs.
+[^5]: Lupine Science. The build-locked formalization is published in the [open Lean 4 library](https://library.lupine.science) and [source repository](https://github.com/alexwelcing/lupine-rhizo).906 blind-prediction result, the 15.6% runtime overhead, the 190 build-locked Lean 4 theorems, and the boundary conditions for impossibility proofs.
 
 [^6]: N. Hanikel *et al.*, "Evolution of water-harvesting systems in metal-organic frameworks," *ACS Central Science* review literature on MOF hydrolysis and cycling stability (2019–2024).
 

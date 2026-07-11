@@ -317,7 +317,22 @@ main, header.site-header, footer.foot { position: relative; z-index: 4; }
     color: var(--ink-soft);
   }
 }
+/* PDF/print path: Chromium emits variable Newsreader as Type 3 fonts that some
+   print engines render incorrectly. Swap to the static, repository-pinned
+   Unicode face so article PDFs embed reliable glyph subsets. */
+@font-face {
+  font-family: "Proof Unicode";
+  src: url("/fonts/proof-unicode.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: block;
+}
+
 @media print {
+  :root {
+    --serif: "Proof Unicode", Georgia, serif;
+    --mono: "IBM Plex Mono", "Proof Unicode", monospace;
+  }
   body::before, body::after { display: none; }
   .site-header, .foot, .share-bar { display: none; }
   .article a { color: inherit; text-decoration: none; }

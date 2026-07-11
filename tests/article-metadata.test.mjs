@@ -27,12 +27,12 @@ function jsonLdFrom(html) {
 }
 
 describe('article top-line metadata', () => {
-  it('renders a kicker from Type metadata', () => {
+  it('renders a "Research note" kicker for articles', () => {
     const html = readArticle('a-field-not-a-neural-net');
-    assert.match(html, /<p class="article-kicker"[^>]*>\s*article\s*<\/p>/i);
+    assert.match(html, /<p class="article-kicker"[^>]*>\s*Research note\s*<\/p>/i);
   });
 
-  it('renders the deck from Scope metadata directly under the title', () => {
+  it('renders the deck from Deck metadata directly under the title', () => {
     const html = readArticle('from-fantasy-frameworks-to-makeable-materials');
     assert.match(html, /<p class="article-deck">/);
     assert.match(html, /Metal[–\s]organic frameworks/i);
@@ -55,9 +55,9 @@ describe('article top-line metadata', () => {
     assert.doesNotMatch(html, /audience/i);
   });
 
-  it('does not render a kicker when Type is missing', () => {
+  it('still renders a "Research note" kicker when Type is missing', () => {
     const html = readArticle('why-lupine-science');
-    assert.doesNotMatch(html, /class="article-kicker"/);
+    assert.match(html, /<p class="article-kicker"[^>]*>\s*Research note\s*<\/p>/i);
   });
 
   it('keeps the byline accessible when only a date is present', () => {

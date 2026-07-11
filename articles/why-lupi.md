@@ -1,11 +1,9 @@
 # Why LUPI?
 
 > **The vision behind the viewer**
->
 > **Date:** 2026-06-30  
-> **Scope:** A browser-native molecular viewer for makeability  
-> **Description:** Why we built LUPI as a live, install-free window into molecular structures and what it means for research, teaching, and public trust.  
-> **Audience:** Materials scientists, chemists, educators, and the curious public  
+> **Deck:** A browser-native molecular viewer for makeability  
+> **Summary:** Why we built LUPI as a live, install-free window into molecular structures and what it means for research, teaching, and public trust.  
 > **Status:** Published
 
 ---

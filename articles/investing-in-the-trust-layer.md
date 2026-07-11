@@ -1,10 +1,7 @@
-> **Type:** article
 > **Date:** 2026-07-09
-> **Scope:** Lupine Science's correction-and-verification layer as investable climate infrastructure
-> **Description:** Why trust, not raw prediction volume, is the binding constraint in computational materials discovery, and how Lupine builds it.
-> **Audience:** sophisticated materials, mechanical, and chemical engineers; climate-tech investors
+> **Deck:** Lupine Science's correction-and-verification layer as investable climate infrastructure
+> **Summary:** Why trust, not raw prediction volume, is the binding constraint in computational materials discovery, and how Lupine builds it.
 > **Status:** Draft
-
 
 
 # Investing in the Trust Layer
