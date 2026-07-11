@@ -27,8 +27,8 @@
 - [Merged] Social share component (article/video pages, OG/Twitter cards, accessible controls).
 - [Merged] Share component accessibility fix: desktop share list items now expose `role="listitem"` so Lighthouse's `aria-required-children` audit passes.
 - [Merged] Social share release fix: CSP `script-src` now allows same-origin modules; server renders no-JS fallback links; module initialization is idempotent; mobile disclosure hides the fallback list; focus, contrast, touch-target, and reduced-motion issues addressed. Reports at `docs/reviews/social-share-accessibility-privacy-review.md` and `docs/reviews/social-share-interactive-test.md`.
-- [Merged] Social share consolidated review: merged static + interactive findings into `docs/reviews/social-share-consolidated-review.md`; fixed `copyUrlToClipboard` document/navigator context and focus restoration so unit tests pass; `npm test`, `npm run lint`, `npm run build` all pass.
-- [Merged] Generalized per-article proof-pack pipeline: `scripts/build-proofpack.mjs` now supports `--all`, `--slug`, `--out-dir`, and `--consolidated`; produces a deterministic PDF + JSON manifest per eligible article; includes Unicode/font-embedding assertions, deterministic double-build checks, scientific-source validation, and integration tests. `npm run proofpack`, `npm run proofpack:all`, `npm run proofpack:validate`, and `npm run pdf:check` pass.
+- [Live] Social share consolidated review: merged static + interactive findings into `docs/reviews/social-share-consolidated-review.md` and `docs/qa/social-share/REPORT.md`; fixed mobile tray regression in `public/components/share/share.css`; `npm test`, `npm run lint`, `npm run build` all pass; deployed and verified from live site.
+- [Live] Generalized per-article proof-pack pipeline: `scripts/build-proofpack.mjs` now supports `--all`, `--slug`, `--out-dir`, and `--consolidated`; produces a deterministic PDF + JSON manifest per eligible article; includes Unicode/font-embedding assertions, deterministic double-build checks, scientific-source validation, and integration tests. `npm run proofpack`, `npm run proofpack:all`, `npm run proofpack:validate`, and `npm run pdf:check` pass; deployed to production.
 - [In Progress] Environmental expansion series beyond CO₂ (methane/refrigerants, critical minerals/PFAS, water/air purification, cement/concrete).
 - [In Progress] 10-visual-deck brief and design system for every article.
 
@@ -40,6 +40,7 @@
 - [In Progress] HyperFrames compositions, kinetic titles, data/chart animations, transitions, renders, and frame reviews for the remaining article videos.
 - [Live] `a-field-not-a-neural-net`: director-approved 720p MP4 and poster are now served from `https://lupine.science/videos/`, article page links to the narrated version with `VideoObject` schema, and live smoke tests pass.
 - [Live] `the-02-percent-synthesis-problem`: P0/P1 fixes approved by independent re-review (t_b2172012), 720p web encode (1.53 MB/min) and WebVTT captions generated, article page links to the narrated version with `VideoObject` schema, production deploy and live smoke test passed.
+- [Live] `methane-and-refrigerants-cutting-the-non-co2-climate-forcers`: HyperFrames composition, kinetic titles, data/chart animations, transitions, and logo sting completed; P0/P1 frame fixes approved by re-review (t_cb9b51d5); audio normalized to −16 LUFS and WebVTT captions added; 720p web encode (1.81 MB/min) under budget; director approved for web; article page and `/videos/` index wired with `VideoObject` schema; production deploy and live smoke test passed (MP4 served as `video/mp4`, 4,211,492 bytes).
 - [In Progress] HeyGen animation workflow and reviewer/director training.
 
 ---
