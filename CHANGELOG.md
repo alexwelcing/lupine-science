@@ -45,9 +45,18 @@
 - [Merged] Director profile routed to Anthropic `claude-fable-5` (Fable); voice-engineer/reviewer/animator remain on OpenAI Codex `gpt-5.6-sol` (Sol) so the two models can set/clear each other's bars.
 - [Merged] `critical-minerals-pfas-and-the-remediation-imperative`: director final-render review rejected the initial publish because the mastered narration overgeneralized the EPA 4 ng/L threshold ('capture molecules') and storyboard timing notes were inconsistent. The premature web publish was reverted (commit 64bcbf2) before it reached production.
 - [Merged] `critical-minerals-pfas-and-the-remediation-imperative`: script, spoken transcript, and TTS input updated to qualify the claim as 'capture PFOA and PFOS down to the EPA limit: four nanograms per liter each'; storyboard transition/overlap math and outro fade timing reconciled (commit 3e19116).
-- [In Progress] `critical-minerals-pfas-and-the-remediation-imperative`: kanban tasks t_f41bb201 (voice-engineer, Sol) → t_db727c15 (animator, Sol) → t_22b978c8 (director, Fable) created to regenerate corrected narration, re-render, and re-review before republishing.
+- [Live] `critical-minerals-pfas-and-the-remediation-imperative`: kanban tasks t_f41bb201 (voice-engineer, Sol) → t_db727c15 (animator, Sol) completed; corrected narration and re-render published and live; director re-review t_22b978c8 is running.
 - [Merged] Laptop performance monitoring: `npm run monitor:laptop` added to crontab every 15 minutes; `scripts/monitoring/hermes-swarm-guard.sh` runs every minute to cull runaway Hermes workers under load/memory pressure.
 - [Blocked] `cement-concrete-and-the-weight-of-the-built-world` and related ready pipeline tasks scheduled in Hermes until the rejected 16:11 narration is replaced with an approved 300–340-word script and regenerated audio/timing.
+
+---
+
+## 2026-07-11 — Critical Minerals / PFAS corrected video republish
+
+**Status:** Live on production.
+
+- [Live] `critical-minerals-pfas-and-the-remediation-imperative`: corrected narration master regenerated (t_f41bb201, Sol), 1080p review and 720p web MP4 re-rendered (t_db727c15, Sol), director re-review approved (t_22b978c8, Fable), `/videos/` index card and article `VideoObject` schema + "Watch the narrated version" link wired, WebVTT captions and 5-second poster published. Verification: `npm run lint && npm test && npm run build` pass; CI run `29136155243`; production deploy `29136333070`; live smoke tests pass; `HEAD https://lupine.science/videos/critical-minerals-pfas-and-the-remediation-imperative.mp4` returns HTTP 200 `content-type: video/mp4`, 5,697,028 bytes, 1280×720, 114.517s.
+- [Live] Article top-line metadata redesign and OG `video.other` handling for published article videos now deployed; passes `npm test`, `npm run build`, `npm run lint`, and live smoke.
 
 ---
 
