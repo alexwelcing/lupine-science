@@ -40,6 +40,9 @@ jobs:
       - name: Type check (or verify no TypeScript sources)
         run: npm run typecheck
 
+      - name: Install Playwright browsers for proof-pack tests and PDF rendering
+        run: npx playwright install chromium
+
       - name: Run unit tests
         run: npm test
 
@@ -51,9 +54,6 @@ jobs:
 
       - name: Install PDF verification tools
         run: sudo apt-get update && sudo apt-get install --yes poppler-utils
-
-      - name: Install Playwright browsers for proof-pack PDF rendering
-        run: npx playwright install chromium
 
       - name: Generate proof pack
         run: npm run proofpack
