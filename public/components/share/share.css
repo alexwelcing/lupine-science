@@ -39,6 +39,10 @@
   padding: 0;
 }
 
+.share-list[hidden] {
+  display: none;
+}
+
 .share-list li,
 .share-menu li {
   margin: 0;
@@ -102,7 +106,7 @@
 /* Mobile tray */
 @media (max-width: 600px) {
   .share-root {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
   }
 
   .share-toggle {

@@ -1,0 +1,116 @@
+{
+  "routes": [
+    {
+      "slug": "the-order-is-right-the-size-is-wrong",
+      "kind": "article-missing-description",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "reducedMotion": "no-preference",
+      "canonical": "https://lupine.science/articles/the-order-is-right-the-size-is-wrong/",
+      "title": "The Order Is Right, the Size Is Wrong",
+      "svgCount": 0,
+      "thirdPartyRequests": 0
+    },
+    {
+      "slug": "the-order-is-right-the-size-is-wrong",
+      "kind": "article-missing-description",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "no-preference",
+      "canonical": "https://lupine.science/articles/the-order-is-right-the-size-is-wrong/",
+      "title": "The Order Is Right, the Size Is Wrong",
+      "svgCount": 5,
+      "thirdPartyRequests": 0
+    },
+    {
+      "slug": "the-order-is-right-the-size-is-wrong",
+      "kind": "article-missing-description",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "reduce",
+      "canonical": "https://lupine.science/articles/the-order-is-right-the-size-is-wrong/",
+      "title": "The Order Is Right, the Size Is Wrong",
+      "svgCount": 5,
+      "thirdPartyRequests": 0
+    },
+    {
+      "slug": "the-02-percent-synthesis-problem",
+      "kind": "article-video",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "reducedMotion": "no-preference",
+      "canonical": "https://lupine.science/articles/the-02-percent-synthesis-problem/",
+      "title": "The 0.2% Synthesis Problem",
+      "svgCount": 0,
+      "thirdPartyRequests": 0
+    },
+    {
+      "slug": "the-02-percent-synthesis-problem",
+      "kind": "article-video",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "no-preference",
+      "canonical": "https://lupine.science/articles/the-02-percent-synthesis-problem/",
+      "title": "The 0.2% Synthesis Problem",
+      "svgCount": 5,
+      "thirdPartyRequests": 0
+    },
+    {
+      "slug": "the-02-percent-synthesis-problem",
+      "kind": "article-video",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": "reduce",
+      "canonical": "https://lupine.science/articles/the-02-percent-synthesis-problem/",
+      "title": "The 0.2% Synthesis Problem",
+      "svgCount": 5,
+      "thirdPartyRequests": 0
+    }
+  ],
+  "assertions": [
+    {
+      "name": "Exact share URL encoding",
+      "status": "PASS",
+      "detail": "Bluesky, X, LinkedIn, email on both representative routes"
+    },
+    {
+      "name": "Canonical deep links",
+      "status": "PASS",
+      "detail": "share data-url equals rel=canonical"
+    },
+    {
+      "name": "Clipboard success and fallback",
+      "status": "PASS",
+      "detail": "Clipboard API readback plus execCommand exact value"
+    },
+    {
+      "name": "Responsive and keyboard states",
+      "status": "PASS",
+      "detail": "desktop row; mobile disclosure, Enter, Escape, focus return"
+    },
+    {
+      "name": "Reduced motion",
+      "status": "PASS",
+      "detail": "0s transition and no animation"
+    },
+    {
+      "name": "Static SVG/privacy",
+      "status": "PASS",
+      "detail": "inline SVG only; zero img/image in component; zero third-party requests"
+    }
+  ],
+  "thirdPartyRequests": [],
+  "consoleErrors": []
+}
