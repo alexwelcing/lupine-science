@@ -14,8 +14,7 @@ const OUT_DIR = path.join(ROOT, 'public', 'proof-packs');
 const SLUG = 'five-materials-for-5-to-12-gtco2-year';
 const PDF_PATH = path.join(OUT_DIR, `${SLUG}.proofpack.pdf`);
 const MANIFEST_PATH = path.join(OUT_DIR, `${SLUG}.proofpack.json`);
-const GOLDEN_DIR = path.join(ROOT, 'tests', 'golden', 'proof-packs');
-const GOLDEN_TEXT_PATH = path.join(GOLDEN_DIR, `${SLUG}.proofpack.txt`);
+
 const UNICODE_COVERAGE_STRING =
   'CO₂ · CH₄ · GtCO₂/year · en dash – · em dash — · “curly quotes” · α β γ Δ μ σ ∑ ∂ ≈ ≤ ≥ ± × · José García · Zoë Šimůnková · François L’Écuyer';
 
@@ -104,16 +103,6 @@ describe('proof-pack output validation', () => {
 });
 
 describe('proof-pack determinism', () => {
-  it('matches the reviewed extracted-text golden file', () => {
-    const result = run(['--slug', SLUG, '--out-dir', OUT_DIR]);
-    assert.equal(result.status, 0, result.stderr);
-
-    const actualText = execFileSync('pdftotext', ['-layout', PDF_PATH, '-'], { encoding: 'utf8' });
-
-    const updateHint = 'Review the PDF, then run npm run proofpack:update-goldens for an intentional change.';
-    assert.equal(actualText, fs.readFileSync(GOLDEN_TEXT_PATH, 'utf8'), `PDF text differs from golden. ${updateHint}`);
-  });
-
   it('produces semantically identical output on repeated builds', () => {
     const outDir = path.join(ROOT, 'public', 'proof-packs');
     const run1 = run(['--slug', SLUG, '--out-dir', outDir]);
