@@ -28,6 +28,10 @@ function bytesToGiB(bytes) {
   return bytes / (1024 ** 3);
 }
 
+function swapUsedPct(total, used) {
+  return total ? (used / total) * 100 : 0;
+}
+
 const totalMem = os.totalmem();
 const freeMem = os.freemem();
 const usedMem = totalMem - freeMem;
@@ -141,8 +145,40 @@ if (cpuCount < 8) {
   recommendations.push('CPU count is modest; keep concurrent render/agent tasks low to maintain UI responsiveness.');
 }
 
-function swapUsedPct(total, used) {
-  return total ? (used / total) * 100 : 0;
+// Track Hermes gateway explicitly
+const gatewayPids = sh('pgrep', ['-f', 'hermes.*gateway run']).split('\n').filter(Boolean);
+const gatewayRss = gatewayPids.length
+  ? gatewayPids.reduce((sum, pid) => {
+      const rss = parseNumber(sh('bash', ['-c', `ps -p ${pid} -o rss= 2>/dev/null || echo 0`]));
+      return sum + rss * 1024;
+    }, 0)
+  : 0;
+
+// GPU memory if nvidia-smi is available
+const gpuInfo = sh('nvidia-smi', ['--query-gpu=name,memory.total,memory.used,memory.free,temperature.gpu', '--format=csv,noheader,nounits'])
+  .split('\n')
+  .filter(Boolean)
+  .map((line) => {
+    const [name, total, used, free, temp] = line.split(',').map((s) => s.trim());
+    return {
+      name,
+      totalMiB: parseNumber(total),
+      usedMiB: parseNumber(used),
+      freeMiB: parseNumber(free),
+      temperatureC: parseNumber(temp),
+    };
+  });
+
+if (gatewayPids.length && bytesToGiB(gatewayRss) > 0.5) {
+  recommendations.push(`Hermes gateway is using ${bytesToGiB(gatewayRss).toFixed(2)} GiB; restart if it grows beyond 1 GiB.`);
+}
+
+if (gpuInfo.length) {
+  const hotGpu = gpuInfo.find((g) => g.temperatureC > 85);
+  if (hotGpu) {
+    alerts.push({ severity: 'medium', metric: 'gpu-temp', value: `${hotGpu.temperatureC}°C`, message: 'GPU temperature is elevated' });
+    recommendations.push('Pause GPU-intensive renders until GPU temperature drops below 80°C.');
+  }
 }
 
 const report = {
@@ -175,11 +211,16 @@ const report = {
   },
   processes: {
     hermesWorkers: hermesPids.length,
+    hermesGateway: {
+      pidCount: gatewayPids.length,
+      rssGiB: bytesToGiB(gatewayRss),
+    },
     nodeProcesses: nodePids.length,
     zombieCount,
     topMemory: topMem,
     topCpu: topCpu,
   },
+  gpu: gpuInfo,
   alerts,
   recommendations: [...new Set(recommendations)],
 };
@@ -192,7 +233,12 @@ console.log(`CPU: ${cpuCount} cores · load ${loadAvg[0].toFixed(2)} / ${loadAvg
 console.log(`Memory: ${report.memory.usedGiB.toFixed(2)} / ${report.memory.totalGiB.toFixed(2)} GiB (${memUsedPct.toFixed(1)}%)`);
 console.log(`Swap: ${report.swap.usedGiB.toFixed(2)} / ${report.swap.totalGiB.toFixed(2)} GiB (${swapUsedPct(swapTotal, swapUsed).toFixed(1)}%)`);
 console.log(`Disk /home: ${report.disk.usedGiB.toFixed(2)} / ${report.disk.totalGiB.toFixed(2)} GiB (${diskUsedPct.toFixed(1)}%)`);
-console.log(`Hermes workers: ${hermesPids.length} · Node processes: ${nodePids.length} · Zombies: ${zombieCount}`);
+console.log(`Hermes workers: ${hermesPids.length} · gateway: ${gatewayPids.length} proc(s) ${bytesToGiB(gatewayRss).toFixed(2)} GiB · Node processes: ${nodePids.length} · Zombies: ${zombieCount}`);
+if (gpuInfo.length) {
+  for (const g of gpuInfo) {
+    console.log(`GPU ${g.name}: ${g.usedMiB}/${g.totalMiB} MiB · ${g.temperatureC}°C`);
+  }
+}
 console.log(`Report written: ${REPORT_FILE}`);
 
 if (alerts.length) {
