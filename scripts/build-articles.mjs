@@ -116,7 +116,19 @@ function formatDate(iso) {
 
 function extractMeta(raw) {
   const meta = {};
-  for (const [key, name] of [['type', 'Type'], ['date', 'Date'], ['scope', 'Scope'], ['description', 'Description'], ['audience', 'Audience'], ['status', 'Status']]) {
+  for (const [key, name] of [
+    ['type', 'Type'],
+    ['date', 'Date'],
+    ['scope', 'Scope'],
+    ['description', 'Description'],
+    ['audience', 'Audience'],
+    ['status', 'Status'],
+    ['ogTitle', 'OG Title'],
+    ['ogDescription', 'OG Description'],
+    ['ogImage', 'OG Image'],
+    ['ogUrl', 'OG URL'],
+    ['ogType', 'OG Type'],
+  ]) {
     const m = raw.match(new RegExp(`^> \\\*\\*${name}:\\\*\\*\\s*(.+?)\\s*$`, 'm'));
     if (m) meta[key] = m[1];
   }
@@ -144,6 +156,11 @@ function videoLink(slug) {
 function publishedVideoUrl(slug) {
   const mp4 = path.join(PUBLIC_ROOT, 'videos', `${slug}.mp4`);
   return fs.existsSync(mp4) ? `${SITE}/videos/${slug}.mp4` : undefined;
+}
+
+function absoluteSiteUrl(value) {
+  if (!value) return undefined;
+  return new URL(value, SITE).href;
 }
 function heroFigure(slug) {
   const dir = path.join(OUT, slug);
@@ -219,23 +236,23 @@ import { initAllShareWidgets } from "/components/share/share.mjs";
 })();
 </script>`;
 
-function head({ title, description, url, ogImage, jsonld, isArticle, preloadImage, math, videoUrl }) {
+function head({ title, description, url, ogTitle = title, ogDescription = description, ogUrl = url, ogImage, ogType, jsonld, preloadImage, math, videoUrl }) {
   return `<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(description)}">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="${url}">
-  <meta property="og:title" content="${esc(title)}">
-  <meta property="og:description" content="${esc(description)}">
-  <meta property="og:type" content="${isArticle ? 'article' : 'website'}">
-  <meta property="og:url" content="${url}">
+  <meta property="og:title" content="${esc(ogTitle)}">
+  <meta property="og:description" content="${esc(ogDescription)}">
+  <meta property="og:type" content="${esc(ogType)}">
+  <meta property="og:url" content="${ogUrl}">
   <meta property="og:image" content="${ogImage}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="${esc(title)}">
-  <meta name="twitter:description" content="${esc(description)}">
+  <meta name="twitter:title" content="${esc(ogTitle)}">
+  <meta name="twitter:description" content="${esc(ogDescription)}">
   <meta name="twitter:image" content="${ogImage}">
   <meta name="theme-color" content="#faf9f6">
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
@@ -353,6 +370,14 @@ function buildArticle(raw, slug) {
   const ogImageHeight = 630;
   const twitterCard = 'summary_large_image';
   const videoUrl = publishedVideoUrl(slug);
+  const videoPoster = fs.existsSync(path.join(PUBLIC_ROOT, 'videos', `${slug}-poster.jpg`))
+    ? `${SITE}/videos/${slug}-poster.jpg`
+    : undefined;
+  const socialTitle = meta.ogTitle || `${title} — Lupine Science`;
+  const socialDescription = meta.ogDescription || description;
+  const socialUrl = absoluteSiteUrl(meta.ogUrl) || url;
+  const socialImage = absoluteSiteUrl(meta.ogImage) || videoPoster || ogImage;
+  const socialType = meta.ogType || (videoUrl ? 'video.other' : 'article');
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
@@ -392,7 +417,20 @@ function buildArticle(raw, slug) {
   const page = `<!doctype html>
 <html lang="en">
 <head>
-  ${head({ title: `${title} — Lupine Science`, description, url, ogImage, jsonld, isArticle: true, preloadImage, math: hasMath, videoUrl })}
+  ${head({
+    title: `${title} — Lupine Science`,
+    description,
+    url,
+    ogTitle: socialTitle,
+    ogDescription: socialDescription,
+    ogUrl: socialUrl,
+    ogImage: socialImage,
+    ogType: socialType,
+    jsonld,
+    preloadImage,
+    math: hasMath,
+    videoUrl,
+  })}
 </head>
 <body>
 ${chrome(`  <main id="content" class="article-shell">
@@ -442,8 +480,8 @@ function buildIndex(articles) {
     description: 'Articles, prospectuses, and research notes from Lupine Science on formalized materials discovery.',
     url: `${SITE}/articles/`,
     ogImage: `${SITE}/og-lupine-science.png`,
+    ogType: 'website',
     jsonld,
-    isArticle: false,
   })}
 </head>
 <body>

@@ -21,6 +21,7 @@
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
   <link rel="icon" type="image/png" href="/lupine-science-icon.png">
   <link rel="stylesheet" href="/articles/styles.css">
+  <link rel="stylesheet" href="/components/share/share.css">
   <style>
     .videos-index { max-width: 1100px; margin: 0 auto; padding: clamp(40px, 7vh, 84px) 22px 80px; }
     .videos-index h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.1; margin: 0 0 0.5rem; }
@@ -60,6 +61,7 @@
     <p class="b-label">Narrated motion</p>
     <h1>Article videos.</h1>
     <p class="lead">The same research, animated and narrated for screens that move. Each video turns an article’s visuals into a 90–120 second HyperFrames composition.</p>
+    <div class="share-root" data-url="https://lupine.science/videos/" data-title="Videos — Lupine Science" role="group" aria-label="Share this page"></div>
 
     <ul class="video-list">
       <li>
@@ -70,6 +72,17 @@
             <h2>Cement, Concrete, and the Weight of the Built World</h2>
             <p>How corrected universal machine-learning interatomic potentials can accelerate low-CO₂ binders, alternative clinkers, and CO₂-cured concrete by taming amorphous and metastable phase chemistry.</p>
             <p class="duration">2:52</p>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a class="video-card" href="/videos/critical-minerals-pfas-and-the-remediation-imperative.mp4">
+          <img src="/videos/critical-minerals-pfas-and-the-remediation-imperative-poster.jpg" alt="Critical Minerals, PFAS, and the Remediation Imperative" loading="lazy" decoding="async">
+          <div class="meta">
+            <span class="play">▶ Watch</span>
+            <h2>Critical Minerals, PFAS, and the Remediation Imperative</h2>
+            <p>Why critical-mineral recovery and PFAS remediation share the same computational bottleneck — accurate binding and activation energies in under-coordinated environments.</p>
+            <p class="duration">1:54</p>
           </div>
         </a>
       </li>
@@ -123,5 +136,9 @@
   <footer class="foot">
     <p>© 2026 Lupine Science. <a href="/">Home</a> · <a href="/articles/">Articles</a> · <a href="/videos/">Videos</a> · <a href="/brand-assets/">Brand</a></p>
   </footer>
+  <script type="module">
+    import { initAllShareWidgets } from "/components/share/share.mjs";
+    initAllShareWidgets();
+  </script>
 </body>
 </html>
