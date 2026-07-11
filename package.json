@@ -21,7 +21,8 @@
     "dev": "node scripts/dev/serve.mjs",
     "shots": "node scripts/dev/screenshot.mjs",
     "perf": "node scripts/dev/perf-report.mjs",
-    "a11y:audit": "node scripts/accessibility-audit.mjs"
+    "a11y:audit": "node scripts/accessibility-audit.mjs",
+    "monitor:laptop": "node scripts/monitoring/laptop-diagnostics.mjs"
   },
   "engines": {
     "node": ">=20.0.0"
