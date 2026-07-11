@@ -382,6 +382,22 @@
     .b-all { margin: 28px 0 0; font-family: var(--mono); font-size: 13px; }
     .b-all a { color: var(--indigo); }
 
+    /* ════════ FEATURED SERIES — climate partnerships ════════ */
+    .feature-series { margin-top: clamp(64px, 9vh, 110px); }
+    .feature-series .series-head { max-width: 780px; margin-bottom: clamp(28px, 4vh, 44px); }
+    .feature-series .series-head h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 500; line-height: 1.18; margin: 0 0 12px; }
+    .feature-series .series-head p { font-size: 1.05rem; line-height: 1.58; color: var(--ink-soft); margin: 0; }
+    .series-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 2.6vw, 40px); }
+    .series-cards a { display: block; border-top: 1px solid var(--rule); padding: 0 0 18px; transition: background 240ms var(--ease), border-color 240ms var(--ease); }
+    .series-cards a:hover { background: var(--indigo-wash); border-color: var(--indigo-line); }
+    .series-cards img { width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover; display: block; border: 1px solid var(--rule); margin-bottom: 14px; }
+    .series-cards .d8 { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); display: block; padding: 14px 6px 0; }
+    .series-cards h3 { font-size: 1.22rem; font-weight: 500; line-height: 1.26; margin: 9px 0 8px; padding: 0 6px; }
+    .series-cards p { font-size: 0.94rem; line-height: 1.56; color: var(--ink-soft); margin: 0; padding: 0 6px; }
+    .series-cta { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 28px; }
+    .series-cta a { font-family: var(--mono); font-size: 13px; color: var(--indigo); }
+    @media (max-width: 860px) { .series-cards { grid-template-columns: 1fr; } }
+
     /* ════════ FOOT — colophon ════════ */
     .foot {
       display: flex; justify-content: space-between; gap: 14px 32px; flex-wrap: wrap; align-items: baseline;
@@ -623,23 +639,74 @@
       </article>
     </div>
 
+    <div class="feature-series" aria-label="Climate partnerships series">
+      <p class="b-label">Climate partnerships series</p>
+      <div class="series-head">
+        <h2>Beyond carbon: the error geometry of environmental materials.</h2>
+        <p>Five articles trace the same under-coordination error from CO₂ capture to water, air, methane, refrigerants, critical minerals, PFAS, and cement — and show how a single correction layer changes what labs can trust.</p>
+      </div>
+      <div class="series-cards">
+        <a href="/articles/beyond-carbon-the-error-geometry-of-environmental-materials/">
+          <img src="/articles/beyond-carbon-the-error-geometry-of-environmental-materials/hero.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
+          <span class="d8">July 16, 2026 · Series intro</span>
+          <h3>Beyond Carbon</h3>
+          <p>The one geometry that connects every environmental-materials campaign.</p>
+        </a>
+        <a href="/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/">
+          <img src="/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/hero.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
+          <span class="d8">July 16, 2026</span>
+          <h3>Water and Air</h3>
+          <p>Correcting the molecules we drink and breathe.</p>
+        </a>
+        <a href="/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/">
+          <img src="/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/hero.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
+          <span class="d8">July 16, 2026</span>
+          <h3>Methane and Refrigerants</h3>
+          <p>Cutting the non-CO₂ climate forcers.</p>
+        </a>
+        <a href="/articles/critical-minerals-pfas-and-the-remediation-imperative/">
+          <img src="/articles/critical-minerals-pfas-and-the-remediation-imperative/hero.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
+          <span class="d8">July 16, 2026 · Narrated film</span>
+          <h3>Critical Minerals, PFAS</h3>
+          <p>The remediation imperative, now with a narrated film and shareable clips.</p>
+        </a>
+        <a href="/articles/cement-concrete-and-the-weight-of-the-built-world/">
+          <img src="/articles/cement-concrete-and-the-weight-of-the-built-world/hero.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
+          <span class="d8">July 16, 2026</span>
+          <h3>Cement and Concrete</h3>
+          <p>The weight of the built world, made lighter by correction.</p>
+        </a>
+        <a href="/articles/five-materials-for-5-to-12-gtco2-year/">
+          <img src="/articles/five-materials-for-5-to-12-gtco2-year/hero.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
+          <span class="d8">July 16, 2026</span>
+          <h3>Five Materials for 5–12 GtCO₂/Year</h3>
+          <p>The material bottlenecks that could unlock gigatonne-scale impact.</p>
+        </a>
+      </div>
+      <div class="series-cta">
+        <a href="/proof-pack-climate-series.pdf" download>Download the proof pack <span class="ar">→</span></a>
+        <a href="/videos/">Watch the films <span class="ar">→</span></a>
+        <a href="/articles/">All articles <span class="ar">→</span></a>
+      </div>
+    </div>
+
     <div class="b-notebook">
       <p class="b-label">From the notebook</p>
       <div class="b-cards">
+        <a href="/articles/the-02-percent-synthesis-problem/">
+          <span class="d8">2026·07·09</span>
+          <h3>The 0.2% Synthesis Problem</h3>
+          <p>Why most computationally predicted materials never reach a synthesis vessel — and why that matters for climate-critical materials.</p>
+        </a>
+        <a href="/articles/a-field-not-a-neural-net/">
+          <span class="d8">2026·07·09</span>
+          <h3>A Field, Not a Neural Net</h3>
+          <p>The measured error geometry of universal machine-learned interatomic potentials — and the field that tames it.</p>
+        </a>
         <a href="/articles/the-trust-layer/">
           <span class="d8">2026·07·05</span>
           <h3>The Trust Layer</h3>
           <p>The founding thesis: science moves at the speed of what it can trust, and we are building the proof infrastructure for designed matter.</p>
-        </a>
-        <a href="/articles/the-order-is-right-the-size-is-wrong/">
-          <span class="d8">2026·07·02</span>
-          <h3>The Order Is Right, the Size Is Wrong</h3>
-          <p>Foundation potentials measured across 21 materials against 228 published reference values — mapping the environment error field.</p>
-        </a>
-        <a href="/articles/from-fantasy-frameworks-to-makeable-materials/">
-          <span class="d8">2026·06·25</span>
-          <h3>From Fantasy Frameworks to Makeable Materials</h3>
-          <p>A prospectus for formalized MOF discovery: theorem-proved certificates of synthesizability, and the loop that closes with a lab.</p>
         </a>
       </div>
       <p class="b-all"><a href="/articles/">All articles <span class="ar">→</span></a></p>

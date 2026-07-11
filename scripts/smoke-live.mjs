@@ -133,13 +133,22 @@ function extractLinkedResources(baseUrl, html, metadata) {
   ];
   const patterns = [
     { regex: /<source\b[^>]*\bsrc=["']([^"']+)["'][^>]*>/gi, kind: 'video link', extensions: /\.(mp4|webm|mov|mkv)(?:[?#]|$)/i },
+    { regex: /<img\b[^>]*\bsrc=["']([^"']+)["'][^>]*>/gi, kind: 'image' },
+    { regex: /<img\b[^>]*\bposter=["']([^"']+)["'][^>]*>/gi, kind: 'image' },
+    { regex: /<source\b[^>]*\bsrcset=["']([^"']+)["'][^>]*>/gi, kind: 'image', splitSrcset: true },
     { regex: /<a\b[^>]*\bhref=["']([^"']+)["'][^>]*\bdownload(?:\s|=|>|$)/gi, kind: 'download link' },
     { regex: /<a\b[^>]*\bhref=["']([^"']+\.(?:mp4|webm|mov|mkv|pdf|zip|gz|tar|docx?|xlsx?|pptx?|epub)(?:[?#][^"']*)?)["'][^>]*>/gi, kind: 'linked file' }
   ];
 
-  for (const { regex, kind, extensions } of patterns) {
+  for (const { regex, kind, extensions, splitSrcset } of patterns) {
     for (const match of html.matchAll(regex)) {
-      if (!extensions || extensions.test(match[1])) resources.push({ value: match[1], kind });
+      const raw = match[1];
+      const candidates = splitSrcset
+        ? raw.split(',').map(part => part.trim().split(/\s+/)[0]).filter(Boolean)
+        : [raw];
+      for (const value of candidates) {
+        if (!extensions || extensions.test(value)) resources.push({ value, kind });
+      }
     }
   }
 
