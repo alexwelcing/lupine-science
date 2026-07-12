@@ -3277,5 +3277,9 @@
       "end_word": 299,
       "text": "Read the full partner map at Lupine Science."
     }
-  ]
+  ],
+  "voice": "en-US-SteffanNeural",
+  "rate": "+10%",
+  "pitch": "+0Hz",
+  "note": "Voice direction changed 2026-07-12 from en-US-AnaNeural (fast-talking Cali woman) to en-US-SteffanNeural (soothing clear technical robot). These timings reflect the old voice and must be regenerated if this episode is re-rendered."
 }

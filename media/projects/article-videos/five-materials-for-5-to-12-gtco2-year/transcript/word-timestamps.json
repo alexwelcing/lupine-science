@@ -1,5 +1,5 @@
 {
-  "title": "Five Materials That Could Unlock 5–12 GtCO₂/Year",
+  "title": "Five Materials That Could Unlock 5\u201312 GtCO\u2082/Year",
   "source_audio": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/five-materials-for-5-to-12-gtco2-year/narration-ana-final.wav",
   "audio_duration_seconds": 92.376,
   "word_count": 273,
@@ -2466,7 +2466,7 @@
       "end_time": "00:01:23.280"
     },
     {
-      "word": "field’s",
+      "word": "field\u2019s",
       "cue": 18,
       "start": 83.28,
       "end": 83.56,
@@ -2735,5 +2735,9 @@
       "start_time": "00:01:31.400",
       "end_time": "00:01:31.720"
     }
-  ]
+  ],
+  "voice": "en-US-SteffanNeural",
+  "rate": "+10%",
+  "pitch": "+0Hz",
+  "note": "Voice direction changed 2026-07-12 from en-US-AnaNeural (fast-talking Cali woman) to en-US-SteffanNeural (soothing clear technical robot). These timings reflect the old voice and must be regenerated if this episode is re-rendered."
 }

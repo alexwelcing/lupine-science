@@ -2,8 +2,8 @@
 title: "Water and Air: Correcting the Molecules We Drink and Breathe — Narration Script"
 slug: "water-and-air-correcting-the-molecules-we-drink-and-breathe"
 target_duration: "90–120s"
-target_pace: "165–180 WPM"
-voice: "Fast-talking California woman; warm, sharp, conversational; urgent without sounding alarmist"
+target_pace: "145–160 WPM"
+voice: "soothing, clear technical robot (Edge TTS en-US-SteffanNeural). Calm, precise, warmly neutral; no slang, no sales energy."
 source: "../../../../articles/water-and-air-correcting-the-molecules-we-drink-and-breathe.md"
 status: draft
 ---

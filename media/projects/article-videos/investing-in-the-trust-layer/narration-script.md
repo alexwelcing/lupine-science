@@ -2,8 +2,8 @@
 title: "Investing in the Trust Layer — Narration Script"
 slug: "investing-in-the-trust-layer"
 target_duration: "90–120s"
-target_pace: "165–180 WPM"
-voice: "Fast-talking California woman; warm, sharp, conversational; smart friend at brunch, not salesy"
+target_pace: "145–160 WPM"
+voice: "soothing, clear technical robot (Edge TTS en-US-SteffanNeural). Calm, precise, warmly neutral; no slang, no sales energy."
 source: "../../../../articles/investing-in-the-trust-layer.md"
 status: director-approved
 ---

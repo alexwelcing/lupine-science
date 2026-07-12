@@ -2,8 +2,8 @@
 title: "Five Materials That Could Unlock 5–12 GtCO₂/Year — Narration Script"
 slug: "five-materials-for-5-to-12-gtco2-year"
 target_duration: "90–120s"
-target_pace: "165–180 WPM"
-voice: "Fast-talking California woman; warm, sharp, conversational; smart friend at brunch, not salesy"
+target_pace: "145–160 WPM"
+voice: "soothing, clear technical robot (Edge TTS en-US-SteffanNeural). Calm, precise, warmly neutral; no slang, no sales energy."
 source: "../../../../articles/five-materials-for-5-to-12-gtco2-year.md"
 status: director-approved
 ---

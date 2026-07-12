@@ -1,9 +1,10 @@
 {
-  "voice": "en-US-AnaNeural",
-  "rate": "-5%",
+  "voice": "en-US-SteffanNeural",
+  "rate": "+10%",
   "pitch": "+0Hz",
   "total_words": 1686,
   "total_duration_ms": 970811.25,
+  "note": "Voice direction changed 2026-07-12 from en-US-AnaNeural (fast-talking Cali woman) to en-US-SteffanNeural (soothing clear technical robot). These timings reflect the old voice and must be regenerated if this episode is re-rendered.",
   "words": [
     {
       "word": "Concrete",

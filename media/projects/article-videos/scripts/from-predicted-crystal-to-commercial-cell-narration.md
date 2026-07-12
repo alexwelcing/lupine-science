@@ -1,7 +1,7 @@
 # From Predicted Crystal to Commercial Cell — Narration Script
 
-Voice: fast-talking California woman; warm, sharp, conversational; “smart friend at brunch,” not salesy.
-Target pace: 165–180 WPM
+Voice: soothing, clear technical robot (Edge TTS en-US-SteffanNeural). Calm, precise, warmly neutral; no slang, no sales energy.
+Target pace: 145–160 WPM
 
 ## Beat 1 — Hook (0:00–0:12)
 

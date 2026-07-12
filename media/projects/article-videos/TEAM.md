@@ -2,14 +2,14 @@
 
 ## Director
 - **Role:** Executive decision-maker, final script/audio/animation approval.
-- **You:** Provide the Reese Witherspoon-style voice direction and the “website integration” constraint.
+- **You:** Provide the “soothing and clear technical robot” voice direction and the “website integration” constraint.
 
 ## Scriptwriter (researcher profile)
 - **Tasks:**
   - Distill each article into a 90–120 sec narration script.
-  - Match the fast-talking Cali-woman persona.
+  - Match the soothing, clear technical-robot persona: measured pacing, precise diction, warm neutrality, no slang.
   - Mark visual cues for each beat (which of the 10 images appears when).
-- **Deliverables:** `scripts/<slug>.txt` and `scripts/<slug>-cues.json`.
+- **Deliverables:** `narration-script.md`, `narration.txt`, and `narration-tts-input.txt` in the episode directory.
 
 ## Animator (media-director profile)
 - **Tasks:**
@@ -20,10 +20,11 @@
 
 ## Voice engineer (coder profile)
 - **Tasks:**
-  - Generate TTS audio for each script (Edge TTS or HeyGen API).
+  - Generate TTS audio for each script using the configured robot voice (`en-US-SteffanNeural` via Edge TTS by default).
+  - Normalize to -16 LUFS-I and export a 48 kHz mono WAV master.
   - Mix narration with optional ambient bed.
-  - Export WAV/MP3 and produce word-level transcript if possible.
-- **Deliverables:** `audio/<slug>-narration.wav`, `audio/<slug>-bgm.wav` (optional).
+  - Produce word-level transcript and synchronized WebVTT captions.
+- **Deliverables:** `narration-raw.mp3`, `narration-final.wav`, `transcript/word-timestamps.json`, and `transcript/captions.vtt` in the episode directory.
 
 ## Web integrator (coder profile)
 - **Tasks:**

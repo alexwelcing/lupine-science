@@ -2,8 +2,8 @@
 title: "Beyond Carbon: The Error Geometry of Environmental Materials — Narration Script"
 slug: "beyond-carbon-error-geometry"
 target_duration: "90–120s"
-target_pace: "165–180 WPM"
-voice: "Fast-talking California woman; warm, sharp, conversational; smart friend explaining a huge idea"
+target_pace: "145–160 WPM"
+voice: "soothing, clear technical robot (Edge TTS en-US-SteffanNeural). Calm, precise, warmly neutral; no slang, no sales energy."
 source: "../../../../articles/beyond-carbon-the-error-geometry-of-environmental-materials.md"
 status: draft
 ---

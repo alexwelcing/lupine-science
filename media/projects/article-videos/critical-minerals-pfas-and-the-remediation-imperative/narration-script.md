@@ -1,7 +1,7 @@
 # Critical Minerals, PFAS, and the Remediation Imperative — Narration Script
 
-Voice: fast-talking California woman; sharp, conversational, lightly urgent; informed friend, not disaster trailer.
-Target pace: 165–180 WPM
+Voice: soothing, clear technical robot (Edge TTS en-US-SteffanNeural). Calm, precise, warmly neutral; no slang, no sales energy.
+Target pace: 145–160 WPM
 
 ## Beat 1 — Two atoms problems (0:00–0:15)
 

@@ -1,22 +1,20 @@
-# HeyGen avatar / talking-head workflow
+# Robot presenter / synthetic voice workflow
 
-Last verified: 2026-07-10
+Last verified: 2026-07-12
 
 ## Decision
 
-For the Lupine Science “fast-talking California woman” presenter, start with:
+The Lupine Science article videos use a **soothing, clear technical robot** presenter rather than a human talking head. The default voice is generated with Edge TTS and composited directly into HyperFrames; no human avatar is required. A synthetic robot avatar may be added later only as a director-approved experiment.
 
-- **Avatar:** a public/stock **Digital Twin** that supports `avatar_v`.
-- **Engine:** **Avatar V** for the most natural human motion and lip-sync. If the selected look does not list `avatar_v` in `supported_api_engines`, use Avatar IV. Use Avatar IV for a photo/illustrated presenter.
-- **Voice:** a public English female voice auditioned from its preview URL, or a designed voice described without naming or imitating a real person.
-- **Voice direction:** “young adult American woman; West Coast conversational cadence; curious, warm, confident, articulate; energetic and fast without sounding rushed; clean science-explainer delivery.”
-- **Starting settings:** `locale: en-US`, `speed: 1.18`, `pitch: 0`. Test 1.15, 1.18, and 1.22 on the same 20–30 second script before locking the voice.
-- **Target pace:** approximately 185–205 spoken words per minute. Measure the rendered result; the speed multiplier is not itself a WPM guarantee.
-- **Integration:** render short transparent WebM presenter segments when the avatar supports matting, then composite them over HyperFrames. Otherwise render 1080p MP4 against the approved paper color and crop/reframe in the composition.
+- **Default voice engine:** Edge TTS (`en-US-SteffanNeural`).
+- **Voice direction:** calm, precise, warmly neutral, and articulate—like a research instrument that has learned to explain itself. No slang, vocal fry, sales energy, or celebrity imitation.
+- **Starting settings:** `rate: -10%`, `pitch: 0`. Test -5%, -10%, and -15% on the same 20–30 second script before locking the voice.
+- **Target pace:** approximately 145–160 spoken words per minute. Measure the rendered result; the rate multiplier is not itself a WPM guarantee.
+- **Integration:** generate narration audio locally with Edge TTS, normalize to -16 LUFS-I, and wire it into the HyperFrames composition. The visuals carry the motion; there is no human presenter layer by default.
 
-Do not voice-clone or prompt for a soundalike of a living actor. The project README’s “Reese Witherspoon energy” should be translated into descriptive traits—quick, warm, articulate, upbeat—not identity imitation.
+Do not voice-clone or prompt for a soundalike of a living actor. The previous “Reese Witherspoon energy” direction is deprecated.
 
-The shared storyboard template currently forbids people. Any avatar appearance therefore needs an explicit director exception to `frame.md`, ideally limited to a hook, transition, or outro rather than replacing the proof-first visual system.
+The shared storyboard template forbids people. Any future human or humanoid avatar appearance needs an explicit director exception to `frame.md` and must be reviewed against the robot-voice brief before it can replace the proof-first visual system.
 
 ## Local setup status
 
@@ -54,43 +52,30 @@ heygen auth status
 node /home/alex/.hermes/profiles/director/skills/media-use/scripts/resolve.mjs --doctor
 ```
 
-## Cast the presenter
+## Cast the robot voice
 
-### 1. Shortlist avatars
-
-```bash
-heygen avatar list --ownership public --limit 20 --human
-```
-
-Inspect looks in the returned avatar groups. Shortlist three young-adult women with:
-
-- natural medium-shot framing and direct eye line;
-- restrained hands and shoulders, not sales-presenter gestures;
-- a background that can be removed or cleanly keyed;
-- `avatar_v` in `supported_api_engines` for the preferred route;
-- enough headroom for both 16:9 and 9:16 crops.
-
-Do not select from a name alone. Render the same proof script with each finalist.
-
-### 2. Shortlist voices
+### 1. Shortlist Edge TTS robot voices
 
 ```bash
-heygen voice list \
-  --type public \
-  --engine starfish \
-  --language English \
-  --gender female \
-  --limit 20 \
-  --human
+source .venv-tts/bin/activate
+edge-tts --list-voices | grep -iE "en-US"
 ```
 
-Play each `preview_audio_url`. Score the top five on a 1–5 scale for warmth, articulation, energy, naturalness at speed, and pronunciation of scientific terms. Keep the top three.
+Audition the default `en-US-SteffanNeural` and at least two alternatives such as `en-US-EricNeural` and `en-US-ChristopherNeural`. Score each on a 1–5 scale for:
 
-If the stock catalog misses the brief, use HeyGen’s voice-design endpoint/Studio with this non-imitative prompt:
+- clarity of scientific terms and numbers;
+- calm, non-salesy neutrality;
+- absence of vocal fry or breathiness;
+- consistency at the target rate (`-10%` default);
+- robot-like precision without sounding hostile or monotone.
 
-> Young adult American woman with a subtle West Coast conversational cadence. Warm, curious, confident, and articulate. Energetic and fast, but never breathless or salesy. Clear consonants and steady authority for science explainers. Natural smile in the voice; neutral US English; no celebrity imitation.
+Keep the top two as backup voices.
 
-### 3. Run a low-cost matrix
+If the Edge catalog misses the brief, use HeyGen’s voice-design endpoint/Studio with this non-imitative prompt:
+
+> A soothing, clear technical robot voice. Calm, precise, warmly neutral, and articulate. Steady pace with clean consonants and measured authority for science explainers. Neutral US English; no human celebrity imitation; no sales energy.
+
+### 2. Run a low-cost audition matrix
 
 Use one 20–30 second script containing:
 
@@ -100,20 +85,37 @@ Use one 20–30 second script containing:
 - one comma-rich sentence;
 - a deliberate short pause.
 
-Render only the best 2 avatars × 2 voices at one speed, then test speed only on the winning pair. This avoids paying for a full Cartesian sweep.
+Render the default voice at -5%, -10%, and -15% rate. Render the top backup at -10%. This avoids paying for a full Cartesian sweep.
 
 Acceptance gate:
 
-- no visible mouth lag, phoneme smearing, or jump at pauses;
-- no clipped consonants at the selected speed;
 - scientific words match the pronunciation glossary;
-- body motion feels editorial rather than promotional;
-- the 9:16 crop preserves eyes, chin, and essential gestures;
-- pace measures 185–205 WPM without sounding rushed.
+- numbers and units are unambiguous;
+- no clipped consonants at the selected rate;
+- pace measures 145–160 WPM without sounding dragged;
+- silence boundaries are clean enough for downstream caption alignment.
 
 ## Lip-sync pipelines
 
-### Pipeline A — script to avatar video (recommended default)
+### Pipeline 0 — Edge TTS robot voice to WAV master (default)
+
+1. Finalize the narration text and pronunciation rewrites in `narration-tts-input.txt`.
+2. Run the shared narration generator:
+
+   ```bash
+   scripts/generate-narration.sh \
+     --project ./the-02-percent-synthesis-problem \
+     --input narration-tts-input.txt \
+     --output narration
+   ```
+
+3. The script writes `narration-raw.mp3`, `narration-raw.vtt`, and a loudness-normalized `narration-final.wav` at -16 LUFS-I, 48 kHz mono.
+4. Use the VTT sentence boundaries as the timing source for the transcript/caption pipeline.
+5. Composite the WAV into the HyperFrames composition; the visuals carry all motion.
+
+### Pipeline A — script to avatar video (optional avatar experiment)
+
+Use this only if the director explicitly approves a synthetic robot avatar. Otherwise skip to Pipeline 0.
 
 1. Finalize the narration text and pronunciation rewrites.
 2. Send `script`, `voice_id`, `voice_settings`, and `avatar_id` to `POST /v3/videos` (or `heygen video create`).
@@ -129,7 +131,7 @@ scripts/heygen-avatar-video.sh \
   --avatar '<avatar-look-id>' \
   --voice '<voice-id>' \
   --script ./articles/example/narration.txt \
-  --speed 1.18 \
+  --speed 1.0 \
   --engine avatar_v \
   --format mp4 \
   --out ./renders/heygen-proof
@@ -141,9 +143,9 @@ For a transparent presenter layer, use `--format webm`. This only works for avat
 
 ### Pipeline B — locked audio to avatar video (best for exact pacing)
 
-Use this when the voice engineer has already approved a final WAV/MP3, when word timing must match an existing storyboard, or when external TTS is preferred.
+Use this when a final robot-voice WAV has already been approved and you only need an avatar lip-sync layer.
 
-1. Generate and master the final narration first.
+1. Generate and master the final narration first (Pipeline 0).
 2. Upload it with `heygen asset upload` and capture the returned asset ID.
 3. Create the avatar video with `audio_asset_id` instead of `script`/`voice_id`.
 4. HeyGen lip-syncs the avatar to the exact uploaded waveform.
@@ -165,20 +167,20 @@ The self-serve API price is $2.00/min for Speed lipsync and $4.00/min for Precis
 
 ## Request shape
 
-The helper generates this request without writing credentials:
+For the optional avatar route, the helper generates this request without writing credentials:
 
 ```json
 {
   "type": "avatar",
   "avatar_id": "<avatar-look-id>",
-  "title": "Lupine Science avatar proof",
+  "title": "Lupine Science robot presenter proof",
   "resolution": "1080p",
   "aspect_ratio": "16:9",
   "output_format": "mp4",
   "script": "Approved narration text",
   "voice_id": "<voice-id>",
   "voice_settings": {
-    "speed": 1.18,
+    "speed": 1.0,
     "pitch": 0,
     "volume": 1,
     "locale": "en-US"
@@ -240,14 +242,14 @@ Use Studio/OAuth while casting because it is materially cheaper when subscriptio
 
 ## Production handoff
 
-1. Lock the avatar look ID, voice ID, engine, locale, and speed in the article’s production notes.
+1. Lock the Edge TTS voice name, rate, pitch, and target WPM in the article’s production notes.
 2. Keep script text and pronunciation rewrites in version control; never store credentials or temporary signed URLs.
-3. Render one low-cost proof and obtain director approval.
-4. Render final landscape output.
-5. Render a separate 9:16 output rather than center-cropping if the avatar framing or gestures do not survive.
-6. Download the video and SRT immediately; returned asset URLs may be presigned and temporary.
-7. Keep the frozen output under the article-video project's `renders/heygen/` tree and record its relative path, HeyGen video ID, avatar look ID, voice ID, engine, and render date in the article's production notes. The current media-use resolver does not expose a `video` ledger type, so do not pass `--type video` to it.
-8. Verify duration with `ffprobe`, inspect lip-sync at normal and half speed, then composite and loudness-normalize the final program.
+3. Render one low-cost audio proof with `scripts/generate-narration.sh --proof` and obtain director approval.
+4. Render the final narration WAV and generate the transcript/caption pipeline.
+5. Render final landscape HyperFrames output.
+6. Render a separate 9:16 output only if vertical distribution is required.
+7. Keep the frozen output under the article-video project's `renders/` tree and record its relative path, SHA-256, byte size, voice name, rate, pitch, render date, and HyperFrames version in the article's production notes.
+8. Verify duration with `ffprobe`, run `scripts/audio-qa.sh` on the final narration, and confirm caption sync against the rendered MP4.
 
 ## Sources
 

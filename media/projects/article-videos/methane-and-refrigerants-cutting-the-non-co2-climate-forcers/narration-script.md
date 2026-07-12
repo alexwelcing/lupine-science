@@ -2,8 +2,8 @@
 title: "Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers — Narration Script"
 slug: "methane-and-refrigerants-cutting-the-non-co2-climate-forcers"
 target_duration: "90–120s"
-target_pace: "165–180 WPM"
-voice: "Fast-talking California woman; bright, confident, conversational; urgent without sounding alarmist"
+target_pace: "145–160 WPM"
+voice: "soothing, clear technical robot (Edge TTS en-US-SteffanNeural). Calm, precise, warmly neutral; no slang, no sales energy."
 source: "../../../../articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers.md"
 status: draft
 ---

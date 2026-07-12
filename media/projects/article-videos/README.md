@@ -165,5 +165,6 @@ High-leverage visual systems and consequential design decisions must use the [`S
 - Lupine Newsreader and IBM Plex Mono only; body text is at least 48 px and labels/data callouts at least 36 px at 1080p.
 - No critical content in the outer 5% title-safe margin.
 - Timelines are deterministic and seek-safe: no network fetches, `Date.now()`, or `Math.random()` at render time.
+- Narration voice is the configured technical-robot voice (`en-US-SteffanNeural` via Edge TTS by default); see `voice-config.json`.
 - Narration remains intelligible; any music bed sits at least 12 dB below narration.
 - Motion must reveal or explain the evidence. Static-slide scenes and arbitrary motion are release blockers.

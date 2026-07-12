@@ -1,0 +1,28 @@
+{
+  "persona": "soothing and clear technical robot",
+  "description": "Calm, precise, warmly neutral, and articulate—like a research instrument that has learned to explain itself. No slang, vocal fry, sales energy, or celebrity imitation.",
+  "engine": "edge-tts",
+  "voice": "en-US-SteffanNeural",
+  "rate": "+10%",
+  "pitch": "+0Hz",
+  "locale": "en-US",
+  "target_wpm_min": 145,
+  "target_wpm_max": 160,
+  "lufs_integrated": -15,
+  "lufs_range_min": -16,
+  "lufs_range_max": -14,
+  "peak_dbfs_max": -1,
+  "sample_rate_hz": 48000,
+  "channels": 1,
+  "output_bit_depth": 24,
+  "backups": [
+    "en-US-EricNeural",
+    "en-US-ChristopherNeural"
+  ],
+  "deprecated": {
+    "previous_voice": "en-US-AnaNeural",
+    "previous_persona": "fast-talking California woman / Reese Witherspoon energy",
+    "deprecated_date": "2026-07-12",
+    "reason": "Director requested a soothing, clear technical robot voice to replace the previous fast-talking human persona."
+  }
+}

@@ -133,7 +133,7 @@
   },
   {
     "title": "Set up HeyGen avatar / talking-head workflow",
-    "body": "Research HeyGen API or Studio for a fast-talking Cali-woman avatar. Document lip-sync pipeline and cost per minute.",
+    "body": "Research optional synthetic robot avatars via HeyGen API or Studio only if director approves an avatar experiment. Default remains Edge TTS robot voice with no human presenter. Document lip-sync pipeline and cost per minute.",
     "assignee": "director",
     "skill": "media-use"
   },
@@ -181,19 +181,19 @@
   },
   {
     "title": "The 0.2% Synthesis Problem: Write narration script",
-    "body": "Distill the article into a 90\u2013120 second script for a fast-talking Cali woman narrator. Include visual cues for each beat. Target 165\u2013180 WPM.",
+    "body": "Distill the article into a 90\u2013120 second script for the soothing, clear technical-robot narrator. Include visual cues for each beat. Target 145\u2013160 WPM.",
     "assignee": "scriptwriter",
     "skill": null
   },
   {
     "title": "The 0.2% Synthesis Problem: Director approves narration script",
-    "body": "Review script for accuracy, tone, pacing, and Lupine voice. Approve or request revisions with line notes.",
+    "body": "Review script for accuracy, tone, pacing, and the soothing technical-robot voice. Approve or request revisions with line notes.",
     "assignee": "director",
     "skill": null
   },
   {
     "title": "The 0.2% Synthesis Problem: Generate TTS narration with final voice",
-    "body": "Produce narration audio using the selected Cali-woman voice (Edge TTS Ana or HeyGen). Export WAV at -16 LUFS.",
+    "body": "Produce narration audio using the configured robot voice (Edge TTS en-US-SteffanNeural by default). Export WAV at -16 LUFS.",
     "assignee": "voice-engineer",
     "skill": "media-use"
   },
@@ -307,19 +307,19 @@
   },
   {
     "title": "A Field, Not a Neural Net: Write narration script",
-    "body": "Distill the article into a 90\u2013120 second script for a fast-talking Cali woman narrator. Include visual cues for each beat. Target 165\u2013180 WPM.",
+    "body": "Distill the article into a 90\u2013120 second script for the soothing, clear technical-robot narrator. Include visual cues for each beat. Target 145\u2013160 WPM.",
     "assignee": "scriptwriter",
     "skill": null
   },
   {
     "title": "A Field, Not a Neural Net: Director approves narration script",
-    "body": "Review script for accuracy, tone, pacing, and Lupine voice. Approve or request revisions with line notes.",
+    "body": "Review script for accuracy, tone, pacing, and the soothing technical-robot voice. Approve or request revisions with line notes.",
     "assignee": "director",
     "skill": null
   },
   {
     "title": "A Field, Not a Neural Net: Generate TTS narration with final voice",
-    "body": "Produce narration audio using the selected Cali-woman voice (Edge TTS Ana or HeyGen). Export WAV at -16 LUFS.",
+    "body": "Produce narration audio using the configured robot voice (Edge TTS en-US-SteffanNeural by default). Export WAV at -16 LUFS.",
     "assignee": "voice-engineer",
     "skill": "media-use"
   },
@@ -433,19 +433,19 @@
   },
   {
     "title": "Five Materials That Could Unlock 5\u201312 GtCO\u2082/Year: Write narration script",
-    "body": "Distill the article into a 90\u2013120 second script for a fast-talking Cali woman narrator. Include visual cues for each beat. Target 165\u2013180 WPM.",
+    "body": "Distill the article into a 90\u2013120 second script for the soothing, clear technical-robot narrator. Include visual cues for each beat. Target 145\u2013160 WPM.",
     "assignee": "scriptwriter",
     "skill": null
   },
   {
     "title": "Five Materials That Could Unlock 5\u201312 GtCO\u2082/Year: Director approves narration script",
-    "body": "Review script for accuracy, tone, pacing, and Lupine voice. Approve or request revisions with line notes.",
+    "body": "Review script for accuracy, tone, pacing, and the soothing technical-robot voice. Approve or request revisions with line notes.",
     "assignee": "director",
     "skill": null
   },
   {
     "title": "Five Materials That Could Unlock 5\u201312 GtCO\u2082/Year: Generate TTS narration with final voice",
-    "body": "Produce narration audio using the selected Cali-woman voice (Edge TTS Ana or HeyGen). Export WAV at -16 LUFS.",
+    "body": "Produce narration audio using the configured robot voice (Edge TTS en-US-SteffanNeural by default). Export WAV at -16 LUFS.",
     "assignee": "voice-engineer",
     "skill": "media-use"
   },
@@ -559,19 +559,19 @@
   },
   {
     "title": "From Predicted Crystal to Commercial Cell: Write narration script",
-    "body": "Distill the article into a 90\u2013120 second script for a fast-talking Cali woman narrator. Include visual cues for each beat. Target 165\u2013180 WPM.",
+    "body": "Distill the article into a 90\u2013120 second script for the soothing, clear technical-robot narrator. Include visual cues for each beat. Target 145\u2013160 WPM.",
     "assignee": "scriptwriter",
     "skill": null
   },
   {
     "title": "From Predicted Crystal to Commercial Cell: Director approves narration script",
-    "body": "Review script for accuracy, tone, pacing, and Lupine voice. Approve or request revisions with line notes.",
+    "body": "Review script for accuracy, tone, pacing, and the soothing technical-robot voice. Approve or request revisions with line notes.",
     "assignee": "director",
     "skill": null
   },
   {
     "title": "From Predicted Crystal to Commercial Cell: Generate TTS narration with final voice",
-    "body": "Produce narration audio using the selected Cali-woman voice (Edge TTS Ana or HeyGen). Export WAV at -16 LUFS.",
+    "body": "Produce narration audio using the configured robot voice (Edge TTS en-US-SteffanNeural by default). Export WAV at -16 LUFS.",
     "assignee": "voice-engineer",
     "skill": "media-use"
   },
@@ -685,19 +685,19 @@
   },
   {
     "title": "Investing in the Trust Layer: Write narration script",
-    "body": "Distill the article into a 90\u2013120 second script for a fast-talking Cali woman narrator. Include visual cues for each beat. Target 165\u2013180 WPM.",
+    "body": "Distill the article into a 90\u2013120 second script for the soothing, clear technical-robot narrator. Include visual cues for each beat. Target 145\u2013160 WPM.",
     "assignee": "scriptwriter",
     "skill": null
   },
   {
     "title": "Investing in the Trust Layer: Director approves narration script",
-    "body": "Review script for accuracy, tone, pacing, and Lupine voice. Approve or request revisions with line notes.",
+    "body": "Review script for accuracy, tone, pacing, and the soothing technical-robot voice. Approve or request revisions with line notes.",
     "assignee": "director",
     "skill": null
   },
   {
     "title": "Investing in the Trust Layer: Generate TTS narration with final voice",
-    "body": "Produce narration audio using the selected Cali-woman voice (Edge TTS Ana or HeyGen). Export WAV at -16 LUFS.",
+    "body": "Produce narration audio using the configured robot voice (Edge TTS en-US-SteffanNeural by default). Export WAV at -16 LUFS.",
     "assignee": "voice-engineer",
     "skill": "media-use"
   },
@@ -811,19 +811,19 @@
   },
   {
     "title": "Beyond Carbon: The Error Geometry of Environmental Materials: Write narration script",
-    "body": "Distill the article into a 90\u2013120 second script for a fast-talking Cali woman narrator. Include visual cues for each beat. Target 165\u2013180 WPM.",
+    "body": "Distill the article into a 90\u2013120 second script for the soothing, clear technical-robot narrator. Include visual cues for each beat. Target 145\u2013160 WPM.",
     "assignee": "scriptwriter",
     "skill": null
   },
   {
     "title": "Beyond Carbon: The Error Geometry of Environmental Materials: Director approves narration script",
-    "body": "Review script for accuracy, tone, pacing, and Lupine voice. Approve or request revisions with line notes.",
+    "body": "Review script for accuracy, tone, pacing, and the soothing technical-robot voice. Approve or request revisions with line notes.",
     "assignee": "director",
     "skill": null
   },
   {
     "title": "Beyond Carbon: The Error Geometry of Environmental Materials: Generate TTS narration with final voice",
-    "body": "Produce narration audio using the selected Cali-woman voice (Edge TTS Ana or HeyGen). Export WAV at -16 LUFS.",
+    "body": "Produce narration audio using the configured robot voice (Edge TTS en-US-SteffanNeural by default). Export WAV at -16 LUFS.",
     "assignee": "voice-engineer",
     "skill": "media-use"
   },
@@ -937,19 +937,19 @@
   },
   {
     "title": "Water and Air: Correcting the Molecules We Drink and Breathe: Write narration script",
-    "body": "Distill the article into a 90\u2013120 second script for a fast-talking Cali woman narrator. Include visual cues for each beat. Target 165\u2013180 WPM.",
+    "body": "Distill the article into a 90\u2013120 second script for the soothing, clear technical-robot narrator. Include visual cues for each beat. Target 145\u2013160 WPM.",
     "assignee": "scriptwriter",
     "skill": null
   },
   {
     "title": "Water and Air: Correcting the Molecules We Drink and Breathe: Director approves narration script",
-    "body": "Review script for accuracy, tone, pacing, and Lupine voice. Approve or request revisions with line notes.",
+    "body": "Review script for accuracy, tone, pacing, and the soothing technical-robot voice. Approve or request revisions with line notes.",
     "assignee": "director",
     "skill": null
   },
   {
     "title": "Water and Air: Correcting the Molecules We Drink and Breathe: Generate TTS narration with final voice",
-    "body": "Produce narration audio using the selected Cali-woman voice (Edge TTS Ana or HeyGen). Export WAV at -16 LUFS.",
+    "body": "Produce narration audio using the configured robot voice (Edge TTS en-US-SteffanNeural by default). Export WAV at -16 LUFS.",
     "assignee": "voice-engineer",
     "skill": "media-use"
   },
@@ -1063,19 +1063,19 @@
   },
   {
     "title": "Methane and Refrigerants: Cutting the Non-CO\u2082 Climate Forcers: Write narration script",
-    "body": "Distill the article into a 90\u2013120 second script for a fast-talking Cali woman narrator. Include visual cues for each beat. Target 165\u2013180 WPM.",
+    "body": "Distill the article into a 90\u2013120 second script for the soothing, clear technical-robot narrator. Include visual cues for each beat. Target 145\u2013160 WPM.",
     "assignee": "scriptwriter",
     "skill": null
   },
   {
     "title": "Methane and Refrigerants: Cutting the Non-CO\u2082 Climate Forcers: Director approves narration script",
-    "body": "Review script for accuracy, tone, pacing, and Lupine voice. Approve or request revisions with line notes.",
+    "body": "Review script for accuracy, tone, pacing, and the soothing technical-robot voice. Approve or request revisions with line notes.",
     "assignee": "director",
     "skill": null
   },
   {
     "title": "Methane and Refrigerants: Cutting the Non-CO\u2082 Climate Forcers: Generate TTS narration with final voice",
-    "body": "Produce narration audio using the selected Cali-woman voice (Edge TTS Ana or HeyGen). Export WAV at -16 LUFS.",
+    "body": "Produce narration audio using the configured robot voice (Edge TTS en-US-SteffanNeural by default). Export WAV at -16 LUFS.",
     "assignee": "voice-engineer",
     "skill": "media-use"
   },
@@ -1189,19 +1189,19 @@
   },
   {
     "title": "Critical Minerals, PFAS, and the Remediation Imperative: Write narration script",
-    "body": "Distill the article into a 90\u2013120 second script for a fast-talking Cali woman narrator. Include visual cues for each beat. Target 165\u2013180 WPM.",
+    "body": "Distill the article into a 90\u2013120 second script for the soothing, clear technical-robot narrator. Include visual cues for each beat. Target 145\u2013160 WPM.",
     "assignee": "scriptwriter",
     "skill": null
   },
   {
     "title": "Critical Minerals, PFAS, and the Remediation Imperative: Director approves narration script",
-    "body": "Review script for accuracy, tone, pacing, and Lupine voice. Approve or request revisions with line notes.",
+    "body": "Review script for accuracy, tone, pacing, and the soothing technical-robot voice. Approve or request revisions with line notes.",
     "assignee": "director",
     "skill": null
   },
   {
     "title": "Critical Minerals, PFAS, and the Remediation Imperative: Generate TTS narration with final voice",
-    "body": "Produce narration audio using the selected Cali-woman voice (Edge TTS Ana or HeyGen). Export WAV at -16 LUFS.",
+    "body": "Produce narration audio using the configured robot voice (Edge TTS en-US-SteffanNeural by default). Export WAV at -16 LUFS.",
     "assignee": "voice-engineer",
     "skill": "media-use"
   },
@@ -1315,19 +1315,19 @@
   },
   {
     "title": "Cement, Concrete, and the Weight of the Built World: Write narration script",
-    "body": "Distill the article into a 90\u2013120 second script for a fast-talking Cali woman narrator. Include visual cues for each beat. Target 165\u2013180 WPM.",
+    "body": "Distill the article into a 90\u2013120 second script for the soothing, clear technical-robot narrator. Include visual cues for each beat. Target 145\u2013160 WPM.",
     "assignee": "scriptwriter",
     "skill": null
   },
   {
     "title": "Cement, Concrete, and the Weight of the Built World: Director approves narration script",
-    "body": "Review script for accuracy, tone, pacing, and Lupine voice. Approve or request revisions with line notes.",
+    "body": "Review script for accuracy, tone, pacing, and the soothing technical-robot voice. Approve or request revisions with line notes.",
     "assignee": "director",
     "skill": null
   },
   {
     "title": "Cement, Concrete, and the Weight of the Built World: Generate TTS narration with final voice",
-    "body": "Produce narration audio using the selected Cali-woman voice (Edge TTS Ana or HeyGen). Export WAV at -16 LUFS.",
+    "body": "Produce narration audio using the configured robot voice (Edge TTS en-US-SteffanNeural by default). Export WAV at -16 LUFS.",
     "assignee": "voice-engineer",
     "skill": "media-use"
   },

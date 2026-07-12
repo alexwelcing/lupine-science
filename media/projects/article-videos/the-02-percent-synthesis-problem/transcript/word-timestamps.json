@@ -257,7 +257,7 @@
     },
     {
       "index": 26,
-      "word": "That’s",
+      "word": "That\u2019s",
       "start": 10.2,
       "end": 10.54,
       "start_time": "00:00:10.200",
@@ -337,7 +337,7 @@
     },
     {
       "index": 34,
-      "word": "isn’t",
+      "word": "isn\u2019t",
       "start": 12.92,
       "end": 13.2,
       "start_time": "00:00:12.920",
@@ -597,7 +597,7 @@
     },
     {
       "index": 60,
-      "word": "isn’t",
+      "word": "isn\u2019t",
       "start": 22.32,
       "end": 22.76,
       "start_time": "00:00:22.320",
@@ -1547,7 +1547,7 @@
     },
     {
       "index": 155,
-      "word": "Lupine’s",
+      "word": "Lupine\u2019s",
       "start": 55.92,
       "end": 56.3,
       "start_time": "00:00:55.920",
@@ -1567,7 +1567,7 @@
     },
     {
       "index": 157,
-      "word": "isn’t",
+      "word": "isn\u2019t",
       "start": 56.5,
       "end": 56.76,
       "start_time": "00:00:56.500",
@@ -1607,7 +1607,7 @@
     },
     {
       "index": 161,
-      "word": "It’s",
+      "word": "It\u2019s",
       "start": 58.16,
       "end": 58.34,
       "start_time": "00:00:58.160",
@@ -2755,5 +2755,9 @@
       "confidence": 0.995,
       "cue": 26
     }
-  ]
+  ],
+  "voice": "en-US-SteffanNeural",
+  "rate": "+10%",
+  "pitch": "+0Hz",
+  "note": "Voice direction changed 2026-07-12 from en-US-AnaNeural (fast-talking Cali woman) to en-US-SteffanNeural (soothing clear technical robot). These timings reflect the old voice and must be regenerated if this episode is re-rendered."
 }

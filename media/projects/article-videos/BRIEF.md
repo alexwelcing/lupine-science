@@ -19,8 +19,9 @@ Each article becomes a 90–120 second video with this arc:
 
 ## Voice direction
 
-- Pace: ~165–180 words per minute (fast but legible).
-- Tone: smart friend explaining something cool at brunch.
+- Voice: `en-US-SteffanNeural` via Edge TTS (soothing, clear technical robot).
+- Pace: ~145–160 words per minute (deliberate and legible; slower than the previous fast-talking direction).
+- Tone: calm, precise, warmly neutral—like a research instrument that has learned to explain itself. No slang, no vocal fry, no sales energy.
 - No jargon without a one-word translation.
 
 ## Technical constraints

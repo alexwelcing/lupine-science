@@ -2,8 +2,8 @@
 title: "A Field, Not a Neural Net — Narration Script"
 slug: "a-field-not-a-neural-net"
 target_duration: "90–120s"
-target_pace: "165–180 WPM"
-voice: "Fast-talking California woman; smart friend at brunch; confident, curious, precise"
+target_pace: "145–160 WPM"
+voice: "soothing, clear technical robot (Edge TTS en-US-SteffanNeural). Calm, precise, warmly neutral; no slang, no sales energy."
 source: "../../../../articles/a-field-not-a-neural-net.md"
 status: director-approved
 ---

@@ -7,10 +7,11 @@ from pathlib import Path
 
 from faster_whisper import WhisperModel
 
-project = Path(sys.argv[1]).resolve()
-audio = project / "narration-ana-final.wav"
-approved = (project / "narration-text.txt").read_text(encoding="utf-8").strip()
-raw_vtt = project / "narration-ana-raw.vtt"
+project = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else Path(".").resolve()
+audio = Path(sys.argv[2]) if len(sys.argv) > 2 else project / "narration-final.wav"
+approved_file = Path(sys.argv[3]) if len(sys.argv) > 3 else (project / "narration-text.txt")
+approved = approved_file.read_text(encoding="utf-8").strip()
+raw_vtt = Path(sys.argv[4]) if len(sys.argv) > 4 else project / "narration-raw.vtt"
 outdir = project / "transcript"
 outdir.mkdir(exist_ok=True)
 
@@ -134,9 +135,12 @@ for sentence_index, match in enumerate(cue_matches):
 payload = {
     "title": TITLE,
     "source_audio": str(audio),
+    "voice": "en-US-SteffanNeural",
+    "rate": "+10%",
+    "pitch": "+0Hz",
     "audio_duration_seconds": round(float(info.duration), 3),
     "word_count": len(rows),
-    "timing_method": "faster-whisper small.en word alignment, corrected to approved narration text and raw TTS sentence boundaries",
+    "timing_method": "faster-whisper small.en word alignment, corrected to approved narration text and Edge TTS en-US-SteffanNeural sentence boundaries",
     "words": rows,
 }
 (outdir / "word-timestamps.json").write_text(

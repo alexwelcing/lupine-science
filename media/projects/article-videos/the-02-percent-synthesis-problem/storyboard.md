@@ -1,3 +1,5 @@
+
+> **Voice direction update (2026-07-12):** The approved narration master for this storyboard was produced with the previous `en-US-AnaNeural` (fast-talking California woman) voice. The project has switched to a soothing, clear technical robot voice (`en-US-SteffanNeural`, +10% rate, ~145–160 WPM). Regenerate the narration master with `scripts/generate-narration.sh` and re-time the storyboard before final render.
 ---
 title: "The 0.2% Synthesis Problem — Storyboard"
 slug: "the-02-percent-synthesis-problem"

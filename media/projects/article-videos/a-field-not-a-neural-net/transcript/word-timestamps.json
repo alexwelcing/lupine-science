@@ -2367,7 +2367,7 @@
     },
     {
       "index": 237,
-      "word": "field’s",
+      "word": "field\u2019s",
       "start": 93.96,
       "end": 94.3,
       "start_time": "00:01:33.960",
@@ -2977,7 +2977,7 @@
     },
     {
       "cue": 7,
-      "text": "But real materials work at vacancies, surfaces, and transition states—places where atoms have fewer neighbors.",
+      "text": "But real materials work at vacancies, surfaces, and transition states\u2014places where atoms have fewer neighbors.",
       "start": 20.86,
       "end": 26.62,
       "start_word": 50,
@@ -3009,7 +3009,7 @@
     },
     {
       "cue": 11,
-      "text": "Lupine measures an environment error field based on coordination number—basically, how many neighboring atoms each atom has.",
+      "text": "Lupine measures an environment error field based on coordination number\u2014basically, how many neighboring atoms each atom has.",
       "start": 37.48,
       "end": 43.14,
       "start_word": 93,
@@ -3049,7 +3049,7 @@
     },
     {
       "cue": 16,
-      "text": "Then the field predicts a fourth surface—the one-ten facet—blind.",
+      "text": "Then the field predicts a fourth surface\u2014the one-ten facet\u2014blind.",
       "start": 55.13,
       "end": 58.66,
       "start_word": 138,
@@ -3097,7 +3097,7 @@
     },
     {
       "cue": 22,
-      "text": "Lean four proofs check every quantitative claim and flag ranking inversions, already-converged cases, or physics outside the field’s domain.",
+      "text": "Lean four proofs check every quantitative claim and flag ranking inversions, already-converged cases, or physics outside the field\u2019s domain.",
       "start": 87.76,
       "end": 94.54,
       "start_word": 220,
@@ -3105,7 +3105,7 @@
     },
     {
       "cue": 23,
-      "text": "One proof even caught a rounding tie and corrected “27 improvements” to 26.",
+      "text": "One proof even caught a rounding tie and corrected \u201c27 improvements\u201d to 26.",
       "start": 95.28,
       "end": 99.52,
       "start_word": 239,
@@ -3113,7 +3113,7 @@
     },
     {
       "cue": 24,
-      "text": "That matters for battery ion hops, carbon-capture frameworks, ammonia catalysts, and perovskite stability—all controlled by under-coordinated defects.",
+      "text": "That matters for battery ion hops, carbon-capture frameworks, ammonia catalysts, and perovskite stability\u2014all controlled by under-coordinated defects.",
       "start": 100.22,
       "end": 108.12,
       "start_word": 252,
@@ -3135,5 +3135,9 @@
       "start_word": 278,
       "end_word": 292
     }
-  ]
+  ],
+  "voice": "en-US-SteffanNeural",
+  "rate": "+10%",
+  "pitch": "+0Hz",
+  "note": "Voice direction changed 2026-07-12 from en-US-AnaNeural (fast-talking Cali woman) to en-US-SteffanNeural (soothing clear technical robot). These timings reflect the old voice and must be regenerated if this episode is re-rendered."
 }
