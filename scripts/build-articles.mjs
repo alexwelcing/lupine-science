@@ -73,6 +73,10 @@ const HERO_CAPTIONS = {
     'The error field, drawn by the front door’s live instrument in its ∇ᵧE focus — each comet a model’s dominant error direction, computed from the committed benchmark data.',
   'the-trust-layer':
     'The instrument on the front door: the hyper-ribbon and one cavity of MOF-5, drawn live from committed data.',
+  'rhizo-non-co2-climate-forcers-lean':
+    'The Lupine Rhizo build status: 289 theorems, zero sorry, with non-CO₂ climate forcers now machine-checked in Lean 4.',
+  'lupi-hfc-refrigerant-research-payloads':
+    'R32 refrigerant liquid at 273 K in the Lupi viewer, streamed with full per-atom research payload and temperature-profile sidecars.',
 };
 
 const MARK_SVG = `<svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
