@@ -1,0 +1,8 @@
+URL=https://lupine.science/videos/investing-in-the-trust-layer.mp4
+HEAD_FINAL_STATUS=200
+HEAD_CONTENT_TYPE=text/html; charset=utf-8
+RANGE_STATUS=206
+RANGE_CONTENT_TYPE=text/html; charset=utf-8
+RANGE_FILE=HTML document, Unicode text, UTF-8 text, with very long lines (753)
+RANGE_PREFIX_HEX=3c21646f63747970652068746d6c3e0a3c68746d6c206c616e673d22656e223e
+FFPROBE=FAIL

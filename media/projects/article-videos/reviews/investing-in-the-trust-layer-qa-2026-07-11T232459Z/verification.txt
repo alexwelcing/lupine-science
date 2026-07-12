@@ -1,0 +1,8 @@
+OUT=/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/reviews/investing-in-the-trust-layer-qa-2026-07-11T232459Z
+CURL_EXIT=0
+HTTP_STATUS=200
+CONTENT_TYPE=text/html; charset=utf-8
+BYTES=84245
+DETECTED_MIME=text/html
+SHA256=bf9ad733198af58e7604855467351327fce569717e437c327d1ec8915981e39d
+FFPROBE_EXIT=1

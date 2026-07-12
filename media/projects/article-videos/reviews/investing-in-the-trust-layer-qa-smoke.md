@@ -103,3 +103,15 @@ The repository smoke suite passed again (14 pages, 352 linked resources, exit 0)
 ### Recheck — 2026-07-11T16:36:30Z
 
 The repository smoke suite passed again (14 pages, 352 linked resources, exit 0). A fresh cache-busting request with `Cache-Control: no-cache` and `Accept: video/mp4` returned HTTP 200 but failed the required media contract: `Content-Type: text/html; charset=utf-8`, 84,245 bytes, and SHA-256 `08e84199d20f44dcccac30f5a87c8987cf4f6648fb43c3ce5d7b4b8e3f6f38a2`. `file` detected an HTML document and `ffprobe` exited 1 with `Invalid data found when processing input`. Current evidence is saved in `reviews/investing-in-the-trust-layer-smoke-latest.log` and `reviews/investing-in-the-trust-layer-video-headers-latest.txt`.
+
+### Recheck — 2026-07-11T18:07:57Z
+
+The repository smoke suite passed again (14 pages, 352 linked resources, exit 0). A cache-busting request with `Cache-Control: no-cache` and `Accept: video/mp4` returned HTTP 200 but still failed the required media contract: `Content-Type: text/html; charset=utf-8`, 84,245 bytes, `CF-Cache-Status: MISS`, and SHA-256 `50075a8dbf34ed192fa4375faf2f6b24114faf82d4bf9c59e7f9c6759b522378`. The first bytes are an HTML doctype, `file` detected an HTML document, and `ffprobe` exited 1 with `Invalid data found when processing input`. Current smoke output and response evidence are saved in `reviews/investing-in-the-trust-layer-smoke-latest.log` and `reviews/investing-in-the-trust-layer-video-headers-latest.txt`.
+
+### Recheck — 2026-07-11T18:10:26Z
+
+The repository smoke suite passed again (14 pages, 352 linked resources, exit 0). A fresh cache-busting request with `Cache-Control: no-cache` and `Accept: video/mp4` returned HTTP 200 but still failed the required media contract: `Content-Type: text/html; charset=utf-8`, 84,245 bytes, `CF-Cache-Status: MISS`, and SHA-256 `fac2b45a89d010f1e46ee041564afd038aca1f7367646783721f4df169a67b80`. `file` detected an HTML document, and `ffprobe` rejected the response with `moov atom not found` / `Invalid data found when processing input`. Current smoke output and response headers are saved in `reviews/investing-in-the-trust-layer-smoke-latest.log` and `reviews/investing-in-the-trust-layer-video-headers-latest.txt`.
+
+### Recheck — 2026-07-11T18:12:26Z
+
+The repository smoke suite passed again (14 pages, 352 linked resources, exit 0). A fresh cache-busting request with `Cache-Control: no-cache` and `Accept: video/mp4` returned HTTP 200 but still failed the required media contract: `Content-Type: text/html; charset=utf-8`, 84,245 bytes, and SHA-256 `17d04a5b69c7e8a84e6a15f4de948a139bb176379527123b2162ed39f6e3fa6c`. `file` detected an HTML document, and `ffprobe` exited 1 with `Invalid data found when processing input`. Current smoke output and response headers are saved in `reviews/investing-in-the-trust-layer-smoke-latest.log` and `reviews/investing-in-the-trust-layer-video-headers-latest.txt`.

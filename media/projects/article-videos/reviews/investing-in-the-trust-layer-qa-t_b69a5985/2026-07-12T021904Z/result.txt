@@ -1,0 +1,6 @@
+smoke_rc=0
+status=200
+content_type=text/html; charset=utf-8
+size=84245
+redirects=0
+detected_mime=text/html

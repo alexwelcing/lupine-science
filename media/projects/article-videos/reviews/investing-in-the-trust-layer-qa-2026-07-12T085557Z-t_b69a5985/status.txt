@@ -1,0 +1,2 @@
+smoke_status=0
+curl_status=0

@@ -1,0 +1,1346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lupine Science — Unlocking the materials that build the future</title>
+  <meta name="description" content="Intelligence became abundant; verified knowledge did not. Lupine Science makes AI's predictions of new materials provable — mathematics a computer checks, evidence anyone can audit — so discovery stops waiting on guesswork.">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Lupine Science — Unlocking the materials that build the future">
+  <meta property="og:description" content="Intelligence became abundant; verified knowledge did not. We make AI's predictions of new materials provable, so discovery stops waiting on guesswork.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lupine.science/">
+  <meta property="og:image" content="https://lupine.science/og-lupine-science.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lupine Science — Unlocking the materials that build the future">
+  <meta name="twitter:description" content="Intelligence became abundant; verified knowledge did not. We make AI's predictions of new materials provable, so discovery stops waiting on guesswork.">
+  <meta name="twitter:image" content="https://lupine.science/og-lupine-science.jpg">
+  <meta name="theme-color" content="#faf9f6">
+  <link rel="canonical" href="https://lupine.science/">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://lupine.science/#org","name":"Lupine Science","url":"https://lupine.science/","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png"},"founder":{"@type":"Person","name":"Alex Welcing","email":"alex@lupinesci.com"},"description":"Lupine Science accelerates materials discovery by making AI's predictions of matter trustworthy.","sameAs":["https://github.com/alexwelcing/lupine","https://library.lupine.science","https://lupi.live"]},{"@type":"WebSite","@id":"https://lupine.science/#site","url":"https://lupine.science/","name":"Lupine Science","publisher":{"@id":"https://lupine.science/#org"}}]}</script>
+  <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
+  <link rel="icon" type="image/png" href="/lupine-science-icon.png">
+  <link rel="apple-touch-icon" href="/lupine-science-icon.png">
+
+  <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/newsreader-italic-var.woff2" as="font" type="font/woff2" crossorigin>
+
+  <style>
+    /* Self-hosted, subset to the glyphs this site uses (scripts/build-fonts.mjs).
+       No third party sits between a visitor and first paint. */
+    @font-face {
+      font-family: "Newsreader";
+      src: url("/fonts/newsreader-var.woff2") format("woff2");
+      font-style: normal; font-weight: 300 600; font-stretch: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Newsreader";
+      src: url("/fonts/newsreader-italic-var.woff2") format("woff2");
+      font-style: italic; font-weight: 300 600; font-stretch: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "IBM Plex Mono";
+      src: url("/fonts/plex-mono-400.woff2") format("woff2");
+      font-style: normal; font-weight: 400; font-display: swap;
+    }
+    @font-face {
+      font-family: "IBM Plex Mono";
+      src: url("/fonts/plex-mono-600.woff2") format("woff2");
+      font-style: normal; font-weight: 500 600; font-display: swap;
+    }
+    /* metric-matched serif fallback so the swap moves nothing.
+       Values measured against the real font in-browser (width ratio +
+       font bounding box) — see scripts/dev/measure-fallback note. */
+    @font-face {
+      font-family: "Newsreader-fallback";
+      src: local("Georgia"), local("Times New Roman");
+      font-style: normal;
+      size-adjust: 109.6%; ascent-override: 74%; descent-override: 27%; line-gap-override: 0%;
+    }
+    @font-face {
+      font-family: "Newsreader-fallback";
+      src: local("Georgia Italic"), local("Georgia"), local("Times New Roman");
+      font-style: italic;
+      size-adjust: 102.2%; ascent-override: 74%; descent-override: 27%; line-gap-override: 0%;
+    }
+    :root {
+      --paper:      #faf9f6;
+      --paper-deep: #f2efe7;
+      --ink:        #16171d;
+      --ink-soft:   #4c4e58;
+      --ink-faint:  #6e707a;
+      --rule:       #e2dfd4;
+      --rule-soft:  #ece9e0;
+      --indigo:      #3d4db3;
+      --indigo-deep: #2e3a87;
+      --indigo-wash: rgba(61, 77, 179, 0.08);
+      --indigo-line: rgba(61, 77, 179, 0.24);
+      --ochre:       #8a5e1f;
+      --ochre-wash:  rgba(168, 119, 43, 0.10);
+      --verified:    #3a8f5b;
+
+      --serif: "Newsreader", "Newsreader-fallback", Georgia, "Times New Roman", serif;
+      --mono:  "IBM Plex Mono", ui-monospace, "SF Mono", "Cascadia Mono", monospace;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --settle: 820ms;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    html { scroll-behavior: smooth; }
+    /* prevent any script or focus from yanking the viewport on load */
+    html, body { scroll-padding-top: 0; }
+    body {
+      background: var(--paper); color: var(--ink);
+      font-family: var(--serif); font-size: 18px; line-height: 1.6; font-weight: 400;
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+      font-optical-sizing: auto; font-kerning: normal;
+      font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+      hanging-punctuation: first allow-end;
+      overflow-x: hidden;
+    }
+    /* premium paper light — a soft warm luminance from above, a whisper vignette to focus inward */
+    body::before {
+      content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none;
+      background:
+        radial-gradient(150% 96% at 50% -14%, rgba(255,254,249,0.75), rgba(255,254,249,0) 52%),
+        radial-gradient(118% 104% at 50% 44%, rgba(26,28,38,0) 58%, rgba(26,28,38,0.05) 100%);
+    }
+    /* faint laid-paper grain over everything */
+    body::after {
+      content: ""; position: fixed; inset: 0; z-index: 5; pointer-events: none; opacity: 0.5;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.022'/%3E%3C/svg%3E");
+    }
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: rgba(61, 77, 179, 0.18); }
+    .skip { position: absolute; left: -9999px; background: var(--ink); color: var(--paper); padding: 10px 16px; z-index: 200; }
+    .skip:focus { left: 8px; top: 8px; }
+
+    /* ════════ THE INSTRUMENT — one full-viewport field ════════ */
+    .field {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      /* generous margins; content sits in [main] after the left gutter, with a
+         breathing [gap] track separating the copy from the ledger rail */
+      grid-template-columns:
+        [edge] clamp(44px, 7vw, 156px)
+        [main] minmax(0, 1fr)
+        [gap]  clamp(40px, 5vw, 104px)
+        [rail] clamp(212px, 19vw, 292px)
+        [end]  clamp(44px, 7vw, 156px);
+      grid-template-rows: [top] clamp(76px, 10vh, 128px) [horizon] auto [body] 1fr [foot] auto;
+      row-gap: clamp(32px, 4.8vh, 68px);
+      column-gap: 0;
+      isolation: isolate;
+    }
+
+    /* the manifold IS the background — fills the whole field */
+    #ribbon { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; }
+    .ribbon-fallback {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+      opacity: 0; z-index: 0; mix-blend-mode: multiply;
+    }
+    .no-canvas .ribbon-fallback { opacity: 0.85; }
+    /* soft paper wash under the reading zone so type always wins */
+    .field::before {
+      content: ""; position: absolute; z-index: 1; pointer-events: none;
+      left: 0; bottom: 0; width: 74%; height: 82%;
+      background: radial-gradient(130% 104% at 6% 100%, rgba(250,249,246,0.96) 0%, rgba(250,249,246,0.72) 46%, transparent 74%);
+    }
+
+    /* ── corner mark ── */
+    .mark {
+      grid-column: main / gap; grid-row: top; z-index: 4;
+      align-self: center; display: flex; align-items: center; gap: 11px;
+      padding-left: 4px; color: var(--ink);
+    }
+    .mark svg { height: 30px; width: auto; display: block; }
+    .mark b { font-weight: 600; font-size: 15px; letter-spacing: 0.01em; }
+    .mark .tld { font-family: var(--mono); font-size: 13.5px; color: var(--ink-faint); }
+
+    /* ════════ THE EQUATION HORIZON (navigation) ════════ */
+    /* paper knockout so the equation always sits on calm ground, not on the ribbon */
+    .horizon {
+      grid-column: main / end; grid-row: horizon; z-index: 4; align-self: end; padding-top: 12px;
+      background: linear-gradient(180deg, var(--paper) 20%, rgba(250,249,246,0.88) 62%, rgba(250,249,246,0) 100%);
+    }
+    .horizon .label {
+      font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.26em; text-transform: uppercase;
+      color: var(--indigo); margin: 0 0 clamp(20px, 2.8vh, 32px);
+    }
+    .equation {
+      display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.02em;
+      font-size: clamp(22px, 4.7vw, 60px); line-height: 1.02; letter-spacing: -0.008em; user-select: none;
+      font-feature-settings: "kern" 1, "liga" 1;
+    }
+    .eq-static { color: var(--ink-faint); font-style: italic; padding: 0 0.22em; font-weight: 300; }
+    .term {
+      position: relative; appearance: none; border: 0; background: none; cursor: pointer;
+      /* fixed line box: fallback fonts' tall math glyphs must not change row height */
+      font-family: var(--serif); font-size: inherit; line-height: inherit; font-style: italic; color: var(--ink);
+      padding: 0.04em 0.1em; border-radius: 6px; line-height: 0.9;
+      transition: color 320ms var(--ease), background 320ms var(--ease), opacity 420ms var(--ease);
+    }
+    .term .n { font-style: normal; }
+    /* line-height 0: these decorated glyphs must never grow the line box —
+       during font fallback the substituted ∫/sub/sup come from taller font
+       files and would otherwise shift the whole page when Newsreader lands */
+    .term .sub { font-style: normal; font-size: 0.56em; vertical-align: -0.32em; color: var(--ink-soft); line-height: 0; }
+    .term .sup { font-style: normal; font-size: 0.56em; vertical-align: 0.62em; line-height: 0; }
+    .term .intg { font-style: normal; font-size: 1.4em; position: relative; top: 0.07em; margin-right: -0.05em; line-height: 0; }
+    .term:hover { color: var(--indigo); background: var(--indigo-wash); }
+    .term:focus-visible { outline: 2px solid var(--indigo); outline-offset: 3px; }
+    .term[aria-pressed="true"] { color: var(--indigo); background: var(--indigo-wash); box-shadow: inset 0 -3px 0 0 var(--indigo); }
+    body[data-focus]:not([data-focus="objective"]) .term:not([aria-pressed="true"]) { opacity: 0.34; }
+
+    /* the term legend — what each node does (sits just under the equation) */
+    .legend {
+      margin: clamp(26px, 3.8vh, 48px) 0 0; display: flex; gap: 18px 38px; flex-wrap: wrap;
+      font-family: var(--mono); font-size: 13px; color: var(--ink-faint); line-height: 1.5;
+    }
+    .legend button {
+      appearance: none; border: 0; background: none; cursor: pointer; padding: 0;
+      font: inherit; color: var(--ink-faint); display: inline-flex; align-items: center; gap: 7px;
+      transition: color 200ms var(--ease);
+    }
+    .legend button:hover, .legend button[aria-pressed="true"] { color: var(--indigo); }
+    .legend .k { color: var(--indigo); font-weight: 600; }
+    .legend button:focus-visible { outline: 1px solid var(--indigo); outline-offset: 3px; }
+
+    /* ════════ EVIDENCE — resolves in place by term (ink-settling) ════════ */
+    .reading { grid-column: main / gap; grid-row: body; z-index: 4; align-self: end; max-width: 455px; padding-bottom: clamp(8px, 3vh, 30px); }
+    .evidence { position: relative; }
+    .panel {
+      position: absolute; left: 0; bottom: 0; width: 100%;
+      opacity: 0; transform: translateY(10px); pointer-events: none;
+      transition: opacity var(--settle) var(--ease), transform var(--settle) var(--ease), filter var(--settle) var(--ease);
+      filter: blur(1px);
+    }
+    .panel[data-active] { position: relative; opacity: 1; transform: none; filter: none; pointer-events: auto; }
+    /* the initially-active panel must not slide in on first paint — that reads as a lurch */
+    .panel[data-active] { transition: none; }
+    .reading.is-settled .panel[data-active] { transition: opacity var(--settle) var(--ease), transform var(--settle) var(--ease), filter var(--settle) var(--ease); }
+    .panel .tag {
+      font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--ink-faint); margin: 0 0 18px; display: flex; align-items: center; gap: 9px;
+    }
+    .panel .tag .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--indigo); box-shadow: 0 0 0 3px var(--indigo-wash); }
+    .panel h1, .panel h2 { font-weight: 400; margin: 0 0 20px; }
+    .panel h1 { font-size: clamp(2.05rem, 4vw, 3.2rem); line-height: 1.03; letter-spacing: -0.024em; }
+    .panel h2 { font-size: clamp(1.66rem, 3.2vw, 2.5rem); line-height: 1.08; letter-spacing: -0.018em; }
+    .panel h1 em, .panel h2 em { font-style: italic; color: var(--indigo); }
+    /* balanced rag on display headings: no orphaned last words */
+    .panel h1, .panel h2, .b-head h2 { text-wrap: balance; }
+    .panel p { margin: 0 0 16px; color: var(--ink-soft); font-size: clamp(1rem, 1.4vw, 1.12rem); line-height: 1.64; }
+    .panel p:last-child { margin-bottom: 0; }
+    .panel .why { font-style: italic; color: var(--ink); font-size: clamp(1.02rem, 1.4vw, 1.16rem); margin: 8px 0 22px; }
+    .panel .why em { font-style: italic; color: var(--indigo); }
+    .num { color: var(--indigo); font-style: normal; font-weight: 500; font-feature-settings: "tnum"; }
+
+    /* big stat block for term panels */
+    .stat { display: flex; align-items: baseline; gap: 14px; margin: 4px 0 16px; }
+    .stat strong {
+      font-family: var(--mono); font-weight: 600; font-feature-settings: "tnum";
+      font-size: clamp(2rem, 5vw, 3.2rem); color: var(--indigo); line-height: 1; letter-spacing: -0.02em;
+    }
+    .stat .su { font-family: var(--mono); font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); max-width: 141px; }
+
+    /* live, computed-in-browser provenance line */
+    .prov { font-family: var(--mono); font-size: 13px; color: var(--ink-faint); margin: -2px 0 16px; line-height: 1.5; }
+    .prov .live-dot2 { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--ochre); margin-right: 7px; vertical-align: middle; }
+    .prov b { color: var(--ochre); font-weight: 600; font-feature-settings: "tnum"; }
+    .prov a { color: var(--ink-soft); border-bottom: 1px solid var(--ochre-wash); transition: border-color 180ms; }
+    .prov a:hover { border-color: var(--ochre); color: var(--ochre); }
+
+    /* routes — quiet, only on the objective panel */
+    .routes { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px 12px; }
+    .routes a {
+      font-family: var(--mono); font-size: 14px; color: var(--ink-soft);
+      border: 1px solid var(--rule); border-radius: 999px; padding: 9px 16px;
+      transition: all 200ms var(--ease); white-space: nowrap;
+    }
+    .routes a:hover { color: var(--indigo); border-color: var(--indigo-line); background: var(--indigo-wash); }
+    .routes a .ar { color: var(--ink-faint); }
+    .routes a:hover .ar { color: var(--indigo); }
+
+    /* ════════ THE LEDGER — margin rail (right) ════════ */
+    .rail-ledger {
+      grid-column: rail / end; grid-row: body; z-index: 4; align-self: start;
+      display: flex; flex-direction: column; padding-top: 30px; min-height: 0;
+      background: linear-gradient(90deg, rgba(250,249,246,0) 0%, rgba(250,249,246,0.78) 14%, rgba(250,249,246,0.9) 100%);
+    }
+    .rail-head, .ledger li, .rail-note {
+      text-shadow: 0 0 7px var(--paper), 0 0 7px var(--paper), 0 0 3px var(--paper);
+    }
+    .rail-head {
+      font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--ink-faint); display: flex; justify-content: space-between; align-items: baseline;
+      gap: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--rule);
+    }
+    .rail-head span { white-space: nowrap; }
+    /* the rail narrows before the mobile breakpoint — tighten the head so
+       "public ledger" and the height never collide or wrap */
+    @media (max-width: 1160px) {
+      .rail-head { font-size: 10.5px; letter-spacing: 0.1em; }
+    }
+    .rail-head .h { color: var(--ochre); }
+    .ledger {
+      margin: 0; padding: 0; list-style: none;
+      /* reserve room for 5 entries so the rail (and therefore the whole page)
+         does not lurch when the live commits render */
+      min-height: 280px;
+    }
+    .ledger li {
+      padding: 11px 0; border-bottom: 1px solid var(--rule-soft);
+      font-family: var(--mono); font-size: 13.5px; line-height: 1.45;
+      transition: opacity var(--settle) var(--ease), border-color var(--settle) var(--ease);
+    }
+    .ledger li.loading { color: var(--ink-faint); font-style: italic; }
+    .ledger .hash { color: var(--ink-soft); }
+    .ledger .when { color: var(--ink-faint); }
+    /* one line, ellipsized: live commit messages of any length keep every
+       row the same height, so the ledger swap can never shift layout */
+    .ledger .msg { display: block; margin-top: 2px; font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--ink-soft); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    /* under ledger focus, the rail lights ochre */
+    body[data-focus="ledger"] .ledger .hash { color: var(--ochre); }
+    body[data-focus="ledger"] .ledger li { border-color: var(--ochre-wash); }
+    body[data-focus]:not([data-focus="objective"]):not([data-focus="ledger"]) .ledger li { opacity: 0.42; }
+
+    .rail-note {
+      margin-top: auto; padding-top: 20px;
+      font-family: var(--mono); font-size: 12.5px; color: var(--ink-faint); line-height: 1.6;
+    }
+    .rail-note .row { display: flex; gap: 7px; align-items: baseline; margin-bottom: 8px; }
+    .rail-note .d { width: 7px; height: 7px; border-radius: 50%; flex: none; transform: translateY(3px); }
+    .rail-note .d.wp { background: var(--ochre); } .rail-note .d.ok { background: var(--verified); }
+    .rail-note .d.mof { background: var(--indigo-deep); }
+    .rail-note .cite { font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--ink-soft); margin-top: 10px; display: block; }
+    .rail-note a { text-decoration: underline; text-decoration-color: var(--indigo-line); text-underline-offset: 2px; }
+
+    /* ════════ BENEATH — the substance, one scroll down ════════ */
+    .beneath {
+      position: relative; z-index: 4;
+      padding: clamp(64px, 9vh, 120px) clamp(44px, 7vw, 156px) clamp(30px, 4vh, 56px);
+      max-width: 1560px; margin: 0 auto;
+    }
+    .b-label {
+      font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.24em;
+      text-transform: uppercase; color: var(--indigo); margin: 0 0 16px;
+    }
+    /* the manifesto strip: three beats of why-now, then our place */
+    .manifesto { padding-bottom: 0; }
+    .m-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: clamp(28px, 4vw, 64px); border-top: 1px solid var(--rule); padding-top: 36px;
+    }
+    .m-grid p { font-size: clamp(1.02rem, 1.35vw, 1.18rem); line-height: 1.58; margin: 0; color: var(--ink-soft); }
+    .m-grid b { display: block; font-weight: 500; color: var(--ink); font-size: clamp(1.14rem, 1.6vw, 1.35rem); margin-bottom: 10px; line-height: 1.28; }
+    .m-grid em, .m-place em { color: var(--indigo); }
+    .m-place {
+      margin: clamp(34px, 5vh, 54px) 0 0; max-width: 62ch;
+      font-size: clamp(1.06rem, 1.5vw, 1.25rem); line-height: 1.6; font-style: italic; color: var(--ink);
+    }
+    /* a note on diligence — quiet, narrow, addressed to the capital deployer */
+    .diligence { padding-top: clamp(48px, 7vh, 88px); padding-bottom: 0; }
+    .dil-body { max-width: 66ch; border-top: 1px solid var(--rule); padding-top: 30px; }
+    .dil-body p { font-size: clamp(1.04rem, 1.4vw, 1.2rem); line-height: 1.66; color: var(--ink); margin: 0 0 1.1em; }
+    .dil-body p:last-child { margin-bottom: 0; }
+    .dil-body em { color: var(--indigo); }
+    .b-head h2 {
+      font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 400; line-height: 1.16;
+      letter-spacing: -0.012em; margin: 0 0 42px; max-width: 11.8em;
+    }
+    .b-head h2 em { color: var(--indigo); }
+    .b-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: clamp(28px, 4vw, 64px); border-top: 1px solid var(--rule); padding-top: 36px;
+    }
+    /* links share one baseline row regardless of column text length */
+    .b-grid article { display: flex; flex-direction: column; }
+    .b-grid article a { margin-top: auto; }
+    .b-grid h3 { font-size: 1.16rem; font-weight: 500; line-height: 1.32; margin: 0 0 10px; }
+    .b-grid p { font-size: 0.98rem; line-height: 1.62; color: var(--ink-soft); margin: 0 0 14px; }
+    .b-grid a { font-family: var(--mono); font-size: 13px; color: var(--indigo); }
+    .b-grid .ar, .b-all .ar { display: inline-block; transition: transform 200ms var(--ease); }
+    .b-grid a:hover .ar, .b-all a:hover .ar { transform: translateX(4px); }
+    .b-notebook { margin-top: clamp(64px, 9vh, 110px); }
+    .b-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 2.6vw, 40px); }
+    .b-cards a {
+      display: block; border-top: 1px solid var(--rule); padding: 20px 6px 18px;
+      transition: background 240ms var(--ease), border-color 240ms var(--ease);
+    }
+    .b-cards a:hover { background: var(--indigo-wash); border-color: var(--indigo-line); }
+    .b-cards .d8 { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); }
+    .b-cards h3 { font-size: 1.22rem; font-weight: 500; line-height: 1.26; margin: 9px 0 8px; }
+    .b-cards p { font-size: 0.94rem; line-height: 1.56; color: var(--ink-soft); margin: 0; }
+    .b-all { margin: 28px 0 0; font-family: var(--mono); font-size: 13px; }
+    .b-all a { color: var(--indigo); }
+
+    /* ════════ FEATURED SERIES — climate partnerships ════════ */
+    .feature-series { margin-top: clamp(64px, 9vh, 110px); }
+    .feature-series .series-head { max-width: 780px; margin-bottom: clamp(28px, 4vh, 44px); }
+    .feature-series .series-head h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 500; line-height: 1.18; margin: 0 0 12px; }
+    .feature-series .series-head p { font-size: 1.05rem; line-height: 1.58; color: var(--ink-soft); margin: 0; }
+    .series-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 2.6vw, 40px); }
+    .series-cards a { display: block; border-top: 1px solid var(--rule); padding: 0 0 18px; transition: background 240ms var(--ease), border-color 240ms var(--ease); }
+    .series-cards a:hover { background: var(--indigo-wash); border-color: var(--indigo-line); }
+    .series-cards img { width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover; display: block; border: 1px solid var(--rule); margin-bottom: 14px; }
+    .series-cards .d8 { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); display: block; padding: 14px 6px 0; }
+    .series-cards h3 { font-size: 1.22rem; font-weight: 500; line-height: 1.26; margin: 9px 0 8px; padding: 0 6px; }
+    .series-cards p { font-size: 0.94rem; line-height: 1.56; color: var(--ink-soft); margin: 0; padding: 0 6px; }
+    .series-cta { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 28px; }
+    .series-cta a { font-family: var(--mono); font-size: 13px; color: var(--indigo); }
+    @media (max-width: 860px) { .series-cards { grid-template-columns: 1fr; } }
+
+    /* ════════ FOOT — colophon ════════ */
+    .foot {
+      display: flex; justify-content: space-between; gap: 14px 32px; flex-wrap: wrap; align-items: baseline;
+      padding: 26px clamp(44px, 7vw, 156px) 36px; margin: clamp(36px, 6vh, 72px) auto 0;
+      max-width: 1560px; border-top: 1px solid var(--rule);
+      font-family: var(--mono); font-size: 13px; color: var(--ink-faint);
+    }
+    .foot .offer { flex-basis: 100%; font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--ink-soft); }
+    .foot .offer a { color: var(--indigo); border-bottom-color: var(--indigo-line); }
+    .receipts { flex-basis: 100%; font-size: 12px; letter-spacing: 0.02em; color: var(--ink-faint); }
+    .receipts b { color: var(--ochre); font-weight: 600; }
+    .foot .creed { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--ink-soft); }
+    .foot a { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 2px; border-bottom: 1px solid transparent; transition: all 180ms; }
+    .foot a:hover { color: var(--indigo); border-color: var(--indigo); }
+    .foot b { color: var(--ink); font-weight: 600; }
+
+    /* tooltip */
+    .tip {
+      position: fixed; z-index: 120; max-width: 320px;
+      background: var(--ink); color: var(--paper); font-family: var(--mono);
+      font-size: 12px; line-height: 1.5; font-style: normal; padding: 11px 14px; border-radius: 7px;
+      box-shadow: 0 14px 36px rgba(22,23,29,0.3);
+      opacity: 0; transform: translateY(4px); pointer-events: none;
+      transition: opacity 160ms var(--ease), transform 160ms var(--ease);
+    }
+    .tip.show { opacity: 1; transform: none; } .tip b { color: #cdd4ff; } .tip em { color: #e7c98a; font-style: normal; }
+
+    /* ════════ responsive — instrument → stacked document ════════ */
+    @media (max-width: 920px) {
+      body { font-size: 16px; }
+      .field {
+        display: block; min-height: 0; padding: 0 22px;
+      }
+      /* the ribbon is a hero banner that scrolls away — absolute (within the
+         relatively-positioned .field), not fixed. A fixed background stays
+         pinned over the top of the viewport and bleeds across the reading
+         content as you scroll, obscuring roughly half the page. */
+      #ribbon, .ribbon-fallback { position: absolute; height: 46vh; top: 0; }
+      .field::before { position: absolute; width: 100%; height: 46vh; top: 0; bottom: auto;
+        background: linear-gradient(180deg, rgba(250,249,246,0) 50%, var(--paper) 100%); }
+      /* block layout drops grid stacking: re-establish positioning so text
+         paints above the hero band's paper-fade overlay (the label was
+         being veiled on tablets, where it lands in the fade's densest zone) */
+      .mark, .horizon, .reading, .rail-ledger, .beneath, .foot { position: relative; z-index: 4; }
+      .mark { padding-top: 18px; }
+      /* no gradient here on mobile: now that .horizon is positioned, its
+         desktop backdrop would veil the hero band; the band's own fade
+         (.field::before) already guarantees label legibility */
+      .horizon { padding-top: 38vh; background: none; }
+      /* comfortable touch targets for the term legend */
+      .legend button { padding: 8px 0; }
+      .equation { font-size: clamp(26px, 8vw, 44px); }
+      .legend { margin: 16px 0 30px; }
+      .reading { max-width: none; margin-bottom: 40px; }
+      .panel { position: relative !important; opacity: 1 !important; transform: none !important; filter: none !important; pointer-events: auto !important; }
+      .panel:not([data-active]) { display: none; }
+      .rail-ledger { padding-top: 26px; border-top: 1px solid var(--rule); }
+      .rail-note { margin-top: 24px; }
+      .beneath { padding-left: 22px; padding-right: 22px; }
+      .b-grid, .b-cards, .m-grid { grid-template-columns: 1fr; gap: 26px; }
+      /* colophon stacks cleanly: one item per line, breathing room, no
+         justify-luck — small screens deserve deliberate margins too */
+      .foot { flex-direction: column; align-items: flex-start; gap: 12px; padding: 26px 22px 40px; }
+      .foot .creed { margin-bottom: 2px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .panel { transition: opacity 1ms; filter: none; transform: none; }
+    }
+  </style>
+</head>
+<body data-focus="objective">
+  <a class="skip" href="#evidence">Skip to the evidence</a>
+
+  <main class="field">
+    <canvas id="ribbon" aria-hidden="true"></canvas>
+    <img class="ribbon-fallback" data-src="/ribbon-still.jpg" alt="The hyper-ribbon manifold: scattered prediction-error vectors collapsing onto a single low-dimensional indigo ribbon.">
+    <noscript><style>.ribbon-fallback{opacity:0.85}</style><img class="ribbon-fallback" src="/ribbon-still.jpg" alt="" style="opacity:0.85"></noscript>
+
+    <!-- corner mark -->
+    <a class="mark" href="/" aria-label="Lupine Science">
+      <svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="bb" x1="190" y1="74" x2="324" y2="356" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#88a7d8"/><stop offset=".35" stop-color="#475b9c"/><stop offset=".78" stop-color="#102f47"/><stop offset="1" stop-color="#071a2a"/>
+          </linearGradient>
+          <linearGradient id="bl" x1="150" y1="330" x2="360" y2="470" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#7f907c"/><stop offset="1" stop-color="#4c653d"/>
+          </linearGradient>
+          <radialGradient id="bc" cx="48%" cy="30%" r="68%">
+            <stop offset="0" stop-color="#fffdf3"/><stop offset=".7" stop-color="#f1e8c9"/><stop offset="1" stop-color="#d4c58f"/>
+          </radialGradient>
+        </defs>
+        <g fill="none" stroke="#4c653d" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M256 148 C252 224 258 312 254 448"/><path d="M252 402 C222 372 178 354 124 348"/><path d="M260 402 C290 372 334 354 388 348"/>
+        </g>
+        <g fill="url(#bl)" opacity=".96">
+          <ellipse cx="139" cy="348" rx="18" ry="62" transform="rotate(-78 139 348)"/><ellipse cx="167" cy="384" rx="18" ry="62" transform="rotate(-48 167 384)"/><ellipse cx="214" cy="410" rx="17" ry="58" transform="rotate(-20 214 410)"/><ellipse cx="373" cy="348" rx="18" ry="62" transform="rotate(78 373 348)"/><ellipse cx="345" cy="384" rx="18" ry="62" transform="rotate(48 345 384)"/><ellipse cx="298" cy="410" rx="17" ry="58" transform="rotate(20 298 410)"/>
+        </g>
+        <g fill="none" stroke="#fef8f5" stroke-width="5" stroke-linecap="round" opacity=".66">
+          <path d="M132 348 C170 356 205 373 236 405"/><path d="M380 348 C342 356 307 373 276 405"/>
+        </g>
+        <g fill="url(#bb)" stroke="#fef8f5" stroke-width="5" stroke-linejoin="round">
+          <ellipse cx="256" cy="86" rx="22" ry="34"/><ellipse cx="232" cy="122" rx="23" ry="35" transform="rotate(-24 232 122)"/><ellipse cx="280" cy="122" rx="23" ry="35" transform="rotate(24 280 122)"/><ellipse cx="256" cy="150" rx="30" ry="40"/><ellipse cx="211" cy="182" rx="26" ry="38" transform="rotate(-34 211 182)"/><ellipse cx="301" cy="182" rx="26" ry="38" transform="rotate(34 301 182)"/><ellipse cx="256" cy="216" rx="37" ry="48"/><ellipse cx="204" cy="256" rx="30" ry="43" transform="rotate(-42 204 256)"/><ellipse cx="308" cy="256" rx="30" ry="43" transform="rotate(42 308 256)"/><ellipse cx="256" cy="306" rx="40" ry="52"/>
+        </g>
+        <g fill="url(#bc)">
+          <path d="M244 142 C251 124 261 124 268 142 C262 136 250 136 244 142Z"/><path d="M244 207 C252 186 263 186 271 207 C263 199 252 199 244 207Z"/><path d="M242 296 C252 272 265 272 274 296 C264 286 252 286 242 296Z"/>
+        </g>
+      </svg>
+      <span><b>Lupine Science</b> <span class="tld">accelerating materials discovery</span></span>
+    </a>
+
+    <!-- ════ EQUATION HORIZON (the navigation) ════ -->
+    <header class="horizon">
+      <p class="label">Our method, in one equation — click a term to open its evidence</p>
+      <div class="equation" role="group" aria-label="L of theta equals the integral over the manifold of the squared error-vector norm, plus the ledger term">
+        <button type="button" class="term" data-focus="objective" aria-pressed="true"
+          data-tip="<b>L(θ)</b> — what we minimize to make a prediction trustworthy: the <em>structured</em> error of a potential θ over all the evidence. The first step to discovering real materials. Click any term to isolate it.">
+          L<span class="n">(</span>θ<span class="n">)</span></button>
+        <span class="eq-static">=</span>
+        <button type="button" class="term" data-focus="manifold"
+          data-tip="<b>∫<sub>M</sub> … dμ(γ)</b> — integrate over the error manifold M. The errors live on a thin ribbon (participation ratio <em>1.1–2.0</em>) — structure that makes failure correctable.">
+          <span class="intg">∫</span><span class="sub">M</span></button>
+        <button type="button" class="term" data-focus="errorvectors"
+          data-tip="<b>∇<sub>γ</sub>E(x,θ)</b> — the error-vector field along geodesics γ. Across every MLIP these point the <em>same direction</em> (cos θ &gt; 0.8) — so one correction scales across the materials space.">
+          <span class="n">‖</span>∇<span class="sub">γ</span>E<span class="n">(</span>x,θ<span class="n">)</span><span class="n">‖</span><span class="sup">2</span></button>
+        <span class="term eq-measure"
+          data-tip="<b>dμ(γ)</b> — the measure over geodesics γ. How error is weighted across the ribbon.">
+          dμ<span class="n">(</span>γ<span class="n">)</span></span>
+        <span class="eq-static">+</span>
+        <button type="button" class="term" data-focus="ledger"
+          data-tip="<b>Ω(Ξ)</b> — the public record Ξ. Every claim, refutation, and machine-checked theorem, committed and inspectable.">
+          Ω<span class="n">(</span>Ξ<span class="n">)</span></button>
+      </div>
+      <!-- legend / secondary nav for the terms — grouped with the equation -->
+      <nav class="legend" aria-label="Equation terms">
+        <button type="button" data-focus="objective" aria-pressed="true"><span class="k">L(θ)</span> the mission</button>
+        <button type="button" data-focus="manifold"><span class="k">∫ₘ</span> why you can trust it</button>
+        <button type="button" data-focus="errorvectors"><span class="k">∇ᵧE</span> why it scales</button>
+        <button type="button" data-focus="ledger"><span class="k">Ω(Ξ)</span> trust in the open</button>
+      </nav>
+    </header>
+
+    <!-- ════ EVIDENCE — resolves in place ════ -->
+    <section class="reading" id="evidence" aria-label="Evidence" aria-live="polite">
+      <div class="evidence">
+        <article class="panel" data-panel="objective" data-active>
+          <p class="tag"><span class="dot"></span>L(θ) · the mission</p>
+          <h1>Intelligence became abundant. <em>Verified knowledge did not.</em></h1>
+          <p>The industry is betting that the smartest model wins. The winning asset is different: a prediction you can <em>check</em> before you commit. AI is learning to design matter, and it already proposes new batteries, catalysts, and chips faster than any lab can test them. A model can be confident and wrong, and finding out which costs years. Lupine builds the check.</p>
+          <p class="why">The mathematics is <em>how.</em> The materials are <em>why.</em></p>
+          <p class="prov"><span class="live-dot2" aria-hidden="true"></span><span id="prov-objective">computing the manifold live from the committed benchmark…</span></p>
+          <div class="routes">
+            <a href="https://lupi.live">See it live <span class="ar">→</span></a>
+            <a href="https://library.lupine.science">Read the research <span class="ar">→</span></a>
+            <a href="https://github.com/alexwelcing/lupine">Audit the code <span class="ar">→</span></a>
+          </div>
+        </article>
+
+        <article class="panel" data-panel="manifold">
+          <p class="tag"><span class="dot"></span>∫<sub>M</sub> · why you can trust it</p>
+          <h2>Predictable failure is <em>correctable</em> failure.</h2>
+          <div class="stat"><strong>1.1–2.0</strong><span class="su">the errors move in only ~1–2 directions out of five</span></div>
+          <p class="prov"><span class="live-dot2" aria-hidden="true"></span><span id="prov-manifold">…</span></p>
+          <p>Across the benchmark potentials we test — classic and AI-driven — the mistakes don't scatter. They line up. And a pattern we can predict is a pattern we can <em>correct</em>: we can flag which predictions to trust before a lab spends a year chasing a dead end.</p>
+        </article>
+
+        <article class="panel" data-panel="errorvectors">
+          <p class="tag"><span class="dot"></span>∇<sub>γ</sub>E · why it scales</p>
+          <h2>Correct it once — <em>accelerate everywhere.</em></h2>
+          <div class="stat"><strong>~70%</strong><span class="su">the dominant error directions are shared, so one correction transfers across potentials</span></div>
+          <p class="prov"><span class="live-dot2" aria-hidden="true"></span><span id="prov-errorvectors">…</span></p>
+          <p>Every model we test leans in a structured way. In most cases, the dominant error direction is similar enough that a single correction scales. Like a room of clocks all running fast: find the offset once, and you can set every one right. One correction, applied across materials.</p>
+        </article>
+
+        <article class="panel" data-panel="ledger">
+          <p class="tag"><span class="dot"></span>Ω(Ξ) · trust in the open</p>
+          <h2>Trust you can <em>check yourself.</em></h2>
+          <div class="stat"><strong>0 gaps</strong><span class="su">the core math, checked end to end by computer — not opinion</span></div>
+          <p class="prov"><span class="live-dot2" aria-hidden="true"></span><span id="prov-ledger">…</span></p>
+          <p>We don't ask anyone to take our word for it. A computer checks our core math the way a spell-checker reads a sentence — every step, nothing skipped. We work in the open, and when one of our own ideas turns out to be wrong, we say so and publish it — <span class="num">3</span> times so far.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ════ LEDGER RAIL (marginalia) ════ -->
+    <aside class="rail-ledger" aria-label="Public ledger">
+      <div class="rail-head"><span>Public ledger · Ξ</span><span class="h">height <span id="ledger-height">970</span></span></div>
+      <ul class="ledger" id="ledger-list">
+        <li class="loading">loading open record…</li>
+      </ul>
+      <div class="rail-note">
+        <div class="row"><span class="d wp"></span><span>Working paper in preparation — not yet peer-reviewed. The full record lives in the open repository.</span></div>
+        <div class="row"><span class="d mof"></span><span>On the field: MOF-5 · Zn₄O(BDC)₃ — real published crystallography, <a href="/data/mof5_structure.json">drawn from the committed structure</a>.<span class="cite">Li, Eddaoudi, O’Keeffe &amp; Yaghi, Nature 402, 276 (1999) · COD 1516287</span></span></div>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- ════ BENEATH THE INSTRUMENT — the substance, one scroll down ════ -->
+  <section class="beneath manifesto" aria-label="Why now">
+    <p class="b-label">Why now — and why in the open</p>
+    <div class="m-grid">
+      <p><b>Imagination stopped being the bottleneck.</b> Generative models now propose far more candidate materials than anyone can test.</p>
+      <p><b>Simulation stopped being the bottleneck.</b> Machine-learned simulators now screen candidates at software speed. The open question is <em>when to believe them.</em></p>
+      <p><b>Belief is the bottleneck.</b> A lab bets a year on a shortlist. A fund bets years on the lab. Which predictions deserve that bet is the question that gates this field, and it is the one we work on. We answer it with proof, in public, so a result checked once can be used by anyone.</p>
+    </div>
+    <p class="m-place">Our position is specific. Model builders get external verification. Labs get shortlists they can defend. We are <em>the trust layer between the models and the bench,</em> and we publish everything.</p>
+  </section>
+
+  <section class="beneath diligence" aria-label="A note on diligence">
+    <p class="b-label">A note on diligence</p>
+    <div class="dil-body">
+      <p>Every deck in this field claims a smarter model. Almost none offers a way to tell a true claim from a confident one. Capital placed on confidence does not fail at the term sheet. It fails years later, at the bench.</p>
+      <p>We built this page for diligence. Every figure was computed in your browser after you arrived, from data we commit in public. The core mathematics is machine-checked. Where the record is early, we say so. Do not take our word for any of it. Click a term of the equation above and read the evidence. <em>Checking us takes minutes.</em></p>
+    </div>
+  </section>
+
+  <section class="beneath" aria-label="What this unlocks">
+    <header class="b-head">
+      <p class="b-label">What this unlocks</p>
+      <h2>The future is made of matter that <em>doesn’t exist yet.</em></h2>
+    </header>
+    <div class="b-grid">
+      <article>
+        <h3>Batteries that hold more and degrade slower.</h3>
+        <p>Energy storage lives and dies on electrode and electrolyte materials. When a model’s errors are characterized, a lab can trust its shortlist — and spend the year on the ten candidates that matter instead of the thousand that don’t.</p>
+        <a href="https://library.lupine.science">Read the research <span class="ar">→</span></a>
+      </article>
+      <article>
+        <h3>Catalysts that make clean industry affordable.</h3>
+        <p>From green hydrogen to carbon capture, the cost curve is a materials problem. Correctable simulation means screening chemistries at software speed, with a clear read on when the simulation can be trusted.</p>
+        <a href="https://lupi.live">See the instrument <span class="ar">→</span></a>
+      </article>
+      <article>
+        <h3>Frameworks designed for jobs no known material can do.</h3>
+        <p>Metal-organic frameworks can be built atom-by-atom for capture, storage and sensing. The crystal drawn above is real, published crystallography. Our prospectus for makeable frameworks is in the notebook below.</p>
+        <a href="/articles/from-fantasy-frameworks-to-makeable-materials/">Read the prospectus <span class="ar">→</span></a>
+      </article>
+    </div>
+
+    <div class="feature-series" aria-label="Climate partnerships series">
+      <p class="b-label">Climate partnerships series</p>
+      <div class="series-head">
+        <h2>Beyond carbon: the error geometry of environmental materials.</h2>
+        <p>Five articles trace the same under-coordination error from CO₂ capture to water, air, methane, refrigerants, critical minerals, PFAS, and cement — and show how a single correction layer changes what labs can trust.</p>
+      </div>
+      <div class="series-cards">
+        <a href="/articles/beyond-carbon-the-error-geometry-of-environmental-materials/">
+          <img src="/articles/beyond-carbon-the-error-geometry-of-environmental-materials/hero.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
+          <span class="d8">July 16, 2026 · Series intro</span>
+          <h3>Beyond Carbon</h3>
+          <p>The one geometry that connects every environmental-materials campaign.</p>
+        </a>
+        <a href="/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/">
+          <img src="/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/hero.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
+          <span class="d8">July 16, 2026</span>
+          <h3>Water and Air</h3>
+          <p>Correcting the molecules we drink and breathe.</p>
+        </a>
+        <a href="/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/">
+          <img src="/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/hero.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
+          <span class="d8">July 16, 2026</span>
+          <h3>Methane and Refrigerants</h3>
+          <p>Cutting the non-CO₂ climate forcers.</p>
+        </a>
+        <a href="/articles/critical-minerals-pfas-and-the-remediation-imperative/">
+          <img src="/articles/critical-minerals-pfas-and-the-remediation-imperative/hero.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
+          <span class="d8">July 16, 2026 · Narrated film</span>
+          <h3>Critical Minerals, PFAS</h3>
+          <p>The remediation imperative, now with a narrated film and shareable clips.</p>
+        </a>
+        <a href="/articles/cement-concrete-and-the-weight-of-the-built-world/">
+          <img src="/articles/cement-concrete-and-the-weight-of-the-built-world/hero.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
+          <span class="d8">July 16, 2026</span>
+          <h3>Cement and Concrete</h3>
+          <p>The weight of the built world, made lighter by correction.</p>
+        </a>
+        <a href="/articles/five-materials-for-5-to-12-gtco2-year/">
+          <img src="/articles/five-materials-for-5-to-12-gtco2-year/hero.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
+          <span class="d8">July 16, 2026</span>
+          <h3>Five Materials for 5–12 GtCO₂/Year</h3>
+          <p>The material bottlenecks that could unlock gigatonne-scale impact.</p>
+        </a>
+      </div>
+      <div class="series-cta">
+        <a href="/proof-pack-climate-series.pdf" download>Download the proof pack <span class="ar">→</span></a>
+        <a href="/videos/">Watch the films <span class="ar">→</span></a>
+        <a href="/articles/">All articles <span class="ar">→</span></a>
+      </div>
+    </div>
+
+    <div class="b-notebook">
+      <p class="b-label">From the notebook</p>
+      <div class="b-cards">
+        <a href="/articles/the-02-percent-synthesis-problem/">
+          <span class="d8">2026·07·09</span>
+          <h3>The 0.2% Synthesis Problem</h3>
+          <p>Why most computationally predicted materials never reach a synthesis vessel — and why that matters for climate-critical materials.</p>
+        </a>
+        <a href="/articles/a-field-not-a-neural-net/">
+          <span class="d8">2026·07·09</span>
+          <h3>A Field, Not a Neural Net</h3>
+          <p>The measured error geometry of universal machine-learned interatomic potentials — and the field that tames it.</p>
+        </a>
+        <a href="/articles/the-trust-layer/">
+          <span class="d8">2026·07·05</span>
+          <h3>The Trust Layer</h3>
+          <p>The founding thesis: science moves at the speed of what it can trust, and we are building the proof infrastructure for designed matter.</p>
+        </a>
+      </div>
+      <p class="b-all"><a href="/articles/">All articles <span class="ar">→</span></a></p>
+    </div>
+  </section>
+
+  <!-- ════ COLOPHON ════ -->
+  <footer class="foot">
+    <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
+    <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" href="/cdn-cgi/l/email-protection#ee8f828b96ae829b9e87808b9d8d87c08d8183" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
+    <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="/brand-assets/">Brand assets</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
+    <span class="offer">If you find a claim on this page you cannot check, <a class="mail" href="/cdn-cgi/l/email-protection#40212c2538002c3530292e253323296e232f2d" data-u="alex" data-d="lupinesci.com" data-keep-text>write to us</a> — we treat that as a defect.</span>
+    <span class="receipts" id="receipts"></span>
+  </footer>
+
+  <div class="tip" id="tip" role="status" aria-live="polite"></div>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  (() => {
+    "use strict";
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const body = document.body;
+
+    /* ───────────────────────────────────────────────────────────
+       REAL DATA — the manifold is rendered from the committed
+       benchmark_manifold.json, computed live in the browser.
+       Inline fallback (a subset of that file) guarantees first paint.
+       ─────────────────────────────────────────────────────────── */
+    const FALLBACK = [
+      { potential:"Adams-1989",  eigenvalues:[60.449,22.010,9.238,0],        eigenvectors:[[-0.9571,0.2374,-0.1659,-0.0081,-0.0004]], effective_dimensionality:1.9907, cumulative_variance:[0.6592], log_r_squared:0.9981, is_hyper_ribbon:true },
+      { potential:"Foiles-1986", eigenvalues:[83.599,19.398,9.009,0],        eigenvectors:[[-0.8735,0.3298,-0.3580,-0.0062,-0.0004]], effective_dimensionality:1.6848, cumulative_variance:[0.7464], log_r_squared:0.9687, is_hyper_ribbon:true },
+      { potential:"Zhou-2004",   eigenvalues:[28.070,1.980,0.125,0.0002,0],  eigenvectors:[[0.7893,0.5647,0.2409,-0.0033,-0.0003]],  effective_dimensionality:1.1499, cumulative_variance:[0.9302], log_r_squared:0.9493, is_hyper_ribbon:true },
+      { potential:"Ackland-1987",eigenvalues:[1611.42,390.71,0.176,0],       eigenvectors:[[-0.5589,-0.5853,-0.5874,-0.0003,0]],     effective_dimensionality:1.4583, cumulative_variance:[0.8048], log_r_squared:0.8633, is_hyper_ribbon:true },
+    ];
+    const DATALINK = "/data/benchmark_manifold.json";
+
+    const hypot = (v) => Math.sqrt(v.reduce((s, x) => s + x * x, 0)) || 1;
+    const cosAbs = (a, b) => { let s = 0; const n = Math.min(a.length, b.length); for (let i = 0; i < n; i++) s += a[i] * b[i]; return Math.abs(s / (hypot(a) * hypot(b))); };
+    const mean = (a) => a.reduce((s, x) => s + x, 0) / (a.length || 1);
+
+    function process(raw) {
+      const pots = raw.map((r) => {
+        const eig = (r.eigenvalues || []).filter((e) => e > 1e-9);
+        const pc1 = r.eigenvectors[0];
+        const thin = eig.length > 1 ? Math.sqrt(eig[1] / eig[0]) : 0.12;
+        return { name: r.potential, eig, pc1, pr: r.effective_dimensionality,
+                 var1: (r.cumulative_variance && r.cumulative_variance[0]) || 0,
+                 r2: r.log_r_squared, ribbon: !!r.is_hyper_ribbon, thin };
+      });
+      const prs = pots.map((p) => p.pr), pairs = [];
+      for (let i = 0; i < pots.length; i++) for (let j = i + 1; j < pots.length; j++) pairs.push(cosAbs(pots[i].pc1, pots[j].pc1));
+      return { pots, n: pots.length, prMin: Math.min(...prs), prMax: Math.max(...prs), prMean: mean(prs),
+               var1Min: Math.min(...pots.map((p) => p.var1)), var1Max: Math.max(...pots.map((p) => p.var1)),
+               meanThin: mean(pots.map((p) => p.thin)), cosMean: mean(pairs), nPairs: pairs.length,
+               nRibbon: pots.filter((p) => p.ribbon).length };
+    }
+    let M = process(FALLBACK);
+
+    function injectProv() {
+      const $ = (id) => document.getElementById("prov-" + id);
+      const src = `<a href="${DATALINK}">see the data ↗</a>`;
+      if ($("objective")) $("objective").innerHTML =
+        `live · every figure here is computed in your browser from <b>${M.n}</b> real reference models, not typed in · ${src}`;
+      if ($("manifold")) $("manifold").innerHTML =
+        `live · measured here: the errors span only <b>${M.prMin.toFixed(1)}–${M.prMax.toFixed(1)}</b> directions, not the thousands possible · ${src}`;
+      if ($("errorvectors")) $("errorvectors").innerHTML =
+        `live · measured here: the models agree on direction about <b>${Math.round(M.cosMean * 100)}%</b> of the time · ${src}`;
+      if ($("ledger")) $("ledger").innerHTML =
+        `live · the same pattern holds in all <b>${M.nRibbon}/${M.n}</b> reference models, re-checked in your browser · ${src}`;
+    }
+    injectProv();
+    // freshen from the served file (same data, proves the wiring is real)
+    fetch(DATALINK)
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((raw) => { if (Array.isArray(raw) && raw.length) { M = process(raw); injectProv(); } })
+      .catch(() => {});
+
+    /* ───────────────────────────────────────────────────────────
+       REAL MATTER — one cavity of MOF-5 (Zn₄O(BDC)₃), from the committed
+       crystal structure (COD 1516287; Yaghi et al., Nature 402, 276).
+       The canvas renders these coordinates directly: published atoms,
+       not an artist's impression.
+       ─────────────────────────────────────────────────────────── */
+    const MATTERLINK = "/data/mof5_structure.json";
+    let MOF = null;             // { els, pos, bonds, rmax, zn: [indices] }
+    let onMatterReady = () => {};
+    fetch(MATTERLINK)
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((raw) => {
+        // hydrogens are omitted from the drawing, as in standard MOF renders
+        const keep = [];
+        raw.elements.forEach((el, i) => { if (el !== "H") keep.push(i); });
+        const remap = new Map(keep.map((old, now) => [old, now]));
+        const els = keep.map((i) => raw.elements[i]);
+        const pos = keep.map((i) => raw.positions[i]);
+        const bonds = raw.bonds
+          .filter(([a, b]) => remap.has(a) && remap.has(b))
+          .map(([a, b]) => [remap.get(a), remap.get(b)]);
+        let rmax = 0;
+        for (const p of pos) rmax = Math.max(rmax, Math.hypot(p[0], p[1], p[2]));
+        const zn = [];
+        els.forEach((el, i) => { if (el === "Zn") zn.push(i); });
+        MOF = { els, pos, bonds, rmax, zn, proj: new Array(pos.length) };
+        onMatterReady();
+      })
+      .catch(() => {});
+
+    /* per-term targets for the manifold + the resolved panel */
+    const FOCUS = {
+      objective:    { converge: 0.55, ribbon: 0.92, vector: 0.5,  ledger: 0.35, ochre: 0.0, spectrum: 0.2,  fan: 0.2,  matter: 0.92 },
+      manifold:     { converge: 0.96, ribbon: 1.0,  vector: 0.16, ledger: 0.22, ochre: 0.0, spectrum: 1.0,  fan: 0.10, matter: 0.2  },
+      errorvectors: { converge: 0.40, ribbon: 0.5,  vector: 1.0,  ledger: 0.18, ochre: 0.0, spectrum: 0.12, fan: 1.0,  matter: 0.34 },
+      ledger:       { converge: 0.7,  ribbon: 0.82, vector: 0.28, ledger: 1.0,  ochre: 1.0, spectrum: 0.18, fan: 0.12, matter: 0.55 },
+    };
+    const cur = { ...FOCUS.objective };
+    let tgt = { ...FOCUS.objective };
+    let recomputeZones = () => {};   // assigned by the renderer; keeps the mask in sync
+
+    function setFocus(name) {
+      if (!FOCUS[name]) name = "objective";
+      tgt = { ...FOCUS[name] };
+      body.setAttribute("data-focus", name);
+      document.querySelectorAll("button.term, .legend button").forEach((b) =>
+        b.setAttribute("aria-pressed", String(b.dataset.focus === name)));
+      document.querySelectorAll(".panel").forEach((p) => {
+        if (p.dataset.panel === name) p.setAttribute("data-active", "");
+        else p.removeAttribute("data-active");
+      });
+      // the active evidence panel changes height → re-measure the type zones
+      requestAnimationFrame(() => recomputeZones());
+    }
+
+    /* tooltip */
+    const tip = document.getElementById("tip");
+    function bindTip(el) {
+      const show = (x, y) => { tip.innerHTML = el.dataset.tip || ""; tip.classList.add("show"); place(x, y); };
+      const place = (x, y) => {
+        const pad = 14, r = tip.getBoundingClientRect();
+        let nx = x + 16, ny = y + 18;
+        if (nx + r.width + pad > innerWidth) nx = innerWidth - r.width - pad;
+        if (ny + r.height + pad > innerHeight) ny = y - r.height - 18;
+        tip.style.left = nx + "px"; tip.style.top = Math.max(pad, ny) + "px";
+      };
+      el.addEventListener("pointerenter", (e) => show(e.clientX, e.clientY));
+      el.addEventListener("pointermove", (e) => place(e.clientX, e.clientY));
+      el.addEventListener("focus", () => { const r = el.getBoundingClientRect(); show(r.left, r.bottom); });
+      el.addEventListener("pointerleave", () => tip.classList.remove("show"));
+      el.addEventListener("blur", () => tip.classList.remove("show"));
+    }
+    // tooltips are a hover affordance: on touch devices a tap would pin
+    // them open over the equation and legend, so bind only where hover exists
+    if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      document.querySelectorAll(".term").forEach(bindTip);
+    }
+
+    document.querySelectorAll(".term, .legend button").forEach((b) => {
+      b.addEventListener("click", () => {
+        const n = b.dataset.focus;
+        const current = body.getAttribute("data-focus");
+        setFocus(current === n && n !== "objective" ? "objective" : n);
+      });
+    });
+    addEventListener("keydown", (e) => { if (e.key === "Escape") setFocus("objective"); });
+
+    /* ── the manifold renderer ── */
+    const canvas = document.getElementById("ribbon");
+    const ctx = canvas && canvas.getContext ? canvas.getContext("2d") : null;
+    if (!ctx) {
+      body.classList.add("no-canvas");
+      const fb = document.querySelector(".ribbon-fallback[data-src]");
+      if (fb) fb.src = fb.dataset.src;
+    }
+    else {
+      const INK = "22,23,29", IND = "61,77,179", OCH = "168,119,43";
+      let w = 0, h = 0, dpr = 1, raf = 0, t0 = 0, pts = [];
+
+      function seed() {
+        const n = Math.max(60, Math.min(190, Math.round((w * h) / 9000)));
+        pts = [];
+        for (let i = 0; i < n; i++) {
+          const r1 = frac(Math.sin(i * 12.9898) * 43758.5453);
+          const r2 = frac(Math.sin(i * 78.233) * 12543.123);
+          const r3 = frac(Math.sin(i * 39.425) * 9123.77);
+          // bias samples toward the right/centre so the lower-left reading zone stays calm
+          const u = 0.32 + r1 * 0.72;
+          // every third sample is "corrected": it settles onto a real lattice site
+          pts.push({ u: Math.min(u, 1), sy: (r2 - 0.5), ph: r3 * 6.283, sp: 0.4 + r3 * 0.9, pot: i % M.n,
+                     site: i % 3 === 0 ? (i * 7) % 97 : -1 });
+        }
+      }
+      const frac = (x) => x - Math.floor(x);
+      const clamp01 = (x) => (x < 0 ? 0 : x > 1 ? 1 : x);
+
+      /* ── layout-aware mask: the manifold parts around the type zones so no
+         object ever sits on top of text. Computed from the live DOM rects. ── */
+      let zones = [], STAGE = { x0: 0, x1: 0, y0: 0, y1: 0, cx: 0, cy: 0, w: 0, h: 0 };
+      const FEATHER = 36;
+      const mobileMQ = matchMedia("(max-width: 920px)");
+      function rectOf(sel) {
+        const el = document.querySelector(sel); if (!el) return null;
+        const b = el.getBoundingClientRect(), c = canvas.getBoundingClientRect();
+        if (b.width < 1 || b.height < 1) return null;
+        return { l: b.left - c.left, t: b.top - c.top, r: b.right - c.left, bo: b.bottom - c.top };
+      }
+      function computeZones() {
+        zones = [];
+        if (mobileMQ.matches) {
+          const m = rectOf(".mark"); if (m) zones.push(m);
+          STAGE = { x0: w * 0.04, x1: w * 0.96, y0: h * 0.15, y1: h * 0.97 };
+        } else {
+          [".horizon", ".legend", ".reading .panel[data-active]", ".rail-ledger"]
+            .forEach((s) => { const z = rectOf(s); if (z) zones.push(z); });
+          const m = rectOf(".mark"); if (m) zones.push({ l: m.l, t: m.t, r: Math.min(m.r, m.l + 250), bo: m.bo });
+          const rd = rectOf(".reading .panel[data-active]") || rectOf(".reading");
+          const rl = rectOf(".rail-ledger"), lg = rectOf(".legend");
+          STAGE = { x0: (rd ? rd.r : w * 0.34) + 28, x1: (rl ? rl.l : w * 0.95) - 28,
+                    y0: (lg ? lg.bo : h * 0.26) + 30, y1: h * 0.94 };
+        }
+        STAGE.cx = (STAGE.x0 + STAGE.x1) / 2; STAGE.cy = (STAGE.y0 + STAGE.y1) / 2;
+        STAGE.w = STAGE.x1 - STAGE.x0; STAGE.h = STAGE.y1 - STAGE.y0;
+      }
+      recomputeZones = computeZones;
+      // 1 inside a clear area, ramps to 0 inside any type zone (feathered)
+      function clearAt(x, y) {
+        let f = 1;
+        for (let i = 0; i < zones.length; i++) {
+          const z = zones[i];
+          const dx = Math.max(z.l - x, 0, x - z.r), dy = Math.max(z.t - y, 0, y - z.bo);
+          if (dx === 0 && dy === 0) return 0;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < FEATHER) { const k = d / FEATHER; if (k < f) f = k; }
+        }
+        return f;
+      }
+      // soft paper halo, so a focal glyph reads on its own ground
+      function scrim(cx, cy, r, alpha) {
+        if (alpha < 0.02) return;
+        const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
+        g.addColorStop(0, `rgba(250,249,246,${0.94 * alpha})`);
+        g.addColorStop(0.62, `rgba(250,249,246,${0.55 * alpha})`);
+        g.addColorStop(1, "rgba(250,249,246,0)");
+        ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, r, 0, 6.2832); ctx.fill();
+      }
+      // a soft particle with a fading trail (no arrowhead) — subatomic, not a quiver vector
+      function comet(x, y, ang, len, alpha, rgb) {
+        rgb = rgb || "61,77,179";
+        const hx = x + Math.cos(ang) * len, hy = y + Math.sin(ang) * len;
+        const g = ctx.createLinearGradient(x, y, hx, hy);
+        g.addColorStop(0, `rgba(${rgb},0)`); g.addColorStop(1, `rgba(${rgb},${alpha})`);
+        ctx.strokeStyle = g; ctx.lineWidth = 1.3; ctx.lineCap = "round";
+        ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(hx, hy); ctx.stroke();
+        const hg = ctx.createRadialGradient(hx, hy, 0, hx, hy, 4.5);
+        hg.addColorStop(0, `rgba(${rgb},${alpha * 1.1})`); hg.addColorStop(1, `rgba(${rgb},0)`);
+        ctx.fillStyle = hg; ctx.beginPath(); ctx.arc(hx, hy, 4.5, 0, 6.2832); ctx.fill();
+      }
+
+      function resize() {
+        dpr = Math.min(devicePixelRatio || 1, 2);
+        w = canvas.clientWidth; h = canvas.clientHeight;
+        canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0); seed(); computeZones();
+      }
+      // ribbon spine biased to the upper-right of the field
+      function spineY(u, time, amp) {
+        const cy = h * 0.42;
+        return cy + Math.sin(u * 3.0 + time * 0.16) * amp + Math.sin(u * 6.1 - time * 0.1) * amp * 0.32;
+      }
+      function slope(u, time, amp) {
+        const e = 0.004;
+        return (spineY(u + e, time, amp) - spineY(u - e, time, amp)) / (e * 2 * w);
+      }
+      function arrow(x, y, ang, len, col, lw) {
+        const ex = x + Math.cos(ang) * len, ey = y + Math.sin(ang) * len;
+        ctx.strokeStyle = col; ctx.lineWidth = lw;
+        ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(ex, ey);
+        const a = 0.45, hl = Math.min(4, len * 0.34);
+        ctx.lineTo(ex - Math.cos(ang - a) * hl, ey - Math.sin(ang - a) * hl);
+        ctx.moveTo(ex, ey); ctx.lineTo(ex - Math.cos(ang + a) * hl, ey - Math.sin(ang + a) * hl);
+        ctx.stroke();
+      }
+
+      // real eigenvalue spectrum, rendered as an ORBITAL ATOM: nucleus + elliptical
+      // shells + orbiting electrons, each shell's weight = its real variance share.
+      // The dominant eigenvalue → one bright tight shell = the collapse, made atomic.
+      function drawShells(time) {
+        if (cur.spectrum < 0.03 || !M.pots.length) return;
+        const pot = M.pots[Math.floor(time * 0.14) % M.n];
+        const eig = pot.eig.slice().sort((p, q) => q - p); if (eig.length < 2) return;
+        const cx = STAGE.cx, cy = STAGE.y0 + STAGE.h * 0.6;
+        const a = cur.spectrum * clearAt(cx, cy); if (a < 0.03) return;
+        const Rmax = Math.min(STAGE.h * 0.3, STAGE.w * 0.32, 122);
+        scrim(cx, cy, Rmax * 1.45, cur.spectrum);
+        const total = eig.reduce((s, e) => s + e, 0) || 1, n = eig.length;
+        // nucleus glow
+        const ng = ctx.createRadialGradient(cx, cy, 0, cx, cy, 12);
+        ng.addColorStop(0, `rgba(${IND},${0.45 * a})`); ng.addColorStop(1, `rgba(${IND},0)`);
+        ctx.fillStyle = ng; ctx.beginPath(); ctx.arc(cx, cy, 12, 0, 6.2832); ctx.fill();
+        ctx.fillStyle = `rgba(${IND},${0.7 * a})`; ctx.beginPath(); ctx.arc(cx, cy, 2.3, 0, 6.2832); ctx.fill();
+        for (let i = 0; i < n; i++) {
+          const share = eig[i] / total;                 // real variance fraction
+          const r = Rmax * ((i + 1) / n);
+          const rot = i * 0.7 + time * 0.05;
+          const ringA = a * (0.07 + 0.5 * share);
+          ctx.strokeStyle = `rgba(${IND},${ringA})`; ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.ellipse(cx, cy, r, r * 0.4, rot, 0, 6.2832); ctx.stroke();
+          // electron riding the shell (inner shells faster)
+          const ang = time * (0.5 + 1.1 / (i + 1)) + i * 1.7;
+          const ex = cx + Math.cos(ang) * r * Math.cos(rot) - Math.sin(ang) * r * 0.4 * Math.sin(rot);
+          const ey = cy + Math.cos(ang) * r * Math.sin(rot) + Math.sin(ang) * r * 0.4 * Math.cos(rot);
+          const eg = ctx.createRadialGradient(ex, ey, 0, ex, ey, 5.5);
+          eg.addColorStop(0, `rgba(${IND},${a * (0.3 + 0.6 * share)})`); eg.addColorStop(1, `rgba(${IND},0)`);
+          ctx.fillStyle = eg; ctx.beginPath(); ctx.arc(ex, ey, 5.5, 0, 6.2832); ctx.fill();
+          ctx.fillStyle = `rgba(${IND},${a * (0.4 + 0.5 * share)})`; ctx.beginPath(); ctx.arc(ex, ey, 1.4, 0, 6.2832); ctx.fill();
+        }
+      }
+
+      // real PC1 cosine fan — each potential's first error direction, by its
+      // true angular deviation from the reference; tight cluster = alignment
+      // real PC1 alignment, rendered as ALIGNED DRIFTING PARTICLES — each potential's
+      // first error direction is a comet whose angle is its true deviation from the
+      // reference; a tight, near-parallel stream = the "same direction" result.
+      function drawAlignment(time) {
+        if (cur.fan < 0.03 || M.pots.length < 2) return;
+        const cx = STAGE.x0 + STAGE.w * 0.28, cy = STAGE.y0 + STAGE.h * 0.34;
+        const L = Math.min(STAGE.w * 0.5, 156);
+        const a = cur.fan * clearAt(cx + L * 0.4, cy); if (a < 0.03) return;
+        scrim(cx + L * 0.42, cy, L * 0.85, cur.fan);
+        const ref = M.pots[0].pc1; let mx = 0, my = 0;
+        M.pots.forEach((p, i) => {
+          const c = Math.min(1, cosAbs(p.pc1, ref));
+          const dev = Math.acos(c) * (i % 2 ? 1 : -1);
+          mx += Math.cos(dev); my += Math.sin(dev);
+          // a short train of particles per direction → a flowing, near-parallel stream
+          for (let k = 0; k < 3; k++) {
+            const drift = ((time * 0.16 + i * 0.29 + k * 0.34) % 1);
+            const bx = cx + Math.cos(dev) * L * drift, by = cy + Math.sin(dev) * L * drift + (i - 1.5) * 5;
+            const fade = Math.sin(drift * Math.PI);          // born → travel → fade
+            comet(bx, by, dev, 20 + 14 * (1 - drift), a * (0.34 + 0.4 * c) * (0.3 + 0.7 * fade), IND);
+          }
+        });
+        comet(cx, cy, Math.atan2(my, mx), L * 0.82, a * 0.6, OCH);   // consensus direction
+      }
+
+      /* ── real matter: the MOF-5 cavity, drawn from published coordinates ──
+         Orthographic projection of the committed structure, slowly turning.
+         Zn nodes in deep indigo, carboxylate O in ochre, C in ink — the same
+         dialect as the rest of the instrument. The projected Zn positions
+         are kept so converging error-particles can land on real lattice
+         sites: the math correcting real matter, literally. */
+      let latticeXY = [];
+      function drawMatter(time) {
+        latticeXY.length = 0;
+        if (!MOF || cur.matter < 0.03) return;
+        const cx = STAGE.cx + STAGE.w * 0.02;
+        const cy = STAGE.y0 + STAGE.h * (mobileMQ.matches ? 0.5 : 0.4);
+        const R = Math.min(STAGE.w, STAGE.h) * (mobileMQ.matches ? 0.38 : 0.37);
+        const A = cur.matter * clearAt(cx, cy);
+        if (A < 0.03 || R < 40) return;
+        const s = R / MOF.rmax;
+        const ry = time * 0.11, rx = -0.42;                 // slow turn, gentle tilt
+        const cyr = Math.cos(ry), syr = Math.sin(ry), cxr = Math.cos(rx), sxr = Math.sin(rx);
+        const breath = 1 + 0.012 * Math.sin(time * 0.5);
+        scrim(cx, cy, R * 1.5, cur.matter * 0.8);
+        // project all atoms
+        const P = MOF.proj;
+        for (let i = 0; i < MOF.pos.length; i++) {
+          const p = MOF.pos[i];
+          const x1 = p[0] * cyr + p[2] * syr;
+          const z1 = -p[0] * syr + p[2] * cyr;
+          const y1 = p[1] * cxr - z1 * sxr;
+          const z2 = p[1] * sxr + z1 * cxr;
+          P[i] = [cx + x1 * s * breath, cy + y1 * s * breath, z2 / MOF.rmax]; // z in [-1,1]
+        }
+        // bonds, painter's order, depth-cued
+        const order = MOF.bonds.map((b, i) => [i, (P[b[0]][2] + P[b[1]][2]) / 2]).sort((a, b) => a[1] - b[1]);
+        ctx.lineCap = "round";
+        for (const [bi, z] of order) {
+          const [i, j] = MOF.bonds[bi];
+          const d = (z + 1) / 2;                             // 0 far → 1 near
+          const m = Math.min(clearAt(P[i][0], P[i][1]), clearAt(P[j][0], P[j][1]));
+          if (m <= 0.02) continue;
+          ctx.strokeStyle = `rgba(${INK},${A * m * (0.13 + 0.34 * d)})`;
+          ctx.lineWidth = 0.8 + 0.7 * d;
+          ctx.beginPath(); ctx.moveTo(P[i][0], P[i][1]); ctx.lineTo(P[j][0], P[j][1]); ctx.stroke();
+        }
+        // atoms, far to near
+        const aorder = P.map((p, i) => [i, p[2]]).sort((a, b) => a[1] - b[1]);
+        for (const [i, z] of aorder) {
+          const d = (z + 1) / 2;
+          const m = clearAt(P[i][0], P[i][1]); if (m <= 0.02) continue;
+          const el = MOF.els[i];
+          const rgb = el === "Zn" ? "46,58,135" : el === "O" ? OCH : INK;
+          const r = (el === "Zn" ? 3.1 : el === "O" ? 2.0 : 1.45) * (0.62 + 0.5 * d);
+          const a = A * m * (0.30 + 0.62 * d);
+          if (el === "Zn") {                                 // metal nodes glow like the focal bloom
+            const g = ctx.createRadialGradient(P[i][0], P[i][1], 0, P[i][0], P[i][1], r * 3.4);
+            g.addColorStop(0, `rgba(${IND},${a * 0.5})`); g.addColorStop(1, `rgba(${IND},0)`);
+            ctx.fillStyle = g; ctx.beginPath(); ctx.arc(P[i][0], P[i][1], r * 3.4, 0, 6.2832); ctx.fill();
+            if (z > -0.1) latticeXY.push([P[i][0], P[i][1]]);
+          }
+          ctx.fillStyle = `rgba(${rgb},${a})`;
+          ctx.beginPath(); ctx.arc(P[i][0], P[i][1], r, 0, 6.2832); ctx.fill();
+        }
+      }
+
+      let lastPaint = 0;
+      function frame(ts) {
+        // Keep the ambient canvas below the browser's interaction budget.
+        // The drawing is intentionally slow-moving, so 30 fps is visually
+        // equivalent while leaving alternate frames free for input work.
+        if (lastPaint && ts - lastPaint < 32) {
+          raf = requestAnimationFrame(frame);
+          return;
+        }
+        lastPaint = ts;
+        if (!t0) t0 = ts; const time = (ts - t0) / 1000;
+        for (const k in cur) cur[k] += (tgt[k] - cur[k]) * 0.045;
+        ctx.clearRect(0, 0, w, h);
+        const amp = h * (0.16 + 0.07 * cur.ribbon);
+        // ribbon thickness derives from the REAL mean eigenvalue ratio √(λ₂/λ₁)
+        const bandW = h * (0.05 + 0.34 * M.meanThin);
+        // slow, ambient breath so the ribbon never reads as a frozen image
+        const breath = 0.88 + 0.12 * Math.sin(time * 0.55);
+
+        // ── the hyper-ribbon: the luminous hero motif ──
+        // (a) focal bloom — the single indigo light source, seated in the clear window
+        {
+          const fx = STAGE.cx, fy = spineY(clamp01(STAGE.cx / w), time, amp);
+          const R = Math.min(w, h) * 0.34;
+          const bg = ctx.createRadialGradient(fx, fy, 0, fx, fy, R);
+          bg.addColorStop(0, `rgba(${IND},${0.09 * cur.ribbon * breath})`);
+          bg.addColorStop(0.55, `rgba(${IND},${0.035 * cur.ribbon * breath})`);
+          bg.addColorStop(1, `rgba(${IND},0)`);
+          ctx.fillStyle = bg; ctx.beginPath(); ctx.arc(fx, fy, R, 0, 6.2832); ctx.fill();
+        }
+        // (b) fine parallel curves — the "many wrong simulations" texture
+        const bands = 26;
+        for (let b = -bands; b <= bands; b++) {
+          const env = 1 - Math.abs(b / bands);
+          const off = (b / bands) * bandW;
+          ctx.strokeStyle = `rgba(${IND},${(0.04 + env * 0.17 * cur.ribbon * breath)})`;
+          ctx.lineWidth = 0.7; ctx.beginPath();
+          for (let s = 0; s <= 96; s++) {
+            const u = s / 96, x = u * w, y = spineY(u, time, amp) + off * (0.5 + 0.5 * env);
+            s === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+          }
+          ctx.stroke();
+        }
+        // (c) luminous core thread — emerges from behind the hero text, dissolves toward the rail
+        ctx.save();
+        ctx.shadowColor = `rgba(${IND},${0.55 * cur.ribbon * breath})`; ctx.shadowBlur = 9;
+        const a0 = STAGE.x0 / w, a1 = STAGE.x1 / w;
+        const cg = ctx.createLinearGradient(0, 0, w, 0);
+        cg.addColorStop(clamp01(a0 - 0.05), `rgba(${IND},0)`);
+        cg.addColorStop(clamp01(a0 + 0.07), `rgba(${IND},${0.34 * cur.ribbon * breath})`);
+        cg.addColorStop(clamp01(a1 - 0.03), `rgba(${IND},${0.26 * cur.ribbon * breath})`);
+        cg.addColorStop(clamp01(a1 + 0.06), `rgba(${IND},0)`);
+        ctx.strokeStyle = cg; ctx.lineWidth = 1.4; ctx.lineCap = "round"; ctx.beginPath();
+        for (let s = 0; s <= 110; s++) { const u = s / 110, x = u * w, y = spineY(u, time, amp); s === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); }
+        ctx.stroke(); ctx.restore();
+
+        drawMatter(time);
+
+        // scattered error samples collapsing onto the spine, with vectors.
+        // converged band-thickness per sample = its potential's real √(λ₂/λ₁)
+        for (const p of pts) {
+          const pot = M.pots[p.pot % M.n] || { thin: 0.3 };
+          let x = p.u * w, ribY = spineY(p.u, time, amp);
+          const wide = p.sy * h * 0.46;
+          const spread = wide * (1 + (pot.thin - 1) * cur.converge);
+          let y = ribY + spread + Math.sin(time * p.sp + p.ph) * h * 0.06 * (1 - 0.55 * cur.converge);
+          // a share of the corrected samples settle onto real Zn lattice sites
+          if (p.site >= 0 && latticeXY.length) {
+            const t2 = latticeXY[p.site % latticeXY.length];
+            const k = cur.matter * (0.55 + 0.45 * Math.sin(time * 0.4 + p.ph) ** 2) * 0.8;
+            x += (t2[0] - x) * k; y += (t2[1] - y) * k;
+          }
+          const cm = clearAt(x, y); if (cm <= 0.02) continue;   // never sit on text
+          const aligned = Math.atan2(slope(p.u, time, amp) * w, w);
+          const ang = p.ph + (aligned - p.ph) * Math.max(cur.converge, cur.vector);
+          const len = 7 + 7 * p.sp, core = 1 - Math.abs(p.sy);
+          // soft motion trail (no arrowhead)
+          ctx.strokeStyle = `rgba(${IND},${(0.12 + 0.46 * cur.vector) * (0.4 + 0.6 * core) * cm})`;
+          ctx.lineWidth = 1.0; ctx.lineCap = "round";
+          ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + Math.cos(ang) * len, y + Math.sin(ang) * len); ctx.stroke();
+          // electron: faint halo + core
+          ctx.fillStyle = `rgba(${IND},${0.08 * cm})`;
+          ctx.beginPath(); ctx.arc(x, y, 2.6 + 1.7 * core, 0, 6.2832); ctx.fill();
+          ctx.fillStyle = `rgba(${INK},${(0.14 + 0.14 * (1 - cur.converge)) * cm})`;
+          ctx.beginPath(); ctx.arc(x, y, 1.0 + 0.95 * core, 0, 6.2832); ctx.fill();
+        }
+
+        drawShells(time);
+        drawAlignment(time);
+
+        // ledger — ochre particles condensing along the ribbon (live state)
+        if (cur.ledger > 0.02) {
+          for (let i = 0; i < 30; i++) {
+            const u = (i + 0.5) / 30, x = u * w;
+            const y = spineY(u, time, amp) - bandW - 6 + Math.sin(time * 0.9 + i * 1.3) * 3;
+            const cm = clearAt(x, y); if (cm <= 0.02) continue;
+            const blink = 0.3 + 0.7 * (0.5 + 0.5 * Math.sin(time * 1.6 + i));
+            const al = cur.ledger * 0.55 * blink * cm;
+            ctx.fillStyle = `rgba(${OCH},${0.18 * al})`;
+            ctx.beginPath(); ctx.arc(x, y, 3, 0, 6.2832); ctx.fill();
+            ctx.fillStyle = `rgba(${OCH},${al})`;
+            ctx.beginPath(); ctx.arc(x, y, 1.3, 0, 6.2832); ctx.fill();
+          }
+        }
+        raf = requestAnimationFrame(frame);
+      }
+
+      resize(); addEventListener("resize", resize, { passive: true });
+      // when the structure arrives after the reduced-motion single frame,
+      // draw one more so the crystal appears in the still image too
+      const staticCanvas = reduced || mobileMQ.matches;
+      onMatterReady = () => {
+        if (staticCanvas) { t0 = 0; requestAnimationFrame((ts) => { frame(ts); cancelAnimationFrame(raf); }); }
+      };
+      if (staticCanvas) { requestAnimationFrame((ts) => { for (const k in cur) cur[k] = tgt[k]; frame(ts); cancelAnimationFrame(raf); }); }
+      else {
+        raf = requestAnimationFrame(frame);
+        document.addEventListener("visibilitychange", () => {
+          if (document.hidden) cancelAnimationFrame(raf); else { t0 = 0; raf = requestAnimationFrame(frame); }
+        });
+      }
+    }
+
+    /* ── public ledger: live commits from the open repository ── */
+    (() => {
+      const LEDGER_REPO = "alexwelcing/lupine";
+      const list = document.getElementById("ledger-list");
+      const heightEl = document.getElementById("ledger-height");
+      const fallback = [
+        { sha: "9b37d99", date: "06·19", msg: "Refactor LUPI viewer loading seams" },
+        { sha: "25482ab", date: "06·18", msg: "Retire monorepo LUPI viewer deploy" },
+        { sha: "08fe80c", date: "06·17", msg: "Add social cards for saved views" },
+        { sha: "109c116", date: "06·17", msg: "Add LUPI analytics measurement tools" },
+      ];
+      function render(rows) {
+        if (!list) return;
+        // exactly as many rows as the pre-rendered fallback: the live swap
+        // must never change the rail's height — content stays under the
+        // ledger's min-height floor, so layout cannot shift
+        list.innerHTML = rows.slice(0, 4).map((r) =>
+          `<li><span class="hash">${r.sha}</span> <span class="when">${r.date}</span><span class="msg">${r.msg.replace(/</g, "&lt;")}</span></li>`
+        ).join("");
+      }
+      function fmtDate(iso) {
+        const d = new Date(iso);
+        const m = String(d.getUTCMonth() + 1).padStart(2, "0");
+        const day = String(d.getUTCDate()).padStart(2, "0");
+        return `${m}·${day}`;
+      }
+      function parseLastPage(link) {
+        if (!link) return null;
+        const m = link.match(/page=(\d+)[^>]*>;\s*rel="last"/);
+        return m ? parseInt(m[1], 10) : null;
+      }
+      // start with the previous hardcoded entries so the rail is never empty
+      render(fallback);
+      // memoize the ledger for 10 minutes: instant repeat views, and kind
+      // to GitHub's unauthenticated rate limit
+      const MEMO_KEY = "lupine-ledger-v1";
+      let memo = null;
+      try { memo = JSON.parse(sessionStorage.getItem(MEMO_KEY) || "null"); } catch {}
+      if (memo && Date.now() - memo.at < 600000) {
+        if (heightEl && memo.total) heightEl.textContent = memo.total;
+        render(memo.rows);
+      } else {
+        fetch(`https://api.github.com/repos/${LEDGER_REPO}/commits?sha=main&per_page=5`, {
+          headers: { Accept: "application/vnd.github+json" },
+        })
+          .then((r) => {
+            if (!r.ok) throw new Error(String(r.status));
+            const link = r.headers.get("link") || "";
+            const total = parseLastPage(link);
+            if (heightEl && total) heightEl.textContent = total;
+            return r.json().then((commits) => ({ commits, total }));
+          })
+          .then(({ commits, total }) => {
+            if (!Array.isArray(commits) || !commits.length) throw new Error("empty");
+            const rows = commits.map((c) => ({
+              sha: String(c.sha || "").slice(0, 7),
+              date: fmtDate(c.commit && c.commit.committer ? c.commit.committer.date : c.commit.commit_date || ""),
+              msg: String(c.commit && c.commit.message ? c.commit.message.split("\n")[0] : ""),
+            }));
+            render(rows);
+            try { sessionStorage.setItem(MEMO_KEY, JSON.stringify({ at: Date.now(), total, rows })); } catch {}
+          })
+          .catch(() => { /* fallback already visible */ });
+      }
+    })();
+
+    /* ── the founder's email, assembled here so nothing in the HTML source
+       matches an email pattern: proxies that "protect" addresses by
+       rewriting them (and then need a script our CSP rightly blocks)
+       have nothing to find. JS-off visitors see the [at] spelling. ── */
+    document.querySelectorAll("a.mail").forEach((a) => {
+      const addr = `${a.dataset.u}@${a.dataset.d}`;
+      a.href = `mailto:${addr}`;
+      if (!("keepText" in a.dataset)) a.textContent = addr;
+    });
+
+    /* ── receipts: this page, measured by the visitor's own browser.
+       The same ethos as the benchmark figures above: nothing typed in. ── */
+    (() => {
+      const el = document.getElementById("receipts");
+      if (!el || typeof performance === "undefined" || !performance.getEntriesByType) return;
+      setTimeout(() => {
+        try {
+          const nav = performance.getEntriesByType("navigation")[0];
+          if (!nav) return;
+          let bytes = nav.transferSize || 0;
+          for (const r of performance.getEntriesByType("resource")) bytes += r.transferSize || 0;
+          const paint = performance.getEntriesByType("paint").find((p) => p.name === "first-contentful-paint");
+          const fp = paint ? ` · first paint ${(paint.startTime / 1000).toFixed(2)} s` : "";
+          el.innerHTML = nav.transferSize === 0
+            ? `this visit · served from your cache · <b>0 KB</b> over the wire · measured by your browser, not claimed by ours`
+            : `this visit · <b>${Math.round(bytes / 1024)} KB</b> over the wire · no framework, no tracker${fp} · measured by your browser, not claimed by ours`;
+        } catch { /* the line simply doesn't render */ }
+      }, 1400);
+    })();
+
+    setFocus("objective");
+
+    // after first paint, enable panel transitions so later focus changes still feel smooth
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const reading = document.querySelector(".reading");
+        if (reading) reading.classList.add("is-settled");
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

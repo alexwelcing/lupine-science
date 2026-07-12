@@ -1,0 +1,2 @@
+/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/reviews/investing-in-the-trust-layer-qa-2026-07-12T014845Z/video-response.bin: Invalid data found when processing input
+ffprobe_exit=1

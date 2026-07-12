@@ -1,0 +1,2 @@
+media/projects/article-videos/reviews/investing-in-the-trust-layer-qa-2026-07-12T024733Z/response.bin: Invalid data found when processing input
+ffprobe_exit=1

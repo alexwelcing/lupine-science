@@ -1,0 +1,14 @@
+smoke_exit_code=0
+smoke_result=PASS
+smoke_pages=14
+smoke_linked_resources=352
+url=https://lupine.science/videos/investing-in-the-trust-layer.mp4?qa=2026-07-12T005707Z
+http_status=200
+content_type=text/html; charset=utf-8
+redirects=0
+size_bytes=84245
+file_type=HTML document, Unicode text, UTF-8 text
+first_bytes_hex=3c21646f63747970652068746d6c3e
+sha256=0edb9891121965c590fa3c5b2ffde3d69db4e1c2b4066d1c5bdf6f9ff659347e
+ffprobe=Invalid data found when processing input
+verdict=FAIL

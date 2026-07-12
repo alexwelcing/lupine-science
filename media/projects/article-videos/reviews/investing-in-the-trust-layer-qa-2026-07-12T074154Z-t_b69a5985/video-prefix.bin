@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lupine Science — Unlocking the materials that build the future</title>
+  <meta name="description" content="Intelligence became abundant; verified knowledge did not. Lupine Science makes AI's predictions of new materials provable — mathematics a computer checks, evidence anyone can audit — so discovery stops waiting on guesswork.">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Lupine Science — Unlocking the materials that build the future">
+  <meta property="og:description" content="Intelligence became abundant; verified knowledge did not. We make AI's predictions of new materials provable, so discovery stops waiting on guesswork.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lupine.science/">
+  <meta property="og:image" content="https://lupine.science/og-lupine-science.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lupine Science — Unlocking the materials that build the future">
+  <meta name="twitter:description" content="Intelligence became abundant; verified knowledge did not. We make AI's predictions of new materials provable, so discovery stops waiting on guesswork.">
+  <meta name="twitter:image" content="https://lupine.science/og-lupine-science.jpg">
+  <meta name="theme-color" content="#faf9f6">
+  <link rel="canonical" href="https://lupine.science/">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://lupine.science/#org","name":"Lupine Science","url":"https://lupine.science/","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png"},"founder":{"@type":"Person","name":"Alex Welcing","email":"alex@lupinesci.com"},"description":"Lupine Science accelerates materials discovery by making AI's predictions of matter trustworthy.","sameAs":["https://github.com/alexwelcing/lupine","https://library.lupine.science","https://lupi.live"]},{"@type":"WebSite","@id":"https://lupine.science/#site","url":"https://lupine.science/","name":"Lupine Science","publisher":{"@id":"https://lupine.science/#org"}}]}</script>
+  <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
+  <link rel="icon" type="image/png" href="/lupine-science-icon.png">
+  <link rel="apple-touch-icon" href="/lupine-science-icon.png">
+
+  <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/newsreader-italic-var.woff2" as="font" type="font/woff2" crossorigin>
+
+  <style>
+    /* Self-hosted, subset to the glyphs this site uses (scripts/build-fonts.mjs).
+       No third party sits between a visitor and first paint. */
+    @font-face {
+      font-family: "Newsreader";
+      src: url("/fonts/newsreader-var.woff2") format("woff2");
+      font-style: normal; font-weight: 300 600; font-stretch: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Newsreader";
+      src: url("/fonts/newsreader-italic-var.woff2") format("woff2");
+      font-style: italic; font-weight: 300 600; font-stretch: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "IBM Plex Mono";
+      src: url("/fonts/plex-mono-400.woff2") format("woff2");
+      font-style: normal; font-weight: 400; font-display: swap;
+    }
+    @font-face {
+      font-family: "IBM Plex Mono";
+      src: url("/fonts/plex-mono-600.woff2") format("woff2");
+      font-style: normal; font-weight: 500 600; font-display: swap;
+    }
+    /* metric-matched serif fallback so the swap moves nothing.
+       Values measured against the real font in-browser (width ratio +
+       font bounding box) — see scripts/dev/measure-fallbac

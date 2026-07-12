@@ -1,0 +1,9 @@
+smoke_exit=0
+curl_exit=0
+url=https://lupine.science/videos/investing-in-the-trust-layer.mp4
+cachebust_url=https://lupine.science/videos/investing-in-the-trust-layer.mp4?qa=20260712T070958Z
+cachebust_curl_exit=0
+cachebust_status=200
+cachebust_content_type=text/html; charset=utf-8
+cachebust_file=HTML document, Unicode text, UTF-8 text, with very long lines (753)
+cachebust_size=84245

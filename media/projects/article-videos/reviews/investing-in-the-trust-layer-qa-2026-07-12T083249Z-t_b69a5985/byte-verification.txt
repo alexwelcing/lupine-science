@@ -1,0 +1,3 @@
+/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/reviews/investing-in-the-trust-layer-qa-2026-07-12T083249Z-t_b69a5985/prefix.bin: HTML document, Unicode text, UTF-8 text, with very long lines (753)
+00000000: 3c21 646f 6374 7970 6520 6874 6d6c 3e0a  <!doctype html>.
+00000010: 3c68 746d 6c20 6c61 6e67 3d22 656e 223e  <html lang="en">

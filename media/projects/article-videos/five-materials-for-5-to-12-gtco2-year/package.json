@@ -7,6 +7,6 @@
     "lint": "npx --yes hyperframes@0.7.48 lint . --json",
     "validate": "npx --yes hyperframes@0.7.48 validate . --json",
     "inspect": "npx --yes hyperframes@0.7.48 inspect . --at 2,6,10.8,13,20,27,32,39,46,51,55,60,65,70,75,80,84,88,91 --strict --json",
-    "render": "npx --yes hyperframes@0.7.48 render . --resolution 1080p --fps 30 --quality high --strict --output renders/five-materials-v1-review-1080p.mp4"
+    "render": "npx --yes hyperframes@0.7.48 render . --resolution 1080p --fps 30 --quality high --strict --output renders/five-materials-v3-review-1080p.mp4"
   }
 }

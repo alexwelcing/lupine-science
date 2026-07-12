@@ -1,0 +1,2 @@
+curl_rc=0
+ffprobe_rc=1

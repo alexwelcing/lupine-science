@@ -1,0 +1,2 @@
+head_curl_exit=0
+get_curl_exit=0

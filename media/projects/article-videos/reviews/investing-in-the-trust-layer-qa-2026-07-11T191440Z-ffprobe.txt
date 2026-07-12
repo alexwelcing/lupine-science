@@ -1,0 +1,2 @@
+ffprobe exit_code=1
+media/projects/article-videos/reviews/investing-in-the-trust-layer-qa-2026-07-11T191440Z-response.bin: Invalid data found when processing input

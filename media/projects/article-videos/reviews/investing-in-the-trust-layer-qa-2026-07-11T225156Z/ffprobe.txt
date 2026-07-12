@@ -1,0 +1,2 @@
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x60d146270180] moov atom not found
+/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/reviews/investing-in-the-trust-layer-qa-2026-07-11T225156Z/response.mp4: Invalid data found when processing input

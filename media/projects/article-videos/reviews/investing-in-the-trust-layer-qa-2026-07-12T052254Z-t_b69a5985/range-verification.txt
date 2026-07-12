@@ -1,0 +1,3 @@
+range_http_code=206
+range_content_type=text/html; charset=utf-8
+size_download=32

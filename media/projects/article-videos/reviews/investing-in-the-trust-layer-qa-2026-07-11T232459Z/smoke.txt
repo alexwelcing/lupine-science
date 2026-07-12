@@ -1,0 +1,3 @@
+npm run smoke
+PASS: 14 pages and 352 linked resources
+All live smoke checks passed across 1 target(s).

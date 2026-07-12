@@ -1,0 +1,13 @@
+{
+  "name": "lupine-beyond-carbon-error-geometry",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "npm run lint && npm run validate && npm run inspect",
+    "lint": "npx --yes hyperframes@0.7.48 lint . --json",
+    "validate": "npx --yes hyperframes@0.7.48 validate . --json",
+    "inspect": "npx --yes hyperframes@0.7.48 inspect . --at 2,9,14,18,24,29,33,40,43,46,51,58,63,69,73,77,84,90,96,103,108,110.5 --strict --json",
+    "snapshot": "npx --yes hyperframes@0.7.48 snapshot . --at 2,8,14,18,24,29,33,40,43,46,51,58,63,69,73,77,84,90,96,103,108,110.5",
+    "render": "npx --yes hyperframes@0.7.48 render . --resolution 1080p --fps 30 --quality high --strict --output renders/beyond-carbon-error-geometry-final-1080p.mp4"
+  }
+}

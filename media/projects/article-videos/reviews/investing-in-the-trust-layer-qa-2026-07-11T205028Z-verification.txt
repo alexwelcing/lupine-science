@@ -1,0 +1,10 @@
+PREFIX=media/projects/article-videos/reviews/investing-in-the-trust-layer-qa-2026-07-11T205028Z
+URL=https://lupine.science/videos/investing-in-the-trust-layer.mp4?qa=2026-07-11T205028Z
+SMOKE_RC=0
+CURL_RC=0
+STATUS=200
+CONTENT_TYPE=text/html; charset=utf-8
+SIZE=84245
+MIME=text/html
+SHA256=5e991fc1b33471ea7b954a6db8454751df24144f780018c78094ab12e3d8e52c
+FFPROBE_RC=1

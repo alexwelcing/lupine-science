@@ -1,0 +1,16 @@
+HTTP/2 200
+date: Sun, 12 Jul 2026 00:51:04 GMT
+content-type: text/html; charset=utf-8
+x-frame-options: DENY
+access-control-allow-origin: *
+cache-control: public, max-age=14400, must-revalidate
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+cross-origin-opener-policy: same-origin
+permissions-policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+referrer-policy: strict-origin-when-cross-origin
+x-content-type-options: nosniff
+server: cloudflare
+accept-ranges: bytes
+cf-cache-status: MISS
+cf-ray: a19c0eb3aeb50fa8-EWR
+alt-svc: h3=":443"; ma=86400

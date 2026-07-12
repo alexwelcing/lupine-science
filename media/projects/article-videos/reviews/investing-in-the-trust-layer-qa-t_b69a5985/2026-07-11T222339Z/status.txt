@@ -1,0 +1,3 @@
+smoke_exit=0
+curl_exit=0
+ffprobe_exit=1

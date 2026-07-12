@@ -1,0 +1,13 @@
+{
+  "name": "lupine-water-and-air",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "npm run lint && npm run validate && npm run inspect",
+    "lint": "npx --yes hyperframes@0.7.48 lint . --json",
+    "validate": "npx --yes hyperframes@0.7.48 validate . --json",
+    "inspect": "npx --yes hyperframes@0.7.48 inspect . --at 2,8,13,17,24,28,32,38,42,46,53,58,62,68,73,77,84,91,97,103,105.5 --strict --json",
+    "snapshot": "npx --yes hyperframes@0.7.48 snapshot . --at 2,8,13,17,24,28,32,38,42,46,53,58,62,68,73,77,84,91,97,103,105.5",
+    "render": "npx --yes hyperframes@0.7.48 render . --resolution 1080p --fps 30 --quality high --strict --output renders/water-and-air-correcting-the-molecules-we-drink-and-breathe-final-1080p.mp4"
+  }
+}

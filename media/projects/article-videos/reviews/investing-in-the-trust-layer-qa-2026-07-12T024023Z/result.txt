@@ -1,0 +1,2 @@
+smoke_exit=0
+output_dir=/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/reviews/investing-in-the-trust-layer-qa-2026-07-12T024023Z

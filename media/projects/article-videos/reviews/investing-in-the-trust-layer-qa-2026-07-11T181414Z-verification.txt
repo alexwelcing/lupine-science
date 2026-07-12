@@ -1,0 +1,10 @@
+timestamp=2026-07-11T181414Z
+url=https://lupine.science/videos/investing-in-the-trust-layer.mp4?qa=2026-07-11T181414Z
+smoke_exit=0
+curl_exit=0
+status=200
+content_type=text/html; charset=utf-8
+bytes=84245
+file_type=text/html
+sha256=6d6eab56f2ccb6836b29c62d290a90140f71e72b7595ec14ed97b2b262b0c926
+ffprobe=FAIL

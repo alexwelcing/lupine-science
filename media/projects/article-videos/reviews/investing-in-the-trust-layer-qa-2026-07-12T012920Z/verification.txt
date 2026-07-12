@@ -1,0 +1,9 @@
+Result: FAIL
+URL: https://lupine.science/videos/investing-in-the-trust-layer.mp4
+HTTP status: 200
+Expected Content-Type: video/mp4
+Actual Content-Type: text/html; charset=utf-8
+Downloaded bytes: 84245
+Detected payload: HTML document (starts with <!doctype html>)
+ffprobe: Invalid data; moov atom not found
+Smoke test: PASS (14 pages, 352 linked resources)

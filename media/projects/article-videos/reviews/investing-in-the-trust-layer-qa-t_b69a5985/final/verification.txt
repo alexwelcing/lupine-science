@@ -1,0 +1,2 @@
+file_type=HTML document, Unicode text, UTF-8 text, with very long lines (753)
+smoke_exit=0

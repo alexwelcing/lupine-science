@@ -1,0 +1,22 @@
+HTTP/2 206 
+date: Sun, 12 Jul 2026 05:00:02 GMT
+content-type: text/html; charset=utf-8
+content-length: 65536
+x-frame-options: DENY
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=7knqSD0HoDP0F0GWla7Y%2BwDnyOzrpjK1zEFQjhRj8gcyXjz6rOHNh%2F3fwtBy4eOAlwrBcAx8duybqK9%2FmNlNyoKd0TsDtQ%2BOqZlD0HxFJWeFf7XiZOsqzW0tfblmWsS6dNAKxjIPPMAZWVru%2Bg%3D%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+access-control-allow-origin: *
+cache-control: public, max-age=14400, must-revalidate
+etag: "299bd07a858909699cd68be3c675daa6"
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+content-security-policy: default-src 'none'; script-src 'self' 'sha256-uluBsiSV5ONcdXxCmn4jRhClulLz+CQLxbQ0j1t2Wo4=' 'sha256-Fa3fAHAVO/dSk7wQm4TdFbcwtkxkujyhSfVvEaza1g4=' 'sha256-+H46GX5rKHgWEIsEUo3U3OKC1lwWD+nZwIlrTSDM6B0='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self' https://api.github.com; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+cross-origin-opener-policy: same-origin
+permissions-policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+referrer-policy: strict-origin-when-cross-origin
+x-content-type-options: nosniff
+server: cloudflare
+content-range: bytes 0-65535/84055
+cf-cache-status: MISS
+cf-ray: a19d7b60ab07eeee-EWR
+alt-svc: h3=":443"; ma=86400
+

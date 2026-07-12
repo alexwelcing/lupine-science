@@ -1,0 +1,2 @@
+smoke_exit=0
+curl_exit=0

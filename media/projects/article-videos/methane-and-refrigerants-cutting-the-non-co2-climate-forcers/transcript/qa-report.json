@@ -1,0 +1,19 @@
+{
+  "source_audio": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/audio/narration-ana-final.wav",
+  "audio_duration_seconds": 133.752,
+  "approved_words": 298,
+  "asr_words_detected": 306,
+  "directly_aligned_words": 265,
+  "interpolated_words": 33,
+  "mean_aligned_word_confidence": 0.9603,
+  "sentence_count": 20,
+  "caption_cue_count": 46,
+  "validation": {
+    "json_csv_counts_match": true,
+    "timestamps_monotonic_and_non_overlapping": true,
+    "timestamps_within_audio_bounds": true,
+    "approved_text_matches_word_timestamps": true,
+    "approved_text_matches_caption_text": true
+  },
+  "timing_method": "faster-whisper small.en word alignment, corrected to approved narration text and original TTS sentence boundaries"
+}

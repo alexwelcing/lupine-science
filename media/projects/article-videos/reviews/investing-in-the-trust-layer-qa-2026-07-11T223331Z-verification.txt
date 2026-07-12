@@ -1,0 +1,8 @@
+stamp=2026-07-11T223331Z
+smoke_rc=0
+curl_rc=0
+http_code=200
+content_type=text/html; charset=utf-8
+detected_mime=text/html
+ffprobe=failed
+verdict=blocked: expected video/mp4 but received HTML fallback

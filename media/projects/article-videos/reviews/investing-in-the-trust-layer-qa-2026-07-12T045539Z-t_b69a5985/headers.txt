@@ -1,0 +1,10 @@
+HTTP/2 200
+date: Sun, 12 Jul 2026 04:55:39 GMT
+content-type: text/html; charset=utf-8
+access-control-allow-origin: *
+cache-control: public, max-age=14400, must-revalidate
+x-content-type-options: nosniff
+server: cloudflare
+accept-ranges: bytes
+cf-cache-status: MISS
+cf-ray: a19d74f99f1cc62c-EWR

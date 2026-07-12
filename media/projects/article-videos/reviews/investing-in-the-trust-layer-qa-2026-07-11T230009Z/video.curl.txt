@@ -1,0 +1,5 @@
+url=https://lupine.science/videos/investing-in-the-trust-layer.mp4?qa=1783810845
+status=200
+content_type=text/html; charset=utf-8
+redirects=0
+size=84245

@@ -1,0 +1,20 @@
+HTTP/2 200 
+date: Sat, 11 Jul 2026 22:38:27 GMT
+content-type: text/html; charset=utf-8
+x-frame-options: DENY
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=HqKPH4S98F2Amd0MuaerGk%2FFB7yYnjE%2Fkk9JKoGR9diER%2Fa1TNHNorcb3QBuVDd2LGgpt736rL4wEtYsZpgLX%2BNRxNHSrOYGV9C%2BWcQRUDAENgR2CFsPJ11de0vK2%2BlSvGyky7JX%2BYQqxaWwXw%3D%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+access-control-allow-origin: *
+cache-control: public, max-age=14400, must-revalidate
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+content-security-policy: default-src 'none'; script-src 'self' 'sha256-uluBsiSV5ONcdXxCmn4jRhClulLz+CQLxbQ0j1t2Wo4=' 'sha256-Fa3fAHAVO/dSk7wQm4TdFbcwtkxkujyhSfVvEaza1g4=' 'sha256-+H46GX5rKHgWEIsEUo3U3OKC1lwWD+nZwIlrTSDM6B0='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self' https://api.github.com; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+cross-origin-opener-policy: same-origin
+permissions-policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+referrer-policy: strict-origin-when-cross-origin
+x-content-type-options: nosniff
+server: cloudflare
+accept-ranges: bytes
+cf-cache-status: MISS
+cf-ray: a19b4c6b2ce58c2d-EWR
+alt-svc: h3=":443"; ma=86400
+

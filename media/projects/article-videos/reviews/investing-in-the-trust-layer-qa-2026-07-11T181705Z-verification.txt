@@ -1,0 +1,14 @@
+timestamp=2026-07-11T181705Z
+url=https://lupine.science/videos/investing-in-the-trust-layer.mp4?qa=2026-07-11T181705Z
+smoke_exit=0
+curl_exit=0
+status=200
+content_type=text/html; charset=utf-8
+bytes=84245
+file_type=text/html
+sha256=c9af02abf923e066699e117a16abbb270201e9ceb46b2587af11238f9899e50f
+ffprobe=FAIL
+smoke_log=/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/reviews/investing-in-the-trust-layer-qa-2026-07-11T181705Z-smoke.log
+headers=/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/reviews/investing-in-the-trust-layer-qa-2026-07-11T181705Z-headers.txt
+response=/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/reviews/investing-in-the-trust-layer-qa-2026-07-11T181705Z-response.bin
+ffprobe_log=/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/reviews/investing-in-the-trust-layer-qa-2026-07-11T181705Z-verification.txt.ffprobe

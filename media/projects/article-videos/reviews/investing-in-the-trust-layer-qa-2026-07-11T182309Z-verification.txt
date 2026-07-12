@@ -1,0 +1,5 @@
+http_code=200
+content_type=text/html; charset=utf-8
+size_download=84245
+url_effective=https://lupine.science/videos/investing-in-the-trust-layer.mp4?qa=2026-07-11T182309Z
+text/html

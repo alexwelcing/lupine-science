@@ -1,0 +1,19 @@
+{
+  "source_audio": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/beyond-carbon-error-geometry/narration-ana-final.wav",
+  "audio_duration_seconds": 109.824,
+  "approved_words": 297,
+  "asr_words_detected": 308,
+  "directly_aligned_words": 263,
+  "interpolated_words": 34,
+  "mean_aligned_word_confidence": 0.9638,
+  "sentence_count": 27,
+  "caption_cue_count": 46,
+  "validation": {
+    "json_csv_counts_match": true,
+    "timestamps_monotonic_and_non_overlapping": true,
+    "timestamps_within_audio_bounds": true,
+    "approved_text_matches_word_timestamps": true,
+    "approved_text_matches_caption_text": true
+  },
+  "timing_method": "faster-whisper small.en word alignment constrained by raw Edge TTS sentence boundaries and corrected to the approved narration text"
+}
