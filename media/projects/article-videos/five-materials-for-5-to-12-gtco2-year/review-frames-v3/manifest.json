@@ -1,0 +1,530 @@
+[
+  {
+    "timestamp": "00:00:00.000",
+    "seconds": "0.000",
+    "frame_number": 0,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "WebVTT cue boundary; five-second cadence",
+    "filename": "frame-000-at-00.000s.jpg"
+  },
+  {
+    "timestamp": "00:00:00.100",
+    "seconds": "0.100",
+    "frame_number": 3,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "opening exact",
+    "filename": "frame-001-at-00.100s.jpg"
+  },
+  {
+    "timestamp": "00:00:04.610",
+    "seconds": "4.610",
+    "frame_number": 138,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "WebVTT cue boundary",
+    "filename": "frame-002-at-04.610s.jpg"
+  },
+  {
+    "timestamp": "00:00:05.000",
+    "seconds": "5.000",
+    "frame_number": 150,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "five-second cadence",
+    "filename": "frame-003-at-05.000s.jpg"
+  },
+  {
+    "timestamp": "00:00:10.000",
+    "seconds": "10.000",
+    "frame_number": 300,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "five-second cadence",
+    "filename": "frame-004-at-10.000s.jpg"
+  },
+  {
+    "timestamp": "00:00:10.336",
+    "seconds": "10.336",
+    "frame_number": 310,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "WebVTT cue boundary",
+    "filename": "frame-005-at-10.336s.jpg"
+  },
+  {
+    "timestamp": "00:00:11.592",
+    "seconds": "11.592",
+    "frame_number": 348,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "transition 1 before",
+    "filename": "frame-006-at-11.592s.jpg"
+  },
+  {
+    "timestamp": "00:00:11.792",
+    "seconds": "11.792",
+    "frame_number": 354,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "WebVTT cue boundary; transition 1 exact",
+    "filename": "frame-007-at-11.792s.jpg"
+  },
+  {
+    "timestamp": "00:00:11.992",
+    "seconds": "11.992",
+    "frame_number": 360,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "transition 1 after",
+    "filename": "frame-008-at-11.992s.jpg"
+  },
+  {
+    "timestamp": "00:00:15.000",
+    "seconds": "15.000",
+    "frame_number": 450,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "five-second cadence",
+    "filename": "frame-009-at-15.000s.jpg"
+  },
+  {
+    "timestamp": "00:00:16.555",
+    "seconds": "16.555",
+    "frame_number": 497,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "WebVTT cue boundary",
+    "filename": "frame-010-at-16.555s.jpg"
+  },
+  {
+    "timestamp": "00:00:20.000",
+    "seconds": "20.000",
+    "frame_number": 600,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "five-second cadence",
+    "filename": "frame-011-at-20.000s.jpg"
+  },
+  {
+    "timestamp": "00:00:24.945",
+    "seconds": "24.945",
+    "frame_number": 748,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "transition 2 before",
+    "filename": "frame-012-at-24.945s.jpg"
+  },
+  {
+    "timestamp": "00:00:25.000",
+    "seconds": "25.000",
+    "frame_number": 750,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "five-second cadence",
+    "filename": "frame-013-at-25.000s.jpg"
+  },
+  {
+    "timestamp": "00:00:25.145",
+    "seconds": "25.145",
+    "frame_number": 754,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "WebVTT cue boundary; transition 2 exact",
+    "filename": "frame-014-at-25.145s.jpg"
+  },
+  {
+    "timestamp": "00:00:25.345",
+    "seconds": "25.345",
+    "frame_number": 760,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "transition 2 after",
+    "filename": "frame-015-at-25.345s.jpg"
+  },
+  {
+    "timestamp": "00:00:28.368",
+    "seconds": "28.368",
+    "frame_number": 851,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "WebVTT cue boundary",
+    "filename": "frame-016-at-28.368s.jpg"
+  },
+  {
+    "timestamp": "00:00:30.000",
+    "seconds": "30.000",
+    "frame_number": 900,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "five-second cadence",
+    "filename": "frame-017-at-30.000s.jpg"
+  },
+  {
+    "timestamp": "00:00:35.000",
+    "seconds": "35.000",
+    "frame_number": 1050,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "five-second cadence",
+    "filename": "frame-018-at-35.000s.jpg"
+  },
+  {
+    "timestamp": "00:00:36.385",
+    "seconds": "36.385",
+    "frame_number": 1092,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "transition 3 before",
+    "filename": "frame-019-at-36.385s.jpg"
+  },
+  {
+    "timestamp": "00:00:36.585",
+    "seconds": "36.585",
+    "frame_number": 1098,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "WebVTT cue boundary; transition 3 exact",
+    "filename": "frame-020-at-36.585s.jpg"
+  },
+  {
+    "timestamp": "00:00:36.785",
+    "seconds": "36.785",
+    "frame_number": 1104,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "transition 3 after",
+    "filename": "frame-021-at-36.785s.jpg"
+  },
+  {
+    "timestamp": "00:00:40.000",
+    "seconds": "40.000",
+    "frame_number": 1200,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "five-second cadence",
+    "filename": "frame-022-at-40.000s.jpg"
+  },
+  {
+    "timestamp": "00:00:42.247",
+    "seconds": "42.247",
+    "frame_number": 1267,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "WebVTT cue boundary",
+    "filename": "frame-023-at-42.247s.jpg"
+  },
+  {
+    "timestamp": "00:00:45.000",
+    "seconds": "45.000",
+    "frame_number": 1350,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "five-second cadence",
+    "filename": "frame-024-at-45.000s.jpg"
+  },
+  {
+    "timestamp": "00:00:47.700",
+    "seconds": "47.700",
+    "frame_number": 1431,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "48.0s defect bracket before",
+    "filename": "frame-025-at-47.700s.jpg"
+  },
+  {
+    "timestamp": "00:00:48.000",
+    "seconds": "48.000",
+    "frame_number": 1440,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "48.0s exact defect sample",
+    "filename": "frame-026-at-48.000s.jpg"
+  },
+  {
+    "timestamp": "00:00:48.300",
+    "seconds": "48.300",
+    "frame_number": 1449,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "48.0s defect bracket after",
+    "filename": "frame-027-at-48.300s.jpg"
+  },
+  {
+    "timestamp": "00:00:49.335",
+    "seconds": "49.335",
+    "frame_number": 1480,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "transition 4 before",
+    "filename": "frame-028-at-49.335s.jpg"
+  },
+  {
+    "timestamp": "00:00:49.400",
+    "seconds": "49.400",
+    "frame_number": 1482,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "49.7s defect bracket before",
+    "filename": "frame-029-at-49.400s.jpg"
+  },
+  {
+    "timestamp": "00:00:49.535",
+    "seconds": "49.535",
+    "frame_number": 1486,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "WebVTT cue boundary; transition 4 exact",
+    "filename": "frame-030-at-49.535s.jpg"
+  },
+  {
+    "timestamp": "00:00:49.700",
+    "seconds": "49.700",
+    "frame_number": 1491,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "49.7s exact defect sample",
+    "filename": "frame-031-at-49.700s.jpg"
+  },
+  {
+    "timestamp": "00:00:49.735",
+    "seconds": "49.735",
+    "frame_number": 1492,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "transition 4 after",
+    "filename": "frame-032-at-49.735s.jpg"
+  },
+  {
+    "timestamp": "00:00:50.000",
+    "seconds": "50.000",
+    "frame_number": 1500,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "49.7s defect bracket after; five-second cadence",
+    "filename": "frame-033-at-50.000s.jpg"
+  },
+  {
+    "timestamp": "00:00:52.077",
+    "seconds": "52.077",
+    "frame_number": 1562,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "WebVTT cue boundary",
+    "filename": "frame-034-at-52.077s.jpg"
+  },
+  {
+    "timestamp": "00:00:55.000",
+    "seconds": "55.000",
+    "frame_number": 1650,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "five-second cadence",
+    "filename": "frame-035-at-55.000s.jpg"
+  },
+  {
+    "timestamp": "00:00:57.585",
+    "seconds": "57.585",
+    "frame_number": 1728,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "WebVTT cue boundary",
+    "filename": "frame-036-at-57.585s.jpg"
+  },
+  {
+    "timestamp": "00:01:00.000",
+    "seconds": "60.000",
+    "frame_number": 1800,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "five-second cadence",
+    "filename": "frame-037-at-60.000s.jpg"
+  },
+  {
+    "timestamp": "00:01:02.279",
+    "seconds": "62.279",
+    "frame_number": 1868,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "WebVTT cue boundary",
+    "filename": "frame-038-at-62.279s.jpg"
+  },
+  {
+    "timestamp": "00:01:05.000",
+    "seconds": "65.000",
+    "frame_number": 1950,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "five-second cadence",
+    "filename": "frame-039-at-65.000s.jpg"
+  },
+  {
+    "timestamp": "00:01:08.044",
+    "seconds": "68.044",
+    "frame_number": 2041,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "WebVTT cue boundary",
+    "filename": "frame-040-at-68.044s.jpg"
+  },
+  {
+    "timestamp": "00:01:10.000",
+    "seconds": "70.000",
+    "frame_number": 2100,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "five-second cadence",
+    "filename": "frame-041-at-70.000s.jpg"
+  },
+  {
+    "timestamp": "00:01:12.113",
+    "seconds": "72.113",
+    "frame_number": 2163,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "transition 5 before",
+    "filename": "frame-042-at-72.113s.jpg"
+  },
+  {
+    "timestamp": "00:01:12.313",
+    "seconds": "72.313",
+    "frame_number": 2169,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "WebVTT cue boundary; transition 5 exact",
+    "filename": "frame-043-at-72.313s.jpg"
+  },
+  {
+    "timestamp": "00:01:12.513",
+    "seconds": "72.513",
+    "frame_number": 2175,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "transition 5 after",
+    "filename": "frame-044-at-72.513s.jpg"
+  },
+  {
+    "timestamp": "00:01:14.700",
+    "seconds": "74.700",
+    "frame_number": 2241,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "75.0s defect bracket before",
+    "filename": "frame-045-at-74.700s.jpg"
+  },
+  {
+    "timestamp": "00:01:15.000",
+    "seconds": "75.000",
+    "frame_number": 2250,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "75.0s exact defect sample; five-second cadence",
+    "filename": "frame-046-at-75.000s.jpg"
+  },
+  {
+    "timestamp": "00:01:15.300",
+    "seconds": "75.300",
+    "frame_number": 2259,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "75.0s defect bracket after",
+    "filename": "frame-047-at-75.300s.jpg"
+  },
+  {
+    "timestamp": "00:01:18.968",
+    "seconds": "78.968",
+    "frame_number": 2369,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "WebVTT cue boundary",
+    "filename": "frame-048-at-78.968s.jpg"
+  },
+  {
+    "timestamp": "00:01:19.700",
+    "seconds": "79.700",
+    "frame_number": 2391,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "80.0s defect bracket before",
+    "filename": "frame-049-at-79.700s.jpg"
+  },
+  {
+    "timestamp": "00:01:20.000",
+    "seconds": "80.000",
+    "frame_number": 2400,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "80.0s exact defect sample; five-second cadence",
+    "filename": "frame-050-at-80.000s.jpg"
+  },
+  {
+    "timestamp": "00:01:20.300",
+    "seconds": "80.300",
+    "frame_number": 2409,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "80.0s defect bracket after",
+    "filename": "frame-051-at-80.300s.jpg"
+  },
+  {
+    "timestamp": "00:01:20.580",
+    "seconds": "80.580",
+    "frame_number": 2417,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "WebVTT cue boundary",
+    "filename": "frame-052-at-80.580s.jpg"
+  },
+  {
+    "timestamp": "00:01:22.159",
+    "seconds": "82.159",
+    "frame_number": 2465,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "WebVTT cue boundary",
+    "filename": "frame-053-at-82.159s.jpg"
+  },
+  {
+    "timestamp": "00:01:23.700",
+    "seconds": "83.700",
+    "frame_number": 2511,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "84.0s defect bracket before",
+    "filename": "frame-054-at-83.700s.jpg"
+  },
+  {
+    "timestamp": "00:01:24.000",
+    "seconds": "84.000",
+    "frame_number": 2520,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "84.0s exact defect sample",
+    "filename": "frame-055-at-84.000s.jpg"
+  },
+  {
+    "timestamp": "00:01:24.300",
+    "seconds": "84.300",
+    "frame_number": 2529,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "84.0s defect bracket after",
+    "filename": "frame-056-at-84.300s.jpg"
+  },
+  {
+    "timestamp": "00:01:25.000",
+    "seconds": "85.000",
+    "frame_number": 2550,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "five-second cadence",
+    "filename": "frame-057-at-85.000s.jpg"
+  },
+  {
+    "timestamp": "00:01:26.234",
+    "seconds": "86.234",
+    "frame_number": 2587,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "transition 6 before",
+    "filename": "frame-058-at-86.234s.jpg"
+  },
+  {
+    "timestamp": "00:01:26.434",
+    "seconds": "86.434",
+    "frame_number": 2593,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "WebVTT cue boundary; transition 6 exact",
+    "filename": "frame-059-at-86.434s.jpg"
+  },
+  {
+    "timestamp": "00:01:26.634",
+    "seconds": "86.634",
+    "frame_number": 2599,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "transition 6 after",
+    "filename": "frame-060-at-86.634s.jpg"
+  },
+  {
+    "timestamp": "00:01:30.000",
+    "seconds": "90.000",
+    "frame_number": 2700,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "five-second cadence",
+    "filename": "frame-061-at-90.000s.jpg"
+  },
+  {
+    "timestamp": "00:01:30.376",
+    "seconds": "90.376",
+    "frame_number": 2711,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "final hold start",
+    "filename": "frame-062-at-90.376s.jpg"
+  },
+  {
+    "timestamp": "00:01:31.376",
+    "seconds": "91.376",
+    "frame_number": 2741,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "final hold midpoint",
+    "filename": "frame-063-at-91.376s.jpg"
+  },
+  {
+    "timestamp": "00:01:32.200",
+    "seconds": "92.200",
+    "frame_number": 2766,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "prior outro defect exact",
+    "filename": "frame-064-at-92.200s.jpg"
+  },
+  {
+    "timestamp": "00:01:32.366",
+    "seconds": "92.366",
+    "frame_number": 2771,
+    "source_master_sha256": "c07824bf7c33b3c033152d3a7f85a4cabf34d447a7dc389514fa9fd3e98784f5",
+    "reasons": "final frame sample",
+    "filename": "frame-065-at-92.366s.jpg"
+  }
+]

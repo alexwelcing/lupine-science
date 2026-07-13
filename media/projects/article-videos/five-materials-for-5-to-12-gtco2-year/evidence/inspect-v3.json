@@ -1,0 +1,62 @@
+
+> inspect
+> npx --yes hyperframes@0.7.48 inspect . --at 0,0.1,2,6,10.8,13,20,27,32,39,46,47.7,48,48.3,49.4,49.7,50,51,55,60,65,70,74.7,75,75.3,79.7,80,80.3,83.7,84,84.3,88,91,92.2 --strict --json
+
+{
+  "schemaVersion": 1,
+  "duration": 92.4,
+  "samples": [
+    0,
+    0.1,
+    2,
+    6,
+    10.8,
+    13,
+    20,
+    27,
+    32,
+    39,
+    46,
+    47.7,
+    48,
+    48.3,
+    49.4,
+    49.7,
+    50,
+    51,
+    55,
+    60,
+    65,
+    70,
+    74.7,
+    75,
+    75.3,
+    79.7,
+    80,
+    80.3,
+    83.7,
+    84,
+    84.3,
+    88,
+    91,
+    92.2
+  ],
+  "tolerance": 2,
+  "strict": true,
+  "collapseStatic": true,
+  "motionSpec": "/home/alex/.hermes/kanban/boards/article-videos/workspaces/t_5345f64b/media/projects/article-videos/five-materials-for-5-to-12-gtco2-year/index.motion.json",
+  "motionSamples": 300,
+  "ok": true,
+  "errorCount": 0,
+  "warningCount": 0,
+  "infoCount": 0,
+  "issueCount": 0,
+  "totalIssueCount": 0,
+  "truncated": false,
+  "issues": [],
+  "_meta": {
+    "version": "0.7.48",
+    "latestVersion": "0.7.56",
+    "updateAvailable": true
+  }
+}

@@ -1,0 +1,67 @@
+ordinal	timestamp_s	frame_number	typography_floor	legible_unclipped	single_focal	safe_balanced	contrast_palette	scientific_specificity	motion_complete	transition_clean	cue_alignment	technically_clean	total	verdict	note
+1	0.000	0	1	1	1	1	1	0	1	1	1	1	9	PASS	WebVTT cue boundary; five-second cadence
+2	0.100	3	1	1	1	1	1	0	1	1	1	1	9	PASS	substantive opening title card; no blank or identity-only state
+3	4.610	138	1	1	1	1	1	1	1	1	1	1	10	PASS	WebVTT cue boundary
+4	5.000	150	1	1	1	1	1	1	1	1	1	1	10	PASS	five-second cadence
+5	10.000	300	1	1	1	1	1	1	1	1	1	1	10	PASS	five-second cadence
+6	10.336	310	1	1	1	1	1	1	1	1	1	1	10	PASS	WebVTT cue boundary
+7	11.592	348	1	1	1	1	1	1	1	1	1	1	10	PASS	transition 1 before
+8	11.792	354	1	1	1	1	1	1	1	1	1	1	10	PASS	WebVTT cue boundary; transition 1 exact
+9	11.992	360	1	1	1	1	1	1	1	1	1	1	10	PASS	transition 1 after
+10	15.000	450	1	1	1	1	1	1	1	1	1	1	10	PASS	five-second cadence
+11	16.555	497	1	1	1	1	1	1	1	1	1	1	10	PASS	WebVTT cue boundary
+12	20.000	600	1	1	1	1	1	1	1	1	1	1	10	PASS	five-second cadence
+13	24.945	748	1	1	1	1	1	1	1	1	1	1	10	PASS	transition 2 before
+14	25.000	750	1	1	1	1	1	1	1	1	1	1	10	PASS	five-second cadence
+15	25.145	754	1	1	1	1	1	1	1	1	1	1	10	PASS	WebVTT cue boundary; transition 2 exact
+16	25.345	760	1	1	1	1	1	1	1	1	1	1	10	PASS	transition 2 after
+17	28.368	851	1	1	1	1	1	1	1	1	1	1	10	PASS	WebVTT cue boundary
+18	30.000	900	1	1	1	1	1	1	1	1	1	1	10	PASS	five-second cadence
+19	35.000	1050	1	1	1	1	1	1	1	1	1	1	10	PASS	five-second cadence
+20	36.385	1092	1	1	1	1	1	1	1	1	1	1	10	PASS	transition 3 before
+21	36.585	1098	1	1	1	1	1	1	1	1	1	1	10	PASS	WebVTT cue boundary; transition 3 exact
+22	36.785	1104	1	1	1	1	1	1	1	1	1	1	10	PASS	transition 3 after
+23	40.000	1200	1	1	1	1	1	1	1	1	1	1	10	PASS	five-second cadence
+24	42.247	1267	1	1	1	1	1	1	1	1	1	1	10	PASS	WebVTT cue boundary
+25	45.000	1350	1	1	1	1	1	1	1	1	1	1	10	PASS	five-second cadence
+26	47.700	1431	1	1	1	1	1	1	1	1	1	1	10	PASS	48.0s defect bracket before
+27	48.000	1440	1	1	1	1	1	1	1	1	1	1	10	PASS	exact risk sample; body copy and lower rail remain unobscured; diagram label remains legible
+28	48.300	1449	1	1	1	1	1	1	1	1	1	1	10	PASS	48.0s defect bracket after
+29	49.335	1480	1	1	1	1	1	1	1	1	1	1	10	PASS	transition 4 before
+30	49.400	1482	1	1	1	1	1	1	1	1	1	1	10	PASS	49.7s defect bracket before
+31	49.535	1486	1	1	1	1	1	1	1	1	1	1	10	PASS	WebVTT cue boundary; transition 4 exact
+32	49.700	1491	1	1	1	1	1	1	1	1	1	1	10	PASS	exact prior failure; principal headline is fully opaque and crisp; no ≈50×/chart collision
+33	49.735	1492	1	1	1	1	1	1	1	1	1	1	10	PASS	transition 4 after
+34	50.000	1500	1	1	1	1	1	1	1	1	1	1	10	PASS	49.7s defect bracket after; five-second cadence
+35	52.077	1562	1	1	1	1	1	1	1	1	1	1	10	PASS	WebVTT cue boundary
+36	55.000	1650	1	1	1	1	1	1	1	1	1	1	10	PASS	five-second cadence
+37	57.585	1728	1	1	1	1	1	1	1	1	1	1	10	PASS	WebVTT cue boundary
+38	60.000	1800	1	1	1	1	1	1	1	1	1	1	10	PASS	five-second cadence
+39	62.279	1868	1	1	1	1	1	1	1	1	1	1	10	PASS	WebVTT cue boundary
+40	65.000	1950	1	1	1	1	1	1	1	1	1	1	10	PASS	five-second cadence
+41	68.044	2041	1	1	1	1	1	1	1	1	1	1	10	PASS	WebVTT cue boundary
+42	70.000	2100	1	1	1	1	1	1	1	1	1	1	10	PASS	five-second cadence
+43	72.113	2163	1	1	1	1	1	1	1	1	1	1	10	PASS	transition 5 before
+44	72.313	2169	1	1	1	1	1	1	1	1	1	1	10	PASS	WebVTT cue boundary; transition 5 exact
+45	72.513	2175	1	1	1	1	1	1	1	1	1	1	10	PASS	transition 5 after
+46	74.700	2241	1	1	1	1	1	1	1	1	1	1	10	PASS	75.0s defect bracket before
+47	75.000	2250	1	1	1	1	1	1	1	1	1	1	10	PASS	exact risk sample; formula/body copy, rails, and candidate diagram remain separated
+48	75.300	2259	1	1	1	1	1	1	1	1	1	1	10	PASS	75.0s defect bracket after
+49	78.968	2369	1	1	1	1	1	1	1	1	1	1	10	PASS	WebVTT cue boundary
+50	79.700	2391	1	1	1	1	1	1	1	1	1	1	10	PASS	80.0s defect bracket before
+51	80.000	2400	1	1	1	1	1	1	1	1	1	1	10	PASS	exact risk sample; formula/body copy, rails, and candidate diagram remain separated
+52	80.300	2409	1	1	1	1	1	1	1	1	1	1	10	PASS	80.0s defect bracket after
+53	80.580	2417	1	1	1	1	1	1	1	1	1	1	10	PASS	WebVTT cue boundary
+54	82.159	2465	1	1	1	1	1	1	1	1	1	1	10	PASS	WebVTT cue boundary
+55	83.700	2511	1	1	1	1	1	1	1	1	1	1	10	PASS	84.0s defect bracket before
+56	84.000	2520	1	1	1	1	1	1	1	1	1	1	10	PASS	exact prior ambiguity; candidate C is fully opaque and spatially distinct from REFUSED
+57	84.300	2529	1	1	1	1	1	1	1	1	1	1	10	PASS	84.0s defect bracket after
+58	85.000	2550	1	1	1	1	1	1	1	1	1	1	10	PASS	five-second cadence
+59	86.234	2587	1	1	1	1	1	1	1	1	1	1	10	PASS	transition 6 before
+60	86.434	2593	1	1	1	1	1	0	1	1	1	1	9	PASS	WebVTT cue boundary; transition 6 exact
+61	86.634	2599	1	1	1	1	1	0	1	1	1	1	9	PASS	transition 6 after
+62	90.000	2700	1	1	1	1	1	0	1	1	1	1	9	PASS	five-second cadence
+63	90.376	2711	1	1	1	1	1	0	1	1	1	1	9	PASS	final hold start
+64	91.376	2741	1	1	1	1	1	0	1	1	1	1	9	PASS	final hold midpoint
+65	92.200	2766	1	1	1	1	1	0	1	1	1	1	9	PASS	exact prior outro failure; complete stable end card with no overlap or ghosting
+66	92.366	2771	1	1	1	1	1	0	1	1	1	1	9	PASS	final frame sample
