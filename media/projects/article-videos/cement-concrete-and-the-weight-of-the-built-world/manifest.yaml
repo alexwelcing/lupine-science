@@ -8,7 +8,7 @@ voice:
 scenes:
   - id: scale
     start: 0
-    duration: 16.267
+    duration: 16.405
     narration: Concrete is the most widely used manufactured material on Earth. The cement that binds it emits about 2.8 gigatonnes of CO₂ every year, roughly 8% of global anthropogenic emissions. And about 60% of that comes from limestone calcination, not fuel.
     visual:
       type: image
@@ -18,8 +18,8 @@ scenes:
       size: landscape_16_9
       seed: 101
   - id: calcination-trap
-    start: 16.267
-    duration: 17.782
+    start: 16.405
+    duration: 17.933
     narration: 'Clean kilns help, but they cannot change the chemistry. As long as limestone is the main calcium feedstock, calcination releases CO₂ regardless of heat source. Real decarbonization needs new chemistries: alternative binders, alternative clinkers, and CO₂-cured concrete.'
     visual:
       type: image
@@ -29,8 +29,8 @@ scenes:
       size: landscape_16_9
       seed: 102
   - id: softening
-    start: 34.049
-    duration: 20.087
+    start: 34.338
+    duration: 20.258
     narration: All three routes depend on amorphous gels, metastable hydrates, and multi-component oxides. These are the exact environments where universal machine-learning potentials soften the energy surface by 15 to 60 percent. A dissolution energy off by 15 percent can invert the ranking of two binder formulations.
     visual:
       type: image
@@ -40,8 +40,8 @@ scenes:
       size: landscape_16_9
       seed: 103
   - id: three-fronts
-    start: 54.136
-    duration: 20.35
+    start: 54.596
+    duration: 20.523
     narration: Alternative binders like slag and geopolymers are glasses and gels, not unit cells. Alternative clinkers span multi-component oxide spaces with metastable essential phases. CO₂-cured concrete is limited by carbonate diffusion barriers at under-coordinated surface sites. Each front needs trustworthy rankings.
     visual:
       type: image
@@ -51,8 +51,8 @@ scenes:
       size: landscape_16_9
       seed: 104
   - id: correction
-    start: 74.486
-    duration: 22.129
+    start: 75.119
+    duration: 22.317
     narration: The correction measures error as a field over local coordination, anchored to three observables and pinned to zero in bulk. It applies analytic corrections at runtime, keeping molecular dynamics nearly as fast as the base model. Across 36 blind model-material pairs, corrected predictions correlate at 0.906 with zero fitted parameters.
     visual:
       type: image
@@ -62,8 +62,8 @@ scenes:
       size: landscape_16_9
       seed: 105
   - id: verification
-    start: 96.615
-    duration: 16.135
+    start: 97.436
+    duration: 16.273
     narration: The verification layer uses build-locked Lean 4 theorems to separate supported predictions from synthesis-dependent ones. For cement, that matters because the most useful phases are metastable and cannot be judged by convex-hull stability alone.
     visual:
       type: image
@@ -73,8 +73,8 @@ scenes:
       size: landscape_16_9
       seed: 106
   - id: thesis
-    start: 112.75
-    duration: 16.399
+    start: 113.709
+    duration: 16.537
     narration: Cement is not a special case. It is one instance of a geometry of wrongness that extends across batteries, catalysts, sorbents, and refrigerants. The bottleneck is not a shortage of candidates. It is a shortage of predictions laboratories can trust.
     visual:
       type: image

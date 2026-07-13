@@ -29,11 +29,12 @@ describe('article Open Graph metadata', () => {
     assert.doesNotMatch(html, /(?:name="description"|property="og:description"|name="twitter:description") content=""/);
   });
 
-  it('uses the site social image when optional image metadata and a video poster are missing', () => {
+  it('uses the video poster and video type when an article has a published video but no hero image', () => {
     const html = readArticle('the-order-is-right-the-size-is-wrong');
 
-    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/og-lupine-science\.png\?v=2">/);
-    assert.match(html, /<meta name="twitter:image" content="https:\/\/lupine\.science\/og-lupine-science\.png\?v=2">/);
+    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/videos\/the-order-is-right-the-size-is-wrong-poster\.jpg\?v=2">/);
+    assert.match(html, /<meta name="twitter:image" content="https:\/\/lupine\.science\/videos\/the-order-is-right-the-size-is-wrong-poster\.jpg\?v=2">/);
+    assert.match(html, /<meta property="og:type" content="video\.other">/);
   });
 
   it('uses video poster metadata and video type when an article has a published video', () => {

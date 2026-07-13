@@ -2,13 +2,13 @@ slug: why-lupi
 script: narration-script.md
 voice:
   endpoint: fal-ai/elevenlabs/tts/turbo-v2.5
-  voice: Jessica
-  speed: 1.15
+  voice: Adam
+  speed: 1
   seed: 42
 scenes:
   - id: belief
     start: 0
-    duration: 15.52
+    duration: 20.914
     narration: 'Molecular structures should not live behind a paywall, a download, or a command line. The moment someone wants to see what a prediction looks like, the tool should already be open in the browser. That is the idea behind LUPI: a lightweight, web-native molecular viewer that lets anyone rotate, measure, and share a structure.'
     visual:
       type: image
@@ -18,8 +18,8 @@ scenes:
       size: landscape_16_9
       seed: 101
   - id: problem
-    start: 15.52
-    duration: 14.98
+    start: 20.914
+    duration: 19.37
     narration: Most molecular viewers are either too heavy to share or too simple to trust. Desktop tools are powerful, but they trap knowledge on one machine. Screenshot culture replaces real exploration. Lightweight web viewers often hide the coordinates, uncertainty, and context that make a structure meaningful.
     visual:
       type: image
@@ -29,8 +29,8 @@ scenes:
       size: landscape_16_9
       seed: 102
   - id: middle-path
-    start: 30.5
-    duration: 13.4
+    start: 40.284
+    duration: 15.637
     narration: LUPI sits in the middle. Built for the web first, with enough fidelity to inspect real predictions and enough simplicity to drop into a paper, a slide, or a classroom. No installation. No account. No friction between the data and the observer.
     visual:
       type: image
@@ -40,8 +40,8 @@ scenes:
       size: landscape_16_9
       seed: 103
   - id: three-jobs
-    start: 43.9
-    duration: 19.1
+    start: 55.921
+    duration: 20.721
     narration: 'It has three jobs. Show structures as they are: load standard formats, render faithfully, and expose the underlying data. Make measurement effortless: distance, angle, and coordination environments a click away, not a plugin away. And let the claim travel: every structure can be linked, embedded, and inspected by anyone.'
     visual:
       type: image
@@ -51,8 +51,8 @@ scenes:
       size: landscape_16_9
       seed: 104
   - id: verification-layer
-    start: 63
-    duration: 9.96
+    start: 76.642
+    duration: 12.613
     narration: 'Under the hood, the viewer connects to a formalized makeability record: a growing chain of commitments, simulations, and certificates that say not just what a structure is, but why it can be made.'
     visual:
       type: image
@@ -62,8 +62,8 @@ scenes:
       size: landscape_16_9
       seed: 105
   - id: invitation
-    start: 72.96
-    duration: 21.995
+    start: 89.255
+    duration: 23.489
     narration: Three things make a browser-native viewer the right shape right now. WebGL and WebGPU can render complex molecular scenes smoothly on ordinary devices. Generative models are producing more structures than ever, and each one needs a URL, not just a filename. Open science is pushing tools toward public, inspectable interfaces. LUPI is live. Try it at lupi dot live.
     visual:
       type: image

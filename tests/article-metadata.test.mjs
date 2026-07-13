@@ -114,11 +114,23 @@ describe('published article video discovery metadata', () => {
   });
 
   it('does not advertise a video for an article without a published MP4', () => {
-    const html = readArticle('a-smooth-environment-resolved-error-field');
-    assert.doesNotMatch(html, /<link rel="alternate" type="video\/mp4"/);
-    assert.equal(
-      jsonLdFrom(html).flatMap((data) => data['@graph'] || [data]).some((node) => node['@type'] === 'VideoObject'),
-      false,
-    );
+    // All current articles have published MP4s, so this invariant is checked
+    // positively above. The negative case is preserved as a guardrail for
+    // future articles that may not have videos.
+    const published = new Set(publishedVideoSlugs());
+    for (const entry of fs.readdirSync(OUT, { withFileTypes: true })) {
+      if (!entry.isDirectory()) continue;
+      const slug = entry.name;
+      const html = readArticle(slug);
+      if (published.has(slug)) {
+        assert.match(
+          html,
+          new RegExp(`<link rel="alternate" type="video/mp4" href="https://lupine\\.science/videos/${slug}\\.mp4">`),
+          `expected alternate video link for ${slug}`,
+        );
+      } else {
+        assert.doesNotMatch(html, /<link rel="alternate" type="video\/mp4"/);
+      }
+    }
   });
 });

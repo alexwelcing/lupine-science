@@ -1,37 +1,37 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:16.319
+00:00:00.000 --> 00:00:14.755
 Carbon dioxide gets the headlines. But cutting methane thirty percent by 2030 could avoid about zero point three degrees of warming by 2040. Phasing down HFC refrigerants could avoid up to another zero point five degrees by 2100.
 
 2
-00:00:16.319 --> 00:00:32.478
+00:00:14.755 --> 00:00:31.121
 That is huge near-term leverage. Here is the twist: both targets depend on materials we do not have yet. We need catalysts that convert stranded methane without burning the product, and refrigerants that are efficient, safe, and low-warming, all at once.
 
 3
-00:00:32.478 --> 00:00:44.907
+00:00:31.121 --> 00:00:43.234
 Fast atomistic AI should help search the options. Except its biggest errors happen exactly where these materials work: surfaces, transition states, radical fragments, and phase boundaries.
 
 4
-00:00:44.907 --> 00:00:57.684
+00:00:43.234 --> 00:00:56.442
 In those under-coordinated environments, universal models can soften the energy landscape by fifteen to sixty percent, and rank the wrong candidate first. Methane's carbon-hydrogen bond is brutally strong.
 
 5
-00:00:57.684 --> 00:01:12.503
+00:00:56.442 --> 00:01:12.550
 A catalyst active enough to crack it often holds the methanol product too tightly and over-oxidizes it into carbon dioxide. Corrected barriers can expose rare sites that break this trap, and open lower-temperature methanol or cleaner hydrogen routes.
 
 6
-00:01:12.503 --> 00:01:24.501
+00:01:12.550 --> 00:01:24.599
 Refrigerants face a different-looking version of the same problem. Millions of molecules must be screened for vapor pressure, efficiency, flammability, toxicity, and atmospheric lifetime.
 
 7
-00:01:24.501 --> 00:01:40.190
+00:01:24.599 --> 00:01:42.189
 The safety-critical steps involve radicals and breaking bonds, the same low-coordination physics that raw models misread. The correction measures the error versus atomic coordination, anchors a correction field, and applies it at runtime, without retraining the base model.
 
 8
-00:01:40.190 --> 00:01:55.192
+00:01:42.189 --> 00:01:58.039
 Then machine-checked proofs mark which predictions stay inside the measured domain. Across thirty-six blind model-and-material combinations, corrected predictions reached a correlation of zero point nine zero six, with zero adjustable parameters.
 
 9
-00:01:55.192 --> 00:02:09.384
+00:01:58.039 --> 00:02:12.728
 Methane catalysts and next-generation cooling are not separate discovery stories. They share one hidden error geometry, and one chance to turn fast screening into evidence we can actually trust, before the policy clock runs out.

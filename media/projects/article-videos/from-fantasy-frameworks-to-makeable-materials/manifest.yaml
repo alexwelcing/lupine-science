@@ -8,7 +8,7 @@ voice:
 scenes:
   - id: hook
     start: 0
-    duration: 15.365
+    duration: 14.804
     narration: Generative AI can now invent millions of metal-organic frameworks at machine speed. What it cannot yet do is promise that any of them can actually be made. In the first half of 2026, that gap has become the central bottleneck in materials AI.
     visual:
       type: image
@@ -18,8 +18,8 @@ scenes:
       size: landscape_16_9
       seed: 101
   - id: synthesis-gap
-    start: 15.365
-    duration: 17.587
+    start: 14.804
+    duration: 16.945
     narration: A structure that is stable on a computer screen may be kinetically inaccessible, chemically incompatible with real solvents, or so strained that it collapses the moment it is removed from the simulation box. Until that changes, most AI-generated MOFs remain fantasy frameworks.
     visual:
       type: image
@@ -29,8 +29,8 @@ scenes:
       size: landscape_16_9
       seed: 102
   - id: certificate
-    start: 32.952
-    duration: 20.825
+    start: 31.749
+    duration: 20.065
     narration: 'The proposed fix is a makeability layer encoded in the Lean 4 proof assistant. It turns the rules of assembly, stability, and synthesis into formal theorems. The output is not a prediction. It is a certificate: a machine-checkable argument that a candidate satisfies explicitly stated assumptions for a given synthesis protocol.'
     visual:
       type: image
@@ -40,8 +40,8 @@ scenes:
       size: landscape_16_9
       seed: 103
   - id: flywheel
-    start: 53.777
-    duration: 21.206
+    start: 51.814
+    duration: 20.432
     narration: Tethered to a real lab, the method becomes a self-improving flywheel. Formal predicates filter candidate structures. Only certified candidates reach synthesis. Both success and failure are logged formally. Each failed synthesis tightens the certificate and rules out an entire class of future candidates, making the next cycle faster.
     visual:
       type: image
@@ -51,8 +51,8 @@ scenes:
       size: landscape_16_9
       seed: 104
   - id: starting-point
-    start: 74.983
-    duration: 21.142
+    start: 72.246
+    duration: 20.371
     narration: 'The starting point is intentionally narrow: over the first twelve to eighteen months, focus on one MOF family, one synthesis modality, one stability stressor, one database, and one closed-loop pilot. That discipline reflects a track record of eighty-five formally proven lemmas and zero remaining sorry axioms in the existing theory.'
     visual:
       type: image
@@ -62,8 +62,8 @@ scenes:
       size: landscape_16_9
       seed: 105
   - id: thesis
-    start: 96.125
-    duration: 16.254
+    start: 92.617
+    duration: 15.661
     narration: The next frontier in materials discovery is not generating more structures. It is proving which ones are worth making. The verification layer gives materials scientists a reason to trust a candidate before they spend time, money, and reagents on the bench.
     visual:
       type: image

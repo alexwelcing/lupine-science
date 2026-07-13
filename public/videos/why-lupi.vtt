@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:20.914
+Molecular structures should not live behind a paywall, a download, or a command line. The moment someone wants to see what a prediction looks like, the tool should already be open in the browser. That is the idea behind LUPI: a lightweight, web-native molecular viewer that lets anyone rotate, measure, and share a structure.
+
+2
+00:00:20.914 --> 00:00:40.284
+Most molecular viewers are either too heavy to share or too simple to trust. Desktop tools are powerful, but they trap knowledge on one machine. Screenshot culture replaces real exploration. Lightweight web viewers often hide the coordinates, uncertainty, and context that make a structure meaningful.
+
+3
+00:00:40.284 --> 00:00:55.921
+LUPI sits in the middle. Built for the web first, with enough fidelity to inspect real predictions and enough simplicity to drop into a paper, a slide, or a classroom. No installation. No account. No friction between the data and the observer.
+
+4
+00:00:55.921 --> 00:01:16.642
+It has three jobs. Show structures as they are: load standard formats, render faithfully, and expose the underlying data. Make measurement effortless: distance, angle, and coordination environments a click away, not a plugin away. And let the claim travel: every structure can be linked, embedded, and inspected by anyone.
+
+5
+00:01:16.642 --> 00:01:29.255
+Under the hood, the viewer connects to a formalized makeability record: a growing chain of commitments, simulations, and certificates that say not just what a structure is, but why it can be made.
+
+6
+00:01:29.255 --> 00:01:52.744
+Three things make a browser-native viewer the right shape right now. WebGL and WebGPU can render complex molecular scenes smoothly on ordinary devices. Generative models are producing more structures than ever, and each one needs a URL, not just a filename. Open science is pushing tools toward public, inspectable interfaces. LUPI is live. Try it at lupi dot live.

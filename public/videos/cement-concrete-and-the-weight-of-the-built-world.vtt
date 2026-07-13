@@ -1,0 +1,29 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:16.405
+Concrete is the most widely used manufactured material on Earth. The cement that binds it emits about 2.8 gigatonnes of CO₂ every year, roughly 8% of global anthropogenic emissions. And about 60% of that comes from limestone calcination, not fuel.
+
+2
+00:00:16.405 --> 00:00:34.338
+Clean kilns help, but they cannot change the chemistry. As long as limestone is the main calcium feedstock, calcination releases CO₂ regardless of heat source. Real decarbonization needs new chemistries: alternative binders, alternative clinkers, and CO₂-cured concrete.
+
+3
+00:00:34.338 --> 00:00:54.596
+All three routes depend on amorphous gels, metastable hydrates, and multi-component oxides. These are the exact environments where universal machine-learning potentials soften the energy surface by 15 to 60 percent. A dissolution energy off by 15 percent can invert the ranking of two binder formulations.
+
+4
+00:00:54.596 --> 00:01:15.119
+Alternative binders like slag and geopolymers are glasses and gels, not unit cells. Alternative clinkers span multi-component oxide spaces with metastable essential phases. CO₂-cured concrete is limited by carbonate diffusion barriers at under-coordinated surface sites. Each front needs trustworthy rankings.
+
+5
+00:01:15.119 --> 00:01:37.436
+The correction measures error as a field over local coordination, anchored to three observables and pinned to zero in bulk. It applies analytic corrections at runtime, keeping molecular dynamics nearly as fast as the base model. Across 36 blind model-material pairs, corrected predictions correlate at 0.906 with zero fitted parameters.
+
+6
+00:01:37.436 --> 00:01:53.709
+The verification layer uses build-locked Lean 4 theorems to separate supported predictions from synthesis-dependent ones. For cement, that matters because the most useful phases are metastable and cannot be judged by convex-hull stability alone.
+
+7
+00:01:53.709 --> 00:02:10.246
+Cement is not a special case. It is one instance of a geometry of wrongness that extends across batteries, catalysts, sorbents, and refrigerants. The bottleneck is not a shortage of candidates. It is a shortage of predictions laboratories can trust.

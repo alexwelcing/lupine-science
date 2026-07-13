@@ -13,3 +13,4 @@ dist/
 public/.proofpack-render/
 public/proof-packs/
 .worktrees/
+eng.traineddata

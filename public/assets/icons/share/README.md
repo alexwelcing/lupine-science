@@ -1,36 +1,45 @@
 # Static share icons
 
-Same-origin SVG assets for Bluesky, X, LinkedIn, copy link, and email. They contain no scripts, remote references, tracking pixels, fonts, or platform-colored styling. Each icon uses `currentColor` and inherits the surrounding control's color when embedded inline.
+Same-origin SVG assets for X, LinkedIn, and email. They contain no scripts, remote references, tracking pixels, fonts, or platform-colored styling. Each icon uses `currentColor` and inherits the surrounding control's color when embedded inline.
 
-The files are decorative by default (`aria-hidden="true"` and `focusable="false"`). Put the accessible name on the interactive link or button so assistive technology announces one concise label.
+The files are decorative by default (`aria-hidden="true"` and `focusable="false"`). Put the accessible name on the interactive link so assistive technology announces one concise label.
 
 ## External share link
 
 ```html
 <a
-  href="https://bsky.app/intent/compose?text=Article%20title%20https%3A%2F%2Fexample.com%2Farticle%2F"
+  href="https://twitter.com/intent/tweet?text=Article%20title&url=https%3A%2F%2Fexample.com%2Farticle%2F"
   target="_blank"
   rel="noopener noreferrer"
-  aria-label="Share on Bluesky (opens in a new tab)"
+  aria-label="Share on X (opens in a new tab)"
 >
   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-    <!-- Copy the path from bluesky.svg here. -->
+    <!-- Copy the path from x.svg here. -->
   </svg>
 </a>
 ```
 
-## Copy-link button with feedback
-
 ```html
-<button type="button" aria-label="Copy link" aria-describedby="copy-status">
+<a
+  href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fexample.com%2Farticle%2F"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Share on LinkedIn (opens in a new tab)"
+>
   <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-    <!-- Copy the shapes from copy-link.svg here. -->
+    <!-- Copy the path from linkedin.svg here. -->
   </svg>
-</button>
-<span id="copy-status" role="status" aria-live="polite"></span>
+</a>
 ```
 
-Update the live region to `Link copied to clipboard` after a successful copy. Do not replace the button's accessible name with transient status text.
+```html
+<a href="mailto:?subject=Article%20title&amp;body=Article%20title%0A%0Ahttps%3A%2F%2Fexample.com%2Farticle%2F" aria-label="Share by email">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <!-- Copy the path from email.svg here. -->
+  </svg>
+  <span>Share by email</span>
+</a>
+```
 
 ## External image variant
 

@@ -8,7 +8,7 @@ voice:
 scenes:
   - id: oldest-loop
     start: 0
-    duration: 12.441
+    duration: 12.161
     narration: 'Science works one way: guess how the world might be, test the guess against reality, keep what survives. For four centuries, reality was the speed limit. Experiments took months; synthesis took years.'
     visual:
       type: image
@@ -18,8 +18,8 @@ scenes:
       size: landscape_16_9
       seed: 201
   - id: software-speed
-    start: 12.441
-    duration: 15.676
+    start: 12.161
+    duration: 15.322
     narration: Then two-thirds of that loop went to software speed. Generative models propose specific atoms in crystallographic detail. Machine-learned simulators screen faster than any lab. Imagination and cheap testing stopped being the bottleneck. Belief did not.
     visual:
       type: image
@@ -29,8 +29,8 @@ scenes:
       size: landscape_16_9
       seed: 202
   - id: belief-bottleneck
-    start: 28.117
-    duration: 12.628
+    start: 27.483
+    duration: 12.343
     narration: A model can be confident and wrong. The number that matters is not raw output; it is how many proposals are worth a year of lab time. That question now gates the whole pipeline. Belief is the bottleneck.
     visual:
       type: image
@@ -40,8 +40,8 @@ scenes:
       size: landscape_16_9
       seed: 203
   - id: trust-infrastructure
-    start: 40.745
-    duration: 16.111
+    start: 39.826
+    duration: 15.748
     narration: The fix is not another disclaimer. It is a mathematical characterization of how a class of predictions fails, proved and machine-checked end to end, published with the data. A verified result is checked once, then everyone builds on it, like a proved theorem.
     visual:
       type: image
@@ -51,8 +51,8 @@ scenes:
       size: landscape_16_9
       seed: 204
   - id: evidence-before-claim
-    start: 56.856
-    duration: 17.542
+    start: 55.574
+    duration: 17.147
     narration: The claims are modest because the standard is the product. The error geometry is formalized in Lean. The benchmark recomputes live in the browser from committed files. The rendered crystal is real published crystallography. When internal ideas fail, the failure stays in the record.
     visual:
       type: image
@@ -62,8 +62,8 @@ scenes:
       size: landscape_16_9
       seed: 205
   - id: open-verification
-    start: 74.398
-    duration: 19.47
+    start: 72.721
+    duration: 19.031
     narration: A proprietary trust score would be easier to sell and impossible to believe. So the evidence ledger, proofs, and benchmark data are public. The verification layer sits between model builders and laboratories, turning confident output into shortlists whose failure modes were characterized before synthesis starts.
     visual:
       type: image
@@ -73,8 +73,8 @@ scenes:
       size: landscape_16_9
       seed: 206
   - id: invitation
-    start: 93.868
-    duration: 15.115
+    start: 91.752
+    duration: 14.775
     narration: The materials that define the next century exist only on paper today. The question is whether the result is believable enough to try. The machinery that answers with proof is being built in public, so the answer never has to be produced twice.
     visual:
       type: image

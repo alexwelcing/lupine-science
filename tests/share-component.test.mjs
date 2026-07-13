@@ -4,19 +4,17 @@ import { JSDOM } from 'jsdom';
 import {
   encodeQuery,
   buildShareActions,
-  copyUrlToClipboard,
   initShare,
 } from '../public/components/share/share.mjs';
 
-const SHARE_ICON_FILES = ['bluesky.svg', 'x.svg', 'linkedin.svg', 'copy-link.svg', 'email.svg'];
+const SHARE_ICON_FILES = ['x.svg', 'linkedin.svg', 'email.svg'];
 
 /**
  * Share-component unit tests
  *
- * These tests exercise the pure parts of the share widget (URL/query encoding,
- * share-action generation, and the clipboard copy fallback). They do not
- * require a browser; jsdom supplies the minimal DOM needed for the fallback
- * path.
+ * These tests exercise the pure parts of the share widget (URL/query encoding
+ * and share-action generation). They do not require a browser; jsdom supplies
+ * the minimal DOM needed for the render paths.
  */
 
 describe('encodeQuery', () => {
@@ -41,13 +39,8 @@ describe('buildShareActions', () => {
   const title = 'The Trust Layer';
   const actions = buildShareActions({ url, title });
 
-  it('returns five actions in the expected order', () => {
-    assert.deepEqual(actions.map((a) => a.slug), ['bluesky', 'x', 'linkedin', 'copy', 'email']);
-  });
-
-  it('uses the Bluesky intent compose URL with title and URL separated by a space', () => {
-    const bluesky = actions.find((a) => a.slug === 'bluesky');
-    assert.equal(bluesky.href, 'https://bsky.app/intent/compose?text=The%20Trust%20Layer%20https%3A%2F%2Flupine.science%2Farticles%2Fthe-trust-layer%2F');
+  it('returns three actions in the expected order', () => {
+    assert.deepEqual(actions.map((a) => a.slug), ['x', 'linkedin', 'email']);
   });
 
   it('uses the X intent tweet URL with separate text and url parameters', () => {
@@ -60,60 +53,23 @@ describe('buildShareActions', () => {
     assert.equal(linkedin.href, 'https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Flupine.science%2Farticles%2Fthe-trust-layer%2F');
   });
 
-  it('marks the copy action and gives it a placeholder href', () => {
-    const copy = actions.find((a) => a.slug === 'copy');
-    assert.equal(copy.isCopy, true);
-    assert.equal(copy.href, '#copy');
-  });
-
   it('builds a mailto URL with encoded subject and body', () => {
     const email = actions.find((a) => a.slug === 'email');
-    assert.equal(email.href, 'mailto:?subject=The%20Trust%20Layer&body=https%3A%2F%2Flupine.science%2Farticles%2Fthe-trust-layer%2F');
+    assert.equal(email.href, 'mailto:?subject=The%20Trust%20Layer&body=The%20Trust%20Layer%0A%0Ahttps%3A%2F%2Flupine.science%2Farticles%2Fthe-trust-layer%2F');
   });
 
   it('marks external social links with target and rel for security', () => {
-    for (const slug of ['bluesky', 'x', 'linkedin']) {
+    for (const slug of ['x', 'linkedin']) {
       const action = actions.find((a) => a.slug === slug);
       assert.equal(action.target, '_blank');
       assert.equal(action.rel, 'noopener noreferrer');
     }
   });
-});
 
-describe('copyUrlToClipboard', () => {
-  it('falls back to textarea + execCommand when navigator.clipboard is unavailable', async () => {
-    const dom = new JSDOM('<!doctype html><html><body></body></html>', {
-      url: 'https://lupine.science/articles/the-trust-layer/',
-    });
-    const document = dom.window.document;
-    const navigator = dom.window.navigator;
-    let execCalled = false;
-    document.execCommand = (command) => {
-      if (command === 'copy') {
-        execCalled = true;
-        return true;
-      }
-      return false;
-    };
-    // Patch the module to use the jsdom document/navigator
-    const ok = await copyUrlToClipboard.call({ document, navigator }, 'https://lupine.science/articles/the-trust-layer/');
-    assert.equal(ok, true);
-    assert.equal(execCalled, true);
-    // textarea should be removed after the copy attempt
-    assert.equal(document.querySelectorAll('textarea').length, 0);
-  });
-
-  it('returns false when the fallback execCommand fails', async () => {
-    const dom = new JSDOM('<!doctype html><html><body></body></html>', {
-      url: 'https://lupine.science/articles/the-trust-layer/',
-    });
-    const document = dom.window.document;
-    const navigator = dom.window.navigator;
-    document.execCommand = () => false;
-
-    const ok = await copyUrlToClipboard.call({ document, navigator }, 'https://lupine.science/articles/the-trust-layer/');
-    assert.equal(ok, false);
-    assert.equal(document.querySelectorAll('textarea').length, 0);
+  it('does not mark the email action as external', () => {
+    const email = actions.find((a) => a.slug === 'email');
+    assert.equal(email.target, undefined);
+    assert.equal(email.rel, undefined);
   });
 });
 
@@ -130,8 +86,8 @@ describe('initShare accessibility', () => {
       const root = dom.window.document.querySelector('.share-root');
       initShare(root, { url: 'https://lupine.science/article/', title: 'Article' });
 
-      assert.equal(root.querySelectorAll('a[aria-label]').length, 4);
-      assert.equal(root.querySelectorAll('button[aria-label="Copy link"]').length, 1);
+      assert.equal(root.querySelectorAll('a[aria-label]').length, 3);
+      assert.equal(root.querySelectorAll('button').length, 0);
       assert.equal(root.querySelector('.share-live').getAttribute('aria-live'), 'polite');
       assert.equal(root.querySelector('.share-live').getAttribute('aria-atomic'), 'true');
     } finally {
@@ -208,15 +164,15 @@ describe('static share icons', () => {
     }
   });
 
-  it('documents accessible link, button, image, and standalone SVG patterns', async () => {
+  it('documents accessible link and standalone SVG patterns', async () => {
     const fs = await import('node:fs');
     const readme = fs.readFileSync(new URL('../public/assets/icons/share/README.md', import.meta.url), 'utf8');
 
-    assert.match(readme, /aria-label="Share on Bluesky/);
-    assert.match(readme, /aria-label="Copy link"/);
+    assert.match(readme, /aria-label="Share on X/);
+    assert.match(readme, /aria-label="Share on LinkedIn/);
+    assert.match(readme, /aria-label="Share by email/);
     assert.match(readme, /alt=""/);
     assert.match(readme, /role="img" aria-labelledby=/);
-    assert.match(readme, /role="status" aria-live="polite"/);
   });
 });
 
@@ -229,14 +185,14 @@ describe('article metadata output', () => {
     const html = fs.readFileSync(path.join(__dirname, '../public/articles/the-trust-layer/index.html'), 'utf8');
 
     assert.match(html, /<meta property="og:title" content="The Trust Layer — Lupine Science">/);
-    assert.match(html, /<meta property="og:type" content="article">/);
+    assert.match(html, /<meta property="og:type" content="video\.other">/);
     assert.match(html, /<meta property="og:url" content="https:\/\/lupine\.science\/articles\/the-trust-layer\/">/);
-    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/og-lupine-science\.png\?v=2">/);
+    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/videos\/the-trust-layer-poster\.jpg\?v=2">/);
     assert.match(html, /<meta property="og:image:width" content="1200">/);
     assert.match(html, /<meta property="og:image:height" content="630">/);
     assert.match(html, /<meta name="twitter:card" content="summary_large_image">/);
     assert.match(html, /<meta name="twitter:title" content="The Trust Layer — Lupine Science">/);
-    assert.match(html, /<meta name="twitter:image" content="https:\/\/lupine\.science\/og-lupine-science\.png\?v=2">/);
+    assert.match(html, /<meta name="twitter:image" content="https:\/\/lupine\.science\/videos\/the-trust-layer-poster\.jpg\?v=2">/);
   });
 
   it('links the share component stylesheet and module script', async () => {

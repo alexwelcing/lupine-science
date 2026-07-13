@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:22.451
+Carbon dioxide gets the headlines, but the next decade of climate leverage is increasingly molecular. Methane from oil fields and landfills, nitrous oxide from agriculture, hydrofluorocarbon refrigerants, and sulfur hexafluoride from electrical gear. Together, non-CO₂ agents account for roughly thirty-five percent of anthropogenic radiative forcing.
+
+2
+00:00:22.451 --> 00:00:41.959
+Each forcer has a different lifetime, a different radiative efficiency, and a different replacement chemistry. Most of that accounting still lives in spreadsheets. A small unit error, or a GWP horizon slipped in silently, can compound into a wrong ranking across policy, investment, and materials screens.
+
+3
+00:00:41.959 --> 00:00:56.670
+A new Lean 4 module commits the IPCC AR6 tables directly to code. Every constant is typed and versioned. GWP one-hundred and GWP twenty are different objects, and cannot be swapped. Bounds are explicit ranges, not point estimates.
+
+4
+00:00:56.670 --> 00:01:23.278
+The validation module proves two realistic claims. A residential heat pump charged with R-410A loses refrigerant slowly over its lifetime; the theorem bounds the CO₂-equivalent warming from the leaked mass and shows the repair threshold depends on the GWP horizon chosen for the policy. Replacing R-134a with a next-generation fluid that has GWP under one avoids a quantified amount of warming per kilogram deployed.
+
+5
+00:01:23.278 --> 00:01:44.130
+All two hundred eighty-nine theorems are checked by the build with zero sorry axioms. Certificate gates for field-domain, ranking-inversion, and barrier-conservatism claims are wired into the policy engine. The verification layer separates claims that are fully supported from those that remain synthesis-dependent or bounded.
+
+6
+00:01:44.130 --> 00:02:03.063
+The same accounting underpins catalyst, refrigerant, and cement work. When a candidate material is screened, its impact can now be propagated into a machine-checked climate claim. The bottleneck is not a shortage of candidates. It is a shortage of trustworthy paths from molecule to climate unit.

@@ -1,0 +1,36 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:16.134
+Universal machine-learned interatomic potentials promise near-quantum accuracy at a fraction of the cost. For bulk properties, they deliver. But on surfaces, vacancies, and planar faults—the structures that dominate real materials—they err by tens of percent.
+
+
+2
+00:00:16.134 --> 00:00:32.081
+The failures are not random. Bulk observables stay within a few percent, while defect-family properties miss by fifteen to sixty times more. That asymmetry is the signature: the same error geometry appears again and again, tied to local atomic environment.
+
+
+3
+00:00:32.081 --> 00:00:50.894
+The hypothesis is that the signed error is a smooth function of first-shell coordination, summed per atom. Bulk coordination fixes the error to zero. Three standard observables—two surface energies and a vacancy energy—anchor the curve. Then a fourth observable, the 110 surface energy, tests it blind.
+
+
+4
+00:00:50.894 --> 00:01:04.661
+Across thirty-six model-material combinations, the field predicts the never-fitted 110 error with a correlation of zero point nine oh six. That result is not a fit; it is an extrapolation from measurements made elsewhere.
+
+
+5
+00:01:04.661 --> 00:01:25.591
+Invert the field, and it becomes an additive correction beside a live calculator. Analytic forces keep simulations consistent. In tests, nickel 110 surface error drops from nine point seven to one point five percent, while bulk lattice constants remain untouched and molecular dynamics runs with only fifteen point six percent overhead.
+
+
+6
+00:01:25.591 --> 00:01:39.607
+The correction does not claim universal power. Where rankings invert, a machine-checked Lean 4 proof shows no monotone correction can recover both. The proof kernel locks the data, the arithmetic, and the stated inequalities.
+
+
+7
+00:01:39.607 --> 00:01:51.255
+The result is a concrete instance of a larger pattern: measure the structured wrongness of a predictor, correct it at run time, and prove exactly where the method does and does not apply.
+

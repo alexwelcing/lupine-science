@@ -1,37 +1,37 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:16.405
+00:00:00.000 --> 00:00:16.319
 The energy transition needs a lot more critical minerals. Our water needs a lot fewer forever chemicals. Totally different crises, right? At the atomic level, they are weirdly the same problem: getting a material to grab, release, or break exactly the right thing.
 
 2
-00:00:16.405 --> 00:00:28.803
+00:00:16.319 --> 00:00:28.063
 Clean-energy mineral demand could grow four to six times by 2040. Mining alone cannot get us there cleanly or quickly. So recycling, urban mining, and direct lithium extraction have to work.
 
 3
-00:00:28.803 --> 00:00:44.694
+00:00:28.063 --> 00:00:42.651
 But that requires sorbents and extractants precise enough to separate nearly identical ions in messy real-world streams. PFAS flips the challenge around. First, capture PFOA and PFOS down to the EPA limit: four nanograms per liter each.
 
 4
-00:00:44.694 --> 00:00:57.238
+00:00:42.651 --> 00:00:55.632
 Then actually destroy them. That second step is brutal because the carbon–fluorine bond packs about four hundred eighty-five kilojoules per mole. Today’s filters mostly move the problem into contaminated media.
 
 5
-00:00:57.238 --> 00:01:14.479
+00:00:55.632 --> 00:01:13.805
 We could screen millions of recovery materials and catalysts, except the fast models tend to soften the exact physics that matters. At pores, vacancies, surfaces, and transition states, raw universal machine-learning potentials can misrepresent the energy landscape by fifteen to sixty percent.
 
 6
-00:01:14.479 --> 00:01:37.238
+00:01:13.805 --> 00:01:38.098
 Great-looking candidates become expensive false positives. The correction measures that error against local atomic coordination, then corrects energies and forces at runtime. Now the same fast screen can rank lithium-selective pores, cobalt-versus-nickel extractants, PFAS sorbents, and defluorination catalysts without pretending every atomic neighborhood behaves like a perfect bulk crystal.
 
 7
-00:01:37.238 --> 00:01:49.908
+00:01:38.098 --> 00:01:51.264
 On the mineral side, corrected binding and migration energies guide separation and direct battery recycling. On the PFAS side, corrected barriers expose catalysts that will fail or poison themselves with fluoride.
 
 8
-00:01:49.908 --> 00:02:00.648
+00:01:51.264 --> 00:02:02.514
 Machine-checked boundaries also flag predictions the data cannot support, before anybody builds a costly experiment around them. One campaign puts scarce atoms back into circulation.
 
 9
-00:02:00.648 --> 00:02:13.172
+00:02:02.514 --> 00:02:13.825
 The other takes harmful ones out. Both move faster when we correct the same hidden error in the models. Recover what we need. Destroy what we don’t. Read the full case in the article.

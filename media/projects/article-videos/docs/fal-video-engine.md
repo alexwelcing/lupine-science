@@ -69,8 +69,8 @@ Article markdown + approved narration script
 | Premium hero frames | `fal-ai/flux-2-pro` or `fal-ai/flux-pro/v1.1-ultra` | Reserved for publication hero images where extra fidelity is worth the cost. |
 | Subtle motion | `fal-ai/nano-banana-2/edit` or image-to-video | Optional; used sparingly to bring a locked still frame to life, not to generate whole scenes. |
 
-Voice direction is now **soothing and clear technical robot**: calm, precise,
-moderate pace, no vocal fry, no urgency. Default voice is `Jessica`; alternatives
+Voice direction is now a **professional deep calm explainer**: warm, precise,
+moderate pace, no vocal fry, no urgency. Default voice is `Adam`; alternatives
 are tested per article and locked in the manifest.
 
 ---
@@ -84,7 +84,7 @@ slug: a-field-not-a-neural-net
 script: narration-script.md
 voice:
   endpoint: fal-ai/elevenlabs/tts/turbo-v2.5
-  voice: Jessica
+  voice: Adam
   speed: 1.0
   seed: 42
 scenes:

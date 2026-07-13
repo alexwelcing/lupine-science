@@ -8,7 +8,7 @@ voice:
 scenes:
   - id: fantasy-frameworks
     start: 0
-    duration: 17.615
+    duration: 17.805
     narration: 'Artificial intelligence can invent millions of new materials in an afternoon. But inventing a structure is not the same as inventing a thing. Most generated candidates are fantasy frameworks: beautiful on a screen, unstable in a flask. The bottleneck is no longer imagination. It is makeability.'
     visual:
       type: image
@@ -18,8 +18,8 @@ scenes:
       size: landscape_16_9
       seed: 201
   - id: error-manifold
-    start: 17.615
-    duration: 18.809
+    start: 17.805
+    duration: 19.012
     narration: 'The simulations are wrong in structured ways. Their errors cluster on thin, low-dimensional manifolds of failure. That structure is the opening: predictable failure is correctable failure. If you can characterize the error, you can constrain the search. If you can constrain the search, you can promise makeability.'
     visual:
       type: image
@@ -29,8 +29,8 @@ scenes:
       size: landscape_16_9
       seed: 202
   - id: certificates
-    start: 36.424
-    duration: 18.51
+    start: 36.817
+    duration: 18.71
     narration: 'The method treats the error manifold as a first-class object. Its shape is measured. Properties about it are proved. And those properties fold back into the generative model. The result is not another black-box score. It is a certificate: a machine-checkable argument for synthesis, stability, and performance.'
     visual:
       type: image
@@ -40,8 +40,8 @@ scenes:
       size: landscape_16_9
       seed: 203
   - id: three-part-system
-    start: 54.934
-    duration: 21.914
+    start: 55.527
+    duration: 22.15
     narration: The makeability layer has three parts. First, formal rules encode what synthesizable, stable, and useful actually mean, living in a proof assistant so they can be audited and extended. Second, simulations run only over the region of design space the rules allow. Third, every experiment updates the rules, so each failed synthesis makes the next certificate stronger.
     visual:
       type: image
@@ -51,8 +51,8 @@ scenes:
       size: landscape_16_9
       seed: 204
   - id: convergence
-    start: 76.848
-    duration: 21.257
+    start: 77.677
+    duration: 21.486
     narration: Three forces make this timing real. Generative models for molecules and crystals are now fast and cheap enough to flood the design space. Machine-learning potentials such as MACE and Orb are accurate enough to replace expensive quantum screening. And proof assistants such as Lean 4 are mature enough to express and verify non-trivial mathematical physics.
     visual:
       type: image
@@ -62,8 +62,8 @@ scenes:
       size: landscape_16_9
       seed: 205
   - id: protocol
-    start: 98.105
-    duration: 13.255
+    start: 99.163
+    duration: 13.399
     narration: 'The offering is a protocol, not a model: a way for labs, model builders, and formalizers to collaborate on materials that can actually be made. The record is open. The theorems are being written. The materials are waiting.'
     visual:
       type: image

@@ -8,63 +8,63 @@ voice:
 scenes:
   - id: scene-01
     start: 0
-    duration: 16.404518721822523
+    duration: 16.319
     narration: 'The energy transition needs a lot more critical minerals. Our water needs a lot fewer forever chemicals. Totally different crises, right? At the atomic level, they are weirdly the same problem: getting a material to grab, release, or break exactly the right thing.'
     visual:
       type: image
       prompt: local article image asset
   - id: scene-02
-    start: 16.404518721822523
-    duration: 12.398561094841378
+    start: 16.319
+    duration: 11.744
     narration: Clean-energy mineral demand could grow four to six times by 2040. Mining alone cannot get us there cleanly or quickly. So recycling, urban mining, and direct lithium extraction have to work.
     visual:
       type: image
       prompt: local article image asset
   - id: scene-03
-    start: 28.803079816663903
-    duration: 15.89111351592346
+    start: 28.063
+    duration: 14.588
     narration: 'But that requires sorbents and extractants precise enough to separate nearly identical ions in messy real-world streams. PFAS flips the challenge around. First, capture PFOA and PFOS down to the EPA limit: four nanograms per liter each.'
     visual:
       type: image
       prompt: local article image asset
   - id: scene-04
-    start: 44.69419333258736
-    duration: 12.544084112386463
+    start: 42.651
+    duration: 12.981
     narration: Then actually destroy them. That second step is brutal because the carbon–fluorine bond packs about four hundred eighty-five kilojoules per mole. Today’s filters mostly move the problem into contaminated media.
     visual:
       type: image
       prompt: local article image asset
   - id: scene-05
-    start: 57.238277444973825
-    duration: 17.2404029346015
+    start: 55.632
+    duration: 18.173
     narration: We could screen millions of recovery materials and catalysts, except the fast models tend to soften the exact physics that matters. At pores, vacancies, surfaces, and transition states, raw universal machine-learning potentials can misrepresent the energy landscape by fifteen to sixty percent.
     visual:
       type: image
       prompt: local article image asset
   - id: scene-06
-    start: 74.47868037957532
-    duration: 22.75979994405154
+    start: 73.805
+    duration: 24.293
     narration: Great-looking candidates become expensive false positives. The correction measures that error against local atomic coordination, then corrects energies and forces at runtime. Now the same fast screen can rank lithium-selective pores, cobalt-versus-nickel extractants, PFAS sorbents, and defluorination catalysts without pretending every atomic neighborhood behaves like a perfect bulk crystal.
     visual:
       type: image
       prompt: local article image asset
   - id: scene-07
-    start: 97.23848032362686
-    duration: 12.669815999545413
+    start: 98.098
+    duration: 13.166
     narration: On the mineral side, corrected binding and migration energies guide separation and direct battery recycling. On the PFAS side, corrected barriers expose catalysts that will fail or poison themselves with fluoride.
     visual:
       type: image
       prompt: local article image asset
   - id: scene-08
-    start: 109.90829632317227
-    duration: 10.739598694827384
+    start: 111.264
+    duration: 11.25
     narration: Machine-checked boundaries also flag predictions the data cannot support, before anybody builds a costly experiment around them. One campaign puts scarce atoms back into circulation.
     visual:
       type: image
       prompt: local article image asset
   - id: scene-09
-    start: 120.64789501799964
-    duration: 12.524292982000361
+    start: 122.514
+    duration: 11.311
     narration: The other takes harmful ones out. Both move faster when we correct the same hidden error in the models. Recover what we need. Destroy what we don’t. Read the full case in the article.
     visual:
       type: image

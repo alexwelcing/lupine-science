@@ -331,16 +331,12 @@ function shareBar(slug, title) {
   const encodedUrl = encodeURIComponent(url).replace(/[!'()*]/g, (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`);
   const encodedTitle = encodeURIComponent(title).replace(/[!'()*]/g, (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`);
   const actions = [
-    { slug: 'bluesky', href: `https://bsky.app/intent/compose?text=${encodedTitle}%20${encodedUrl}`, label: 'Share on Bluesky' },
     { slug: 'x', href: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`, label: 'Share on X' },
     { slug: 'linkedin', href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`, label: 'Share on LinkedIn' },
-    { slug: 'copy', href: '#copy', label: 'Copy link' },
-    { slug: 'email', href: `mailto:?subject=${encodedTitle}&body=${encodedUrl}`, label: 'Share by email' },
+    { slug: 'email', href: `mailto:?subject=${encodedTitle}&body=${encodedTitle}%0A%0A${encodedUrl}`, label: 'Share by email' },
   ];
   const items = actions.map((a) =>
-    a.slug === 'copy'
-      ? `    <li><button type="button" class="share-btn share-copy" aria-label="${esc(a.label)}">${esc(a.label)}</button></li>`
-      : `    <li><a class="share-link share-${a.slug}" href="${esc(a.href)}" aria-label="${esc(a.label)}"${a.slug !== 'email' ? ' target="_blank" rel="noopener noreferrer"' : ''}>${esc(a.label)}</a></li>`
+    `    <li><a class="share-link share-${a.slug}" href="${esc(a.href)}" aria-label="${esc(a.label)}"${a.slug !== 'email' ? ' target="_blank" rel="noopener noreferrer"' : ''}>${esc(a.label)}</a></li>`
   ).join('\n');
   return `<div class="share-root" data-url="${esc(url)}" data-title="${esc(title)}" role="group" aria-label="Share">
   <span class="share-label">Share</span>

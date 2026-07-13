@@ -8,63 +8,63 @@ voice:
 scenes:
   - id: scene-01
     start: 0
-    duration: 16.319106786805033
+    duration: 14.755
     narration: Carbon dioxide gets the headlines. But cutting methane thirty percent by 2030 could avoid about zero point three degrees of warming by 2040. Phasing down HFC refrigerants could avoid up to another zero point five degrees by 2100.
     visual:
       type: image
       prompt: local article image asset
   - id: scene-02
-    start: 16.319106786805033
-    duration: 16.15938127845156
+    start: 14.755
+    duration: 16.366
     narration: 'That is huge near-term leverage. Here is the twist: both targets depend on materials we do not have yet. We need catalysts that convert stranded methane without burning the product, and refrigerants that are efficient, safe, and low-warming, all at once.'
     visual:
       type: image
       prompt: local article image asset
   - id: scene-03
-    start: 32.47848806525659
-    duration: 12.428580616668038
+    start: 31.121
+    duration: 12.113
     narration: 'Fast atomistic AI should help search the options. Except its biggest errors happen exactly where these materials work: surfaces, transition states, radical fragments, and phase boundaries.'
     visual:
       type: image
       prompt: local article image asset
   - id: scene-04
-    start: 44.90706868192463
-    duration: 12.7770726348938
+    start: 43.234
+    duration: 13.208
     narration: In those under-coordinated environments, universal models can soften the energy landscape by fifteen to sixty percent, and rank the wrong candidate first. Methane's carbon-hydrogen bond is brutally strong.
     visual:
       type: image
       prompt: local article image asset
   - id: scene-05
-    start: 57.684141316818426
-    duration: 14.818655041666355
+    start: 56.442
+    duration: 16.108
     narration: A catalyst active enough to crack it often holds the methanol product too tightly and over-oxidizes it into carbon dioxide. Corrected barriers can expose rare sites that break this trap, and open lower-temperature methanol or cleaner hydrogen routes.
     visual:
       type: image
       prompt: local article image asset
   - id: scene-06
-    start: 72.50279635848479
-    duration: 11.997805760805651
+    start: 72.55
+    duration: 12.049
     narration: Refrigerants face a different-looking version of the same problem. Millions of molecules must be screened for vapor pressure, efficiency, flammability, toxicity, and atmospheric lifetime.
     visual:
       type: image
       prompt: local article image asset
   - id: scene-07
-    start: 84.50060211929043
-    duration: 15.688917053846781
+    start: 84.599
+    duration: 17.59
     narration: The safety-critical steps involve radicals and breaking bonds, the same low-coordination physics that raw models misread. The correction measures the error versus atomic coordination, anchors a correction field, and applies it at runtime, without retraining the base model.
     visual:
       type: image
       prompt: local article image asset
   - id: scene-08
-    start: 100.18951917313721
-    duration: 15.002581384618829
+    start: 102.189
+    duration: 15.85
     narration: Then machine-checked proofs mark which predictions stay inside the measured domain. Across thirty-six blind model-and-material combinations, corrected predictions reached a correlation of zero point nine zero six, with zero adjustable parameters.
     visual:
       type: image
       prompt: local article image asset
   - id: scene-09
-    start: 115.19210055775605
-    duration: 14.19233744224394
+    start: 118.039
+    duration: 14.689
     narration: Methane catalysts and next-generation cooling are not separate discovery stories. They share one hidden error geometry, and one chance to turn fast screening into evidence we can actually trust, before the policy clock runs out.
     visual:
       type: image

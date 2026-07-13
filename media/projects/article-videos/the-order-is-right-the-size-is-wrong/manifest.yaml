@@ -8,7 +8,7 @@ voice:
 scenes:
   - id: promise-gap
     start: 0
-    duration: 21.761
+    duration: 22.021
     narration: 'Foundation machine-learned interatomic potentials promise density-functional accuracy at classical cost. On bulk crystals they nearly deliver: lattice constants within half a percent, formation enthalpies within a few percent. But on surfaces and vacancies—the properties that decide real materials questions—they miss by ten to forty percent.'
     visual:
       type: image
@@ -18,8 +18,8 @@ scenes:
       size: landscape_16_9
       seed: 101
   - id: null-kills
-    start: 21.761
-    duration: 16.749
+    start: 22.021
+    duration: 16.949
     narration: The obvious hypotheses were tested with coupling-aware nulls. Two died. Cross-property error is not low-dimensional. Raw cosine similarities as high as zero point nine six sit inside a null that reaches zero point nine eight. The kills are preserved in the record.
     visual:
       type: image
@@ -29,8 +29,8 @@ scenes:
       size: landscape_16_9
       seed: 102
   - id: rankings-survive
-    start: 38.51
-    duration: 18.018
+    start: 38.97
+    duration: 18.233
     narration: What survived is more useful. Ask any model which metal has the higher surface energy, and it almost never lies. Rank correlations run from zero point eight eight to one point zero zero zero. All twenty-two reference facet hierarchies reproduce. The order is right; the size is wrong.
     visual:
       type: image
@@ -40,8 +40,8 @@ scenes:
       size: landscape_16_9
       seed: 103
   - id: form-and-field
-    start: 56.528
-    duration: 22.712
+    start: 57.203
+    duration: 22.984
     narration: 'The error has a shape: prediction equals c times T to the alpha. The exponent belongs to the property family; the prefactor belongs to the training data. Beneath both is a smooth error field over coordination. From three observables it predicted a fourth surface blind, with r equals zero point nine oh six across thirty-six cells and zero fitted parameters.'
     visual:
       type: image
@@ -51,8 +51,8 @@ scenes:
       size: landscape_16_9
       seed: 104
   - id: correction
-    start: 79.24
-    duration: 21.761
+    start: 80.187
+    duration: 22.021
     narration: The correction is an additive energy term with analytic forces, running beside the live model. Over CHGNet it cut nickel surface error from nine point seven to one point five percent, copper from twenty-eight to thirteen point seven percent, and left bulk untouched. Where order breaks, a theorem proves no monotone fix can recover references.
     visual:
       type: image
@@ -62,8 +62,8 @@ scenes:
       size: landscape_16_9
       seed: 105
   - id: verification
-    start: 101.001
-    duration: 16.622
+    start: 102.208
+    duration: 16.82
     narration: Every quantitative claim is sealed as a Lean theorem over provenance-hashed data. The verification layer once rejected a result when decide refused eight thirteen less than eight thirteen. The correction edits the science toward honesty, not just better numbers.
     visual:
       type: image
@@ -73,8 +73,8 @@ scenes:
       size: landscape_16_9
       seed: 106
   - id: takeaway
-    start: 117.623
-    duration: 15.732
+    start: 119.028
+    duration: 15.921
     narration: For screening today, rankings are trustworthy where order holds. For certification, a handful of anchor measurements plus the family exponent buys a several-fold error reduction. Where the order is broken, the proof is provided, not a worse number.
     visual:
       type: image

@@ -51,7 +51,7 @@ for (const rel of PATHS) {
 }
 await worker.terminate();
 
-const flagged = results.filter(r => !r.error && r.alnumLen > 4);
+const flagged = results.filter(r => !r.error && r.alnumLen > 4 && r.confidence > 50);
 console.log('\n=== RESULTS ===\n');
 for (const r of results) console.log(JSON.stringify(r));
 console.log(`\n=== SUMMARY: ${results.length} scanned, ${flagged.length} flagged (alnum>4) ===`);

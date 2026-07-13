@@ -8,7 +8,7 @@ voice:
 scenes:
   - id: hook
     start: 0
-    duration: 16.263
+    duration: 16.134
     narration: |
       Universal machine-learned interatomic potentials promise near-quantum accuracy at a fraction of the cost. For bulk properties, they deliver. But on surfaces, vacancies, and planar faults—the structures that dominate real materials—they err by tens of percent.
     visual:
@@ -19,8 +19,8 @@ scenes:
       size: landscape_16_9
       seed: 201
   - id: error-landscape
-    start: 16.263
-    duration: 16.074
+    start: 16.134
+    duration: 15.947
     narration: |
       The failures are not random. Bulk observables stay within a few percent, while defect-family properties miss by fifteen to sixty times more. That asymmetry is the signature: the same error geometry appears again and again, tied to local atomic environment.
     visual:
@@ -31,8 +31,8 @@ scenes:
       size: landscape_16_9
       seed: 202
   - id: field-hypothesis
-    start: 32.337
-    duration: 18.963
+    start: 32.081
+    duration: 18.813
     narration: |
       The hypothesis is that the signed error is a smooth function of first-shell coordination, summed per atom. Bulk coordination fixes the error to zero. Three standard observables—two surface energies and a vacancy energy—anchor the curve. Then a fourth observable, the 110 surface energy, tests it blind.
     visual:
@@ -43,8 +43,8 @@ scenes:
       size: landscape_16_9
       seed: 203
   - id: blind-test
-    start: 51.3
-    duration: 13.877
+    start: 50.894
+    duration: 13.767
     narration: |
       Across thirty-six model-material combinations, the field predicts the never-fitted 110 error with a correlation of zero point nine oh six. That result is not a fit; it is an extrapolation from measurements made elsewhere.
     visual:
@@ -55,8 +55,8 @@ scenes:
       size: landscape_16_9
       seed: 204
   - id: runtime-correction
-    start: 65.177
-    duration: 21.098
+    start: 64.661
+    duration: 20.93
     narration: |
       Invert the field, and it becomes an additive correction beside a live calculator. Analytic forces keep simulations consistent. In tests, nickel 110 surface error drops from nine point seven to one point five percent, while bulk lattice constants remain untouched and molecular dynamics runs with only fifteen point six percent overhead.
     visual:
@@ -67,8 +67,8 @@ scenes:
       size: landscape_16_9
       seed: 205
   - id: provable-boundaries
-    start: 86.275
-    duration: 14.128
+    start: 85.591
+    duration: 14.016
     narration: |
       The correction does not claim universal power. Where rankings invert, a machine-checked Lean 4 proof shows no monotone correction can recover both. The proof kernel locks the data, the arithmetic, and the stated inequalities.
     visual:
@@ -79,8 +79,8 @@ scenes:
       size: landscape_16_9
       seed: 206
   - id: thesis
-    start: 100.403
-    duration: 11.741
+    start: 99.607
+    duration: 11.648
     narration: |
       The result is a concrete instance of a larger pattern: measure the structured wrongness of a predictor, correct it at run time, and prove exactly where the method does and does not apply.
     visual:

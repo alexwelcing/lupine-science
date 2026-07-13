@@ -8,7 +8,7 @@ voice:
 scenes:
   - id: molecular-remainder
     start: 0
-    duration: 22.889
+    duration: 22.451
     narration: Carbon dioxide gets the headlines, but the next decade of climate leverage is increasingly molecular. Methane from oil fields and landfills, nitrous oxide from agriculture, hydrofluorocarbon refrigerants, and sulfur hexafluoride from electrical gear. Together, non-CO₂ agents account for roughly thirty-five percent of anthropogenic radiative forcing.
     visual:
       type: image
@@ -18,8 +18,8 @@ scenes:
       size: landscape_16_9
       seed: 142
   - id: accounting-fragility
-    start: 22.889
-    duration: 19.889
+    start: 22.451
+    duration: 19.508
     narration: Each forcer has a different lifetime, a different radiative efficiency, and a different replacement chemistry. Most of that accounting still lives in spreadsheets. A small unit error, or a GWP horizon slipped in silently, can compound into a wrong ranking across policy, investment, and materials screens.
     visual:
       type: image
@@ -29,8 +29,8 @@ scenes:
       size: landscape_16_9
       seed: 143
   - id: formalize-tables
-    start: 42.778
-    duration: 14.999
+    start: 41.959
+    duration: 14.711
     narration: A new Lean 4 module commits the IPCC AR6 tables directly to code. Every constant is typed and versioned. GWP one-hundred and GWP twenty are different objects, and cannot be swapped. Bounds are explicit ranges, not point estimates.
     visual:
       type: image
@@ -40,8 +40,8 @@ scenes:
       size: landscape_16_9
       seed: 144
   - id: proved-scenarios
-    start: 57.777
-    duration: 27.128
+    start: 56.67
+    duration: 26.608
     narration: The validation module proves two realistic claims. A residential heat pump charged with R-410A loses refrigerant slowly over its lifetime; the theorem bounds the CO₂-equivalent warming from the leaked mass and shows the repair threshold depends on the GWP horizon chosen for the policy. Replacing R-134a with a next-generation fluid that has GWP under one avoids a quantified amount of warming per kilogram deployed.
     visual:
       type: image
@@ -51,8 +51,8 @@ scenes:
       size: landscape_16_9
       seed: 145
   - id: verification-layer
-    start: 84.905
-    duration: 21.259
+    start: 83.278
+    duration: 20.852
     narration: All two hundred eighty-nine theorems are checked by the build with zero sorry axioms. Certificate gates for field-domain, ranking-inversion, and barrier-conservatism claims are wired into the policy engine. The verification layer separates claims that are fully supported from those that remain synthesis-dependent or bounded.
     visual:
       type: image
@@ -62,8 +62,8 @@ scenes:
       size: landscape_16_9
       seed: 146
   - id: close-the-loop
-    start: 106.164
-    duration: 19.302
+    start: 104.13
+    duration: 18.933
     narration: The same accounting underpins catalyst, refrigerant, and cement work. When a candidate material is screened, its impact can now be propagated into a machine-checked climate claim. The bottleneck is not a shortage of candidates. It is a shortage of trustworthy paths from molecule to climate unit.
     visual:
       type: image

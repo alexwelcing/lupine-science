@@ -1,0 +1,29 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:17.258
+Water and air touch every human life. Yet water scarcity affects about two billion people, and outdoor air pollution is linked to millions of premature deaths each year. Both problems are materials-limited, and both are corrupted by the same predictable computational error.
+
+2
+00:00:17.258 --> 00:00:38.736
+Universal machine-learning potentials learn tidy bulk crystals where every atom has many regular neighbors. But the membranes, sorbents, and catalysts that purify water and air function at pores, metal centers, and single-atom sites—environments with fewer neighbors. There, the energy surface is systematically softened by 15 to 60 percent.
+
+3
+00:00:38.736 --> 00:00:55.679
+A softened barrier makes the wrong membrane look selective, the wrong sorbent look stable, or the wrong catalyst look fast. Across millions of candidates, tiny systematic errors flip rankings. Experiments chase false priorities while better materials stay on the bench.
+
+4
+00:00:55.679 --> 00:01:17.220
+Corrected binding and barrier energies overturn raw rankings in desalination membranes, atmospheric-water sorbents, and lithium-selective frameworks. The same correction recovers activation energies for low-temperature exhaust catalysts, soot filters, and volatile-organic-compound oxidizers, separating real activity from artificial promise.
+
+5
+00:01:17.220 --> 00:01:38.005
+The correction measures error as a field over local coordination, anchored to three observables and pinned to zero in bulk. Analytic forces are added at runtime, keeping molecular dynamics nearly as fast as the base model. Across 36 blind model-material pairs, corrected predictions correlate at 0.906 with zero fitted parameters.
+
+6
+00:01:38.005 --> 00:01:56.460
+One hundred ninety build-locked Lean 4 theorems mark which claims are supported, bounded, or synthesis-dependent. A membrane ranking is supported only when its local environments fall inside the measured domain, and a metastable sorbent phase is flagged honestly rather than sold as predicted.
+
+7
+00:01:56.460 --> 00:02:11.892
+The failure mode is coordination-specific, not climate-specific. One measured correction-and-verification layer can raise discovery reliability across water, air, batteries, and direct air capture. The goal is predictions laboratories can trust.

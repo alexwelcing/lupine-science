@@ -1,6 +1,6 @@
 > **Date:** 2026-07-16
 > **Deck:** The same under-coordination error that corrupts climate-materials predictions also corrupts water, air, methane, refrigerant, mineral, PFAS, and cement discovery.
-> **Summary:** The environmental-expansion series opens by establishing the Lupine correction-and-verification layer as a platform for any material whose function is controlled by under-coordinated environments.
+> **Summary:** The environmental-expansion series opens by establishing the correction-and-verification layer as a platform for any material whose function is controlled by under-coordinated environments.
 > **Status:** Draft
 
 

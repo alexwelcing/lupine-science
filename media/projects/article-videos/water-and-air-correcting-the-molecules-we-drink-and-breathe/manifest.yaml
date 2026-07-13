@@ -8,7 +8,7 @@ voice:
 scenes:
   - id: stakes
     start: 0
-    duration: 16.684
+    duration: 17.258
     narration: Water and air touch every human life. Yet water scarcity affects about two billion people, and outdoor air pollution is linked to millions of premature deaths each year. Both problems are materials-limited, and both are corrupted by the same predictable computational error.
     visual:
       type: image
@@ -18,8 +18,8 @@ scenes:
       size: landscape_16_9
       seed: 42
   - id: error-geometry
-    start: 16.684
-    duration: 20.763
+    start: 17.258
+    duration: 21.478
     narration: Universal machine-learning potentials learn tidy bulk crystals where every atom has many regular neighbors. But the membranes, sorbents, and catalysts that purify water and air function at pores, metal centers, and single-atom sites—environments with fewer neighbors. There, the energy surface is systematically softened by 15 to 60 percent.
     visual:
       type: image
@@ -29,8 +29,8 @@ scenes:
       size: landscape_16_9
       seed: 43
   - id: false-priorities
-    start: 37.447
-    duration: 16.379
+    start: 38.736
+    duration: 16.943
     narration: A softened barrier makes the wrong membrane look selective, the wrong sorbent look stable, or the wrong catalyst look fast. Across millions of candidates, tiny systematic errors flip rankings. Experiments chase false priorities while better materials stay on the bench.
     visual:
       type: image
@@ -40,8 +40,8 @@ scenes:
       size: landscape_16_9
       seed: 44
   - id: water-and-air-targets
-    start: 53.826
-    duration: 20.824
+    start: 55.679
+    duration: 21.541
     narration: Corrected binding and barrier energies overturn raw rankings in desalination membranes, atmospheric-water sorbents, and lithium-selective frameworks. The same correction recovers activation energies for low-temperature exhaust catalysts, soot filters, and volatile-organic-compound oxidizers, separating real activity from artificial promise.
     visual:
       type: image
@@ -51,8 +51,8 @@ scenes:
       size: landscape_16_9
       seed: 45
   - id: measure-correct-prove
-    start: 74.65
-    duration: 20.094
+    start: 77.22
+    duration: 20.785
     narration: The correction measures error as a field over local coordination, anchored to three observables and pinned to zero in bulk. Analytic forces are added at runtime, keeping molecular dynamics nearly as fast as the base model. Across 36 blind model-material pairs, corrected predictions correlate at 0.906 with zero fitted parameters.
     visual:
       type: image
@@ -62,8 +62,8 @@ scenes:
       size: landscape_16_9
       seed: 46
   - id: verification
-    start: 94.744
-    duration: 17.841
+    start: 98.005
+    duration: 18.455
     narration: One hundred ninety build-locked Lean 4 theorems mark which claims are supported, bounded, or synthesis-dependent. A membrane ranking is supported only when its local environments fall inside the measured domain, and a metastable sorbent phase is flagged honestly rather than sold as predicted.
     visual:
       type: image
@@ -73,8 +73,8 @@ scenes:
       size: landscape_16_9
       seed: 47
   - id: platform-thesis
-    start: 112.585
-    duration: 14.919
+    start: 116.46
+    duration: 15.432
     narration: The failure mode is coordination-specific, not climate-specific. One measured correction-and-verification layer can raise discovery reliability across water, air, batteries, and direct air capture. The goal is predictions laboratories can trust.
     visual:
       type: image

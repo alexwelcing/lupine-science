@@ -1,41 +1,41 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:10.674
+00:00:00.000 --> 00:00:08.640
 Okay, so Google DeepMind predicted 2.2 million crystals. Huge. But by late 2023, only 736 had been independently synthesized.
 
 2
-00:00:10.674 --> 00:00:21.505
+00:00:08.640 --> 00:00:21.841
 The usual response is: build a bigger neural net. What if that is solving the wrong problem? Universal machine-learning potentials are already fast and pretty accurate for tidy bulk crystals.
 
 3
-00:00:21.505 --> 00:00:34.972
+00:00:21.841 --> 00:00:35.941
 But real materials work at vacancies, surfaces, and transition states—places where atoms have fewer neighbors. There, errors jump, and ion-migration barriers can be underestimated by more than 60 percent.
 
 4
-00:00:34.972 --> 00:00:46.795
+00:00:35.941 --> 00:00:49.557
 Here is the twist: that wrongness is not random. It has a shape. The correction measures an environment error field based on coordination number—basically, how many neighboring atoms each atom has.
 
 5
-00:00:46.795 --> 00:00:57.808
+00:00:49.557 --> 00:01:01.998
 No second neural net. No per-system retraining. Three standard measurements anchor the curve: two surface energies and one vacancy energy. Bulk coordination is fixed at zero error.
 
 6
-00:00:57.808 --> 00:01:09.983
+00:01:01.998 --> 00:01:14.093
 Then the field predicts a fourth surface—the one-ten facet—blind. Across 36 model-and-material combinations, predicted and measured errors correlate at zero point nine oh six.
 
 7
-00:01:09.983 --> 00:01:21.362
+00:01:14.093 --> 00:01:27.087
 Flip that field, add it beside the existing model, and under-coordinated structures move back toward reference energies. The forces are analytic, so simulations stay physically consistent.
 
 8
-00:01:21.362 --> 00:01:34.359
+00:01:27.087 --> 00:01:39.597
 In tests, nickel surface error dropped from 9.7 to 1.5 percent, while bulk lattice constants stayed unchanged. And this layer does something most AI pipelines cannot: it can say no.
 
 9
-00:01:34.359 --> 00:01:48.739
+00:01:39.597 --> 00:01:54.526
 Lean four proofs check every quantitative claim and flag ranking inversions, already-converged cases, or physics outside the field’s domain. One proof even caught a rounding tie and corrected “27 improvements” to 26.
 
 10
-00:01:48.739 --> 00:02:08.078
+00:01:54.526 --> 00:02:15.262
 That matters for battery ion hops, carbon-capture frameworks, ammonia catalysts, and perovskite stability—all controlled by under-coordinated defects. So the goal is not more confident predictions. It is fast predictions with measured corrections, certified boundaries, and a provable reason to stop.
