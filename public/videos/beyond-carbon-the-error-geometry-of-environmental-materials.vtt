@@ -1,0 +1,41 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:11.022
+What do desalination membranes, methane catalysts, safer refrigerants, lithium recovery, PFAS cleanup, clean-air catalysts, and low-carbon cement have in common?
+
+2
+00:00:11.022 --> 00:00:25.621
+Weirdly, the same atomic blind spot. The materials bottleneck is not climate-specific. It is coordination-specific. Universal machine-learning potentials learn tidy bulk crystals, where atoms have lots of regular neighbors.
+
+3
+00:00:25.621 --> 00:00:39.694
+But useful chemistry happens at pores, surfaces, vacancies, and transition states—where atoms have fewer neighbors. Right there, these models can soften the energy landscape by 15 to 60 percent.
+
+4
+00:00:39.694 --> 00:00:56.369
+That is not harmless noise. A softened barrier can make the wrong membrane look selective, the wrong catalyst look fast, or an unmakeable cement phase look stable. Across millions of candidates, tiny systematic errors flip rankings—and experiments chase false winners.
+
+5
+00:00:56.369 --> 00:01:10.468
+The stakes are huge: water scarcity affects roughly two billion people. Air pollution kills millions every year. Methane drives about 30 percent of current warming. Clean-energy mineral demand could rise four- to six-fold by 2040.
+
+6
+00:01:10.468 --> 00:01:23.251
+And cement alone produces roughly 2.8 gigatonnes of carbon dioxide annually. The correction's response starts with the useful part: the error has a shape. Three measured observables anchor an environment error field.
+
+7
+00:01:23.251 --> 00:01:41.899
+Bulk coordination is fixed at zero error, and a constrained curve predicts corrections for under-coordinated environments the field never directly saw. Add that field at runtime, and simulations follow corrected energies and analytic forces—still about one hundred thousand times faster than quantum chemistry.
+
+8
+00:01:41.899 --> 00:01:58.027
+In blind tests across 36 model-material pairs, predicted corrections correlated at 0.906. Then 77 build-locked Lean 4 theorems mark what is supported, out of domain, or synthesis-dependent.
+
+9
+00:01:58.027 --> 00:02:09.406
+So this is bigger than carbon. One correction-and-verification layer can improve discovery across water, air, methane, refrigerants, minerals, PFAS, and cement. Measure the error.
+
+10
+00:02:09.406 --> 00:02:14.531
+Correct the physics. Prove the boundary. Then send experiments the candidates actually worth making.

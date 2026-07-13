@@ -1,0 +1,74 @@
+slug: rhizo-non-co2-climate-forcers-lean
+script: narration-script.md
+voice:
+  endpoint: fal-ai/elevenlabs/tts/turbo-v2.5
+  voice: Adam
+  speed: 1
+  seed: 42
+scenes:
+  - id: molecular-remainder
+    start: 0
+    duration: 22.889
+    narration: Carbon dioxide gets the headlines, but the next decade of climate leverage is increasingly molecular. Methane from oil fields and landfills, nitrous oxide from agriculture, hydrofluorocarbon refrigerants, and sulfur hexafluoride from electrical gear. Together, non-CO₂ agents account for roughly thirty-five percent of anthropogenic radiative forcing.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Minimal editorial illustration of four distinct climate forcer molecules—methane, nitrous oxide, a hydrofluorocarbon refrigerant, and sulfur hexafluoride—hovering over a soft radiative-forcing ribbon, warm cream paper background #faf9f6, indigo accent lines #3d4db3, a subtle 35% share marker, clean vector style, no text labels, 16:9
+      size: landscape_16_9
+      seed: 142
+  - id: accounting-fragility
+    start: 22.889
+    duration: 19.889
+    narration: Each forcer has a different lifetime, a different radiative efficiency, and a different replacement chemistry. Most of that accounting still lives in spreadsheets. A small unit error, or a GWP horizon slipped in silently, can compound into a wrong ranking across policy, investment, and materials screens.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Minimal editorial illustration of a spreadsheet grid where one cell quietly swaps a GWP horizon, causing a downstream ranking arrow to invert and the wrong material candidate to rise to the top, warm cream paper background #faf9f6, indigo accent lines #3d4db3, clean vector style, no text, 16:9
+      size: landscape_16_9
+      seed: 143
+  - id: formalize-tables
+    start: 42.778
+    duration: 14.999
+    narration: A new Lean 4 module commits the IPCC AR6 tables directly to code. Every constant is typed and versioned. GWP one-hundred and GWP twenty are different objects, and cannot be swapped. Bounds are explicit ranges, not point estimates.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Minimal editorial illustration of a formal code surface with typed constants GWP100 and GWP20 rendered as distinct locked objects, lifetime bounds shown as shaded indigo ranges rather than single pins, warm cream paper background #faf9f6, indigo accent lines #3d4db3, clean vector style, no text labels, 16:9
+      size: landscape_16_9
+      seed: 144
+  - id: proved-scenarios
+    start: 57.777
+    duration: 27.128
+    narration: The validation module proves two realistic claims. A residential heat pump charged with R-410A loses refrigerant slowly over its lifetime; the theorem bounds the CO₂-equivalent warming from the leaked mass and shows the repair threshold depends on the GWP horizon chosen for the policy. Replacing R-134a with a next-generation fluid that has GWP under one avoids a quantified amount of warming per kilogram deployed.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Split-panel editorial illustration: left side shows a residential heat pump with a slow refrigerant leak and a bounded CO2-equivalent warming cloud, right side shows a refrigerant cylinder swap from R-134a to a low-GWP next-generation fluid with a rising savings curve, warm cream paper background #faf9f6, indigo accent lines #3d4db3, clean vector style, no text labels, 16:9
+      size: landscape_16_9
+      seed: 145
+  - id: verification-layer
+    start: 84.905
+    duration: 21.259
+    narration: All two hundred eighty-nine theorems are checked by the build with zero sorry axioms. Certificate gates for field-domain, ranking-inversion, and barrier-conservatism claims are wired into the policy engine. The verification layer separates claims that are fully supported from those that remain synthesis-dependent or bounded.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Minimal editorial illustration of a build pipeline counting theorems up to 289 with a zero-sorry badge, leading into a verification gate that stamps claims as supported, bounded, or synthesis-dependent, warm cream paper background #faf9f6, indigo accent lines #3d4db3, clean vector style, no text labels, 16:9
+      size: landscape_16_9
+      seed: 146
+  - id: close-the-loop
+    start: 106.164
+    duration: 19.302
+    narration: The same accounting underpins catalyst, refrigerant, and cement work. When a candidate material is screened, its impact can now be propagated into a machine-checked climate claim. The bottleneck is not a shortage of candidates. It is a shortage of trustworthy paths from molecule to climate unit.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Minimal editorial illustration of candidate molecules flowing through a correction-and-verification pipeline and exiting as machine-checked climate units, closing into a molecule-to-claim thesis, warm cream paper background #faf9f6, indigo accent lines #3d4db3, clean vector style, no text labels, 16:9
+      size: landscape_16_9
+      seed: 147

@@ -1,0 +1,78 @@
+slug: investing-in-the-trust-layer
+script: public/videos/investing-in-the-trust-layer.vtt
+voice:
+  endpoint: fal-ai/elevenlabs/tts/turbo-v2.5
+  voice: Adam
+  speed: 1
+  seed: 42
+scenes:
+  - id: scene-01
+    start: 0
+    duration: 13.25086680938198
+    narration: Materials discovery can now imagine millions of crystals. Google DeepMind's GNoME proposed 2.2 million. But by late 2023, only 736 had been independently synthesized.
+    visual:
+      type: image
+      prompt: local article image asset
+  - id: scene-02
+    start: 13.25086680938198
+    duration: 15.563143067619134
+    narration: The scarce resource is no longer prediction. It is trust. Every stage leaks. Generators omit complex material classes. Universal machine-learned potentials are least reliable at surfaces, vacancies, and defects.
+    visual:
+      type: image
+      prompt: local article image asset
+  - id: scene-03
+    start: 28.814009877001112
+    duration: 22.21507820592889
+    narration: And laboratories inherit every upstream error. More activity does not automatically produce more validated materials. The correction layer sits between prediction and synthesis. It measures a predictor's systematic error as a physical field over local atomic environments, corrects that error at runtime, and proves which claims remain inside the evidence boundary.
+    visual:
+      type: image
+      prompt: local article image asset
+  - id: scene-04
+    start: 51.02908808293
+    duration: 14.36393962137007
+    narration: The field is fixed by three standard observables. A fourth surface is held back as a blind test. Across 36 model-and-material combinations, predicted and measured errors correlate at zero point nine oh six, with zero adjustable parameters.
+    visual:
+      type: image
+      prompt: local article image asset
+  - id: scene-05
+    start: 65.39302770430007
+    duration: 14.071095464882726
+    narration: Quantitative claims are then sealed as Lean 4 theorems with hash-locked provenance. The proof layer has 190 build-locked theorems and zero unfinished proofs. It once rejected a rounded success count, changing 27 improvements to 26.
+    visual:
+      type: image
+      prompt: local article image asset
+  - id: scene-06
+    start: 79.4641231691828
+    duration: 13.068004847412512
+    narration: Trust means being able to say no to yourself. The correction deploys beside existing CHGNet or MACE calculators as a LAMMPS overlay. In Python, measured overhead is 15.6 percent.
+    visual:
+      type: image
+      prompt: local article image asset
+  - id: scene-07
+    start: 92.53212801659531
+    duration: 19.819321486792617
+    narration: On a blind nickel surface, relative error fell from 9.7 percent to 1.5 percent. Users keep their simulators. The correction makes them more trustworthy. Better materials infrastructure is estimated to create 123 to 270 billion dollars in annual value for United States industry.
+    visual:
+      type: image
+      prompt: local article image asset
+  - id: scene-08
+    start: 112.35144950338793
+    duration: 12.630726242702899
+    narration: Against that scale, the 36-month budget is about 3.2 million dollars. The investment is not a bet on one material. It is leverage across every screened material.
+    visual:
+      type: image
+      prompt: local article image asset
+  - id: scene-09
+    start: 124.98217574609083
+    duration: 14.182402746081538
+    narration: The face-centered-cubic field is established. Other structure families and industrial validation remain open work, with explicit go-or-no-go gates. That honesty is the product. The world does not need more predicted crystals.
+    visual:
+      type: image
+      prompt: local article image asset
+  - id: scene-10
+    start: 139.16457849217238
+    duration: 3.202734507827614
+    narration: It needs predictions laboratories can act on.
+    visual:
+      type: image
+      prompt: local article image asset

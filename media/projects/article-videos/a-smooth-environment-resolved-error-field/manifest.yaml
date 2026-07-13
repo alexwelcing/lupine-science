@@ -1,0 +1,92 @@
+slug: a-smooth-environment-resolved-error-field
+script: narration-script.md
+voice:
+  endpoint: fal-ai/elevenlabs/tts/turbo-v2.5
+  voice: Adam
+  speed: 1
+  seed: 42
+scenes:
+  - id: hook
+    start: 0
+    duration: 16.263
+    narration: |
+      Universal machine-learned interatomic potentials promise near-quantum accuracy at a fraction of the cost. For bulk properties, they deliver. But on surfaces, vacancies, and planar faults—the structures that dominate real materials—they err by tens of percent.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Minimal editorial illustration of an fcc metal lattice: a tidy bulk cell at full coordination on the left fractures into a surface, a vacancy, and a planar fault on the right, each defect glowing with a soft red error halo, warm cream paper background #faf9f6, indigo accent lines #3d4db3, clean vector style, no text, 16:9
+      size: landscape_16_9
+      seed: 201
+  - id: error-landscape
+    start: 16.263
+    duration: 16.074
+    narration: |
+      The failures are not random. Bulk observables stay within a few percent, while defect-family properties miss by fifteen to sixty times more. That asymmetry is the signature: the same error geometry appears again and again, tied to local atomic environment.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Split dashboard showing two metric bands: a tight green band for bulk observables and a wide red band for defect-family observables labeled 15 to 60 times worse, both bands converging onto a single horizontal coordination axis, warm cream paper background #faf9f6, indigo accent lines #3d4db3, clean vector style, no text, 16:9
+      size: landscape_16_9
+      seed: 202
+  - id: field-hypothesis
+    start: 32.337
+    duration: 18.963
+    narration: |
+      The hypothesis is that the signed error is a smooth function of first-shell coordination, summed per atom. Bulk coordination fixes the error to zero. Three standard observables—two surface energies and a vacancy energy—anchor the curve. Then a fourth observable, the 110 surface energy, tests it blind.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Smooth indigo error-field curve plotted over a first-shell coordination axis, pinned to zero at bulk coordination and anchored by three amber knots, a shaded blind region extending toward coordination seven, warm cream paper background #faf9f6, indigo accent lines #3d4db3, clean vector style, no text, 16:9
+      size: landscape_16_9
+      seed: 203
+  - id: blind-test
+    start: 51.3
+    duration: 13.877
+    narration: |
+      Across thirty-six model-material combinations, the field predicts the never-fitted 110 error with a correlation of zero point nine oh six. That result is not a fit; it is an extrapolation from measurements made elsewhere.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Predicted-versus-measured scatter plot with points clustering around a diagonal fit line, a metric card locking in r equals 0.906 and n equals 36, warm cream paper background #faf9f6, indigo accent lines #3d4db3, clean vector style, no text, 16:9
+      size: landscape_16_9
+      seed: 204
+  - id: runtime-correction
+    start: 65.177
+    duration: 21.098
+    narration: |
+      Invert the field, and it becomes an additive correction beside a live calculator. Analytic forces keep simulations consistent. In tests, nickel 110 surface error drops from nine point seven to one point five percent, while bulk lattice constants remain untouched and molecular dynamics runs with only fifteen point six percent overhead.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Compact pipeline illustration from a live calculator block through an additive correction layer to analytic force arrows, before-and-after bars showing nickel 110 surface error shrinking from 9.7% to 1.5% while a bulk lattice stays registered and unchanged, warm cream paper background #faf9f6, indigo accent lines #3d4db3, clean vector style, no text, 16:9
+      size: landscape_16_9
+      seed: 205
+  - id: provable-boundaries
+    start: 86.275
+    duration: 14.128
+    narration: |
+      The correction does not claim universal power. Where rankings invert, a machine-checked Lean 4 proof shows no monotone correction can recover both. The proof kernel locks the data, the arithmetic, and the stated inequalities.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Machine-check ribbon stamping claims as supported, bounded, or out of domain, a pair of inverted rankings gently moved into a red out-of-domain zone, warm cream paper background #faf9f6, indigo accent lines #3d4db3, clean vector style, no text, 16:9
+      size: landscape_16_9
+      seed: 206
+  - id: thesis
+    start: 100.403
+    duration: 11.741
+    narration: |
+      The result is a concrete instance of a larger pattern: measure the structured wrongness of a predictor, correct it at run time, and prove exactly where the method does and does not apply.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Measure-correct-prove cycle closing around a smooth coordination-error field, then resolving to a clean closing thesis card, warm cream paper background #faf9f6, indigo accent lines #3d4db3, clean editorial vector style, no text, 16:9
+      size: landscape_16_9
+      seed: 207

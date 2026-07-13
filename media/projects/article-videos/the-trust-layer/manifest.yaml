@@ -1,0 +1,85 @@
+slug: the-trust-layer
+script: narration-script.md
+voice:
+  endpoint: fal-ai/elevenlabs/tts/turbo-v2.5
+  voice: Adam
+  speed: 1
+  seed: 42
+scenes:
+  - id: oldest-loop
+    start: 0
+    duration: 12.441
+    narration: 'Science works one way: guess how the world might be, test the guess against reality, keep what survives. For four centuries, reality was the speed limit. Experiments took months; synthesis took years.'
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Minimal editorial illustration of a scientific method loop—guess, test, keep—drawn as a calm cycle on warm cream paper background #faf9f6, a heavy pendulum swinging slowly inside the loop symbolizing long experimental time, indigo accent lines #3d4db3, clean vector style, no text, 16:9
+      size: landscape_16_9
+      seed: 201
+  - id: software-speed
+    start: 12.441
+    duration: 15.676
+    narration: Then two-thirds of that loop went to software speed. Generative models propose specific atoms in crystallographic detail. Machine-learned simulators screen faster than any lab. Imagination and cheap testing stopped being the bottleneck. Belief did not.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Minimal editorial illustration of an accelerated discovery pipeline: a generative crystal model pours atom arrangements into a fast screening conveyor, narrowing to a single uncertain human gatekeeper, warm cream paper background #faf9f6, indigo accent lines #3d4db3, clean vector style, no text, 16:9
+      size: landscape_16_9
+      seed: 202
+  - id: belief-bottleneck
+    start: 28.117
+    duration: 12.628
+    narration: A model can be confident and wrong. The number that matters is not raw output; it is how many proposals are worth a year of lab time. That question now gates the whole pipeline. Belief is the bottleneck.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Minimal editorial illustration of a glowing confident prediction flickering and dimming, a small vetted queue passing through a narrow gate while a mountain of raw candidate outputs piles up behind it, warm cream paper background #faf9f6, indigo accent lines #3d4db3, clean vector style, no text, 16:9
+      size: landscape_16_9
+      seed: 203
+  - id: trust-infrastructure
+    start: 40.745
+    duration: 16.111
+    narration: The fix is not another disclaimer. It is a mathematical characterization of how a class of predictions fails, proved and machine-checked end to end, published with the data. A verified result is checked once, then everyone builds on it, like a proved theorem.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Minimal editorial illustration of a proof ribbon wrapping around a prediction to seal it, downstream builders stacking blocks on the sealed result without re-deriving it, warm cream paper background #faf9f6, indigo accent lines #3d4db3, clean vector style, no text, 16:9
+      size: landscape_16_9
+      seed: 204
+  - id: evidence-before-claim
+    start: 56.856
+    duration: 17.542
+    narration: The claims are modest because the standard is the product. The error geometry is formalized in Lean. The benchmark recomputes live in the browser from committed files. The rendered crystal is real published crystallography. When internal ideas fail, the failure stays in the record.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Minimal editorial illustration of four evidence panels locking into place: Lean formalization, live benchmark, real crystal file, and preserved failed ideas, each with a small checkmark, warm cream paper background #faf9f6, indigo accent lines #3d4db3, clean vector style, no text, 16:9
+      size: landscape_16_9
+      seed: 205
+  - id: open-verification
+    start: 74.398
+    duration: 19.47
+    narration: A proprietary trust score would be easier to sell and impossible to believe. So the evidence ledger, proofs, and benchmark data are public. The verification layer sits between model builders and laboratories, turning confident output into shortlists whose failure modes were characterized before synthesis starts.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Minimal editorial illustration of a crossed-out black box on one side and an open public ledger bridging a model tower and a laboratory bench, shortlisted candidates carrying small status flags, warm cream paper background #faf9f6, indigo accent lines #3d4db3, clean vector style, no text, 16:9
+      size: landscape_16_9
+      seed: 206
+  - id: invitation
+    start: 93.868
+    duration: 15.115
+    narration: The materials that define the next century exist only on paper today. The question is whether the result is believable enough to try. The machinery that answers with proof is being built in public, so the answer never has to be produced twice.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Minimal editorial illustration of a sheaf of predicted material blueprints floating in space, one bright candidate receiving a proof seal and moving toward a real synthesis vessel, warm cream paper background #faf9f6, indigo accent lines #3d4db3, clean vector style, no text, 16:9
+      size: landscape_16_9
+      seed: 207

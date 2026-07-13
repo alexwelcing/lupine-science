@@ -1,0 +1,74 @@
+slug: lupi-hfc-refrigerant-research-payloads
+script: narration-script.md
+voice:
+  endpoint: fal-ai/elevenlabs/tts/turbo-v2.5
+  voice: Adam
+  speed: 1
+  seed: 42
+scenes:
+  - id: dilemma
+    start: 0
+    duration: 19.076
+    narration: Hydrofluorocarbons were introduced to protect the ozone layer, but their warming potential is hundreds to thousands of times that of carbon dioxide. The Kigali Amendment now aims to cut HFC consumption roughly eighty percent by 2047, which could avoid up to half a degree Celsius of warming by 2100.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Minimal editorial illustration of a single hydrofluorocarbon refrigerant molecule diffusing into a glowing global temperature curve, warm cream paper background #faf9f6, indigo accent lines #3d4db3, a small data counter reading hundreds to thousands times CO2 and a Kigali target badge showing 80 percent by 2047, clean vector style, no text labels, 16:9
+      size: landscape_16_9
+      seed: 42
+  - id: design-space
+    start: 19.076
+    duration: 21.5
+    narration: Finding replacements is hard because the design space is constrained by thermophysical performance, flammability, toxicity, atmospheric lifetime, and lubricant compatibility all at once. Computational screening must predict vapor pressure, latent heat, transport properties, and decomposition pathways across millions of small molecules.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Minimal editorial diagram of a five-axis constraint space for refrigerant discovery, axes labeled abstractly as performance, flammability, toxicity, lifetime, and lubricant compatibility, the candidate cloud tightening toward a small highlighted region, warm cream paper background #faf9f6, indigo accent lines #3d4db3, clean vector style, no text, 16:9
+      size: landscape_16_9
+      seed: 42
+  - id: undercoordination
+    start: 40.576
+    duration: 19.905
+    narration: Each of those properties depends on under-coordinated environments—radical transition states, surfaces, and phase boundaries—where generic force fields and universal machine-learning potentials systematically soften the energy surface. That softening can invert rankings and send labs chasing the wrong molecule.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Minimal editorial illustration of an ordered molecular bulk lattice opening into a surface, a radical transition state, and a phase boundary, coordination number axis falling left to right, a widening indigo error band labeled softly as softening, warm cream paper background #faf9f6, clean vector style, no text, 16:9
+      size: landscape_16_9
+      seed: 42
+  - id: payloads
+    start: 60.481
+    duration: 23.797
+    narration: The new research payloads turn molecular trajectories into inspectable datasets. They carry full per-atom charges, velocities, forces, potential and kinetic energy, plus thermo tables and temperature-profile sidecars, all streamed in sync with the simulation. For refrigerants, that means watching the temperature profile evolve and correlating forces with local structure.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Minimal editorial illustration of a refrigerant liquid trajectory frame dissolving into layered data panels showing charges, velocity arrows, force vectors, a thermo table, and a temperature profile strip, all orbiting the central molecular snapshot, warm cream paper background #faf9f6, indigo accent lines #3d4db3, clean vector style, no text, 16:9
+      size: landscape_16_9
+      seed: 42
+  - id: glyphs-profiles
+    start: 84.278
+    duration: 20.096
+    narration: Vector glyphs render per-atom force, velocity, and dipole arrows as camera-facing ribbon impostors, with p95 auto-scaling and magnitude colormaps. A fix ave/chunk parser replays spatial temperature, density, and velocity profiles in lockstep with the trajectory—the view transport-studies researchers actually need.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Minimal editorial illustration of a refrigerant simulation box filled with colored per-atom vector arrows for force, velocity, and dipole, plus a synchronized spatial temperature-profile strip scrolling beside a trajectory scrubber, warm cream paper background #faf9f6, indigo accent lines #3d4db3, clean vector style, no text, 16:9
+      size: landscape_16_9
+      seed: 42
+  - id: correction-verification
+    start: 104.374
+    duration: 23.286
+    narration: Inspectable trajectories feed directly into the correction-and-verification layer. The correction recovers trustworthy barriers and lifetimes in under-coordinated environments, while the verification layer separates supported predictions from synthesis-dependent ones. Screening stops chasing false winners and starts sending laboratories candidates they can trust.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      prompt: |
+        Minimal editorial illustration of a pipeline flowing from a raw molecular trajectory through a correction field into a proof gate, claim stamps reading supported and synthesis-dependent, a short experimental queue of candidate molecules brightening at the end, warm cream paper background #faf9f6, indigo accent lines #3d4db3, clean vector style, no text, 16:9
+      size: landscape_16_9
+      seed: 42

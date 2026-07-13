@@ -1,0 +1,41 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:11.888
+The gap between a climate target and an actual climate solution is usually a material. And 5 missing materials could unlock between 5 and 12 gigatons of carbon dioxide reductions every year.
+
+2
+00:00:11.888 --> 00:00:23.908
+So, what are they? First, cobalt-free cathodes that push past a thousand charge cycles without voltage fade. Second, solid electrolytes made from abundant elements, so lithium metal batteries can pass
+
+3
+00:00:23.908 --> 00:00:38.966
+400 Wh per kilogram without flammable liquid or critical material pricing. Third, metal organic frameworks for direct air capture. They need to grab carbon dioxide at just 400 PPM, ignore all that competing water,
+
+4
+00:00:38.966 --> 00:00:48.106
+survive humidity, and stay cheap enough to manufacture by the ton. Fourth, an ammonia catalyst that works near room conditions instead of inside the energy-hungry
+
+5
+00:00:48.106 --> 00:01:01.368
+Haber-Bosch process. And fifth, a lead-free perovskite solar absorber that can clear 20% efficiency and last 25 years without tin oxidizing in minutes. Different industries, one shared failure.
+
+6
+00:01:01.368 --> 00:01:13.256
+Performance depends on defects, surfaces, and atomic transition states where atoms have fewer neighbors. That is exactly where fast universal models soften the energy landscape and get the
+
+7
+00:01:13.256 --> 00:01:25.302
+ranking wrong. Brute force quantum calculations can recover the answer, but they are far too slow for millions or trillions of candidates. A 100 millielectron volt error can change a
+
+8
+00:01:25.302 --> 00:01:35.843
+predicted hopping rate 50-fold. The correction measures that systematic error as a physical field corrects it while the model runs and checks the result with machine-verified proofs.
+
+9
+00:01:35.843 --> 00:01:48.047
+Good candidates move up. Bad ones fall away. And when a prediction leaves the field's measured domain, the system can refuse to pretend. Five materials, one correction layer,
+
+10
+00:01:48.047 --> 00:01:52.274
+and a path from plausible crystals to climate hardware that can actually scale.

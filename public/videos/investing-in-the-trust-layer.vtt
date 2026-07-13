@@ -1,139 +1,41 @@
 WEBVTT
 
 1
-00:00:00.030 --> 00:00:03.230
-Materials discovery can now imagine millions of crystals.
+00:00:00.000 --> 00:00:13.251
+Materials discovery can now imagine millions of crystals. Google DeepMind's GNoME proposed 2.2 million. But by late 2023, only 736 had been independently synthesized.
 
 2
-00:00:03.230 --> 00:00:06.030
-Google DeepMind's GNoME proposed 2.2 million.
+00:00:13.251 --> 00:00:28.814
+The scarce resource is no longer prediction. It is trust. Every stage leaks. Generators omit complex material classes. Universal machine-learned potentials are least reliable at surfaces, vacancies, and defects.
 
 3
-00:00:06.030 --> 00:00:10.030
-But by late 2023, only 736 had been independently synthesized.
+00:00:28.814 --> 00:00:51.029
+And laboratories inherit every upstream error. More activity does not automatically produce more validated materials. The correction layer sits between prediction and synthesis. It measures a predictor's systematic error as a physical field over local atomic environments, corrects that error at runtime, and proves which claims remain inside the evidence boundary.
 
 4
-00:00:10.030 --> 00:00:12.830
-The scarce resource is no longer prediction.
+00:00:51.029 --> 00:01:05.393
+The field is fixed by three standard observables. A fourth surface is held back as a blind test. Across 36 model-and-material combinations, predicted and measured errors correlate at zero point nine oh six, with zero adjustable parameters.
 
 5
-00:00:12.830 --> 00:00:14.030
-It is trust.
+00:01:05.393 --> 00:01:19.464
+Quantitative claims are then sealed as Lean 4 theorems with hash-locked provenance. The proof layer has 190 build-locked theorems and zero unfinished proofs. It once rejected a rounded success count, changing 27 improvements to 26.
 
 6
-00:00:14.030 --> 00:00:15.253
-Every stage leaks.
+00:01:19.464 --> 00:01:32.532
+Trust means being able to say no to yourself. The correction deploys beside existing CHGNet or MACE calculators as a LAMMPS overlay. In Python, measured overhead is 15.6 percent.
 
 7
-00:00:15.253 --> 00:00:17.291
-Generators omit complex material classes.
+00:01:32.532 --> 00:01:52.351
+On a blind nickel surface, relative error fell from 9.7 percent to 1.5 percent. Users keep their simulators. The correction makes them more trustworthy. Better materials infrastructure is estimated to create 123 to 270 billion dollars in annual value for United States industry.
 
 8
-00:00:17.291 --> 00:00:21.775
-Universal machine-learned potentials are least reliable at surfaces, vacancies, and defects.
+00:01:52.351 --> 00:02:04.982
+Against that scale, the 36-month budget is about 3.2 million dollars. The investment is not a bet on one material. It is leverage across every screened material.
 
 9
-00:00:21.775 --> 00:00:24.221
-And laboratories inherit every upstream error.
+00:02:04.982 --> 00:02:19.165
+The face-centered-cubic field is established. Other structure families and industrial validation remain open work, with explicit go-or-no-go gates. That honesty is the product. The world does not need more predicted crystals.
 
 10
-00:00:24.221 --> 00:00:27.890
-More activity does not automatically produce more validated materials.
-
-11
-00:00:27.890 --> 00:00:30.020
-Lupine Science sits between prediction and synthesis.
-
-12
-00:00:30.020 --> 00:00:38.540
-It measures a predictor's systematic error as a physical field over local atomic environments,
-corrects that error at runtime, and proves which claims remain inside the evidence boundary.
-
-13
-00:00:38.540 --> 00:00:40.884
-The field is fixed by three standard observables.
-
-14
-00:00:40.884 --> 00:00:43.814
-A fourth surface is held back as a blind test.
-
-15
-00:00:43.814 --> 00:00:49.380
-Across 36 model-and-material combinations, predicted and measured errors correlate
-at zero point nine oh six, with zero adjustable parameters.
-
-16
-00:00:49.380 --> 00:00:53.021
-Quantitative claims are then sealed as Lean 4 theorems with hash-locked provenance.
-
-17
-00:00:53.021 --> 00:00:56.358
-The proof layer has 190 build-locked theorems and zero unfinished proofs.
-
-18
-00:00:56.358 --> 00:00:59.999
-It once rejected a rounded success count, changing 27 improvements to 26.
-
-19
-00:00:59.999 --> 00:01:02.730
-Trust means being able to say no to yourself.
-
-20
-00:01:02.730 --> 00:01:07.144
-The correction deploys beside existing CHGNet
-or MACE calculators as a LAMMPS overlay.
-
-21
-00:01:07.144 --> 00:01:09.861
-In Python, measured overhead is 15.6 percent.
-
-22
-00:01:09.861 --> 00:01:15.294
-On a blind nickel surface, relative error
-fell from 9.7 percent to 1.5 percent.
-
-23
-00:01:15.294 --> 00:01:16.652
-Users keep their simulators.
-
-24
-00:01:16.652 --> 00:01:18.350
-Lupine makes them more trustworthy.
-
-25
-00:01:18.350 --> 00:01:24.818
-Better materials infrastructure is estimated to create 123 to
-270 billion dollars in annual value for United States industry.
-
-26
-00:01:24.818 --> 00:01:28.903
-Against that scale, Lupine's 36-month budget is about 3.2 million dollars.
-
-27
-00:01:28.903 --> 00:01:31.967
-The investment is not a bet on one material.
-
-28
-00:01:31.967 --> 00:01:34.350
-It is leverage across every screened material.
-
-29
-00:01:34.350 --> 00:01:36.076
-The face-centered-cubic field is established.
-
-30
-00:01:36.076 --> 00:01:40.565
-Other structure families and industrial validation
-remain open work, with explicit go-or-no-go gates.
-
-31
-00:01:40.565 --> 00:01:42.291
-That honesty is the product.
-
-32
-00:01:42.291 --> 00:01:45.053
-The world does not need more predicted crystals.
-
-33
-00:01:45.053 --> 00:01:47.470
+00:02:19.165 --> 00:02:22.367
 It needs predictions laboratories can act on.

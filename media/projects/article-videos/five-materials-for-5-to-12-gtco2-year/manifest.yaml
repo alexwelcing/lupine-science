@@ -1,0 +1,78 @@
+slug: five-materials-for-5-to-12-gtco2-year
+script: public/videos/five-materials-for-5-to-12-gtco2-year.vtt
+voice:
+  endpoint: fal-ai/elevenlabs/tts/turbo-v2.5
+  voice: Adam
+  speed: 1
+  seed: 42
+scenes:
+  - id: scene-01
+    start: 0
+    duration: 11.88786176470588
+    narration: The gap between a climate target and an actual climate solution is usually a material. And 5 missing materials could unlock between 5 and 12 gigatons of carbon dioxide reductions every year.
+    visual:
+      type: image
+      prompt: local article image asset
+  - id: scene-02
+    start: 11.88786176470588
+    duration: 12.019949117647059
+    narration: So, what are they? First, cobalt-free cathodes that push past a thousand charge cycles without voltage fade. Second, solid electrolytes made from abundant elements, so lithium metal batteries can pass
+    visual:
+      type: image
+      prompt: local article image asset
+  - id: scene-03
+    start: 23.90781088235294
+    duration: 15.05795823529411
+    narration: 400 Wh per kilogram without flammable liquid or critical material pricing. Third, metal organic frameworks for direct air capture. They need to grab carbon dioxide at just 400 PPM, ignore all that competing water,
+    visual:
+      type: image
+      prompt: local article image asset
+  - id: scene-04
+    start: 38.96576911764705
+    duration: 9.140444823529412
+    narration: survive humidity, and stay cheap enough to manufacture by the ton. Fourth, an ammonia catalyst that works near room conditions instead of inside the energy-hungry
+    visual:
+      type: image
+      prompt: local article image asset
+  - id: scene-05
+    start: 48.10621394117646
+    duration: 13.261570235294114
+    narration: Haber-Bosch process. And fifth, a lead-free perovskite solar absorber that can clear 20% efficiency and last 25 years without tin oxidizing in minutes. Different industries, one shared failure.
+    visual:
+      type: image
+      prompt: local article image asset
+  - id: scene-06
+    start: 61.36778417647058
+    duration: 11.88786176470588
+    narration: Performance depends on defects, surfaces, and atomic transition states where atoms have fewer neighbors. That is exactly where fast universal models soften the energy landscape and get the
+    visual:
+      type: image
+      prompt: local article image asset
+  - id: scene-07
+    start: 73.25564594117645
+    duration: 12.046366588235298
+    narration: ranking wrong. Brute force quantum calculations can recover the answer, but they are far too slow for millions or trillions of candidates. A 100 millielectron volt error can change a
+    visual:
+      type: image
+      prompt: local article image asset
+  - id: scene-08
+    start: 85.30201252941175
+    duration: 10.540570764705867
+    narration: predicted hopping rate 50-fold. The correction measures that systematic error as a physical field corrects it while the model runs and checks the result with machine-verified proofs.
+    visual:
+      type: image
+      prompt: local article image asset
+  - id: scene-09
+    start: 95.84258329411762
+    duration: 12.204871411764715
+    narration: Good candidates move up. Bad ones fall away. And when a prediction leaves the field's measured domain, the system can refuse to pretend. Five materials, one correction layer,
+    visual:
+      type: image
+      prompt: local article image asset
+  - id: scene-10
+    start: 108.04745470588233
+    duration: 4.2267952941176645
+    narration: and a path from plausible crystals to climate hardware that can actually scale.
+    visual:
+      type: image
+      prompt: local article image asset
