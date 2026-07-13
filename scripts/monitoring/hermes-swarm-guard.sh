@@ -95,9 +95,27 @@ if [[ -n "${cpu_high_pids}" ]]; then
   alert "hot hermes processes:${cpu_high_pids}"
 fi
 
-# Always write a one-line status for dashboards
-{
-  echo -n "$(date -Iseconds) STATUS load=${load_1m} mem=${mem_used_pct}% hermes=${hermes_count}"
-  [[ -n "${cpu_high_pids}" ]] && echo -n " hot_pids=${cpu_high_pids}"
-  echo
-} >> "${ALERT_FILE}"
+# After any self-heal attempt, re-check whether the breach persists.
+hermes_count_after=$(pgrep -fc 'hermes -p' || true)
+load_1m_after=$(uptime | awk -F'load average:' '{print $2}' | awk '{print $1}' | tr -d ',')
+mem_used_pct_after=$(free | awk '/Mem:/ {printf "%.1f", $3/$2 * 100.0}')
+
+persisted=0
+if (( hermes_count_after > MAX_HERMES_PROCS )); then
+  alert "hermes worker count still ${hermes_count_after} after culling"
+  persisted=1
+fi
+if awk "BEGIN {exit !(${load_1m_after} > ${MAX_LOAD_1M})}"; then
+  alert "1-min load still ${load_1m_after} after culling"
+  persisted=1
+fi
+if awk "BEGIN {exit !(${mem_used_pct_after} > ${MAX_USED_MEM_PERCENT})}"; then
+  alert "memory used still ${mem_used_pct_after}% after culling"
+  persisted=1
+fi
+
+if [[ "${persisted}" -eq 1 ]]; then
+  exit 1
+fi
+
+exit 0

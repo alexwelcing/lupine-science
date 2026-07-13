@@ -271,6 +271,33 @@ jobs:
           if-no-files-found: error
           retention-days: 90
 
+      - name: Purge Cloudflare cache for custom domain
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          zone_response=$(curl -fsS -X GET "https://api.cloudflare.com/client/v4/zones?name=lupine.science&account.id=${CF_ACCOUNT}" \
+            -H "Authorization: Bearer ${CF_TOKEN}" \
+            -H "Content-Type: application/json")
+          zone_id=$(echo "$zone_response" | jq -r '.result[0].id')
+          if [ -z "$zone_id" ] || [ "$zone_id" = "null" ]; then
+            echo "::error::Could not find Cloudflare zone for lupine.science"
+            echo "$zone_response" | jq . >&2
+            exit 1
+          fi
+          purge_response=$(curl -fsS -X POST "https://api.cloudflare.com/client/v4/zones/${zone_id}/purge_cache" \
+            -H "Authorization: Bearer ${CF_TOKEN}" \
+            -H "Content-Type: application/json" \
+            -d '{"purge_everything":true}')
+          if [ "$(echo "$purge_response" | jq -r '.success')" != "true" ]; then
+            echo "::error::Cache purge failed"
+            echo "$purge_response" | jq . >&2
+            exit 1
+          fi
+          echo "Cloudflare zone cache purged successfully"
+          sleep 10
+
       - name: Smoke test production deployment URL
         env:
           SMOKE_PREVIEW_BASE_URL: ${{ steps.deploy.outputs.url }}

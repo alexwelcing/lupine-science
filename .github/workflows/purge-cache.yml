@@ -1,0 +1,107 @@
+name: Purge Cloudflare cache
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to purge cache for'
+        required: true
+        default: 'production'
+        type: choice
+        options:
+          - production
+          - preview
+      purge_everything:
+        description: 'Purge entire zone cache'
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  purge-cache:
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.event.inputs.environment }}
+    steps:
+      - name: Validate Cloudflare secrets
+        run: |
+          miss=0
+          [ -z "${{ secrets.CLOUDFLARE_API_TOKEN }}" ] && { echo "::error::MISSING SECRET: CLOUDFLARE_API_TOKEN"; miss=1; }
+          [ -z "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}" ] && { echo "::error::MISSING SECRET: CLOUDFLARE_ACCOUNT_ID"; miss=1; }
+          exit $miss
+
+      - name: Look up Cloudflare zone ID
+        id: zone
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          response=$(curl -fsS -X GET "https://api.cloudflare.com/client/v4/zones?name=lupine.science&account.id=${CF_ACCOUNT}" \
+            -H "Authorization: Bearer ${CF_TOKEN}" \
+            -H "Content-Type: application/json")
+          zone_id=$(echo "$response" | jq -r '.result[0].id')
+          zone_name=$(echo "$response" | jq -r '.result[0].name')
+          if [ -z "$zone_id" ] || [ "$zone_id" = "null" ]; then
+            echo "::error::Could not find Cloudflare zone for lupine.science"
+            echo "$response" | jq . >&2
+            exit 1
+          fi
+          echo "zone_id=$zone_id" >> "$GITHUB_OUTPUT"
+          echo "zone_name=$zone_name" >> "$GITHUB_OUTPUT"
+          echo "Found zone $zone_name ($zone_id)"
+
+      - name: Purge Cloudflare cache
+        id: purge
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          ZONE_ID: ${{ steps.zone.outputs.zone_id }}
+          PURGE_EVERYTHING: ${{ github.event.inputs.purge_everything }}
+        run: |
+          set -euo pipefail
+          if [ "$PURGE_EVERYTHING" = "true" ]; then
+            body='{"purge_everything":true}'
+            echo "Purging entire zone cache"
+          else
+            body='{"files":["https://lupine.science/*","https://www.lupine.science/*"]}'
+            echo "Purging specific URLs"
+          fi
+          response=$(curl -fsS -X POST "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/purge_cache" \
+            -H "Authorization: Bearer ${CF_TOKEN}" \
+            -H "Content-Type: application/json" \
+            -d "$body")
+          success=$(echo "$response" | jq -r '.success')
+          if [ "$success" != "true" ]; then
+            echo "::error::Cache purge failed"
+            echo "$response" | jq . >&2
+            exit 1
+          fi
+          echo "Cache purge succeeded"
+          echo "$response" | jq .
+
+      - name: Wait for purge propagation
+        run: |
+          echo "Allowing purge to propagate across edge nodes..."
+          sleep 15
+
+      - name: Verify images serve correct content type
+        env:
+          SMOKE_PRODUCTION_BASE_URL: https://lupine.science
+          SMOKE_ATTEMPTS: '3'
+          SMOKE_DELAY_MS: '5000'
+        run: |
+          set -euo pipefail
+          npm ci --ignore-scripts
+          npm run smoke 2>&1 | tee "$RUNNER_TEMP/smoke-after-purge.log"
+
+      - name: Upload verification log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: purge-cache-verification-${{ github.run_id }}
+          path: ${{ runner.temp }}/smoke-after-purge.log
+          if-no-files-found: ignore
+          retention-days: 7

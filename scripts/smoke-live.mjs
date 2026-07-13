@@ -175,7 +175,8 @@ async function checkUrl(url, { attempts, delayMs, timeoutMs, accept = '*/*' }) {
           signal: AbortSignal.timeout(timeoutMs)
         });
       }
-      lastResult = { ok: response.ok, status: response.status, statusText: response.statusText };
+      const contentType = response.headers.get('content-type') || '';
+      lastResult = { ok: response.ok, status: response.status, statusText: response.statusText, contentType };
     } catch (error) {
       lastResult = { ok: false, status: 0, error: error.message };
     }
@@ -186,7 +187,29 @@ async function checkUrl(url, { attempts, delayMs, timeoutMs, accept = '*/*' }) {
 }
 
 function failureDetail(result) {
-  return result.status ? `HTTP ${result.status}${result.statusText ? ` ${result.statusText}` : ''}` : result.error || 'unreachable';
+  if (result.status) {
+    return `HTTP ${result.status}${result.statusText ? ` ${result.statusText}` : ''}${result.contentType ? ` (${result.contentType})` : ''}`;
+  }
+  return result.error || 'unreachable';
+}
+
+function expectedContentType(kind, url) {
+  if (kind === 'image') return 'image/';
+  if (kind === 'video link') return 'video/';
+  if (kind === 'download link' || kind === 'linked file') {
+    if (/\.(?:mp4|webm|mov|mkv)(?:[?#]|$)/i.test(url)) return 'video/';
+    return null; // downloads can vary; just ensure not text/html
+  }
+  return null;
+}
+
+function contentTypeMismatch(kind, url, contentType) {
+  const expected = expectedContentType(kind, url);
+  if (!expected) return false;
+  if (contentType.includes(expected)) return false;
+  if (expected === 'image/' && contentType.includes('text/html')) return true;
+  if (expected === 'video/' && contentType.includes('text/html')) return true;
+  return false;
 }
 
 export async function runSmokeSuite({ baseUrl, paths, attempts = 1, delayMs = 0, timeoutMs = 10_000 }) {
@@ -237,14 +260,21 @@ export async function runSmokeSuite({ baseUrl, paths, attempts = 1, delayMs = 0,
     for (const resource of resources) {
       assetsChecked.add(resource.url);
       const result = await checkUrl(resource.url, { attempts, delayMs, timeoutMs });
+      let kind = resource.kind;
+      if (kind === 'linked file') {
+        kind = /\.(?:mp4|webm|mov|mkv)(?:[?#]|$)/i.test(resource.url) ? 'video link' : 'download link';
+      }
       if (!result.ok) {
-        let kind = resource.kind;
-        if (kind === 'linked file') {
-          kind = /\.(?:mp4|webm|mov|mkv)(?:[?#]|$)/i.test(resource.url) ? 'video link' : 'download link';
-        }
         failures.push({
           url: resource.url,
           message: `${kind} broken: ${failureDetail(result)} (${resource.url})`
+        });
+        continue;
+      }
+      if (contentTypeMismatch(kind, resource.url, result.contentType)) {
+        failures.push({
+          url: resource.url,
+          message: `${kind} served wrong content-type: ${failureDetail(result)} — likely stale SPA fallback cache`
         });
       }
     }

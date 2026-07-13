@@ -340,35 +340,39 @@ if (history.length >= 6) {
 fs.mkdirSync(LOG_DIR, { recursive: true });
 fs.writeFileSync(REPORT_FILE, JSON.stringify(report, null, 2));
 
-console.log(`=== Laptop diagnostics at ${report.timestamp} ===`);
-console.log(`CPU: ${cpuCount} cores · load ${loadAvg[0].toFixed(2)} / ${loadAvg[1].toFixed(2)} / ${loadAvg[2].toFixed(2)}`);
-console.log(`Memory: ${report.memory.usedGiB.toFixed(2)} / ${report.memory.totalGiB.toFixed(2)} GiB (${memUsedPct.toFixed(1)}%)`);
-console.log(`Swap: ${report.swap.usedGiB.toFixed(2)} / ${report.swap.totalGiB.toFixed(2)} GiB (${swapUsedPct(swapTotal, swapUsed).toFixed(1)}%)`);
-console.log(`Disk /home: ${report.disk.usedGiB.toFixed(2)} / ${report.disk.totalGiB.toFixed(2)} GiB (${diskUsedPct.toFixed(1)}%)`);
-console.log(`Hermes workers: ${hermesPids.length} · gateway: ${gatewayPids.length} proc(s) ${bytesToGiB(gatewayRss).toFixed(2)} GiB · Node: ${nodePids.length} · Chrome/headless: ${chromePids.length} · Playwright: ${playwrightPids.length} · Zombies: ${zombieCount}`);
-if (gpuInfo.length) {
-  for (const g of gpuInfo) {
-    console.log(`GPU ${g.name}: ${g.usedMiB}/${g.totalMiB} MiB · ${g.temperatureC}°C`);
-  }
-}
-if (oomKills.count > 0) {
-  console.log(`OOM killer: ${oomKills.count} recent invocation(s)`);
-}
-if (report.trends) {
-  console.log(`Trends (n=${report.trends.samples}): memory ${report.trends.memory.direction} (${report.trends.memory.delta > 0 ? '+' : ''}${report.trends.memory.delta.toFixed(1)}%) · load ${report.trends.load.direction} (${report.trends.load.delta > 0 ? '+' : ''}${report.trends.load.delta.toFixed(2)}) · swap ${report.trends.swap.direction} (${report.trends.swap.delta > 0 ? '+' : ''}${report.trends.swap.delta.toFixed(1)}%)`);
-}
-console.log(`Report written: ${REPORT_FILE}`);
+const silent = process.env.SILENT === '1';
 
-if (report.alerts.length) {
-  console.log('\nAlerts:');
-  for (const alert of report.alerts) {
-    console.log(`  [${alert.severity.toUpperCase()}] ${alert.metric}: ${alert.value} — ${alert.message}`);
+if (!silent || report.alerts.length > 0) {
+  console.log(`=== Laptop diagnostics at ${report.timestamp} ===`);
+  console.log(`CPU: ${cpuCount} cores · load ${loadAvg[0].toFixed(2)} / ${loadAvg[1].toFixed(2)} / ${loadAvg[2].toFixed(2)}`);
+  console.log(`Memory: ${report.memory.usedGiB.toFixed(2)} / ${report.memory.totalGiB.toFixed(2)} GiB (${memUsedPct.toFixed(1)}%)`);
+  console.log(`Swap: ${report.swap.usedGiB.toFixed(2)} / ${report.swap.totalGiB.toFixed(2)} GiB (${swapUsedPct(swapTotal, swapUsed).toFixed(1)}%)`);
+  console.log(`Disk /home: ${report.disk.usedGiB.toFixed(2)} / ${report.disk.totalGiB.toFixed(2)} GiB (${diskUsedPct.toFixed(1)}%)`);
+  console.log(`Hermes workers: ${hermesPids.length} · gateway: ${gatewayPids.length} proc(s) ${bytesToGiB(gatewayRss).toFixed(2)} GiB · Node: ${nodePids.length} · Chrome/headless: ${chromePids.length} · Playwright: ${playwrightPids.length} · Zombies: ${zombieCount}`);
+  if (gpuInfo.length) {
+    for (const g of gpuInfo) {
+      console.log(`GPU ${g.name}: ${g.usedMiB}/${g.totalMiB} MiB · ${g.temperatureC}°C`);
+    }
   }
-}
+  if (oomKills.count > 0) {
+    console.log(`OOM killer: ${oomKills.count} recent invocation(s)`);
+  }
+  if (report.trends) {
+    console.log(`Trends (n=${report.trends.samples}): memory ${report.trends.memory.direction} (${report.trends.memory.delta > 0 ? '+' : ''}${report.trends.memory.delta.toFixed(1)}%) · load ${report.trends.load.direction} (${report.trends.load.delta > 0 ? '+' : ''}${report.trends.load.delta.toFixed(2)}) · swap ${report.trends.swap.direction} (${report.trends.swap.delta > 0 ? '+' : ''}${report.trends.swap.delta.toFixed(1)}%)`);
+  }
+  console.log(`Report written: ${REPORT_FILE}`);
 
-if (report.recommendations.length) {
-  console.log('\nRecommendations:');
-  for (const rec of report.recommendations) {
-    console.log(`  • ${rec}`);
+  if (report.alerts.length) {
+    console.log('\nAlerts:');
+    for (const alert of report.alerts) {
+      console.log(`  [${alert.severity.toUpperCase()}] ${alert.metric}: ${alert.value} — ${alert.message}`);
+    }
+  }
+
+  if (report.recommendations.length) {
+    console.log('\nRecommendations:');
+    for (const rec of report.recommendations) {
+      console.log(`  • ${rec}`);
+    }
   }
 }
