@@ -45,8 +45,18 @@ echo "--- top memory ---"
 ps -eo pid,pcpu,pmem,comm --sort=-pmem | head -10
 
 echo "--- zombie/high cpu guard ---"
-# Flag any single process >80% CPU or >4 GiB RSS for more than a glance
-high_consumers=$(ps -eo pid,pcpu,pmem,rss,comm --sort=-pcpu | awk 'NR>1 && ($2>80.0 || $4>4194304) {print "ALERT high consumer:", $0}')
+# Flag any single process >80% CPU or >4 GiB RSS for more than a glance.
+# Exclude the sampler processes (ps, awk, bash, sh) — this pipeline is itself a burst
+# of short-lived CPU, so without the filter the guard periodically alerts on its own
+# `ps`/`awk` and trains the reader to ignore it.
+#
+# Both sides of this conflict were real: main captured the output into
+# high_consumers for the exit-status check below, and this branch added the sampler
+# exclusion. Taking the branch alone would have left high_consumers unset, so the
+# `if [[ -n "${high_consumers}" ]]` below could never fire and the alert would be
+# silently dead. Combined deliberately.
+high_consumers=$(ps -eo pid,pcpu,pmem,rss,comm --sort=-pcpu \
+  | awk 'NR>1 && $5 !~ /^(ps|awk|bash|sh)$/ && ($2>80.0 || $4>4194304) {print "ALERT high consumer:", $0}')
 echo "${high_consumers}"
 
 echo ""
