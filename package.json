@@ -6,7 +6,8 @@
   "license": "AGPL-3.0-or-later",
   "description": "Static public front door for lupine.science",
   "scripts": {
-    "build": "node scripts/build-articles.mjs && node scripts/build-sitemap.mjs && node scripts/build-headers.mjs",
+    "build": "node scripts/build-articles.mjs && node scripts/build-sitemap.mjs && node scripts/build-headers.mjs && node scripts/build-result-graphics.mjs",
+    "build:graphics": "node scripts/build-result-graphics.mjs",
     "lint": "node scripts/lint.mjs",
     "typecheck": "node scripts/typecheck.mjs",
     "test": "node --test \"tests/**/*.test.mjs\"",

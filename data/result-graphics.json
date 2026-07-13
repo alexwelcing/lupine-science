@@ -1,0 +1,77 @@
+{
+  "version": "2026-07-13",
+  "description": "Data-driven result graphics for Lupine Science articles and decks. Rendered as brand-compliant SVGs.",
+  "graphics": [
+    {
+      "id": "gwp-comparison",
+      "title": "Refrigerant 100-year GWP",
+      "subtitle": "IPCC AR6 · mass basis, CO₂ = 1",
+      "width": 800,
+      "height": 450,
+      "type": "bar",
+      "data": [
+        { "label": "CO₂", "value": 1, "category": "reference" },
+        { "label": "R32", "value": 771, "category": "low-gwp" },
+        { "label": "R410A", "value": 2256, "category": "current" },
+        { "label": "R125", "value": 3620, "category": "current" },
+        { "label": "R134a", "value": 1530, "category": "current" }
+      ],
+      "yAxis": { "label": "Global warming potential (GWP100)" },
+      "source": "IPCC AR6 WGI Table 7.SM.7",
+      "note": "Lower-GWP refrigerants reduce the non-CO₂ climate forcing from cooling without changing the thermodynamic cycle."
+    },
+    {
+      "id": "climate-forcers-share",
+      "title": "Anthropogenic radiative forcing",
+      "subtitle": "Share by agent · 1750–2019",
+      "width": 800,
+      "height": 450,
+      "type": "stacked-bar",
+      "unit": "W m⁻²",
+      "data": [
+        { "label": "CO₂", "value": 2.16, "category": "co2" },
+        { "label": "CH₄", "value": 0.54, "category": "methane" },
+        { "label": "Halocarbons", "value": 0.41, "category": "halocarbon" },
+        { "label": "N₂O", "value": 0.21, "category": "n2o" }
+      ],
+      "source": "IPCC AR6 WGI Summary for Policymakers, Figure SPM.2",
+      "note": "Non-CO₂ agents are ~35% of total anthropogenic forcing; cutting them is the fastest lever for near-term warming."
+    },
+    {
+      "id": "synthesis-funnel",
+      "title": "From predicted crystal to commercial cell",
+      "subtitle": "The 0.2% synthesis funnel",
+      "width": 800,
+      "height": 450,
+      "type": "funnel",
+      "data": [
+        { "label": "Structures generated", "value": 100000, "share": 100 },
+        { "label": "Thermodynamically stable", "value": 33000, "share": 33 },
+        { "label": "Synthesizable in principle", "value": 1200, "share": 1.2 },
+        { "label": "Experimentally validated", "value": 200, "share": 0.2 },
+        { "label": "Commercially viable", "value": 20, "share": 0.02 }
+      ],
+      "source": "Lupine Science analysis; see The 0.2% Synthesis Problem",
+      "note": "The bottleneck is not generation; it is validated synthesis under real conditions."
+    },
+    {
+      "id": "lean-theorem-growth",
+      "title": "Build-locked theorem inventory",
+      "subtitle": "Climate-series formalization",
+      "width": 800,
+      "height": 450,
+      "type": "line",
+      "data": [
+        { "label": "2026-07-02", "value": 78 },
+        { "label": "2026-07-10", "value": 150 },
+        { "label": "2026-07-10", "value": 170 },
+        { "label": "2026-07-11", "value": 190 },
+        { "label": "2026-07-11", "value": 200 },
+        { "label": "2026-07-11", "value": 262 }
+      ],
+      "yAxis": { "label": "Theorems" },
+      "source": "Lupine Rhizo Lean 4 build locks",
+      "note": "Each jump corresponds to a merged formalization module: climate physics, measured fields, anchor laws."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-labelledby="lean-theorem-growth-title">
+  <title id="lean-theorem-growth-title">Build-locked theorem inventory</title>
+  <rect width="800" height="450" fill="#faf9f6"/>
+  <text x="64" y="42" font-family="Newsreader, Georgia, serif" font-size="22" fill="#16171d" font-weight="500">Build-locked theorem inventory</text>
+  <text x="64" y="64" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="11" fill="#6e707a" text-transform="uppercase" letter-spacing="0.06em">Climate-series formalization</text>
+  <g transform="translate(64,80)">
+    <line x1="0" y1="270" x2="696" y2="270" stroke="#e2dfd4" stroke-width="1"/>
+    <line x1="0" y1="0" x2="0" y2="270" stroke="#e2dfd4" stroke-width="1"/>
+    <path d="M 0.00 243.00 L 139.20 158.48 L 278.40 135.00 L 417.60 111.52 L 556.80 99.78 L 696.00 27.00" fill="none" stroke="#3d4db3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="0.00" cy="243.00" r="4" fill="#faf9f6" stroke="#3d4db3" stroke-width="2"/>
+    <text x="0.00" y="231.00" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="10" fill="#4c4e58">78</text>
+    <circle cx="139.20" cy="158.48" r="4" fill="#faf9f6" stroke="#3d4db3" stroke-width="2"/>
+    <text x="139.20" y="146.48" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="10" fill="#4c4e58">150</text>
+    <circle cx="278.40" cy="135.00" r="4" fill="#faf9f6" stroke="#3d4db3" stroke-width="2"/>
+    <text x="278.40" y="123.00" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="10" fill="#4c4e58">170</text>
+    <circle cx="417.60" cy="111.52" r="4" fill="#faf9f6" stroke="#3d4db3" stroke-width="2"/>
+    <text x="417.60" y="99.52" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="10" fill="#4c4e58">190</text>
+    <circle cx="556.80" cy="99.78" r="4" fill="#faf9f6" stroke="#3d4db3" stroke-width="2"/>
+    <text x="556.80" y="87.78" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="10" fill="#4c4e58">200</text>
+    <circle cx="696.00" cy="27.00" r="4" fill="#faf9f6" stroke="#3d4db3" stroke-width="2"/>
+    <text x="696.00" y="15.00" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="10" fill="#4c4e58">262</text>
+  </g>
+  <text x="64" y="422" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="9" fill="#6e707a">Source: Lupine Rhizo Lean 4 build locks</text>
+  <text x="64" y="436" font-family="Newsreader, Georgia, serif" font-size="10" fill="#4c4e58" font-style="italic">Each jump corresponds to a merged formalization module: climate physics, measured fields, anchor laws.</text>
+</svg>

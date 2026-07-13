@@ -10,8 +10,8 @@ Carbon dioxide gets the headline, but the next decade of climate leverage is inc
 
 The latest commit to [`lupine-rhizo`](https://github.com/alexwelcing/lupine-rhizo) adds a `ClimateForcers.lean` module that formalizes the IPCC AR6 global warming potential tables and lifetime bounds for CO₂, CH₄, N₂O, HFC-134a, HFC-410A, and SF₆ inside Lean 4. A companion validation module proves two concrete claims: the emissions avoided by fixing a heat-pump refrigerant leak, and the savings from substituting a low-GWP refrigerant for a high-GWP one.
 
-![Lupine Rhizo formalization status](/og-mof-formalization.png)
-*The `lupine-rhizo` build now carries 289 theorems with zero `sorry`. Source: Lupine Rhizo continuous verification report, 2026-07-12.*
+![Anthropogenic radiative forcing share by agent, 1750–2019](/result-graphics/climate-forcers-share.svg)
+*Non-CO₂ agents account for roughly 35% of total anthropogenic radiative forcing. Source: IPCC AR6 WGI Summary for Policymakers, Figure SPM.2.*
 
 ## Why formalize climate forcers?
 
