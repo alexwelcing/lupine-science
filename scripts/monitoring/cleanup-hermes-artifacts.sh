@@ -75,6 +75,25 @@ for f in "$LOG_DIR"/*.log; do
   fi
 done
 
+# Terminate stale headless Chrome shells left behind by HyperFrames / Playwright.
+# Only target chrome-headless-shell processes older than 6 hours; never kill a
+# user's interactive Chrome browser.
+STALE_CHROME_MINUTES=360
+stale_chrome_pids=$(ps -eo pid,etimes,comm | awk -v min="$STALE_CHROME_MINUTES" '$3 == "chrome-headless" && $2 > min*60 {print $1}')
+if [ -n "$stale_chrome_pids" ]; then
+  stale_count=$(echo "$stale_chrome_pids" | wc -l)
+  for pid in $stale_chrome_pids; do
+    kill -TERM "$pid" 2>/dev/null || true
+  done
+  sleep 2
+  for pid in $stale_chrome_pids; do
+    if kill -0 "$pid" 2>/dev/null; then
+      kill -9 "$pid" 2>/dev/null || true
+    fi
+  done
+  log "terminated ${stale_count} stale chrome-headless process(es) older than ${STALE_CHROME_MINUTES}m"
+fi
+
 # Trim npm/pip caches if disk pressure > 90%.
 home_usage=$(df -h "$HOME" | awk 'NR==2 {gsub(/%/,""); print $5}')
 if [ "$home_usage" -gt 90 ] 2>/dev/null; then
