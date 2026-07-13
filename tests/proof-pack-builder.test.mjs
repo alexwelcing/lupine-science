@@ -7,6 +7,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { validateProofPack } from '../scripts/validate-proofpack.mjs';
 import { inspectPdf } from '../scripts/check-pdf.mjs';
+import { generateProofPack, listEligibleArticles } from '../lib/proof-pack-generator.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SCRIPT = path.join(ROOT, 'scripts', 'build-proofpack.mjs');
@@ -48,6 +49,39 @@ describe('proof-pack builder CLI', () => {
     assert.equal(result.status, 0, result.stderr);
     assert.ok(fs.existsSync(PDF_PATH), 'PDF should exist');
     assert.ok(fs.existsSync(MANIFEST_PATH), 'manifest should exist');
+  });
+});
+
+describe('proof-pack generator API', () => {
+  it('lists eligible articles in stable slug order', () => {
+    const articles = listEligibleArticles();
+    assert.ok(articles.length > 0);
+    assert.deepEqual(
+      articles.map(({ slug }) => slug),
+      articles.map(({ slug }) => slug).toSorted()
+    );
+    assert.ok(articles.some(({ slug }) => slug === SLUG));
+  });
+
+  it('generates exactly one PDF and sibling manifest for an eligible article', async () => {
+    const outDir = path.join(ROOT, '.proofpack-api-test');
+    fs.rmSync(outDir, { recursive: true, force: true });
+    try {
+      const result = await generateProofPack({ slug: SLUG }, { outDir });
+      assert.equal(result.slug, SLUG);
+      assert.equal(path.dirname(result.pdfPath), outDir);
+      assert.equal(path.dirname(result.manifestPath), outDir);
+      assert.ok(fs.existsSync(result.pdfPath));
+      assert.ok(fs.existsSync(result.manifestPath));
+      assert.deepEqual(
+        fs.readdirSync(outDir).toSorted(),
+        [`${SLUG}.proofpack.json`, `${SLUG}.proofpack.pdf`]
+      );
+      const manifest = JSON.parse(fs.readFileSync(result.manifestPath, 'utf8'));
+      assert.equal(manifest.generatedAt, '2026-07-09T00:00:00.000Z');
+    } finally {
+      fs.rmSync(outDir, { recursive: true, force: true });
+    }
   });
 });
 

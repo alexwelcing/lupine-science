@@ -295,6 +295,20 @@ function findEligibleSlugs() {
   return slugs.sort();
 }
 
+export function listEligibleArticles() {
+  return findEligibleSlugs().map((slug) => {
+    const articlePath = path.join(PUBLIC, 'articles', slug, 'index.html');
+    const { manifest } = loadManifest(slug);
+    const articleMeta = extractArticleMeta(fs.readFileSync(articlePath, 'utf8'), slug);
+    return {
+      slug,
+      title: manifest.metadata.title || articleMeta.title,
+      date: manifest.metadata.date || articleMeta.date,
+      articlePath,
+    };
+  });
+}
+
 function loadManifest(slug) {
   const manifestPath = path.join(PUBLIC, 'articles', slug, `${slug}.proofpack.json`);
   const raw = fs.readFileSync(manifestPath, 'utf8');
@@ -473,7 +487,7 @@ async function buildPerArticle(browser, slug, outDir, baseUrl) {
 
   const outputManifest = {
     schemaVersion: '1.0.0',
-    generatedAt: new Date().toISOString(),
+    generatedAt: new Date(`${manifest.metadata.date}T00:00:00Z`).toISOString(),
     build: {
       script: 'scripts/build-proofpack.mjs',
       mode: 'per-article',
@@ -708,6 +722,29 @@ async function buildConsolidated(browser, baseUrl) {
   }
 }
 
+export async function generateProofPack(article, { outDir = DEFAULT_OUT_DIR } = {}) {
+  const slug = typeof article === 'string' ? article : article?.slug;
+  if (!slug) throw new TypeError('article must be a slug string or an object with a slug');
+  if (!findEligibleSlugs().includes(slug)) {
+    throw new Error(`article is not eligible for a proof pack: ${slug}`);
+  }
+
+  const resolvedOutDir = path.resolve(outDir);
+  fs.mkdirSync(resolvedOutDir, { recursive: true });
+  const { server, baseUrl } = await startServer();
+  let browser;
+  try {
+    browser = await chromium.launch({ headless: true });
+    return await buildPerArticle(browser, slug, resolvedOutDir, baseUrl);
+  } finally {
+    if (browser) await browser.close();
+    await new Promise((resolve, reject) => {
+      server.close((error) => error ? reject(error) : resolve());
+    });
+    fs.rmSync(path.join(PUBLIC, '.proofpack-render'), { recursive: true, force: true });
+  }
+}
+
 // --------------------------------------------------------------------------
 // CLI
 // --------------------------------------------------------------------------
@@ -788,7 +825,9 @@ async function main() {
   }
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}

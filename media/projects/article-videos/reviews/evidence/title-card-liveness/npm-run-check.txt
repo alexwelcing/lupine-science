@@ -1,0 +1,145 @@
+$ npm run check
+
+> check
+> for d in components/*/; do echo ">>> $d"; (cd "$d" && npm run check) || exit 1; done
+
+>>> components/data-chart/
+
+> check
+> npm run prepare-fixtures && for target in . fixtures/line fixtures/points; do echo ">>> $target"; npx --yes hyperframes@0.7.48 lint "$target" && npx --yes hyperframes@0.7.48 validate "$target" && npx --yes hyperframes@0.7.48 inspect "$target" --at 0.3,0.9,1.6,2.8,5.8 --strict || exit 1; done
+
+
+> prepare-fixtures
+> rm -rf compositions assets fixtures/line/compositions fixtures/line/assets fixtures/points/compositions fixtures/points/assets && mkdir -p compositions fixtures/line/compositions fixtures/points/compositions && cp ../../compositions/data-chart.html ../../compositions/data-chart.motion.json compositions/ && cp -R ../../assets assets && cp compositions/data-chart.html compositions/data-chart.motion.json fixtures/line/compositions/ && cp compositions/data-chart.html compositions/data-chart.motion.json fixtures/points/compositions/ && cp -R assets fixtures/line/assets && cp -R assets fixtures/points/assets
+
+>>> .
+◆  Linting data-chart/2 files
+
+  ⚠ [compositions/data-chart.html] composition_file_too_large: This HTML composition file has 403 lines. Smaller sub-compositions are easier to read, iterate on, and diff.
+    Fix: Split this sub-composition further into smaller .html files, then mount them from the parent with data-composition-src so each file stays small enough to inspect, revise, and validate independently.
+
+◇  0 error(s), 1 warning(s)
+◆  Validating data-chart in headless Chrome
+◇  No console errors · 71 text elements pass WCAG AA
+◆  Inspecting layout for data-chart (5 explicit timestamp(s))
+
+◇  0 layout issues across 5 sample(s)
+>>> fixtures/line
+◆  Linting line/2 files
+
+  ⚠ [compositions/data-chart.html] composition_file_too_large: This HTML composition file has 403 lines. Smaller sub-compositions are easier to read, iterate on, and diff.
+    Fix: Split this sub-composition further into smaller .html files, then mount them from the parent with data-composition-src so each file stays small enough to inspect, revise, and validate independently.
+
+◇  0 error(s), 1 warning(s)
+◆  Validating line in headless Chrome
+◇  No console errors · 71 text elements pass WCAG AA
+◆  Inspecting layout for line (5 explicit timestamp(s))
+
+◇  0 layout issues across 5 sample(s)
+>>> fixtures/points
+◆  Linting points/2 files
+
+  ⚠ [compositions/data-chart.html] composition_file_too_large: This HTML composition file has 403 lines. Smaller sub-compositions are easier to read, iterate on, and diff.
+    Fix: Split this sub-composition further into smaller .html files, then mount them from the parent with data-composition-src so each file stays small enough to inspect, revise, and validate independently.
+
+◇  0 error(s), 1 warning(s)
+◆  Validating points in headless Chrome
+◇  No console errors · 71 text elements pass WCAG AA
+◆  Inspecting layout for points (5 explicit timestamp(s))
+
+◇  0 layout issues across 5 sample(s)
+>>> components/title-card/
+
+> check
+> npm run prepare-fixtures && npm run check:default && npm run check:fixtures
+
+
+> prepare-fixtures
+> rm -rf compositions assets fixtures/*/compositions fixtures/*/assets fixtures/*/motion-harness && mkdir -p compositions && cp ../../compositions/title-card.html ../../compositions/title-card.motion.json compositions/ && cp -R ../../assets assets
+
+
+> check:default
+> npx --yes hyperframes@0.7.48 lint && npx --yes hyperframes@0.7.48 validate && npx --yes hyperframes@0.7.48 inspect --at-transitions --strict
+
+◆  Linting title-card/2 files
+
+◇  0 errors, 0 warnings
+◆  Validating title-card in headless Chrome
+◇  No console errors · 34 text elements pass WCAG AA
+◆  Inspecting layout for title-card (9 timeline samples + transition boundaries)
+
+◇  0 layout issues across 52 sample(s)
+
+> check:fixtures
+> for fixture in fixtures/*; do echo ">>> $fixture"; rm -rf "$fixture/compositions" "$fixture/assets"; mkdir -p "$fixture/compositions"; cp compositions/title-card.html compositions/title-card.motion.json "$fixture/compositions/"; cp -R assets "$fixture/assets"; node scripts/prepare-motion-harness.mjs "$fixture"; npx --yes hyperframes@0.7.48 lint "$fixture" && npx --yes hyperframes@0.7.48 validate "$fixture" && npx --yes hyperframes@0.7.48 inspect "$fixture" --at 1.8,5.8 --strict && npx --yes hyperframes@0.7.48 lint "$fixture/motion-harness" && npx --yes hyperframes@0.7.48 validate "$fixture/motion-harness" && npx --yes hyperframes@0.7.48 inspect "$fixture/motion-harness" --strict || exit 1; done
+
+>>> fixtures/combined-worst-case
+◆  Linting combined-worst-case/2 files
+
+◇  0 errors, 0 warnings
+◆  Validating combined-worst-case in headless Chrome
+◇  No console errors · 34 text elements pass WCAG AA
+◆  Inspecting layout for combined-worst-case (2 explicit timestamp(s))
+
+◇  0 layout issues across 2 sample(s)
+◆  Linting motion-harness/index.html
+
+◇  0 errors, 0 warnings
+◆  Validating motion-harness in headless Chrome
+◇  No console errors · 34 text elements pass WCAG AA
+◆  Inspecting layout for motion-harness (9 timeline samples + motion spec (10 assertion(s)))
+
+◇  0 layout issues across 9 sample(s)
+>>> fixtures/default
+◆  Linting default/2 files
+
+◇  0 errors, 0 warnings
+◆  Validating default in headless Chrome
+◇  No console errors · 34 text elements pass WCAG AA
+◆  Inspecting layout for default (2 explicit timestamp(s))
+
+◇  0 layout issues across 2 sample(s)
+◆  Linting motion-harness/index.html
+
+◇  0 errors, 0 warnings
+◆  Validating motion-harness in headless Chrome
+◇  No console errors · 34 text elements pass WCAG AA
+◆  Inspecting layout for motion-harness (9 timeline samples + motion spec (10 assertion(s)))
+
+◇  0 layout issues across 9 sample(s)
+>>> fixtures/long-deck
+◆  Linting long-deck/2 files
+
+◇  0 errors, 0 warnings
+◆  Validating long-deck in headless Chrome
+◇  No console errors · 34 text elements pass WCAG AA
+◆  Inspecting layout for long-deck (2 explicit timestamp(s))
+
+◇  0 layout issues across 2 sample(s)
+◆  Linting motion-harness/index.html
+
+◇  0 errors, 0 warnings
+◆  Validating motion-harness in headless Chrome
+◇  No console errors · 34 text elements pass WCAG AA
+◆  Inspecting layout for motion-harness (9 timeline samples + motion spec (10 assertion(s)))
+
+◇  0 layout issues across 9 sample(s)
+>>> fixtures/long-title
+◆  Linting long-title/2 files
+
+◇  0 errors, 0 warnings
+◆  Validating long-title in headless Chrome
+◇  No console errors · 34 text elements pass WCAG AA
+◆  Inspecting layout for long-title (2 explicit timestamp(s))
+
+◇  0 layout issues across 2 sample(s)
+◆  Linting motion-harness/index.html
+
+◇  0 errors, 0 warnings
+◆  Validating motion-harness in headless Chrome
+◇  No console errors · 34 text elements pass WCAG AA
+◆  Inspecting layout for motion-harness (9 timeline samples + motion spec (10 assertion(s)))
+
+◇  0 layout issues across 9 sample(s)
+
+EXIT_CODE=0

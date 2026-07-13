@@ -16,6 +16,8 @@ Command:
 
 Result: exit 0.
 
+Full transcript: `reviews/evidence/title-card-liveness/npm-run-check.txt`.
+
 For all four fixtures (`combined-worst-case`, `default`, `long-deck`, `long-title`):
 
 - mounted fixture lint: 0 errors, 0 warnings;
@@ -36,6 +38,11 @@ Temporary control applied only to `fixtures/default/motion-harness/index.motion.
 - result: exit 1 with `motion_selector_missing .definitely-missing` and one error;
 - restored the real sidecar;
 - reran the same strict inspect command; result: exit 0 with 0 layout issues across 9 samples.
+
+Saved transcripts:
+
+- failing control: `reviews/evidence/title-card-liveness/negative-control.txt` (`EXIT_CODE=1`);
+- restored assertion: `reviews/evidence/title-card-liveness/positive-control.txt` (`EXIT_CODE=0`).
 
 ## Re-review request
 

@@ -1,0 +1,6 @@
+$ npx --yes hyperframes@0.7.48 inspect fixtures/default/motion-harness --strict
+◆  Inspecting layout for motion-harness (9 timeline samples + motion spec (10 assertion(s)))
+
+◇  0 layout issues across 9 sample(s)
+
+EXIT_CODE=0

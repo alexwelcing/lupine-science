@@ -96,6 +96,7 @@ A proof pack is now produced per eligible article from a sibling manifest file:
   - `npm run proofpack:all` — one PDF + JSON manifest per eligible article.
   - `npm run proofpack:slug -- <slug>` — one article only.
   - `npm run proofpack:validate -- <manifest.json>` — validate a manifest.
+- Programmatic consumers import `generateProofPack(article, options)` and `listEligibleArticles()` from `lib/proof-pack-generator.mjs`. `article` may be an eligible slug or an object with a `slug`; `options.outDir` controls the directory containing the single PDF and its sibling manifest.
 - Per-article outputs land in `public/proof-packs/<slug>.proofpack.pdf` with a sibling `<slug>.proofpack.json` manifest containing content-addressed input checksums and the output PDF checksum.
 - The builder renders `public/proof-pack-template/index.html` populated from the manifest, serves `public/` locally, prints to Letter with Playwright, waits for fonts and images, normalizes PDF metadata/timestamps to the manifest date, and removes stale outputs on `--all`.
-- Byte-identical reproducibility is not guaranteed across Chromium runs, so determinism is verified by semantic comparison: repeated builds produce identical `pdftotext -layout` output and identical input/output checksums in the manifest.
+- Output manifests use the article publication date rather than wall-clock time. Byte-identical reproducibility is not assumed across Chromium versions or platforms, so the portable golden strategy compares `pdftotext -layout` output, content-addressed input checksums, PDF page/font properties, and the normalized PDF checksum when the renderer version is held constant.
