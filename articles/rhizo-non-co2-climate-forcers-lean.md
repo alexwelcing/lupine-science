@@ -34,8 +34,8 @@ The module does not replace the IPCC tables; it commits to them. The theorems re
 
 Both proofs are checked by `lake build` with no `sorry` axioms. The full library now stands at 289 theorems across 51 modules, with certificate gates for field-domain, ranking-inversion, and barrier-conservatism claims wired into the policy engine.
 
-## How this connects to materials discovery
+## Implications for materials discovery
 
-The same forcer accounting underpins the methane-to-methanol, refrigerant-substitution, and cement chemistry articles already published on Lupine Science. When a candidate material is screened, its predicted impact must eventually be expressed in the same climate units as the policy target. Formalized forcer accounting closes the loop: a verified correction of a catalyst barrier or a refrigerant property can be propagated into a machine-checked climate claim.
+The same forcer accounting underpins previously published methane-to-methanol, refrigerant-substitution, and cement chemistry articles. When a candidate material is screened, its predicted impact must eventually be expressed in the same climate units as the policy target. Formalized forcer accounting closes the loop: a verified correction of a catalyst barrier or a refrigerant property can be propagated into a machine-checked climate claim.
 
 The `lupine-rhizo` repository is open at [github.com/alexwelcing/lupine-rhizo](https://github.com/alexwelcing/lupine-rhizo). The compiled library is browsable at [library.lupine.science](https://library.lupine.science).

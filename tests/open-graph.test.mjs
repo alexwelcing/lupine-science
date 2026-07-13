@@ -40,7 +40,7 @@ describe('article Open Graph metadata', () => {
     const html = readArticle('the-02-percent-synthesis-problem');
 
     assert.match(html, /<meta property="og:title" content="The 0\.2% Synthesis Problem — Lupine Science">/);
-    assert.match(html, /<meta property="og:description" content="An honest look at the 0\.2% validation rate/);
+    assert.match(html, /<meta property="og:description" content="A review of the 0\.2% validation rate/);
     assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/videos\/the-02-percent-synthesis-problem-poster\.jpg\?v=2">/);
     assert.match(html, /<meta property="og:url" content="https:\/\/lupine\.science\/articles\/the-02-percent-synthesis-problem\/">/);
     assert.match(html, /<meta property="og:type" content="video\.other">/);

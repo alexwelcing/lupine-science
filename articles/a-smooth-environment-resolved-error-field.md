@@ -2,7 +2,7 @@
 
 > **Type:** proof-pack
 > **Date:** 2026-07-02
-> **Deck:** Universal machine-learned interatomic potentials (uMLIPs) err systematically away from equilibrium; we test whether those errors share a single, measurable shape.
+> **Deck:** Universal machine-learned interatomic potentials (uMLIPs) err systematically away from equilibrium; the test is whether those errors share a single, measurable shape.
 > **Summary:** For fcc metals, uMLIP errors project onto a smooth field over local atomic environments. The field predicts a never-fitted property with r = 0.906, converts into a run-time correction, and carries machine-checked applicability boundaries.
 > **Status:** Published
 
@@ -11,7 +11,7 @@
 </div>
 
 <p class="lead">
-Foundation machine-learned interatomic potentials (uMLIPs) match near-DFT accuracy on bulk properties but fail on the surfaces, vacancies, and planar faults that dominate real materials practice. We show that those failures are not independent: they follow a smooth field over local atomic environments. The field is measured from three standard observables, predicts a fourth never-fitted observable with zero adjustable parameters, and converts into a run-time correction that runs beside a live calculator.
+Foundation machine-learned interatomic potentials (uMLIPs) match near-DFT accuracy on bulk properties but fail on the surfaces, vacancies, and planar faults that dominate real materials practice. The evidence shows that those failures are not independent: they follow a smooth field over local atomic environments. The field is measured from three standard observables, predicts a fourth never-fitted observable with zero adjustable parameters, and converts into a run-time correction that runs beside a live calculator.
 </p>
 
 <span class="status published">Published</span>
@@ -58,7 +58,7 @@ Because the field is a function of environments, its inverse is an additive ener
 
 ## Provable boundaries
 
-Correction has jurisdiction only where order survives. Where rankings invert — for example, MACE-MP-small ordering SFE(Ni) ≤ SFE(Al) while references order the reverse — we prove, machine-checked, that no monotone correction can recover both. The proof kernel certifies data-analysis arithmetic and stated inequalities over SHA-256-provenance data; 190+ build-locked Lean 4 theorems, zero `sorry`.
+Correction has jurisdiction only where order survives. Where rankings invert — for example, MACE-MP-small ordering SFE(Ni) ≤ SFE(Al) while references order the reverse — a machine-checked proof shows that no monotone correction can recover both. The proof kernel certifies data-analysis arithmetic and stated inequalities over SHA-256-provenance data; 190+ build-locked Lean 4 theorems, zero `sorry`.
 
 ## Conclusion
 
@@ -66,7 +66,7 @@ Correction has jurisdiction only where order survives. Where rankings invert —
   <strong>Conclusion.</strong> For fcc metals, uMLIP errors away from equilibrium are not a collection of independent failures. They are the projection of a smooth, environment-resolved error field that can be measured from three observables, predicts a fourth, and runs as a correction beside a live calculator — with machine-checked boundaries on where it does and does not apply.
 </div>
 
-The field is the first concrete instance of Lupine's larger program: measure the structured wrongness of a predictor, prove it, correct it, and make the evidence inspectable.
+The field is the first concrete instance of the larger program: measure the structured wrongness of a predictor, prove it, correct it, and make the evidence inspectable.
 
 ## Audit links
 

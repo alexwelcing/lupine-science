@@ -119,7 +119,7 @@ describe('copyUrlToClipboard', () => {
 
 describe('initShare accessibility', () => {
   it('renders labelled native controls with a polite live region on desktop', () => {
-    const dom = new JSDOM('<div class="share-root" aria-label="Share this article"></div>');
+    const dom = new JSDOM('<div class="share-root" aria-label="Share"></div>');
     const previousWindow = globalThis.window;
     const previousDocument = globalThis.document;
     globalThis.window = dom.window;
@@ -142,7 +142,7 @@ describe('initShare accessibility', () => {
   });
 
   it('closes the mobile disclosure with Escape and restores toggle focus', () => {
-    const dom = new JSDOM('<div class="share-root" aria-label="Share this article"></div>');
+    const dom = new JSDOM('<div class="share-root" aria-label="Share"></div>');
     const previousWindow = globalThis.window;
     const previousDocument = globalThis.document;
     globalThis.window = dom.window;

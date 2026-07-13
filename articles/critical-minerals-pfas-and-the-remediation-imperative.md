@@ -1,6 +1,6 @@
 > **Date:** 2026-07-16
-> **Deck:** Why critical-mineral recovery and PFAS remediation share the same computational bottleneck — accurate binding and activation energies in under-coordinated environments — and how Lupine's correction layer addresses both.
-> **Summary:** Article four of the environmental-expansion series links critical-mineral recycling, direct lithium extraction, and PFAS destruction through a common materials-discovery problem solvable by corrected uMLIPs and machine-checked verification.
+> **Deck:** Critical-mineral recovery and PFAS remediation share the same computational bottleneck — accurate binding and activation energies in under-coordinated environments — and the correction layer addresses both.
+> **Summary:** Critical-mineral recycling, direct lithium extraction, and PFAS destruction share a common materials-discovery problem: accurate binding and activation energies in under-coordinated environments, addressable by corrected uMLIPs and machine-checked verification.
 > **Status:** Draft
 
 
@@ -14,7 +14,7 @@ In parallel, another atoms problem is accumulating in groundwater, blood serum, 
 *Clean-energy technologies are expected to drive a four- to six-fold increase in mineral demand by 2040, turning atoms into a central constraint on the energy transition. Source: IEA, The Role of Critical Minerals in Clean Energy Transitions, 2022.*
 
 
-These two problems look unrelated. One is a supply-chain bottleneck for the energy transition; the other is a public-health and environmental-liability crisis. They converge, however, on the same computational challenge. Both require accurate predictions of binding and activation energies in flexible, under-coordinated environments — ion-insertion sites in sorbents, ligand pockets in extractants, surface and single-atom sites in defluorination catalysts — that universal machine-learning interatomic potentials (uMLIPs) systematically misrepresent. This article argues that the same correction-and-verification layer that Lupine has built for climate-critical materials applies directly to both critical-mineral recovery and PFAS remediation, and that treating them as a single discovery problem is the fastest way to make progress on either.
+These two problems look unrelated. One is a supply-chain bottleneck for the energy transition; the other is a public-health and environmental-liability crisis. They converge, however, on the same computational challenge. Both require accurate predictions of binding and activation energies in flexible, under-coordinated environments — ion-insertion sites in sorbents, ligand pockets in extractants, surface and single-atom sites in defluorination catalysts — that universal machine-learning interatomic potentials (uMLIPs) systematically misrepresent. The same correction-and-verification layer that Lupine has built for climate-critical materials applies directly to both critical-mineral recovery and PFAS remediation; treating them as a single discovery problem is the fastest way to make progress on either.
 
 ## The mineral-supply gap
 
@@ -32,7 +32,7 @@ Cobalt–nickel separation adds a further wrinkle. Both elements occur in simila
 
 ## PFAS: the forever-chemical bind
 
-PFAS are, in a sense, the opposite of a supply-chain problem: they are a material we already have too much of. Their useful properties — water, oil, and stain repellence; thermal stability; surfactant behavior — come from the same carbon–fluorine bond that makes them nearly impossible to break down in the environment. The C–F bond dissociation energy is approximately 485 kJ mol⁻¹, one of the strongest in organic chemistry[^7]. Once released, PFAS migrate through soils, aquifers, and food webs. They have been detected in the blood of nearly all people tested in representative U.S. samples, and epidemiological studies associate several PFAS with immune, thyroid, liver, kidney, and developmental effects[^8].
+PFAS are, in a sense, the opposite of a supply-chain problem: they are a material already present in excess. Their useful properties — water, oil, and stain repellence; thermal stability; surfactant behavior — come from the same carbon–fluorine bond that makes them nearly impossible to break down in the environment. The C–F bond dissociation energy is approximately 485 kJ mol⁻¹, one of the strongest in organic chemistry[^7]. Once released, PFAS migrate through soils, aquifers, and food webs. They have been detected in the blood of nearly all people tested in representative U.S. samples, and epidemiological studies associate several PFAS with immune, thyroid, liver, kidney, and developmental effects[^8].
 
 ![PFAS in the Environment: Eighty Thousand Sites and Counting](images/critical-minerals-pfas-and-the-remediation-imperative-02-pfas-contamination-map.jpg)
 *More than eighty thousand PFAS contamination sites have been identified in the United States, with remediation costs reaching one to five million dollars per site per year. Sources: Environmental Working Group / U.S. EPA; industry analyst estimates.*
@@ -64,10 +64,10 @@ The error is not random noise. It has a smooth, measurable structure that correl
 
 ## The Lupine correction layer
 
-Lupine's environment error field measures the systematic departure between uMLIP predictions and higher-fidelity reference data as a function of local atomic environment. For a reference bulk environment — fcc atoms with coordination number twelve — the error is defined as zero. Three anchor observables calibrate the field, and a cubic spline with the bulk constraint predicts the error at environments the field was never directly fitted to. The result is a correction that can be applied at runtime to uMLIP forces and energies[^12].
+The environment error field measures the systematic departure between uMLIP predictions and higher-fidelity reference data as a function of local atomic environment. For a reference bulk environment — fcc atoms with coordination number twelve — the error is defined as zero. Three anchor observables calibrate the field, and a cubic spline with the bulk constraint predicts the error at environments the field was never directly fitted to. The result is a correction that can be applied at runtime to uMLIP forces and energies[^12].
 
 ![The Lupine Correction Layer](images/critical-minerals-pfas-and-the-remediation-imperative-05-correction-layer.jpg)
-*Lupine's environment error field corrects uMLIP predictions at runtime, achieving a Pearson correlation of 0.906 in blind tests while retaining a roughly five-order-of-magnitude speed advantage over DFT. Source: Lupine Science formalization library and repository (https://library.lupine.science, https://github.com/alexwelcing/lupine-rhizo).*
+*The environment error field corrects uMLIP predictions at runtime, achieving a Pearson correlation of 0.906 in blind tests while retaining a roughly five-order-of-magnitude speed advantage over DFT. Source: Lupine Science formalization library and repository (https://library.lupine.science, https://github.com/alexwelcing/lupine-rhizo).*
 
 
 Blind prediction across thirty-six (model, material) combinations achieves Pearson r = 0.906 (p = 10⁻⁴, 95% CI [0.82, 0.96]) with zero adjustable parameters[^12]. Runtime correction adds analytic forces to the uMLIP gradients, so molecular dynamics and structural relaxations follow the corrected potential energy surface. Corrected uMLIPs retain a speed advantage of roughly five orders of magnitude over density functional theory, making hundred-thousand- to million-candidate screens feasible[^12].
@@ -80,7 +80,7 @@ For PFAS, corrected C–F activation barriers filter out false-positive defluori
 *The same corrected binding energies, activation barriers, and verification discipline apply whether the goal is recovering critical minerals or destroying PFAS.*
 
 
-The verification layer is as important as the correction. Lupine's claims are accompanied by build-locked Lean 4 theorems; the current library contains 190 build-locked theorems with zero sorry proofs[^12]. Where the correction cannot be applied — for example, where the local environment falls outside the measured domain, or where a phase is genuinely synthesis-dependent — the system proves impossibility or bounded uncertainty rather than emitting a p-value. That discipline matters for both targets. A sorbent whose selectivity depends on an amorphous phase whose structure cannot be separated from synthesis history is flagged as unsupported. A defluorination catalyst whose active site is predicted only under conditions no synthesis can stabilize is not advanced.
+The verification layer is as important as the correction. The claims are accompanied by build-locked Lean 4 theorems; the current library contains 190 build-locked theorems with zero sorry proofs[^12]. Where the correction cannot be applied — for example, where the local environment falls outside the measured domain, or where a phase is genuinely synthesis-dependent — the system proves impossibility or bounded uncertainty rather than emitting a p-value. That discipline matters for both targets. A sorbent whose selectivity depends on an amorphous phase whose structure cannot be separated from synthesis history is flagged as unsupported. A defluorination catalyst whose active site is predicted only under conditions no synthesis can stabilize is not advanced.
 
 ## What a unified discovery campaign looks like
 
@@ -112,13 +112,13 @@ These numbers are not claims that Lupine will capture the entire market. They ar
 
 Critical-mineral recovery and PFAS remediation sit on opposite sides of the industrial metabolism. One puts scarce atoms back into use; the other removes harmful atoms from circulation. Yet the geometry of the problem is the same. Both depend on binding and barrier energies in under-coordinated environments. Both are corrupted by the same uMLIP softening error. Both require screening composition spaces too large for DFT and ranking metastable phases that equilibrium thermodynamics discards. Both benefit from a correction field measured on anchor observables and from machine-checked proof of what can and cannot be claimed.
 
-Lupine's platform is not a point solution for batteries or direct air capture. It is a correction-and-verification layer for any material whose function is controlled by local environments that deviate from bulk equilibrium. Critical minerals and PFAS are two of the most urgent applications of that layer outside climate. The same measured field that corrects cathode and sorbent predictions corrects ion-selective recovery. The same corrected activation-barrier machinery that filters ammonia and methane catalysts filters defluorination catalysts. The same verification discipline that prevents false confidence in climate materials prevents false confidence in remediation.
+The platform is not a point solution for batteries or direct air capture. It is a correction-and-verification layer for any material whose function is controlled by local environments that deviate from bulk equilibrium. Critical minerals and PFAS are two of the most urgent applications of that layer outside climate. The same measured field that corrects cathode and sorbent predictions corrects ion-selective recovery. The same corrected activation-barrier machinery that filters ammonia and methane catalysts filters defluorination catalysts. The same verification discipline that prevents false confidence in climate materials prevents false confidence in remediation.
 
 ![One Geometry, Two Imperatives](images/critical-minerals-pfas-and-the-remediation-imperative-10-one-geometry-two-imperatives.jpg)
 *Critical-mineral recovery and PFAS remediation sit on opposite sides of the industrial metabolism, but they share the same geometry of binding and barrier energies in under-coordinated environments.*
 
 
-The next article in this series turns to cement and concrete — the heaviest industrial material by mass, and another case where amorphous, metastable, and under-coordinated phases control both emissions and performance. The thread remains the same: the materials bottleneck is a prediction-trust bottleneck, and trust comes from measuring the error, correcting it, and proving what can be believed.
+Cement and concrete — the heaviest industrial material by mass — present another case where amorphous, metastable, and under-coordinated phases control both emissions and performance. The thread remains the same: the materials bottleneck is a prediction-trust bottleneck, and trust comes from measuring the error, correcting it, and proving what can be believed.
 
 ## Footnotes
 

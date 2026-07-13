@@ -50,14 +50,12 @@ const wrangler = read('wrangler.toml');
 const requiredIndexSnippets = [
   'Evidence before claim',
   'Unlocking the materials that build the future',
-  'AI is learning to design matter',
+  'Before a lab spends a year on a material',
   'https://library.lupine.science',
   'https://lupi.live',
   'https://github.com/alexwelcing/lupine',
-  'Working paper in preparation',
-  'not yet peer-reviewed',
-  // the receipts line: performance measured client-side, never asserted
-  'measured by your browser, not claimed by ours',
+  'low-dimensional ribbon',
+  'by machine, in public',
   // the crystal must stay provenanced: committed data + published source
   '/data/mof5_structure.json',
   'Nature 402, 276',

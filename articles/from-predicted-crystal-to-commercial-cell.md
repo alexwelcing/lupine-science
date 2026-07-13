@@ -15,7 +15,7 @@ The conventional answer is to build a bigger generator. That has produced volume
 
 Lupine Science occupies that layer. Rather than competing with structure generators, laboratories, or databases, Lupine corrects the systematic errors of universal machine-learning interatomic potentials (uMLIPs) using a measured environment error field, deploys the correction at runtime with analytic forces, and verifies claims through machine-checked Lean 4 proofs. The result is a partner-facing platform that makes other organizations' predictions trustworthy, accelerating every link from crystal to cell.
 
-This article maps that chain across Lupine's five priority targets — cobalt-free lithium-manganese-rich (LMR) cathodes, earth-abundant halide solid electrolytes, metal-organic frameworks (MOFs) for direct air capture, electrochemical ammonia catalysts, and lead-free perovskite solar absorbers. In each, a prediction is handed to synthesis, then characterization, then integration, then manufacturing. Where each handoff currently fails, a correction-and-verification layer creates value.
+The following sections map that chain across the five priority targets — cobalt-free lithium-manganese-rich (LMR) cathodes, earth-abundant halide solid electrolytes, metal-organic frameworks (MOFs) for direct air capture, electrochemical ammonia catalysts, and lead-free perovskite solar absorbers. In each, a prediction is handed to synthesis, then characterization, then integration, then manufacturing. Where each handoff currently fails, a correction-and-verification layer creates value.
 
 ![Six handoffs, six places for a prediction to fail](images/from-predicted-crystal-to-commercial-cell-02-handoff-chain.jpg)
 *Between a computational screen and a commercial product, a predicted material must survive six sequential handoffs — and current validation rates show most do not.*
@@ -24,7 +24,7 @@ This article maps that chain across Lupine's five priority targets — cobalt-fr
 
 LMR cathodes are the highest-impact near-term target. By eliminating cobalt and raising energy density above 300 Wh/kg, they could avoid 2–5 GtCO₂ cumulatively by 2050. The commercial stakes are visible in the field: POSCO Future M has completed pilot LMR production and is preparing mass manufacturing in 2025[^3], while GM and LG Energy Solution aim to begin commercial production of prismatic LMR cells by 2028[^4].
 
-The first handoff is from computation to synthesis. Lupine's corrected migration barriers and oxygen-vacancy formation energies rank candidates across a compositional space exceeding 10⁶ compositions. The Manthiram Laboratory at UT Austin is the natural Tier 1 partner: Arumugam Manthiram invented cobalt-free layered oxide cathodes and has trained more than 300 researchers[^5]. TexPower EV Technologies — a Manthiram spinout — extends this to scale-up with a pilot producing NMA cathodes at >230 mAh/g and a 300-ton plant planned by 2027[^5].
+The first handoff is from computation to synthesis. The corrected migration barriers and oxygen-vacancy formation energies rank candidates across a compositional space exceeding 10⁶ compositions. The Manthiram Laboratory at UT Austin is the natural Tier 1 partner: Arumugam Manthiram invented cobalt-free layered oxide cathodes and has trained more than 300 researchers[^5]. TexPower EV Technologies — a Manthiram spinout — extends this to scale-up with a pilot producing NMA cathodes at >230 mAh/g and a 300-ton plant planned by 2027[^5].
 
 The second handoff is from powder to coated particle. Voltage fade is driven by transition-metal migration and surface reconstruction, both suppressible by atomic-layer-deposition (ALD) coatings. Forge Nano operates powder ALD systems and has demonstrated that ALD coatings improve TexPower cathode cycle life by more than 30% while reducing resistance five-fold[^6]. A three-way arrangement — Lupine identifies compositions, Forge Nano applies coatings, TexPower supplies coated material — closes the cathode-to-cell gap.
 
@@ -40,18 +40,18 @@ Finally, the OEM handoff. GM's Wallace Battery Cell Innovation Center and LG Ene
 If LMR cathodes are the near-term lever, solid-state batteries with lithium-metal anodes are the long-term leap. Earth-abundant halide solid electrolytes — Li-Zr-Cl and Li-Fe-Cl systems — target >10 mS/cm ionic conductivity, stability versus lithium metal, and compatibility with mechanochemical synthesis. Industry analysts project the solid-state battery market to grow by an order of magnitude or more over the next decade.
 
 ![How Lupine makes a uMLIP trustworthy at runtime](images/from-predicted-crystal-to-commercial-cell-03-correction-loop.jpg)
-*A raw universal machine-learning interatomic potential can underestimate a lithium migration barrier by 60%, shifting conductivity by 5,000×; Lupine's runtime correction and Lean 4 proofs bound that error before the next handoff.*
+*A raw universal machine-learning interatomic potential can underestimate a lithium migration barrier by 60%, shifting conductivity by 5,000×; the runtime correction and Lean 4 proofs bound that error before the next handoff.*
 
-The discovery challenge is that raw uMLIPs systematically underestimate Li⁺ migration barriers by 60% or more because transition states are under-coordinated relative to bulk training data. A 60% barrier error changes predicted room-temperature conductivity by roughly 5,000×. Lupine's environment error field corrects this at uMLIP speed.
+The discovery challenge is that raw uMLIPs systematically underestimate Li⁺ migration barriers by 60% or more because transition states are under-coordinated relative to bulk training data. A 60% barrier error changes predicted room-temperature conductivity by roughly 5,000×. The environment error field corrects this at uMLIP speed.
 
 The partner chain begins at UC Berkeley with Gerbrand Ceder's group and the Materials Project, which published foundational DFT studies of Li₃YCl₆ and Li₂ZrCl₆[^8]. The University of Münster's Janek and Zeier groups add world-leading halide solid-electrolyte synthesis and lithium-metal interface analytics via XPS and cryo-TEM[^9]. Argonne National Laboratory contributes operando X-ray absorption spectroscopy and the Materials Engineering Research Facility for kilogram-scale scale-up[^10].
 
 Industrial translation runs through Solid Power, which produces sulfide and halide solid electrolytes and has built automotive-scale cells validated by BMW[^11]. Factorial Energy, whose quasi-solid-state cells have achieved 391 Wh/kg with Mercedes EQS validation, offers another integration path[^12].
 
 ![Cumulative climate opportunity by target](images/from-predicted-crystal-to-commercial-cell-06-climate-scale.jpg)
-*Lupine's five target chains — batteries, solid-state electrolytes, carbon removal, ammonia, and solar — map onto gigatonne-scale climate opportunities.*
+*The five target chains — batteries, solid-state electrolytes, carbon removal, ammonia, and solar — map onto gigatonne-scale climate opportunities.*
 
-The cross-cutting partner here is again Battery500. Lupine's halide-screening results and the consortium's pouch-cell fabrication create a single loop: computational composition → mechanochemical synthesis → impedance spectroscopy → full-cell cycling. With correction, each handoff carries a bounded error budget.
+The cross-cutting partner here is again Battery500. The halide-screening results and the consortium's pouch-cell fabrication create a single loop: computational composition → mechanochemical synthesis → impedance spectroscopy → full-cell cycling. With correction, each handoff carries a bounded error budget.
 
 ## Carbon Removal: From MOF Linker to Gigafactory
 
@@ -59,7 +59,7 @@ Direct air capture is the only carbon-removal technology that can address legacy
 
 The partner chain starts with reticular chemistry. UC Berkeley's Omar Yaghi and Jeffrey Long offer large MOF/COF synthesis libraries and cooperative-binding design. Omar Farha's group at Northwestern brings MOF-808 and Zr-based synthesis expertise, plus DOE programs focused on DAC MOF stability.
 
-Lupine's role is to correct hydrolysis-barrier errors and flag unsupported frameworks. Water attack on metal-linker bonds proceeds through under-coordinated transition states — exactly where uMLIPs soften the potential energy surface. Corrected hydrolysis barriers filter frameworks by real-world humidity stability, not idealized gas-phase energy. Amine-functionalized MOF-808 has reached 1.2 mmol/g at 400 ppm and 50% relative humidity[^14].
+The role is to correct hydrolysis-barrier errors and flag unsupported frameworks. Water attack on metal-linker bonds proceeds through under-coordinated transition states — exactly where uMLIPs soften the potential energy surface. Corrected hydrolysis barriers filter frameworks by real-world humidity stability, not idealized gas-phase energy. Amine-functionalized MOF-808 has reached 1.2 mmol/g at 400 ppm and 50% relative humidity[^14].
 
 ![When correction says "no" — impossibility, not just uncertainty](images/from-predicted-crystal-to-commercial-cell-07-impossibility-flags.jpg)
 *190 build-locked Lean 4 theorems let Lupine flag unsupported frameworks or metastable phases before they consume experimental time.*
@@ -75,7 +75,7 @@ The most rigorous verification partner is the Technical University of Denmark's 
 Stanford's SUNCAT Center, co-directed by Jens Nørskov, adds computational catalysis and operando X-ray absorption spectroscopy at SLAC. The loop is tight: Lupine predicts compositions, SUNCAT screens them at the electronic-structure level, and DTU validates the winners.
 
 ![Zero-parameter blind prediction of surface energies](images/from-predicted-crystal-to-commercial-cell-04-blind-accuracy.jpg)
-*Across 36 model-material combinations, Lupine's environment error field achieves r = 0.906 in zero-parameter blind prediction of surface energies.*
+*Across 36 model-material combinations, the environment error field achieves r = 0.906 in zero-parameter blind prediction of surface energies.*
 
 Commercial engineering comes through Jupiter Ionics, which licensed Douglas MacFarlane's lithium-mediated technology and is developing modular MSA Cell technology after a $9 million Series A. ARPA-E's REFUEL program provides funding and metrics: >60% energy efficiency, >300 mA/cm², and >90% Faradaic efficiency[^18].
 
@@ -85,7 +85,7 @@ Downstream, Caltech's Karthish Manthiram group contributes gas-diffusion-electro
 
 Lead-based halide perovskites have exceeded 26% single-junction efficiency and ~34.6% in perovskite-silicon tandems, but lead toxicity and impending EU restrictions threaten terawatt-scale deployment[^20]. Lead-free tin perovskites are the leading alternative, yet Sn²⁺ oxidizes within minutes to hours. The target is >20% certified power conversion efficiency with >25-year operational stability.
 
-The key descriptor is Sn vacancy formation energy, which determines oxidation susceptibility. uMLIPs systematically underestimate this energy because vacancies create under-coordinated Sn neighbors that bulk-trained models predict as too stable. Lupine's correction recovers accurate vacancy energetics, while provable boundaries flag metastable phases that convex-hull screening would discard.
+The key descriptor is Sn vacancy formation energy, which determines oxidation susceptibility. uMLIPs systematically underestimate this energy because vacancies create under-coordinated Sn neighbors that bulk-trained models predict as too stable. The correction recovers accurate vacancy energetics, while provable boundaries flag metastable phases that convex-hull screening would discard.
 
 The partner chain begins with NREL, which provides certified efficiency measurements, slot-die and roll-to-roll fabrication, and ISOS stability protocols. The University of Queensland's Lianzhou Wang group holds the certified world record for tin halide perovskites at 16.65% and has demonstrated 1,500-hour stability without encapsulation[^21]. Tandem PV Inc., which operates a pilot factory in San Jose, integrates perovskite top cells with silicon bottom cells. Northwestern's Mercouri Kanatzidis, who pioneered CsSnI₃ and solid-state halide perovskite solar cells, offers synthesis and panoramic methodology for discovering new absorber families.
 
@@ -98,7 +98,7 @@ The scale-up handoff runs through Oxford Photovoltaics, which began commercial t
 
 Each target has its own partner chain, but three institutions create economies of scope.
 
-NREL is the highest-value cross-cutting partner. It spans four of Lupine's five targets — cathodes, halide solid electrolytes, ammonia catalysts, and perovskites — and offers certified testing, lifecycle analysis, techno-economic analysis, and a single point of access to DOE funding networks. A master CRADA with NREL replaces multiple one-off agreements.
+NREL is the highest-value cross-cutting partner. It spans four of the five targets — cathodes, halide solid electrolytes, ammonia catalysts, and perovskites — and offers certified testing, lifecycle analysis, techno-economic analysis, and a single point of access to DOE funding networks. A master CRADA with NREL replaces multiple one-off agreements.
 
 ![The economic case for a verification layer](images/from-predicted-crystal-to-commercial-cell-09-materials-genome-value.jpg)
 *The NIST Materials Genome Initiative estimates $123 billion–$270 billion in annual value from better materials innovation infrastructure, while ARPA-E's portfolio has catalyzed billions in follow-on funding.*
@@ -111,7 +111,7 @@ ARPA-E should be approached with a portfolio strategy rather than individual pro
 
 Partners validate the science; verification makes it trustworthy at scale. Every organization named above has been burned by computational predictions that looked convincing in a paper but failed in the lab. The 0.2% GNoME synthesis rate and the A-Lab disordered-phase episode are warnings that experimental budgets are finite and false positives are expensive.
 
-Lupine's environment error field, runtime correction, and formal verification address this directly. The field achieves r=0.906 blind prediction of never-fitted surface energies across 36 (model, material) combinations with zero adjustable parameters. Runtime correction adds 15.6% overhead in Python and will drop below 1% in a compiled LAMMPS overlay, keeping corrected uMLIPs many orders of magnitude faster than DFT. 190 build-locked Lean 4 theorems provide machine-checked guarantees. Where correction cannot apply, Lupine proves impossibility rather than reporting a p-value.
+The environment error field, runtime correction, and formal verification address this directly. The field achieves r=0.906 blind prediction of never-fitted surface energies across 36 (model, material) combinations with zero adjustable parameters. Runtime correction adds 15.6% overhead in Python and will drop below 1% in a compiled LAMMPS overlay, keeping corrected uMLIPs many orders of magnitude faster than DFT. 190 build-locked Lean 4 theorems provide machine-checked guarantees. Where correction cannot apply, Lupine proves impossibility rather than reporting a p-value.
 
 For partners, handoffs carry documentation. A cathode candidate comes with corrected migration barriers and a theorem certificate of the ranking claim. A MOF candidate comes with a hydrolysis-barrier correction and a proof of whether its coordination environment lies inside or outside the field's domain. An ammonia catalyst comes with corrected N₂ dissociation barriers and a flag if scaling-relation breaking requires higher-level treatment. Experimentalists still synthesize and measure; Lupine removes the guesswork about which candidates deserve the work.
 

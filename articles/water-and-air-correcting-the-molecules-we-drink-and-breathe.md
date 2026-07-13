@@ -1,18 +1,18 @@
 > **Date:** 2026-07-16
 > **Deck:** How corrected uMLIPs recover accurate binding and barrier predictions for water desalination, atmospheric harvesting, lithium-selective extraction, and air-quality catalysts.
-> **Summary:** Water and air quality depend on materials that separate and transform molecules in under-coordinated environments; this article shows how Lupine's correction layer fixes the uMLIP errors that corrupt their discovery.
+> **Summary:** Water and air quality depend on materials that separate and transform molecules in under-coordinated environments; the correction layer fixes the uMLIP errors that corrupt discovery of those materials.
 > **Status:** Draft
 
 
-# Water and Air: Correcting the Molecules We Drink and Breathe
+# Water and Air: Correcting the Molecules Humans Drink and Breathe
 
-Water and air are the two environmental systems that touch every human life. We drink water, breathe air, and depend on engineered materials to keep both clean enough to sustain cities, agriculture, and industry. The global reverse-osmosis fleet already produces roughly 97 million cubic metres of desalinated water per day[^1], yet water scarcity still affects about two billion people and the UN projects a 40% global freshwater deficit by 2030 under business-as-usual[^2]. Outdoor air pollution, meanwhile, is linked to an estimated 4–7 million premature deaths each year, with NOx, fine particulates, and volatile organic compounds as the dominant contributors[^3].
+Water and air are the two environmental systems that touch every human life. Humans drink water, breathe air, and depend on engineered materials to keep both clean enough to sustain cities, agriculture, and industry. The global reverse-osmosis fleet already produces roughly 97 million cubic metres of desalinated water per day[^1], yet water scarcity still affects about two billion people and the UN projects a 40% global freshwater deficit by 2030 under business-as-usual[^2]. Outdoor air pollution, meanwhile, is linked to an estimated 4–7 million premature deaths each year, with NOx, fine particulates, and volatile organic compounds as the dominant contributors[^3].
 
 
 ![The Human Scale of Water and Air Failure](images/water-and-air-correcting-the-molecules-we-drink-and-breathe-01-global-stakes.jpg)
-*Water scarcity already touches about two billion people and air pollution is linked to millions of premature deaths each year, yet the materials we need to fix both are still designed with computational tools that misread their atomic environments.*
+*Water scarcity already touches about two billion people and air pollution is linked to millions of premature deaths each year, yet the materials needed to fix both are still designed with computational tools that misread their atomic environments.*
 
-Both problems are materials-limited, and both are corrupted by the same computational error. The membranes, sorbents, ion-selective frameworks, and catalysts that would solve them all function in under-coordinated, non-equilibrium atomic environments — pore windows, metal-linker interfaces, exchanged cations, single-atom sites — that universal machine-learning interatomic potentials (uMLIPs) systematically misrepresent. This article walks through the water and air targets from Lupine's environmental-expansion map, explains why raw uMLIPs misrank the candidates, and shows how a measured environment error field recovers predictions that are fast enough to screen and verified enough to trust.
+Both problems are materials-limited, and both are corrupted by the same computational error. The membranes, sorbents, ion-selective frameworks, and catalysts that would solve them all function in under-coordinated, non-equilibrium atomic environments — pore windows, metal-linker interfaces, exchanged cations, single-atom sites — that universal machine-learning interatomic potentials (uMLIPs) systematically misrepresent. The water and air targets from the environmental-expansion map show why raw uMLIPs misrank candidates and how a measured environment error field recovers predictions that are fast enough to screen and verified enough to trust.
 
 ## The error is coordination, not chemistry
 
@@ -24,7 +24,7 @@ The central finding of the climate series was not that battery cathodes are hard
 
 The error has a shape. It grows as coordination drops and as local chemistry deviates from the training distribution. For water and air materials this means that binding energies, diffusion barriers, hydrolysis rates, and activation barriers are all shifted in a regular, predictable way — but a way that ordinary uMLIP screens do not correct. The result is ranking inversion: candidates that look best in a raw screen are often not the candidates that would perform best if the potential surface were accurate. Experiments are sent to false priorities, and better materials stay on the bench.
 
-Lupine's response is to measure the error field on anchor observables, add analytic forces to the uMLIP gradients at runtime, and verify the supported claims with machine-checked proof[^5]. The correction is not domain-specific; it is coordination-specific. That is why the same field transfers from battery cathodes and direct-air-capture MOFs to the water and air targets discussed here.
+The response is to measure the error field on anchor observables, add analytic forces to the uMLIP gradients at runtime, and verify the supported claims with machine-checked proof[^5]. The correction is not domain-specific; it is coordination-specific. That is why the same field transfers from battery cathodes and direct-air-capture MOFs to the water and air targets discussed here.
 
 ![What Corrected Screening Changes in Water](images/water-and-air-correcting-the-molecules-we-drink-and-breathe-05-water-rankings.jpg)
 *In desalination membranes, atmospheric-water sorbents, and lithium-selective frameworks, corrected binding and barrier energies overturn the false priorities that raw uMLIPs produce.*
@@ -46,7 +46,7 @@ The active layer is a nanoporous polymer network. Its function is controlled by 
 
 Atmospheric water harvesting (AWH) offers a distributed alternative to centralised desalination for off-grid and drought-resilient supply. The best sorbents are metal–organic frameworks that can capture water vapour at low relative humidity and release it with modest heating. MOF-808 loaded with LiCl, for example, can deliver capacities approaching 0.25 g g⁻¹ at 20% relative humidity[^6]. The target for a practical device is higher capacity, faster cycling, and stability over thousands of adsorption–desorption cycles.
 
-The cycle-life limit is hydrolysis. Water sorption and desorption repeatedly stress metal–linker bonds at under-coordinated metal centres, coordination numbers four to seven, where uMLIPs underestimate dissociation barrier heights by the same 15–60% seen in other MOF failure modes[^4]. A candidate framework that looks hydrolytically stable in a raw screen may collapse in weeks, while a more robust framework is discarded because its barrier looks too high. Corrected hydrolysis barriers predict cycle life before synthesis, and the same correction that Lupine applied to humidity-stable direct-air-capture MOFs transfers directly to AWH sorbents[^5].
+The cycle-life limit is hydrolysis. Water sorption and desorption repeatedly stress metal–linker bonds at under-coordinated metal centres, coordination numbers four to seven, where uMLIPs underestimate dissociation barrier heights by the same 15–60% seen in other MOF failure modes[^4]. A candidate framework that looks hydrolytically stable in a raw screen may collapse in weeks, while a more robust framework is discarded because its barrier looks too high. Corrected hydrolysis barriers predict cycle life before synthesis, and the same correction applied to humidity-stable direct-air-capture MOFs transfers directly to AWH sorbents[^5].
 
 ![The Markets Touched by Corrected Discovery](images/water-and-air-correcting-the-molecules-we-drink-and-breathe-06-market-scale.jpg)
 *The materials that corrected discovery could improve sit inside multi-billion-dollar markets: atmospheric water generation, automotive catalysts, and the lithium supply chain for batteries.*
@@ -64,7 +64,7 @@ The commercial pressure is rising. Global lithium demand is projected to reach a
 *Underestimated hydrolysis, redox, and activation barriers translate into collapsed sorbents, cold-start NOx, filter regeneration penalties, and inefficient VOC oxidation in real devices.*
 
 
-## Air: catalysts for the molecules we breathe
+## Air: catalysts for the molecules humans breathe
 
 ### Low-temperature NOx reduction
 
@@ -94,7 +94,7 @@ The limiting steps are C–H and O=O activation at single-atom or small-cluster 
 
 ## The correction layer, applied
 
-The Lupine environment error field is constructed from three anchor observables and a cubic spline that enforces zero error in a reference bulk environment[^5]. For water and air materials, the field is evaluated at the same low-coordination environments that control function: the pore window that selects Li⁺ over Mg²⁺, the metal-linker bond that hydrolyses during AWH cycling, the exchanged cation that activates NOx, the single-atom site that oxidises formaldehyde.
+The environment error field is constructed from three anchor observables and a cubic spline that enforces zero error in a reference bulk environment[^5]. For water and air materials, the field is evaluated at the same low-coordination environments that control function: the pore window that selects Li⁺ over Mg²⁺, the metal-linker bond that hydrolyses during AWH cycling, the exchanged cation that activates NOx, the single-atom site that oxidises formaldehyde.
 
 ![Accuracy at Screening Speed](images/water-and-air-correcting-the-molecules-we-drink-and-breathe-09-speed-moat.jpg)
 *Corrected uMLIPs stay roughly 10⁵× faster than DFT while adding only 15.6% runtime overhead, making hundred-thousand- to million-candidate screens economically feasible.*
@@ -102,7 +102,7 @@ The Lupine environment error field is constructed from three anchor observables 
 
 Runtime correction adds analytic forces to the uMLIP gradients. Molecular dynamics, nudged-elastic-band calculations, and high-throughput relaxations therefore follow the corrected potential energy surface, not the raw one. Blind prediction across 36 (model, material) combinations achieved Pearson r = 0.906 (p = 10⁻⁴, 95% CI [0.82, 0.96]) with zero adjustable parameters[^5]. Corrected uMLIPs remain roughly 10⁵× faster than DFT, which is what makes 10⁵–10⁶ candidate screens economically feasible.
 
-Formal verification matters because correction without proof can become a new kind of false confidence. Lupine's supported claims are accompanied by build-locked Lean 4 theorems; the current library contains 190 build-locked theorems with zero sorry proofs[^5]. In the water and air context, this discipline means that a membrane pore ranking is supported only when the relevant local environments fall inside the measured domain; a metastable hydrate or an amorphous sorbent phase is flagged as synthesis-dependent rather than sold as predicted. The system proves impossibility or bounded uncertainty where it cannot prove a number.
+Formal verification matters because correction without proof can become a new kind of false confidence. Supported claims are accompanied by build-locked Lean 4 theorems; the current library contains 190 build-locked theorems with zero sorry proofs[^5]. In the water and air context, this discipline means that a membrane pore ranking is supported only when the relevant local environments fall inside the measured domain; a metastable hydrate or an amorphous sorbent phase is flagged as synthesis-dependent rather than sold as predicted. The system proves impossibility or bounded uncertainty where it cannot prove a number.
 
 ## From point fixes to a platform
 
@@ -114,7 +114,7 @@ The scale justifies the effort. Better membranes and atmospheric-water sorbents 
 *Because the failure mode is coordination-specific, not climate-specific, one measured and verified correction layer can raise the reliability of discovery across water, air, batteries, and direct air capture.*
 
 
-Lupine's correction-and-verification method was built for climate-critical materials, but the failure modes it addresses are not climate-specific. They are coordination-specific. Water and air are the next natural application because the same pores, metal centres, and active sites that determine battery performance and direct air capture also determine what we drink and what we breathe. The platform thesis is that one correction layer, measured once and verified formally, can raise the reliability of discovery across all of them.
+The correction-and-verification method was built for climate-critical materials, but the failure modes it addresses are not climate-specific. They are coordination-specific. Water and air are the next natural application because the same pores, metal centres, and active sites that determine battery performance and direct air capture also determine what humans drink and what they breathe. The platform thesis is that one correction layer, measured once and verified formally, can raise the reliability of discovery across all of them.
 
 ## Footnotes
 

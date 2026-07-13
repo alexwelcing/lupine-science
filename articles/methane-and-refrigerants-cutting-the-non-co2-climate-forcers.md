@@ -1,6 +1,6 @@
 > **Date:** 2026-07-16
 > **Deck:** How corrected atomistic predictions can accelerate low-temperature methane conversion and the discovery of low-GWP refrigerants.
-> **Summary:** Methane and hydrofluorocarbon refrigerants are the largest non-CO₂ climate levers; this article explains why both are materials-limited and how Lupine's correction-and-verification layer changes the discovery geometry.
+> **Summary:** Methane and hydrofluorocarbon refrigerants are the largest non-CO₂ climate levers; both are materials-limited, and the correction-and-verification layer changes the discovery geometry.
 > **Status:** Draft
 
 
@@ -12,7 +12,7 @@ Carbon dioxide dominates climate policy because it accumulates for millennia, bu
 ![The Non-CO₂ Warming Lever](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-01-non-co2-warming-lever.jpg)
 *Methane and HFC refrigerants together offer warming avoidance comparable to the entire energy-sector transition, yet both depend on materials that do not yet exist. Sources: UNEP Global Methane Assessment, 2021; UNEP / US EPA Kigali Amendment impact estimates; IPCC AR6.*
 
-Yet the tools we use to discover the materials for each target share the same failure mode. Universal machine-learning interatomic potentials (uMLIPs) are trained on bulk, equilibrium configurations, while the functional behaviour of methane-oxidation catalysts, refrigerant fluids, and caloric solids is controlled by under-coordinated environments — surfaces, transition states, radical fragments, and phase boundaries — where uMLIPs systematically soften the potential energy surface by 15–60%[^3]. The result is not merely inaccurate energies; it is inverted candidate rankings, false-positive catalysts, and discarded metastable phases. This article explains how Lupine's measured environment error field corrects those predictions for methane and refrigerant discovery at uMLIP speed, with machine-checked proof of which claims can be believed.
+Yet the tools used to discover the materials for each target share the same failure mode. Universal machine-learning interatomic potentials (uMLIPs) are trained on bulk, equilibrium configurations, while the functional behaviour of methane-oxidation catalysts, refrigerant fluids, and caloric solids is controlled by under-coordinated environments — surfaces, transition states, radical fragments, and phase boundaries — where uMLIPs systematically soften the potential energy surface by 15–60%[^3]. The result is not merely inaccurate energies; it is inverted candidate rankings, false-positive catalysts, and discarded metastable phases. The measured environment error field corrects those predictions for methane and refrigerant discovery at uMLIP speed, with machine-checked proof of which claims can be believed.
 
 ![Where uMLIPs Fail: Systematic Softening in Under-Coordinated Environments](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-02-umlip-softening-error.jpg)
 *Universal machine-learning potentials soften the energy surface by 15–60% at surfaces, transition states, and radical fragments — the exact environments that determine catalyst and refrigerant performance. Source: Deng et al., npj Computational Materials, 2025.*
@@ -38,13 +38,13 @@ The direct route has been a long-standing target. Homogeneous systems using Fe- 
 
 Breaking scaling relations is a materials-discovery problem that sits exactly at the boundary of what atomistic screening can address. Candidate active sites — single-metal cations in zeolite frameworks, single-atom alloys, confined metal clusters, metal-oxide interfaces — number in the thousands when framework, dopant, and support variations are included. Density functional theory (DFT) is accurate enough for any one candidate but economically impossible across the full space. Raw uMLIPs are fast enough but misrank the candidates because the C–H activation barrier, the O-insertion step, and the desorption energy of methanol all involve under-coordinated metal environments.
 
-![Lupine's Measured Environment Error Field](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-03-environment-error-field.jpg)
+![The Measured Environment Error Field](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-03-environment-error-field.jpg)
 *The environment error field uses three anchor observables and a bulk constraint to correct under-coordinated predictions without retraining the underlying potential. Source: Lupine Science formalization library and repository (https://library.lupine.science, https://github.com/alexwelcing/lupine-rhizo).*
 
 
-Lupine's environment error field addresses this by measuring and correcting the systematic error as a function of local coordination. For a reference bulk environment, such as fcc metal with coordination number twelve, the error is defined as zero. Three anchor observables fix the field, and a cubic spline with the bulk constraint predicts the correction at lower-coordination environments the field was never directly fitted to[^11]. The corrected barrier for CH₄ dissociation on an under-coordinated site recovers DFT-level accuracy while retaining uMLIP speed, filtering out the false-positive low-temperature catalysts that raw uMLIPs would promote.
+The environment error field addresses this by measuring and correcting the systematic error as a function of local coordination. For a reference bulk environment, such as fcc metal with coordination number twelve, the error is defined as zero. Three anchor observables fix the field, and a cubic spline with the bulk constraint predicts the correction at lower-coordination environments the field was never directly fitted to[^11]. The corrected barrier for CH₄ dissociation on an under-coordinated site recovers DFT-level accuracy while retaining uMLIP speed, filtering out the false-positive low-temperature catalysts that raw uMLIPs would promote.
 
-Selective field failure adds a second screening signal. In most cases the error field is smooth and predictable; where it deviates, it flags unusual electronic structures that may break the standard scaling relation. Those outliers become the highest-priority targets for expensive ab initio verification and synthesis[^11]. This is the same logic Lupine applied to ammonia catalysts: the correction ranks the bulk of candidates, and the anomalies identify the breakthroughs.
+Selective field failure adds a second screening signal. In most cases the error field is smooth and predictable; where it deviates, it flags unusual electronic structures that may break the standard scaling relation. Those outliers become the highest-priority targets for expensive ab initio verification and synthesis[^11]. The same logic was applied to ammonia catalysts: the correction ranks the bulk of candidates, and the anomalies identify the breakthroughs.
 
 ## Methane pyrolysis for turquoise hydrogen
 
@@ -56,7 +56,7 @@ Methane pyrolysis offers a different product slate: hydrogen plus solid carbon. 
 
 The materials problem is again controlled by under-coordinated environments. Carbon solubility in the melt, diffusion to the nucleation site, and the structure of the nucleated carbon all depend on metal-carbon binding at defect sites, alloy surfaces, and three-phase boundaries. Raw uMLIPs underestimate the metal-carbon binding energies and misrank the diffusion barriers, leading to wrong predictions of coking rate, catalyst lifetime, and carbon quality. Corrected metal-carbon binding and carbon diffusion energies identify alloy compositions that resist coking and produce a useful solid product, whether carbon black, graphite, or carbon nanotubes.
 
-Here the verification layer matters as much as the correction. Molten-metal systems are inherently dynamic; the active surface reconstructs, carbon precipitates, and local coordination changes during operation. Lupine's Lean 4 theorems prove which predictions are supported by the measured field and which depend on synthesis or operating conditions that the model cannot bound[^11]. A catalyst composition is not sold as predicted until the correction domain and the metastability boundaries are checked.
+Here the verification layer matters as much as the correction. Molten-metal systems are inherently dynamic; the active surface reconstructs, carbon precipitates, and local coordination changes during operation. The Lean 4 theorems prove which predictions are supported by the measured field and which depend on synthesis or operating conditions that the model cannot bound[^11]. A catalyst composition is not sold as predicted until the correction domain and the metastability boundaries are checked.
 
 ## Refrigerants and the Kigali Amendment
 
@@ -76,7 +76,7 @@ Each of those properties depends on under-coordinated environments. Vapor pressu
 *Caloric materials promise 20–50% efficiency gains, but only a verified correction pipeline can separate genuine thermodynamic predictions from microstructure assumptions. Sources: Gutfleisch et al., Adv. Mater., 2011; DOE / ARPA-E.*
 
 
-Lupine's correction layer changes the screen in three ways. First, corrected intermolecular potentials recover accurate vapor pressure, latent heat, and transport properties for candidate fluids, filtering the millions of molecules down to a tractable set. Second, corrected C–H and C–F bond dissociation energies in radical transition states improve flammability and atmospheric-lifetime predictions, which are safety-critical. Third, the verification layer flags molecules whose decomposition pathways fall outside the measured correction domain, preventing false-negative exclusions of unusual but safe candidates.
+The correction layer changes the screen in three ways. First, corrected intermolecular potentials recover accurate vapor pressure, latent heat, and transport properties for candidate fluids, filtering the millions of molecules down to a tractable set. Second, corrected C–H and C–F bond dissociation energies in radical transition states improve flammability and atmospheric-lifetime predictions, which are safety-critical. Third, the verification layer flags molecules whose decomposition pathways fall outside the measured correction domain, preventing false-negative exclusions of unusual but safe candidates.
 
 ## Solid-state refrigerants: caloric materials
 
@@ -98,7 +98,7 @@ Methane and refrigerants appear to be different problems — one a strong C–H 
 *Methane, refrigerants, caloric materials, batteries, and direct air capture share the same under-coordination failure mode — and the same correction geometry. Source: Lupine Science formalization library and repository (https://library.lupine.science, https://github.com/alexwelcing/lupine-rhizo).*
 
 
-Lupine's method is not a new force field trained on each application. It is a measured environment error field with three anchor observables, a bulk constraint, and analytic force corrections that add 15.6% overhead in the current Python implementation and are expected to drop below 1% in a compiled overlay[^11]. The same field that corrects battery cathodes and direct-air-capture sorbents corrects methane-activation barriers, refrigerant bond dissociation, and caloric phase transitions because the failure mode is structural, not chemical.
+The method is not a new force field trained on each application. It is a measured environment error field with three anchor observables, a bulk constraint, and analytic force corrections that add 15.6% overhead in the current Python implementation and are expected to drop below 1% in a compiled overlay[^11]. The same field that corrects battery cathodes and direct-air-capture sorbents corrects methane-activation barriers, refrigerant bond dissociation, and caloric phase transitions because the failure mode is structural, not chemical.
 
 The verification layer is what makes the correction usable for capital decisions. Blind prediction across 36 (model, material) combinations achieves Pearson r = 0.906 (p = 10⁻⁴, 95% CI [0.82, 0.96]) with zero adjustable parameters[^11]. The accompanying 190 build-locked Lean 4 theorems prove the correction bounds and impossibility conditions[^11]. In a refrigerant screen, that means a molecule flagged as safe has a machine-checked argument. In a methane-catalyst campaign, it means a candidate declared scalable has been shown to lie inside the measured correction domain.
 
@@ -110,7 +110,7 @@ The policy timelines are short. The Global Methane Pledge target is 2030. The Ki
 *Tens of billions of dollars in annual product markets and 2030–2047 policy deadlines make fast, verified materials discovery an economic and climate imperative. Sources: Methanol Institute; UNEP Global Methane Assessment, 2021; UNEP / US EPA Kigali Amendment impact estimates.*
 
 
-What exists is a correction-and-verification layer that can search these spaces with DFT accuracy and uMLIP speed. The addressable impact is substantial: methane and refrigerants together could avoid 0.5–1 °C of warming, and the associated product markets run to tens of billions of dollars per year. The next articles in this series turn to the recovery and remediation targets — critical minerals, PFAS, and cement — where the same correction geometry applies to equally large problems.
+What exists is a correction-and-verification layer that can search these spaces with DFT accuracy and uMLIP speed. The addressable impact is substantial: methane and refrigerants together could avoid 0.5–1 °C of warming, and the associated product markets run to tens of billions of dollars per year. Other recovery and remediation targets follow — critical minerals, PFAS, and cement — where the same correction geometry applies to equally large problems.
 
 ## Footnotes
 

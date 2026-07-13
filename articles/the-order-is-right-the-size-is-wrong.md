@@ -3,26 +3,26 @@
 > **Field note from the live lab**
 > **Date:** 2026-07-02  
 > **Deck:** Foundation machine-learned interatomic potentials (CHGNet, MACE-MP, MACE-MPA-0) measured across 21 materials and up to 9 properties against 228 published reference values  
-> **Status:** Live evidence — every number below is sealed as a machine-checked theorem over provenance-hashed data; kills and corrections are preserved in the record  
+> **Status:** Live evidence — every number reported is sealed as a machine-checked theorem over provenance-hashed data; kills and corrections are preserved in the record  
 > **Artifacts:** manuscript, pre-registration with amendments, 100+ Lean theorems, and the full evidence corpus in the [repository](https://github.com/alexwelcing/lupine-rhizo/pull/14) and [Library](https://library.lupine.science)  
 
 ---
 
-## What we asked
+## The question
 
 Foundation potentials promise density-functional accuracy at classical cost.
-On bulk properties they nearly deliver: across our matrix, lattice constants
+On bulk properties they nearly deliver: across the benchmark matrix, lattice constants
 land within half a percent and formation enthalpies within a few percent of
 published references. On the properties that decide real materials questions —
 surfaces, vacancies, stacking faults — the same models miss by ten to forty
 percent, systematically.
 
-We wanted to know whether that failure has *structure*: something measurable,
-correctable, and honest about its own limits.
+The question is whether that failure has *structure*: something measurable,
+correctable, and explicit about its limits.
 
 ## What did not survive
 
-We pre-registered the obvious hypotheses first, with coupling-aware nulls —
+The obvious hypotheses were pre-registered first, with coupling-aware nulls —
 statistical controls that grant the physics its own internal correlations
 before crediting any model with "shared structure."
 
@@ -30,10 +30,10 @@ Two headline hypotheses died. Cross-property error is **not** low-dimensional
 in the linear sense: participation ratios sit inside the null band. And
 apparent cross-model alignment — raw cosine similarities as high as 0.96 —
 sits *inside* a null that reaches 0.98. A naive analysis would have published
-both as discoveries. The nulls exist so that we don't.
+both as discoveries. The nulls exist so that false discoveries are not published.
 
 The kills are preserved in the registration document alongside a third entry:
-our own first explanation for an iron anomaly, falsified by measurement the
+the first explanation for an iron anomaly, falsified by measurement the
 same day it was written, with the falsification logged in place.
 
 ## What survived
@@ -58,8 +58,7 @@ coordination. Measured from just three standard observables per material,
 the field predicted a fourth observable it had never seen — the (110)
 surface energy, which probes an unfitted coordination — with r = 0.906
 across 36 cells, zero adjustable parameters, surviving material-clustered
-resampling and a permutation null that we report honestly at its true
-center (0.44, not zero).
+resampling and a permutation null reported at its true center (0.44, not zero).
 
 ## From map to correction
 
@@ -70,7 +69,7 @@ observables exactly through full relaxations, improved the *blind* facet at
 run time (9.7% → 1.5% error on nickel; 28.0% → 13.7% on copper), left the
 bulk provably untouched, and ran stable molecular dynamics.
 
-And where it cannot work, we can now *prove* it cannot: MPtrj-trained models
+And where it cannot work, the failure is provable: MPtrj-trained models
 scramble the ranking of stacking-fault energies, and a short quantified lemma
 shows no order-preserving correction can ever map those predictions onto the
 references. The impossibility is a theorem with concrete witnesses, checked
@@ -87,7 +86,7 @@ abstract, because knowing where a method stops is most of knowing what it is.
 Every claim above — the wins, the kills, the impossibility — is sealed as
 decidable theorems over integer-scaled data carrying cryptographic
 provenance. This is not decoration. During preparation the kernel rejected
-one of our own claimed results: a blind-prediction win whose margin vanished
+one claimed result: a blind-prediction win whose margin vanished
 at the fourth decimal (`decide` refused `813 < 813`). The corrected count is
 the published one. The proof assistant edited the science, in exactly the
 direction of honesty.
@@ -95,17 +94,17 @@ direction of honesty.
 ## What this means if you run simulations
 
 - **Screening today:** rankings from these models are already trustworthy
-  where we measured (surfaces, vacancies, bulk moduli) — pick candidates
+  in the measured domain (surfaces, vacancies, bulk moduli) — pick candidates
   with confidence, and treat MPtrj stacking-fault rankings as unusable.
 - **Certification:** a handful of anchor measurements per property family,
   plus the family exponent, buys a several-fold error reduction at zero
   additional simulation cost.
-- **Boundaries:** where the order is broken, no monotone fix exists — we
-  will show you the proof rather than a worse number.
+- **Boundaries:** where the order is broken, no monotone fix exists — the
+  proof is provided rather than a worse number.
 
 The registered next tests — hcp metals, alloys, a continuous-coordinate
 field for forces — are in the record with their kill conditions. If they
-break the picture, that will be published here with the same prominence.
+break the picture, that will be published with the same prominence.
 
 ---
 

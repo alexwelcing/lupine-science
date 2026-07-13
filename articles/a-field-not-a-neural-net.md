@@ -1,6 +1,6 @@
 > **Date:** 2026-07-09
-> **Deck:** Lupine Science’s environment error field as a measured physical correction layer for universal machine-learning interatomic potentials.
-> **Summary:** Why the largest errors in computational materials discovery have a low-dimensional geometry, and how Lupine measures and corrects them at runtime with machine-checked proof.
+> **Deck:** The environment error field as a measured physical correction layer for universal machine-learning interatomic potentials.
+> **Summary:** The largest errors in computational materials discovery have a low-dimensional geometry, and Lupine measures and corrects them at runtime with machine-checked proof.
 > **Status:** Draft
 
 
@@ -11,7 +11,7 @@
 
 The dominant narrative in computational materials science is that bigger models trained on more data will close the gap between prediction and synthesis. The evidence points elsewhere. Google DeepMind’s GNoME predicted 2.2 million crystals; only 736 had been independently synthesized by late 2023, a 0.2% validation rate[^1]. The A-Lab autonomous synthesis facility reported a 63% success rate, but subsequent critique showed that two-thirds of its “novel” targets were already-known disordered phases, collapsing the true discovery rate toward zero[^2]. The problem is not that the models are too small. It is that their errors have a shape — a systematic, low-dimensional geometry in the space of local atomic environments — and the field has been treating that shape as noise.
 
-Lupine Science starts from the opposite premise. The wrongness of universal machine-learning interatomic potentials (uMLIPs) is not random. It is a smooth function of coordination number, measurable from a handful of anchor observables, and correctable at runtime with analytic forces. This article explains the environment error field: what it is, how it is measured rather than learned, and why the distinction matters for climate-critical materials discovery.
+The present approach starts from the opposite premise. The wrongness of universal machine-learning interatomic potentials (uMLIPs) is not random. It is a smooth function of coordination number, measurable from a handful of anchor observables, and correctable at runtime with analytic forces. The environment error field is the focus: what it is, how it is measured rather than learned, and why the distinction matters for climate-critical materials discovery.
 
 ## The Field Hypothesis
 
@@ -22,7 +22,7 @@ The error is not an inescapable property of machine learning. It is a predictabl
 ![Errors are not noise — they have a shape](images/a-field-not-a-neural-net-02-coordination-error-curve.jpg)
 *Where atoms are under-coordinated — surfaces, vacancies, and transition states — universal potentials drift predictably away from reference energies, not randomly. Source: Deng et al., npj Comput. Mater. 11, 9 (2025).*
 
-Lupine formalizes this observation as the environment error field. For a given configuration, the total systematic energy error of a uMLIP is approximated by a sum over atoms of a per-atom error that depends only on the atom’s local coordination number $c$:
+This observation is formalized as the environment error field. For a given configuration, the total systematic energy error of a uMLIP is approximated by a sum over atoms of a per-atom error that depends only on the atom’s local coordination number $c$:
 
 $$E^{\text{model}} - E^{\text{ref}} \approx \sum_i P(c_i).$$
 
@@ -30,12 +30,12 @@ For a perfect face-centered-cubic (fcc) bulk atom, $c = 12$, and the field is de
 
 ## Measured, Not Learned
 
-The critical difference between the Lupine field and previous correction strategies is that the field is measured, not learned. Delta-ML trains a separate model to learn the discrepancy between a fast baseline and an accurate target; it requires per-system retraining and abundant reference data[^6]. Fine-tuning updates uMLIP weights on target-system data; it works when curated training sets exist, which they do not for unexplored composition spaces[^7]. Both approaches treat the error as an arbitrary function to be discovered from data.
+The critical difference between this field and previous correction strategies is that it is measured, not learned. Delta-ML trains a separate model to learn the discrepancy between a fast baseline and an accurate target; it requires per-system retraining and abundant reference data[^6]. Fine-tuning updates uMLIP weights on target-system data; it works when curated training sets exist, which they do not for unexplored composition spaces[^7]. Both approaches treat the error as an arbitrary function to be discovered from data.
 
-Lupine imposes the functional form. A cubic spline through three standard anchor observables — the (100) surface probing $c=8$, the (111) surface probing $c=9$, and the vacancy formation energy probing $c=11$ — is fixed by the boundary condition $P(12) = 0$. Linear continuation below $c=8$ predicts the error at $c=7$, which corresponds to the (110) surface energy. That observable is never fitted during field construction; it is predicted blind.
+The method imposes the functional form. A cubic spline through three standard anchor observables — the (100) surface probing $c=8$, the (111) surface probing $c=9$, and the vacancy formation energy probing $c=11$ — is fixed by the boundary condition $P(12) = 0$. Linear continuation below $c=8$ predicts the error at $c=7$, which corresponds to the (110) surface energy. That observable is never fitted during field construction; it is predicted blind.
 
 ![Three anchors fix the field](images/a-field-not-a-neural-net-03-field-anchors-spline.jpg)
-*Lupine measures the error field from three standard observables and fixes it to zero in the bulk; everything below the lowest anchor is a true blind prediction.*
+*The error field is measured from three standard observables and fixed to zero in the bulk; everything below the lowest anchor is a true blind prediction.*
 
 Each anchor samples a different coordination deficit relative to the bulk reference. Because the same coordination numbers recur across materials that share a crystal structure family, the spline transfers across properties within that family — surface energies, vacancy formation energies, and migration barriers — without additional DFT oracle calls. The correction is measured in the sense that geometry dictates the functional form and only the three knot values are empirical.
 
@@ -72,24 +72,24 @@ Validation confirms selective correction. The fitted observables recover exactly
 
 ## Machine-Checked Proof
 
-Statistical validation has a well-known limitation: it cannot catch bugs in the analysis code, and it applies only to the samples tested. Lupine adds a formal verification layer. Every quantitative claim — ordering relations, correction bounds, and impossibility results — is encoded as a Lean 4 theorem over integer-scaled data carrying SHA-256 provenance of the source files. The formalization currently comprises 51 modules, 190 build-locked theorems, 427 theorem declarations, approximately 640 declarations, and zero `sorry` proofs.
+Statistical validation has a well-known limitation: it cannot catch bugs in the analysis code, and it applies only to the samples tested. A formal verification layer is added. Every quantitative claim — ordering relations, correction bounds, and impossibility results — is encoded as a Lean 4 theorem over integer-scaled data carrying SHA-256 provenance of the source files. The formalization currently comprises 51 modules, 190 build-locked theorems, 427 theorem declarations, approximately 640 declarations, and zero `sorry` proofs.
 
 The theorems fall into three categories. Ordering claims are inequality chains verified by the Lean kernel at fixed precision, not statistical summaries. Isotonic correction theorems implement the log-affine correction as a Lean function whose outputs the kernel checks against expected ordering properties. Impossibility theorems prove, with concrete counterexample witnesses, where no monotone correction can reconcile a model’s ordering with the reference ordering.
 
 The kernel-rejected claim episode illustrates why this matters. A statistical filter initially accepted that 27 of 36 cells improved strictly. When submitted to Lean, the `decide` tactic refused to prove $813 < 813$; at $10^{-4}$ J/m$^2$ integer precision, one cell’s improvement margin was exactly zero. The corrected count is 26 of 36. A p-value does not know about integer rounding; the proof kernel does. In a pipeline where each false positive can cost weeks of synthesis effort, the distinction between statistical confidence and mechanical certainty is economically decisive.
 
-## Where Correction Fails, Lupine Proves Impossibility
+## Where Correction Fails, the Framework Proves Impossibility
 
-A verification layer is only as useful as its boundary conditions. Lupine does not claim the field works everywhere; it proves where it cannot work. Three boundary conditions are formally established.
+A verification layer is only as useful as its boundary conditions. No claim is made that the field works everywhere; the framework proves where it cannot work. Three boundary conditions are formally established.
 
-![Where correction cannot work, Lupine proves it](images/a-field-not-a-neural-net-07-impossibility-boundaries.jpg)
+![Where correction cannot work, the framework proves it](images/a-field-not-a-neural-net-07-impossibility-boundaries.jpg)
 *Instead of silent failures, the verification layer returns machine-checked impossibility proofs for ranking inversions, noise-floor cells, and out-of-domain structures.*
 
 First, ranking inversions. When a model’s ordering disagrees with the reference ordering, a monotonicity impossibility lemma proves that no monotone correction can map both to their references simultaneously. The experimentalist receives not a vague uncertainty estimate but a machine-checked statement that the candidate cannot be rescued within the method.
 
 Second, already-converged cells. Where the raw uMLIP error sits at the noise floor of the anchor observables — for instance, MACE-MPA-0 on certain surfaces — correction adds no value and is refused. The proof flags the redundancy before computational effort is wasted.
 
-Third, outside the field’s domain. Environments that require second-shell structure or explicit electronic-structure treatment — planar faults, charged defects, strongly correlated oxides — are outside the first-shell coordination approximation. Lupine proves the domain violation and reports the witness.
+Third, outside the field’s domain. Environments that require second-shell structure or explicit electronic-structure treatment — planar faults, charged defects, strongly correlated oxides — are outside the first-shell coordination approximation. The framework proves the domain violation and reports the witness.
 
 These impossibility proofs are not admissions of weakness. They are the feature that prevents the A-Lab pattern: systematic false positives propagating through an autonomous pipeline because no layer knew how to say no.
 
@@ -105,7 +105,7 @@ The field measurement, runtime correction, and formal verification layers close 
 6. **Improve** — run the corrected calculator through the full pipeline. If correction succeeds, report corrected values with theorem certificates. If it fails, the impossibility proof tells the experimentalist why.
 
 ![The six-step discovery loop](images/a-field-not-a-neural-net-06-discovery-loop.jpg)
-*Lupine closes field measurement, runtime correction, and machine-checked proof into a six-step loop that terminates in either a certified candidate or a provable reason to stop.*
+*Field measurement, runtime correction, and machine-checked proof close into a six-step loop that terminates in either a certified candidate or a provable reason to stop.*
 
 These certificates are no longer only a publication artifact. The field-domain gate, ranking-inversion gate, and barrier-underestimation conservatism check are now wired into the runtime policy engine and the promotion gate. When a prediction carries first-shell coordination data, the system checks whether every atom lies inside the measured field's domain; out-of-domain atoms trigger a `skip_correction` action backed by `FieldDomain.refusal_has_witness`. When a candidate model is promoted, adjacent pairs in its reference and predicted rankings are checked for monotone rescuability; an inverted pair is downgraded automatically because `inversion_defeats_monotone` proves no monotone recalibration can rescue it. Barrier claims are checked against `softened_barrier_underestimates` and `softening_never_hides_conductor`. The mathematics that was proved in Lean now governs what reaches the lab.
 
@@ -120,10 +120,10 @@ The field is not an abstract mathematical device. It maps directly onto the defe
 
 In cobalt-free lithium-manganese-rich cathodes, voltage fade is transition-metal migration from octahedral to tetrahedral sites — a hop whose barrier is underestimated when the transition state is under-coordinated. In earth-abundant halide solid electrolytes, ionic conductivity depends exponentially on the Li$^+$ migration barrier; a 60% barrier error changes predicted conductivity by roughly three orders of magnitude. In MOFs for direct air capture, humidity stability is governed by metal-linker hydrolysis at under-coordinated nodes. In electrochemical ammonia catalysts, N$\equiv$N cleavage occurs at surface defect sites. In lead-free perovskite absorbers, Sn$^{2+}$ oxidation and vacancy formation set the stability ceiling.
 
-Every one of these properties is a coordination-dependent defect property. Every one is therefore within the domain where a measured error field can correct the prediction, or where an impossibility proof can flag the candidate as unsupported. The next article in this series turns from the method to the targets: five material classes where correction plus verification could unlock 5–12 GtCO$_2$/year.
+Every one of these properties is a coordination-dependent defect property. Every one is therefore within the domain where a measured error field can correct the prediction, or where an impossibility proof can flag the candidate as unsupported. The next part turns from the method to the targets: five material classes where correction plus verification could unlock 5–12 GtCO$_2$/year.
 
 ![A field, not a neural net](images/a-field-not-a-neural-net-10-field-vs-neural-net.jpg)
-*Lupine replaces the arms race for bigger models with a measured field and formal verification, eliminating per-system retraining while raising the standard of evidence.*
+*The measured field and formal verification replace the arms race for bigger models, eliminating per-system retraining while raising the standard of evidence.*
 
 ## Footnotes
 

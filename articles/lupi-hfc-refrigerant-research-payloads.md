@@ -30,7 +30,7 @@ Hydrofluorocarbons are a strange climate problem. They were introduced to save t
 
 Finding replacements is hard because the design space is constrained by thermophysical performance, flammability, toxicity, atmospheric lifetime, and lubricant compatibility all at once. Computational screening must predict vapor pressure, latent heat, transport properties, and decomposition pathways across millions of small molecules. Each of those properties depends on under-coordinated environments — radical transition states, surfaces, and phase boundaries — where generic force fields and universal machine-learning potentials systematically soften the energy surface.
 
-Lupi's research payloads make those environments inspectable. You can watch the temperature profile evolve, see the velocity field, and correlate per-atom forces with local structure. The correction-and-verification layer described elsewhere on Lupine Science can then be applied to the same trajectories to recover trustworthy barriers and lifetimes.
+Lupi's research payloads make those environments inspectable. You can watch the temperature profile evolve, see the velocity field, and correlate per-atom forces with local structure. The correction-and-verification layer can then be applied to the same trajectories to recover trustworthy barriers and lifetimes.
 
 ## Try it
 

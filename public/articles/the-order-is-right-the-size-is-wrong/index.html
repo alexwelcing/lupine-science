@@ -74,7 +74,7 @@
       <p class="article-kicker" aria-label="Article type">Research note</p>
 <h1>The Order Is Right, the Size Is Wrong</h1>
 <p class="article-deck">Foundation machine-learned interatomic potentials (CHGNet, MACE-MP, MACE-MPA-0) measured across 21 materials and up to 9 properties against 228 published reference values</p>
-<ul class="article-byline" aria-label="Publication details"><li><time datetime="2026-07-02">July 2, 2026</time></li> <li aria-hidden="true"><span class="byline-sep" aria-hidden="true">·</span></li> <li><span class="article-status">Live evidence — every number below is sealed as a machine-checked theorem over provenance-hashed data; kills and corrections are preserved in the record</span></li></ul>
+<ul class="article-byline" aria-label="Publication details"><li><time datetime="2026-07-02">July 2, 2026</time></li> <li aria-hidden="true"><span class="byline-sep" aria-hidden="true">·</span></li> <li><span class="article-status">Live evidence — every number reported is sealed as a machine-checked theorem over provenance-hashed data; kills and corrections are preserved in the record</span></li></ul>
 <figure class="article-hero" aria-labelledby="hero-caption">
   <picture>
     <source srcset="/articles/the-order-is-right-the-size-is-wrong/hero.avif?v=2" type="image/avif">
@@ -85,26 +85,26 @@
 </figure>
 
 <hr>
-<h2>What we asked</h2>
+<h2>The question</h2>
 <p>Foundation potentials promise density-functional accuracy at classical cost.
-On bulk properties they nearly deliver: across our matrix, lattice constants
+On bulk properties they nearly deliver: across the benchmark matrix, lattice constants
 land within half a percent and formation enthalpies within a few percent of
 published references. On the properties that decide real materials questions —
 surfaces, vacancies, stacking faults — the same models miss by ten to forty
 percent, systematically.</p>
-<p>We wanted to know whether that failure has <em>structure</em>: something measurable,
-correctable, and honest about its own limits.</p>
+<p>The question is whether that failure has <em>structure</em>: something measurable,
+correctable, and explicit about its limits.</p>
 <h2>What did not survive</h2>
-<p>We pre-registered the obvious hypotheses first, with coupling-aware nulls —
+<p>The obvious hypotheses were pre-registered first, with coupling-aware nulls —
 statistical controls that grant the physics its own internal correlations
 before crediting any model with “shared structure.”</p>
 <p>Two headline hypotheses died. Cross-property error is <strong>not</strong> low-dimensional
 in the linear sense: participation ratios sit inside the null band. And
 apparent cross-model alignment — raw cosine similarities as high as 0.96 —
 sits <em>inside</em> a null that reaches 0.98. A naive analysis would have published
-both as discoveries. The nulls exist so that we don’t.</p>
+both as discoveries. The nulls exist so that false discoveries are not published.</p>
 <p>The kills are preserved in the registration document alongside a third entry:
-our own first explanation for an iron anomaly, falsified by measurement the
+the first explanation for an iron anomaly, falsified by measurement the
 same day it was written, with the falsification logged in place.</p>
 <h2>What survived</h2>
 <p><strong>Rankings.</strong> Ask any of these models <em>which</em> metal has the higher surface
@@ -125,8 +125,7 @@ coordination. Measured from just three standard observables per material,
 the field predicted a fourth observable it had never seen — the (110)
 surface energy, which probes an unfitted coordination — with r = 0.906
 across 36 cells, zero adjustable parameters, surviving material-clustered
-resampling and a permutation null that we report honestly at its true
-center (0.44, not zero).</p>
+resampling and a permutation null reported at its true center (0.44, not zero).</p>
 <h2>From map to correction</h2>
 <p>Because the field lives on atomic environments, its inverse is not a
 spreadsheet adjustment — it is an additive energy term with analytic forces,
@@ -134,7 +133,7 @@ running beside the live model. Deployed over CHGNet, it recovered the fitted
 observables exactly through full relaxations, improved the <em>blind</em> facet at
 run time (9.7% → 1.5% error on nickel; 28.0% → 13.7% on copper), left the
 bulk provably untouched, and ran stable molecular dynamics.</p>
-<p>And where it cannot work, we can now <em>prove</em> it cannot: MPtrj-trained models
+<p>And where it cannot work, the failure is provable: MPtrj-trained models
 scramble the ranking of stacking-fault energies, and a short quantified lemma
 shows no order-preserving correction can ever map those predictions onto the
 references. The impossibility is a theorem with concrete witnesses, checked
@@ -148,24 +147,24 @@ abstract, because knowing where a method stops is most of knowing what it is.</p
 <p>Every claim above — the wins, the kills, the impossibility — is sealed as
 decidable theorems over integer-scaled data carrying cryptographic
 provenance. This is not decoration. During preparation the kernel rejected
-one of our own claimed results: a blind-prediction win whose margin vanished
+one claimed result: a blind-prediction win whose margin vanished
 at the fourth decimal (<code>decide</code> refused <code>813 &lt; 813</code>). The corrected count is
 the published one. The proof assistant edited the science, in exactly the
 direction of honesty.</p>
 <h2>What this means if you run simulations</h2>
 <ul>
 <li><strong>Screening today:</strong> rankings from these models are already trustworthy
-where we measured (surfaces, vacancies, bulk moduli) — pick candidates
+in the measured domain (surfaces, vacancies, bulk moduli) — pick candidates
 with confidence, and treat MPtrj stacking-fault rankings as unusable.</li>
 <li><strong>Certification:</strong> a handful of anchor measurements per property family,
 plus the family exponent, buys a several-fold error reduction at zero
 additional simulation cost.</li>
-<li><strong>Boundaries:</strong> where the order is broken, no monotone fix exists — we
-will show you the proof rather than a worse number.</li>
+<li><strong>Boundaries:</strong> where the order is broken, no monotone fix exists — the
+proof is provided rather than a worse number.</li>
 </ul>
 <p>The registered next tests — hcp metals, alloys, a continuous-coordinate
 field for forces — are in the record with their kill conditions. If they
-break the picture, that will be published here with the same prominence.</p>
+break the picture, that will be published with the same prominence.</p>
 <hr>
 <p><em>Evidence trail: pre-registration and amendments, confirmatory artifacts,
 statistical hardening, the manuscript with its five-figure hashed pipeline,
@@ -173,7 +172,7 @@ and the Lean modules are in the <a href="https://github.com/alexwelcing/lupine-r
 and the <a href="https://library.lupine.science">Lupine Library</a>. The ledger’s
 records landed under <code>y-matrix-2026-07-02</code>.</em></p>
 
-<div class="share-root" data-url="https://lupine.science/articles/the-order-is-right-the-size-is-wrong/" data-title="The Order Is Right, the Size Is Wrong" role="group" aria-label="Share this article">
+<div class="share-root" data-url="https://lupine.science/articles/the-order-is-right-the-size-is-wrong/" data-title="The Order Is Right, the Size Is Wrong" role="group" aria-label="Share">
   <span class="share-label">Share</span>
   <ul class="share-list" role="list" aria-label="Share options">
     <li><a class="share-link share-bluesky" href="https://bsky.app/intent/compose?text=The%20Order%20Is%20Right%2C%20the%20Size%20Is%20Wrong%20https%3A%2F%2Flupine.science%2Farticles%2Fthe-order-is-right-the-size-is-wrong%2F" aria-label="Share on Bluesky" target="_blank" rel="noopener noreferrer">Share on Bluesky</a></li>

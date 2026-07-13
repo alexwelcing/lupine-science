@@ -342,7 +342,7 @@ function shareBar(slug, title) {
       ? `    <li><button type="button" class="share-btn share-copy" aria-label="${esc(a.label)}">${esc(a.label)}</button></li>`
       : `    <li><a class="share-link share-${a.slug}" href="${esc(a.href)}" aria-label="${esc(a.label)}"${a.slug !== 'email' ? ' target="_blank" rel="noopener noreferrer"' : ''}>${esc(a.label)}</a></li>`
   ).join('\n');
-  return `<div class="share-root" data-url="${esc(url)}" data-title="${esc(title)}" role="group" aria-label="Share this article">
+  return `<div class="share-root" data-url="${esc(url)}" data-title="${esc(title)}" role="group" aria-label="Share">
   <span class="share-label">Share</span>
   <ul class="share-list" role="list" aria-label="Share options">
 ${items}
@@ -521,7 +521,7 @@ function buildIndex(articles) {
 <head>
   ${head({
     title: 'Articles — Lupine Science',
-    description: 'Articles, prospectuses, and research notes from Lupine Science on formalized materials discovery.',
+    description: 'Articles, prospectuses, and research notes on formalized, machine-checked materials discovery.',
     url: `${SITE}/articles/`,
     ogImage: `${SITE}/og-lupine-science.png`,
     ogType: 'website',
@@ -530,11 +530,11 @@ function buildIndex(articles) {
 </head>
 <body>
 ${chrome(`  <main id="content" class="article-index">
-    <p class="b-label">From the notebook</p>
+    <p class="b-label">Recent notes</p>
     <h1>Research notes, prospectuses, and formalization roadmaps.</h1>
     <div class="cta proof-pack-cta">
-      <p><strong>Climate partnerships series — download the proof pack</strong></p>
-      <p>A single PDF with all five climate-partnership articles: cover pages, printable layout, and source URLs.</p>
+      <p><strong>Environmental series — download the proof pack</strong></p>
+      <p>A single PDF with all five environmental-series articles: cover pages, printable layout, and source URLs.</p>
       <a href="/proof-pack-climate-series.pdf" download>Download proof-pack-climate-series.pdf</a>
     </div>
     <ul class="article-list">

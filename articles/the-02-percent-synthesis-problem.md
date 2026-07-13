@@ -1,6 +1,6 @@
 > **Date:** 2026-07-09
 > **Deck:** Why most computationally predicted materials never reach a synthesis vessel, and why that matters for climate-critical materials.
-> **Summary:** An honest look at the 0.2% validation rate of structure-generation campaigns, the four structural filters that cause it, and the gigatonne-scale cost of leaving the problem unsolved.
+> **Summary:** A review of the 0.2% validation rate of structure-generation campaigns, the four structural filters that cause it, and the gigatonne-scale cost of leaving the problem unsolved.
 > **Status:** Draft
 
 
@@ -13,7 +13,7 @@ Computational materials science is producing candidates faster than laboratories
 
 The headline numbers are symptoms, not accidents. They point to a consistent set of bottlenecks between a predicted crystal and a made material. If those bottlenecks remain unaddressed, the climate cost will be measured in gigatonnes of CO₂ and years of missed deployment windows. Batteries alone are directly linked to roughly 20% of the CO₂ reductions required by 2030 and indirectly to another 40%[^3]. Clean-energy hardware investment must rise from $1.8 trillion in 2023 to roughly $4.5 trillion per year by the early 2030s if net-zero targets are to stay within reach[^4]. Materials discovery is not moving too slowly in absolute terms; it is moving too slowly relative to the scale and urgency of the problem.
 
-Lupine Science occupies the gap between prediction and synthesis. This article explains why the gap exists and why closing it requires a correction and verification layer rather than a larger generator.
+Lupine Science occupies the gap between prediction and synthesis. Closing that gap requires a correction and verification layer rather than a larger generator.
 
 ![Four Filters Between Prediction and Synthesis](images/the-02-percent-synthesis-problem-02-four-filters.jpg)
 *Four structural filters separate a predicted crystal from a made material.*
@@ -42,7 +42,7 @@ Many real materials are not perfectly ordered crystals. Cation disorder, oxygen 
 
 ### Filter 4: The cost of a failed campaign
 
-Each filter compounds the next. A candidate that passes an energy screen but fails in synthesis wastes weeks of lab time and thousands of dollars. In our own validation studies the failure rate is closer to 40–60% than 99.8%, but even that rate is too high for high-throughput screening to be economically rational. We estimate that three-quarters of all predictions would drop out before reaching a factory if these four filters were enforced globally.
+Each filter compounds the next. A candidate that passes an energy screen but fails in synthesis wastes weeks of lab time and thousands of dollars. In internal validation studies the failure rate is closer to 40–60% than 99.8%, but even that rate is too high for high-throughput screening to be economically rational. The estimate is that roughly three-quarters of all predictions would drop out before reaching a factory if these four filters were enforced globally.
 
 ![The Economics of a Failed Campaign](images/the-02-percent-synthesis-problem-09-failure-economics.jpg)
 *Enforcing the four filters would flag roughly three-quarters of predictions before they reach a furnace.*
@@ -54,7 +54,7 @@ The cost of leaving the bottleneck unsolved is not academic. Cobalt-free cathode
 ![Cobalt Supply and the Net-Zero Abatement Gap](images/the-02-percent-synthesis-problem-06-cobalt-climate.jpg)
 *Cobalt-free cathodes remove a supply-chain chokepoint, while clean-energy investment must more than double this decade.*
 
-More broadly, the International Energy Agency estimates that the clean-energy technologies required for net-zero emissions must abate tens of gigatonnes of CO₂ by 2050[^7]. Our internal climate analysis suggests that the five material areas we are pursuing could, if fully deployed, abate 5–12 Gt CO₂ yr⁻¹—roughly 10–25% of what the IEA says clean-energy hardware must remove by 2050.
+More broadly, the International Energy Agency estimates that the clean-energy technologies required for net-zero emissions must abate tens of gigatonnes of CO₂ by 2050[^7]. Internal climate analysis suggests that the five material areas under active pursuit could, if fully deployed, abate 5–12 Gt CO₂ yr⁻¹—roughly 10–25% of what the IEA says clean-energy hardware must remove by 2050.
 
 The window is narrow. A material discovered in 2035 can still shape 2040 deployment; one discovered in 2045 cannot. The difference is measured in cumulative emissions that no later innovation can recover.
 
@@ -63,10 +63,10 @@ The window is narrow. A material discovered in 2035 can still shape 2040 deploym
 
 ## What correction looks like
 
-Closing the gap requires moving from "stable on paper" to "synthesizable in practice." Lupine's approach is to learn an error field around each environment rather than to train a bigger model. The field measures how a uMLIP deviates from reference data as a function of local atomic coordination. That correction is applied at runtime with analytic forces, so molecular dynamics and structure relaxations follow proper gradients. The result is a ranked list in which the top candidates are far more likely to survive synthesis, and in which candidates that cannot be rescued are flagged before a furnace is turned on.
+Closing the gap requires moving from "stable on paper" to "synthesizable in practice." The approach is to learn an error field around each environment rather than to train a bigger model. The field measures how a uMLIP deviates from reference data as a function of local atomic coordination. That correction is applied at runtime with analytic forces, so molecular dynamics and structure relaxations follow proper gradients. The result is a ranked list in which the top candidates are far more likely to survive synthesis, and in which candidates that cannot be rescued are flagged before a furnace is turned on.
 
 ![Learning the Environment Error Field](images/the-02-percent-synthesis-problem-05-error-field.jpg)
-*Lupine applies a local environment error field at runtime so molecular dynamics follows corrected gradients.*
+*A local environment error field is applied at runtime so molecular dynamics follows corrected gradients.*
 
 The approach is already being validated by the market. POSCO Future M has completed development of lithium-manganese-rich cathode materials and is preparing mass production in 2025[^8]. General Motors and LG Energy Solution aim to begin commercial production of prismatic lithium-manganese-rich cells by 2028[^9]. Solid Power is supplying BMW with automotive-scale solid-state cells for qualification testing[^10]. Factorial Energy has delivered 100+ Ah quasi-solid-state cells to Mercedes-Benz, which is now road-testing a modified EQS sedan with the technology[^11]. These are not laboratory curiosities; they are the endpoints that a corrected screening pipeline must feed.
 
@@ -75,7 +75,7 @@ The approach is already being validated by the market. POSCO Future M has comple
 
 ## From predictions to partners
 
-Predictions are necessary but not sufficient. The path from a corrected energy landscape to a commercial material runs through named experimental collaborators who can synthesize, characterize, and scale the top candidates. The next article in this series turns from the diagnosis to the method: how Lupine measures the environment error field, why the field is measured rather than learned, and how machine-checked proof prevents false positives from propagating through an autonomous pipeline.
+Predictions are necessary but not sufficient. The path from a corrected energy landscape to a commercial material runs through named experimental collaborators who can synthesize, characterize, and scale the top candidates. The next article in this series turns from the diagnosis to the method: how the environment error field is measured, why the field is measured rather than learned, and how machine-checked proof prevents false positives from propagating through an autonomous pipeline.
 
 ![From Predictions to Partners](images/the-02-percent-synthesis-problem-10-predictions-to-partners.jpg)
 *Corrected predictions must flow into synthesis, characterization, and scale partners — not into another generation cycle.*
