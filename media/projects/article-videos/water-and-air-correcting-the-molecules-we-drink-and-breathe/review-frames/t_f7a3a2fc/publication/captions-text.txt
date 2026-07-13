@@ -1,0 +1,27 @@
+Two billion people face water scarcity.
+Air pollution is linked to millions of premature deaths every year.
+And solving both problems depends on better materials: membranes that reject salt,
+sorbents that pull water from dry air, and catalysts that destroy pollutants.
+Here is the catch: the AI models screening those materials make their biggest errors
+exactly where the chemistry happens—in tiny pores, exposed metal centers, and single-atom sites.
+These atoms have fewer neighbors, or lower coordination,
+than the bulk crystals in the training data.
+In that low-coordination zone, universal machine-learning potentials
+can soften the energy landscape by 15 to 60 percent.
+Barriers look too easy. Binding looks wrong.
+A raw screen can rank the flashy failure above the material that actually works.
+For water, that can mean choosing the wrong desalination pore,
+or overestimating how long an atmospheric-water framework will survive hydrolysis.
+It can mean missing the pathway that separates lithium from magnesium.
+Different devices, same atomic-scale ranking error.
+For air, it means false promises in cold-start NOx catalysts, soot filters,
+and systems that oxidize formaldehyde or benzene.
+Their performance also lives at under-coordinated active sites,
+where an underestimated barrier becomes pollution that reaches the street—or your living room.
+Lupine measures that coordination error, adds analytic correction forces at runtime,
+and verifies where the answer is supported.
+Across 36 blind model-and-material combinations, corrected predictions reached a correlation of 0.906,
+with zero adjustable parameters, while staying about 100,000 times faster than DFT.
+So this is not one fix for one molecule.
+It is one trust layer for the pores and active sites shaping every sip, every breath,
+and the materials we cannot afford to misrank.

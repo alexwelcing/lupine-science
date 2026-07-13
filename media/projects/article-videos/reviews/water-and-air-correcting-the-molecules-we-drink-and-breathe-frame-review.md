@@ -76,3 +76,12 @@ Do not advance this composition to final render or director sign-off. Fix P0-01 
 - Source audit: `index.html` has 6 font-size declarations, minimum 36 px; `compositions/logo-sting.html` has 5, minimum 36 px; `compositions/outro.html` has 3, minimum 36 px. No declaration is below 36 px.
 - Technical verification: `npm run check` exits 0; validation reports 0 contrast failures and strict inspection reports 0 issues across 21 timestamps.
 - Evidence: `../water-and-air-correcting-the-molecules-we-drink-and-breathe/snapshots-p0-p1-t_9d9f7c40/` and the ticket-specific evidence directories listed above.
+
+## Publication package — director re-entry gate
+
+- Persisted the synchronized `captions.vtt` and versioned 1080p candidate at `../water-and-air-correcting-the-molecules-we-drink-and-breathe/renders/water-and-air-correcting-the-molecules-we-drink-and-breathe-candidate-v3-1080p.mp4`.
+- Candidate metadata: H.264 1920×1080 at 30 fps, AAC stereo at 48 kHz, 106.026667 seconds. SHA-256 and ffprobe JSON are under `review-frames/t_f7a3a2fc/publication/metadata/`; full-stream ffmpeg decode exits 0.
+- The publication evidence package contains 47 full-resolution frames decoded from the candidate, four labeled contact sheets, and `frame-manifest.csv`. It includes exact 17.0, 32.0, 53.0, 68.0, 84.0, 97.0, and 102.8s samples plus every 14/29/43/59/74/94s scene boundary with bracketing frames.
+- Raw zero-finding lint, validate, strict-inspect, and `npm run check` outputs are preserved under `review-frames/t_f7a3a2fc/publication/checks/`. WebVTT timing validation and spell-check evidence are in the package root.
+- Exact candidate decodes at 53.0s and 68.0s retain the approved mechanism hierarchy: Li⁺ passage / Mg²⁺ rejection and CH₂O → Pt* → CO₂ + H₂O conversion respectively. Animator smoke score is 8/10 at each timestamp, with no clipping, overlap, or mechanism-text legibility defect.
+- `scorecard.csv` carries the seven existing formal reviewer scores from `t_e2da8ebb`; the other 40 decoded samples remain explicitly pending independent reviewer scoring. Animator self-approval is not claimed.

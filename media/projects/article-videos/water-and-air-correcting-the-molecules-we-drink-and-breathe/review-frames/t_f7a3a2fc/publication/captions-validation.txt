@@ -1,0 +1,11 @@
+WebVTT timing validation
+file: captions.vtt
+cue_count: 14
+first_start: 00:00:00.000
+last_end: 00:01:45.940
+audio_duration: 105.940958 seconds
+monotonic_start_times: PASS
+non_overlapping_cues: PASS
+positive_duration_cues: PASS
+last_cue_within_audio: PASS
+result: PASS

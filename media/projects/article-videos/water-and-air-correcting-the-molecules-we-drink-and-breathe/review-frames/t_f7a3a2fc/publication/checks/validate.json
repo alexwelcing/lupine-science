@@ -1,0 +1,693 @@
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "contrast": [
+    {
+      "time": 10.6,
+      "selector": "span.kicker",
+      "text": "Every sip · every breath",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 10.6,
+      "selector": "span.meta",
+      "text": "Human stakes · [2][3]",
+      "ratio": 3.32,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(224,226,237)"
+    },
+    {
+      "time": 10.6,
+      "selector": "h1.claim",
+      "text": "Materials sit between crisis and relief.",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 10.6,
+      "selector": "em",
+      "text": "crisis and relief.",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 10.6,
+      "selector": "p.deck",
+      "text": "Membranes, sorbents, and catalysts begin at the in",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 10.6,
+      "selector": "#water-scarcity-stat",
+      "text": "2B",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 10.6,
+      "selector": "span",
+      "text": "WATER SCARCITY",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 10.6,
+      "selector": "b",
+      "text": "MILLIONS",
+      "ratio": 5.45,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(222,223,236)"
+    },
+    {
+      "time": 10.6,
+      "selector": "span",
+      "text": "PREMATURE DEATHS / YEAR",
+      "ratio": 13.87,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(228,229,238)"
+    },
+    {
+      "time": 10.6,
+      "selector": "div.specimen",
+      "text": "MEMBRANE PORE",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 10.6,
+      "selector": "div.specimen",
+      "text": "SORBENT CAVITY",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 10.6,
+      "selector": "div.specimen",
+      "text": "CATALYST SITE",
+      "ratio": 16.39,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 10.6,
+      "selector": "span.source",
+      "text": "MATERIAL INTERFACES · HUMAN SCALE",
+      "ratio": 4.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 10.6,
+      "selector": "span.section",
+      "text": "01 · HUMAN STAKES",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 10.6,
+      "selector": "div.caption",
+      "text": "BETTER MATERIALS COULD HELP",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 31.8,
+      "selector": "span.kicker",
+      "text": "Fast, but falsely soft",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 31.8,
+      "selector": "span.meta",
+      "text": "Published surface + defect tests · [4]",
+      "ratio": 4.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 31.8,
+      "selector": "h1.claim",
+      "text": "A soft landscape creates false winners.",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 31.8,
+      "selector": "em",
+      "text": "false winners.",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 31.8,
+      "selector": "p.deck",
+      "text": "Barriers look easy. Binding shifts. An apparent wi",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 31.8,
+      "selector": "span.source",
+      "text": "SYSTEMATIC SOFTENING · NOT RANDOM",
+      "ratio": 4.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 31.8,
+      "selector": "span.section",
+      "text": "03 · FALSELY SOFT",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 31.8,
+      "selector": "div.caption",
+      "text": "RAW SCREEN ≠ EXPERIMENTAL PRIORITY",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 53,
+      "selector": "span.kicker",
+      "text": "Water applications",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 53,
+      "selector": "span.meta",
+      "text": "Pores · barriers · pathways",
+      "ratio": 3.36,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(226,227,238)"
+    },
+    {
+      "time": 53,
+      "selector": "h1.claim",
+      "text": "Different devices. One ranking error.",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 53,
+      "selector": "em",
+      "text": "One ranking error.",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 53,
+      "selector": "p.deck",
+      "text": "Desalination, atmospheric water, and lithium separ",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 53,
+      "selector": "b",
+      "text": "PORE SELECTIVITY",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 53,
+      "selector": "span.ion.pore-na",
+      "text": "Na",
+      "ratio": 13.89,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(242,226,227)"
+    },
+    {
+      "time": 53,
+      "selector": "span.pore-arrow",
+      "text": "→",
+      "ratio": 3.52,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(90,138,110)",
+      "bg": "rgb(242,241,243)"
+    },
+    {
+      "time": 53,
+      "selector": "span.molecule.pore-water",
+      "text": "H₂O",
+      "ratio": 12.05,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(205,218,208)"
+    },
+    {
+      "time": 53,
+      "selector": "small",
+      "text": "WATER PASSES · SALT STOPS",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 53,
+      "selector": "b",
+      "text": "HYDROLYSIS BARRIER",
+      "ratio": 5.4,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(221,222,235)"
+    },
+    {
+      "time": 53,
+      "selector": "span",
+      "text": "H₂O",
+      "ratio": 3.36,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(90,138,110)",
+      "bg": "rgb(235,236,241)"
+    },
+    {
+      "time": 53,
+      "selector": "span",
+      "text": "→",
+      "ratio": 3.28,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(90,138,110)",
+      "bg": "rgb(233,233,240)"
+    },
+    {
+      "time": 53,
+      "selector": "span",
+      "text": "OH⁻ + H⁺",
+      "ratio": 3.22,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(90,138,110)",
+      "bg": "rgb(230,231,239)"
+    },
+    {
+      "time": 53,
+      "selector": "b",
+      "text": "Li⁺ / Mg²⁺ TRANSPORT",
+      "ratio": 6.51,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(243,243,244)"
+    },
+    {
+      "time": 53,
+      "selector": "span.ion.li-ion",
+      "text": "Li",
+      "ratio": 13.79,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(232,227,237)"
+    },
+    {
+      "time": 53,
+      "selector": "span.transport-arrow",
+      "text": "→→",
+      "ratio": 3.1,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(90,138,110)",
+      "bg": "rgb(225,227,237)"
+    },
+    {
+      "time": 53,
+      "selector": "span.ion.mg-ion",
+      "text": "Mg",
+      "ratio": 13.04,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(221,222,236)"
+    },
+    {
+      "time": 53,
+      "selector": "span.reject-mark",
+      "text": "×",
+      "ratio": 3.08,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(199,91,91)",
+      "bg": "rgb(221,221,235)"
+    },
+    {
+      "time": 53,
+      "selector": "small",
+      "text": "Li⁺ PASSES · Mg²⁺ REJECTED",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 53,
+      "selector": "span.source",
+      "text": "DESALINATION [1] · AWH [6] · LITHIUM [8]",
+      "ratio": 4.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 53,
+      "selector": "span.section",
+      "text": "04 · WATER",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 53,
+      "selector": "div.caption",
+      "text": "ATOMIC-SCALE RANKING ERROR",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 74.2,
+      "selector": "span.kicker",
+      "text": "Measure · predict · compare",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 74.2,
+      "selector": "span.meta",
+      "text": "Scoped proof · [5]",
+      "ratio": 4.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 74.2,
+      "selector": "h1.claim",
+      "text": "A measured field can correct the trajectory.",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 74.2,
+      "selector": "em",
+      "text": "correct the trajectory.",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 74.2,
+      "selector": "p.deck",
+      "text": "Blind fcc-metal error prediction. Application tran",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 74.2,
+      "selector": "span.source",
+      "text": "NEVER-FITTED SURFACE-ENERGY ERROR",
+      "ratio": 4.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 74.2,
+      "selector": "span.section",
+      "text": "06 · SCOPED PROOF",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 74.2,
+      "selector": "div.caption",
+      "text": "SUPPORTED EVIDENCE · EXPLICIT BOUNDARY",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 95.4,
+      "selector": "span.kicker",
+      "text": "Platform thesis",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 95.4,
+      "selector": "span.meta",
+      "text": "One bounded correction layer",
+      "ratio": 3.39,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(227,228,238)"
+    },
+    {
+      "time": 95.4,
+      "selector": "h1.claim",
+      "text": "A trust layer for every sip, every breath.",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 95.4,
+      "selector": "em",
+      "text": "every sip, every breath.",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 95.4,
+      "selector": "p.deck",
+      "text": "Prioritize the pores and active sites worth the ne",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 95.4,
+      "selector": "span",
+      "text": "MEASURE",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 95.4,
+      "selector": "b.arrow",
+      "text": "→",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 95.4,
+      "selector": "span",
+      "text": "CORRECT",
+      "ratio": 6.51,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(243,243,244)"
+    },
+    {
+      "time": 95.4,
+      "selector": "b.arrow",
+      "text": "→",
+      "ratio": 6.4,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(241,241,243)"
+    },
+    {
+      "time": 95.4,
+      "selector": "span",
+      "text": "BOUND",
+      "ratio": 6.34,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(240,240,242)"
+    },
+    {
+      "time": 95.4,
+      "selector": "div.boundary",
+      "text": "SUPPORTED ≠ VALIDATED EVERYWHERE",
+      "ratio": 3.77,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(90,138,110)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 95.4,
+      "selector": "span.source",
+      "text": "PORES · ACTIVE SITES · EXPERIMENTAL PRIORITIES",
+      "ratio": 4.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 95.4,
+      "selector": "span.section",
+      "text": "07 · TRUST LAYER",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 95.4,
+      "selector": "div.caption",
+      "text": "THE MATERIALS WE CANNOT AFFORD TO MISRANK",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    }
+  ],
+  "contrastFailures": 0,
+  "_meta": {
+    "version": "0.7.48",
+    "latestVersion": "0.7.54",
+    "updateAvailable": true
+  }
+}

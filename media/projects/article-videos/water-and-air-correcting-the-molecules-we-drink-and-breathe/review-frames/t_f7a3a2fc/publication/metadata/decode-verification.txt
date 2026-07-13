@@ -1,0 +1,5 @@
+Candidate full-stream decode verification
+command: ffmpeg -v error -i renders/water-and-air-correcting-the-molecules-we-drink-and-breathe-candidate-v3-1080p.mp4 -f null -
+exit_code: 0
+stderr: empty
+result: PASS

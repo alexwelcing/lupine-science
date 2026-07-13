@@ -1,0 +1,58 @@
+WEBVTT
+
+NOTE Synchronized to the approved 106-second narration master.
+
+00:00:00.000 --> 00:00:07.200
+Two billion people face water scarcity.
+Air pollution is linked to millions of premature deaths every year.
+
+00:00:07.200 --> 00:00:14.000
+And solving both problems depends on better materials: membranes that reject salt,
+sorbents that pull water from dry air, and catalysts that destroy pollutants.
+
+00:00:14.000 --> 00:00:21.600
+Here is the catch: the AI models screening those materials make their biggest errors
+exactly where the chemistry happens—in tiny pores, exposed metal centers, and single-atom sites.
+
+00:00:21.600 --> 00:00:29.000
+These atoms have fewer neighbors, or lower coordination,
+than the bulk crystals in the training data.
+
+00:00:29.000 --> 00:00:35.800
+In that low-coordination zone, universal machine-learning potentials
+can soften the energy landscape by 15 to 60 percent.
+
+00:00:35.800 --> 00:00:43.000
+Barriers look too easy. Binding looks wrong.
+A raw screen can rank the flashy failure above the material that actually works.
+
+00:00:43.000 --> 00:00:50.900
+For water, that can mean choosing the wrong desalination pore,
+or overestimating how long an atmospheric-water framework will survive hydrolysis.
+
+00:00:50.900 --> 00:00:59.000
+It can mean missing the pathway that separates lithium from magnesium.
+Different devices, same atomic-scale ranking error.
+
+00:00:59.000 --> 00:01:06.700
+For air, it means false promises in cold-start NOx catalysts, soot filters,
+and systems that oxidize formaldehyde or benzene.
+
+00:01:06.700 --> 00:01:14.000
+Their performance also lives at under-coordinated active sites,
+where an underestimated barrier becomes pollution that reaches the street—or your living room.
+
+00:01:14.000 --> 00:01:23.200
+Lupine measures that coordination error, adds analytic correction forces at runtime,
+and verifies where the answer is supported.
+
+00:01:23.200 --> 00:01:34.000
+Across 36 blind model-and-material combinations, corrected predictions reached a correlation of 0.906,
+with zero adjustable parameters, while staying about 100,000 times faster than DFT.
+
+00:01:34.000 --> 00:01:40.200
+So this is not one fix for one molecule.
+
+00:01:40.200 --> 00:01:45.940
+It is one trust layer for the pores and active sites shaping every sip, every breath,
+and the materials we cannot afford to misrank.
