@@ -25,8 +25,8 @@ describe('video share integration', () => {
   it('uses a video thumbnail for the video index social preview', () => {
     const html = readPublicPage('videos');
 
-    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/videos\/the-02-percent-synthesis-problem-poster\.jpg">/);
-    assert.match(html, /<meta name="twitter:image" content="https:\/\/lupine\.science\/videos\/the-02-percent-synthesis-problem-poster\.jpg">/);
+    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/videos\/the-02-percent-synthesis-problem-poster\.jpg\?v=2">/);
+    assert.match(html, /<meta name="twitter:image" content="https:\/\/lupine\.science\/videos\/the-02-percent-synthesis-problem-poster\.jpg\?v=2">/);
   });
 
   it('integrates sharing and the video thumbnail into published video article pages', () => {
@@ -34,7 +34,7 @@ describe('video share integration', () => {
     const html = readPublicPage('articles', slug);
 
     assert.match(html, new RegExp(`class="share-root"[^>]*data-url="https://lupine\\.science/articles/${slug}/"`));
-    assert.match(html, new RegExp(`<meta property="og:image" content="https://lupine\\.science/videos/${slug}-poster\\.jpg">`));
+    assert.match(html, new RegExp(`<meta property="og:image" content="https://lupine\\.science/videos/${slug}-poster\\.jpg\\?v=2">`));
     assert.match(html, /import \{ initAllShareWidgets \} from "\/components\/share\/share\.mjs"/);
   });
 });

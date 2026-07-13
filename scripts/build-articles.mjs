@@ -21,6 +21,40 @@ const SITE = 'https://lupine.science';
 const KATEX_SRC = path.join(ROOT, 'node_modules', 'katex', 'dist');
 const KATEX_OUT = path.join(PUBLIC_ROOT, 'katex');
 
+// Cache-bust revision for article image assets. Bumping this forces browsers
+// and any edge cache that keyed on the bare URL to fetch a fresh copy.
+const ASSET_CACHE_BUST = '?v=2';
+
+function bust(url) {
+  if (!url || url.includes('?') || url.includes('#')) return url;
+  return `${url}${ASSET_CACHE_BUST}`;
+}
+
+// Append the cache-bust query to local image URLs inside rendered Markdown.
+// Matches <img src="images/...">, <source srcset="images/...">, and the
+// equivalent absolute /articles/<slug>/... paths used by hero/picture helpers.
+function bustInlineImages(html, slug) {
+  const bustPath = (u) => {
+    if (!u) return u;
+    const trimmed = u.trim();
+    if (trimmed.startsWith('images/') || trimmed.startsWith(`/articles/${slug}/`) || trimmed.startsWith(`${SITE}/articles/${slug}/`)) {
+      return bust(trimmed);
+    }
+    return trimmed;
+  };
+
+  // <img src="..."> and <source srcset="...">
+  return html
+    .replace(/(<img\s+[^>]*src=")([^"]+)(")/gi, (m, pre, src, post) => `${pre}${bustPath(src)}${post}`)
+    .replace(/(<source\s+[^>]*srcset=")([^"]+)(")/gi, (m, pre, srcset, post) => {
+      const busted = srcset.split(',').map((part) => {
+        const [url, ...desc] = part.trim().split(/\s+/);
+        return [bustPath(url), ...desc].join(' ');
+      }).join(', ');
+      return `${pre}${busted}${post}`;
+    });
+}
+
 function ensureKatexAssets() {
   if (!fs.existsSync(KATEX_SRC)) return false;
   fs.mkdirSync(KATEX_OUT, { recursive: true });
@@ -175,7 +209,7 @@ function heroFigure(slug) {
   const caption = HERO_CAPTIONS[slug] || '';
   if (hasMp4 && hasJpg) {
     return `<figure class="article-hero"${caption ? ' aria-labelledby="hero-caption"' : ''}>
-  <video preload="none" loop muted playsinline poster="/articles/${slug}/hero.jpg" width="1280" height="720" data-autoplay aria-label="${esc(caption || 'Article film')}">
+  <video preload="none" loop muted playsinline poster="${bust(`/articles/${slug}/hero.jpg`)}" width="1280" height="720" data-autoplay aria-label="${esc(caption || 'Article film')}">
     <source src="/articles/${slug}/hero.mp4" type="video/mp4">
   </video>
 ${caption ? `  <figcaption id="hero-caption">${caption}</figcaption>\n` : ''}</figure>`;
@@ -209,7 +243,7 @@ function pictureSources(slug, base, { eager = false } = {}) {
   const webp = fs.existsSync(path.join(dir, `${base}.webp`));
   const loading = eager ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"';
   return `<picture>
-${avif ? `    <source srcset="/articles/${slug}/${base}.avif" type="image/avif">\n` : ''}${webp ? `    <source srcset="/articles/${slug}/${base}.webp" type="image/webp">\n` : ''}    <img src="/articles/${slug}/${base}.jpg" alt="" width="1280" height="720" ${loading} decoding="async">
+${avif ? `    <source srcset="${bust(`/articles/${slug}/${base}.avif`)}" type="image/avif">\n` : ''}${webp ? `    <source srcset="${bust(`/articles/${slug}/${base}.webp`)}" type="image/webp">\n` : ''}    <img src="${bust(`/articles/${slug}/${base}.jpg`)}" alt="" width="1280" height="720" ${loading} decoding="async">
   </picture>`;
 }
 
@@ -319,6 +353,7 @@ ${items}
 function buildArticle(raw, slug) {
   let body = md.render(raw);
   body = wrapInlineFigures(body);
+  body = bustInlineImages(body, slug);
   body = body.replace('<div class="footnote">', '<div class="footnotes">');
   body = body.replace(/<hr class="footnotes-sep">\n?/g, '');
   body = body.replace('<h2>Footnotes</h2>', '<h2 class="footnotes-heading">Footnotes</h2>');
@@ -379,12 +414,12 @@ function buildArticle(raw, slug) {
   const twitterCard = 'summary_large_image';
   const videoUrl = publishedVideoUrl(slug);
   const videoPoster = fs.existsSync(path.join(PUBLIC_ROOT, 'videos', `${slug}-poster.jpg`))
-    ? `${SITE}/videos/${slug}-poster.jpg`
+    ? bust(`${SITE}/videos/${slug}-poster.jpg`)
     : undefined;
   const socialTitle = meta.ogTitle || `${title} — Lupine Science`;
   const socialDescription = meta.ogDescription || description;
   const socialUrl = absoluteSiteUrl(meta.ogUrl) || url;
-  const socialImage = absoluteSiteUrl(meta.ogImage) || videoPoster || ogImage;
+  const socialImage = bust(absoluteSiteUrl(meta.ogImage) || videoPoster || ogImage);
   const socialType = meta.ogType || (videoUrl ? 'video.other' : 'article');
 
   const articleJsonLd = {
@@ -395,9 +430,9 @@ function buildArticle(raw, slug) {
     datePublished: meta.date || undefined,
     url,
     mainEntityOfPage: url,
-    image: hasJpg ? `${SITE}/articles/${slug}/hero.jpg` : ogImage,
+    image: hasJpg ? bust(`${SITE}/articles/${slug}/hero.jpg`) : ogImage,
     author: { '@type': 'Organization', name: 'Lupine Science', url: SITE },
-    publisher: { '@type': 'Organization', name: 'Lupine Science', url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/lupine-science-icon.png` } },
+    publisher: { '@type': 'Organization', name: 'Lupine Science', url: SITE, logo: { '@type': 'ImageObject', url: bust(`${SITE}/lupine-science-icon.png`) } },
   };
   const jsonld = videoUrl ? {
     '@context': 'https://schema.org',
@@ -421,7 +456,7 @@ function buildArticle(raw, slug) {
 
   // the hero poster is the LCP element on video-hero pages — fetch it first
   const hasMp4 = fs.existsSync(path.join(OUT, slug, 'hero.mp4'));
-  const preloadImage = hasMp4 && hasJpg ? `/articles/${slug}/hero.jpg` : undefined;
+  const preloadImage = hasMp4 && hasJpg ? bust(`/articles/${slug}/hero.jpg`) : undefined;
   const page = `<!doctype html>
 <html lang="en">
 <head>

@@ -276,24 +276,30 @@ jobs:
           CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          set -euo pipefail
+          set -uo pipefail
           zone_response=$(curl -fsS -X GET "https://api.cloudflare.com/client/v4/zones?name=lupine.science&account.id=${CF_ACCOUNT}" \
             -H "Authorization: Bearer ${CF_TOKEN}" \
-            -H "Content-Type: application/json")
+            -H "Content-Type: application/json" 2>/tmp/cf-zone-err.log) || {
+            echo "::warning::Could not look up Cloudflare zone; cache purge skipped. Details: $(cat /tmp/cf-zone-err.log)"
+            exit 0
+          }
           zone_id=$(echo "$zone_response" | jq -r '.result[0].id')
           if [ -z "$zone_id" ] || [ "$zone_id" = "null" ]; then
-            echo "::error::Could not find Cloudflare zone for lupine.science"
+            echo "::warning::Could not find Cloudflare zone for lupine.science; cache purge skipped."
             echo "$zone_response" | jq . >&2
-            exit 1
+            exit 0
           fi
           purge_response=$(curl -fsS -X POST "https://api.cloudflare.com/client/v4/zones/${zone_id}/purge_cache" \
             -H "Authorization: Bearer ${CF_TOKEN}" \
             -H "Content-Type: application/json" \
-            -d '{"purge_everything":true}')
+            -d '{"purge_everything":true}' 2>/tmp/cf-purge-err.log) || {
+            echo "::warning::Cloudflare cache purge request failed; the deploy still uses cache-busted image URLs so the new content should be served. Details: $(cat /tmp/cf-purge-err.log)"
+            exit 0
+          }
           if [ "$(echo "$purge_response" | jq -r '.success')" != "true" ]; then
-            echo "::error::Cache purge failed"
+            echo "::warning::Cloudflare cache purge was not successful; cache-busted image URLs will still bypass stale cache."
             echo "$purge_response" | jq . >&2
-            exit 1
+            exit 0
           fi
           echo "Cloudflare zone cache purged successfully"
           sleep 10

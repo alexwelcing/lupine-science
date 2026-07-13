@@ -32,8 +32,8 @@ describe('article Open Graph metadata', () => {
   it('uses the site social image when optional image metadata and a video poster are missing', () => {
     const html = readArticle('the-order-is-right-the-size-is-wrong');
 
-    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/og-lupine-science\.png">/);
-    assert.match(html, /<meta name="twitter:image" content="https:\/\/lupine\.science\/og-lupine-science\.png">/);
+    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/og-lupine-science\.png\?v=2">/);
+    assert.match(html, /<meta name="twitter:image" content="https:\/\/lupine\.science\/og-lupine-science\.png\?v=2">/);
   });
 
   it('uses video poster metadata and video type when an article has a published video', () => {
@@ -41,7 +41,7 @@ describe('article Open Graph metadata', () => {
 
     assert.match(html, /<meta property="og:title" content="The 0\.2% Synthesis Problem — Lupine Science">/);
     assert.match(html, /<meta property="og:description" content="An honest look at the 0\.2% validation rate/);
-    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/videos\/the-02-percent-synthesis-problem-poster\.jpg">/);
+    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/videos\/the-02-percent-synthesis-problem-poster\.jpg\?v=2">/);
     assert.match(html, /<meta property="og:url" content="https:\/\/lupine\.science\/articles\/the-02-percent-synthesis-problem\/">/);
     assert.match(html, /<meta property="og:type" content="video\.other">/);
   });
