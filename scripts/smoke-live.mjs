@@ -256,7 +256,7 @@ export async function runSmokeSuite({ baseUrl, paths, attempts = 1, delayMs = 0,
     if (!metadata.ogImage) failures.push({ url, message: 'missing og:image' });
     if (!metadata.canonical) failures.push({ url, message: 'missing canonical link' });
 
-    const resources = extractLinkedResources(absolute, html, metadata);
+    const resources = extractLinkedResources(url, html, metadata);
     for (const resource of resources) {
       assetsChecked.add(resource.url);
       const result = await checkUrl(resource.url, { attempts, delayMs, timeoutMs });
