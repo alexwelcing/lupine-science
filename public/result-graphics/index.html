@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Result Graphics — Lupine Science</title>
+  <meta name="description" content="Publication-ready data graphics for Lupine Science articles, decks, and research notes.">
+  <meta property="og:title" content="Result Graphics — Lupine Science">
+  <meta property="og:description" content="Publication-ready data graphics for Lupine Science articles, decks, and research notes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lupine.science/result-graphics/">
+  <meta property="og:image" content="https://lupine.science/og-lupine-science.png">
+  <link rel="canonical" href="https://lupine.science/result-graphics/">
+  <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/articles/styles.css">
+  <style>
+    .rg-header { padding: clamp(48px, 10vh, 96px) clamp(20px, 5vw, 64px) 0; max-width: 1200px; margin: 0 auto; }
+    .rg-header h1 { font-size: clamp(36px, 6vw, 64px); font-weight: 400; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .rg-header h1 em { font-style: italic; color: var(--indigo); }
+    .rg-header p { color: var(--ink-soft); font-size: 18px; max-width: 70ch; }
+    .rg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 40px; padding: clamp(40px, 6vw, 80px) clamp(20px, 5vw, 64px); max-width: 1400px; margin: 0 auto; }
+    .rg-card { background: rgba(255,255,255,0.5); border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; }
+    .rg-card img, .rg-card svg { display: block; width: 100%; height: auto; background: var(--paper); }
+    .rg-card figcaption { padding: 18px 20px; }
+    .rg-card h3 { font-family: var(--serif); font-size: 20px; font-weight: 500; margin-bottom: 4px; }
+    .rg-card .meta { font-family: var(--mono); font-size: 10.5px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+    .rg-card p { font-size: 14px; color: var(--ink-soft); margin-bottom: 12px; }
+    .rg-card .usage { font-family: var(--mono); font-size: 10.5px; color: var(--indigo); }
+    .rg-card a { display: inline-block; margin-top: 12px; font-family: var(--mono); font-size: 11px; color: var(--indigo); text-decoration: none; border-bottom: 1px solid var(--indigo-line); }
+    .rg-card a:hover { color: var(--indigo-deep); }
+    .rg-usage { max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 64px) clamp(60px, 10vh, 120px); }
+    .rg-usage h2 { font-size: 24px; font-weight: 500; margin-bottom: 16px; }
+    .rg-usage code { font-family: var(--mono); font-size: 12px; background: var(--paper-deep); padding: 2px 6px; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="mark" href="/" aria-label="Lupine Science">
+      <span><b>Lupine Science</b> <span class="tld">accelerating materials discovery</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/articles/">Articles</a>
+      <a href="/brand-assets/">Brand</a>
+      <a href="/result-graphics/" aria-current="page">Graphics</a>
+      <a href="https://library.lupine.science">Library</a>
+    </nav>
+  </header>
+
+  <main id="content">
+    <div class="rg-header">
+      <p class="b-label">Design system</p>
+      <h1>Result <em>graphics.</em></h1>
+      <p>Publication-ready data graphics for articles, proof packs, investor decks, and research notes. Every graphic is generated from structured data as an SVG, locked to the Lupine palette and typography, and ships with source attribution.</p>
+    </div>
+
+    <div class="rg-grid" id="rg-grid">
+      <!-- Populated by build script from data/result-graphics.json -->
+      <figure class="rg-card">
+        <img src="/result-graphics/gwp-comparison.svg" alt="Refrigerant 100-year GWP comparison" loading="eager">
+        <figcaption>
+          <h3>Refrigerant 100-year GWP</h3>
+          <p class="meta">Bar chart · IPCC AR6</p>
+          <p>Mass-basis global warming potential of common refrigerants versus CO₂.</p>
+          <p class="usage">Used in: lupi-hfc-refrigerant-research-payloads, methane-and-refrigerants</p>
+          <a href="/result-graphics/gwp-comparison.svg" download>Download SVG</a>
+        </figcaption>
+      </figure>
+      <figure class="rg-card">
+        <img src="/result-graphics/climate-forcers-share.svg" alt="Anthropogenic radiative forcing share" loading="lazy">
+        <figcaption>
+          <h3>Anthropogenic radiative forcing</h3>
+          <p class="meta">Stacked bar · IPCC AR6</p>
+          <p>Share of radiative forcing by climate agent, 1750–2019.</p>
+          <p class="usage">Used in: rhizo-non-co2-climate-forcers-lean, beyond-carbon</p>
+          <a href="/result-graphics/climate-forcers-share.svg" download>Download SVG</a>
+        </figcaption>
+      </figure>
+      <figure class="rg-card">
+        <img src="/result-graphics/synthesis-funnel.svg" alt="The 0.2% synthesis funnel" loading="lazy">
+        <figcaption>
+          <h3>The 0.2% synthesis funnel</h3>
+          <p class="meta">Funnel chart</p>
+          <p>From predicted crystal to commercially viable cell.</p>
+          <p class="usage">Used in: the-02-percent-synthesis-problem</p>
+          <a href="/result-graphics/synthesis-funnel.svg" download>Download SVG</a>
+        </figcaption>
+      </figure>
+      <figure class="rg-card">
+        <img src="/result-graphics/lean-theorem-growth.svg" alt="Lean theorem inventory growth" loading="lazy">
+        <figcaption>
+          <h3>Lean theorem inventory</h3>
+          <p class="meta">Line chart</p>
+          <p>Build-locked theorem count across the climate-series formalization.</p>
+          <p class="usage">Used in: why-lupine-science, investing-in-the-trust-layer</p>
+          <a href="/result-graphics/lean-theorem-growth.svg" download>Download SVG</a>
+        </figcaption>
+      </figure>
+    </div>
+
+    <section class="rg-usage">
+      <h2>Usage</h2>
+      <p>Embed a graphic in an article with a <code>&lt;figure&gt;</code>:</p>
+      <pre><code>&lt;figure&gt;
+  &lt;img src="/result-graphics/gwp-comparison.svg" alt="Refrigerant 100-year GWP comparison"&gt;
+  &lt;figcaption&gt;IPCC AR6 · mass basis, CO₂ = 1&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+      <p>Regenerate all graphics from source data with <code>npm run build:graphics</code>.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Lupine Science · <a href="/">Home</a> · <a href="/articles/">Articles</a> · <a href="/brand-assets/">Brand</a></p>
+  </footer>
+</body>
+</html>

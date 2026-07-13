@@ -1,0 +1,54 @@
+{
+  "version": "2026-07-13",
+  "description": "Curated Lupine Science brand stills and result graphic pack. Each entry carries motif, aspect ratio, recommended usage, and brand compliance notes.",
+  "motifs": [
+    {
+      "id": "shape-of-wrongness",
+      "name": "Shape of Wrongness",
+      "description": "Scattered error vectors resolving onto a single luminous indigo ribbon — the central thesis motif.",
+      "usage": ["hero", "OG image", "deck cover", "proof pack divider"]
+    },
+    {
+      "id": "bits-to-atoms",
+      "name": "Bits → Atoms",
+      "description": "Pixels and glyphs dissolving into a crystalline lattice.",
+      "usage": ["product explainer", "trust-layer slides", "article hero"]
+    },
+    {
+      "id": "upstream-cascade",
+      "name": "Upstream Cascade",
+      "description": "A single point of indigo light rippling through a sparse lattice.",
+      "usage": ["vision slides", "moat narrative", "report covers"]
+    },
+    {
+      "id": "crystalline-form",
+      "name": "Crystalline Form",
+      "description": "Abstract mineral-like structures rendered in paper and indigo.",
+      "usage": ["material class headers", "article cards"]
+    },
+    {
+      "id": "diffraction",
+      "name": "Diffraction",
+      "description": "Wave interference patterns suggesting measured fields and correction layers.",
+      "usage": ["methodology sections", "data visual dividers"]
+    }
+  ],
+  "assets": [
+    { "src": "/brand-assets/assets/images/shape-of-wrongness_wide.jpg", "motif": "shape-of-wrongness", "variant": "wide", "aspect": "16:9", "status": "hero", "notes": "Primary wide hero. Strong negative space on the right for headline overlay." },
+    { "src": "/brand-assets/assets/images/shape-of-wrongness_square.jpg", "motif": "shape-of-wrongness", "variant": "square", "aspect": "1:1", "status": "social", "notes": "OG / social square. Ribbon anchors lower-left." },
+    { "src": "/brand-assets/assets/images/shape-of-wrongness_quiet.jpg", "motif": "shape-of-wrongness", "variant": "quiet", "aspect": "16:9", "status": "background", "notes": "Subtle background for title cards and section dividers." },
+    { "src": "/brand-assets/assets/images/bits-to-atoms_wide.jpg", "motif": "bits-to-atoms", "variant": "wide", "aspect": "16:9", "status": "hero", "notes": "Use for AI→matter narratives." },
+    { "src": "/brand-assets/assets/images/bits-to-atoms_square.jpg", "motif": "bits-to-atoms", "variant": "square", "aspect": "1:1", "status": "social", "notes": "Product / trust-layer social asset." },
+    { "src": "/brand-assets/assets/images/upstream-cascade_wide.jpg", "motif": "upstream-cascade", "variant": "wide", "aspect": "16:9", "status": "hero", "notes": "Vision and moat slides." },
+    { "src": "/brand-assets/assets/images/upstream-cascade_square.jpg", "motif": "upstream-cascade", "variant": "square", "aspect": "1:1", "status": "social", "notes": "Report / milestone social asset." },
+    { "src": "/brand-assets/assets/images/v10/crystalline-form_wide_v10.jpg", "motif": "crystalline-form", "variant": "wide", "aspect": "16:9", "status": "article", "notes": "Material-class article headers." },
+    { "src": "/brand-assets/assets/images/v10/crystalline-form_square_v10.jpg", "motif": "crystalline-form", "variant": "square", "aspect": "1:1", "status": "article", "notes": "Article card thumbnails." },
+    { "src": "/brand-assets/assets/images/v10/diffraction_wide_v10.jpg", "motif": "diffraction", "variant": "wide", "aspect": "16:9", "status": "section", "notes": "Methodology and correction-layer sections." }
+  ],
+  "resultGraphics": [
+    { "id": "gwp-comparison", "title": "Refrigerant GWP comparison", "description": "100-year GWP of common refrigerants vs. CO₂, aligned to IPCC AR6.", "usage": ["lupi-hfc-refrigerant-research-payloads", "methane-and-refrigerants"] },
+    { "id": "climate-forcers-share", "title": "Non-CO₂ climate forcers", "description": "Share of current anthropogenic radiative forcing from CO₂, CH₄, N₂O, and halocarbons.", "usage": ["rhizo-non-co2-climate-forcers-lean", "beyond-carbon"] },
+    { "id": "synthesis-funnel", "title": "The 0.2% synthesis funnel", "description": "Predicted crystals → validated syntheses → commercial cells.", "usage": ["the-02-percent-synthesis-problem"] },
+    { "id": "lean-theorem-growth", "title": "Lean theorem inventory", "description": "Build-locked theorem count over the climate-series formalization pushes.", "usage": ["why-lupine-science", "investing-in-the-trust-layer"] }
+  ]
+}

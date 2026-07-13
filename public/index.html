@@ -449,8 +449,22 @@
       .horizon { padding-top: 38vh; background: none; }
       /* comfortable touch targets for the term legend */
       .legend button { padding: 8px 0; }
-      .equation { font-size: clamp(26px, 8vw, 44px); }
+      /* keep the equation on one readable line; horizontal scroll if the viewport
+         is too narrow, rather than letting + Ω(Ξ) wrap orphaned below the integral */
+      .horizon { overflow-x: hidden; }
+      .equation {
+        font-size: clamp(20px, 6.4vw, 38px);
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .equation::-webkit-scrollbar { display: none; }
       .legend { margin: 16px 0 30px; }
+      /* the mobile hero band is smaller, so the ribbon needs a little more punch
+         to read against the paper; the data is still the same */
+      #ribbon { filter: contrast(1.18) saturate(1.12); }
       .reading { max-width: none; margin-bottom: 40px; }
       .panel { position: relative !important; opacity: 1 !important; transform: none !important; filter: none !important; pointer-events: auto !important; }
       .panel:not([data-active]) { display: none; }
@@ -764,6 +778,7 @@
                nRibbon: pots.filter((p) => p.ribbon).length };
     }
     let M = process(FALLBACK);
+    let provReady = false;
 
     function injectProv() {
       const $ = (id) => document.getElementById("prov-" + id);
@@ -776,13 +791,14 @@
         `live · measured here: the models agree on direction about <b>${Math.round(M.cosMean * 100)}%</b> of the time · ${src}`;
       if ($("ledger")) $("ledger").innerHTML =
         `live · the same pattern holds in all <b>${M.nRibbon}/${M.n}</b> reference models, re-checked in your browser · ${src}`;
+      provReady = true;
     }
-    injectProv();
-    // freshen from the served file (same data, proves the wiring is real)
+    // show the live computed provenance as soon as the wired data arrives;
+    // keep fallback values driving the canvas so the hero never goes blank.
     fetch(DATALINK)
       .then((r) => (r.ok ? r.json() : Promise.reject()))
       .then((raw) => { if (Array.isArray(raw) && raw.length) { M = process(raw); injectProv(); } })
-      .catch(() => {});
+      .catch(() => { if (!provReady) injectProv(); });
 
     /* ───────────────────────────────────────────────────────────
        REAL MATTER — one cavity of MOF-5 (Zn₄O(BDC)₃), from the committed

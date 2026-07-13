@@ -25,6 +25,9 @@ Until recently, Lupi excelled at viewing curated molecular systems: MOFs, protei
 
 Hydrofluorocarbons are a strange climate problem. They were introduced to save the ozone layer, but their greenhouse warming potential is hundreds to thousands of times that of CO₂. The Kigali Amendment aims to cut HFC consumption roughly 80% by 2047, which could avoid up to 0.5 °C of warming by 2100.
 
+![Refrigerant 100-year GWP comparison](/result-graphics/gwp-comparison.svg)
+*Refrigerant 100-year global warming potential on a mass basis, with CO₂ = 1. Source: IPCC AR6 WGI Table 7.SM.7.*
+
 Finding replacements is hard because the design space is constrained by thermophysical performance, flammability, toxicity, atmospheric lifetime, and lubricant compatibility all at once. Computational screening must predict vapor pressure, latent heat, transport properties, and decomposition pathways across millions of small molecules. Each of those properties depends on under-coordinated environments — radical transition states, surfaces, and phase boundaries — where generic force fields and universal machine-learning potentials systematically soften the energy surface.
 
 Lupi's research payloads make those environments inspectable. You can watch the temperature profile evolve, see the velocity field, and correlate per-atom forces with local structure. The correction-and-verification layer described elsewhere on Lupine Science can then be applied to the same trajectories to recover trustworthy barriers and lifetimes.

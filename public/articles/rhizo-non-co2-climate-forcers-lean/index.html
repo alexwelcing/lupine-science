@@ -85,8 +85,8 @@
 <p>Carbon dioxide gets the headline, but the next decade of climate leverage is increasingly molecular: methane vented from oil fields and landfills, nitrous oxide from agriculture, hydrofluorocarbon refrigerants escaping into the atmosphere, and sulfur hexafluoride from electrical gear. Each has a different lifetime, a different radiative efficiency, and a different replacement chemistry. Getting the accounting right matters for policy, for investment, and for materials discovery.</p>
 <p>The latest commit to <a href="https://github.com/alexwelcing/lupine-rhizo"><code>lupine-rhizo</code></a> adds a <code>ClimateForcers.lean</code> module that formalizes the IPCC AR6 global warming potential tables and lifetime bounds for CO₂, CH₄, N₂O, HFC-134a, HFC-410A, and SF₆ inside Lean 4. A companion validation module proves two concrete claims: the emissions avoided by fixing a heat-pump refrigerant leak, and the savings from substituting a low-GWP refrigerant for a high-GWP one.</p>
 <figure>
-  <img src="/og-mof-formalization.png" alt="Lupine Rhizo formalization status" loading="lazy" decoding="async">
-  <figcaption>The &lt;code&gt;lupine-rhizo&lt;/code&gt; build now carries 289 theorems with zero &lt;code&gt;sorry&lt;/code&gt;. Source: Lupine Rhizo continuous verification report, 2026-07-12.</figcaption>
+  <img src="/result-graphics/climate-forcers-share.svg" alt="Anthropogenic radiative forcing share by agent, 1750–2019" loading="lazy" decoding="async">
+  <figcaption>Non-CO₂ agents account for roughly 35% of total anthropogenic radiative forcing. Source: IPCC AR6 WGI Summary for Policymakers, Figure SPM.2.</figcaption>
 </figure>
 <h2>Why formalize climate forcers?</h2>
 <p>Most climate accounting lives in spreadsheets. That is fine for static reporting, but it is fragile when the same number is reused across downstream models — materials screens, supply-chain tools, policy simulators, and investment memos. A small unit error or an outdated GWP horizon can compound into a wrong ranking.</p>
