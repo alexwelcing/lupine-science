@@ -2,7 +2,7 @@
 
 This project turns Lupine Science articles into 90–120 second narrated motion films built with HyperFrames. The publication target is a 1920×1080, 30 fps H.264 MP4 with synchronized WebVTT captions; optional vertical cuts are 1080×1920. Videos are lazy-loaded outside the article body through the site video index and article player.
 
-The quality bar is a designed short film, not a slide deck with voice-over. Read [`frame.md`](frame.md) for the visual system and [`REVIEW_FRAMEWORK.md`](REVIEW_FRAMEWORK.md) before production work.
+The quality bar is a designed short film, not a slide deck with voice-over. Read [`frame.md`](frame.md) for the visual system, [`docs/fal-video-engine.md`](docs/fal-video-engine.md) for the new enrichment-first pipeline, and [`REVIEW_FRAMEWORK.md`](REVIEW_FRAMEWORK.md) before production work.
 
 ## Start here
 
@@ -12,6 +12,7 @@ Prerequisites:
 - `ffmpeg` and `ffprobe`
 - Hermes Agent for team/profile workflows
 - A Chromium-compatible browser for HyperFrames preview and inspection
+- FAL API key exported as `FAL_KEY` (saved in `~/.hermes/.env` and your active profile `.env`)
 
 From the repository root:
 
@@ -20,6 +21,22 @@ cd media/projects/article-videos
 npm install
 npm run check
 ```
+
+### FAL setup (new video engine)
+
+The new pipeline uses FAL for TTS, image generation, and optional image-to-video
+motion, while keeping HyperFrames as the deterministic assembler.
+
+```bash
+# Confirm the FAL MCP server is wired in Hermes
+hermes mcp list
+
+# Confirm your key is exported
+source ~/.hermes/profiles/$(hermes profile show --short)/.env
+```
+
+See [`docs/fal-video-engine.md`](docs/fal-video-engine.md) for the full pipeline,
+manifest schema, and review gates.
 
 `npm run check` validates every reusable component. Individual episode projects keep their own HyperFrames scripts and do not share a root dependency install.
 

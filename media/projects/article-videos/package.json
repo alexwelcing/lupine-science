@@ -6,6 +6,10 @@
     "check": "for d in components/*/; do echo \">>> $d\"; (cd \"$d\" && npm run check) || exit 1; done",
     "snapshot": "for d in components/*/; do echo \">>> $d\"; (cd \"$d\" && npm run snapshot) || exit 1; done",
     "vreg:update": "VREG_UPDATE=1 npm run vreg",
-    "vreg": "for d in components/*/; do echo \">>> $d\"; (cd \"$d\" && npm run vreg) || exit 1; done"
+    "vreg": "for d in components/*/; do echo \">>> $d\"; (cd \"$d\" && npm run vreg) || exit 1; done",
+    "fal-enrich": "node scripts/fal-enrich.mjs"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
   }
 }

@@ -19,9 +19,12 @@ Each article becomes a 90–120 second video with this arc:
 
 ## Voice direction
 
-- Pace: ~165–180 words per minute (fast but legible).
-- Tone: smart friend explaining something cool at brunch.
+- Voice: **soothing and clear technical robot** — calm, precise, gender-neutral, no urgency.
+- Pace: ~150–165 words per minute for clarity; never faster than 170.
+- Tone: measured expert reading a proof, not a salesperson.
 - No jargon without a one-word translation.
+- Default TTS endpoint: `fal-ai/elevenlabs/tts/turbo-v2.5`; default voice `Jessica`.
+  Alternative voices are tested per article and locked in the manifest.
 
 ## Technical constraints
 
