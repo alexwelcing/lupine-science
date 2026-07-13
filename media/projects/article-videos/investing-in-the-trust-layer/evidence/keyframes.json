@@ -1,0 +1,449 @@
+{
+  "project": "investing-in-the-trust-layer",
+  "runtime": "all",
+  "compositions": [
+    {
+      "composition": "index.html",
+      "source": "index.html",
+      "tweens": [
+        {
+          "id": "__unresolved__-fromTo-0-visual",
+          "target": "__unresolved__",
+          "method": "fromTo",
+          "group": "visual",
+          "start": 0,
+          "duration": 0.001,
+          "end": 0.001,
+          "shape": "flat",
+          "keyframes": [
+            {
+              "pct": 0,
+              "time": 0,
+              "properties": {
+                "opacity": 0
+              }
+            },
+            {
+              "pct": 100,
+              "time": 0.001,
+              "properties": {
+                "opacity": 1
+              }
+            }
+          ],
+          "path": null
+        },
+        {
+          "id": "__unresolved__-to-0-visual",
+          "target": "__unresolved__",
+          "method": "to",
+          "group": "visual",
+          "start": 0,
+          "duration": 0.001,
+          "end": 0.001,
+          "shape": "flat",
+          "keyframes": [
+            {
+              "pct": 0,
+              "time": 0,
+              "properties": {
+                "opacity": 1
+              }
+            },
+            {
+              "pct": 100,
+              "time": 0.001,
+              "properties": {
+                "opacity": 0
+              }
+            }
+          ],
+          "path": null
+        },
+        {
+          "id": " .visual-fromTo-0",
+          "target": " .visual",
+          "method": "fromTo",
+          "start": 0,
+          "duration": 0,
+          "end": 0,
+          "shape": "flat",
+          "keyframes": [
+            {
+              "pct": 0,
+              "time": 0,
+              "properties": {
+                "x": 18,
+                "scale": 0.995
+              }
+            },
+            {
+              "pct": 100,
+              "time": 0,
+              "properties": {
+                "x": 0,
+                "scale": 1.018
+              }
+            }
+          ],
+          "path": [
+            {
+              "x": 18,
+              "y": 0
+            },
+            {
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "id": " .orb.a-fromTo-0-position",
+          "target": " .orb.a",
+          "method": "fromTo",
+          "group": "position",
+          "start": 0,
+          "duration": 0,
+          "end": 0,
+          "shape": "flat",
+          "keyframes": [
+            {
+              "pct": 0,
+              "time": 0,
+              "properties": {
+                "x": 0,
+                "y": 0
+              }
+            },
+            {
+              "pct": 100,
+              "time": 0,
+              "properties": {
+                "x": -34,
+                "y": 24
+              }
+            }
+          ],
+          "path": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": -34,
+              "y": 24
+            }
+          ]
+        },
+        {
+          "id": " .orb.b-fromTo-0-position",
+          "target": " .orb.b",
+          "method": "fromTo",
+          "group": "position",
+          "start": 0,
+          "duration": 0,
+          "end": 0,
+          "shape": "flat",
+          "keyframes": [
+            {
+              "pct": 0,
+              "time": 0,
+              "properties": {
+                "x": 0,
+                "y": 0
+              }
+            },
+            {
+              "pct": 100,
+              "time": 0,
+              "properties": {
+                "x": 30,
+                "y": -22
+              }
+            }
+          ],
+          "path": [
+            {
+              "x": 0,
+              "y": 0
+            },
+            {
+              "x": 30,
+              "y": -22
+            }
+          ]
+        },
+        {
+          "id": "#scene-trust-bottleneck .hero-number-fromTo-0-scale",
+          "target": "#scene-trust-bottleneck .hero-number",
+          "method": "fromTo",
+          "group": "scale",
+          "start": 0,
+          "duration": 0.65,
+          "end": 0.65,
+          "shape": "flat",
+          "keyframes": [
+            {
+              "pct": 0,
+              "time": 0,
+              "properties": {
+                "scale": 0.98
+              }
+            },
+            {
+              "pct": 100,
+              "time": 0.65,
+              "properties": {
+                "scale": 1
+              }
+            }
+          ],
+          "path": null
+        },
+        {
+          "id": "#scene-lossy-pipeline .visual-fromTo-14080-other",
+          "target": "#scene-lossy-pipeline .visual",
+          "method": "fromTo",
+          "group": "other",
+          "start": 14.08,
+          "duration": 1.1,
+          "end": 15.18,
+          "shape": "flat",
+          "keyframes": [
+            {
+              "pct": 0,
+              "time": 14.08,
+              "properties": {
+                "clipPath": "inset(0 100% 0 0)"
+              }
+            },
+            {
+              "pct": 100,
+              "time": 15.18,
+              "properties": {
+                "clipPath": "inset(0 0% 0 0)"
+              }
+            }
+          ],
+          "path": null
+        },
+        {
+          "id": "#scene-correction-layer .proof-pill-fromTo-28200-position",
+          "target": "#scene-correction-layer .proof-pill",
+          "method": "fromTo",
+          "group": "position",
+          "start": 28.2,
+          "duration": 0.55,
+          "end": 28.75,
+          "shape": "keyframes",
+          "keyframes": [
+            {
+              "pct": 0,
+              "time": 28.2,
+              "properties": {
+                "y": 24,
+                "stagger": 11
+              }
+            },
+            {
+              "pct": 100,
+              "time": 28.75,
+              "properties": {
+                "y": 0,
+                "stagger": 11
+              }
+            }
+          ],
+          "path": [
+            {
+              "x": 0,
+              "y": 24
+            },
+            {
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "id": "#scene-blind-evidence .hero-number-fromTo-38700-position",
+          "target": "#scene-blind-evidence .hero-number",
+          "method": "fromTo",
+          "group": "position",
+          "start": 38.7,
+          "duration": 0.65,
+          "end": 39.35,
+          "shape": "flat",
+          "keyframes": [
+            {
+              "pct": 0,
+              "time": 38.7,
+              "properties": {
+                "x": -34
+              }
+            },
+            {
+              "pct": 100,
+              "time": 39.35,
+              "properties": {
+                "x": 0
+              }
+            }
+          ],
+          "path": [
+            {
+              "x": -34,
+              "y": 0
+            },
+            {
+              "x": 0,
+              "y": 0
+            }
+          ]
+        },
+        {
+          "id": "#scene-proof-refusal .badge-fromTo-50000-position",
+          "target": "#scene-proof-refusal .badge",
+          "method": "fromTo",
+          "group": "position",
+          "start": 50,
+          "duration": 0.6,
+          "end": 50.6,
+          "shape": "flat",
+          "keyframes": [
+            {
+              "pct": 0,
+              "time": 50,
+              "properties": {
+                "x": 30
+              }
+            },
+            {
+              "pct": 100,
+              "time": 50.6,
+              "properties": {
+                "x": 0
+              }
+            }
+          ],
+          "path": [
+            {
+              "x": 30,
+              "y": 0
+            },
+            {
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "composedWith": [
+            {
+              "selector": " .visual",
+              "summary": "x 0..18"
+            }
+          ]
+        },
+        {
+          "id": "#scene-runtime-correction .hero-number-fromTo-63100-scale",
+          "target": "#scene-runtime-correction .hero-number",
+          "method": "fromTo",
+          "group": "scale",
+          "start": 63.1,
+          "duration": 0.7,
+          "end": 63.8,
+          "shape": "flat",
+          "keyframes": [
+            {
+              "pct": 0,
+              "time": 63.1,
+              "properties": {
+                "scale": 0.97
+              }
+            },
+            {
+              "pct": 100,
+              "time": 63.8,
+              "properties": {
+                "scale": 1
+              }
+            }
+          ],
+          "path": null
+        },
+        {
+          "id": "#scene-investment-leverage .visual-fromTo-78450-other",
+          "target": "#scene-investment-leverage .visual",
+          "method": "fromTo",
+          "group": "other",
+          "start": 78.45,
+          "duration": 1,
+          "end": 79.45,
+          "shape": "flat",
+          "keyframes": [
+            {
+              "pct": 0,
+              "time": 78.45,
+              "properties": {
+                "clipPath": "inset(100% 0 0 0)"
+              }
+            },
+            {
+              "pct": 100,
+              "time": 79.45,
+              "properties": {
+                "clipPath": "inset(0% 0 0 0)"
+              }
+            }
+          ],
+          "path": null
+        },
+        {
+          "id": "#scene-honest-boundaries .proof-pill-fromTo-94700-position",
+          "target": "#scene-honest-boundaries .proof-pill",
+          "method": "fromTo",
+          "group": "position",
+          "start": 94.7,
+          "duration": 0.55,
+          "end": 95.25,
+          "shape": "keyframes",
+          "keyframes": [
+            {
+              "pct": 0,
+              "time": 94.7,
+              "properties": {
+                "x": -28,
+                "stagger": 16
+              }
+            },
+            {
+              "pct": 100,
+              "time": 95.25,
+              "properties": {
+                "x": 0,
+                "stagger": 16
+              }
+            }
+          ],
+          "path": [
+            {
+              "x": -28,
+              "y": 0
+            },
+            {
+              "x": 0,
+              "y": 0
+            }
+          ]
+        }
+      ],
+      "traces": [],
+      "cssKeyframes": [],
+      "anime": []
+    }
+  ],
+  "_meta": {
+    "version": "0.7.56",
+    "latestVersion": "0.7.56",
+    "updateAvailable": false
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "slug": "investing-in-the-trust-layer",
+  "generated_at": "2026-07-13T17:06:49.949Z",
+  "voice": {
+    "endpoint": "fal-ai/elevenlabs/tts/turbo-v2.5",
+    "voice": "Jessica",
+    "speed": 1.2,
+    "seed": 8416972
+  },
+  "tts": {
+    "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/investing-in-the-trust-layer/assets/audio/investing-in-the-trust-layer-narration.mp3",
+    "url": "https://v3b.fal.media/files/b/0aa21c50/yI6angqt8sX-R0P3QvAix_output.mp3",
+    "sha256": "7d5626e3c261bf315f731427e7f23c0c1694e618bfdf18fce4cfdcb650c79d6d"
+  },
+  "images": [
+    {
+      "scene": "trust-bottleneck",
+      "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/investing-in-the-trust-layer/assets/images/trust-bottleneck.png",
+      "url": "https://v3b.fal.media/files/b/0aa21c42/AR9S9aCxMkqfmc4uARlnp.png",
+      "sha256": "500ba1363c8b8ae4f05fd662dcb62cba39e62baa304acd8a5ec35d59ed6cc4a5"
+    },
+    {
+      "scene": "correction-layer",
+      "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/investing-in-the-trust-layer/assets/images/correction-layer.png",
+      "url": "https://v3b.fal.media/files/b/0aa21c43/BMZE3d-IOnja-rcfu_cO8.png",
+      "sha256": "ac689168442c3eeb084986f96af7debf0ea3c1d4f92277de01a854ee591364e3"
+    },
+    {
+      "scene": "proof-refusal",
+      "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/investing-in-the-trust-layer/assets/images/proof-refusal.png",
+      "url": "https://v3b.fal.media/files/b/0aa21c50/Fk9sgTzcmZXTj4gPia_5C.png",
+      "sha256": "6ef8aaf77a392880ec091f17a0eef269fc72aefa09ae6d036a654bbda1d54566"
+    },
+    {
+      "scene": "honest-boundaries",
+      "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/investing-in-the-trust-layer/assets/images/honest-boundaries.png",
+      "url": "https://v3b.fal.media/files/b/0aa21c43/OpnZwZo5kbF46b72HpaV0.png",
+      "sha256": "4e5945c1d1fd086140241d5c488311e549273812afe6b5aab6ebdba9b9b987ab"
+    }
+  ]
+}

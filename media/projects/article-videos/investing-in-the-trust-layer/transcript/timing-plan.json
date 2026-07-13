@@ -1,0 +1,48 @@
+{
+  "audio_duration_s": 107.833438,
+  "speech_end_s": 107.47,
+  "composition_duration_s": 112.0,
+  "scenes": [
+    {
+      "id": "trust-bottleneck",
+      "start": 0.03,
+      "duration": 14.0
+    },
+    {
+      "id": "lossy-pipeline",
+      "start": 14.03,
+      "duration": 13.86
+    },
+    {
+      "id": "correction-layer",
+      "start": 27.89,
+      "duration": 10.65
+    },
+    {
+      "id": "blind-evidence",
+      "start": 38.54,
+      "duration": 10.84
+    },
+    {
+      "id": "proof-refusal",
+      "start": 49.38,
+      "duration": 13.35
+    },
+    {
+      "id": "runtime-correction",
+      "start": 62.73,
+      "duration": 15.62
+    },
+    {
+      "id": "investment-leverage",
+      "start": 78.35,
+      "duration": 16.0
+    },
+    {
+      "id": "honest-boundaries",
+      "start": 94.35,
+      "duration": 13.65
+    }
+  ],
+  "caption_cues": 33
+}

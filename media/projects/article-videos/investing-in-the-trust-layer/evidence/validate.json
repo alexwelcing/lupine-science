@@ -1,0 +1,524 @@
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "contrast": [
+    {
+      "time": 11.2,
+      "selector": "p.kicker",
+      "text": "Investment thesis · The bottleneck",
+      "ratio": 6.79,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 11.2,
+      "selector": "p.meta",
+      "text": "GNoME · Nature 624 · 2023",
+      "ratio": 5.67,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(95,98,116)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 11.2,
+      "selector": "p.eyebrow",
+      "text": "Prediction is abundant",
+      "ratio": 3.46,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(181,120,63)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 11.2,
+      "selector": "h1.headline",
+      "text": "The scarce resource is trust.",
+      "ratio": 13.97,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(36,38,59)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 11.2,
+      "selector": "em",
+      "text": "trust.",
+      "ratio": 6.79,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 11.2,
+      "selector": "span.hero-number",
+      "text": "2.2M → 736",
+      "ratio": 6.79,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 11.2,
+      "selector": "p.body",
+      "text": "Predicted crystals narrowed to independently synth",
+      "ratio": 7.83,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(74,77,97)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 11.2,
+      "selector": "figcaption.badge",
+      "text": "0.03% OF PREDICTIONS",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 11.2,
+      "selector": "p.chapter",
+      "text": "INVESTING IN THE TRUST LAYER",
+      "ratio": 6.79,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 33.6,
+      "selector": "p.kicker",
+      "text": "02 · Correction layer",
+      "ratio": 6.79,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 33.6,
+      "selector": "p.meta",
+      "text": "Prediction → Synthesis",
+      "ratio": 5.67,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(95,98,116)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 33.6,
+      "selector": "p.eyebrow",
+      "text": "Partner, not replacement",
+      "ratio": 3.46,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(181,120,63)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 33.6,
+      "selector": "h1.headline",
+      "text": "Measure the error field.",
+      "ratio": 13.97,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(36,38,59)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 33.6,
+      "selector": "em",
+      "text": "error field.",
+      "ratio": 6.79,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 33.6,
+      "selector": "p.body",
+      "text": "Correct it at runtime. Prove which claims stay ins",
+      "ratio": 7.83,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(74,77,97)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 33.6,
+      "selector": "div.proof-pill",
+      "text": "MEASURE",
+      "ratio": 6.38,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(241,240,248)"
+    },
+    {
+      "time": 33.6,
+      "selector": "div.proof-pill",
+      "text": "CORRECT",
+      "ratio": 6.38,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(241,240,248)"
+    },
+    {
+      "time": 33.6,
+      "selector": "div.proof-pill",
+      "text": "VERIFY",
+      "ratio": 6.38,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(241,240,248)"
+    },
+    {
+      "time": 33.6,
+      "selector": "div.proof-pill",
+      "text": "BOUND",
+      "ratio": 6.38,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(241,240,248)"
+    },
+    {
+      "time": 33.6,
+      "selector": "p.claim",
+      "text": "LOCAL ENVIRONMENT → SYSTEMATIC ERROR",
+      "ratio": 13.97,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(36,38,59)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 33.6,
+      "selector": "p",
+      "text": "LUPINE SCIENCE",
+      "ratio": 5.67,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(95,98,116)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 56,
+      "selector": "p.kicker",
+      "text": "04 · Machine-checked proof",
+      "ratio": 6.79,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 56,
+      "selector": "p.meta",
+      "text": "Lean 4 · Hash-locked provenance",
+      "ratio": 5.67,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(95,98,116)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 56,
+      "selector": "p.eyebrow",
+      "text": "A trust layer can refuse",
+      "ratio": 3.46,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(181,120,63)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 56,
+      "selector": "h1.headline",
+      "text": "Say no to yourself.",
+      "ratio": 13.97,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(36,38,59)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 56,
+      "selector": "em",
+      "text": "no",
+      "ratio": 6.79,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 56,
+      "selector": "span.hero-number",
+      "text": "190 · 0 sorry",
+      "ratio": 6.79,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 56,
+      "selector": "p.body",
+      "text": "Build-locked theorems caught a rounding tie: 27 im",
+      "ratio": 7.83,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(74,77,97)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 56,
+      "selector": "figcaption.badge",
+      "text": "813 < 813 · FALSE",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 56,
+      "selector": "p.claim",
+      "text": "PROVED · REFUSED · OUT OF DOMAIN",
+      "ratio": 13.97,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(36,38,59)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 56,
+      "selector": "p",
+      "text": "INTEGER-SCALED CLAIMS",
+      "ratio": 5.67,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(95,98,116)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 78.4,
+      "selector": "p.kicker",
+      "text": "06 · Economic leverage",
+      "ratio": 6.79,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 78.4,
+      "selector": "p.meta",
+      "text": "NIST Materials Genome Initiative",
+      "ratio": 5.67,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(95,98,116)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 78.4,
+      "selector": "p.eyebrow",
+      "text": "Infrastructure across targets",
+      "ratio": 3.46,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(181,120,63)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 78.4,
+      "selector": "h1.headline",
+      "text": "Not one material. Every lab queue.",
+      "ratio": 13.97,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(36,38,59)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 78.4,
+      "selector": "em",
+      "text": "Every lab queue.",
+      "ratio": 6.79,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 78.4,
+      "selector": "span.hero-number",
+      "text": "$3.2M / 36 mo.",
+      "ratio": 6.79,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 78.4,
+      "selector": "p.body",
+      "text": "Against an estimated $123–$270 billion in annual U",
+      "ratio": 7.83,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(74,77,97)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 78.4,
+      "selector": "p.claim",
+      "text": "LEVERAGE, NOT A DIRECT VALUATION",
+      "ratio": 13.97,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(36,38,59)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 78.4,
+      "selector": "p",
+      "text": "FIVE PRIORITY TARGETS",
+      "ratio": 5.67,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(95,98,116)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 100.8,
+      "selector": "p.kicker",
+      "text": "07 · Honest boundaries",
+      "ratio": 6.79,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 100.8,
+      "selector": "p.meta",
+      "text": "Established → Critical path",
+      "ratio": 5.67,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(95,98,116)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 100.8,
+      "selector": "p.eyebrow",
+      "text": "The product is the boundary",
+      "ratio": 3.46,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(181,120,63)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 100.8,
+      "selector": "h1.headline",
+      "text": "Predictions laboratories can act on.",
+      "ratio": 13.97,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(36,38,59)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 100.8,
+      "selector": "em",
+      "text": "act on.",
+      "ratio": 6.79,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 100.8,
+      "selector": "p.body",
+      "text": "The face-centered-cubic field is established. New ",
+      "ratio": 7.83,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(74,77,97)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 100.8,
+      "selector": "div.proof-pill",
+      "text": "ESTABLISHED · FCC",
+      "ratio": 6.38,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(241,240,248)"
+    },
+    {
+      "time": 100.8,
+      "selector": "div.proof-pill",
+      "text": "NEXT · BCC / HCP",
+      "ratio": 6.38,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(241,240,248)"
+    },
+    {
+      "time": 100.8,
+      "selector": "figcaption.badge",
+      "text": "GO / NO-GO · MONTH 3",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 100.8,
+      "selector": "p.chapter",
+      "text": "READ THE FULL ARTICLE · LUPINE.SCIENCE",
+      "ratio": 6.79,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 100.8,
+      "selector": "p.terminal",
+      "text": "MEASURE · CORRECT · PROVE",
+      "ratio": 6.79,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(249,248,245)"
+    }
+  ],
+  "contrastFailures": 0,
+  "_meta": {
+    "version": "0.7.56",
+    "latestVersion": "0.7.56",
+    "updateAvailable": false,
+    "deprecated": true
+  }
+}

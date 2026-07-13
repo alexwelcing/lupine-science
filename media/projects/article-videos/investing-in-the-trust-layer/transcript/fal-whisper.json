@@ -1,0 +1,2593 @@
+{
+  "text": " Materials Discovery can now imagine millions of crystals. Google DeepMind's Jeanne O'Mea proposed 2.2 million. But by late 2023, only 736 had been independently synthesized. The scarce resource is no longer prediction. It is trust. Every stage leaks. Generators omit complex material classes. Universal machine-learned potentials are least reliable at surfaces, vacancies, and defects. And laboratories inherit every upstream error. More activity does not automatically produce more validated materials. Lupin science sits between prediction and synthesis. It measures a predictor's systematic error as a physical field over local atomic environments, corrects that error at runtime, and proves which claims remain inside the evidence boundary. The field is fixed by three standard observables. A fourth surface is held back as a blind test. Across 36 model and material combinations, predicted and measured errors correlate at 0.906, with zero adjustable parameters. Quantitative claims are then sealed as Lean-4 theorems with hash-locked providence. The proof layer has 190 build-locked theorems and zero unfinished proofs. It once rejected a rounded success count, changing 27 improvements to 26. Trust means being able to say no to yourself. The correction deploys beside existing CHGNet or MACE calculators as a LAMPES overlay. In Python, measured overhead is 15.6%. On a blind nickel surface, relative error fell from 9.7% to 1.5%. Users keep their simulators. Lupine makes them more trustworthy. Better materials infrastructure is estimated to create $1.3 to $2.7 billion in annual value for United States industry. Against that scale, Lupin's 36-month budget is about $3.2 million. The investment is not a bet on one material. It is leverage across every screened material. The face-centered cubic field is established. Other structure families and industrial validation remain open work, with explicit go-or-no-go gates. That honesty is the product. The world does not need more predicted crystals. It needs predictions laboratories can act on.",
+  "chunks": [
+    {
+      "timestamp": [
+        0.03,
+        0.33
+      ],
+      "text": " Materials",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        0.33,
+        0.55
+      ],
+      "text": " Discovery",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        0.55,
+        0.93
+      ],
+      "text": " can",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        0.93,
+        1.07
+      ],
+      "text": " now",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        1.07,
+        1.39
+      ],
+      "text": " imagine",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        1.39,
+        1.69
+      ],
+      "text": " millions",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        1.69,
+        1.91
+      ],
+      "text": " of",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        1.91,
+        2.43
+      ],
+      "text": " crystals.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        2.93,
+        3.07
+      ],
+      "text": " Google",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        3.07,
+        3.59
+      ],
+      "text": " DeepMind's",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        3.59,
+        3.75
+      ],
+      "text": " Jeanne",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        3.75,
+        3.97
+      ],
+      "text": " O'Mea",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        3.97,
+        4.47
+      ],
+      "text": " proposed",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        4.47,
+        4.97
+      ],
+      "text": " 2",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        4.97,
+        5.41
+      ],
+      "text": ".2",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        5.41,
+        5.89
+      ],
+      "text": " million.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        6.29,
+        6.31
+      ],
+      "text": " But",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        6.31,
+        6.43
+      ],
+      "text": " by",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        6.43,
+        6.57
+      ],
+      "text": " late",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        6.57,
+        7.51
+      ],
+      "text": " 2023,",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        7.51,
+        7.95
+      ],
+      "text": " only",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        7.95,
+        8.57
+      ],
+      "text": " 736",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        8.57,
+        8.93
+      ],
+      "text": " had",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        8.93,
+        9.05
+      ],
+      "text": " been",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        9.05,
+        9.41
+      ],
+      "text": " independently",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        9.41,
+        10.25
+      ],
+      "text": " synthesized.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        11.07,
+        11.11
+      ],
+      "text": " The",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        11.11,
+        11.29
+      ],
+      "text": " scarce",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        11.29,
+        11.55
+      ],
+      "text": " resource",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        11.55,
+        11.81
+      ],
+      "text": " is",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        11.81,
+        11.95
+      ],
+      "text": " no",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        11.95,
+        12.15
+      ],
+      "text": " longer",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        12.15,
+        12.57
+      ],
+      "text": " prediction.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        13.03,
+        13.11
+      ],
+      "text": " It",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        13.11,
+        13.21
+      ],
+      "text": " is",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        13.21,
+        13.79
+      ],
+      "text": " trust.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        14.03,
+        14.15
+      ],
+      "text": " Every",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        14.15,
+        14.53
+      ],
+      "text": " stage",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        14.53,
+        15.07
+      ],
+      "text": " leaks.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        15.41,
+        15.79
+      ],
+      "text": " Generators",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        15.79,
+        16.07
+      ],
+      "text": " omit",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        16.07,
+        16.37
+      ],
+      "text": " complex",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        16.37,
+        16.65
+      ],
+      "text": " material",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        16.65,
+        17.81
+      ],
+      "text": " classes.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        17.81,
+        18.07
+      ],
+      "text": " Universal",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        18.07,
+        18.43
+      ],
+      "text": " machine",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        18.43,
+        18.73
+      ],
+      "text": "-learned",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        18.73,
+        19.21
+      ],
+      "text": " potentials",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        19.21,
+        19.35
+      ],
+      "text": " are",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        19.35,
+        19.49
+      ],
+      "text": " least",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        19.49,
+        19.73
+      ],
+      "text": " reliable",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        19.73,
+        20.05
+      ],
+      "text": " at",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        20.05,
+        20.67
+      ],
+      "text": " surfaces,",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        20.67,
+        21.23
+      ],
+      "text": " vacancies,",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        21.23,
+        21.45
+      ],
+      "text": " and",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        21.45,
+        21.93
+      ],
+      "text": " defects.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        22.39,
+        22.59
+      ],
+      "text": " And",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        22.59,
+        22.89
+      ],
+      "text": " laboratories",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        22.89,
+        23.21
+      ],
+      "text": " inherit",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        23.21,
+        23.59
+      ],
+      "text": " every",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        23.59,
+        23.89
+      ],
+      "text": " upstream",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        23.89,
+        24.59
+      ],
+      "text": " error.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        24.69,
+        24.79
+      ],
+      "text": " More",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        24.79,
+        25.03
+      ],
+      "text": " activity",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        25.03,
+        25.31
+      ],
+      "text": " does",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        25.31,
+        25.45
+      ],
+      "text": " not",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        25.45,
+        25.85
+      ],
+      "text": " automatically",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        25.85,
+        26.13
+      ],
+      "text": " produce",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        26.13,
+        26.37
+      ],
+      "text": " more",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        26.37,
+        26.67
+      ],
+      "text": " validated",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        26.67,
+        27.89
+      ],
+      "text": " materials.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        27.89,
+        28.13
+      ],
+      "text": " Lupin",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        28.13,
+        28.31
+      ],
+      "text": " science",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        28.31,
+        28.55
+      ],
+      "text": " sits",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        28.55,
+        28.77
+      ],
+      "text": " between",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        28.77,
+        29.03
+      ],
+      "text": " prediction",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        29.03,
+        29.39
+      ],
+      "text": " and",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        29.39,
+        29.95
+      ],
+      "text": " synthesis.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        30.46,
+        30.6
+      ],
+      "text": " It",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        30.6,
+        30.78
+      ],
+      "text": " measures",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        30.78,
+        30.88
+      ],
+      "text": " a",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        30.88,
+        31.2
+      ],
+      "text": " predictor's",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        31.2,
+        31.46
+      ],
+      "text": " systematic",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        31.46,
+        31.86
+      ],
+      "text": " error",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        31.86,
+        32.1
+      ],
+      "text": " as",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        32.1,
+        32.18
+      ],
+      "text": " a",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        32.18,
+        32.38
+      ],
+      "text": " physical",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        32.38,
+        32.74
+      ],
+      "text": " field",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        32.74,
+        32.92
+      ],
+      "text": " over",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        32.92,
+        33.1
+      ],
+      "text": " local",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        33.1,
+        33.38
+      ],
+      "text": " atomic",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        33.38,
+        34.06
+      ],
+      "text": " environments,",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        34.48,
+        34.66
+      ],
+      "text": " corrects",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        34.66,
+        34.72
+      ],
+      "text": " that",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        34.72,
+        34.92
+      ],
+      "text": " error",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        34.92,
+        35.1
+      ],
+      "text": " at",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        35.1,
+        35.56
+      ],
+      "text": " runtime,",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        35.56,
+        36.08
+      ],
+      "text": " and",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        36.08,
+        36.34
+      ],
+      "text": " proves",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        36.34,
+        36.48
+      ],
+      "text": " which",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        36.48,
+        36.74
+      ],
+      "text": " claims",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        36.74,
+        36.9
+      ],
+      "text": " remain",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        36.9,
+        37.2
+      ],
+      "text": " inside",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        37.2,
+        37.4
+      ],
+      "text": " the",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        37.4,
+        37.6
+      ],
+      "text": " evidence",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        37.6,
+        38.06
+      ],
+      "text": " boundary.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        38.54,
+        38.6
+      ],
+      "text": " The",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        38.6,
+        38.74
+      ],
+      "text": " field",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        38.74,
+        38.84
+      ],
+      "text": " is",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        38.84,
+        39.02
+      ],
+      "text": " fixed",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        39.02,
+        39.14
+      ],
+      "text": " by",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        39.14,
+        39.28
+      ],
+      "text": " three",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        39.28,
+        39.56
+      ],
+      "text": " standard",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        39.56,
+        40.24
+      ],
+      "text": " observables.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        40.64,
+        40.68
+      ],
+      "text": " A",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        40.68,
+        40.82
+      ],
+      "text": " fourth",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        40.82,
+        41.08
+      ],
+      "text": " surface",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        41.08,
+        41.28
+      ],
+      "text": " is",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        41.28,
+        41.4
+      ],
+      "text": " held",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        41.4,
+        41.54
+      ],
+      "text": " back",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        41.54,
+        41.66
+      ],
+      "text": " as",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        41.66,
+        41.7
+      ],
+      "text": " a",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        41.7,
+        41.86
+      ],
+      "text": " blind",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        41.86,
+        42.34
+      ],
+      "text": " test.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        42.76,
+        42.84
+      ],
+      "text": " Across",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        42.84,
+        43.22
+      ],
+      "text": " 36",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        43.22,
+        43.56
+      ],
+      "text": " model",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        43.56,
+        43.7
+      ],
+      "text": " and",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        43.7,
+        43.94
+      ],
+      "text": " material",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        43.94,
+        44.72
+      ],
+      "text": " combinations,",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        44.72,
+        44.94
+      ],
+      "text": " predicted",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        44.94,
+        45.22
+      ],
+      "text": " and",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        45.22,
+        45.4
+      ],
+      "text": " measured",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        45.4,
+        45.68
+      ],
+      "text": " errors",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        45.68,
+        46.04
+      ],
+      "text": " correlate",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        46.04,
+        46.28
+      ],
+      "text": " at",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        46.28,
+        46.42
+      ],
+      "text": " 0",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        46.42,
+        47.28
+      ],
+      "text": ".906,",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        47.54,
+        47.66
+      ],
+      "text": " with",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        47.66,
+        47.84
+      ],
+      "text": " zero",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        47.84,
+        48.18
+      ],
+      "text": " adjustable",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        48.18,
+        48.88
+      ],
+      "text": " parameters.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        49.38,
+        49.64
+      ],
+      "text": " Quantitative",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        49.64,
+        49.88
+      ],
+      "text": " claims",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        49.88,
+        50.08
+      ],
+      "text": " are",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        50.08,
+        50.18
+      ],
+      "text": " then",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        50.18,
+        50.4
+      ],
+      "text": " sealed",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        50.4,
+        50.56
+      ],
+      "text": " as",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        50.56,
+        50.7
+      ],
+      "text": " Lean",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        50.7,
+        50.84
+      ],
+      "text": "-4",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        50.84,
+        51.3
+      ],
+      "text": " theorems",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        51.3,
+        51.46
+      ],
+      "text": " with",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        51.46,
+        51.64
+      ],
+      "text": " hash",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        51.64,
+        51.92
+      ],
+      "text": "-locked",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        51.92,
+        52.48
+      ],
+      "text": " providence.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        53.27,
+        53.35
+      ],
+      "text": " The",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        53.35,
+        53.45
+      ],
+      "text": " proof",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        53.45,
+        53.59
+      ],
+      "text": " layer",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        53.59,
+        53.83
+      ],
+      "text": " has",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        53.83,
+        54.13
+      ],
+      "text": " 190",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        54.13,
+        54.61
+      ],
+      "text": " build",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        54.61,
+        54.83
+      ],
+      "text": "-locked",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        54.83,
+        55.17
+      ],
+      "text": " theorems",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        55.17,
+        55.27
+      ],
+      "text": " and",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        55.27,
+        55.51
+      ],
+      "text": " zero",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        55.51,
+        55.85
+      ],
+      "text": " unfinished",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        55.85,
+        56.39
+      ],
+      "text": " proofs.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        56.95,
+        56.97
+      ],
+      "text": " It",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        56.97,
+        57.11
+      ],
+      "text": " once",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        57.11,
+        57.43
+      ],
+      "text": " rejected",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        57.43,
+        57.53
+      ],
+      "text": " a",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        57.53,
+        57.71
+      ],
+      "text": " rounded",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        57.71,
+        57.87
+      ],
+      "text": " success",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        57.87,
+        58.33
+      ],
+      "text": " count,",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        58.33,
+        58.57
+      ],
+      "text": " changing",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        58.57,
+        58.93
+      ],
+      "text": " 27",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        58.93,
+        59.31
+      ],
+      "text": " improvements",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        59.31,
+        59.57
+      ],
+      "text": " to",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        59.57,
+        60.29
+      ],
+      "text": " 26.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        60.63,
+        60.75
+      ],
+      "text": " Trust",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        60.75,
+        60.95
+      ],
+      "text": " means",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        60.95,
+        61.15
+      ],
+      "text": " being",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        61.15,
+        61.33
+      ],
+      "text": " able",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        61.33,
+        61.45
+      ],
+      "text": " to",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        61.45,
+        61.55
+      ],
+      "text": " say",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        61.55,
+        61.71
+      ],
+      "text": " no",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        61.71,
+        61.81
+      ],
+      "text": " to",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        61.81,
+        62.45
+      ],
+      "text": " yourself.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        62.73,
+        62.77
+      ],
+      "text": " The",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        62.77,
+        62.97
+      ],
+      "text": " correction",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        62.97,
+        63.29
+      ],
+      "text": " deploys",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        63.29,
+        63.55
+      ],
+      "text": " beside",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        63.55,
+        63.93
+      ],
+      "text": " existing",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        63.93,
+        64.69
+      ],
+      "text": " CHGNet",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        64.69,
+        64.89
+      ],
+      "text": " or",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        64.89,
+        65.13
+      ],
+      "text": " MACE",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        65.13,
+        65.67
+      ],
+      "text": " calculators",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        65.67,
+        65.91
+      ],
+      "text": " as",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        65.91,
+        66.03
+      ],
+      "text": " a",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        66.03,
+        66.45
+      ],
+      "text": " LAMPES",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        66.45,
+        67.03
+      ],
+      "text": " overlay.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        67.53,
+        67.67
+      ],
+      "text": " In",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        67.67,
+        68.09
+      ],
+      "text": " Python,",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        68.09,
+        68.29
+      ],
+      "text": " measured",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        68.29,
+        68.51
+      ],
+      "text": " overhead",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        68.51,
+        68.73
+      ],
+      "text": " is",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        68.73,
+        68.95
+      ],
+      "text": " 15",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        68.95,
+        69.69
+      ],
+      "text": ".6%.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        69.95,
+        70.37
+      ],
+      "text": " On",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        70.37,
+        70.45
+      ],
+      "text": " a",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        70.45,
+        70.63
+      ],
+      "text": " blind",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        70.63,
+        70.79
+      ],
+      "text": " nickel",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        70.79,
+        71.31
+      ],
+      "text": " surface,",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        71.31,
+        71.53
+      ],
+      "text": " relative",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        71.53,
+        71.79
+      ],
+      "text": " error",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        71.79,
+        72.05
+      ],
+      "text": " fell",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        72.05,
+        72.27
+      ],
+      "text": " from",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        72.27,
+        72.45
+      ],
+      "text": " 9",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        72.45,
+        72.89
+      ],
+      "text": ".7",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        72.89,
+        73.05
+      ],
+      "text": "%",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        73.05,
+        73.39
+      ],
+      "text": " to",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        73.39,
+        73.51
+      ],
+      "text": " 1",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        73.51,
+        74.33
+      ],
+      "text": ".5%.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        74.55,
+        75.15
+      ],
+      "text": " Users",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        75.15,
+        75.45
+      ],
+      "text": " keep",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        75.45,
+        75.63
+      ],
+      "text": " their",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        75.63,
+        76.61
+      ],
+      "text": " simulators.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        76.67,
+        76.85
+      ],
+      "text": " Lupine",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        76.85,
+        76.99
+      ],
+      "text": " makes",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        76.99,
+        77.17
+      ],
+      "text": " them",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        77.17,
+        77.29
+      ],
+      "text": " more",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        77.29,
+        77.81
+      ],
+      "text": " trustworthy.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        78.35,
+        78.51
+      ],
+      "text": " Better",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        78.51,
+        78.87
+      ],
+      "text": " materials",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        78.87,
+        79.07
+      ],
+      "text": " infrastructure",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        79.07,
+        79.57
+      ],
+      "text": " is",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        79.57,
+        79.83
+      ],
+      "text": " estimated",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        79.83,
+        80.09
+      ],
+      "text": " to",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        80.09,
+        80.31
+      ],
+      "text": " create",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        80.31,
+        80.51
+      ],
+      "text": " $1",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        80.51,
+        81.03
+      ],
+      "text": ".3",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        81.03,
+        81.33
+      ],
+      "text": " to",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        81.33,
+        81.49
+      ],
+      "text": " $2",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        81.49,
+        81.75
+      ],
+      "text": ".7",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        81.75,
+        82.07
+      ],
+      "text": " billion",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        82.07,
+        82.59
+      ],
+      "text": " in",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        82.59,
+        82.87
+      ],
+      "text": " annual",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        82.87,
+        83.21
+      ],
+      "text": " value",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        83.21,
+        83.41
+      ],
+      "text": " for",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        83.41,
+        83.57
+      ],
+      "text": " United",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        83.57,
+        83.85
+      ],
+      "text": " States",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        83.85,
+        84.45
+      ],
+      "text": " industry.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        85.21,
+        85.29
+      ],
+      "text": " Against",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        85.29,
+        85.47
+      ],
+      "text": " that",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        85.47,
+        85.93
+      ],
+      "text": " scale,",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        85.93,
+        86.47
+      ],
+      "text": " Lupin's",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        86.47,
+        86.73
+      ],
+      "text": " 36",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        86.73,
+        87.07
+      ],
+      "text": "-month",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        87.07,
+        87.31
+      ],
+      "text": " budget",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        87.31,
+        87.61
+      ],
+      "text": " is",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        87.61,
+        87.75
+      ],
+      "text": " about",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        87.75,
+        87.95
+      ],
+      "text": " $3",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        87.95,
+        88.45
+      ],
+      "text": ".2",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        88.45,
+        88.85
+      ],
+      "text": " million.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        89.21,
+        89.99
+      ],
+      "text": " The",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        89.99,
+        90.27
+      ],
+      "text": " investment",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        90.27,
+        90.43
+      ],
+      "text": " is",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        90.43,
+        90.55
+      ],
+      "text": " not",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        90.55,
+        90.61
+      ],
+      "text": " a",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        90.61,
+        90.75
+      ],
+      "text": " bet",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        90.75,
+        90.89
+      ],
+      "text": " on",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        90.89,
+        91.09
+      ],
+      "text": " one",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        91.09,
+        91.57
+      ],
+      "text": " material.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        92.05,
+        92.15
+      ],
+      "text": " It",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        92.15,
+        92.23
+      ],
+      "text": " is",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        92.23,
+        92.45
+      ],
+      "text": " leverage",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        92.45,
+        92.67
+      ],
+      "text": " across",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        92.67,
+        93.03
+      ],
+      "text": " every",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        93.03,
+        93.37
+      ],
+      "text": " screened",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        93.37,
+        93.81
+      ],
+      "text": " material.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        94.35,
+        94.49
+      ],
+      "text": " The",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        94.49,
+        94.63
+      ],
+      "text": " face",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        94.63,
+        94.85
+      ],
+      "text": "-centered",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        94.85,
+        95.05
+      ],
+      "text": " cubic",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        95.05,
+        95.33
+      ],
+      "text": " field",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        95.33,
+        95.49
+      ],
+      "text": " is",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        95.49,
+        96.65
+      ],
+      "text": " established.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        96.65,
+        96.75
+      ],
+      "text": " Other",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        96.75,
+        97.03
+      ],
+      "text": " structure",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        97.03,
+        97.33
+      ],
+      "text": " families",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        97.33,
+        97.59
+      ],
+      "text": " and",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        97.59,
+        97.81
+      ],
+      "text": " industrial",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        97.81,
+        98.25
+      ],
+      "text": " validation",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        98.25,
+        98.99
+      ],
+      "text": " remain",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        98.99,
+        99.27
+      ],
+      "text": " open",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        99.27,
+        99.67
+      ],
+      "text": " work,",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        99.67,
+        100.05
+      ],
+      "text": " with",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        100.05,
+        100.31
+      ],
+      "text": " explicit",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        100.31,
+        100.57
+      ],
+      "text": " go",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        100.57,
+        100.69
+      ],
+      "text": "-or",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        100.69,
+        100.79
+      ],
+      "text": "-no",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        100.79,
+        100.87
+      ],
+      "text": "-go",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        100.87,
+        101.31
+      ],
+      "text": " gates.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        102.01,
+        102.17
+      ],
+      "text": " That",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        102.17,
+        102.45
+      ],
+      "text": " honesty",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        102.45,
+        102.73
+      ],
+      "text": " is",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        102.73,
+        102.81
+      ],
+      "text": " the",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        102.81,
+        103.27
+      ],
+      "text": " product.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        103.79,
+        103.91
+      ],
+      "text": " The",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        103.91,
+        104.05
+      ],
+      "text": " world",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        104.05,
+        104.15
+      ],
+      "text": " does",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        104.15,
+        104.29
+      ],
+      "text": " not",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        104.29,
+        104.47
+      ],
+      "text": " need",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        104.47,
+        104.63
+      ],
+      "text": " more",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        104.63,
+        104.89
+      ],
+      "text": " predicted",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        104.89,
+        105.49
+      ],
+      "text": " crystals.",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        105.95,
+        106.09
+      ],
+      "text": " It",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        106.09,
+        106.25
+      ],
+      "text": " needs",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        106.25,
+        106.47
+      ],
+      "text": " predictions",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        106.47,
+        106.77
+      ],
+      "text": " laboratories",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        106.77,
+        107.07
+      ],
+      "text": " can",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        107.07,
+        107.19
+      ],
+      "text": " act",
+      "speaker": null
+    },
+    {
+      "timestamp": [
+        107.19,
+        107.47
+      ],
+      "text": " on.",
+      "speaker": null
+    }
+  ],
+  "inferred_languages": [
+    "en"
+  ],
+  "diarization_segments": []
+}

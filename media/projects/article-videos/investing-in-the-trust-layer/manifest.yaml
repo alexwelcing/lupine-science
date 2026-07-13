@@ -1,0 +1,88 @@
+slug: investing-in-the-trust-layer
+script: narration-script.md
+voice:
+  endpoint: fal-ai/elevenlabs/tts/turbo-v2.5
+  voice: Jessica
+  speed: 1.2
+  seed: 8416972
+scenes:
+  - id: trust-bottleneck
+    start: 0.03
+    duration: 14
+    narration: >-
+      Materials discovery can now imagine millions of crystals. Google DeepMind's GNoME proposed 2.2 million. But by late 2023, only 736 had been independently synthesized. The scarce resource is no longer prediction. It is trust.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      size: landscape_16_9
+      seed: 8416972
+      prompt: >-
+        Publication editorial illustration, an immense luminous field of distinct crystalline material candidates narrowing through a rigorous inspection aperture into a small defensible set of physical specimens, warm cream paper background #faf9f6, indigo #3d4db3 structural lines, restrained amber evidence accents, scientific precision, tactile paper grain, generous negative space, no words, no letters, no numbers, no typography, no logos, 16:9
+  - id: lossy-pipeline
+    start: 14.03
+    duration: 13.86
+    narration: >-
+      Every stage leaks. Generators omit complex material classes. Universal machine-learned potentials are least reliable at surfaces, vacancies, and defects. And laboratories inherit every upstream error. More activity does not automatically produce more validated materials.
+    visual:
+      type: chart
+      source: assets/native/lossy-pipeline.svg
+  - id: correction-layer
+    start: 27.89
+    duration: 10.65
+    narration: >-
+      Lupine Science sits between prediction and synthesis. It measures a predictor's systematic error as a physical field over local atomic environments, corrects that error at runtime, and proves which claims remain inside the evidence boundary.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      size: landscape_16_9
+      seed: 8416973
+      prompt: >-
+        Minimal publication editorial illustration of a transparent scientific correction layer inserted between an atomistic simulation lattice and a physical laboratory specimen, the layer visualized as a smooth measured indigo field conforming to under-coordinated atomic surfaces, warm cream #faf9f6 background, indigo #3d4db3, restrained amber accents, elegant scientific diagram aesthetic, subtle paper grain, no words, no letters, no numbers, no typography, no logos, 16:9
+  - id: blind-evidence
+    start: 38.54
+    duration: 10.84
+    narration: >-
+      The field is fixed by three standard observables. A fourth surface is held back as a blind test. Across 36 model-and-material combinations, predicted and measured errors correlate at zero point nine oh six, with zero adjustable parameters.
+    visual:
+      type: chart
+      source: assets/native/blind-evidence.svg
+  - id: proof-refusal
+    start: 49.38
+    duration: 13.35
+    narration: >-
+      Quantitative claims are then sealed as Lean 4 theorems with hash-locked provenance. The proof layer has 190 build-locked theorems and zero unfinished proofs. It once rejected a rounded success count, changing 27 improvements to 26. Trust means being able to say no to yourself.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      size: landscape_16_9
+      seed: 8416974
+      prompt: >-
+        Sophisticated editorial illustration of a machine-checked proof mechanism made only from smooth blank geometric blocks, one incompatible block calmly diverted outside a precise indigo boundary while compatible blocks continue, warm cream #faf9f6, indigo #3d4db3, small amber status lights, scientific publication style, every surface completely blank and unmarked, absolutely no writing, no glyphs, no symbols, no words, no letters, no numbers, no typography, no logos, 16:9
+  - id: runtime-correction
+    start: 62.73
+    duration: 15.62
+    narration: >-
+      The correction deploys beside existing CHGNet or MACE calculators as a LAMMPS overlay. In Python, measured overhead is 15.6 percent. On a blind nickel surface, relative error fell from 9.7 percent to 1.5 percent. Users keep their simulators. Lupine makes them more trustworthy.
+    visual:
+      type: chart
+      source: assets/native/runtime-correction.svg
+  - id: investment-leverage
+    start: 78.35
+    duration: 16
+    narration: >-
+      Better materials infrastructure is estimated to create 123 to 270 billion dollars in annual value for United States industry. Against that scale, Lupine's 36-month budget is about 3.2 million dollars. The investment is not a bet on one material. It is leverage across every screened material.
+    visual:
+      type: chart
+      source: assets/native/investment-leverage.svg
+  - id: honest-boundaries
+    start: 94.35
+    duration: 13.65
+    narration: >-
+      The face-centered-cubic field is established. Other structure families and industrial validation remain open work, with explicit go-or-no-go gates. That honesty is the product. The world does not need more predicted crystals. It needs predictions laboratories can act on.
+    visual:
+      type: image
+      endpoint: fal-ai/flux/dev
+      size: landscape_16_9
+      seed: 8416975
+      prompt: >-
+        Publication editorial illustration of a precisely bounded scientific field expanding from an established face-centered cubic lattice toward several distinct future crystal families, with a clear frontier and a small defensible queue of laboratory specimens, warm cream paper #faf9f6, indigo #3d4db3, restrained amber frontier markers, rigorous not futuristic, no words, no letters, no numbers, no typography, no logos, 16:9
