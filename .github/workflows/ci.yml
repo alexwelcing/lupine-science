@@ -106,8 +106,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install chrome-headless-shell for HyperFrames checks
+        run: |
+          npx @puppeteer/browsers install chrome-headless-shell | tee /tmp/chrome-install.log
+          CHROME_PATH="$(grep -o '/[^ ]*/chrome-headless-shell[^ ]*' /tmp/chrome-install.log | head -1)"
+          echo "HYPERFRAMES_BROWSER_PATH=${CHROME_PATH}" >> "$GITHUB_ENV"
+
       - name: Check article-video compositions
         working-directory: media/projects/article-videos
+        env:
+          HYPERFRAMES_BROWSER_PATH: ${{ env.HYPERFRAMES_BROWSER_PATH }}
+        timeout-minutes: 8
         run: npm run check
 
       - name: Install system PDF/QA tools before tests
