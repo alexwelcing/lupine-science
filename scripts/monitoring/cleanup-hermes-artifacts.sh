@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
-# Cleanup old Hermes kanban workspaces, logs, and runtime artifacts to prevent disk/memory bloat.
+# Cleanup old Hermes kanban workspaces, logs, build artifacts, and runtime
+# detritus to prevent disk/memory bloat on the Lupine Science workstation.
 set -euo pipefail
 
+REPO_ROOT="${REPO_ROOT:-/home/alex/Dev/lupine/lupine-science}"
 KANBAN_ROOT="${HOME}/.hermes/kanban/boards/article-videos"
 LOG_DIR="${HOME}/.lupine/monitoring"
 RUNTIME_DIR="${HOME}/.hermes/runtime"
@@ -12,7 +14,7 @@ mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/cleanup-hermes-artifacts.log"
 
 log() {
-  echo "$(date -Iseconds) $*" | tee -a "$LOG_DIR/cleanup-hermes-artifacts.log"
+  echo "$(date -Iseconds) $*" | tee -a "$LOG_FILE"
 }
 
 log "starting cleanup retention=${RETENTION_DAYS}d max_log_bytes=${MAX_LOG_BYTES}"
@@ -40,6 +42,38 @@ if [ -d "$RUNTIME_DIR" ]; then
   find "$RUNTIME_DIR" -maxdepth 1 -type f -mmin +60 -name "*.json" -delete 2>/dev/null || true
   log "removed ${stale_sessions} stale runtime files"
 fi
+
+# Clean old proof-pack render scratch directory.
+if [ -d "$REPO_ROOT/public/.proofpack-render" ]; then
+  removed_pp=$(find "$REPO_ROOT/public/.proofpack-render" -mindepth 1 -maxdepth 1 -type d -mtime +1 -print | wc -l)
+  find "$REPO_ROOT/public/.proofpack-render" -mindepth 1 -maxdepth 1 -type d -mtime +1 -exec rm -rf {} + 2>/dev/null || true
+  log "removed ${removed_pp} old proof-pack render directories"
+fi
+
+# Clean old article video snapshot directories (keep 7 days).
+VIDEO_SNAPSHOT_DIR="$REPO_ROOT/media/projects/article-videos/snapshots"
+if [ -d "$VIDEO_SNAPSHOT_DIR" ]; then
+  removed_snaps=$(find "$VIDEO_SNAPSHOT_DIR" -mindepth 1 -maxdepth 1 -type d -mtime +7 -print | wc -l)
+  find "$VIDEO_SNAPSHOT_DIR" -mindepth 1 -maxdepth 1 -type d -mtime +7 -exec rm -rf {} + 2>/dev/null || true
+  log "removed ${removed_snaps} old video snapshot directories"
+fi
+
+# Remove untracked Hermes worktree directories in the repo root older than 1 day.
+# These are created by `hermes kanban workspace` and should never be committed.
+if [ -d "$REPO_ROOT/.worktrees" ]; then
+  removed_wt=$(find "$REPO_ROOT/.worktrees" -mindepth 1 -maxdepth 1 -type d -mtime +1 -print | wc -l)
+  find "$REPO_ROOT/.worktrees" -mindepth 1 -maxdepth 1 -type d -mtime +1 -exec rm -rf {} + 2>/dev/null || true
+  log "removed ${removed_wt} old repo worktree directories"
+fi
+
+# Rotate local monitoring logs if they grow too large.
+for f in "$LOG_DIR"/*.log; do
+  if [ -f "$f" ] && [ "$(stat -c%s "$f" 2>/dev/null || echo 0)" -ge "$MAX_LOG_BYTES" ]; then
+    mv "$f" "${f}.old"
+    : > "$f"
+    log "rotated $f"
+  fi
+done
 
 # Trim npm/pip caches if disk pressure > 90%.
 home_usage=$(df -h "$HOME" | awk 'NR==2 {gsub(/%/,""); print $5}')
