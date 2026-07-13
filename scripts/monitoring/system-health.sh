@@ -45,7 +45,8 @@ echo "--- top memory ---"
 ps -eo pid,pcpu,pmem,comm --sort=-pmem | head -10
 
 echo "--- zombie/high cpu guard ---"
-# Flag any single process >80% CPU or >4 GiB RSS for more than a glance
-ps -eo pid,pcpu,pmem,rss,comm --sort=-pcpu | awk 'NR>1 && ($2>80.0 || $4>4194304) {print "ALERT high consumer:", $0}'
+# Flag any single process >80% CPU or >4 GiB RSS for more than a glance.
+# Exclude the sampler processes (ps, awk, bash) to avoid self-sampling artifacts.
+ps -eo pid,pcpu,pmem,rss,comm --sort=-pcpu | awk 'NR>1 && $5 !~ /^(ps|awk|bash|sh)$/ && ($2>80.0 || $4>4194304) {print "ALERT high consumer:", $0}'
 
 echo ""
