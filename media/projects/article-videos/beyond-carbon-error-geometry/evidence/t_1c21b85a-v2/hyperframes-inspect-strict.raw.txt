@@ -1,0 +1,48 @@
+
+> inspect
+> npx --yes hyperframes@0.7.48 inspect . --at 2,9,14,18,24,29,33,40,43,46,51,58,63,69,73,77,84,90,96,103,108,110.5 --strict --json
+
+{
+  "schemaVersion": 1,
+  "duration": 112,
+  "samples": [
+    2,
+    9,
+    14,
+    18,
+    24,
+    29,
+    33,
+    40,
+    43,
+    46,
+    51,
+    58,
+    63,
+    69,
+    73,
+    77,
+    84,
+    90,
+    96,
+    103,
+    108,
+    110.5
+  ],
+  "tolerance": 2,
+  "strict": true,
+  "collapseStatic": true,
+  "ok": true,
+  "errorCount": 0,
+  "warningCount": 0,
+  "infoCount": 0,
+  "issueCount": 0,
+  "totalIssueCount": 0,
+  "truncated": false,
+  "issues": [],
+  "_meta": {
+    "version": "0.7.48",
+    "latestVersion": "0.7.56",
+    "updateAvailable": true
+  }
+}

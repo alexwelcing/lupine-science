@@ -1,0 +1,13 @@
+What do desalination membranes, methane catalysts, safer refrigerants, lithium recovery, P-fass cleanup, clean-air catalysts, and low-carbon cement have in common? Weirdly, the same atomic blind spot. The materials bottleneck is not climate-specific. It is coordination-specific.
+
+Universal machine-learning potentials learn tidy bulk crystals, where atoms have lots of regular neighbors. But useful chemistry happens at pores, surfaces, vacancies, and transition states—where atoms have fewer neighbors. Right there, these models can soften the energy landscape by 15 to 60 percent.
+
+That is not harmless noise. A softened barrier can make the wrong membrane look selective, the wrong catalyst look fast, or an unmakeable cement phase look stable. Across millions of candidates, tiny systematic errors flip rankings—and experiments chase false winners.
+
+The stakes are huge: water scarcity affects roughly two billion people. Air pollution kills millions every year. Methane drives about 30 percent of current warming. Clean-energy mineral demand could rise four- to six-fold by 2040. And cement alone produces roughly 2.8 gigatonnes of carbon dioxide annually.
+
+Lupine’s response starts with the useful part: the error has a shape. Three measured observables anchor an environment error field. Bulk coordination is fixed at zero error, and a constrained curve predicts corrections for under-coordinated environments the field never directly saw.
+
+Add that field at runtime, and simulations follow corrected energies and analytic forces—still about one hundred thousand times faster than quantum chemistry. In blind tests across 36 model-material pairs, predicted corrections correlated at zero point nine oh six. Then 77 build-locked Lean 4 theorems mark what is supported, out of domain, or synthesis-dependent.
+
+So this is bigger than carbon. One correction-and-verification layer can improve discovery across water, air, methane, refrigerants, minerals, P-fass, and cement. Measure the error. Correct the physics. Prove the boundary. Then send experiments the candidates actually worth making.

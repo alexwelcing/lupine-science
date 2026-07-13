@@ -1,0 +1,8 @@
+$ sha256sum renders/beyond-carbon-error-geometry-v2-review-1080p.mp4 renders/beyond-carbon-error-geometry-v2-review-1080p.vtt transcript/captions.vtt
+
+ccf781aff8f3dcc9f74b9eaf61c4cd0b72ca3ad18f30f116c9344fa65b2f7ef6  renders/beyond-carbon-error-geometry-v2-review-1080p.mp4
+b6c23b95ba8bd47e927ed3ded7be027d24017403d5d8841a6dc19e66540b58c3  renders/beyond-carbon-error-geometry-v2-review-1080p.vtt
+b6c23b95ba8bd47e927ed3ded7be027d24017403d5d8841a6dc19e66540b58c3  transcript/captions.vtt
+
+$ cmp -s renders/beyond-carbon-error-geometry-v2-review-1080p.vtt transcript/captions.vtt
+EXIT CODE: 0 (0 means byte-identical)

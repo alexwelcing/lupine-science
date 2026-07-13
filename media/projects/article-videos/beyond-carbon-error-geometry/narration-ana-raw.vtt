@@ -1,0 +1,108 @@
+1
+00:00:00,100 --> 00:00:08,517
+What do desalination membranes, methane catalysts, safer refrigerants, lithium recovery, P-fass cleanup, clean-air catalysts, and low-carbon cement have in common?
+
+2
+00:00:08,467 --> 00:00:10,895
+Weirdly, the same atomic blind spot.
+
+3
+00:00:10,895 --> 00:00:13,500
+The materials bottleneck is not climate-specific.
+
+4
+00:00:13,500 --> 00:00:15,298
+It is coordination-specific.
+
+5
+00:00:15,298 --> 00:00:20,330
+Universal machine-learning potentials learn tidy bulk crystals, where atoms have lots of regular neighbors.
+
+6
+00:00:20,330 --> 00:00:26,612
+But useful chemistry happens at pores, surfaces, vacancies, and transition states—where atoms have fewer neighbors.
+
+7
+00:00:26,612 --> 00:00:31,000
+Right there, these models can soften the energy landscape by 15 to 60 percent.
+
+8
+00:00:31,000 --> 00:00:32,766
+That is not harmless noise.
+
+9
+00:00:32,766 --> 00:00:39,177
+A softened barrier can make the wrong membrane look selective, the wrong catalyst look fast, or an unmakeable cement phase look stable.
+
+10
+00:00:39,177 --> 00:00:44,637
+Across millions of candidates, tiny systematic errors flip rankings—and experiments chase false winners.
+
+11
+00:00:44,637 --> 00:00:48,274
+The stakes are huge: water scarcity affects roughly two billion people.
+
+12
+00:00:48,274 --> 00:00:50,605
+Air pollution kills millions every year.
+
+13
+00:00:50,605 --> 00:00:53,354
+Methane drives about 30 percent of current warming.
+
+14
+00:00:53,354 --> 00:00:57,185
+Clean-energy mineral demand could rise four- to six-fold by 2040.
+
+15
+00:00:57,185 --> 00:01:01,612
+And cement alone produces roughly 2.8 gigatonnes of carbon dioxide annually.
+
+16
+00:01:01,612 --> 00:01:05,048
+Lupine’s response starts with the useful part: the error has a shape.
+
+17
+00:01:05,048 --> 00:01:08,117
+Three measured observables anchor an environment error field.
+
+18
+00:01:08,117 --> 00:01:14,991
+Bulk coordination is fixed at zero error, and a constrained curve predicts corrections for under-coordinated environments the field never directly saw.
+
+19
+00:01:14,991 --> 00:01:22,556
+Add that field at runtime, and simulations follow corrected energies and analytic forces—still about one hundred thousand times faster than quantum chemistry.
+
+20
+00:01:22,556 --> 00:01:28,556
+In blind tests across 36 model-material pairs, predicted corrections correlated at zero point nine oh six.
+
+21
+00:01:28,556 --> 00:01:33,935
+Then 77 build-locked Lean 4 theorems mark what is supported, out of domain, or synthesis-dependent.
+
+22
+00:01:33,935 --> 00:01:35,774
+So this is bigger than carbon.
+
+23
+00:01:35,774 --> 00:01:42,862
+One correction-and-verification layer can improve discovery across water, air, methane, refrigerants, minerals, P-fass, and cement.
+
+24
+00:01:42,862 --> 00:01:44,120
+Measure the error.
+
+25
+00:01:44,120 --> 00:01:45,572
+Correct the physics.
+
+26
+00:01:45,572 --> 00:01:46,895
+Prove the boundary.
+
+27
+00:01:46,895 --> 00:01:49,862
+Then send experiments the candidates actually worth making.
+

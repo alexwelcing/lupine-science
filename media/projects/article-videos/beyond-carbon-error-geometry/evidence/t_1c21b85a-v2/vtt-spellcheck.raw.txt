@@ -1,0 +1,6 @@
+$ npx --yes cspell@latest --config evidence/t_1c21b85a-v2/cspell.json --language-id plaintext transcript/captions.vtt
+
+1/1 transcript/captions.vtt 961.62ms
+CSpell: Files checked: 1, Issues found: 0 in 0 files.
+
+EXIT CODE: 0

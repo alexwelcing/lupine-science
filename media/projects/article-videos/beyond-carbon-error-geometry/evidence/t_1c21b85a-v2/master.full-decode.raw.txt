@@ -1,0 +1,7 @@
+$ ffmpeg -v error -i /home/alex/Dev/lupine/lupine-science/media/projects/article-videos/beyond-carbon-error-geometry/renders/beyond-carbon-error-geometry-v2-review-1080p.mp4 -map 0:v:0 -map 0:a:0? -f null -
+
+STDOUT:
+
+STDERR:
+
+EXIT CODE: 0

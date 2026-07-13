@@ -1,0 +1,747 @@
+
+> validate
+> npx --yes hyperframes@0.7.48 validate . --json
+
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "contrast": [
+    {
+      "time": 11.2,
+      "selector": "span.kicker",
+      "text": "Error geometry · 01",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 11.2,
+      "selector": "span.meta",
+      "text": "Seven crises · one blind spot",
+      "ratio": 3.61,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(235,235,241)"
+    },
+    {
+      "time": 11.2,
+      "selector": "h1.claim",
+      "text": "One error. Seven material crises.",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 11.2,
+      "selector": "em",
+      "text": "Seven material crises.",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 11.2,
+      "selector": "p.deck",
+      "text": "The bottleneck is not climate-specific. It is coor",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 11.2,
+      "selector": "span.domain",
+      "text": "WATER",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 11.2,
+      "selector": "span.domain",
+      "text": "METHANE",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 11.2,
+      "selector": "span.domain",
+      "text": "REFRIGERANTS",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 11.2,
+      "selector": "span.domain",
+      "text": "MINERALS",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 11.2,
+      "selector": "span.domain",
+      "text": "PFAS",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 11.2,
+      "selector": "span.domain",
+      "text": "AIR",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 11.2,
+      "selector": "span.domain",
+      "text": "CEMENT",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 11.2,
+      "selector": "span.defect.tag",
+      "text": "Under-coordination",
+      "ratio": 3.93,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(199,91,91)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 11.2,
+      "selector": "span.source",
+      "text": "Article opening · coordination readout 04–12",
+      "ratio": 4.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 11.2,
+      "selector": "div.caption-safe",
+      "text": "THE SAME ATOMIC BLIND SPOT",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 33.6,
+      "selector": "span.kicker",
+      "text": "Ranking inversion · 03",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 33.6,
+      "selector": "span.meta",
+      "text": "Millions screened · few tested",
+      "ratio": 4.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 33.6,
+      "selector": "h1.claim",
+      "text": "Small bias creates false winners.",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 33.6,
+      "selector": "em",
+      "text": "false winners.",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 33.6,
+      "selector": "p.deck",
+      "text": "A softened barrier can promote the wrong membrane,",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 33.6,
+      "selector": "b",
+      "text": "MEMBRANE SELECTIVITY",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 33.6,
+      "selector": "i.candidate.false",
+      "text": "A",
+      "ratio": 3.93,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(199,91,91)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 33.6,
+      "selector": "b",
+      "text": "CATALYST RATE",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 33.6,
+      "selector": "i.candidate.false",
+      "text": "C",
+      "ratio": 3.93,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(199,91,91)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 33.6,
+      "selector": "b",
+      "text": "CEMENT STABILITY",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 33.6,
+      "selector": "span.source",
+      "text": "Article § ranking inversion · [1][2]",
+      "ratio": 4.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 33.6,
+      "selector": "div.caption-safe",
+      "text": "RAW uMLIP → CORRECTED PRIORITY",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 56,
+      "selector": "span.kicker",
+      "text": "Planetary stakes · 04",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 56,
+      "selector": "span.meta",
+      "text": "One leverage point",
+      "ratio": 3.32,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(224,226,237)"
+    },
+    {
+      "time": 56,
+      "selector": "h1.claim",
+      "text": "Bad priorities scale to planetary stakes.",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 56,
+      "selector": "em",
+      "text": "planetary stakes.",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 56,
+      "selector": "p.deck",
+      "text": "Every spoke reconnects to the same under-coordinat",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 56,
+      "selector": "div.hub",
+      "text": "SHAREDDEFECT",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(250,249,246)",
+      "bg": "rgb(61,77,179)"
+    },
+    {
+      "time": 56,
+      "selector": "div.spoke.s1",
+      "text": "~2BWATER",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 56,
+      "selector": "b",
+      "text": "~2B",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 56,
+      "selector": "div.spoke.s2",
+      "text": "MILLIONSAIR / YR",
+      "ratio": 16.39,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 56,
+      "selector": "b",
+      "text": "MILLIONS",
+      "ratio": 6.79,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(249,248,245)"
+    },
+    {
+      "time": 56,
+      "selector": "div.spoke.s3",
+      "text": "~30%WARMING",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 56,
+      "selector": "b",
+      "text": "~30%",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 56,
+      "selector": "div.spoke.s4",
+      "text": "4–6×MINERALS · 2040",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 56,
+      "selector": "b",
+      "text": "4–6×",
+      "ratio": 6.8,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(249,248,246)"
+    },
+    {
+      "time": 56,
+      "selector": "div.spoke.s5",
+      "text": "~2.8 GtCEMENT CO₂ / YR",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 56,
+      "selector": "b",
+      "text": "~2.8 Gt",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 56,
+      "selector": "span.source",
+      "text": "Sources [3][6][8][11][13]",
+      "ratio": 4.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 56,
+      "selector": "div.caption-safe",
+      "text": "ONE COORDINATION-SPECIFIC FAILURE MODE",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 78.4,
+      "selector": "span.kicker",
+      "text": "Correct + prove · 06",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 78.4,
+      "selector": "span.meta",
+      "text": "Bounded evidence",
+      "ratio": 4.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 78.4,
+      "selector": "h1.claim",
+      "text": "Correct fast. Prove honestly.",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 78.4,
+      "selector": "em",
+      "text": "Prove honestly.",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 78.4,
+      "selector": "p.deck",
+      "text": "A runtime field corrects energies and analytic for",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 78.4,
+      "selector": "span.stage",
+      "text": "uMLIP",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 78.4,
+      "selector": "b.arrow",
+      "text": "→",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 78.4,
+      "selector": "span.stage.hot",
+      "text": "ERROR FIELD",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 78.4,
+      "selector": "b.arrow",
+      "text": "→",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 78.4,
+      "selector": "span.stage",
+      "text": "ENERGY + FORCES",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 78.4,
+      "selector": "div.theorems.tag",
+      "text": "190 THEOREMS · 0 SORRY",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 78.4,
+      "selector": "div.proof.ok",
+      "text": "SUPPORTED",
+      "ratio": 3.77,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(90,138,110)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 78.4,
+      "selector": "div.proof",
+      "text": "OUT OF DOMAIN",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 78.4,
+      "selector": "div.proof",
+      "text": "SYNTHESIS-DEPENDENT",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 78.4,
+      "selector": "span.source",
+      "text": "Held-out surface-energy test · n = 36 · r = 0.906 ",
+      "ratio": 4.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 78.4,
+      "selector": "div.caption-safe",
+      "text": "SUPPORTED ≠ UNIVERSALLY VALIDATED",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 100.8,
+      "selector": "span.kicker",
+      "text": "Platform thesis · 07",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 100.8,
+      "selector": "span.meta",
+      "text": "Beyond carbon",
+      "ratio": 3.24,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(222,223,236)"
+    },
+    {
+      "time": 100.8,
+      "selector": "h1.claim",
+      "text": "Send experiments candidates worth making.",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 100.8,
+      "selector": "em",
+      "text": "worth making.",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 100.8,
+      "selector": "p.deck",
+      "text": "One correction-and-verification layer can improve ",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 100.8,
+      "selector": "span",
+      "text": "MEASURE",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 100.8,
+      "selector": "b.arrow",
+      "text": "→",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 100.8,
+      "selector": "span",
+      "text": "CORRECT",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 100.8,
+      "selector": "b.arrow",
+      "text": "→",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 100.8,
+      "selector": "span",
+      "text": "PROVE",
+      "ratio": 6.85,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(61,77,179)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 100.8,
+      "selector": "span.source",
+      "text": "Water · air · methane · refrigerants · minerals · ",
+      "ratio": 4.07,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(107,124,142)",
+      "bg": "rgb(250,249,246)"
+    },
+    {
+      "time": 100.8,
+      "selector": "div.caption-safe",
+      "text": "PLATFORM THESIS · PROVE THE BOUNDARY",
+      "ratio": 16.53,
+      "wcagAA": true,
+      "large": true,
+      "fg": "rgb(26,26,26)",
+      "bg": "rgb(250,249,246)"
+    }
+  ],
+  "contrastFailures": 0,
+  "_meta": {
+    "version": "0.7.48",
+    "latestVersion": "0.7.56",
+    "updateAvailable": true
+  }
+}
