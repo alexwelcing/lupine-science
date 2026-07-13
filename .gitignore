@@ -12,3 +12,4 @@ dist/
 .lighthouseci/
 public/.proofpack-render/
 public/proof-packs/
+.worktrees/
