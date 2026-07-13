@@ -1,0 +1,7 @@
+PASS
+Cues: 46
+Monotonic: yes
+Overlap: none
+First cue: 00:00:00.100
+Last cue end: 00:01:49.220
+Master duration: 00:01:52.000
