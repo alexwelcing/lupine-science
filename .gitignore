@@ -12,5 +12,6 @@ dist/
 .lighthouseci/
 public/.proofpack-render/
 public/proof-packs/
+media/projects/article-videos/
 .worktrees/
 eng.traineddata

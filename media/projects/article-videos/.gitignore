@@ -1,5 +1,0 @@
-# Generated video assets are reproducible from manifest.yaml + FAL_KEY
-*/assets/
-*/renders/
-node_modules/
-*.log
