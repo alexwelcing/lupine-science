@@ -18,5 +18,20 @@
     "id": "lean-theorem-growth",
     "title": "Build-locked theorem inventory",
     "src": "/result-graphics/lean-theorem-growth.svg"
+  },
+  {
+    "id": "participation-ratio",
+    "title": "Participation ratio on the joint error manifold",
+    "src": "/result-graphics/participation-ratio.svg"
+  },
+  {
+    "id": "cross-mlip-cosine",
+    "title": "Cross-MLIP error direction alignment",
+    "src": "/result-graphics/cross-mlip-cosine.svg"
+  },
+  {
+    "id": "elements-transfer-geometry",
+    "title": "Error geometry transfers across elements",
+    "src": "/result-graphics/elements-transfer-geometry.svg"
   }
 ]

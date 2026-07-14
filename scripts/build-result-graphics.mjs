@@ -32,6 +32,8 @@ const CATEGORY_COLORS = {
   methane: '#8a5e1f',
   halocarbon: '#3d4db3',
   n2o: '#6e707a',
+  verified: '#3a8f5b',
+  ochre: '#8a5e1f',
 };
 
 function formatNumber(n) {
@@ -60,7 +62,8 @@ function buildBarChart(g) {
   const margin = { top: 80, right: 40, bottom: 100, left: 64 };
   const width = g.width - margin.left - margin.right;
   const height = g.height - margin.top - margin.bottom;
-  const max = Math.max(...g.data.map((d) => d.value));
+  const dataMax = Math.max(...g.data.map((d) => d.value));
+  const max = g.yAxis?.max ? Math.max(g.yAxis.max, dataMax) : dataMax;
   const barWidth = width / g.data.length * 0.6;
   const step = width / g.data.length;
 
@@ -89,6 +92,63 @@ function buildBarChart(g) {
       svg += `    <text x="${(x + barWidth / 2).toFixed(2)}" y="${(height + 18 + li * 14).toFixed(2)}" text-anchor="middle" font-family="${TOKENS.mono}" font-size="10" fill="${TOKENS.inkSoft}">${line}</text>
 `;
     });
+  }
+
+  svg += `  </g>
+  <text x="${margin.left}" y="${g.height - 28}" font-family="${TOKENS.mono}" font-size="9" fill="${TOKENS.inkFaint}">Source: ${g.source}</text>
+  <text x="${margin.left}" y="${g.height - 14}" font-family="${TOKENS.serif}" font-size="10" fill="${TOKENS.inkSoft}" font-style="italic">${g.note}</text>
+</svg>`;
+  return svg;
+}
+
+function buildRangeChart(g) {
+  const margin = { top: 80, right: 80, bottom: 100, left: 160 };
+  const width = g.width - margin.left - margin.right;
+  const height = g.height - margin.top - margin.bottom;
+  const minValue = Math.min(...g.data.map((d) => d.min));
+  const maxValue = Math.max(...g.data.map((d) => d.max));
+  const pad = (maxValue - minValue) * 0.08 || 0.1;
+  const scaleMin = Math.max(0, minValue - pad);
+  const scaleMax = maxValue + pad;
+  const step = height / g.data.length;
+  const barHeight = step * 0.35;
+
+  const x = (v) => ((v - scaleMin) / (scaleMax - scaleMin)) * width;
+
+  let svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${g.width} ${g.height}" width="${g.width}" height="${g.height}" role="img" aria-labelledby="${g.id}-title">
+  <title id="${g.id}-title">${g.title}</title>
+  <rect width="${g.width}" height="${g.height}" fill="${TOKENS.paper}"/>
+  <text x="${margin.left}" y="42" font-family="${TOKENS.serif}" font-size="22" fill="${TOKENS.ink}" font-weight="500">${g.title}</text>
+  <text x="${margin.left}" y="64" font-family="${TOKENS.mono}" font-size="11" fill="${TOKENS.inkFaint}" text-transform="uppercase" letter-spacing="0.06em">${g.subtitle}</text>
+  <g transform="translate(${margin.left},${margin.top})">
+    <line x1="0" y1="${height}" x2="${width}" y2="${height}" stroke="${TOKENS.rule}" stroke-width="1"/>
+`;
+
+  // baseline markers
+  for (const tick of [scaleMin, (scaleMin + scaleMax) / 2, scaleMax]) {
+    const tx = x(tick);
+    svg += `    <line x1="${tx.toFixed(2)}" y1="0" x2="${tx.toFixed(2)}" y2="${height}" stroke="${TOKENS.rule}" stroke-width="1" stroke-dasharray="2,3"/>
+    <text x="${tx.toFixed(2)}" y="${(height + 16).toFixed(2)}" text-anchor="middle" font-family="${TOKENS.mono}" font-size="9" fill="${TOKENS.inkFaint}">${tick.toFixed(2)}</text>
+`;
+  }
+
+  for (const [i, d] of g.data.entries()) {
+    const y = i * step + (step - barHeight) / 2;
+    const x1 = x(d.min);
+    const x2 = x(d.max);
+    const color = CATEGORY_COLORS[d.category] || TOKENS.indigo;
+    svg += `    <line x1="${x1.toFixed(2)}" y1="${(y + barHeight / 2).toFixed(2)}" x2="${x2.toFixed(2)}" y2="${(y + barHeight / 2).toFixed(2)}" stroke="${color}" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="${x1.toFixed(2)}" cy="${(y + barHeight / 2).toFixed(2)}" r="4" fill="${color}"/>
+    <circle cx="${x2.toFixed(2)}" cy="${(y + barHeight / 2).toFixed(2)}" r="4" fill="${color}"/>
+    <rect x="${x1.toFixed(2)}" y="${y.toFixed(2)}" width="${(x2 - x1).toFixed(2)}" height="${barHeight.toFixed(2)}" fill="${color}" opacity="0.14" rx="3"/>
+    <text x="${(x2 + 10).toFixed(2)}" y="${(y + barHeight / 2 + 4).toFixed(2)}" font-family="${TOKENS.mono}" font-size="10" fill="${TOKENS.inkSoft}">${d.min.toFixed(2)}–${d.max.toFixed(2)}</text>
+    <text x="-10" y="${(y + barHeight / 2 + 4).toFixed(2)}" text-anchor="end" font-family="${TOKENS.serif}" font-size="12" fill="${TOKENS.ink}">${d.label}</text>
+`;
+  }
+
+  if (g.xAxis?.label) {
+    svg += `    <text x="${width / 2}" y="${(height + 44).toFixed(2)}" text-anchor="middle" font-family="${TOKENS.mono}" font-size="10" fill="${TOKENS.inkFaint}" text-transform="uppercase" letter-spacing="0.06em">${g.xAxis.label}</text>
+`;
   }
 
   svg += `  </g>
@@ -213,6 +273,8 @@ function buildGraphic(g) {
   switch (g.type) {
     case 'bar':
       return buildBarChart(g);
+    case 'range':
+      return buildRangeChart(g);
     case 'stacked-bar':
       return buildStackedBar(g);
     case 'funnel':

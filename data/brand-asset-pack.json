@@ -45,10 +45,23 @@
     { "src": "/brand-assets/assets/images/v10/crystalline-form_square_v10.jpg", "motif": "crystalline-form", "variant": "square", "aspect": "1:1", "status": "article", "notes": "Article card thumbnails." },
     { "src": "/brand-assets/assets/images/v10/diffraction_wide_v10.jpg", "motif": "diffraction", "variant": "wide", "aspect": "16:9", "status": "section", "notes": "Methodology and correction-layer sections." }
   ],
+  "patterns": [
+    { "src": "/brand-assets/patterns/hyper-ribbon.svg", "motif": "shape-of-wrongness", "variant": "light", "aspect": "16:9", "status": "background", "notes": "Procedural hyper-ribbon manifold on paper; use as a light slide or section background." },
+    { "src": "/brand-assets/patterns/error-vectors.svg", "motif": "shape-of-wrongness", "variant": "light", "aspect": "16:9", "status": "background", "notes": "Error vectors converging toward alignment; use for methodology or proof slides." },
+    { "src": "/brand-assets/patterns/lattice-dots.svg", "motif": "crystalline-form", "variant": "light", "aspect": "1:1", "status": "texture", "notes": "Subtle lattice dot texture for article or deck backgrounds." },
+    { "src": "/brand-assets/patterns/dark-ribbon.svg", "motif": "shape-of-wrongness", "variant": "dark", "aspect": "16:9", "status": "background", "notes": "Hyper-ribbon on dark ground for pitch decks and dark-mode surfaces." }
+  ],
+  "deckSystems": [
+    { "src": "/brand-assets/deck-dark.css", "name": "Dark pitch deck tokens", "usage": ["investor decks", "presentation slides", "dark-mode brand surfaces"], "notes": "CSS design tokens and slide layout classes for 1280×720 dark decks." },
+    { "src": "/brand-assets/deck-dark-sample.html", "thumb": "/brand-assets/deck-dark-thumb.svg", "name": "Dark deck sample", "usage": ["deck template reference"], "notes": "Two-slide sample demonstrating the dark token system." }
+  ],
   "resultGraphics": [
     { "id": "gwp-comparison", "title": "Refrigerant GWP comparison", "description": "100-year GWP of common refrigerants vs. CO₂, aligned to IPCC AR6.", "usage": ["lupi-hfc-refrigerant-research-payloads", "methane-and-refrigerants"] },
     { "id": "climate-forcers-share", "title": "Non-CO₂ climate forcers", "description": "Share of current anthropogenic radiative forcing from CO₂, CH₄, N₂O, and halocarbons.", "usage": ["rhizo-non-co2-climate-forcers-lean", "beyond-carbon"] },
     { "id": "synthesis-funnel", "title": "The 0.2% synthesis funnel", "description": "Predicted crystals → validated syntheses → commercial cells.", "usage": ["the-02-percent-synthesis-problem"] },
-    { "id": "lean-theorem-growth", "title": "Lean theorem inventory", "description": "Build-locked theorem count over the climate-series formalization pushes.", "usage": ["why-lupine-science", "investing-in-the-trust-layer"] }
+    { "id": "lean-theorem-growth", "title": "Lean theorem inventory", "description": "Build-locked theorem count over the climate-series formalization pushes.", "usage": ["why-lupine-science", "investing-in-the-trust-layer"] },
+    { "id": "participation-ratio", "title": "Participation ratio", "description": "Error concentration range on the joint error manifold for classical potentials and foundation MLIPs.", "usage": ["a-field-not-a-neural-net", "investing-in-the-trust-layer"] },
+    { "id": "cross-mlip-cosine", "title": "Cross-MLIP cosine", "description": "Cosine similarity of dominant error vectors across elements.", "usage": ["a-field-not-a-neural-net", "beyond-carbon"] },
+    { "id": "elements-transfer-geometry", "title": "Elements transfer geometry", "description": "Classical → MLIP preservation of manifold shape across 15 elements.", "usage": ["a-field-not-a-neural-net", "five-materials-for-5-to-12-gtco2-year"] }
   ]
 }

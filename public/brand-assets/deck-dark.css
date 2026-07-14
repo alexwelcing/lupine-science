@@ -1,0 +1,219 @@
+/* Lupine Science — Dark deck design tokens
+ * For pitch decks, presentation slides, and dark-mode brand surfaces.
+ * Inherits the same type scale and spacing as the light system,
+ * inverted to a deep ink background with paper text and indigo accent.
+ */
+
+:root {
+  /* Surface */
+  --deck-paper: #0b0c10;
+  --deck-paper-raised: #14161d;
+  --deck-paper-deep: #1a1c24;
+
+  /* Typography */
+  --deck-ink: #f7f6f2;
+  --deck-ink-soft: #b8b5ab;
+  --deck-ink-faint: #7e7b72;
+
+  /* Accent: the only light source is indigo */
+  --deck-indigo: #6b7ff7;
+  --deck-indigo-deep: #4e62d6;
+  --deck-indigo-wash: rgba(107, 127, 247, 0.12);
+  --deck-indigo-line: rgba(107, 127, 247, 0.35);
+
+  /* Utility accents */
+  --deck-ochre: #c9944d;
+  --deck-verified: #5ec286;
+
+  /* Rules */
+  --deck-rule: rgba(247, 246, 242, 0.12);
+  --deck-rule-soft: rgba(247, 246, 242, 0.06);
+
+  /* Type */
+  --deck-serif: "Newsreader", Georgia, serif;
+  --deck-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Slide scale */
+  --slide-width: 1280px;
+  --slide-height: 720px;
+  --slide-margin: 64px;
+}
+
+.lupine-deck {
+  background: var(--deck-paper);
+  color: var(--deck-ink);
+  font-family: var(--deck-serif);
+  line-height: 1.35;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.lupine-deck .slide {
+  width: var(--slide-width);
+  height: var(--slide-height);
+  padding: var(--slide-margin);
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  background: var(--deck-paper);
+}
+
+.lupine-deck .slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 78% 22%, var(--deck-indigo-wash) 0%, transparent 45%),
+    radial-gradient(circle at 12% 88%, var(--deck-indigo-wash) 0%, transparent 35%);
+  opacity: 0.6;
+}
+
+.lupine-deck .slide-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.lupine-deck .kicker {
+  font-family: var(--deck-mono);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--deck-indigo);
+  margin-bottom: 18px;
+}
+
+.lupine-deck h1 {
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 24px;
+}
+
+.lupine-deck h1 em {
+  font-style: italic;
+  color: var(--deck-indigo);
+}
+
+.lupine-deck h2 {
+  font-size: 42px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0 0 18px;
+}
+
+.lupine-deck h3 {
+  font-family: var(--deck-mono);
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--deck-ink-soft);
+  margin: 0 0 12px;
+}
+
+.lupine-deck p {
+  font-size: 24px;
+  color: var(--deck-ink-soft);
+  max-width: 34ch;
+  margin: 0 0 18px;
+}
+
+.lupine-deck .lead {
+  font-size: 28px;
+  color: var(--deck-ink);
+  max-width: 32ch;
+}
+
+.lupine-deck .mono-stat {
+  font-family: var(--deck-mono);
+  font-size: 14px;
+  color: var(--deck-ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.lupine-deck .mono-stat strong {
+  display: block;
+  font-family: var(--deck-serif);
+  font-size: 48px;
+  font-weight: 400;
+  color: var(--deck-ink);
+  text-transform: none;
+  letter-spacing: -0.02em;
+  margin-top: 6px;
+}
+
+.lupine-deck .stat-row {
+  display: flex;
+  gap: 48px;
+  margin-top: auto;
+}
+
+.lupine-deck .rule {
+  height: 1px;
+  background: var(--deck-rule);
+  margin: 24px 0;
+}
+
+.lupine-deck .callout {
+  border-left: 3px solid var(--deck-indigo);
+  padding: 18px 24px;
+  background: var(--deck-paper-raised);
+  border-radius: 0 8px 8px 0;
+}
+
+.lupine-deck .callout strong {
+  color: var(--deck-indigo);
+  font-family: var(--deck-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.lupine-deck .mark-corner {
+  position: absolute;
+  top: 40px;
+  right: 48px;
+  width: 44px;
+  height: 44px;
+  color: var(--deck-indigo);
+  opacity: 0.7;
+  z-index: 2;
+}
+
+.lupine-deck .slide-number {
+  position: absolute;
+  bottom: 36px;
+  left: 64px;
+  font-family: var(--deck-mono);
+  font-size: 11px;
+  color: var(--deck-ink-faint);
+  letter-spacing: 0.06em;
+  z-index: 2;
+}
+
+.lupine-deck .tagline {
+  position: absolute;
+  bottom: 36px;
+  right: 64px;
+  font-family: var(--deck-mono);
+  font-size: 11px;
+  color: var(--deck-ink-faint);
+  letter-spacing: 0.04em;
+  z-index: 2;
+}
+
+/* Print / PDF export helpers */
+@media print {
+  .lupine-deck .slide {
+    page-break-after: always;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

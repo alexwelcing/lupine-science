@@ -72,6 +72,12 @@
       margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--rule);
       font-family: var(--mono); font-size: 12px; color: var(--ink-soft);
     }
+    .design-system { margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--rule); }
+    .design-system h2 { font-size: 28px; font-weight: 400; margin-bottom: 8px; }
+    .design-system > p { color: var(--ink-soft); font-size: 16px; max-width: 70ch; margin-bottom: 28px; }
+    .design-system .card figcaption { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .design-system .card figcaption strong { margin-bottom: 2px; }
+    .design-system .card figcaption span { font-size: 10px; }
   </style>
 </head>
 <body>
@@ -1491,7 +1497,57 @@
   </figcaption>
 </figure>
     </div>
-    <p class="stats">200 assets · 10 versions · 45 motifs</p>
+
+    <section class="design-system">
+      <h2>Design system <em>assets.</em></h2>
+      <p>Vector patterns, data graphics, and deck tokens that are generated from source and locked to the brand palette.</p>
+      <div class="grid">
+        <figure class="card" data-aspect="16:9">
+          <img src="/brand-assets/patterns/hyper-ribbon.svg" alt="Hyper-ribbon manifold pattern" loading="lazy">
+          <figcaption>
+            <strong>Hyper-ribbon pattern</strong>
+            <span>Procedural · light · 16:9 background</span>
+          </figcaption>
+        </figure>
+        <figure class="card" data-aspect="16:9">
+          <img src="/brand-assets/patterns/error-vectors.svg" alt="Error vectors aligning pattern" loading="lazy">
+          <figcaption>
+            <strong>Error vectors pattern</strong>
+            <span>Procedural · light · 16:9 background</span>
+          </figcaption>
+        </figure>
+        <figure class="card" data-aspect="1:1">
+          <img src="/brand-assets/patterns/lattice-dots.svg" alt="Lattice dot texture" loading="lazy">
+          <figcaption>
+            <strong>Lattice dots</strong>
+            <span>Procedural · texture · 1:1 tile</span>
+          </figcaption>
+        </figure>
+        <figure class="card" data-aspect="16:9">
+          <img src="/brand-assets/patterns/dark-ribbon.svg" alt="Dark hyper-ribbon pattern" loading="lazy">
+          <figcaption>
+            <strong>Dark ribbon pattern</strong>
+            <span>Procedural · dark · 16:9 deck background</span>
+          </figcaption>
+        </figure>
+        <figure class="card" data-aspect="16:9">
+          <img src="/result-graphics/cross-mlip-cosine.svg" alt="Cross-MLIP cosine chart" loading="lazy">
+          <figcaption>
+            <strong>Cross-MLIP cosine</strong>
+            <span>Result graphic · bar chart</span>
+          </figcaption>
+        </figure>
+        <figure class="card" data-aspect="16:9">
+          <a href="/brand-assets/deck-dark-sample.html"><img src="/brand-assets/deck-dark-thumb.svg" alt="Dark deck system thumbnail" loading="lazy"></a>
+          <figcaption>
+            <strong><a href="/brand-assets/deck-dark-sample.html">Dark deck system</a></strong>
+            <span>CSS tokens · sample slides · 1280×720</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <p class="stats">200 image assets · 10 versions · 45 motifs · 4 procedural patterns · 7 result graphics · 1 deck token system</p>
   </main>
 </body>
 </html>

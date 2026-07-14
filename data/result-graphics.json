@@ -72,6 +72,61 @@
       "yAxis": { "label": "Theorems" },
       "source": "Lupine Rhizo Lean 4 build locks",
       "note": "Each jump corresponds to a merged formalization module: climate physics, measured fields, anchor laws."
+    },
+    {
+      "id": "participation-ratio",
+      "title": "Participation ratio on the joint error manifold",
+      "subtitle": "Classical potentials vs. foundation MLIPs · 15 elements",
+      "width": 800,
+      "height": 450,
+      "type": "range",
+      "data": [
+        { "label": "Classical (MEAM)", "min": 1.05, "max": 1.45, "category": "current" },
+        { "label": "Classical (EAM)", "min": 1.08, "max": 1.52, "category": "current" },
+        { "label": "Classical (ReaxFF)", "min": 1.15, "max": 1.78, "category": "current" },
+        { "label": "M3GNet", "min": 1.25, "max": 1.95, "category": "current" },
+        { "label": "CHGNet", "min": 1.22, "max": 1.88, "category": "current" },
+        { "label": "EquiMP", "min": 1.30, "max": 2.05, "category": "current" }
+      ],
+      "xAxis": { "label": "Participation ratio" },
+      "source": "Lupine Science MLIP Failure Geometry Audit",
+      "note": "A ratio near 1 means errors concentrate on a single low-dimensional direction; higher values mean the error is more distributed."
+    },
+    {
+      "id": "cross-mlip-cosine",
+      "title": "Cross-MLIP error direction alignment",
+      "subtitle": "Cosine similarity of dominant error vectors · 15 elements",
+      "width": 800,
+      "height": 450,
+      "type": "bar",
+      "data": [
+        { "label": "Li", "value": 0.91, "category": "verified" },
+        { "label": "Mg", "value": 0.89, "category": "verified" },
+        { "label": "Al", "value": 0.87, "category": "verified" },
+        { "label": "Si", "value": 0.86, "category": "verified" },
+        { "label": "Cu", "value": 0.84, "category": "verified" },
+        { "label": "Ni", "value": 0.83, "category": "verified" },
+        { "label": "Ti", "value": 0.82, "category": "verified" },
+        { "label": "Fe", "value": 0.81, "category": "verified" }
+      ],
+      "yAxis": { "label": "Cosine similarity", "max": 1.0 },
+      "source": "Lupine Science MLIP Failure Geometry Audit",
+      "note": "Values above 0.8 mean different potentials err in the same direction, so a single correction layer can transfer across models."
+    },
+    {
+      "id": "elements-transfer-geometry",
+      "title": "Error geometry transfers across elements",
+      "subtitle": "Classical → MLIP preservation of manifold shape",
+      "width": 800,
+      "height": 450,
+      "type": "stacked-bar",
+      "unit": "elements",
+      "data": [
+        { "label": "Geometry preserved", "value": 14, "category": "verified" },
+        { "label": "Geometry changed", "value": 1, "category": "ochre" }
+      ],
+      "source": "Lupine Science MLIP Failure Geometry Audit",
+      "note": "14 of 15 elements keep the same low-dimensional error geometry when moving from classical potentials to foundation MLIPs."
     }
   ]
 }

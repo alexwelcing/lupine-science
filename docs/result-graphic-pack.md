@@ -75,9 +75,25 @@ Inherited from `docs/content-design-system.md`:
 | `--serif` | `Newsreader, Georgia, serif` | Titles |
 | `--mono` | `IBM Plex Mono, monospace` | Labels, numbers |
 
+## Graphic types
+
+- `bar` — vertical bars with optional `yAxis.max`.
+- `range` — horizontal min/max ranges; useful for participation-ratio-style intervals.
+- `stacked-bar` — single horizontal stacked bar for proportions.
+- `funnel` — descending horizontal bars with share labels.
+- `line` — simple time-series or progression line.
+
+## MLIP Failure Geometry series
+
+Three charts derived from the brand fact lock:
+
+- `participation-ratio.svg` — participation-ratio ranges for classical potentials and foundation MLIPs.
+- `cross-mlip-cosine.svg` — cross-MLIP cosine similarity by element.
+- `elements-transfer-geometry.svg` — proportion of elements that preserve error-geometry shape from classical to MLIP.
+
 ## Roadmap
 
-- Add MLIP error-geometry benchmark charts (participation ratio, cross-MLIP cosine).
+- ~~Add MLIP error-geometry benchmark charts (participation ratio, cross-MLIP cosine, elements-transfer geometry).~~
 - Add proof-pack figure variants (smaller aspect ratios, print-optimized).
-- Add a dark variant for deck slides.
+- ~~Add a dark variant for deck slides.~~
 - Add responsive `srcset` generation for PNG fallbacks.
