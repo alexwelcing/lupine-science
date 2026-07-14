@@ -1,2 +1,0 @@
-2ad3031e29d119670f2345b38871b251bf3ac7bec99d0511560bbc50672549eb  renders/a-field-not-a-neural-net-review-v2.mp4
-016c28be8fba70420724612e705e5e00975ffbca07d3179b31b96d6784fe140b  renders/a-field-not-a-neural-net-web-v2-720p.mp4

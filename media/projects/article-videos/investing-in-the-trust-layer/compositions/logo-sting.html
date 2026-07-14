@@ -1,0 +1,420 @@
+<!doctype html>
+<html
+  lang="en"
+  data-composition-variables='[
+    {"id":"seriesLabel","type":"string","label":"Series label","default":"LUPINE SCIENCE · ARTICLE VIDEO","maxLength":38},
+    {"id":"issue","type":"string","label":"Issue identifier","default":"FIELD NOTE / 01","maxLength":22},
+    {"id":"proofStatus","type":"string","label":"Proof status","default":"EVIDENCE TRACE · OPEN","maxLength":28}
+  ]'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Lupine Science logo sting</title>
+  </head>
+  <body>
+    <!--
+      Reusable 4-second opening identity sting. Mount with
+      data-composition-id="logo-sting" and
+      data-composition-src="compositions/logo-sting.html".
+    -->
+    <template>
+      <style>
+        @font-face {
+          font-family: "Newsreader";
+          src: url("/assets/brand/newsreader-var.woff2") format("woff2");
+          font-style: normal;
+          font-weight: 300 700;
+          font-display: block;
+        }
+
+        @font-face {
+          font-family: "IBM Plex Mono";
+          src: url("/assets/brand/plex-mono-400.woff2") format("woff2");
+          font-style: normal;
+          font-weight: 400;
+          font-display: block;
+        }
+
+        @font-face {
+          font-family: "IBM Plex Mono";
+          src: url("/assets/brand/plex-mono-600.woff2") format("woff2");
+          font-style: normal;
+          font-weight: 600;
+          font-display: block;
+        }
+
+        * {
+          box-sizing: border-box;
+        }
+
+        #logo-sting-root {
+          position: absolute;
+          inset: 0;
+          width: 1920px;
+          height: 1080px;
+          overflow: hidden;
+          color: #1a1a1a;
+          font-family: "Newsreader", serif;
+        }
+
+        .logo-sting-clip {
+          position: absolute;
+          inset: 0;
+          width: 1920px;
+          height: 1080px;
+          overflow: hidden;
+        }
+
+        .logo-sting-ground {
+          position: absolute;
+          inset: 0;
+          background-color: #faf9f6;
+        }
+
+        .logo-sting-wash {
+          position: absolute;
+          left: 510px;
+          top: 70px;
+          width: 900px;
+          height: 900px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(61, 77, 179, 0.2) 0%, rgba(61, 77, 179, 0) 68%);
+          transform-origin: center;
+        }
+
+        .logo-sting-grain {
+          position: absolute;
+          inset: 0;
+          opacity: 0.26;
+          background-image: radial-gradient(rgba(61, 77, 179, 0.18) 1px, rgba(61, 77, 179, 0) 1px);
+          background-size: 31px 31px;
+          mask-image: radial-gradient(circle at 50% 48%, #1a1a1a 0%, transparent 72%);
+        }
+
+        .logo-sting-meta {
+          position: absolute;
+          top: 84px;
+          margin: 0;
+          color: #3d4db3;
+          font-family: "IBM Plex Mono", monospace;
+          font-size: 36px;
+          font-weight: 600;
+          line-height: 1.2;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+
+        #logo-sting-series-label {
+          left: 120px;
+        }
+
+        #logo-sting-issue {
+          right: 120px;
+          font-weight: 400;
+          letter-spacing: 0.04em;
+        }
+
+        .logo-sting-trace {
+          position: absolute;
+          inset: 0;
+          width: 1920px;
+          height: 1080px;
+          pointer-events: none;
+        }
+
+        .logo-sting-trace path,
+        .logo-sting-trace line {
+          fill: none;
+          stroke: #3d4db3;
+          stroke-width: 2;
+          vector-effect: non-scaling-stroke;
+        }
+
+        .logo-sting-trace .logo-sting-emphasis {
+          stroke-width: 4;
+        }
+
+        .logo-sting-lockup {
+          position: absolute;
+          left: 600px;
+          top: 206px;
+          width: 720px;
+          height: 552px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .logo-sting-mark-field {
+          position: relative;
+          width: 360px;
+          height: 360px;
+          display: grid;
+          place-items: center;
+        }
+
+        .logo-sting-mark {
+          display: block;
+          width: 180px;
+          height: 180px;
+          object-fit: contain;
+        }
+
+        .logo-sting-corner {
+          position: absolute;
+          width: 42px;
+          height: 42px;
+        }
+
+        .logo-sting-corner::before,
+        .logo-sting-corner::after {
+          content: "";
+          position: absolute;
+          background-color: #3d4db3;
+        }
+
+        .logo-sting-corner::before {
+          width: 42px;
+          height: 2px;
+        }
+
+        .logo-sting-corner::after {
+          width: 2px;
+          height: 42px;
+        }
+
+        .logo-sting-corner-a {
+          left: 0;
+          top: 0;
+        }
+
+        .logo-sting-corner-b {
+          right: 0;
+          top: 0;
+          transform: rotate(90deg);
+        }
+
+        .logo-sting-corner-c {
+          right: 0;
+          bottom: 0;
+          transform: rotate(180deg);
+        }
+
+        .logo-sting-corner-d {
+          left: 0;
+          bottom: 0;
+          transform: rotate(270deg);
+        }
+
+        .logo-sting-wordmark {
+          margin: 18px 0 0;
+          font-size: 88px;
+          font-weight: 400;
+          line-height: 0.98;
+          letter-spacing: -0.025em;
+        }
+
+        .logo-sting-status {
+          margin: 28px 0 0;
+          color: #3d4db3;
+          font-family: "IBM Plex Mono", monospace;
+          font-size: 36px;
+          font-weight: 400;
+          line-height: 1.2;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+
+        .logo-sting-lower-rule {
+          position: absolute;
+          left: 96px;
+          top: 738px;
+          width: 1728px;
+          height: 4px;
+          background-color: #3d4db3;
+          transform-origin: left center;
+        }
+
+        .logo-sting-readout {
+          position: absolute;
+          left: 120px;
+          top: 782px;
+          margin: 0;
+          color: #6b7c8e;
+          font-family: "IBM Plex Mono", monospace;
+          font-size: 36px;
+          font-weight: 400;
+          line-height: 1.2;
+          letter-spacing: 0.02em;
+          white-space: nowrap;
+        }
+
+        .logo-sting-frame-index {
+          position: absolute;
+          right: 120px;
+          top: 782px;
+          margin: 0;
+          color: #3d4db3;
+          font-family: "IBM Plex Mono", monospace;
+          font-size: 36px;
+          line-height: 1.2;
+          font-variant-numeric: tabular-nums;
+        }
+      </style>
+
+      <div
+        id="logo-sting-root"
+        data-composition-id="logo-sting"
+        data-width="1920"
+        data-height="1080"
+        data-duration="4"
+        data-fps="30"
+      >
+        <section id="logo-sting-scene" class="clip logo-sting-clip" data-start="0" data-duration="4" data-track-index="0">
+          <div class="logo-sting-ground"></div>
+          <div class="logo-sting-wash" data-layout-ignore></div>
+          <div class="logo-sting-grain" data-layout-ignore></div>
+
+          <p id="logo-sting-series-label" class="logo-sting-meta" data-var-text="seriesLabel">LUPINE SCIENCE · ARTICLE VIDEO</p>
+          <p id="logo-sting-issue" class="logo-sting-meta" data-var-text="issue">FIELD NOTE / 01</p>
+
+          <svg class="logo-sting-trace" viewBox="0 0 1920 1080" aria-hidden="true" data-layout-ignore>
+            <path id="logo-sting-trace-left" class="logo-sting-emphasis" d="M96 738 H560 V386 H780" />
+            <path id="logo-sting-trace-right" d="M1140 386 H1360 V738 H1824" />
+            <line id="logo-sting-tick-left" x1="760" y1="366" x2="760" y2="406" />
+            <line id="logo-sting-tick-right" x1="1160" y1="366" x2="1160" y2="406" />
+          </svg>
+
+          <div class="logo-sting-lockup">
+            <div class="logo-sting-mark-field">
+              <span class="logo-sting-corner logo-sting-corner-a" data-layout-ignore></span>
+              <span class="logo-sting-corner logo-sting-corner-b" data-layout-ignore></span>
+              <span class="logo-sting-corner logo-sting-corner-c" data-layout-ignore></span>
+              <span class="logo-sting-corner logo-sting-corner-d" data-layout-ignore></span>
+              <img id="logo-sting-mark" class="logo-sting-mark" src="assets/brand/lupine-science-mark.svg" alt="Lupine Science" />
+            </div>
+            <p id="logo-sting-wordmark" class="logo-sting-wordmark">Lupine Science</p>
+            <p id="logo-sting-status" class="logo-sting-status" data-var-text="proofStatus">EVIDENCE TRACE · OPEN</p>
+          </div>
+
+          <span class="logo-sting-lower-rule" data-layout-ignore></span>
+          <p class="logo-sting-readout">PROOF FIRST · ONE CLAIM PER BEAT</p>
+          <p class="logo-sting-frame-index">1920 × 1080 / 30 FPS</p>
+        </section>
+      </div>
+
+      <script>
+        window.__timelines = window.__timelines || {};
+
+        const logoStingRoot = document.querySelector("#logo-sting-root");
+        const logoStingHost = logoStingRoot.closest("[data-variable-values]");
+        if (logoStingHost) {
+          const values = JSON.parse(logoStingHost.getAttribute("data-variable-values") || "{}");
+          Object.entries(values).forEach(([id, value]) => {
+            const target = logoStingRoot.querySelector('[data-var-text="' + id + '"]');
+            if (target && typeof value === "string") target.textContent = value;
+          });
+        }
+
+        const logoStingLimits = { seriesLabel: 38, issue: 22, proofStatus: 28 };
+        Object.entries(logoStingLimits).forEach(([field, limit]) => {
+          const target = logoStingRoot.querySelector('[data-var-text="' + field + '"]');
+          const length = Array.from(target.textContent.trim()).length;
+          if (!length || length > limit) {
+            throw new Error(`[logo-sting] ${field} must contain 1–${limit} characters; received ${length}.`);
+          }
+        });
+
+        const logoStingPaths = logoStingRoot.querySelectorAll(".logo-sting-trace path, .logo-sting-trace line");
+        logoStingPaths.forEach((path) => {
+          const length = path.getTotalLength();
+          path.style.strokeDasharray = `${length}`;
+          path.style.strokeDashoffset = `${length}`;
+        });
+
+        const logoStingTimeline = gsap.timeline({ paused: true });
+        logoStingTimeline.fromTo(
+          ".logo-sting-wash",
+          { opacity: 0, scale: 0.86 },
+          { opacity: 1, scale: 1, duration: 1.15, ease: "sine.out" },
+          0.12,
+        );
+        logoStingTimeline.fromTo(
+          ".logo-sting-grain",
+          { opacity: 0 },
+          { opacity: 0.26, duration: 0.7, ease: "power1.out" },
+          0.16,
+        );
+        logoStingTimeline.to(
+          "#logo-sting-trace-left",
+          { strokeDashoffset: 0, duration: 0.68, ease: "power2.inOut" },
+          0.18,
+        );
+        logoStingTimeline.to(
+          "#logo-sting-trace-right",
+          { strokeDashoffset: 0, duration: 0.58, ease: "power2.out" },
+          0.5,
+        );
+        logoStingTimeline.to(
+          ["#logo-sting-tick-left", "#logo-sting-tick-right"],
+          { strokeDashoffset: 0, duration: 0.24, stagger: 0.08, ease: "none" },
+          0.74,
+        );
+        logoStingTimeline.fromTo(
+          ".logo-sting-corner",
+          { opacity: 0, scale: 0.62 },
+          { opacity: 1, scale: 1, duration: 0.36, stagger: 0.06, ease: "power3.out" },
+          0.68,
+        );
+        logoStingTimeline.fromTo(
+          "#logo-sting-mark",
+          { opacity: 1, scale: 0.92 },
+          { opacity: 1, scale: 1, duration: 0.64, ease: "expo.out" },
+          0.82,
+        );
+        logoStingTimeline.fromTo(
+          "#logo-sting-wordmark",
+          { opacity: 1, y: 28 },
+          { opacity: 1, y: 0, duration: 0.56, ease: "power3.out" },
+          1.04,
+        );
+        logoStingTimeline.fromTo(
+          "#logo-sting-status",
+          { opacity: 1, x: 34 },
+          { opacity: 1, x: 0, duration: 0.42, ease: "power2.out" },
+          1.28,
+        );
+        logoStingTimeline.fromTo(
+          ["#logo-sting-series-label", "#logo-sting-issue"],
+          { opacity: 1, y: -18 },
+          { opacity: 1, y: 0, duration: 0.4, stagger: 0.1, ease: "power3.out" },
+          0.42,
+        );
+        logoStingTimeline.fromTo(
+          ".logo-sting-lower-rule",
+          { scaleX: 0 },
+          { scaleX: 1, duration: 0.48, ease: "power2.inOut" },
+          1.18,
+        );
+        logoStingTimeline.fromTo(
+          [".logo-sting-readout", ".logo-sting-frame-index"],
+          { opacity: 1, y: 16 },
+          { opacity: 1, y: 0, duration: 0.38, stagger: 0.09, ease: "power1.out" },
+          1.46,
+        );
+        logoStingTimeline.fromTo(
+          ".logo-sting-wash",
+          { x: 0, y: 0, scale: 1 },
+          { x: 34, y: 12, scale: 1.025, duration: 2.73, ease: "sine.inOut" },
+          1.27,
+        );
+
+        window.__timelines["logo-sting"] = logoStingTimeline;
+      </script>
+    </template>
+  </body>
+</html>

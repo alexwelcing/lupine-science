@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Three jobs of LUPI</title><desc id="desc">A molecule flows through faithful viewing, measurement, and sharing.</desc>
+  <rect width="960" height="420" rx="36" fill="#f1efe9"/>
+  <path d="M150 210H810" stroke="#3d4db3" stroke-width="10" stroke-linecap="round"/>
+  <g fill="#faf9f6" stroke="#3d4db3" stroke-width="7">
+    <circle cx="170" cy="210" r="84"/><circle cx="480" cy="210" r="84"/><circle cx="790" cy="210" r="84"/>
+  </g>
+  <g fill="none" stroke="#18203e" stroke-width="8" stroke-linecap="round">
+    <path d="M128 226l42-52 48 58M170 174l-20-35M170 174l31-28"/>
+    <path d="M438 242l84-84M452 158l70 84"/>
+    <path d="M755 190h70v52h-70zM743 180l47-32 47 32"/>
+  </g>
+  <g fill="#e67952"><circle cx="128" cy="226" r="14"/><circle cx="170" cy="174" r="14"/><circle cx="218" cy="232" r="14"/><circle cx="438" cy="242" r="14"/><circle cx="522" cy="158" r="14"/></g>
+</svg>

@@ -1,0 +1,12 @@
+{
+  "name": "lupine-investing-in-the-trust-layer",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "npm run lint && npm run validate && npm run inspect",
+    "lint": "npx --yes hyperframes@0.7.48 lint . --json",
+    "validate": "npx --yes hyperframes@0.7.48 validate . --json",
+    "inspect": "npx --yes hyperframes@0.7.48 inspect . --at 2,7.5,12,15,20,25,29,34,40,45,50,56,62,68,72,76,81,86,91,96,101,106,111,115.8 --strict --json",
+    "render": "npx --yes hyperframes@0.7.48 render . --resolution 1080p --fps 30 --quality high --strict --output renders/investing-in-the-trust-layer-final-1080p.mp4"
+  }
+}

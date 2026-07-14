@@ -1,0 +1,16 @@
+{
+  "slug": "lupi-hfc-refrigerant-research-payloads",
+  "generated_at": "2026-07-13T23:47:16.881Z",
+  "voice": {
+    "endpoint": "fal-ai/elevenlabs/tts/turbo-v2.5",
+    "voice": "Adam",
+    "speed": 1,
+    "seed": 42
+  },
+  "tts": {
+    "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/lupi-hfc-refrigerant-research-payloads/assets/audio/lupi-hfc-refrigerant-research-payloads-narration.mp3",
+    "url": "https://v3b.fal.media/files/b/0aa225b3/C-VhCCecZH9qU83ZYFSI5_output.mp3",
+    "sha256": "17ab1f2850449c4d81f08b31f20616ed17015930d6d76e7c4ed6d580b44a480f"
+  },
+  "images": []
+}

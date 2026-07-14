@@ -1,0 +1,16 @@
+{
+  "slug": "rhizo-non-co2-climate-forcers-lean",
+  "generated_at": "2026-07-13T23:48:33.573Z",
+  "voice": {
+    "endpoint": "fal-ai/elevenlabs/tts/turbo-v2.5",
+    "voice": "Adam",
+    "speed": 1,
+    "seed": 42
+  },
+  "tts": {
+    "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/rhizo-non-co2-climate-forcers-lean/assets/audio/rhizo-non-co2-climate-forcers-lean-narration.mp3",
+    "url": "https://v3b.fal.media/files/b/0aa225bb/RPXQUi5-qVknWhLBiRbI__output.mp3",
+    "sha256": "f06d4d12b6151d4075e386c7e2917fcfe9090caaf8df08bddc099772ec31b485"
+  },
+  "images": []
+}

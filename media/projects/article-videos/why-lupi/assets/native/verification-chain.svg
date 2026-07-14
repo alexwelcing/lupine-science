@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="420" viewBox="0 0 960 420" role="img" aria-labelledby="title desc">
+  <title id="title">Makeability verification chain</title><desc id="desc">Commitments lead to simulations, certificates, and a makeable structure.</desc>
+  <rect width="960" height="420" rx="36" fill="#f1efe9"/>
+  <path d="M140 210H820" stroke="#c6cbe9" stroke-width="20" stroke-linecap="round"/>
+  <path d="M140 210H820" stroke="#3d4db3" stroke-width="7" stroke-dasharray="18 18" stroke-linecap="round"/>
+  <g fill="#faf9f6" stroke="#3d4db3" stroke-width="7">
+    <rect x="80" y="120" width="180" height="180" rx="26"/><rect x="300" y="120" width="180" height="180" rx="26"/><rect x="520" y="120" width="180" height="180" rx="26"/><circle cx="820" cy="210" r="92"/>
+  </g>
+  <g fill="none" stroke="#18203e" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M130 168h80M130 208h80M130 248h52"/><path d="M350 247l42-78 42 78zM370 218h44"/><path d="M570 170h80v80h-80zM590 270h40"/><path d="M780 230l40-58 48 60M820 172l-18-32M820 172l29-26"/>
+  </g>
+  <g fill="#e67952"><circle cx="780" cy="230" r="13"/><circle cx="820" cy="172" r="13"/><circle cx="868" cy="232" r="13"/></g>
+</svg>

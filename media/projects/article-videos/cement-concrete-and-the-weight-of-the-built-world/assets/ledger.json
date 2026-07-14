@@ -1,0 +1,16 @@
+{
+  "slug": "cement-concrete-and-the-weight-of-the-built-world",
+  "generated_at": "2026-07-13T23:43:37.728Z",
+  "voice": {
+    "endpoint": "fal-ai/elevenlabs/tts/turbo-v2.5",
+    "voice": "Adam",
+    "speed": 1,
+    "seed": 42
+  },
+  "tts": {
+    "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/cement-concrete-and-the-weight-of-the-built-world/assets/audio/cement-concrete-and-the-weight-of-the-built-world-narration.mp3",
+    "url": "https://v3b.fal.media/files/b/0aa2259d/KJbcMT2kgMgGxIFo0VnzS_output.mp3",
+    "sha256": "2aa7698cc32b92d0c6c11e556a34f9c157696a99b9b27940ca14c2bd6bea83d5"
+  },
+  "images": []
+}

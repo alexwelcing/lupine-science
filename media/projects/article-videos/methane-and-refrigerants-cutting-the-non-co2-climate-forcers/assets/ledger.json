@@ -1,0 +1,16 @@
+{
+  "slug": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers",
+  "generated_at": "2026-07-13T23:47:59.892Z",
+  "voice": {
+    "endpoint": "fal-ai/elevenlabs/tts/turbo-v2.5",
+    "voice": "Adam",
+    "speed": 1,
+    "seed": 42
+  },
+  "tts": {
+    "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/assets/audio/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-narration.mp3",
+    "url": "https://v3b.fal.media/files/b/0aa225b7/l4mhilkvcuEVRP5PIARRB_output.mp3",
+    "sha256": "aa311b5810ef4841d8cd2206dbbae69ffcd6eabf9973ed30529a6f21fd56ff39"
+  },
+  "images": []
+}

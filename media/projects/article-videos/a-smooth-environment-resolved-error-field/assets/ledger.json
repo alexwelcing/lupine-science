@@ -1,0 +1,16 @@
+{
+  "slug": "a-smooth-environment-resolved-error-field",
+  "generated_at": "2026-07-13T23:43:04.400Z",
+  "voice": {
+    "endpoint": "fal-ai/elevenlabs/tts/turbo-v2.5",
+    "voice": "Adam",
+    "speed": 1,
+    "seed": 42
+  },
+  "tts": {
+    "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/a-smooth-environment-resolved-error-field/assets/audio/a-smooth-environment-resolved-error-field-narration.mp3",
+    "url": "https://v3b.fal.media/files/b/0aa225a6/UJxGZ5QGIlxh5EYwZw-7z_output.mp3",
+    "sha256": "51a5ef570923c776cf6f96568374336df7709bd7a1560411242736f07fcee854"
+  },
+  "images": []
+}

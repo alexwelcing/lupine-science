@@ -1,0 +1,16 @@
+{
+  "slug": "why-lupine-science",
+  "generated_at": "2026-07-13T23:51:47.488Z",
+  "voice": {
+    "endpoint": "fal-ai/elevenlabs/tts/turbo-v2.5",
+    "voice": "Adam",
+    "speed": 1,
+    "seed": 42
+  },
+  "tts": {
+    "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/why-lupine-science/assets/audio/why-lupine-science-narration.mp3",
+    "url": "https://v3b.fal.media/files/b/0aa225ce/jBrab5A0m2XFw8HXsNZHz_output.mp3",
+    "sha256": "450883dc54027635afc820bb85655a41cae4651cab69699911ee9af48f6045b8"
+  },
+  "images": []
+}

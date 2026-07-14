@@ -1,5 +1,23 @@
-# Generated video assets are reproducible from manifest.yaml + FAL_KEY
-*/assets/
-*/renders/
+# Generated dependencies and environments
 node_modules/
+.venv-tts/
+.venv-*/
+
+# Nested repositories
+hyperframes-ref/
+
+# Generated QA artifacts (kept only on active working copies, not in archive)
+reviews/
+snapshots*/
+review-frames*/
+contact-sheets*/
+evidence/
+hold-qa/
+typography-evidence/
+transcript/
+transition-final/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
 *.log

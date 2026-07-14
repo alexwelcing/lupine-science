@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><title>Investing in the Trust Layer — kinetic titles</title></head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Newsreader"; src: url("/assets/brand/newsreader-var.woff2") format("woff2"); font-style: normal; font-weight: 300 700; font-display: block; }
+        @font-face { font-family: "Newsreader"; src: url("/assets/brand/newsreader-italic-var.woff2") format("woff2"); font-style: italic; font-weight: 300 700; font-display: block; }
+        @font-face { font-family: "IBM Plex Mono"; src: url("/assets/brand/plex-mono-400.woff2") format("woff2"); font-style: normal; font-weight: 400; font-display: block; }
+        @font-face { font-family: "IBM Plex Mono"; src: url("/assets/brand/plex-mono-600.woff2") format("woff2"); font-style: normal; font-weight: 600; font-display: block; }
+        * { box-sizing: border-box; }
+        #trust-titles-root { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; color: #1a1a1a; pointer-events: none; }
+        .trust-title-clip { position: absolute; inset: 0; width: 100%; height: 100%; overflow: hidden; }
+        .trust-title-card { position: absolute; inset: 0; background: #faf9f6; overflow: hidden; }
+        .trust-title-card::before { content: ""; position: absolute; inset: 0; opacity: .28; background-image: linear-gradient(rgba(61,77,179,.13) 2px, transparent 2px), linear-gradient(90deg, rgba(61,77,179,.13) 2px, transparent 2px); background-size: 120px 120px; }
+        .trust-title-wash { position: absolute; left: -220px; top: -260px; width: 1100px; height: 1100px; border-radius: 50%; background: radial-gradient(circle, rgba(61,77,179,.22), rgba(61,77,179,0) 68%); }
+        .trust-title-rule { position: absolute; left: 120px; top: 230px; width: 1680px; height: 4px; background: #3d4db3; transform-origin: left center; }
+        .trust-title-rule::after { content: ""; position: absolute; right: 0; top: -12px; width: 4px; height: 28px; background: #3d4db3; }
+        .trust-title-brand { position: absolute; left: 120px; top: 84px; height: 72px; display: flex; align-items: center; gap: 28px; }
+        .trust-title-brand img { width: 72px; height: 72px; object-fit: contain; }
+        .trust-title-brand span { font: 500 48px/1 "Newsreader", serif; }
+        .trust-title-kicker { position: absolute; right: 120px; top: 96px; margin: 0; color: #3d4db3; font: 600 48px/1.2 "IBM Plex Mono", monospace; letter-spacing: .1em; }
+        .trust-title-heading { position: absolute; left: 120px; top: 314px; width: 1500px; margin: 0; font: 400 142px/.94 "Newsreader", serif; letter-spacing: -.03em; }
+        .trust-title-heading em { color: #3d4db3; font-style: italic; }
+        .trust-title-deck { position: absolute; left: 122px; top: 690px; width: 1450px; margin: 0; font: 400 58px/1.2 "Newsreader", serif; }
+        .trust-title-meta { position: absolute; left: 122px; top: 862px; display: flex; gap: 54px; color: #3d4db3; font: 400 48px/1.2 "IBM Plex Mono", monospace; letter-spacing: .03em; }
+        .trust-section { position: absolute; left: 96px; top: 78px; width: 1728px; height: 118px; overflow: hidden; }
+        .trust-section-rule { position: absolute; left: 0; top: 0; width: 1728px; height: 4px; background: #3d4db3; transform-origin: left center; }
+        .trust-section-cursor { position: absolute; left: 0; top: 0; width: 8px; height: 20px; background: #3d4db3; }
+        .trust-section-number { position: absolute; left: 0; top: 32px; color: #3d4db3; font: 600 48px/1 "IBM Plex Mono", monospace; letter-spacing: .08em; }
+        .trust-section-label { position: absolute; left: 270px; top: 20px; margin: 0; font: 400 72px/1 "Newsreader", serif; letter-spacing: -.015em; }
+        .trust-lower { position: absolute; left: 96px; top: 738px; width: 1152px; height: 90px; background: rgba(250,249,246,.98); overflow: hidden; }
+        .trust-lower-rule { position: absolute; left: 0; top: 0; width: 1152px; height: 4px; background: #3d4db3; transform-origin: left center; }
+        .trust-lower-stylus { position: absolute; left: 0; top: 0; width: 8px; height: 20px; background: #3d4db3; }
+        .trust-lower-tag { position: absolute; left: 28px; top: 24px; width: 274px; color: #3d4db3; font: 600 48px/1 "IBM Plex Mono", monospace; letter-spacing: .06em; }
+        .trust-lower-copy { position: absolute; left: 330px; top: 22px; width: 794px; margin: 0; white-space: nowrap; overflow: hidden; font: 500 48px/1.08 "Newsreader", serif; letter-spacing: -.015em; }
+      </style>
+
+      <div id="trust-titles-root" data-composition-id="trust-titles" data-width="1920" data-height="1080" data-duration="117" data-fps="30">
+        <section class="trust-title-clip" data-start="0" data-duration="5.4" data-track-index="0">
+          <div class="trust-title-card">
+            <div class="trust-title-wash" data-layout-ignore></div>
+            <div class="trust-title-rule"></div>
+            <div class="trust-title-brand"><img src="assets/brand/lupine-science-mark.svg" alt="Lupine Science" /><span>Lupine Science</span></div>
+            <p class="trust-title-kicker">INVESTMENT THESIS · 01</p>
+            <h1 class="trust-title-heading">Investing in the <em>Trust Layer</em></h1>
+            <p class="trust-title-deck">Why correction and verification make materials discovery more capital-efficient.</p>
+            <div class="trust-title-meta"><span>7 EVIDENCE BEATS</span><span>PROOF-FIRST INFRASTRUCTURE</span></div>
+          </div>
+        </section>
+
+        <section class="trust-title-clip trust-section-clip" data-start="14.1" data-duration="3.3" data-track-index="1" data-section="01"><div class="trust-section"><div class="trust-section-rule"></div><div class="trust-section-cursor"></div><span class="trust-section-number">01 / 06</span><h2 class="trust-section-label">The trust bottleneck</h2></div></section>
+        <section class="trust-title-clip trust-section-clip" data-start="32.333" data-duration="3.3" data-track-index="1" data-section="02"><div class="trust-section"><div class="trust-section-rule"></div><div class="trust-section-cursor"></div><span class="trust-section-number">02 / 06</span><h2 class="trust-section-label">Where Lupine sits</h2></div></section>
+        <section class="trust-title-clip trust-section-clip" data-start="44.9" data-duration="3.3" data-track-index="1" data-section="03"><div class="trust-section"><div class="trust-section-rule"></div><div class="trust-section-cursor"></div><span class="trust-section-number">03 / 06</span><h2 class="trust-section-label">Three defensible pillars</h2></div></section>
+        <section class="trust-title-clip trust-section-clip" data-start="69.7" data-duration="3.3" data-track-index="1" data-section="04"><div class="trust-section"><div class="trust-section-rule"></div><div class="trust-section-cursor"></div><span class="trust-section-number">04 / 06</span><h2 class="trust-section-label">Proof must say no</h2></div></section>
+        <section class="trust-title-clip trust-section-clip" data-start="85.233" data-duration="3.3" data-track-index="1" data-section="05"><div class="trust-section"><div class="trust-section-rule"></div><div class="trust-section-cursor"></div><span class="trust-section-number">05 / 06</span><h2 class="trust-section-label">Compounding value, honest risk</h2></div></section>
+        <section class="trust-title-clip trust-section-clip" data-start="104.467" data-duration="3.3" data-track-index="1" data-section="06"><div class="trust-section"><div class="trust-section-rule"></div><div class="trust-section-cursor"></div><span class="trust-section-number">06 / 06</span><h2 class="trust-section-label">The investment thesis</h2></div></section>
+
+        <section class="trust-title-clip trust-lower-clip" data-start="18.3" data-duration="4.2" data-track-index="2"><div class="trust-lower"><div class="trust-lower-rule"></div><div class="trust-lower-stylus"></div><span class="trust-lower-tag">SOURCE</span><p class="trust-lower-copy">Google DeepMind · late 2023</p></div></section>
+        <section class="trust-title-clip trust-lower-clip" data-start="52.8" data-duration="4.2" data-track-index="2"><div class="trust-lower"><div class="trust-lower-rule"></div><div class="trust-lower-stylus"></div><span class="trust-lower-tag">PROOF</span><p class="trust-lower-copy">77 Lean 4 theorems · 0 shortcuts</p></div></section>
+        <section class="trust-title-clip trust-lower-clip" data-start="65.0" data-duration="4.2" data-track-index="2"><div class="trust-lower"><div class="trust-lower-rule"></div><div class="trust-lower-stylus"></div><span class="trust-lower-tag">RUNTIME</span><p class="trust-lower-copy">+15.6% current · &lt;1% compiled target</p></div></section>
+        <section class="trust-title-clip trust-lower-clip" data-start="76.1" data-duration="4.2" data-track-index="2"><div class="trust-lower"><div class="trust-lower-rule"></div><div class="trust-lower-stylus"></div><span class="trust-lower-tag">VERIFIED</span><p class="trust-lower-copy">26 / 36 claims survive proof</p></div></section>
+        <section class="trust-title-clip trust-lower-clip" data-start="96.7" data-duration="4.2" data-track-index="2"><div class="trust-lower"><div class="trust-lower-rule"></div><div class="trust-lower-stylus"></div><span class="trust-lower-tag">OPEN</span><p class="trust-lower-copy">Beyond FCC · validation work ahead</p></div></section>
+      </div>
+
+      <script>
+        window.__timelines = window.__timelines || {};
+        const trustRoot = document.querySelector("#trust-titles-root");
+        const trustTl = gsap.timeline({ paused: true });
+        trustTl.fromTo(trustRoot.querySelector(".trust-title-wash"), { opacity: 0, scale: .9 }, { opacity: 1, scale: 1, duration: 1.1, ease: "sine.out" }, .08);
+        trustTl.fromTo(trustRoot.querySelector(".trust-title-rule"), { scaleX: 0 }, { scaleX: 1, duration: .55, ease: "power2.inOut" }, .12);
+        trustTl.fromTo(trustRoot.querySelector(".trust-title-brand"), { opacity: 0, x: -36 }, { opacity: 1, x: 0, duration: .55, ease: "expo.out" }, .28);
+        trustTl.fromTo(trustRoot.querySelector(".trust-title-kicker"), { opacity: 0, x: 44 }, { opacity: 1, x: 0, duration: .48, ease: "power3.out" }, .34);
+        trustTl.fromTo(trustRoot.querySelector(".trust-title-heading"), { opacity: 0, y: 118 }, { opacity: 1, y: 0, duration: .72, ease: "expo.out" }, .54);
+        trustTl.fromTo(trustRoot.querySelector(".trust-title-deck"), { opacity: 0, x: 54 }, { opacity: 1, x: 0, duration: .54, ease: "power3.out" }, .94);
+        trustTl.fromTo(trustRoot.querySelector(".trust-title-meta"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: .42, ease: "power2.out" }, 1.18);
+        trustTl.fromTo(trustRoot.querySelector(".trust-title-wash"), { x: 0, y: 0, scale: 1 }, { x: 48, y: 18, scale: 1.035, duration: 3.7, ease: "sine.inOut" }, 1.2);
+        trustTl.to(trustRoot.querySelector(".trust-title-card"), { opacity: 0, duration: .5, ease: "power2.inOut" }, 4.9);
+
+        trustRoot.querySelectorAll(".trust-section-clip").forEach((clip) => {
+          const at = Number(clip.dataset.start);
+          const rule = clip.querySelector(".trust-section-rule");
+          const cursor = clip.querySelector(".trust-section-cursor");
+          const number = clip.querySelector(".trust-section-number");
+          const label = clip.querySelector(".trust-section-label");
+          trustTl.fromTo(rule, { scaleX: 0 }, { scaleX: 1, duration: .4, ease: "power2.inOut" }, at);
+          trustTl.fromTo(cursor, { x: 0, opacity: 0 }, { x: 1720, opacity: 1, duration: .4, ease: "power2.inOut" }, at);
+          trustTl.fromTo(number, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: .36, ease: "power3.out" }, at + .28);
+          trustTl.fromTo(label, { opacity: 0, y: 54 }, { opacity: 1, y: 0, duration: .5, ease: "expo.out" }, at + .32);
+          trustTl.to(clip.querySelector(".trust-section"), { opacity: 0, duration: .38, ease: "power2.inOut" }, at + 2.92);
+        });
+
+        trustRoot.querySelectorAll(".trust-lower-clip").forEach((clip) => {
+          const at = Number(clip.dataset.start);
+          const lower = clip.querySelector(".trust-lower");
+          const rule = clip.querySelector(".trust-lower-rule");
+          const stylus = clip.querySelector(".trust-lower-stylus");
+          trustTl.fromTo(lower, { opacity: 0 }, { opacity: 1, duration: .18, ease: "power1.out" }, at);
+          trustTl.fromTo(rule, { scaleX: 0 }, { scaleX: 1, duration: .4, ease: "power2.inOut" }, at);
+          trustTl.fromTo(stylus, { x: -8, opacity: 0 }, { x: 1144, opacity: 1, duration: .4, ease: "power2.inOut" }, at);
+          trustTl.fromTo(clip.querySelector(".trust-lower-tag"), { opacity: 0, x: -18 }, { opacity: 1, x: 0, duration: .36, ease: "power3.out" }, at + .28);
+          trustTl.fromTo(clip.querySelector(".trust-lower-copy"), { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: .48, ease: "power3.out" }, at + .34);
+          trustTl.fromTo(stylus, { x: 1144 }, { x: 20, duration: 2.5, ease: "sine.inOut" }, at + .72);
+          trustTl.to(lower, { opacity: 0, duration: .36, ease: "power2.inOut" }, at + 3.84);
+        });
+        window.__timelines["trust-titles"] = trustTl;
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "slug": "water-and-air-correcting-the-molecules-we-drink-and-breathe",
+  "generated_at": "2026-07-13T23:50:29.870Z",
+  "voice": {
+    "endpoint": "fal-ai/elevenlabs/tts/turbo-v2.5",
+    "voice": "Adam",
+    "speed": 1,
+    "seed": 42
+  },
+  "tts": {
+    "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/water-and-air-correcting-the-molecules-we-drink-and-breathe/assets/audio/water-and-air-correcting-the-molecules-we-drink-and-breathe-narration.mp3",
+    "url": "https://v3b.fal.media/files/b/0aa225c6/IhlmSlJBviODdL6iDXefY_output.mp3",
+    "sha256": "860ac9f72ee3e8fcd5b87b339e1731ae423b57341ffd69fbd50ed50ff0d34dc0"
+  },
+  "images": []
+}

@@ -1,5 +1,0 @@
-{
-  "pass": true,
-  "failureCount": 0,
-  "selectors": 18
-}

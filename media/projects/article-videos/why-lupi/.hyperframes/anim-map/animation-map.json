@@ -1,0 +1,3066 @@
+{
+  "composition": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/why-lupi",
+  "duration": 99.46,
+  "totalTweens": 42,
+  "mappedTweens": 27,
+  "skippedMicroTweens": 15,
+  "tweens": [
+    {
+      "index": 1,
+      "selector": "div.visual-card.contain",
+      "targets": 1,
+      "props": [
+        "scale"
+      ],
+      "start": 0.005,
+      "end": 1.105,
+      "duration": 1.1,
+      "ease": "power2.out",
+      "bboxes": [
+        {
+          "t": 0.097,
+          "x": 1000,
+          "y": 211,
+          "w": 796,
+          "h": 631,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 0.28,
+          "x": 994,
+          "y": 207,
+          "w": 808,
+          "h": 640,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 0.463,
+          "x": 991,
+          "y": 205,
+          "w": 814,
+          "h": 645,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 0.647,
+          "x": 989,
+          "y": 203,
+          "w": 818,
+          "h": 648,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 0.83,
+          "x": 988,
+          "y": 202,
+          "w": 819,
+          "h": 650,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 1.013,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [],
+      "summary": "div.visual-card.contain animates scale over 1.10s (power2.out). moves 9px up and 12px left. scales. width 796→820px. height 631→650px. ends at (988, 202) 820×650px."
+    },
+    {
+      "index": 2,
+      "selector": "div.wash.a",
+      "targets": 1,
+      "props": [
+        "scale",
+        "opacity"
+      ],
+      "start": 0.005,
+      "end": 15.525,
+      "duration": 15.52,
+      "ease": "sine.inOut",
+      "bboxes": [
+        {
+          "t": 1.298,
+          "x": -302,
+          "y": -352,
+          "w": 923,
+          "h": 923,
+          "opacity": 0.7049,
+          "visible": true
+        },
+        {
+          "t": 3.885,
+          "x": -309,
+          "y": -359,
+          "w": 938,
+          "h": 938,
+          "opacity": 0.7436,
+          "visible": true
+        },
+        {
+          "t": 6.472,
+          "x": -322,
+          "y": -372,
+          "w": 965,
+          "h": 965,
+          "opacity": 0.8112,
+          "visible": true
+        },
+        {
+          "t": 9.058,
+          "x": -337,
+          "y": -387,
+          "w": 995,
+          "h": 995,
+          "opacity": 0.8882,
+          "visible": true
+        },
+        {
+          "t": 11.645,
+          "x": -351,
+          "y": -401,
+          "w": 1022,
+          "h": 1022,
+          "opacity": 0.9559,
+          "visible": true
+        },
+        {
+          "t": 14.232,
+          "x": -358,
+          "y": -408,
+          "w": 1037,
+          "h": 1037,
+          "opacity": 0.9947,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-slow"
+      ],
+      "summary": "div.wash.a animates scale+opacity over 15.52s (sine.inOut). moves 56px up and 56px left. opacity 0.7→1.0. scales. width 923→1037px. height 923→1037px. ends at (-358, -408) 1037×1037px. FLAGS: paced-slow."
+    },
+    {
+      "index": 3,
+      "selector": "span.tag",
+      "targets": 3,
+      "props": [
+        "scale",
+        "opacity"
+      ],
+      "start": 0.355,
+      "end": 1.005,
+      "duration": 0.65,
+      "ease": "back.out(1.6)",
+      "bboxes": [
+        {
+          "t": 0.409,
+          "x": 117,
+          "y": 702,
+          "w": 122,
+          "h": 64,
+          "opacity": 0.7472,
+          "visible": true
+        },
+        {
+          "t": 0.517,
+          "x": 113,
+          "y": 699,
+          "w": 131,
+          "h": 69,
+          "opacity": 0.9733,
+          "visible": true
+        },
+        {
+          "t": 0.626,
+          "x": 111,
+          "y": 698,
+          "w": 134,
+          "h": 71,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 0.734,
+          "x": 112,
+          "y": 699,
+          "w": 133,
+          "h": 70,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 0.842,
+          "x": 112,
+          "y": 699,
+          "w": 132,
+          "h": 70,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 0.951,
+          "x": 112,
+          "y": 699,
+          "w": 132,
+          "h": 70,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [],
+      "summary": "span.tag animates scale+opacity over 0.65s (back.out(1.6)). moves 5px left. opacity 0.7→1.0. scales. width 122→132px. height 64→70px. ends at (112, 699) 132×70px."
+    },
+    {
+      "index": 4,
+      "selector": "div.wash.b",
+      "targets": 1,
+      "props": [
+        "scale",
+        "opacity"
+      ],
+      "start": 15.525,
+      "end": 30.505,
+      "duration": 14.98,
+      "ease": "sine.inOut",
+      "bboxes": [
+        {
+          "t": 16.773,
+          "x": 1328,
+          "y": 558,
+          "w": 923,
+          "h": 923,
+          "opacity": 0.7051,
+          "visible": true
+        },
+        {
+          "t": 19.27,
+          "x": 1321,
+          "y": 551,
+          "w": 938,
+          "h": 938,
+          "opacity": 0.744,
+          "visible": true
+        },
+        {
+          "t": 21.767,
+          "x": 1308,
+          "y": 538,
+          "w": 965,
+          "h": 965,
+          "opacity": 0.8113,
+          "visible": true
+        },
+        {
+          "t": 24.263,
+          "x": 1293,
+          "y": 523,
+          "w": 995,
+          "h": 995,
+          "opacity": 0.8881,
+          "visible": true
+        },
+        {
+          "t": 26.76,
+          "x": 1279,
+          "y": 509,
+          "w": 1021,
+          "h": 1021,
+          "opacity": 0.9556,
+          "visible": true
+        },
+        {
+          "t": 29.257,
+          "x": 1272,
+          "y": 502,
+          "w": 1037,
+          "h": 1037,
+          "opacity": 0.9947,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-slow"
+      ],
+      "summary": "div.wash.b animates scale+opacity over 14.98s (sine.inOut). moves 56px up and 56px left. opacity 0.7→1.0. scales. width 923→1037px. height 923→1037px. ends at (1272, 502) 1037×1037px. FLAGS: paced-slow."
+    },
+    {
+      "index": 5,
+      "selector": "h1.headline",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 15.545,
+      "end": 16.095,
+      "duration": 0.55,
+      "ease": "expo.out",
+      "bboxes": [
+        {
+          "t": 15.591,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 15.682,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 15.774,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 15.866,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 15.957,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 16.049,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [],
+      "summary": "h1.headline animates y over 0.55s (expo.out). ends at (112, 208) 790×184px."
+    },
+    {
+      "index": 6,
+      "selector": "div.visual-card",
+      "targets": 1,
+      "props": [
+        "scale"
+      ],
+      "start": 15.605,
+      "end": 16.225,
+      "duration": 0.62,
+      "ease": "back.out(1.35)",
+      "bboxes": [
+        {
+          "t": 15.657,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 15.76,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 15.863,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 15.967,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 16.07,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 16.173,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [],
+      "summary": "div.visual-card animates scale over 0.62s (back.out(1.35)). scales. ends at (988, 202) 820×650px."
+    },
+    {
+      "index": 7,
+      "selector": "p.deck",
+      "targets": 1,
+      "props": [
+        "x"
+      ],
+      "start": 15.685,
+      "end": 16.185,
+      "duration": 0.5,
+      "ease": "power3.out",
+      "bboxes": [
+        {
+          "t": 15.727,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 15.81,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 15.893,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 15.977,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 16.06,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 16.143,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [],
+      "summary": "p.deck animates x over 0.50s (power3.out). ends at (112, 430) 760×227px."
+    },
+    {
+      "index": 8,
+      "selector": "div.wash.a",
+      "targets": 1,
+      "props": [
+        "scale",
+        "opacity"
+      ],
+      "start": 30.505,
+      "end": 43.905,
+      "duration": 13.4,
+      "ease": "sine.inOut",
+      "bboxes": [
+        {
+          "t": 31.622,
+          "x": -359,
+          "y": -409,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 33.855,
+          "x": -359,
+          "y": -409,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 36.088,
+          "x": -359,
+          "y": -409,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 38.322,
+          "x": -359,
+          "y": -409,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 40.555,
+          "x": -359,
+          "y": -409,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 42.788,
+          "x": -359,
+          "y": -409,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-slow"
+      ],
+      "summary": "div.wash.a animates scale+opacity over 13.40s (sine.inOut). scales. ends at (-359, -409) 1039×1039px. FLAGS: paced-slow."
+    },
+    {
+      "index": 9,
+      "selector": "h1.headline",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 30.525,
+      "end": 31.075,
+      "duration": 0.55,
+      "ease": "expo.out",
+      "bboxes": [
+        {
+          "t": 30.571,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 30.662,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 30.754,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 30.846,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 30.938,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 31.029,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [],
+      "summary": "h1.headline animates y over 0.55s (expo.out). ends at (112, 208) 790×184px."
+    },
+    {
+      "index": 10,
+      "selector": "div.visual-card",
+      "targets": 1,
+      "props": [
+        "scale"
+      ],
+      "start": 30.585,
+      "end": 31.205,
+      "duration": 0.62,
+      "ease": "back.out(1.35)",
+      "bboxes": [
+        {
+          "t": 30.637,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 30.74,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 30.843,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 30.947,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 31.05,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 31.153,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [],
+      "summary": "div.visual-card animates scale over 0.62s (back.out(1.35)). scales. ends at (988, 202) 820×650px."
+    },
+    {
+      "index": 11,
+      "selector": "p.deck",
+      "targets": 1,
+      "props": [
+        "x"
+      ],
+      "start": 30.665,
+      "end": 31.165,
+      "duration": 0.5,
+      "ease": "power3.out",
+      "bboxes": [
+        {
+          "t": 30.707,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 30.79,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 30.873,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 30.957,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 31.04,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 31.123,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [],
+      "summary": "p.deck animates x over 0.50s (power3.out). ends at (112, 430) 760×227px."
+    },
+    {
+      "index": 12,
+      "selector": "div.wash.b",
+      "targets": 1,
+      "props": [
+        "scale",
+        "opacity"
+      ],
+      "start": 43.905,
+      "end": 63.005,
+      "duration": 19.1,
+      "ease": "sine.inOut",
+      "bboxes": [
+        {
+          "t": 45.497,
+          "x": 1271,
+          "y": 501,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 48.68,
+          "x": 1271,
+          "y": 501,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 51.863,
+          "x": 1271,
+          "y": 501,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 55.047,
+          "x": 1271,
+          "y": 501,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 58.23,
+          "x": 1271,
+          "y": 501,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 61.413,
+          "x": 1271,
+          "y": 501,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-slow"
+      ],
+      "summary": "div.wash.b animates scale+opacity over 19.10s (sine.inOut). scales. ends at (1271, 501) 1039×1039px. FLAGS: paced-slow."
+    },
+    {
+      "index": 13,
+      "selector": "h1.headline",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 43.925,
+      "end": 44.475,
+      "duration": 0.55,
+      "ease": "expo.out",
+      "bboxes": [
+        {
+          "t": 43.971,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 44.063,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 44.154,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 44.246,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 44.338,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 44.429,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [],
+      "summary": "h1.headline animates y over 0.55s (expo.out). ends at (112, 208) 790×184px."
+    },
+    {
+      "index": 14,
+      "selector": "div.visual-card.contain",
+      "targets": 1,
+      "props": [
+        "scale"
+      ],
+      "start": 43.985,
+      "end": 44.605,
+      "duration": 0.62,
+      "ease": "back.out(1.35)",
+      "bboxes": [
+        {
+          "t": 44.037,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 44.14,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 44.243,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 44.347,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 44.45,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 44.553,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [],
+      "summary": "div.visual-card.contain animates scale over 0.62s (back.out(1.35)). scales. ends at (988, 202) 820×650px."
+    },
+    {
+      "index": 15,
+      "selector": "p.deck",
+      "targets": 1,
+      "props": [
+        "x"
+      ],
+      "start": 44.065,
+      "end": 44.565,
+      "duration": 0.5,
+      "ease": "power3.out",
+      "bboxes": [
+        {
+          "t": 44.107,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 44.19,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 44.273,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 44.357,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 44.44,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 44.523,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [],
+      "summary": "p.deck animates x over 0.50s (power3.out). ends at (112, 430) 760×227px."
+    },
+    {
+      "index": 16,
+      "selector": "div.job",
+      "targets": 3,
+      "props": [
+        "scale",
+        "rotation"
+      ],
+      "start": 44.605,
+      "end": 45.385,
+      "duration": 0.78,
+      "ease": "back.out(1.7)",
+      "bboxes": [
+        {
+          "t": 44.67,
+          "x": 121,
+          "y": 705,
+          "w": 230,
+          "h": 121,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 44.8,
+          "x": 111,
+          "y": 702,
+          "w": 249,
+          "h": 128,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 44.93,
+          "x": 110,
+          "y": 701,
+          "w": 251,
+          "h": 129,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 45.06,
+          "x": 112,
+          "y": 703,
+          "w": 247,
+          "h": 126,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 45.19,
+          "x": 112,
+          "y": 703,
+          "w": 247,
+          "h": 126,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 45.32,
+          "x": 112,
+          "y": 703,
+          "w": 247,
+          "h": 126,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [],
+      "summary": "div.job animates scale+rotation over 0.78s (back.out(1.7)). moves 9px left. scales. width 230→247px. ends at (112, 703) 247×126px."
+    },
+    {
+      "index": 17,
+      "selector": "div.wash.a",
+      "targets": 1,
+      "props": [
+        "scale",
+        "opacity"
+      ],
+      "start": 63.005,
+      "end": 72.965,
+      "duration": 9.96,
+      "ease": "sine.inOut",
+      "bboxes": [
+        {
+          "t": 63.835,
+          "x": -359,
+          "y": -409,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 65.495,
+          "x": -359,
+          "y": -409,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 67.155,
+          "x": -359,
+          "y": -409,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 68.815,
+          "x": -359,
+          "y": -409,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 70.475,
+          "x": -359,
+          "y": -409,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 72.135,
+          "x": -359,
+          "y": -409,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-slow"
+      ],
+      "summary": "div.wash.a animates scale+opacity over 9.96s (sine.inOut). scales. ends at (-359, -409) 1039×1039px. FLAGS: paced-slow."
+    },
+    {
+      "index": 18,
+      "selector": "h1.headline",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 63.025,
+      "end": 63.575,
+      "duration": 0.55,
+      "ease": "expo.out",
+      "bboxes": [
+        {
+          "t": 63.071,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 63.163,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 63.254,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 63.346,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 63.438,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 63.529,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [],
+      "summary": "h1.headline animates y over 0.55s (expo.out). ends at (112, 208) 790×184px."
+    },
+    {
+      "index": 19,
+      "selector": "div.visual-card.contain",
+      "targets": 1,
+      "props": [
+        "scale"
+      ],
+      "start": 63.085,
+      "end": 63.705,
+      "duration": 0.62,
+      "ease": "back.out(1.35)",
+      "bboxes": [
+        {
+          "t": 63.137,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 63.24,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 63.343,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 63.447,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 63.55,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 63.653,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [],
+      "summary": "div.visual-card.contain animates scale over 0.62s (back.out(1.35)). scales. ends at (988, 202) 820×650px."
+    },
+    {
+      "index": 20,
+      "selector": "p.deck",
+      "targets": 1,
+      "props": [
+        "x"
+      ],
+      "start": 63.165,
+      "end": 63.665,
+      "duration": 0.5,
+      "ease": "power3.out",
+      "bboxes": [
+        {
+          "t": 63.207,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 63.29,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 63.373,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 63.457,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 63.54,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 63.623,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [],
+      "summary": "p.deck animates x over 0.50s (power3.out). ends at (112, 430) 760×227px."
+    },
+    {
+      "index": 21,
+      "selector": "div.wash.b",
+      "targets": 1,
+      "props": [
+        "scale",
+        "opacity"
+      ],
+      "start": 72.965,
+      "end": 92.225,
+      "duration": 19.26,
+      "ease": "sine.inOut",
+      "bboxes": [
+        {
+          "t": 74.57,
+          "x": 1271,
+          "y": 501,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 77.78,
+          "x": 1271,
+          "y": 501,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 80.99,
+          "x": 1271,
+          "y": 501,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 84.2,
+          "x": 1271,
+          "y": 501,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 87.41,
+          "x": 1271,
+          "y": 501,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 90.62,
+          "x": 1271,
+          "y": 501,
+          "w": 1039,
+          "h": 1039,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [
+        "paced-slow"
+      ],
+      "summary": "div.wash.b animates scale+opacity over 19.26s (sine.inOut). scales. ends at (1271, 501) 1039×1039px. FLAGS: paced-slow."
+    },
+    {
+      "index": 22,
+      "selector": "h1.headline",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 72.985,
+      "end": 73.535,
+      "duration": 0.55,
+      "ease": "expo.out",
+      "bboxes": [
+        {
+          "t": 73.031,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 73.123,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 73.214,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 73.306,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 73.397,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 73.489,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [],
+      "summary": "h1.headline animates y over 0.55s (expo.out). ends at (112, 208) 790×184px."
+    },
+    {
+      "index": 23,
+      "selector": "div.visual-card",
+      "targets": 1,
+      "props": [
+        "scale"
+      ],
+      "start": 73.045,
+      "end": 73.665,
+      "duration": 0.62,
+      "ease": "back.out(1.35)",
+      "bboxes": [
+        {
+          "t": 73.097,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 73.2,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 73.303,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 73.407,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 73.51,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 73.613,
+          "x": 988,
+          "y": 202,
+          "w": 820,
+          "h": 650,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [],
+      "summary": "div.visual-card animates scale over 0.62s (back.out(1.35)). scales. ends at (988, 202) 820×650px."
+    },
+    {
+      "index": 24,
+      "selector": "p.deck",
+      "targets": 1,
+      "props": [
+        "x"
+      ],
+      "start": 73.125,
+      "end": 73.625,
+      "duration": 0.5,
+      "ease": "power3.out",
+      "bboxes": [
+        {
+          "t": 73.167,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 73.25,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 73.333,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 73.417,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 73.5,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 73.583,
+          "x": 112,
+          "y": 430,
+          "w": 760,
+          "h": 227,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [],
+      "summary": "p.deck animates x over 0.50s (power3.out). ends at (112, 430) 760×227px."
+    },
+    {
+      "index": 25,
+      "selector": "div.now-row",
+      "targets": 3,
+      "props": [
+        "x"
+      ],
+      "start": 73.715,
+      "end": 74.775,
+      "duration": 1.06,
+      "ease": "power3.out",
+      "bboxes": [
+        {
+          "t": 73.803,
+          "x": 1060,
+          "y": 355,
+          "w": 740,
+          "h": 96,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 73.98,
+          "x": 1032,
+          "y": 355,
+          "w": 740,
+          "h": 96,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 74.157,
+          "x": 1028,
+          "y": 355,
+          "w": 740,
+          "h": 96,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 74.333,
+          "x": 1028,
+          "y": 355,
+          "w": 740,
+          "h": 96,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 74.51,
+          "x": 1028,
+          "y": 355,
+          "w": 740,
+          "h": 96,
+          "opacity": 1,
+          "visible": true
+        },
+        {
+          "t": 74.687,
+          "x": 1028,
+          "y": 355,
+          "w": 740,
+          "h": 96,
+          "opacity": 1,
+          "visible": true
+        }
+      ],
+      "flags": [],
+      "summary": "div.now-row animates x over 1.06s (power3.out). moves 32px left. ends at (1028, 355) 740×96px."
+    },
+    {
+      "index": 26,
+      "selector": "h1",
+      "targets": 1,
+      "props": [
+        "y"
+      ],
+      "start": 92.225,
+      "end": 92.925,
+      "duration": 0.7,
+      "ease": "expo.out",
+      "bboxes": [
+        {
+          "t": 92.283,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 92.4,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 92.517,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 92.633,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 92.75,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        },
+        {
+          "t": 92.867,
+          "x": 112,
+          "y": 208,
+          "w": 790,
+          "h": 184,
+          "opacity": 1,
+          "visible": false
+        }
+      ],
+      "flags": [],
+      "summary": "h1 animates y over 0.70s (expo.out). ends at (112, 208) 790×184px."
+    },
+    {
+      "index": 27,
+      "selector": "div.ring",
+      "targets": 1,
+      "props": [
+        "scale",
+        "opacity"
+      ],
+      "start": 92.225,
+      "end": 94.725,
+      "duration": 2.5,
+      "ease": "sine.out",
+      "bboxes": [
+        {
+          "t": 92.433,
+          "x": 1294,
+          "y": -236,
+          "w": 793,
+          "h": 793,
+          "opacity": 0.7782,
+          "visible": true
+        },
+        {
+          "t": 92.85,
+          "x": 1287,
+          "y": -243,
+          "w": 806,
+          "h": 806,
+          "opacity": 0.844,
+          "visible": true
+        },
+        {
+          "t": 93.267,
+          "x": 1281,
+          "y": -249,
+          "w": 817,
+          "h": 817,
+          "opacity": 0.9028,
+          "visible": true
+        },
+        {
+          "t": 93.683,
+          "x": 1277,
+          "y": -253,
+          "w": 826,
+          "h": 826,
+          "opacity": 0.9472,
+          "visible": true
+        },
+        {
+          "t": 94.1,
+          "x": 1274,
+          "y": -256,
+          "w": 833,
+          "h": 833,
+          "opacity": 0.9813,
+          "visible": true
+        },
+        {
+          "t": 94.517,
+          "x": 1272,
+          "y": -258,
+          "w": 836,
+          "h": 836,
+          "opacity": 0.9976,
+          "visible": true
+        }
+      ],
+      "flags": [
+        "paced-slow"
+      ],
+      "summary": "div.ring animates scale+opacity over 2.50s (sine.out). moves 22px up and 22px left. opacity 0.8→1.0. scales. width 793→836px. height 793→836px. ends at (1272, -258) 836×836px. FLAGS: paced-slow."
+    }
+  ],
+  "choreography": "Timeline (99.5s, each char ≈ 1.66s):\n  0s                                                    99s\n  ┼───────────────────────────────────────────────────────────┤\n  █                                                             div.visual-card.contain scale\n  ██████████                                                    div.wash.a scale+opacity\n  █                                                             span.tag scale+opacity\n           ██████████                                           div.wash.b scale+opacity\n           █                                                    h1.headline y\n           █                                                    div.visual-card scale\n           █                                                    p.deck x\n                    █████████                                   div.wash.a scale+opacity\n                    █                                           h1.headline y\n                    █                                           div.visual-card scale\n                    █                                           p.deck x\n                            █████████████                       div.wash.b scale+opacity\n                            █                                   h1.headline y\n                            █                                   div.visual-card.contain scale\n                            █                                   p.deck x\n                            ██                                  div.job scale+rotation\n                                        ███████                 div.wash.a scale+opacity\n                                        █                       h1.headline y\n                                        █                       div.visual-card.contain scale\n                                        █                       p.deck x\n                                              ████████████      div.wash.b scale+opacity\n                                              █                 h1.headline y\n                                              █                 div.visual-card scale\n                                              █                 p.deck x\n                                              ██                div.now-row x\n                                                         ██     h1 y\n                                                         ███    div.ring scale+opacity",
+  "density": [
+    {
+      "t": 0,
+      "activeTweens": 3
+    },
+    {
+      "t": 0.5,
+      "activeTweens": 3
+    },
+    {
+      "t": 1,
+      "activeTweens": 3
+    },
+    {
+      "t": 1.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 2,
+      "activeTweens": 1
+    },
+    {
+      "t": 2.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 3,
+      "activeTweens": 1
+    },
+    {
+      "t": 3.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 4,
+      "activeTweens": 1
+    },
+    {
+      "t": 4.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 5,
+      "activeTweens": 1
+    },
+    {
+      "t": 5.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 6,
+      "activeTweens": 1
+    },
+    {
+      "t": 6.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 7,
+      "activeTweens": 1
+    },
+    {
+      "t": 7.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 8,
+      "activeTweens": 1
+    },
+    {
+      "t": 8.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 9,
+      "activeTweens": 1
+    },
+    {
+      "t": 9.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 10,
+      "activeTweens": 1
+    },
+    {
+      "t": 10.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 11,
+      "activeTweens": 1
+    },
+    {
+      "t": 11.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 12,
+      "activeTweens": 1
+    },
+    {
+      "t": 12.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 13,
+      "activeTweens": 1
+    },
+    {
+      "t": 13.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 14,
+      "activeTweens": 1
+    },
+    {
+      "t": 14.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 15,
+      "activeTweens": 1
+    },
+    {
+      "t": 15.5,
+      "activeTweens": 5
+    },
+    {
+      "t": 16,
+      "activeTweens": 4
+    },
+    {
+      "t": 16.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 17,
+      "activeTweens": 1
+    },
+    {
+      "t": 17.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 18,
+      "activeTweens": 1
+    },
+    {
+      "t": 18.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 19,
+      "activeTweens": 1
+    },
+    {
+      "t": 19.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 20,
+      "activeTweens": 1
+    },
+    {
+      "t": 20.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 21,
+      "activeTweens": 1
+    },
+    {
+      "t": 21.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 22,
+      "activeTweens": 1
+    },
+    {
+      "t": 22.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 23,
+      "activeTweens": 1
+    },
+    {
+      "t": 23.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 24,
+      "activeTweens": 1
+    },
+    {
+      "t": 24.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 25,
+      "activeTweens": 1
+    },
+    {
+      "t": 25.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 26,
+      "activeTweens": 1
+    },
+    {
+      "t": 26.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 27,
+      "activeTweens": 1
+    },
+    {
+      "t": 27.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 28,
+      "activeTweens": 1
+    },
+    {
+      "t": 28.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 29,
+      "activeTweens": 1
+    },
+    {
+      "t": 29.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 30,
+      "activeTweens": 1
+    },
+    {
+      "t": 30.5,
+      "activeTweens": 5
+    },
+    {
+      "t": 31,
+      "activeTweens": 4
+    },
+    {
+      "t": 31.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 32,
+      "activeTweens": 1
+    },
+    {
+      "t": 32.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 33,
+      "activeTweens": 1
+    },
+    {
+      "t": 33.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 34,
+      "activeTweens": 1
+    },
+    {
+      "t": 34.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 35,
+      "activeTweens": 1
+    },
+    {
+      "t": 35.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 36,
+      "activeTweens": 1
+    },
+    {
+      "t": 36.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 37,
+      "activeTweens": 1
+    },
+    {
+      "t": 37.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 38,
+      "activeTweens": 1
+    },
+    {
+      "t": 38.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 39,
+      "activeTweens": 1
+    },
+    {
+      "t": 39.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 40,
+      "activeTweens": 1
+    },
+    {
+      "t": 40.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 41,
+      "activeTweens": 1
+    },
+    {
+      "t": 41.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 42,
+      "activeTweens": 1
+    },
+    {
+      "t": 42.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 43,
+      "activeTweens": 1
+    },
+    {
+      "t": 43.5,
+      "activeTweens": 4
+    },
+    {
+      "t": 44,
+      "activeTweens": 4
+    },
+    {
+      "t": 44.5,
+      "activeTweens": 4
+    },
+    {
+      "t": 45,
+      "activeTweens": 2
+    },
+    {
+      "t": 45.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 46,
+      "activeTweens": 1
+    },
+    {
+      "t": 46.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 47,
+      "activeTweens": 1
+    },
+    {
+      "t": 47.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 48,
+      "activeTweens": 1
+    },
+    {
+      "t": 48.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 49,
+      "activeTweens": 1
+    },
+    {
+      "t": 49.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 50,
+      "activeTweens": 1
+    },
+    {
+      "t": 50.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 51,
+      "activeTweens": 1
+    },
+    {
+      "t": 51.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 52,
+      "activeTweens": 1
+    },
+    {
+      "t": 52.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 53,
+      "activeTweens": 1
+    },
+    {
+      "t": 53.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 54,
+      "activeTweens": 1
+    },
+    {
+      "t": 54.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 55,
+      "activeTweens": 1
+    },
+    {
+      "t": 55.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 56,
+      "activeTweens": 1
+    },
+    {
+      "t": 56.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 57,
+      "activeTweens": 1
+    },
+    {
+      "t": 57.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 58,
+      "activeTweens": 1
+    },
+    {
+      "t": 58.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 59,
+      "activeTweens": 1
+    },
+    {
+      "t": 59.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 60,
+      "activeTweens": 1
+    },
+    {
+      "t": 60.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 61,
+      "activeTweens": 1
+    },
+    {
+      "t": 61.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 62,
+      "activeTweens": 1
+    },
+    {
+      "t": 62.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 63,
+      "activeTweens": 5
+    },
+    {
+      "t": 63.5,
+      "activeTweens": 4
+    },
+    {
+      "t": 64,
+      "activeTweens": 1
+    },
+    {
+      "t": 64.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 65,
+      "activeTweens": 1
+    },
+    {
+      "t": 65.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 66,
+      "activeTweens": 1
+    },
+    {
+      "t": 66.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 67,
+      "activeTweens": 1
+    },
+    {
+      "t": 67.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 68,
+      "activeTweens": 1
+    },
+    {
+      "t": 68.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 69,
+      "activeTweens": 1
+    },
+    {
+      "t": 69.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 70,
+      "activeTweens": 1
+    },
+    {
+      "t": 70.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 71,
+      "activeTweens": 1
+    },
+    {
+      "t": 71.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 72,
+      "activeTweens": 1
+    },
+    {
+      "t": 72.5,
+      "activeTweens": 3
+    },
+    {
+      "t": 73,
+      "activeTweens": 4
+    },
+    {
+      "t": 73.5,
+      "activeTweens": 5
+    },
+    {
+      "t": 74,
+      "activeTweens": 2
+    },
+    {
+      "t": 74.5,
+      "activeTweens": 2
+    },
+    {
+      "t": 75,
+      "activeTweens": 1
+    },
+    {
+      "t": 75.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 76,
+      "activeTweens": 1
+    },
+    {
+      "t": 76.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 77,
+      "activeTweens": 1
+    },
+    {
+      "t": 77.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 78,
+      "activeTweens": 1
+    },
+    {
+      "t": 78.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 79,
+      "activeTweens": 1
+    },
+    {
+      "t": 79.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 80,
+      "activeTweens": 1
+    },
+    {
+      "t": 80.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 81,
+      "activeTweens": 1
+    },
+    {
+      "t": 81.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 82,
+      "activeTweens": 1
+    },
+    {
+      "t": 82.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 83,
+      "activeTweens": 1
+    },
+    {
+      "t": 83.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 84,
+      "activeTweens": 1
+    },
+    {
+      "t": 84.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 85,
+      "activeTweens": 1
+    },
+    {
+      "t": 85.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 86,
+      "activeTweens": 1
+    },
+    {
+      "t": 86.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 87,
+      "activeTweens": 1
+    },
+    {
+      "t": 87.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 88,
+      "activeTweens": 1
+    },
+    {
+      "t": 88.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 89,
+      "activeTweens": 1
+    },
+    {
+      "t": 89.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 90,
+      "activeTweens": 1
+    },
+    {
+      "t": 90.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 91,
+      "activeTweens": 1
+    },
+    {
+      "t": 91.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 92,
+      "activeTweens": 3
+    },
+    {
+      "t": 92.5,
+      "activeTweens": 2
+    },
+    {
+      "t": 93,
+      "activeTweens": 1
+    },
+    {
+      "t": 93.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 94,
+      "activeTweens": 1
+    },
+    {
+      "t": 94.5,
+      "activeTweens": 1
+    },
+    {
+      "t": 95,
+      "activeTweens": 0
+    },
+    {
+      "t": 95.5,
+      "activeTweens": 0
+    },
+    {
+      "t": 96,
+      "activeTweens": 0
+    },
+    {
+      "t": 96.5,
+      "activeTweens": 0
+    },
+    {
+      "t": 97,
+      "activeTweens": 0
+    },
+    {
+      "t": 97.5,
+      "activeTweens": 0
+    },
+    {
+      "t": 98,
+      "activeTweens": 0
+    },
+    {
+      "t": 98.5,
+      "activeTweens": 0
+    },
+    {
+      "t": 99,
+      "activeTweens": 0
+    }
+  ],
+  "staggers": [],
+  "elements": {
+    "div.visual-card.contain": {
+      "firstAppears": 0.005,
+      "lastAnimates": 63.705,
+      "tweenCount": 3,
+      "props": [
+        "scale"
+      ],
+      "endsVisible": false,
+      "finalPosition": {
+        "x": 988,
+        "y": 202,
+        "w": 820,
+        "h": 650
+      }
+    },
+    "div.wash.a": {
+      "firstAppears": 0.005,
+      "lastAnimates": 72.965,
+      "tweenCount": 3,
+      "props": [
+        "scale",
+        "opacity"
+      ],
+      "endsVisible": false,
+      "finalPosition": {
+        "x": -359,
+        "y": -409,
+        "w": 1039,
+        "h": 1039
+      }
+    },
+    "span.tag": {
+      "firstAppears": 0.355,
+      "lastAnimates": 1.005,
+      "tweenCount": 1,
+      "props": [
+        "scale",
+        "opacity"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 112,
+        "y": 699,
+        "w": 132,
+        "h": 70
+      }
+    },
+    "div.wash.b": {
+      "firstAppears": 15.525,
+      "lastAnimates": 92.225,
+      "tweenCount": 3,
+      "props": [
+        "scale",
+        "opacity"
+      ],
+      "endsVisible": false,
+      "finalPosition": {
+        "x": 1271,
+        "y": 501,
+        "w": 1039,
+        "h": 1039
+      }
+    },
+    "h1.headline": {
+      "firstAppears": 15.545,
+      "lastAnimates": 73.535,
+      "tweenCount": 5,
+      "props": [
+        "y"
+      ],
+      "endsVisible": false,
+      "finalPosition": {
+        "x": 112,
+        "y": 208,
+        "w": 790,
+        "h": 184
+      }
+    },
+    "div.visual-card": {
+      "firstAppears": 15.605,
+      "lastAnimates": 73.665,
+      "tweenCount": 3,
+      "props": [
+        "scale"
+      ],
+      "endsVisible": false,
+      "finalPosition": {
+        "x": 988,
+        "y": 202,
+        "w": 820,
+        "h": 650
+      }
+    },
+    "p.deck": {
+      "firstAppears": 15.685,
+      "lastAnimates": 73.625,
+      "tweenCount": 5,
+      "props": [
+        "x"
+      ],
+      "endsVisible": false,
+      "finalPosition": {
+        "x": 112,
+        "y": 430,
+        "w": 760,
+        "h": 227
+      }
+    },
+    "div.job": {
+      "firstAppears": 44.605,
+      "lastAnimates": 45.385,
+      "tweenCount": 1,
+      "props": [
+        "scale",
+        "rotation"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 112,
+        "y": 703,
+        "w": 247,
+        "h": 126
+      }
+    },
+    "div.now-row": {
+      "firstAppears": 73.715,
+      "lastAnimates": 74.775,
+      "tweenCount": 1,
+      "props": [
+        "x"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 1028,
+        "y": 355,
+        "w": 740,
+        "h": 96
+      }
+    },
+    "h1": {
+      "firstAppears": 92.225,
+      "lastAnimates": 92.925,
+      "tweenCount": 1,
+      "props": [
+        "y"
+      ],
+      "endsVisible": false,
+      "finalPosition": {
+        "x": 112,
+        "y": 208,
+        "w": 790,
+        "h": 184
+      }
+    },
+    "div.ring": {
+      "firstAppears": 92.225,
+      "lastAnimates": 94.725,
+      "tweenCount": 1,
+      "props": [
+        "scale",
+        "opacity"
+      ],
+      "endsVisible": true,
+      "finalPosition": {
+        "x": 1272,
+        "y": -258,
+        "w": 836,
+        "h": 836
+      }
+    }
+  },
+  "deadZones": [
+    {
+      "start": 95,
+      "end": 99.5,
+      "duration": 4.5,
+      "note": "No animation for 4.5s at end. Final hold or missing outro?"
+    }
+  ],
+  "snapshots": [
+    {
+      "t": 0,
+      "visibleElements": 3,
+      "animatingNow": [],
+      "elements": [
+        {
+          "id": "why-lupi",
+          "x": 0,
+          "y": 0,
+          "w": 1920,
+          "h": 1080,
+          "opacity": 1
+        },
+        {
+          "id": "scene-1",
+          "x": 0,
+          "y": 0,
+          "w": 1920,
+          "h": 1080,
+          "opacity": 1
+        },
+        {
+          "id": "opening-mark",
+          "x": 1006,
+          "y": 217,
+          "w": 784,
+          "h": 620,
+          "opacity": 1
+        }
+      ]
+    },
+    {
+      "t": 24.86,
+      "visibleElements": 3,
+      "animatingNow": [
+        "div.wash.b"
+      ],
+      "elements": [
+        {
+          "id": "why-lupi",
+          "x": 0,
+          "y": 0,
+          "w": 1920,
+          "h": 1080,
+          "opacity": 1
+        },
+        {
+          "id": "opening-mark",
+          "x": 992,
+          "y": 206,
+          "w": 812,
+          "h": 642,
+          "opacity": 1
+        },
+        {
+          "id": "scene-2",
+          "x": 0,
+          "y": 0,
+          "w": 1920,
+          "h": 1080,
+          "opacity": 1
+        }
+      ]
+    },
+    {
+      "t": 49.73,
+      "visibleElements": 3,
+      "animatingNow": [
+        "div.wash.b"
+      ],
+      "elements": [
+        {
+          "id": "why-lupi",
+          "x": 0,
+          "y": 0,
+          "w": 1920,
+          "h": 1080,
+          "opacity": 1
+        },
+        {
+          "id": "opening-mark",
+          "x": 992,
+          "y": 206,
+          "w": 812,
+          "h": 642,
+          "opacity": 1
+        },
+        {
+          "id": "scene-4",
+          "x": 0,
+          "y": 0,
+          "w": 1920,
+          "h": 1080,
+          "opacity": 1
+        }
+      ]
+    },
+    {
+      "t": 74.59,
+      "visibleElements": 3,
+      "animatingNow": [
+        "div.wash.b",
+        "div.now-row"
+      ],
+      "elements": [
+        {
+          "id": "why-lupi",
+          "x": 0,
+          "y": 0,
+          "w": 1920,
+          "h": 1080,
+          "opacity": 1
+        },
+        {
+          "id": "opening-mark",
+          "x": 992,
+          "y": 206,
+          "w": 812,
+          "h": 642,
+          "opacity": 1
+        },
+        {
+          "id": "scene-6",
+          "x": 0,
+          "y": 0,
+          "w": 1920,
+          "h": 1080,
+          "opacity": 1
+        }
+      ]
+    },
+    {
+      "t": 99.36,
+      "visibleElements": 3,
+      "animatingNow": [],
+      "elements": [
+        {
+          "id": "why-lupi",
+          "x": 0,
+          "y": 0,
+          "w": 1920,
+          "h": 1080,
+          "opacity": 1
+        },
+        {
+          "id": "opening-mark",
+          "x": 992,
+          "y": 206,
+          "w": 812,
+          "h": 642,
+          "opacity": 1
+        },
+        {
+          "id": "end-card",
+          "x": 0,
+          "y": 0,
+          "w": 1920,
+          "h": 1080,
+          "opacity": 1
+        }
+      ]
+    }
+  ]
+}

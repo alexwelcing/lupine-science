@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Why LUPI?</title>
+<style>
+@font-face{font-family:Newsreader;src:url("assets/brand/newsreader-var.woff2") format("woff2");font-weight:300 700;font-display:block}
+@font-face{font-family:Newsreader;src:url("assets/brand/newsreader-italic-var.woff2") format("woff2");font-style:italic;font-weight:300 700;font-display:block}
+@font-face{font-family:Plex;src:url("assets/brand/plex-mono-400.woff2") format("woff2");font-weight:400;font-display:block}
+@font-face{font-family:Plex;src:url("assets/brand/plex-mono-600.woff2") format("woff2");font-weight:600;font-display:block}
+:root{--paper:#faf9f6;--paper-2:#f1efe9;--ink:#18203e;--indigo:#3d4db3;--indigo-soft:#c6cbe9;--coral:#e67952;--muted:#59637a}
+*{box-sizing:border-box}html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:var(--paper)}
+.root{position:relative;width:1920px;height:1080px;overflow:hidden;background:var(--paper);color:var(--ink);font-family:Newsreader,serif}
+.ground{position:absolute;inset:0;background:var(--paper)}.grain{position:absolute;inset:0;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' seed='17'/%3E%3C/filter%3E%3Crect width='150' height='150' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")}
+.scene{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;opacity:0}.scene:first-of-type{opacity:1}.wash{position:absolute;width:980px;height:980px;border-radius:50%;background:radial-gradient(circle,rgba(61,77,179,.22),rgba(61,77,179,0) 68%)}.wash.a{left:-330px;top:-380px}.wash.b{right:-360px;bottom:-430px}
+.grid{position:absolute;inset:0;opacity:.12;background-image:linear-gradient(rgba(61,77,179,.18) 2px,transparent 2px),linear-gradient(90deg,rgba(61,77,179,.18) 2px,transparent 2px);background-size:120px 120px;mask-image:linear-gradient(90deg,#000,transparent 70%)}
+.top{position:absolute;left:112px;right:112px;top:66px;height:82px;border-bottom:4px solid var(--indigo);display:flex;justify-content:space-between;align-items:flex-start}.kicker,.meta,.source{margin:0;font:600 36px/1.2 Plex,monospace;letter-spacing:.07em;text-transform:uppercase;color:var(--indigo)}.meta,.source{font-weight:400;letter-spacing:.02em;color:var(--muted)}
+.copy{position:absolute;left:112px;top:208px;width:790px}.headline{margin:0;font:400 96px/.96 Newsreader,serif;letter-spacing:-.035em}.headline em{color:var(--indigo)}.deck{margin:38px 0 0;width:760px;font:400 48px/1.18 Newsreader,serif;color:#29324f}.tags{display:flex;flex-wrap:wrap;gap:16px;margin-top:42px}.tag{display:block;padding:14px 20px;border:3px solid var(--indigo);border-radius:999px;background:rgba(250,249,246,.9);font:600 36px/1 Plex,monospace;color:var(--indigo);text-transform:uppercase;white-space:nowrap}
+.visual-card{position:absolute;right:112px;top:202px;width:820px;height:650px;border:4px solid var(--indigo);border-radius:34px;overflow:hidden;background:var(--paper-2);box-shadow:0 28px 60px rgba(24,32,62,.16)}.visual-card img{display:block;width:100%;height:100%;object-fit:cover}.visual-card.contain img{object-fit:contain}.visual-card::after{content:"";position:absolute;inset:0;border:10px solid rgba(250,249,246,.72);border-radius:28px}.visual-label{position:absolute;left:28px;bottom:26px;z-index:2;margin:0;padding:14px 18px;border-radius:10px;background:var(--paper);font:600 36px/1 Plex,monospace;color:var(--indigo);text-transform:uppercase;box-shadow:0 8px 20px rgba(24,32,62,.15)}
+.rail{position:absolute;left:112px;right:112px;bottom:66px;height:78px;border-top:3px solid var(--indigo-soft);display:flex;justify-content:space-between;align-items:flex-end}.rail p{margin:0;font:400 36px/1.15 Plex,monospace;color:var(--muted)}.rail strong{color:var(--indigo);font-weight:600}
+.split-visual{display:grid;grid-template-columns:1fr 1fr;height:100%}.split-visual .half{position:relative;display:flex;align-items:center;justify-content:center;padding:40px}.split-visual .half:first-child{border-right:3px solid var(--indigo)}.split-visual strong{font:600 44px/1.1 Plex,monospace;color:var(--indigo);text-align:center;text-transform:uppercase}.split-visual svg{position:absolute;inset:0;width:100%;height:100%}
+.job-list{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:46px;width:780px}.job{padding:22px;border:3px solid var(--indigo);border-radius:18px;background:var(--paper);font:600 36px/1.05 Plex,monospace;color:var(--indigo);text-align:center;text-transform:uppercase}.scene.native .visual-card img{padding:22px}
+.now-stack{position:absolute;inset:36px;display:flex;flex-direction:column;justify-content:center;gap:28px}.now-row{display:grid;grid-template-columns:128px 1fr;align-items:center;gap:26px;padding:22px 28px;border:3px solid var(--indigo);border-radius:22px;background:rgba(250,249,246,.9)}.now-row b{font:600 46px/1 Plex,monospace;color:#bf5838}.now-row span{font:600 38px/1.1 Plex,monospace;color:var(--ink);text-transform:uppercase}
+.end{z-index:20;background:var(--indigo);color:var(--paper);opacity:0}.end .end-mark{position:absolute;left:112px;top:86px;width:92px;height:92px;filter:brightness(0) invert(1)}.end .end-kicker{position:absolute;left:236px;top:104px;margin:0;font:600 40px/1 Plex,monospace;letter-spacing:.08em;text-transform:uppercase}.end h1{position:absolute;left:112px;top:280px;width:1500px;margin:0;font:400 154px/.9 Newsreader,serif;letter-spacing:-.04em}.end h1 em{display:block;color:#f2aa8d}.end .url{position:absolute;left:112px;bottom:100px;margin:0;font:600 54px/1 Plex,monospace;letter-spacing:.05em}.end .proof{position:absolute;right:112px;bottom:104px;margin:0;font:400 36px/1 Plex,monospace;color:#d8dcf2}.end .ring{position:absolute;right:-180px;top:-250px;width:820px;height:820px;border:80px solid rgba(250,249,246,.1);border-radius:50%}
+</style>
+</head>
+<body>
+<div id="why-lupi" class="root" data-composition-id="why-lupi" data-start="0" data-width="1920" data-height="1080" data-duration="99.46" data-fps="30">
+<div class="ground"></div><div class="grain" data-layout-ignore></div>
+<audio id="narration" src="audio/final-narration.wav" data-start="0" data-duration="94.955063" data-trim-start="0" data-trim-end="94.955063"></audio>
+<section id="scene-1" class="scene clip" data-start="0" data-duration="15.52" data-track-index="1">
+  <div class="wash a" data-layout-ignore></div><div class="grid" data-layout-ignore></div>
+  <div class="top"><p class="kicker">Why LUPI? · 01</p><p class="meta">A public window into molecular structure</p></div>
+  <div class="copy"><h1 class="headline">A structure should open <em>with the claim.</em></h1><p class="deck">Rotate it. Measure it. Share it. No paywall, download, account, or command line between the data and the observer.</p><div class="tags"><span class="tag">Open</span><span class="tag">Inspect</span><span class="tag">Share</span></div></div>
+  <div class="visual-card contain"><img id="opening-mark" src="assets/images/belief.png" alt="Molecular structure floating on warm paper"><p class="visual-label">Browser-native · no install</p></div>
+  <div class="rail"><p><strong>LUPI.LIVE</strong> · LIVE MOLECULAR VIEWER</p><p>OPENING BELIEF</p></div>
+</section>
+<section id="scene-2" class="scene clip" data-start="15.52" data-duration="14.98" data-track-index="2">
+  <div class="wash b" data-layout-ignore></div>
+  <div class="top"><p class="kicker">The problem · 02</p><p class="meta">Power without portability · access without evidence</p></div>
+  <div class="copy"><h1 class="headline">Too heavy to share. <em>Too simple to trust.</em></h1><p class="deck">Desktop tools trap knowledge on one machine. Lightweight viewers can hide the coordinates, uncertainty, and context that make a structure meaningful.</p></div>
+  <div class="visual-card"><div class="split-visual"><div class="half"><strong>Powerful<br>but trapped</strong></div><div class="half"><strong>Portable<br>but opaque</strong></div></div><img src="assets/images/problem.png" alt="Desktop workstation and a building separated by a vertical line" style="position:absolute;inset:0;opacity:.58;mix-blend-mode:multiply"><p class="visual-label">The missing middle</p></div>
+  <div class="rail"><p>SCREENSHOT CULTURE ≠ EXPLORATION</p><p>FIDELITY / ACCESS</p></div>
+</section>
+<section id="scene-3" class="scene clip" data-start="30.5" data-duration="13.4" data-track-index="3">
+  <div class="wash a" data-layout-ignore></div><div class="grid" data-layout-ignore></div>
+  <div class="top"><p class="kicker">The middle path · 03</p><p class="meta">Web first · research faithful</p></div>
+  <div class="copy"><h1 class="headline">Enough fidelity to inspect. <em>Simple enough to travel.</em></h1><p class="deck">Drop the same live structure into a paper, a slide, or a classroom. The data remains visible wherever the explanation goes.</p><div class="tags"><span class="tag">Paper</span><span class="tag">Slide</span><span class="tag">Classroom</span></div></div>
+  <div class="visual-card"><img src="assets/images/middle-path.png" alt="Molecule in a browser surrounded by documents and classroom media"><p class="visual-label">One structure · many contexts</p></div>
+  <div class="rail"><p><strong>NO INSTALLATION · NO ACCOUNT</strong></p><p>DATA / OBSERVER</p></div>
+</section>
+<section id="scene-4" class="scene clip native" data-start="43.9" data-duration="19.1" data-track-index="4">
+  <div class="wash b" data-layout-ignore></div>
+  <div class="top"><p class="kicker">Three jobs · 04</p><p class="meta">Show · measure · travel</p></div>
+  <div class="copy"><h1 class="headline">Inspection is a <em>continuous act.</em></h1><p class="deck">Render standard structures faithfully. Put distance, angle, and coordination one click away. Let every result move with a link.</p><div class="job-list"><div class="job">01<br>Show</div><div class="job">02<br>Measure</div><div class="job">03<br>Share</div></div></div>
+  <div class="visual-card contain"><img src="assets/native/three-jobs.svg" alt="Three jobs diagram connecting viewing, measurement, and sharing"><p class="visual-label">Claim → inspection → link</p></div>
+  <div class="rail"><p>STANDARD FORMATS · EXPOSED DATA</p><p>A CLICK AWAY</p></div>
+</section>
+<section id="scene-5" class="scene clip native" data-start="63" data-duration="9.96" data-track-index="5">
+  <div class="wash a" data-layout-ignore></div><div class="grid" data-layout-ignore></div>
+  <div class="top"><p class="kicker">Verification layer · 05</p><p class="meta">What it is · why it can be made</p></div>
+  <div class="copy"><h1 class="headline">The picture is only the <em>front of the record.</em></h1><p class="deck">Commitments, simulations, and certificates remain connected to the structure—an inspectable chain of makeability.</p></div>
+  <div class="visual-card contain"><img src="assets/native/verification-chain.svg" alt="Verification chain from commitments through simulations and certificates to a molecular structure"><p class="visual-label">Formalized makeability record</p></div>
+  <div class="rail"><p>COMMITMENTS → SIMULATIONS → CERTIFICATES</p><p>CHAIN OF TRUST</p></div>
+</section>
+<section id="scene-6" class="scene clip" data-start="72.96" data-duration="19.26" data-track-index="6">
+  <div class="wash b" data-layout-ignore></div>
+  <div class="top"><p class="kicker">Why now · 06</p><p class="meta">Rendering · abundance · openness</p></div>
+  <div class="copy"><h1 class="headline">Every generated structure needs <em>a URL, not a filename.</em></h1><p class="deck">Browser graphics are ready. Generative output is accelerating. Open science expects public, inspectable interfaces.</p></div>
+  <div class="visual-card"><img src="assets/images/invitation.png" alt="GPU and data streams converging into a browser-native public viewer"><div class="now-stack"><div class="now-row"><b>01</b><span>WebGL + WebGPU</span></div><div class="now-row"><b>02</b><span>Generative abundance</span></div><div class="now-row"><b>03</b><span>Open science norms</span></div></div><p class="visual-label">Three forces · one interface</p></div>
+  <div class="rail"><p>PUBLIC · INSPECTABLE · ORDINARY DEVICES</p><p>THE INTERFACE FOR DISCOVERY</p></div>
+</section>
+<section id="end-card" class="scene clip end" data-start="92.22" data-duration="7.24" data-track-index="7">
+  <div class="ring" data-layout-ignore></div><img class="end-mark" src="assets/brand/lupine-science-mark.svg" alt="Lupine Science"><p class="end-kicker">LUPI · LIVE MOLECULAR VIEWER</p>
+  <h1>Walk up to a structure. <em>Understand it in seconds.</em></h1><p class="url">VISIT LUPI.LIVE</p><p class="proof">TRY IT · BREAK IT · REPORT WHAT IS NEEDED</p>
+</section>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<script>
+window.__timelines=window.__timelines||{};
+const tl=gsap.timeline({paused:true});
+const scenes=[
+  {id:'#scene-1',s:0,e:15.52},{id:'#scene-2',s:15.52,e:30.5},{id:'#scene-3',s:30.5,e:43.9},
+  {id:'#scene-4',s:43.9,e:63},{id:'#scene-5',s:63,e:72.96},{id:'#scene-6',s:72.96,e:92.22},{id:'#end-card',s:92.22,e:99.46}
+];
+scenes.forEach((scene,index)=>{
+  tl.set(scene.id,{opacity:1},scene.s);
+  if(index>0)tl.set(scenes[index-1].id,{opacity:0},scene.s);
+  if(index===0||scene.id==='#end-card')return;
+  tl.fromTo(scene.id+' .headline',{y:58},{y:0,duration:.55,ease:'expo.out',immediateRender:false},scene.s+.02);
+  tl.fromTo(scene.id+' .deck',{x:-42},{x:0,duration:.5,ease:'power3.out',immediateRender:false},scene.s+.16);
+  tl.fromTo(scene.id+' .visual-card',{scale:.94},{scale:1,duration:.62,ease:'back.out(1.35)',immediateRender:false},scene.s+.08);
+});
+tl.fromTo('#scene-1 .visual-card',{scale:.965},{scale:1,duration:1.1,ease:'power2.out',immediateRender:false},0);
+tl.fromTo('#scene-1 .tag',{scale:.86,opacity:.55},{scale:1,opacity:1,duration:.45,stagger:.1,ease:'back.out(1.6)',immediateRender:false},.35);
+tl.fromTo('#scene-4 .job',{scale:.82,rotation:-3},{scale:1,rotation:0,duration:.46,stagger:.16,ease:'back.out(1.7)',immediateRender:false},44.6);
+tl.fromTo('#scene-6 .now-row',{x:70},{x:0,duration:.5,stagger:.28,ease:'power3.out',immediateRender:false},73.71);
+['#scene-1 .wash','#scene-2 .wash','#scene-3 .wash','#scene-4 .wash','#scene-5 .wash','#scene-6 .wash'].forEach((sel,i)=>{
+  const start=scenes[i].s;const span=scenes[i].e-start;tl.fromTo(sel,{scale:.94,opacity:.7},{scale:1.06,opacity:1,duration:span,ease:'sine.inOut',immediateRender:false},start);
+});
+tl.set('#end-card',{opacity:1},92.22);tl.set('#scene-6',{opacity:0},92.22);
+tl.fromTo('#end-card h1',{y:46},{y:0,duration:.7,ease:'expo.out',immediateRender:false},92.22);
+tl.fromTo('#end-card .ring',{scale:.96,opacity:.75},{scale:1.02,opacity:1,duration:2.5,ease:'sine.out',immediateRender:false},92.22);
+window.__timelines['why-lupi']=tl;
+</script>
+</body>
+</html>

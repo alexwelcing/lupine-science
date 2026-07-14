@@ -1,0 +1,16 @@
+{
+  "slug": "a-field-not-a-neural-net",
+  "generated_at": "2026-07-13T23:42:35.271Z",
+  "voice": {
+    "endpoint": "fal-ai/elevenlabs/tts/turbo-v2.5",
+    "voice": "Adam",
+    "speed": 1,
+    "seed": 42
+  },
+  "tts": {
+    "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/a-field-not-a-neural-net/assets/audio/a-field-not-a-neural-net-narration.mp3",
+    "url": "https://v3b.fal.media/files/b/0aa225a3/N4bylW0s32OFxOrp2BrHD_output.mp3",
+    "sha256": "b3f5fe9081b2ce176e3e7954d7807042b15c51c47a034a8561fe2a66bb3c6dd8"
+  },
+  "images": []
+}

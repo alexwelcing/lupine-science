@@ -1,0 +1,16 @@
+{
+  "slug": "the-02-percent-synthesis-problem",
+  "generated_at": "2026-07-13T22:31:26.135Z",
+  "voice": {
+    "endpoint": "fal-ai/elevenlabs/tts/turbo-v2.5",
+    "voice": "Adam",
+    "speed": 1,
+    "seed": 42
+  },
+  "tts": {
+    "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/prototype-01-the-02-percent-synthesis-problem/assets/audio/the-02-percent-synthesis-problem-narration.mp3",
+    "url": "https://v3b.fal.media/files/b/0aa223ec/aDJ_eGQzMwjhbHJTMu5c-_output.mp3",
+    "sha256": "69ce657dc89063d0bfcbd7311b3b5716da668fd3d791de37a3d3ca74351ae5c1"
+  },
+  "images": []
+}

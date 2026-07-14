@@ -1,0 +1,16 @@
+{
+  "slug": "from-fantasy-frameworks-to-makeable-materials",
+  "generated_at": "2026-07-13T23:45:24.304Z",
+  "voice": {
+    "endpoint": "fal-ai/elevenlabs/tts/turbo-v2.5",
+    "voice": "Adam",
+    "speed": 1,
+    "seed": 42
+  },
+  "tts": {
+    "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/from-fantasy-frameworks-to-makeable-materials/assets/audio/from-fantasy-frameworks-to-makeable-materials-narration.mp3",
+    "url": "https://v3b.fal.media/files/b/0aa225a8/2HbRXS6ut7sXjKEHt0a_Z_output.mp3",
+    "sha256": "2d7a2b1d332d101faf4cab5559b34c0ebd110659d7f51c58a0bfb973e9458d31"
+  },
+  "images": []
+}

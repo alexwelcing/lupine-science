@@ -1,0 +1,16 @@
+{
+  "slug": "the-order-is-right-the-size-is-wrong",
+  "generated_at": "2026-07-13T23:49:14.024Z",
+  "voice": {
+    "endpoint": "fal-ai/elevenlabs/tts/turbo-v2.5",
+    "voice": "Adam",
+    "speed": 1,
+    "seed": 42
+  },
+  "tts": {
+    "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/the-order-is-right-the-size-is-wrong/assets/audio/the-order-is-right-the-size-is-wrong-narration.mp3",
+    "url": "https://v3b.fal.media/files/b/0aa225bf/Ty0hyf2O7A3j7xv9EYeZQ_output.mp3",
+    "sha256": "2602d99d73620d87bcb3d638b8561f08928b5937ccb974c97c406e278abefc4a"
+  },
+  "images": []
+}

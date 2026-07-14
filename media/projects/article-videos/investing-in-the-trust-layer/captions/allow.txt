@@ -1,0 +1,6 @@
+DeepMind
+LAMMPS
+observables
+Lupine
+CHGNet
+MACE

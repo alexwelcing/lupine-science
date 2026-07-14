@@ -1,0 +1,153 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.900
+AI can generate millions of possible materials, simulate them in microseconds,
+
+2
+00:00:03.900 --> 00:00:06.500
+and send robots to synthesize them around the clock.
+
+3
+00:00:07.240 --> 00:00:08.220
+So what is scarce now?
+
+4
+00:00:08.900 --> 00:00:09.420
+Not ideas.
+
+5
+00:00:10.140 --> 00:00:10.780
+Not compute.
+
+6
+00:00:11.500 --> 00:00:13.300
+The scarce resource is believing the result.
+
+7
+00:00:14.100 --> 00:00:17.520
+Google DeepMind reported 380,000 stable crystal predictions.
+
+8
+00:00:18.320 --> 00:00:22.820
+By late 2023, only 736 had been independently synthesized.
+
+9
+00:00:23.340 --> 00:00:25.320
+That is zero point two percent.
+
+10
+00:00:25.320 --> 00:00:27.540
+Every false positive wastes lab weeks.
+
+11
+00:00:28.180 --> 00:00:31.500
+Every false negative can bury a climate material we needed yesterday.
+
+12
+00:00:32.340 --> 00:00:35.767
+Lupine sits between prediction and synthesis—not replacing generators or
+
+13
+00:00:35.767 --> 00:00:37.480
+simulators, but checking their work.
+
+14
+00:00:38.200 --> 00:00:41.992
+It measures systematic model error, corrects that error at runtime, and proves
+
+15
+00:00:41.992 --> 00:00:44.180
+which claims a laboratory can actually trust.
+
+16
+00:00:44.920 --> 00:00:46.100
+The moat has three parts.
+
+17
+00:00:46.900 --> 00:00:50.550
+First: a measured error field, anchored by standard observables—not another
+
+18
+00:00:50.550 --> 00:00:53.080
+neural net that needs retraining for every material.
+
+19
+00:00:53.720 --> 00:00:58.140
+Second: 77 build-locked Lean 4 theorems, with zero unproven shortcuts.
+
+20
+00:00:59.160 --> 00:01:03.240
+Third: a LAMMPS runtime overlay that works beside tools like C-H-G net and MACE.
+
+21
+00:01:04.000 --> 00:01:06.640
+Today, it adds 15.6 percent overhead.
+
+22
+00:01:07.280 --> 00:01:09.170
+Compiled, the target is below one percent.
+
+23
+00:01:09.700 --> 00:01:11.700
+And the proof layer is not decorative.
+
+24
+00:01:12.580 --> 00:01:16.698
+Lean once rejected a claim that passed statistical filtering, changing 27
+
+25
+00:01:16.698 --> 00:01:17.600
+successes to 26.
+
+26
+00:01:18.240 --> 00:01:21.887
+That is the product in miniature: trustworthy infrastructure has to catch its
+
+27
+00:01:21.887 --> 00:01:24.540
+own mistakes—and say no when the evidence does not hold.
+
+28
+00:01:25.240 --> 00:01:27.500
+Each screening campaign adds measured bias data.
+
+29
+00:01:28.240 --> 00:01:30.080
+Each experiment tightens the next prediction.
+
+30
+00:01:30.840 --> 00:01:32.820
+Each theorem expands the verified boundary.
+
+31
+00:01:33.580 --> 00:01:36.320
+What is proven today is the field for face-centered-cubic metals.
+
+32
+00:01:37.180 --> 00:01:40.923
+Extending it to other crystal families—and securing industrial validation—is
+
+33
+00:01:40.923 --> 00:01:41.760
+still work ahead.
+
+34
+00:01:42.460 --> 00:01:43.840
+That honesty is part of the moat.
+
+35
+00:01:44.480 --> 00:01:46.560
+So this is not a bet on one magic material.
+
+36
+00:01:47.180 --> 00:01:50.630
+It is a bet on the trust layer that makes discovery more capital-efficient:
+
+37
+00:01:50.630 --> 00:01:54.218
+fewer predictions, better defended, reaching the lab before the climate window
+
+38
+00:01:54.218 --> 00:01:54.540
+closes.

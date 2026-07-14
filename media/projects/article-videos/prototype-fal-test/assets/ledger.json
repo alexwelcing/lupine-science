@@ -1,0 +1,23 @@
+{
+  "slug": "fal-engine-test",
+  "generated_at": "2026-07-13T14:47:47.960Z",
+  "voice": {
+    "endpoint": "fal-ai/elevenlabs/tts/turbo-v2.5",
+    "voice": "Jessica",
+    "speed": 1,
+    "seed": 42
+  },
+  "tts": {
+    "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/prototype-fal-test/assets/audio/fal-engine-test-narration.mp3",
+    "url": "https://v3b.fal.media/files/b/0aa2190e/8tqOD1hRNhChFfi8o3vgZ_output.mp3",
+    "sha256": "1d418930b13197d76cfc68cc94f6a0ce1268379807d572ad32e6db3467a0b711"
+  },
+  "images": [
+    {
+      "scene": "hook",
+      "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/prototype-fal-test/assets/images/hook.png",
+      "url": "https://v3b.fal.media/files/b/0aa2190e/mmtOJIH5Imh4-a8m5r-Fk.png",
+      "sha256": "ea515572b47396f0af81fbcdb8bc57b38c1fca28e90d2415cad4e777e1eceb85"
+    }
+  ]
+}

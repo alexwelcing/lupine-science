@@ -1,0 +1,16 @@
+{
+  "slug": "from-predicted-crystal-to-commercial-cell",
+  "generated_at": "2026-07-13T23:46:00.007Z",
+  "voice": {
+    "endpoint": "fal-ai/elevenlabs/tts/turbo-v2.5",
+    "voice": "Adam",
+    "speed": 1,
+    "seed": 42
+  },
+  "tts": {
+    "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/from-predicted-crystal-to-commercial-cell/assets/audio/from-predicted-crystal-to-commercial-cell-narration.mp3",
+    "url": "https://v3b.fal.media/files/b/0aa225b8/_x1o3eVk5n09f6wHw16h3_output.mp3",
+    "sha256": "114e7896aea7f2293f6251d6cf4d8677d7c0c43f5e274d1a271e855a2e5792a7"
+  },
+  "images": []
+}

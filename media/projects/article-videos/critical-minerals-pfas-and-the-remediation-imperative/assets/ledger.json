@@ -1,0 +1,16 @@
+{
+  "slug": "critical-minerals-pfas-and-the-remediation-imperative",
+  "generated_at": "2026-07-13T23:44:20.292Z",
+  "voice": {
+    "endpoint": "fal-ai/elevenlabs/tts/turbo-v2.5",
+    "voice": "Adam",
+    "speed": 1,
+    "seed": 42
+  },
+  "tts": {
+    "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/critical-minerals-pfas-and-the-remediation-imperative/assets/audio/critical-minerals-pfas-and-the-remediation-imperative-narration.mp3",
+    "url": "https://v3b.fal.media/files/b/0aa225a1/d-qK5qcYz9uEJPkrOBxno_output.mp3",
+    "sha256": "e31c78f9c8b61cadbc8fef1b8e9cc28772d30c2bceda9c8205340815fe30c2d1"
+  },
+  "images": []
+}

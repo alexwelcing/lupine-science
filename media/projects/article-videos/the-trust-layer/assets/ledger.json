@@ -1,0 +1,16 @@
+{
+  "slug": "the-trust-layer",
+  "generated_at": "2026-07-13T23:49:58.633Z",
+  "voice": {
+    "endpoint": "fal-ai/elevenlabs/tts/turbo-v2.5",
+    "voice": "Adam",
+    "speed": 1,
+    "seed": 42
+  },
+  "tts": {
+    "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/the-trust-layer/assets/audio/the-trust-layer-narration.mp3",
+    "url": "https://v3b.fal.media/files/b/0aa225cf/V4eFx9hgVGbppA-j7ff91_output.mp3",
+    "sha256": "185494255850ae5d45817aa057f4eeb7c3030ccdb0e2774ea2fe80d81b8c4d7b"
+  },
+  "images": []
+}

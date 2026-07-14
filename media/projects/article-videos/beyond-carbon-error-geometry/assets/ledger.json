@@ -1,0 +1,16 @@
+{
+  "slug": "beyond-carbon-the-error-geometry-of-environmental-materials",
+  "generated_at": "2026-07-13T22:28:40.629Z",
+  "voice": {
+    "endpoint": "fal-ai/elevenlabs/tts/turbo-v2.5",
+    "voice": "Adam",
+    "speed": 1,
+    "seed": 42
+  },
+  "tts": {
+    "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/beyond-carbon-error-geometry/assets/audio/beyond-carbon-the-error-geometry-of-environmental-materials-narration.mp3",
+    "url": "https://v3b.fal.media/files/b/0aa223db/HhlfBWVqegbcHobMQ9DUU_output.mp3",
+    "sha256": "54288fc0886a7dcd1da6863ded92b7ac6304beec26de9a03c78716c66bb25265"
+  },
+  "images": []
+}

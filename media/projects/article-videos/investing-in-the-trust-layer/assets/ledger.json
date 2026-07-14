@@ -1,0 +1,16 @@
+{
+  "slug": "investing-in-the-trust-layer",
+  "generated_at": "2026-07-13T23:46:39.225Z",
+  "voice": {
+    "endpoint": "fal-ai/elevenlabs/tts/turbo-v2.5",
+    "voice": "Adam",
+    "speed": 1,
+    "seed": 42
+  },
+  "tts": {
+    "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/investing-in-the-trust-layer/assets/audio/investing-in-the-trust-layer-narration.mp3",
+    "url": "https://v3b.fal.media/files/b/0aa225bb/CVJakrrHoWFyLuJQh1ulU_output.mp3",
+    "sha256": "4ca13e5416bdbe065aed636b6cca54bf6e86fd5f0ef47fccedb16f2a2651736d"
+  },
+  "images": []
+}

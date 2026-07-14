@@ -1,0 +1,15 @@
+{
+  "duration": 99.46,
+  "assertions": [
+    {"kind":"appearsBy","selector":"#opening-mark","bySec":0.1},
+    {"kind":"appearsBy","selector":"#scene-1 .headline","bySec":0.1},
+    {"kind":"staysInFrame","selector":"#scene-1 .visual-card"},
+    {"kind":"staysInFrame","selector":"#scene-2 .headline"},
+    {"kind":"staysInFrame","selector":"#scene-3 .headline"},
+    {"kind":"staysInFrame","selector":"#scene-4 .visual-card"},
+    {"kind":"staysInFrame","selector":"#scene-5 .visual-card"},
+    {"kind":"staysInFrame","selector":"#scene-6 .headline"},
+    {"kind":"staysInFrame","selector":"#end-card h1"},
+    {"kind":"keepsMoving","withinSelector":"#why-lupi","maxStaticSec":9.5}
+  ]
+}

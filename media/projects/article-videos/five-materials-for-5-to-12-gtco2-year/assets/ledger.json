@@ -1,0 +1,16 @@
+{
+  "slug": "five-materials-for-5-to-12-gtco2-year",
+  "generated_at": "2026-07-13T23:44:56.101Z",
+  "voice": {
+    "endpoint": "fal-ai/elevenlabs/tts/turbo-v2.5",
+    "voice": "Adam",
+    "speed": 1,
+    "seed": 42
+  },
+  "tts": {
+    "path": "/home/alex/Dev/lupine/lupine-science/media/projects/article-videos/five-materials-for-5-to-12-gtco2-year/assets/audio/five-materials-for-5-to-12-gtco2-year-narration.mp3",
+    "url": "https://v3b.fal.media/files/b/0aa225b1/k5RfNDn67DVbv99JqA4fJ_output.mp3",
+    "sha256": "6c2118d7f0536c9d521b8a8b8b9fcc7a9b2004be5fb04d9e2ba6cbd7f6c0c32d"
+  },
+  "images": []
+}
