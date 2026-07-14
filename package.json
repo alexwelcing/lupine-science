@@ -24,6 +24,7 @@
     "shots": "node scripts/dev/screenshot.mjs",
     "perf": "node scripts/dev/perf-report.mjs",
     "a11y:audit": "node scripts/accessibility-audit.mjs",
+    "review:videos": "node scripts/video-quality-reviewer.mjs",
     "monitor:laptop": "node scripts/monitoring/laptop-diagnostics.mjs",
     "monitor:cleanup": "bash scripts/monitoring/cleanup-hermes-artifacts.sh"
   },
@@ -46,6 +47,7 @@
     "pngjs": "^7.0.0",
     "sharp": "0.35.3",
     "subset-font": "2.5.0",
+    "tesseract.js": "^5.1.1",
     "typescript": "^7.0.2"
   }
 }

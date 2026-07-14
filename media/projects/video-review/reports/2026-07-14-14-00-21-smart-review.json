@@ -1,0 +1,765 @@
+{
+  "generatedAt": "2026-07-14T14:00:21.667Z",
+  "videos": [
+    {
+      "slug": "a-field-not-a-neural-net",
+      "file": "a-field-not-a-neural-net.mp4",
+      "technical": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "poster": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "suspect words: wyediction"
+        ]
+      },
+      "captions": {
+        "score": 20,
+        "max": 20,
+        "notes": []
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 95,
+      "max": 100,
+      "duration": 135.261995,
+      "loudness": {
+        "integrated": -16.5,
+        "lra": 2.3,
+        "threshold": -26.7
+      },
+      "posterOcr": {
+        "preview": "Three anchors fix the field\n_ blind\n> i wyediction\n(11007 surface\n~\n11) surface\nvacancy\ncoordination c¢\nbulk P(12)=0\nLupine measures the error field from three standard observables and fixes it to zero in the bulk; everything below the\nlowest anchor is a true blind prediction.\n",
+        "wordCount": 47
+      }
+    },
+    {
+      "slug": "a-smooth-environment-resolved-error-field",
+      "file": "a-smooth-environment-resolved-error-field.mp4",
+      "technical": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "poster": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "captions": {
+        "score": 20,
+        "max": 20,
+        "notes": []
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 100,
+      "max": 100,
+      "duration": 111.255011,
+      "loudness": {
+        "integrated": -16.7,
+        "lra": 2.3,
+        "threshold": -26.8
+      },
+      "posterOcr": {
+        "preview": "AMA\nCE H\n5 @ SORES ¥\n“ 60 : 200 .\n: =\na H .\nwe §\ni | & i —\n; |: ! -\ni % =\n",
+        "wordCount": 31
+      }
+    },
+    {
+      "slug": "beyond-carbon-the-error-geometry-of-environmental-materials",
+      "file": "beyond-carbon-the-error-geometry-of-environmental-materials.mp4",
+      "technical": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "poster": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "suspect words: Défect/bu"
+        ]
+      },
+      "captions": {
+        "score": 20,
+        "max": 20,
+        "notes": []
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 10,
+        "max": 15,
+        "notes": [
+          "self-citation in poster: Lupine Science Strategic Discovery Plan"
+        ]
+      },
+      "total": 90,
+      "max": 100,
+      "duration": 134.53,
+      "loudness": {
+        "integrated": -17.1,
+        "lra": 2.3,
+        "threshold": -27.4
+      },
+      "posterOcr": {
+        "preview": "- -\nFrom Predicted Structure to Buried Breakthrough\nFilter 1 Filter 2 Filter 3 Filter 4\nPredicted - — rt Working\nstructure Défect/bu Combinatorial ae anking material\nasymmetry wall Se LLY inversion\nCN 4-8 millions of candidates hydrated phases wrong priorities\n15-60% softening thousands of linkers a",
+        "wordCount": 63
+      }
+    },
+    {
+      "slug": "cement-concrete-and-the-weight-of-the-built-world",
+      "file": "cement-concrete-and-the-weight-of-the-built-world.mp4",
+      "technical": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "poster": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "captions": {
+        "score": 20,
+        "max": 20,
+        "notes": []
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 100,
+      "max": 100,
+      "duration": 130.233333,
+      "loudness": {
+        "integrated": -16.8,
+        "lra": 2.2,
+        "threshold": -27
+      },
+      "posterOcr": {
+        "preview": "=\no~ |\nof Vis?\n— Md l= 4»\n",
+        "wordCount": 9
+      }
+    },
+    {
+      "slug": "critical-minerals-pfas-and-the-remediation-imperative",
+      "file": "critical-minerals-pfas-and-the-remediation-imperative.mp4",
+      "technical": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "poster": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "captions": {
+        "score": 20,
+        "max": 20,
+        "notes": []
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 100,
+      "max": 100,
+      "duration": 133.825011,
+      "loudness": {
+        "integrated": -17,
+        "lra": 2.1,
+        "threshold": -27.2
+      },
+      "posterOcr": {
+        "preview": "The Bond That Makes PFAS Forever\nC-F bond dissociation energy\n=~ 485 kJ mol?\nCommon organic bonds\nG-F 485\nC-H 413\nCc-C 348\n0 200 400\nBond dissociation energy (kJ mol-?\nSource: B. E. Smart, Kirk-Othmer Encyclopedia of Chemical Technology, 4th ed., Wiley, 1994\n",
+        "wordCount": 44
+      }
+    },
+    {
+      "slug": "five-materials-for-5-to-12-gtco2-year",
+      "file": "five-materials-for-5-to-12-gtco2-year.mp4",
+      "technical": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "poster": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "captions": {
+        "score": 20,
+        "max": 20,
+        "notes": []
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 100,
+      "max": 100,
+      "duration": 114.650998,
+      "loudness": {
+        "integrated": -16.8,
+        "lra": 2.4,
+        "threshold": -27
+      },
+      "posterOcr": {
+        "preview": "Measuring Error as a Physical Field, Then Correcting It\nMeasured\nobservables\nExperimental Error-field\nvalidation fit\nField\nupdate\nFormal Runtime\nverification correction\n* Error field anchored to measurable observables\n* Runtime correction target overhead <1%\n* 77 build-locked Lean 4 theorems, zero s",
+        "wordCount": 43
+      }
+    },
+    {
+      "slug": "from-fantasy-frameworks-to-makeable-materials",
+      "file": "from-fantasy-frameworks-to-makeable-materials.mp4",
+      "technical": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "poster": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "suspect words: rics"
+        ]
+      },
+      "captions": {
+        "score": 20,
+        "max": 20,
+        "notes": []
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 95,
+      "max": 100,
+      "duration": 108.266667,
+      "loudness": {
+        "integrated": -16.9,
+        "lra": 2.2,
+        "threshold": -27
+      },
+      "posterOcr": {
+        "preview": "& PEN { ke\nSURE\né cof BV) 8 ’ ¢\nrics\nA vet ) ‘\n",
+        "wordCount": 16
+      }
+    },
+    {
+      "slug": "from-predicted-crystal-to-commercial-cell",
+      "file": "from-predicted-crystal-to-commercial-cell.mp4",
+      "technical": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "poster": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "captions": {
+        "score": 20,
+        "max": 20,
+        "notes": []
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 100,
+      "max": 100,
+      "duration": 120.266667,
+      "loudness": {
+        "integrated": -17.1,
+        "lra": 2.2,
+        "threshold": -27.3
+      },
+      "posterOcr": {
+        "preview": "",
+        "wordCount": 0
+      }
+    },
+    {
+      "slug": "investing-in-the-trust-layer",
+      "file": "investing-in-the-trust-layer.mp4",
+      "technical": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "poster": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "suspect words: y111, y110"
+        ]
+      },
+      "captions": {
+        "score": 20,
+        "max": 20,
+        "notes": []
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 10,
+        "max": 15,
+        "notes": [
+          "self-citation in poster: Lupine Science error-field analysis"
+        ]
+      },
+      "total": 90,
+      "max": 100,
+      "duration": 139.128005,
+      "loudness": {
+        "integrated": -16.7,
+        "lra": 2.3,
+        "threshold": -26.8
+      },
+      "posterOcr": {
+        "preview": "Measured error field, not learned\n0.30 -\n3 == Measured error field P(c)\n\n0.25 ~ == : Blind prediction\n(5) pS\na\n5S ht oo surface\n5 y111 surface\n\n111\n\n£ 0.15\n[eo]\nO\ns 0.10\n=\n= Blind test Vacancy formation\n= 0.05 y110 surface\n=\n=)\n\n0.00\n\nBulk constraint\n—0.05 =\n7/ 8 9 10 11 12\nFirst-shell coordination ",
+        "wordCount": 68
+      }
+    },
+    {
+      "slug": "lupi-hfc-refrigerant-research-payloads",
+      "file": "lupi-hfc-refrigerant-research-payloads.mp4",
+      "technical": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "poster": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "suspect words: Cuttrans, Sroowe, Ufmtine, hetuure, pegher, compaibiity"
+        ]
+      },
+      "captions": {
+        "score": 20,
+        "max": 20,
+        "notes": []
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 95,
+      "max": 100,
+      "duration": 124.433333,
+      "loudness": {
+        "integrated": -17.4,
+        "lra": 2.1,
+        "threshold": -27.5
+      },
+      "posterOcr": {
+        "preview": "INI\nCuttrans\nSroowe\nUfmtine\nhetuure reatioal\npegher compaibiity\n10\nRefigerane Bsen\n",
+        "wordCount": 11
+      }
+    },
+    {
+      "slug": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers",
+      "file": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers.mp4",
+      "technical": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "poster": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "suspect words: ordinanian, Yigg, contrainte, ForcPE3@dcttol"
+        ]
+      },
+      "captions": {
+        "score": 20,
+        "max": 20,
+        "notes": []
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 95,
+      "max": 100,
+      "duration": 132.728005,
+      "loudness": {
+        "integrated": -16.6,
+        "lra": 2.6,
+        "threshold": -26.8
+      },
+      "posterOcr": {
+        "preview": "- 1 - 0\nLupine's Measured Environment Error Field\n>\n0.30 + Low ordinanian === Measured spline\nSine Yigg (109) == = Blind prediction\n0:25 AS\nS N\\\na\n= 020) Anchor 2\nt= (111)\n9 0.15\n= Local force correction\nc 0.104 Anchor 3\no VACANCY\n5 0.05 ® [4]\n[0] . 1 =\n—\n3 a —\n© 0.00 Be\n0.05 4 hy [3 contrainte ®\n' ",
+        "wordCount": 101
+      }
+    },
+    {
+      "slug": "rhizo-non-co2-climate-forcers-lean",
+      "file": "rhizo-non-co2-climate-forcers-lean.mp4",
+      "technical": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "poster": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "captions": {
+        "score": 20,
+        "max": 20,
+        "notes": []
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 100,
+      "max": 100,
+      "duration": 123.062993,
+      "loudness": {
+        "integrated": -16.3,
+        "lra": 2.7,
+        "threshold": -26.4
+      },
+      "posterOcr": {
+        "preview": "A\n|\n",
+        "wordCount": 2
+      }
+    },
+    {
+      "slug": "the-02-percent-synthesis-problem",
+      "file": "the-02-percent-synthesis-problem.mp4",
+      "technical": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "poster": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "captions": {
+        "score": 20,
+        "max": 20,
+        "notes": []
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 100,
+      "max": 100,
+      "duration": 114.756009,
+      "loudness": {
+        "integrated": -16.7,
+        "lra": 2.3,
+        "threshold": -26.9
+      },
+      "posterOcr": {
+        "preview": "- -\nWhere Universal Potentials Soften\nReference (DFT / experiment) Universal ML potential (uMLIP)\n\n> =>\n\noO o\n\n5 oN 5 ON\n\n= (=\n\n= Under-coordinated = Under-coordinated\n\nenvironment environment\nReaction coordinate Reaction coordinate\nSource: Deng et al., npj Comput. Mater. 2025\n",
+        "wordCount": 42
+      }
+    },
+    {
+      "slug": "the-order-is-right-the-size-is-wrong",
+      "file": "the-order-is-right-the-size-is-wrong.mp4",
+      "technical": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "poster": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "captions": {
+        "score": 20,
+        "max": 20,
+        "notes": []
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 100,
+      "max": 100,
+      "duration": 134.933333,
+      "loudness": {
+        "integrated": -16.8,
+        "lra": 2.4,
+        "threshold": -26.9
+      },
+      "posterOcr": {
+        "preview": "€ GE Xi L .— X\nam\n\n- rR |\n\n-=\n",
+        "wordCount": 11
+      }
+    },
+    {
+      "slug": "the-trust-layer",
+      "file": "the-trust-layer.mp4",
+      "technical": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "poster": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "suspect words: pem—_y"
+        ]
+      },
+      "captions": {
+        "score": 20,
+        "max": 20,
+        "notes": []
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 95,
+      "max": 100,
+      "duration": 106.527007,
+      "loudness": {
+        "integrated": -17.2,
+        "lra": 2.1,
+        "threshold": -27.3
+      },
+      "posterOcr": {
+        "preview": "Raf.\n¢ pem—_y\n0 A\n",
+        "wordCount": 5
+      }
+    },
+    {
+      "slug": "water-and-air-correcting-the-molecules-we-drink-and-breathe",
+      "file": "water-and-air-correcting-the-molecules-we-drink-and-breathe.mp4",
+      "technical": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "poster": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "suspect words: Inposite"
+        ]
+      },
+      "captions": {
+        "score": 20,
+        "max": 20,
+        "notes": []
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 95,
+      "max": 100,
+      "duration": 131.891995,
+      "loudness": {
+        "integrated": -16.4,
+        "lra": 2.5,
+        "threshold": -26.5
+      },
+      "posterOcr": {
+        "preview": "12.6%\nJ > - FF ” L\nInposite  @ ; 3 F\n0.24\n",
+        "wordCount": 13
+      }
+    },
+    {
+      "slug": "why-lupi",
+      "file": "why-lupi.mp4",
+      "technical": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "poster": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "captions": {
+        "score": 20,
+        "max": 20,
+        "notes": []
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 100,
+      "max": 100,
+      "duration": 112.733333,
+      "loudness": {
+        "integrated": -16.8,
+        "lra": 2.2,
+        "threshold": -27
+      },
+      "posterOcr": {
+        "preview": "~D\nNR, > ~~\n",
+        "wordCount": 4
+      }
+    },
+    {
+      "slug": "why-lupine-science",
+      "file": "why-lupine-science.mp4",
+      "technical": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "poster": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "suspect words: SERRE, SREY, Shei"
+        ]
+      },
+      "captions": {
+        "score": 20,
+        "max": 20,
+        "notes": []
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 95,
+      "max": 100,
+      "duration": 112.560998,
+      "loudness": {
+        "integrated": -16.6,
+        "lra": 2.4,
+        "threshold": -26.8
+      },
+      "posterOcr": {
+        "preview": "-\n5 - @ .\nLJ a5\n. CI\n. . He (3 pyc 4 \"\n5 Se 5 A a ee hg - 8 ®\nIR india CR >\n. oh aly 2 . RR - :\n@ iii 7 Et A . . b\n. ma dia: CAN 5 Bi g J TR & CR 8 » °\n3 Be - a A ME Tr v\nose Lo 3 SRS gb] \" . .\n. p, adi . SHI . y @\n- oa =o Sh CRI) Zag . 4\n® 0 1, Sn oa Fe ®\neo, ® . § ”~ Sh Se oe tad . s »\n(BP Ae SE a",
+        "wordCount": 175
+      }
+    }
+  ]
+}

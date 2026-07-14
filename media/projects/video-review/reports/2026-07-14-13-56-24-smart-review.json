@@ -1,0 +1,855 @@
+{
+  "generatedAt": "2026-07-14T13:56:24.004Z",
+  "videos": [
+    {
+      "slug": "a-field-not-a-neural-net",
+      "file": "a-field-not-a-neural-net.mp4",
+      "technical": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "sample rate 44100"
+        ]
+      },
+      "poster": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "gibberish/unknown words: wyediction, observables"
+        ]
+      },
+      "captions": {
+        "score": 16,
+        "max": 20,
+        "notes": [
+          "caption unknown words: deepmind, machine-learning, ion-migration, per-system, one-ten"
+        ]
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 86,
+      "max": 100,
+      "loudness": {
+        "integrated": -16.5,
+        "lra": 2.3,
+        "threshold": -26.7
+      },
+      "duration": 135.261995,
+      "posterOcr": {
+        "text": "Three anchors fix the field\n_ blind\n> i wyediction\n(11007 surface\n~\n11) surface\nvacancy\ncoordination c¢\nbulk P(12)=0\nLupine measures the error field from three standard observables and fixes it to zero in the bulk; everything below the\nlowest anchor is a true blind prediction.\n",
+        "confidence": 86
+      }
+    },
+    {
+      "slug": "a-smooth-environment-resolved-error-field",
+      "file": "a-smooth-environment-resolved-error-field.mp4",
+      "technical": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "sample rate 44100"
+        ]
+      },
+      "poster": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "low OCR confidence 48"
+        ]
+      },
+      "captions": {
+        "score": 16,
+        "max": 20,
+        "notes": [
+          "caption unknown words: machine-learned, interatomic, near-quantum, observables, defect-family"
+        ]
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 86,
+      "max": 100,
+      "loudness": {
+        "integrated": -16.7,
+        "lra": 2.3,
+        "threshold": -26.8
+      },
+      "duration": 111.255011,
+      "posterOcr": {
+        "text": "AMA\nCE H\n5 @ SORES ¥\n“ 60 : 200 .\n: =\na H .\nwe §\ni | & i —\n; |: ! -\ni % =\n",
+        "confidence": 48
+      }
+    },
+    {
+      "slug": "beyond-carbon-the-error-geometry-of-environmental-materials",
+      "file": "beyond-carbon-the-error-geometry-of-environmental-materials.mp4",
+      "technical": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "sample rate 44100"
+        ]
+      },
+      "poster": {
+        "score": 15,
+        "max": 25,
+        "notes": [
+          "gibberish/unknown words: fect, combinatorial, anking, 15-60, linkers, comput, mater"
+        ]
+      },
+      "captions": {
+        "score": 16,
+        "max": 20,
+        "notes": [
+          "caption unknown words: clean-air, low-carbon, climate-specific, coordination-specific, machine-learning"
+        ]
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 10,
+        "max": 15,
+        "notes": [
+          "self-citation in poster: Lupine Science Strategic Discovery Plan"
+        ]
+      },
+      "total": 76,
+      "max": 100,
+      "loudness": {
+        "integrated": -17.1,
+        "lra": 2.3,
+        "threshold": -27.4
+      },
+      "duration": 134.53,
+      "posterOcr": {
+        "text": "- -\nFrom Predicted Structure to Buried Breakthrough\nFilter 1 Filter 2 Filter 3 Filter 4\nPredicted - — rt Working\nstructure Défect/bu Combinatorial ae anking material\nasymmetry wall Se LLY inversion\nCN 4-8 millions of candidates hydrated phases wrong priorities\n15-60% softening thousands of linkers amorphous networks buried breakthroughs\nSources: Lupine Science Strategic Discovery Plan; Deng et al., npj Comput. Mater. 2025\n",
+        "confidence": 86
+      }
+    },
+    {
+      "slug": "cement-concrete-and-the-weight-of-the-built-world",
+      "file": "cement-concrete-and-the-weight-of-the-built-world.mp4",
+      "technical": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "sample rate 44100"
+        ]
+      },
+      "poster": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "low OCR confidence 31"
+        ]
+      },
+      "captions": {
+        "score": 16,
+        "max": 20,
+        "notes": [
+          "caption unknown words: gigatonnes, anthropogenic, calcination, feedstock, calcination"
+        ]
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 86,
+      "max": 100,
+      "loudness": {
+        "integrated": -16.8,
+        "lra": 2.2,
+        "threshold": -27
+      },
+      "duration": 130.233333,
+      "posterOcr": {
+        "text": "=\no~ |\nof Vis?\n— Md l= 4»\n",
+        "confidence": 31
+      }
+    },
+    {
+      "slug": "critical-minerals-pfas-and-the-remediation-imperative",
+      "file": "critical-minerals-pfas-and-the-remediation-imperative.mp4",
+      "technical": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "sample rate 44100"
+        ]
+      },
+      "poster": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "gibberish/unknown words: cc-c, mol-, kirk-othmer"
+        ]
+      },
+      "captions": {
+        "score": 16,
+        "max": 20,
+        "notes": [
+          "caption unknown words: clean-energy, sorbents, extractants, real-world, nanograms"
+        ]
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 86,
+      "max": 100,
+      "loudness": {
+        "integrated": -17,
+        "lra": 2.1,
+        "threshold": -27.2
+      },
+      "duration": 133.825011,
+      "posterOcr": {
+        "text": "The Bond That Makes PFAS Forever\nC-F bond dissociation energy\n=~ 485 kJ mol?\nCommon organic bonds\nG-F 485\nC-H 413\nCc-C 348\n0 200 400\nBond dissociation energy (kJ mol-?\nSource: B. E. Smart, Kirk-Othmer Encyclopedia of Chemical Technology, 4th ed., Wiley, 1994\n",
+        "confidence": 87
+      }
+    },
+    {
+      "slug": "five-materials-for-5-to-12-gtco2-year",
+      "file": "five-materials-for-5-to-12-gtco2-year.mp4",
+      "technical": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "sample rate 44100"
+        ]
+      },
+      "poster": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "gibberish/unknown words: observables, error-field, runtime, observables, runtime, build-locked"
+        ]
+      },
+      "captions": {
+        "score": 16,
+        "max": 20,
+        "notes": [
+          "caption unknown words: gigatons, cobalt-free, energy-hungry, haber-bosch, lead-free"
+        ]
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 86,
+      "max": 100,
+      "loudness": {
+        "integrated": -16.8,
+        "lra": 2.4,
+        "threshold": -27
+      },
+      "duration": 114.650998,
+      "posterOcr": {
+        "text": "Measuring Error as a Physical Field, Then Correcting It\nMeasured\nobservables\nExperimental Error-field\nvalidation fit\nField\nupdate\nFormal Runtime\nverification correction\n* Error field anchored to measurable observables\n* Runtime correction target overhead <1%\n* 77 build-locked Lean 4 theorems, zero sorry proofs\n",
+        "confidence": 90
+      }
+    },
+    {
+      "slug": "from-fantasy-frameworks-to-makeable-materials",
+      "file": "from-fantasy-frameworks-to-makeable-materials.mp4",
+      "technical": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "sample rate 44100"
+        ]
+      },
+      "poster": {
+        "score": 15,
+        "max": 25,
+        "notes": [
+          "gibberish/unknown words: rics",
+          "low OCR confidence 29"
+        ]
+      },
+      "captions": {
+        "score": 16,
+        "max": 20,
+        "notes": [
+          "caption unknown words: metal-organic, kinetically, ai-generated, mofs, makeability"
+        ]
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 81,
+      "max": 100,
+      "loudness": {
+        "integrated": -16.9,
+        "lra": 2.2,
+        "threshold": -27
+      },
+      "duration": 108.266667,
+      "posterOcr": {
+        "text": "& PEN { ke\nSURE\né cof BV) 8 ’ ¢\nrics\nA vet ) ‘\n",
+        "confidence": 29
+      }
+    },
+    {
+      "slug": "from-predicted-crystal-to-commercial-cell",
+      "file": "from-predicted-crystal-to-commercial-cell.mp4",
+      "technical": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "sample rate 44100"
+        ]
+      },
+      "poster": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "captions": {
+        "score": 16,
+        "max": 20,
+        "notes": [
+          "caption unknown words: handoffs, handoff, cobalt-free, lithium-manganese-rich, atomic-layer"
+        ]
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 91,
+      "max": 100,
+      "loudness": {
+        "integrated": -17.1,
+        "lra": 2.2,
+        "threshold": -27.3
+      },
+      "duration": 120.266667,
+      "posterOcr": {
+        "text": "",
+        "confidence": 0
+      }
+    },
+    {
+      "slug": "investing-in-the-trust-layer",
+      "file": "investing-in-the-trust-layer.mp4",
+      "technical": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "sample rate 44100"
+        ]
+      },
+      "poster": {
+        "score": 15,
+        "max": 25,
+        "notes": [
+          "gibberish/unknown words: y111, y110, first-shell, error-field"
+        ]
+      },
+      "captions": {
+        "score": 16,
+        "max": 20,
+        "notes": [
+          "caption unknown words: deepmind, machine-learned, runtime, observables, model-and-material"
+        ]
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 10,
+        "max": 15,
+        "notes": [
+          "self-citation in poster: Lupine Science error-field analysis"
+        ]
+      },
+      "total": 76,
+      "max": 100,
+      "loudness": {
+        "integrated": -16.7,
+        "lra": 2.3,
+        "threshold": -26.8
+      },
+      "duration": 139.128005,
+      "posterOcr": {
+        "text": "Measured error field, not learned\n0.30 -\n3 == Measured error field P(c)\n\n0.25 ~ == : Blind prediction\n(5) pS\na\n5S ht oo surface\n5 y111 surface\n\n111\n\n£ 0.15\n[eo]\nO\ns 0.10\n=\n= Blind test Vacancy formation\n= 0.05 y110 surface\n=\n=)\n\n0.00\n\nBulk constraint\n—0.05 =\n7/ 8 9 10 11 12\nFirst-shell coordination number c\nSource: Lupine Science error-field analysis\n",
+        "confidence": 80
+      }
+    },
+    {
+      "slug": "lupi-hfc-refrigerant-research-payloads",
+      "file": "lupi-hfc-refrigerant-research-payloads.mp4",
+      "technical": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "sample rate 44100"
+        ]
+      },
+      "poster": {
+        "score": 15,
+        "max": 25,
+        "notes": [
+          "gibberish/unknown words: cuttrans, sroowe, ufmtine, hetuure, reatioal, pegher, compaibiity, refigerane",
+          "low OCR confidence 41"
+        ]
+      },
+      "captions": {
+        "score": 16,
+        "max": 20,
+        "notes": [
+          "caption unknown words: hydrofluorocarbons, thermophysical, under-coordinated, machine-learning, inspectable"
+        ]
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 81,
+      "max": 100,
+      "loudness": {
+        "integrated": -17.4,
+        "lra": 2.1,
+        "threshold": -27.5
+      },
+      "duration": 124.433333,
+      "posterOcr": {
+        "text": "INI\nCuttrans\nSroowe\nUfmtine\nhetuure reatioal\npegher compaibiity\n10\nRefigerane Bsen\n",
+        "confidence": 41
+      }
+    },
+    {
+      "slug": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers",
+      "file": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers.mp4",
+      "technical": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "sample rate 44100"
+        ]
+      },
+      "poster": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "gibberish/unknown words: ordinanian, yigg, contrainte, forcpe3, dcttol"
+        ]
+      },
+      "captions": {
+        "score": 16,
+        "max": 20,
+        "notes": [
+          "caption unknown words: near-term, low-warming, atomistic, under-coordinated, carbon-hydrogen"
+        ]
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 86,
+      "max": 100,
+      "loudness": {
+        "integrated": -16.6,
+        "lra": 2.6,
+        "threshold": -26.8
+      },
+      "duration": 132.728005,
+      "posterOcr": {
+        "text": "- 1 - 0\nLupine's Measured Environment Error Field\n>\n0.30 + Low ordinanian === Measured spline\nSine Yigg (109) == = Blind prediction\n0:25 AS\nS N\\\na\n= 020) Anchor 2\nt= (111)\n9 0.15\n= Local force correction\nc 0.104 Anchor 3\no VACANCY\n5 0.05 ® [4]\n[0] . 1 =\n—\n3 a —\n© 0.00 Be\n0.05 4 hy [3 contrainte ®\n' Python overhead: 15.6% — compiled overlay: <1% ForcPE3@dcttol\n1 T 1 1 1] ll\n7 8 9 10 11 12\nLocal coordination number c\nSource: Lupine Science, Strategic Discovery Plan, Sections 2-3.\n",
+        "confidence": 66
+      }
+    },
+    {
+      "slug": "rhizo-non-co2-climate-forcers-lean",
+      "file": "rhizo-non-co2-climate-forcers-lean.mp4",
+      "technical": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "sample rate 44100"
+        ]
+      },
+      "poster": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "captions": {
+        "score": 16,
+        "max": 20,
+        "notes": [
+          "caption unknown words: nitrous, hydrofluorocarbon, hexafluoride, non-co, thirty-five"
+        ]
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 91,
+      "max": 100,
+      "loudness": {
+        "integrated": -16.3,
+        "lra": 2.7,
+        "threshold": -26.4
+      },
+      "duration": 123.062993,
+      "posterOcr": {
+        "text": "A\n|\n",
+        "confidence": 77
+      }
+    },
+    {
+      "slug": "the-02-percent-synthesis-problem",
+      "file": "the-02-percent-synthesis-problem.mp4",
+      "technical": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "sample rate 44100"
+        ]
+      },
+      "poster": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "gibberish/unknown words: under-coordinated, under-coordinated, comput, mater"
+        ]
+      },
+      "captions": {
+        "score": 16,
+        "max": 20,
+        "notes": [
+          "caption unknown words: thirty-six, synthesizability, ion-migration, milli-electronvolts, fifty-fold"
+        ]
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 86,
+      "max": 100,
+      "loudness": {
+        "integrated": -16.7,
+        "lra": 2.3,
+        "threshold": -26.9
+      },
+      "duration": 114.756009,
+      "posterOcr": {
+        "text": "- -\nWhere Universal Potentials Soften\nReference (DFT / experiment) Universal ML potential (uMLIP)\n\n> =>\n\noO o\n\n5 oN 5 ON\n\n= (=\n\n= Under-coordinated = Under-coordinated\n\nenvironment environment\nReaction coordinate Reaction coordinate\nSource: Deng et al., npj Comput. Mater. 2025\n",
+        "confidence": 81
+      }
+    },
+    {
+      "slug": "the-order-is-right-the-size-is-wrong",
+      "file": "the-order-is-right-the-size-is-wrong.mp4",
+      "technical": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "sample rate 44100"
+        ]
+      },
+      "poster": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "low OCR confidence 33"
+        ]
+      },
+      "captions": {
+        "score": 16,
+        "max": 20,
+        "notes": [
+          "caption unknown words: machine-learned, interatomic, density-functional, enthalpies, coupling-aware"
+        ]
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 86,
+      "max": 100,
+      "loudness": {
+        "integrated": -16.8,
+        "lra": 2.4,
+        "threshold": -26.9
+      },
+      "duration": 134.933333,
+      "posterOcr": {
+        "text": "€ GE Xi L .— X\nam\n\n- rR |\n\n-=\n",
+        "confidence": 33
+      }
+    },
+    {
+      "slug": "the-trust-layer",
+      "file": "the-trust-layer.mp4",
+      "technical": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "sample rate 44100"
+        ]
+      },
+      "poster": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "low OCR confidence 42"
+        ]
+      },
+      "captions": {
+        "score": 16,
+        "max": 20,
+        "notes": [
+          "caption unknown words: two-thirds, machine-learned, machine-checked, recomputes, shortlists"
+        ]
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 86,
+      "max": 100,
+      "loudness": {
+        "integrated": -17.2,
+        "lra": 2.1,
+        "threshold": -27.3
+      },
+      "duration": 106.527007,
+      "posterOcr": {
+        "text": "Raf.\n¢ pem—_y\n0 A\n",
+        "confidence": 42
+      }
+    },
+    {
+      "slug": "water-and-air-correcting-the-molecules-we-drink-and-breathe",
+      "file": "water-and-air-correcting-the-molecules-we-drink-and-breathe.mp4",
+      "technical": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "sample rate 44100"
+        ]
+      },
+      "poster": {
+        "score": 15,
+        "max": 25,
+        "notes": [
+          "gibberish/unknown words: inposite",
+          "low OCR confidence 40"
+        ]
+      },
+      "captions": {
+        "score": 16,
+        "max": 20,
+        "notes": [
+          "caption unknown words: materials-limited, machine-learning, sorbents, single-atom, sorbent"
+        ]
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 81,
+      "max": 100,
+      "loudness": {
+        "integrated": -16.4,
+        "lra": 2.5,
+        "threshold": -26.5
+      },
+      "duration": 131.891995,
+      "posterOcr": {
+        "text": "12.6%\nJ > - FF ” L\nInposite  @ ; 3 F\n0.24\n",
+        "confidence": 40
+      }
+    },
+    {
+      "slug": "why-lupi",
+      "file": "why-lupi.mp4",
+      "technical": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "sample rate 44100"
+        ]
+      },
+      "poster": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "low OCR confidence 10"
+        ]
+      },
+      "captions": {
+        "score": 16,
+        "max": 20,
+        "notes": [
+          "caption unknown words: web-native, makeability, browser-native, webgl, webgpu"
+        ]
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 86,
+      "max": 100,
+      "loudness": {
+        "integrated": -16.8,
+        "lra": 2.2,
+        "threshold": -27
+      },
+      "duration": 112.733333,
+      "posterOcr": {
+        "text": "~D\nNR, > ~~\n",
+        "confidence": 10
+      }
+    },
+    {
+      "slug": "why-lupine-science",
+      "file": "why-lupine-science.mp4",
+      "technical": {
+        "score": 20,
+        "max": 25,
+        "notes": [
+          "sample rate 44100"
+        ]
+      },
+      "poster": {
+        "score": 15,
+        "max": 25,
+        "notes": [
+          "gibberish/unknown words: serre, srey, shei",
+          "low OCR confidence 31"
+        ]
+      },
+      "captions": {
+        "score": 16,
+        "max": 20,
+        "notes": [
+          "caption unknown words: makeability, low-dimensional, makeability, first-class, black-box"
+        ]
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 81,
+      "max": 100,
+      "loudness": {
+        "integrated": -16.6,
+        "lra": 2.4,
+        "threshold": -26.8
+      },
+      "duration": 112.560998,
+      "posterOcr": {
+        "text": "-\n5 - @ .\nLJ a5\n. CI\n. . He (3 pyc 4 \"\n5 Se 5 A a ee hg - 8 ®\nIR india CR >\n. oh aly 2 . RR - :\n@ iii 7 Et A . . b\n. ma dia: CAN 5 Bi g J TR & CR 8 » °\n3 Be - a A ME Tr v\nose Lo 3 SRS gb] \" . .\n. p, adi . SHI . y @\n- oa =o Sh CRI) Zag . 4\n® 0 1, Sn oa Fe ®\neo, ® . § ”~ Sh Se oe tad . s »\n(BP Ae SE a. ..\nCre EE eg Th te A\n2 . ey PE ve te SERRE Ns 4 -\nPeer i ° ) . Bi or :\n. Ta Eo ™ | Re re\n° ot THN. : ; 5 0 REE A -\n2 3 oy oi 3\n. SREY ea Te Shei\n2 . .\n. . by\n-\n-\n",
+        "confidence": 31
+      }
+    }
+  ]
+}
