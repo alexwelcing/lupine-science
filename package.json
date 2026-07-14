@@ -8,6 +8,7 @@
   "scripts": {
     "build": "node scripts/build-articles.mjs && node scripts/build-sitemap.mjs && node scripts/build-headers.mjs && node scripts/build-result-graphics.mjs && node scripts/build-brand-patterns.mjs",
     "build:graphics": "node scripts/build-result-graphics.mjs",
+    "build:posters": "node scripts/build-video-posters.mjs",
     "lint": "node scripts/lint.mjs",
     "typecheck": "node scripts/typecheck.mjs",
     "test": "node --test \"tests/**/*.test.mjs\"",
@@ -32,6 +33,7 @@
     "node": ">=20.0.0"
   },
   "devDependencies": {
+    "@fal-ai/client": "^1.10.1",
     "@types/node": "^26.1.1",
     "axe-core": "^4.12.1",
     "chrome-launcher": "^1.2.1",

@@ -452,3 +452,61 @@ body.format-tutorial h2::before {
   content: '▶';
   font-size: 0.65rem;
 }
+
+/* Inline branded video player */
+.article-video-player {
+  margin: 2em 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 1.2em;
+}
+.video-player-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--indigo);
+  margin: 0 0 12px;
+  padding-left: 12px;
+  border-left: 2px solid var(--indigo-line);
+}
+.video-player-frame {
+  position: relative;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+.video-player-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #000;
+}
+.video-player-frame video::poster {
+  object-fit: cover;
+}
+.video-player-meta {
+  display: flex;
+  gap: 14px;
+  margin: 10px 0 0;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+.video-player-meta a {
+  color: var(--indigo);
+  text-decoration: underline;
+  text-decoration-color: var(--indigo-line);
+  text-underline-offset: 2px;
+}
+.video-player-meta a:hover {
+  text-decoration-color: var(--indigo);
+}
+@media (max-width: 600px) {
+  .video-player-frame {
+    aspect-ratio: 16 / 9;
+  }
+}

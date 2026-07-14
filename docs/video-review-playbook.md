@@ -217,3 +217,65 @@ A card may return to `ready` only after those criteria are present and the requi
 - [ ] Reviewer PASS is recorded.
 - [ ] Director silent and audio watches are recorded.
 - [ ] Director APPROVE is recorded before publication.
+
+## Encode settings for publication renders
+
+The committed `public/videos/<slug>.mp4` files are the canonical publication masters. Encode new renders with these settings so they pass `npm run review:videos` without technical notes.
+
+### Video
+
+- **Container:** MP4 (`.mp4`).
+- **Codec:** H.264 / AVC (`libx264` or hardware equivalent).
+- **Resolution:** 1920×1080 square pixels.
+- **Frame rate:** 30 fps constant (`-r 30`).
+- **Pixel format:** `yuv420p` for broad compatibility.
+- **Color range:** TV (limited) range preferred; tag `bt709` color primaries/transfer/matrix.
+- **Target bitrate:** 4–6 Mbps for 1080p30 talking-head / motion-graphic content.
+  - Use CQ/CRF 20–23 (`-crf 21 -preset slow`) for offline encodes.
+  - For two-pass or CBR delivery, target **5 Mbps** with a **6 Mbps** max rate and **12 Mbps** buffer (`-b:v 5M -maxrate 6M -bufsize 12M`).
+- **GOP:** closed-GOP, keyframe interval 2 seconds (`-g 60 -keyint_min 60`).
+- **Profile/level:** High@L4.0 or Main@L4.0.
+
+### Audio
+
+- **Codec:** AAC-LC (`libfdk_aac` or `aac`).
+- **Sample rate:** 44.1 kHz.
+- **Channels:** mono (1.0) for narration-first videos; stereo only when music/sfx are integral.
+- **Bitrate:** 128 kbps mono, 192 kbps stereo.
+- **Loudness target:** -16 LUFS integrated, ±2 LUFS tolerance.
+- **Loudness range (LRA):** ≤ 8 LU.
+- **True peak:** ≤ -1 dBTP.
+
+### Captions
+
+- **Format:** WebVTT (`.vtt`) alongside the MP4.
+- **Encoding:** UTF-8, no BOM.
+- **Timing:** monotonic, non-overlapping cues; final cue ends within video duration.
+- **Voice:** a calm, professional, technically credible narrator; avoid high-pitched or synthetic-sounding voices.
+
+### ffmpeg example (single pass)
+
+```bash
+ffmpeg -i source.mov \
+  -c:v libx264 -crf 21 -preset slow -r 30 -s 1920x1080 -pix_fmt yuv420p \
+  -color_primaries bt709 -color_trc bt709 -colorspace bt709 \
+  -g 60 -keyint_min 60 \
+  -c:a aac -ar 44100 -ac 1 -b:a 128k \
+  -af "loudnorm=I=-16:LRA=8:TP=-1" \
+  public/videos/<slug>.mp4
+```
+
+### 720p fallback
+
+For pages that need a lighter mobile variant, also produce a 1280×720 fallback at 2.5–3.5 Mbps using the same codec and loudness target. Name it `<slug>-720p.mp4` and reference it from the article `<video>` as a second `<source>` before the 1080p master.
+
+### Poster frame
+
+- Generate a clean 1920×1080 JPG with `scripts/build-video-posters.mjs`.
+- The background must contain no visible text, labels, numbers, or symbols.
+- The only allowed typography is the Sharp/SVG overlay added by the build script.
+- The reviewer OCRs the poster; any high-confidence gibberish in the background is a P0 rejection.
+
+### Quality gate
+
+Run `npm run review:videos -- --min-score 85` locally before pushing. The CI gate runs the same command and fails on P0 defects or an average score below 85.

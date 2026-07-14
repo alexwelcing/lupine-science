@@ -1,0 +1,198 @@
+{
+  "version": "2026-07-14",
+  "description": "Manifest for regenerating clean, text-free video poster frames. Prompts favor shallow depth-of-field photography and smooth gradients to avoid OCR artifacts; a Sharp/SVG overlay adds title, subtitle, and source line in brand type.",
+  "tokens": {
+    "paper": "#faf9f6",
+    "ink": "#16171d",
+    "indigo": "#3d4db3",
+    "indigoDeep": "#2e3a87",
+    "inkSoft": "#4c4e58",
+    "inkFaint": "#6e707a",
+    "serif": "Newsreader, Georgia, serif",
+    "mono": "IBM Plex Mono, ui-monospace, monospace"
+  },
+  "defaults": {
+    "width": 1920,
+    "height": 1080,
+    "image_size": "landscape_16_9",
+    "safety_tolerance": "2",
+    "overlay": {
+      "marginX": 80,
+      "marginY": 72,
+      "titleSize": 64,
+      "subtitleSize": 24,
+      "sourceSize": 16,
+      "lineHeight": 1.18,
+      "maxTitleWidth": 1180,
+      "position": "bottom-left",
+      "textColor": "#faf9f6",
+      "shadowColor": "rgba(22,23,29,0.55)",
+      "shadowBlur": 48
+    }
+  },
+  "negativePrompt": "no text, no letters, no words, no numbers, no labels, no captions, no typography, no watermark, no signature, no logo, no symbols, no icons, no grid lines, no chart lines, no diagrams, no fine line patterns, no handwriting, no UI elements, no interface chrome",
+  "posters": [
+    {
+      "slug": "a-field-not-a-neural-net",
+      "title": "A Field, Not a Neural Net",
+      "subtitle": "Measured error geometry of universal machine-learned potentials",
+      "source": "Lupine Science · Deng et al., npj Comput. Mater. 2025",
+      "prompt": "Cinematic macro photograph of a thin indigo light beam refracting through a clear prism on a paper-white surface, shallow depth of field, soft caustic highlights, clean scientific aesthetic. No text, no letters, no words, no numbers, no labels, no captions, no typography, no watermark, no signature, no logo, no symbols, no icons, no grid lines, no chart lines, no diagrams, no fine line patterns, no handwriting, no UI elements.",
+      "seed": 11028,
+      "overlay": { "position": "bottom-left", "textColor": "#16171d" }
+    },
+    {
+      "slug": "a-smooth-environment-resolved-error-field",
+      "title": "A Smooth Environment-Resolved Error Field",
+      "subtitle": "Runtime correction anchored to measurable observables",
+      "source": "Lupine Science · lupine-rhizo",
+      "prompt": "Soft abstract photograph of a single indigo silk ribbon drifting through warm haze, motion blur, shallow depth of field, smooth gradient background in paper white and pale indigo, editorial luxury aesthetic. No text, no letters, no words, no numbers, no labels, no captions, no typography, no watermark, no signature, no logo, no symbols, no icons, no grid lines, no chart lines, no diagrams, no fine line patterns, no handwriting, no UI elements.",
+      "seed": 22039,
+      "overlay": { "position": "bottom-left", "textColor": "#16171d" }
+    },
+    {
+      "slug": "beyond-carbon-the-error-geometry-of-environmental-materials",
+      "title": "Beyond Carbon",
+      "subtitle": "The error geometry of environmental materials",
+      "source": "Lupine Science · IPCC AR6 · Deng et al., npj Comput. Mater. 2025",
+      "prompt": "Cinematic photograph of seven soft out-of-focus indigo light orbs arranged in a gentle arc across a deep blue paper background, bokeh, shallow depth of field, subtle warm rim light, museum-quality abstract. No text, no letters, no words, no numbers, no labels, no captions, no typography, no watermark, no signature, no logo, no symbols, no icons, no grid lines, no chart lines, no diagrams, no fine line patterns, no handwriting, no UI elements.",
+      "seed": 33841,
+      "overlay": { "position": "bottom-left", "textColor": "#faf9f6" }
+    },
+    {
+      "slug": "cement-concrete-and-the-weight-of-the-built-world",
+      "title": "Cement, Concrete, and the Weight of the Built World",
+      "subtitle": "Low-carbon binders and the atomistic structure of hydrate",
+      "source": "Lupine Science · IEA Cement Technology Roadmap",
+      "prompt": "Abstract smooth gradient background in pale grey, warm sand, and paper white, subtle atmospheric haze, no texture, no objects, minimalist environmental portrait. No text, no letters, no words, no numbers, no labels, no captions, no typography, no watermark, no signature, no logo, no symbols, no icons, no grid lines, no chart lines, no diagrams, no fine line patterns, no handwriting, no UI elements.",
+      "seed": 44053,
+      "overlay": { "position": "bottom-left", "textColor": "#16171d" }
+    },
+    {
+      "slug": "critical-minerals-pfas-and-the-remediation-imperative",
+      "title": "Critical Minerals, PFAS, and the Remediation Imperative",
+      "subtitle": "The strongest bond in organic chemistry and how to break it",
+      "source": "Lupine Science · Kirk-Othmer Encyclopedia · Wiley",
+      "prompt": "Macro photograph of a single water droplet suspended on a fluorinated polymer surface, refracting soft indigo light, shallow depth of field, clean studio background, scientific luxury. No text, no letters, no words, no numbers, no labels, no captions, no typography, no watermark, no signature, no logo, no symbols, no icons, no grid lines, no chart lines, no diagrams, no fine line patterns, no handwriting, no UI elements.",
+      "seed": 55063,
+      "overlay": { "position": "bottom-left", "textColor": "#16171d" }
+    },
+    {
+      "slug": "five-materials-for-5-to-12-gtco2-year",
+      "title": "Five Materials for 5–12 GtCO₂/year",
+      "subtitle": "The material bottlenecks that could unlock gigatonne-scale abatement",
+      "source": "Lupine Science · IEA NZE 2050",
+      "prompt": "Abstract photograph of five soft indigo light points in a sparse constellation against a dark ink-blue background, bokeh, shallow depth of field, cinematic, no connecting lines. No text, no letters, no words, no numbers, no labels, no captions, no typography, no watermark, no signature, no logo, no symbols, no icons, no grid lines, no chart lines, no diagrams, no fine line patterns, no handwriting, no UI elements.",
+      "seed": 66074,
+      "overlay": { "position": "bottom-left", "textColor": "#faf9f6" }
+    },
+    {
+      "slug": "from-fantasy-frameworks-to-makeable-materials",
+      "title": "From Fantasy Frameworks to Makeable Materials",
+      "subtitle": "A prospectus for formalized MOF discovery",
+      "source": "Lupine Science · Chemical Science perspective",
+      "prompt": "Macro photograph of a translucent crystalline mineral cluster with soft indigo internal reflections, shallow depth of field, clean paper-white background, museum mineral specimen aesthetic. No text, no letters, no words, no numbers, no labels, no captions, no typography, no watermark, no signature, no logo, no symbols, no icons, no grid lines, no chart lines, no diagrams, no fine line patterns, no handwriting, no UI elements.",
+      "seed": 77085,
+      "overlay": { "position": "bottom-left", "textColor": "#16171d" }
+    },
+    {
+      "slug": "from-predicted-crystal-to-commercial-cell",
+      "title": "From Predicted Crystal to Commercial Cell",
+      "subtitle": "Closing the loop between computation and synthesis",
+      "source": "Lupine Science · A-Lab replication studies",
+      "prompt": "Cinematic photograph of a glowing crystal shard emerging from smooth liquid metal, shallow depth of field, indigo and silver tones, clean futuristic aesthetic, no visible circuitry. No text, no letters, no words, no numbers, no labels, no captions, no typography, no watermark, no signature, no logo, no symbols, no icons, no grid lines, no chart lines, no diagrams, no fine line patterns, no handwriting, no UI elements.",
+      "seed": 88097,
+      "overlay": { "position": "bottom-left", "textColor": "#faf9f6" }
+    },
+    {
+      "slug": "investing-in-the-trust-layer",
+      "title": "Investing in the Trust Layer",
+      "subtitle": "Why belief, not prediction volume, is the binding constraint",
+      "source": "Lupine Science · NIST MGI · ARPA-E portfolio data",
+      "prompt": "Abstract photograph of several pale indigo light beams converging in soft fog, shallow depth of field, smooth gradient from paper white to deep indigo, calm and authoritative mood. No text, no letters, no words, no numbers, no labels, no captions, no typography, no watermark, no signature, no logo, no symbols, no icons, no grid lines, no chart lines, no diagrams, no fine line patterns, no handwriting, no UI elements.",
+      "seed": 99107,
+      "overlay": { "position": "bottom-left", "textColor": "#16171d" }
+    },
+    {
+      "slug": "lupi-hfc-refrigerant-research-payloads",
+      "title": "Lupi Gains HFC Research Payloads",
+      "subtitle": "R32 and R125 trajectories with full per-atom telemetry",
+      "source": "Lupine Science · Maginn group force fields · LAMMPS NVT",
+      "prompt": "Macro photograph of transparent refrigerant bubbles rising through cool liquid, soft blue and indigo light, shallow depth of field, clean scientific instrument aesthetic. No text, no letters, no words, no numbers, no labels, no captions, no typography, no watermark, no signature, no logo, no symbols, no icons, no grid lines, no chart lines, no diagrams, no fine line patterns, no handwriting, no UI elements.",
+      "seed": 10218,
+      "overlay": { "position": "bottom-left", "textColor": "#16171d" }
+    },
+    {
+      "slug": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers",
+      "title": "Methane and Refrigerants",
+      "subtitle": "Cutting the non-CO₂ climate forcers",
+      "source": "Lupine Science · IPCC AR6 WGI · Kigali Amendment",
+      "prompt": "Abstract photograph of two soft luminous spheres, one warm ochre and one cool indigo, floating in hazy atmosphere, shallow depth of field, smooth gradients, cinematic environmental portrait. No text, no letters, no words, no numbers, no labels, no captions, no typography, no watermark, no signature, no logo, no symbols, no icons, no grid lines, no chart lines, no diagrams, no fine line patterns, no handwriting, no UI elements.",
+      "seed": 11329,
+      "overlay": { "position": "bottom-left", "textColor": "#faf9f6" }
+    },
+    {
+      "slug": "rhizo-non-co2-climate-forcers-lean",
+      "title": "Non-CO₂ Climate Forcers",
+      "subtitle": "Methane, N₂O, HFCs, and SF₆ formalized in Lean 4",
+      "source": "Lupine Science · IPCC AR6 WGI · lupine-rhizo",
+      "prompt": "Abstract photograph of four horizontal bands of soft colored haze, muted indigo, ochre, grey, and pale blue, stacked with gentle blur, minimalist data-art mood, no hard edges. No text, no letters, no words, no numbers, no labels, no captions, no typography, no watermark, no signature, no logo, no symbols, no icons, no grid lines, no chart lines, no diagrams, no fine line patterns, no handwriting, no UI elements.",
+      "seed": 22430,
+      "overlay": { "position": "bottom-left", "textColor": "#16171d" }
+    },
+    {
+      "slug": "the-02-percent-synthesis-problem",
+      "title": "The 0.2% Synthesis Problem",
+      "subtitle": "From millions of predicted crystals to a handful of validated materials",
+      "source": "Lupine Science · GNoME · A-Lab replication",
+      "prompt": "Abstract soft gradient background from deep indigo to pale paper blue, a single faint luminous point in the distance, smooth and texture-free, cinematic minimal. No text, no letters, no words, no numbers, no labels, no captions, no typography, no watermark, no signature, no logo, no symbols, no icons, no grid lines, no chart lines, no diagrams, no fine line patterns, no handwriting, no UI elements.",
+      "seed": 33542,
+      "overlay": { "position": "bottom-left", "textColor": "#16171d" }
+    },
+    {
+      "slug": "the-order-is-right-the-size-is-wrong",
+      "title": "The Order Is Right, the Size Is Wrong",
+      "subtitle": "A field note from the live benchmark lab",
+      "source": "Lupine Science · lupine-rhizo PR #14 · 228 reference values",
+      "prompt": "Abstract photograph of soft indigo comet trails streaking across a dark paper field, motion blur, shallow depth of field, all moving in the same direction, cinematic and minimal. No text, no letters, no words, no numbers, no labels, no captions, no typography, no watermark, no signature, no logo, no symbols, no icons, no grid lines, no chart lines, no diagrams, no fine line patterns, no handwriting, no UI elements.",
+      "seed": 44652,
+      "overlay": { "position": "bottom-left", "textColor": "#faf9f6" }
+    },
+    {
+      "slug": "the-trust-layer",
+      "title": "The Trust Layer",
+      "subtitle": "Measured error field, machine-checked proof, runtime correction",
+      "source": "Lupine Science · lupine-rhizo",
+      "prompt": "Soft abstract photograph of a single indigo ribbon knot floating in warm mist, shallow depth of field, smooth paper gradient, calm authoritative mood, no visible text. No text, no letters, no words, no numbers, no labels, no captions, no typography, no watermark, no signature, no logo, no symbols, no icons, no grid lines, no chart lines, no diagrams, no fine line patterns, no handwriting, no UI elements.",
+      "seed": 55763,
+      "overlay": { "position": "bottom-left", "textColor": "#16171d" }
+    },
+    {
+      "slug": "water-and-air-correcting-the-molecules-we-drink-and-breathe",
+      "title": "Water and Air",
+      "subtitle": "Correcting the molecules humans drink and breathe",
+      "source": "Lupine Science · UN World Water Development Report · WHO",
+      "prompt": "Cinematic macro photograph of a twisting splash of crystal-clear water frozen in motion, soft indigo and warm paper light, shallow depth of field, clean environmental editorial. No text, no letters, no words, no numbers, no labels, no captions, no typography, no watermark, no signature, no logo, no symbols, no icons, no grid lines, no chart lines, no diagrams, no fine line patterns, no handwriting, no UI elements.",
+      "seed": 66874,
+      "overlay": { "position": "bottom-left", "textColor": "#faf9f6" }
+    },
+    {
+      "slug": "why-lupi",
+      "title": "Why LUPI?",
+      "subtitle": "A browser-native molecular viewer for makeability",
+      "source": "Lupine Science · lupi.live",
+      "prompt": "Minimalist product photograph of a single glowing molecular model resting on a clean white surface, soft indigo light from one side, shallow depth of field, modern tech editorial. No text, no letters, no words, no numbers, no labels, no captions, no typography, no watermark, no signature, no logo, no symbols, no icons, no grid lines, no chart lines, no diagrams, no fine line patterns, no handwriting, no UI elements.",
+      "seed": 77985,
+      "overlay": { "position": "bottom-left", "textColor": "#16171d" }
+    },
+    {
+      "slug": "why-lupine-science",
+      "title": "Why Lupine Science?",
+      "subtitle": "Evidence before claim in computational materials discovery",
+      "source": "Lupine Science · lupine.science",
+      "prompt": "Abstract photograph of a single lupine flower in soft focus against a paper-white background, shallow depth of field, gentle indigo and green tones, botanical editorial, no visible text. No text, no letters, no words, no numbers, no labels, no captions, no typography, no watermark, no signature, no logo, no symbols, no icons, no grid lines, no chart lines, no diagrams, no fine line patterns, no handwriting, no UI elements.",
+      "seed": 88096,
+      "overlay": { "position": "bottom-left", "textColor": "#16171d" }
+    }
+  ]
+}

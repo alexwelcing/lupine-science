@@ -13,5 +13,6 @@ dist/
 public/.proofpack-render/
 public/proof-packs/
 media/projects/article-videos/
+media/projects/video-review/reports/.frame-samples/
 .worktrees/
 eng.traineddata

@@ -186,15 +186,34 @@ function formatStatus(status) {
 }
 
 
-function videoLink(slug) {
-  const mp4 = path.join(PUBLIC_ROOT, 'videos', `${slug}.mp4`);
-  if (!fs.existsSync(mp4)) return '';
-  return `<a class="article-video-link" href="/videos/${slug}.mp4" target="_blank" rel="noopener noreferrer">Watch the narrated version</a>`;
-}
+
 
 function publishedVideoUrl(slug) {
   const mp4 = path.join(PUBLIC_ROOT, 'videos', `${slug}.mp4`);
   return fs.existsSync(mp4) ? `${SITE}/videos/${slug}.mp4` : undefined;
+}
+
+function inlineVideoPlayer(slug, title) {
+  const mp4Path = path.join(PUBLIC_ROOT, 'videos', `${slug}.mp4`);
+  if (!fs.existsSync(mp4Path)) return '';
+  const posterPath = path.join(PUBLIC_ROOT, 'videos', `${slug}-poster.jpg`);
+  const vttPath = path.join(PUBLIC_ROOT, 'videos', `${slug}.vtt`);
+  const hasPoster = fs.existsSync(posterPath);
+  const hasCaptions = fs.existsSync(vttPath);
+  const posterAttr = hasPoster ? ` poster="${bust(`/videos/${slug}-poster.jpg`)}"` : '';
+  const captionsTrack = hasCaptions
+    ? `    <track kind="captions" src="/videos/${slug}.vtt" srclang="en" label="English" default>\n`
+    : '';
+  return `<figure class="article-video-player" aria-labelledby="video-label-${slug}">
+  <figcaption id="video-label-${slug}" class="video-player-label">Narrated summary: ${esc(title)}</figcaption>
+  <div class="video-player-frame">
+    <video controls preload="none" width="1920" height="1080"${posterAttr} aria-describedby="video-label-${slug}">
+      <source src="/videos/${slug}.mp4" type="video/mp4">
+${captionsTrack}      <p>Your browser does not support the video tag. <a href="/videos/${slug}.mp4" download>Download the MP4</a>.</p>
+    </video>
+  </div>
+  <p class="video-player-meta"><a href="/videos/${slug}.mp4" download>Download MP4</a> · ${hasCaptions ? `<a href="/videos/${slug}.vtt">Captions</a>` : 'Captions pending'}</p>
+</figure>`;
 }
 
 function absoluteSiteUrl(value) {
@@ -384,7 +403,7 @@ function buildArticle(raw, slug) {
     headerParts.push(`<ul class="article-byline" aria-label="Publication details">${datePart ? `<li>${datePart}</li>` : ''}${sep ? ` <li aria-hidden="true">${sep}</li>` : ''}${statusPart ? ` <li>${statusPart}</li>` : ''}</ul>`);
   }
   const hero = heroFigure(slug);
-  const video = videoLink(slug);
+  const video = inlineVideoPlayer(slug, title);
   if (headerParts.length || hero || video) {
     const inserted = [...headerParts, hero, video].filter(Boolean).join('\n');
     body = body.replace('</h1>', `</h1>\n${inserted}`);

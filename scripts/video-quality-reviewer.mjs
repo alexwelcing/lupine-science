@@ -13,6 +13,7 @@ import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { JSDOM } from 'jsdom';
+import sharp from 'sharp';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const VIDEOS_DIR = path.join(ROOT, 'public', 'videos');
@@ -26,6 +27,7 @@ const TARGET_FPS = 30;
 const LOUDNESS_TARGET = -16;
 const LOUDNESS_TOLERANCE = 2;
 const LRA_MAX = 8;
+const SAMPLE_STD_THRESHOLD = 12;
 
 const SELF_CITATION_PATTERNS = [
   /lupine science strategic discovery plan/i,
@@ -239,6 +241,93 @@ function bigramScore(token, model) {
   return n ? logSum / n : 0;
 }
 
+function parseArgs() {
+  const args = process.argv.slice(2);
+  const flags = {
+    minScore: 80,
+    failOnP0: true,
+    sampleFrames: true,
+    sampleStdThreshold: 12,
+  };
+  for (let i = 0; i < args.length; i++) {
+    const a = args[i];
+    if (a === '--min-score') flags.minScore = Number(args[++i]);
+    if (a === '--no-fail-on-p0') flags.failOnP0 = false;
+    if (a === '--no-sample-frames') flags.sampleFrames = false;
+    if (a === '--sample-std-threshold') flags.sampleStdThreshold = Number(args[++i]);
+  }
+  return flags;
+}
+
+function sampleTimes(duration, cues) {
+  const times = new Set();
+  if (duration && duration > 0) {
+    times.add(Math.max(0.5, duration * 0.25));
+    times.add(Math.max(1.0, duration * 0.5));
+    times.add(Math.min(duration - 0.5, duration * 0.75));
+  }
+  for (const cue of cues) {
+    if (cue.start > 0.2) times.add(cue.start);
+    if (cue.end < duration - 0.2) times.add(Math.max(0, cue.end - 0.1));
+  }
+  return Array.from(times).filter((t) => t > 0 && t < duration).sort((a, b) => a - b);
+}
+
+async function extractFrame(videoPath, time, outPath) {
+  const r = run('ffmpeg', [
+    '-ss', String(time),
+    '-i', videoPath,
+    '-frames:v', '1',
+    '-q:v', '2',
+    '-y',
+    outPath,
+  ]);
+  if (r.status !== 0) throw new Error(r.stderr);
+}
+
+async function frameStats(framePath) {
+  const { stats } = await sharp(framePath).stats();
+  const channels = stats.map((s) => s.std);
+  const avgStd = channels.reduce((a, b) => a + b, 0) / channels.length;
+  return { avgStd };
+}
+
+async function sampleFrames(videoPath, cues, slug, worker, dictionary, corpus, bigram, stdThreshold = SAMPLE_STD_THRESHOLD) {
+  const probe = ffprobeJson(videoPath);
+  const fmt = probe.format || {};
+  const duration = fmt.duration ? Number(fmt.duration) : null;
+  if (!duration) return { samples: [], blankFrames: [], ocrHits: [] };
+
+  const times = sampleTimes(duration, cues);
+  const samples = [];
+  const blankFrames = [];
+  const ocrHits = [];
+  const tmpDir = path.join(REPORT_DIR, '.frame-samples', slug);
+  await mkdir(tmpDir, { recursive: true });
+
+  for (const t of times) {
+    const framePath = path.join(tmpDir, `${slug}-${t.toFixed(3)}.jpg`);
+    try {
+      await extractFrame(videoPath, t, framePath);
+      const { avgStd } = await frameStats(framePath);
+      samples.push({ time: t, avgStd: Number(avgStd.toFixed(2)) });
+      if (avgStd < stdThreshold) {
+        blankFrames.push({ time: t, avgStd: Number(avgStd.toFixed(2)) });
+      }
+      if (worker) {
+        const { data } = await worker.recognize(framePath);
+        const analysis = analyzeText(data.words || [], dictionary, corpus, bigram);
+        if (analysis.unknown.length) {
+          ocrHits.push({ time: t, words: analysis.unknown.slice(0, 6) });
+        }
+      }
+    } catch (e) {
+      samples.push({ time: t, error: e.message });
+    }
+  }
+  return { samples, blankFrames, ocrHits };
+}
+
 function analyzeText(words, dictionary, corpus, bigram) {
   const unknown = [];
   const selfCitations = [];
@@ -331,7 +420,48 @@ async function checkArticleIntegration(slug, videoFile, posterFile) {
   return { found: true, errors };
 }
 
-async function reviewVideo(file, dictionary, corpus, bigram, worker) {
+function isHighConfidenceOcrHit(hit) {
+  const confidences = hit.words.map((w) => w.confidence ?? 100);
+  return confidences.some((c) => c > 80);
+}
+
+function classifyP0(report, sample) {
+  const p0 = [];
+  for (const n of report.technical.notes) {
+    if (/no video stream|no audio stream|video codec|pixel format/.test(n)) p0.push(`technical:${n}`);
+  }
+  for (const n of report.poster.notes) {
+    if (/poster missing/.test(n)) {
+      p0.push(`poster:${n}`);
+    } else if (/suspect words/.test(n)) {
+      // Poster suspect words are P0 only if there are several or any is high-confidence,
+      // avoiding OCR hallucinations on abstract AI-generated textures.
+      const unknown = report.posterAnalysis?.unknown || [];
+      const highConf = unknown.filter((u) => (u.confidence ?? 100) > 80);
+      if (unknown.length >= 3 || highConf.length > 0) {
+        p0.push(`poster:${n}`);
+      }
+    }
+  }
+  for (const n of report.captions.notes) {
+    if (/VTT missing|no cues|final cue exceeds/.test(n)) p0.push(`captions:${n}`);
+  }
+  for (const n of report.brand.notes) {
+    if (/self-citation/.test(n)) p0.push(`brand:${n}`);
+  }
+  if (sample) {
+    if (sample.blankFrames.length) {
+      p0.push(`frames:blank/flat frames at ${sample.blankFrames.map((f) => `${f.time.toFixed(1)}s`).join(', ')}`);
+    }
+    const strongOcrHits = sample.ocrHits.filter(isHighConfidenceOcrHit);
+    if (strongOcrHits.length) {
+      p0.push(`frames:gibberish text in ${strongOcrHits.length} sampled frame(s)`);
+    }
+  }
+  return p0;
+}
+
+async function reviewVideo(file, dictionary, corpus, bigram, worker, flags) {
   const slug = path.basename(file, '.mp4');
   const videoPath = path.join(VIDEOS_DIR, file);
   const posterPath = path.join(VIDEOS_DIR, `${slug}-poster.jpg`);
@@ -415,19 +545,21 @@ async function reviewVideo(file, dictionary, corpus, bigram, worker) {
     report.poster.notes.push('poster missing');
   }
 
+  let posterAnalysis = { unknown: [], selfCitations: [] };
   if (posterWords.length) {
-    const analysis = analyzeText(posterWords, dictionary, corpus, bigram);
-    if (analysis.unknown.length) {
-      const names = analysis.unknown.map((u) => u.word).slice(0, 8);
+    posterAnalysis = analyzeText(posterWords, dictionary, corpus, bigram);
+    if (posterAnalysis.unknown.length) {
+      const names = posterAnalysis.unknown.map((u) => u.word).slice(0, 8);
       report.poster.notes.push(`suspect words: ${names.join(', ')}`);
     }
-    if (analysis.selfCitations.length) {
-      report.brand.notes.push(`self-citation in poster: ${analysis.selfCitations.join(', ')}`);
+    if (posterAnalysis.selfCitations.length) {
+      report.brand.notes.push(`self-citation in poster: ${posterAnalysis.selfCitations.join(', ')}`);
     }
   }
   report.poster.score = Math.max(0, report.poster.max - report.poster.notes.length * 5);
 
   let vttText = '';
+  let vttCues = [];
   try {
     vttText = await readFile(vttPath, 'utf8');
   } catch {
@@ -435,6 +567,7 @@ async function reviewVideo(file, dictionary, corpus, bigram, worker) {
   }
   if (vttText) {
     const vtt = parseVtt(vttText);
+    vttCues = vtt.cues;
     if (vtt.errors.length) report.captions.notes.push(...vtt.errors);
     if (vtt.cues.length === 0) report.captions.notes.push('no cues');
     else if (duration && vtt.cues[vtt.cues.length - 1].end > duration + 1) {
@@ -464,6 +597,14 @@ async function reviewVideo(file, dictionary, corpus, bigram, worker) {
   report.duration = duration;
   report.loudness = ln;
   report.posterOcr = { preview: posterTextPreview, wordCount: posterWords.length };
+  report.posterAnalysis = posterAnalysis;
+
+  let sample = null;
+  if (flags.sampleFrames) {
+    sample = await sampleFrames(videoPath, vttCues, slug, worker, dictionary, corpus, bigram, flags.sampleStdThreshold);
+  }
+  report.sample = sample;
+  report.p0 = classifyP0(report, sample);
 
   return report;
 }
@@ -479,8 +620,10 @@ function formatReport(reports, dateStamp) {
   const worst = sorted[0];
   const best = sorted[sorted.length - 1];
   const avg = reports.reduce((s, r) => s + r.total, 0) / reports.length;
+  const p0Count = reports.reduce((s, r) => s + r.p0.length, 0);
 
   lines.push(`- Average score: ${avg.toFixed(1)}/100`);
+  lines.push(`- P0 issues: ${p0Count}`);
   lines.push(`- Lowest: ${worst.slug} (${worst.total}/${worst.max})`);
   lines.push(`- Highest: ${best.slug} (${best.total}/${best.max})`);
   lines.push('');
@@ -489,6 +632,11 @@ function formatReport(reports, dateStamp) {
     lines.push(`## ${r.slug}`);
     lines.push(`**Total ${r.total}/${r.max}** — technical ${r.technical.score}/${r.technical.max}, poster ${r.poster.score}/${r.poster.max}, captions ${r.captions.score}/${r.captions.max}, integration ${r.integration.score}/${r.integration.max}, brand ${r.brand.score}/${r.brand.max}`);
     lines.push(`Duration: ${r.duration ? `${r.duration.toFixed(1)}s` : 'unknown'} · Loudness: ${r.loudness.integrated ? `${r.loudness.integrated.toFixed(1)} LUFS` : 'unknown'} · LRA: ${r.loudness.lra ? `${r.loudness.lra.toFixed(1)} LU` : 'unknown'}`);
+    if (r.p0.length) {
+      lines.push('');
+      lines.push('**P0 issues:**');
+      for (const p of r.p0) lines.push(`- ${p}`);
+    }
     const notes = [
       ...r.technical.notes.map((n) => `- technical: ${n}`),
       ...r.poster.notes.map((n) => `- poster: ${n}`),
@@ -500,6 +648,14 @@ function formatReport(reports, dateStamp) {
       lines.push('');
       lines.push(...notes);
     }
+    if (r.sample?.blankFrames?.length) {
+      lines.push('');
+      lines.push(`Blank/flat sampled frames: ${r.sample.blankFrames.map((f) => `${f.time.toFixed(1)}s (σ=${f.avgStd})`).join(', ')}`);
+    }
+    if (r.sample?.ocrHits?.length) {
+      lines.push('');
+      lines.push(`OCR hits in sampled frames: ${r.sample.ocrHits.map((h) => `${h.time.toFixed(1)}s: ${h.words.map((w) => w.word || w).join(', ')}`).join('; ')}`);
+    }
     if (r.posterOcr.preview) {
       lines.push('');
       lines.push(`Poster OCR preview: "${r.posterOcr.preview.replace(/\s+/g, ' ').trim()}"`);
@@ -510,6 +666,7 @@ function formatReport(reports, dateStamp) {
 }
 
 async function main() {
+  const flags = parseArgs();
   await ensureReportDir();
   const files = (await readdir(VIDEOS_DIR))
     .filter((f) => f.endsWith('.mp4'))
@@ -537,7 +694,7 @@ async function main() {
   const reports = [];
   for (const file of files) {
     console.error(`Reviewing ${file}...`);
-    const report = await reviewVideo(file, dictionary, corpus, bigram, worker);
+    const report = await reviewVideo(file, dictionary, corpus, bigram, worker, flags);
     reports.push(report);
   }
 
@@ -556,13 +713,24 @@ async function main() {
 
   const avg = reports.reduce((s, r) => s + r.total, 0) / reports.length;
   console.log(`Average score: ${avg.toFixed(1)}/100 across ${reports.length} videos`);
-  const flagged = reports.filter((r) => r.total < 80 || r.poster.notes.some((n) => n.includes('suspect')) || r.brand.notes.length);
-  if (flagged.length) {
-    console.log(`\nFlagged videos (${flagged.length}):`);
-    for (const r of flagged) {
-      console.log(`- ${r.slug}: ${r.total}/100`);
+  const p0Videos = reports.filter((r) => r.p0.length);
+  if (p0Videos.length) {
+    console.log(`\nP0 failures (${p0Videos.length} videos):`);
+    for (const r of p0Videos) {
+      console.log(`- ${r.slug}: ${r.p0.length} issue(s)`);
     }
   }
+
+  let exitCode = 0;
+  if (flags.failOnP0 && p0Videos.length) {
+    console.error(`\nFailing because ${p0Videos.length} video(s) have P0 issues.`);
+    exitCode = 1;
+  }
+  if (avg < flags.minScore) {
+    console.error(`\nFailing because average score ${avg.toFixed(1)} is below threshold ${flags.minScore}.`);
+    exitCode = 1;
+  }
+  if (exitCode) process.exit(exitCode);
 }
 
 main().catch((e) => {
