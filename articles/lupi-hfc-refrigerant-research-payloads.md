@@ -8,7 +8,7 @@
 
 The molecules behind the Kigali Amendment are now first-class citizens in [Lupi](https://lupi.live). The latest release adds two hydrofluorocarbon refrigerant trajectories — R32 and R125 — simulated at 273 K with the Maginn group force fields, streamed as `.glimbin` with full per-atom research payloads including charges, velocities, forces, per-atom potential and kinetic energy, thermo tables, and temperature-profile sidecars.
 
-![R32 refrigerant trajectory in Lupi](images/lupi-hfc-refrigerant-research-payloads-hero.jpg)
+![R32 refrigerant trajectory in Lupi](hfc-r125.jpg)
 *R32 liquid at 273 K, rendered in Lupi with the new research-payload pipeline. Source: Maginn group HFC force fields, LAMMPS NVT simulation, 10,000 atoms.*
 
 ## What changed

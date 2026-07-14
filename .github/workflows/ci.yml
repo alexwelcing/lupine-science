@@ -131,8 +131,8 @@ jobs:
       - name: Build site
         run: npm run build
 
-      - name: Verify static files and links
-        run: node scripts/check-static.mjs
+      - name: Verify static files, article images, and performance budget
+        run: npm run verify
 
       - name: Generate proof pack
         run: npm run proofpack
