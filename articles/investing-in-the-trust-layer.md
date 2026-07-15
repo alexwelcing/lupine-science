@@ -110,6 +110,11 @@ The climate window is unforgiving. A material discovered in 2035 may miss the 20
 
 That is the trust layer. It is the infrastructure that converts the abundance of generated materials into the scarcity of validated ones — and it is the investment that makes the rest of the climate-materials pipeline economically rational.
 
+<div class="cta">
+  <p><strong>For climate investors:</strong> the full slide presentation, <em>The Trust Layer for Climate-Critical Materials</em>, walks through the capital ramp, the five targets, the moat, and the ask.</p>
+  <a href="/presentations/climate-investor-value/">Open the presentation →</a>
+</div>
+
 ## Footnotes
 
 [^1]: A. Merchant *et al.*, "Scaling deep learning for materials discovery," *Nature* **624**, 80–85 (2023). https://doi.org/10.1038/s41586-023-06735-9

@@ -1,41 +1,41 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:08.640
-Okay, so Google DeepMind predicted 2.2 million crystals. Huge. But by late 2023, only 736 had been independently synthesized.
+00:00:00.000 --> 00:00:05.940
+The synthesis validation bottleneck
 
 2
-00:00:08.640 --> 00:00:21.841
-The usual response is: build a bigger neural net. What if that is solving the wrong problem? Universal machine-learning potentials are already fast and pretty accurate for tidy bulk crystals.
+00:00:05.940 --> 00:00:11.880
+Errors are not noise — they have a shape
 
 3
-00:00:21.841 --> 00:00:35.941
-But real materials work at vacancies, surfaces, and transition states—places where atoms have fewer neighbors. There, errors jump, and ion-migration barriers can be underestimated by more than 60 percent.
+00:00:11.880 --> 00:00:17.820
+Three anchors fix the field
 
 4
-00:00:35.941 --> 00:00:49.557
-Here is the twist: that wrongness is not random. It has a shape. The correction measures an environment error field based on coordination number—basically, how many neighboring atoms each atom has.
+00:00:17.820 --> 00:00:23.760
+r = 0.906 blind prediction
 
 5
-00:00:49.557 --> 00:01:01.998
-No second neural net. No per-system retraining. Three standard measurements anchor the curve: two surface energies and one vacancy energy. Bulk coordination is fixed at zero error.
+00:00:23.760 --> 00:00:29.700
+Additive correction, analytic forces
 
 6
-00:01:01.998 --> 00:01:14.093
-Then the field predicts a fourth surface—the one-ten facet—blind. Across 36 model-and-material combinations, predicted and measured errors correlate at zero point nine oh six.
+00:00:29.700 --> 00:00:35.640
+Accuracy without the DFT price tag
 
 7
-00:01:14.093 --> 00:01:27.087
-Flip that field, add it beside the existing model, and under-coordinated structures move back toward reference energies. The forces are analytic, so simulations stay physically consistent.
+00:00:35.640 --> 00:00:41.580
+Where correction cannot work, the framework proves it
 
 8
-00:01:27.087 --> 00:01:39.597
-In tests, nickel surface error dropped from 9.7 to 1.5 percent, while bulk lattice constants stayed unchanged. And this layer does something most AI pipelines cannot: it can say no.
+00:00:41.580 --> 00:00:47.520
+The six-step discovery loop
 
 9
-00:01:39.597 --> 00:01:54.526
-Lean four proofs check every quantitative claim and flag ranking inversions, already-converged cases, or physics outside the field’s domain. One proof even caught a rounding tie and corrected “27 improvements” to 26.
+00:00:47.520 --> 00:00:53.460
+From geometry to gigatonnes
 
 10
-00:01:54.526 --> 00:02:15.262
-That matters for battery ion hops, carbon-capture frameworks, ammonia catalysts, and perovskite stability—all controlled by under-coordinated defects. So the goal is not more confident predictions. It is fast predictions with measured corrections, certified boundaries, and a provable reason to stop.
+00:00:53.460 --> 00:01:00.009
+A field, not a neural net

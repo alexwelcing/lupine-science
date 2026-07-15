@@ -12,7 +12,13 @@ dist/
 .lighthouseci/
 public/.proofpack-render/
 public/proof-packs/
+.keys/
 media/projects/article-videos/
+media/projects/video-motion/renders/
+media/projects/voice-tests/
+media/projects/voice-tracks/
+media/projects/video-review/reports/*.json
+media/projects/video-review/reports/*.md
 media/projects/video-review/reports/.frame-samples/
 .worktrees/
 eng.traineddata

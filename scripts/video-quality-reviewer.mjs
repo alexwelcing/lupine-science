@@ -191,6 +191,7 @@ async function buildDomainCorpus() {
     'mater', 'deng', 'ipcc', 'wgi', 'table', 'sections', 'maginn', 'simulation',
     'cement', 'concrete', 'built', 'world', 'factory', 'kiln', 'smoke', 'emissions',
     'trust', 'layer', 'investing', 'verification', 'evidence', 'claim', 'network',
+    'gtco₂', 'gtco2', 'gtco', 'non-co₂', 'non-co2', 'nonco2', 'non-co', 'lupi', 'lupi.live', 'lupilive',
   ];
   for (const t of extra) corpus.add(t);
   return corpus;

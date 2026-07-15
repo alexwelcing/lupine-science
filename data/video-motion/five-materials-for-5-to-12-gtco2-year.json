@@ -1,0 +1,88 @@
+{
+  "version": "2026-07-14",
+  "slug": "five-materials-for-5-to-12-gtco2-year",
+  "title": "Five Materials That Could Unlock 5–12 GtCO₂/Year",
+  "description": "Motion-enhanced article video for “Five Materials That Could Unlock 5–12 GtCO₂/Year”.",
+  "scenes": [
+    {
+      "image": "public/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-01-climate-impact.jpg",
+      "duration": 7.2,
+      "effect": "slow-zoom-in",
+      "text": [
+        "Five Material Classes Could Unlock 5–12 GtCO₂/Year"
+      ]
+    },
+    {
+      "image": "public/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-02-umlip-softening-error.jpg",
+      "duration": 7.2,
+      "effect": "slow-zoom-out",
+      "text": [
+        "Why Promising Candidates Fail in the Synthesis Vessel"
+      ]
+    },
+    {
+      "image": "public/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-03-correction-field-loop.jpg",
+      "duration": 7.2,
+      "effect": "pan-right",
+      "text": [
+        "Measuring Error as a Physical Field, Then Correcting It"
+      ]
+    },
+    {
+      "image": "public/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-05-target-defect-matrix.jpg",
+      "duration": 7.2,
+      "effect": "pan-left",
+      "text": [
+        "The Same Defect-Mediated Failure, Five Different Materials"
+      ]
+    },
+    {
+      "image": "public/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-07-ranking-inversion-risk.jpg",
+      "duration": 7.2,
+      "effect": "pan-up",
+      "text": [
+        "Raw Rankings Discard the Best Candidates"
+      ]
+    },
+    {
+      "image": "public/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-04-blind-prediction-accuracy.jpg",
+      "duration": 7.2,
+      "effect": "pan-down",
+      "text": [
+        "Blind Prediction of Surface Energies Across 36 Model–Material Pairs"
+      ]
+    },
+    {
+      "image": "public/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-06-impact-funnel.jpg",
+      "duration": 7.2,
+      "effect": "drift",
+      "text": [
+        "How a 100 meV Correction Translates to Gigatonne Impact"
+      ]
+    },
+    {
+      "image": "public/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-09-moat-feedback-loop.jpg",
+      "duration": 7.2,
+      "effect": "slow-zoom-in",
+      "text": [
+        "Every Screen Deepens the Moat"
+      ]
+    },
+    {
+      "image": "public/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-08-partner-ecosystem-map.jpg",
+      "duration": 7.2,
+      "effect": "slow-zoom-out",
+      "text": [
+        "From Corrected Predictions to Named Experimental Partners"
+      ]
+    },
+    {
+      "image": "public/articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-10-five-year-roadmap.jpg",
+      "duration": 7.2,
+      "effect": "pan-right",
+      "text": [
+        "From Correction Layer to Deployable Materials"
+      ]
+    }
+  ]
+}

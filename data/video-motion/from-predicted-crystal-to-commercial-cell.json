@@ -1,0 +1,88 @@
+{
+  "version": "2026-07-14",
+  "slug": "from-predicted-crystal-to-commercial-cell",
+  "title": "From Predicted Crystal to Commercial Cell",
+  "description": "Motion-enhanced article video for “From Predicted Crystal to Commercial Cell”.",
+  "scenes": [
+    {
+      "image": "public/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-01-prediction-funnel.jpg",
+      "duration": 9.64,
+      "effect": "slow-zoom-in",
+      "text": [
+        "From 2.2 million predicted crystals to 736 synthesized"
+      ]
+    },
+    {
+      "image": "public/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-02-handoff-chain.jpg",
+      "duration": 9.64,
+      "effect": "slow-zoom-out",
+      "text": [
+        "Six handoffs, six places for a prediction to fail"
+      ]
+    },
+    {
+      "image": "public/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-05-battery-partner-chain.jpg",
+      "duration": 9.64,
+      "effect": "pan-right",
+      "text": [
+        "From predicted LMR cathode to GM/LG prismatic cell"
+      ]
+    },
+    {
+      "image": "public/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-03-correction-loop.jpg",
+      "duration": 9.64,
+      "effect": "pan-left",
+      "text": [
+        "How Lupine makes a uMLIP trustworthy at runtime"
+      ]
+    },
+    {
+      "image": "public/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-06-climate-scale.jpg",
+      "duration": 9.64,
+      "effect": "pan-up",
+      "text": [
+        "Cumulative climate opportunity by target"
+      ]
+    },
+    {
+      "image": "public/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-07-impossibility-flags.jpg",
+      "duration": 9.64,
+      "effect": "pan-down",
+      "text": [
+        "When correction says \"no\" — impossibility, not just uncertainty"
+      ]
+    },
+    {
+      "image": "public/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-04-blind-accuracy.jpg",
+      "duration": 9.64,
+      "effect": "drift",
+      "text": [
+        "Zero-parameter blind prediction of surface energies"
+      ]
+    },
+    {
+      "image": "public/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-08-ecosystem-map.jpg",
+      "duration": 9.64,
+      "effect": "slow-zoom-in",
+      "text": [
+        "NREL, UC Berkeley, and ARPA-E create economies of scope"
+      ]
+    },
+    {
+      "image": "public/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-09-materials-genome-value.jpg",
+      "duration": 9.64,
+      "effect": "slow-zoom-out",
+      "text": [
+        "The economic case for a verification layer"
+      ]
+    },
+    {
+      "image": "public/articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-10-crystal-to-cell.jpg",
+      "duration": 9.64,
+      "effect": "pan-right",
+      "text": [
+        "The scarce resource is trust"
+      ]
+    }
+  ]
+}

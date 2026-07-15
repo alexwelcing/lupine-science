@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Trust Layer for Climate-Critical Materials — Lupine Science</title>
+  <meta name="description" content="Investor presentation: why a measured, machine-checked correction layer is the highest-leverage climate investment in AI-designed materials.">
+  <meta property="og:title" content="The Trust Layer for Climate-Critical Materials — Lupine Science">
+  <meta property="og:description" content="AI is designing the matter the energy transition runs on. Lupine measures, proves, and corrects the wrongness in every prediction.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lupine.science/presentations/climate-investor-value/">
+  <meta property="og:image" content="https://lupine.science/og-lupine-science.jpg">
+  <link rel="canonical" href="https://lupine.science/presentations/climate-investor-value/">
+  <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/brand-assets/deck-dark.css">
+  <style>
+    @font-face { font-family: "Newsreader"; src: url("/fonts/newsreader-var.woff2") format("woff2"); font-style: normal; font-weight: 300 600; font-display: swap; }
+    @font-face { font-family: "Newsreader"; src: url("/fonts/newsreader-italic-var.woff2") format("woff2"); font-style: italic; font-weight: 300 600; font-display: swap; }
+    @font-face { font-family: "IBM Plex Mono"; src: url("/fonts/plex-mono-400.woff2") format("woff2"); font-style: normal; font-weight: 400; font-display: swap; }
+    @font-face { font-family: "IBM Plex Mono"; src: url("/fonts/plex-mono-600.woff2") format("woff2"); font-style: normal; font-weight: 500 600; font-display: swap; }
+
+    html { scroll-snap-type: y mandatory; }
+    body { margin: 0; background: #050508; }
+    .slide { margin: 40px auto; box-shadow: 0 30px 80px rgba(0,0,0,0.5); scroll-snap-align: center; }
+
+    .source {
+      position: absolute; left: 64px; right: 64px; bottom: 56px;
+      font-family: var(--deck-mono); font-size: 10px; color: var(--deck-ink-faint);
+      letter-spacing: 0.04em; z-index: 2;
+    }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .panel {
+      border: 1px solid var(--deck-rule); background: var(--deck-paper-raised);
+      border-radius: 10px; padding: 22px;
+    }
+    .panel h3 { margin-bottom: 10px; }
+    .panel p { font-size: 16px; max-width: none; margin: 0; }
+    .figure {
+      margin-top: 18px; border: 1px solid var(--deck-rule); border-radius: 10px;
+      background: #0f1117; padding: 14px; display: flex; justify-content: center;
+    }
+    .figure img { max-width: 100%; height: auto; display: block; }
+    .table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13.5px; }
+    .table th, .table td {
+      text-align: left; vertical-align: top; padding: 9px 10px;
+      border-bottom: 1px solid var(--deck-rule);
+    }
+    .table th {
+      font-family: var(--deck-mono); font-size: 10px; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--deck-indigo); font-weight: 500;
+    }
+    .table td { color: var(--deck-ink-soft); line-height: 1.4; }
+    .table td:first-child { color: var(--deck-ink); font-weight: 500; }
+    .small { font-size: 14px; max-width: 52ch; }
+    .tight h2 { margin-bottom: 12px; }
+    .tight p { margin-bottom: 12px; }
+  </style>
+</head>
+<body class="lupine-deck">
+
+  <section class="slide">
+    <img class="mark-corner" src="/lupine-science-mark.svg" alt="" aria-hidden="true">
+    <div class="slide-content">
+      <span class="kicker">Investor presentation · July 2026</span>
+      <h1>The trust layer for <em>climate-critical materials.</em></h1>
+      <p class="lead">AI is designing the matter the energy transition runs on. Every prediction rests on interatomic potentials that are wrong in structured ways. Lupine measures, proves, and corrects that wrongness — so climate capital funds validated materials, not guesses.</p>
+      <div class="stat-row">
+        <div class="mono-stat">Addressable climate impact<strong>5–12 GtCO₂/yr</strong></div>
+        <div class="mono-stat">Build-locked theorems<strong>271</strong></div>
+        <div class="mono-stat">Validation rate today<strong>0.2%</strong></div>
+      </div>
+    </div>
+    <span class="slide-number">01</span>
+    <span class="tagline">lupine.science</span>
+    <div class="source">Sources: IEA Net Zero Roadmap; Merchant et al., Nature 2023 (GNoME); Lupine Science Lean 4 library.</div>
+  </section>
+
+  <section class="slide">
+    <img class="mark-corner" src="/lupine-science-mark.svg" alt="" aria-hidden="true">
+    <div class="slide-content">
+      <span class="kicker">The climate window</span>
+      <h2>Capital must roughly triple — <em>and materials decide whether it works.</em></h2>
+      <p class="small">The IEA projects clean-energy investment must grow from $1.8 trillion in 2023 to $4.5 trillion a year by the early 2030s. Batteries are directly linked to ~20% of required 2030 CO₂ reductions and indirectly to another 40%. The binding constraint is no longer generating candidates; it is knowing which predicted materials can actually be made, at cost, inside the 2025–2035 deployment window.</p>
+      <div class="stat-row">
+        <div class="mono-stat">Clean-energy investment<strong>$1.8T → $4.5T</strong></div>
+        <div class="mono-stat">2030 CO₂ reductions, battery-linked<strong>~60%</strong></div>
+        <div class="mono-stat">Deployment window<strong>2025–2035</strong></div>
+      </div>
+    </div>
+    <span class="slide-number">02</span>
+    <span class="tagline">lupine.science</span>
+    <div class="source">Sources: IEA Net Zero Roadmap 2023 update; IEA Global EV Outlook.</div>
+  </section>
+
+  <section class="slide tight">
+    <img class="mark-corner" src="/lupine-science-mark.svg" alt="" aria-hidden="true">
+    <div class="slide-content">
+      <span class="kicker">The hidden bottleneck</span>
+      <h2>Generation is solved. <em>Validation is the 0.2% problem.</em></h2>
+      <div class="two-col">
+        <div>
+          <p class="small">GNoME predicted 2.2 million crystals; 380,000 were computed stable; only 736 had been independently synthesized by late 2023 — a 0.2% validation rate. The A-Lab autonomous synthesis facility reported 63% success, but subsequent review found many “novel” targets were already-known disordered phases. Faster synthesis without better verification does not close the gap.</p>
+          <div class="callout">
+            <strong>Investor read</strong>
+            <p class="small">We are not short of predictions. We are short of validated predictions. Every false positive burns synthesis budget and calendar time the climate window does not have.</p>
+          </div>
+        </div>
+        <div class="figure">
+          <img src="/result-graphics/synthesis-funnel.svg" alt="Synthesis funnel: structures generated to commercially viable" loading="lazy">
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">03</span>
+    <span class="tagline">lupine.science</span>
+    <div class="source">Sources: Merchant et al., Nature 2023 (GNoME); Szymanski et al., Nature 2023 (A-Lab); subsequent replication critiques.</div>
+  </section>
+
+  <section class="slide tight">
+    <img class="mark-corner" src="/lupine-science-mark.svg" alt="" aria-hidden="true">
+    <div class="slide-content">
+      <span class="kicker">The shape of wrongness</span>
+      <h2>Errors are not noise — <em>they collapse onto a manifold.</em></h2>
+      <div class="two-col">
+        <div>
+          <p class="small">Across 15 elements and hundreds of potentials, prediction errors concentrate on a low-dimensional surface. Classical and foundation MLIPs fail in the same direction. That is the investment thesis: if every model is wrong the same way, one correction layer transfers across the entire stack.</p>
+          <div class="stat-row" style="margin-top: 18px;">
+            <div class="mono-stat">Participation ratio<strong>1.05–2.05</strong></div>
+            <div class="mono-stat">Cross-MLIP cosine<strong>&gt;0.8</strong></div>
+            <div class="mono-stat">Geometry preserved<strong>14/15</strong></div>
+          </div>
+        </div>
+        <div class="figure">
+          <img src="/result-graphics/cross-mlip-cosine.svg" alt="Cross-MLIP error direction alignment by element" loading="lazy">
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">04</span>
+    <span class="tagline">lupine.science</span>
+    <div class="source">Sources: Lupine Science MLIP Failure Geometry Audit; Deng et al., npj Computational Materials 2025.</div>
+  </section>
+
+  <section class="slide">
+    <img class="mark-corner" src="/lupine-science-mark.svg" alt="" aria-hidden="true">
+    <div class="slide-content">
+      <span class="kicker">What Lupine does</span>
+      <h2>Measure the field. Correct at runtime. <em>Prove what is supported.</em></h2>
+      <div class="three-col">
+        <div class="panel">
+          <h3>Measure</h3>
+          <p>Three anchor observables fix an error field over local atomic environments. Blind prediction achieves Pearson r = 0.906 (p = 10⁻⁴, 95% CI [0.82, 0.96]) across 36 (model, material) combinations.</p>
+        </div>
+        <div class="panel">
+          <h3>Correct</h3>
+          <p>An analytic overlay applies the correction inside LAMMPS with any uMLIP — CHGNet, MACE, Orb, and what comes next. 15.6% overhead today, &lt;1% compiled, still ~10⁵× faster than DFT.</p>
+        </div>
+        <div class="panel">
+          <h3>Prove</h3>
+          <p>271 build-locked Lean 4 theorems with zero sorry proofs state what is supported. Where correction cannot apply, the system proves impossibility or bounded uncertainty instead of reporting a p-value.</p>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">05</span>
+    <span class="tagline">lupine.science</span>
+    <div class="source">Sources: Lupine Science error-field formalization; Lean 4 build locks; Deng et al., npj Computational Materials 2025.</div>
+  </section>
+
+  <section class="slide">
+    <img class="mark-corner" src="/lupine-science-mark.svg" alt="" aria-hidden="true">
+    <div class="slide-content">
+      <span class="kicker">New this month</span>
+      <h2>An assurance spine <em>investors can audit.</em></h2>
+      <p class="small">Every corrected claim now ships as an executable certificate. The universal correction spine formalizes scope, residual bounds, numeric and runtime contracts, trajectory validation, and scientific attestation in Lean 4 — and mirrors the same fail-closed gates in Rust with CLI validators. Discovery gates and licenses turn correction coverage into a diligence artifact across candidate panels for cathodes, halide electrolytes, MOFs, and perovskites.</p>
+      <div class="stat-row">
+        <div class="mono-stat">Lean 4 formal modules<strong>20+</strong></div>
+        <div class="mono-stat">Rust policy runtime<strong>fail-closed</strong></div>
+        <div class="mono-stat">Candidate campaign rounds<strong>1–3</strong></div>
+      </div>
+    </div>
+    <span class="slide-number">06</span>
+    <span class="tagline">lupine.science</span>
+    <div class="source">Source: lupine-rhizo main — UniversalCorrection module + atlas-distill policy runtime, July 2026.</div>
+  </section>
+
+  <section class="slide tight">
+    <img class="mark-corner" src="/lupine-science-mark.svg" alt="" aria-hidden="true">
+    <div class="slide-content">
+      <span class="kicker">Where the value lands</span>
+      <h2>Five targets, <em>5–12 GtCO₂ per year.</em></h2>
+      <table class="table">
+        <thead>
+          <tr><th>Target</th><th>Climate impact</th><th>Market context</th><th>Key barrier</th><th>Lupine mechanism</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Cobalt-free LMR cathodes</td><td>2–5 GtCO₂</td><td>$400B+ Li-ion chain</td><td>Voltage fade; TM migration</td><td>Corrected migration barriers preserve mobility ranking</td></tr>
+          <tr><td>Halide solid electrolytes</td><td>1–3 GtCO₂</td><td>$886M → $24.3B by 2034</td><td>Li⁺ barriers underestimated 60%+</td><td>Corrected barriers recover DFT accuracy at screen scale</td></tr>
+          <tr><td>MOFs for direct air capture</td><td>0.5–2 GtCO₂/yr</td><td>$4.3B DAC market by 2034</td><td>Humidity stability; cost &gt;$50/kg</td><td>Corrected hydrolysis barriers; impossibility proofs</td></tr>
+          <tr><td>Electrochemical ammonia</td><td>~0.45 GtCO₂/yr</td><td>$221.6B green NH₃ by 2035</td><td>N≡N activation; HER competition</td><td>Corrected N₂ dissociation; flags scaling-relation breakers</td></tr>
+          <tr><td>Lead-free perovskites</td><td>0.5–1 GtCO₂/yr</td><td>$11B PV market by 2033</td><td>Sn²⁺ oxidation; metastability</td><td>Corrected vacancy formation energies; provable boundaries</td></tr>
+        </tbody>
+      </table>
+      <div class="stat-row" style="margin-top: 16px;">
+        <div class="mono-stat">Combined climate impact<strong>5–12 GtCO₂/yr</strong></div>
+        <div class="mono-stat">Combined market context<strong>&gt;$650B</strong></div>
+      </div>
+    </div>
+    <span class="slide-number">07</span>
+    <span class="tagline">lupine.science</span>
+    <div class="source">Sources: IEA, IPCC AR6, and market analyses for Li-ion, solid-state batteries, DAC, green ammonia, and PV.</div>
+  </section>
+
+  <section class="slide">
+    <img class="mark-corner" src="/lupine-science-mark.svg" alt="" aria-hidden="true">
+    <div class="slide-content">
+      <span class="kicker">The business model</span>
+      <h2>A profitable floor, <em>an uncapped ceiling.</em></h2>
+      <div class="three-col">
+        <div class="panel">
+          <h3>Floor</h3>
+          <p>Simulation-trust software and calibration services for labs, AI-for-science teams, and industrial R&D — a revenue base that pays for the manifold to expand.</p>
+        </div>
+        <div class="panel">
+          <h3>Ceiling</h3>
+          <p>Materials-IP discovery and licensing driven by the corrected signal across the five climate targets — the asymmetric upside investors are actually underwriting.</p>
+        </div>
+        <div class="panel">
+          <h3>Evidence surface</h3>
+          <p>LUPI, the browser-native WebGPU viewer, makes every claim inspectable. Partners and auditors can open the same atoms, fields, and certificates we do.</p>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">08</span>
+    <span class="tagline">lupine.science</span>
+    <div class="source">Sources: Lupine Science strategy; lupi.live.</div>
+  </section>
+
+  <section class="slide">
+    <img class="mark-corner" src="/lupine-science-mark.svg" alt="" aria-hidden="true">
+    <div class="slide-content">
+      <span class="kicker">The moat</span>
+      <h2>Proof-grade coverage compounds. <em>Data moats decay.</em></h2>
+      <p class="small">Three pillars make the position defensible. The error field is measured, not learned — fixed by observables and transferable without per-system retraining. The claims are machine-checked, so they cannot be hand-waved around. The runtime is compatible with every major uMLIP, so the layer rides the whole field’s progress. Every screening campaign adds validated field measurements; every impossibility proof sharpens the boundary of applicability; every theorem widens the verified domain.</p>
+      <div class="stat-row">
+        <div class="mono-stat">Measured field<strong>blind transfer</strong></div>
+        <div class="mono-stat">Machine-checked proof<strong>zero sorry</strong></div>
+        <div class="mono-stat">Runtime compatibility<strong>any uMLIP</strong></div>
+      </div>
+    </div>
+    <span class="slide-number">09</span>
+    <span class="tagline">lupine.science</span>
+    <div class="source">Source: Lupine Science formalization library and runtime overlay.</div>
+  </section>
+
+  <section class="slide">
+    <img class="mark-corner" src="/lupine-science-mark.svg" alt="" aria-hidden="true">
+    <div class="slide-content">
+      <span class="kicker">The economic case</span>
+      <h2>The correction layer sits <em>where value leaks.</em></h2>
+      <p class="small">NIST’s Materials Genome Initiative economic analysis estimates $123B–$270B in annual value from improved materials innovation infrastructure. ARPA-E’s $3.5B portfolio catalyzed $11.8B in private follow-on funding. Lupine sits between generation and synthesis — the point where speed without accuracy turns into wasted experiments, and where a trusted correction converts directly into saved lab budget and faster deployment.</p>
+      <div class="stat-row">
+        <div class="mono-stat">Annual value at stake<strong>$123–270B</strong></div>
+        <div class="mono-stat">ARPA-E leverage<strong>$3.5B → $11.8B</strong></div>
+        <div class="mono-stat">Addressable markets<strong>&gt;$650B</strong></div>
+      </div>
+    </div>
+    <span class="slide-number">10</span>
+    <span class="tagline">lupine.science</span>
+    <div class="source">Sources: NIST MGI economic analysis; ARPA-E portfolio data.</div>
+  </section>
+
+  <section class="slide">
+    <img class="mark-corner" src="/lupine-science-mark.svg" alt="" aria-hidden="true">
+    <div class="slide-content">
+      <span class="kicker">Go-to-market</span>
+      <h2>We sell certainty to the people <em>who already spend the synthesis budget.</em></h2>
+      <div class="three-col">
+        <div class="panel">
+          <h3>National labs</h3>
+          <p>NREL spans four of five targets and is the highest-value master-CRADA candidate. Argonne and PNNL’s Battery500 anchor cell-level validation.</p>
+        </div>
+        <div class="panel">
+          <h3>Universities</h3>
+          <p>UC Berkeley (Ceder, Yaghi, Long), UT Austin (Manthiram), DTU (Chorkendorff), and Stanford (SUNCAT) provide the experimental credibility layer.</p>
+        </div>
+        <div class="panel">
+          <h3>Industrial</h3>
+          <p>GM/Ultium, POSCO Future M, BASF, Solid Power, and Climeworks pull validated materials into cells, sorbents, and deployed systems.</p>
+        </div>
+      </div>
+    </div>
+    <span class="slide-number">11</span>
+    <span class="tagline">lupine.science</span>
+    <div class="source">Source: Lupine Science partnership map.</div>
+  </section>
+
+  <section class="slide">
+    <img class="mark-corner" src="/lupine-science-mark.svg" alt="" aria-hidden="true">
+    <div class="slide-content">
+      <span class="kicker">The ask</span>
+      <h2>$20M to put materials intelligence <em>in every major lab on earth.</em></h2>
+      <p class="lead">Deliver Lupine’s correction and verification layer to all major supercompute sites and university + industry labs within 12 months; build the founding team; expand the manifold across bcc, hcp, and layered structures.</p>
+      <div class="stat-row">
+        <div class="mono-stat">Raise<strong>~$20M</strong></div>
+        <div class="mono-stat">Global delivery<strong>12 months</strong></div>
+        <div class="mono-stat">Climate impact<strong>5–12 GtCO₂/yr</strong></div>
+      </div>
+      <p class="small" style="margin-top: 24px;">founder@lupinesci.com · lupine.science · lupi.live</p>
+    </div>
+    <span class="slide-number">12</span>
+    <span class="tagline">lupine.science</span>
+    <div class="source">Confidential · July 2026 · Lupine Science</div>
+  </section>
+
+</body>
+</html>

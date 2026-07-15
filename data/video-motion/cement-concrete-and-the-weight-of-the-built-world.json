@@ -1,0 +1,88 @@
+{
+  "version": "2026-07-14",
+  "slug": "cement-concrete-and-the-weight-of-the-built-world",
+  "title": "Cement, Concrete, and the Weight of the Built World",
+  "description": "Motion-enhanced article video for “Cement, Concrete, and the Weight of the Built World”.",
+  "scenes": [
+    {
+      "image": "public/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-01-global-footprint.jpg",
+      "duration": 8.92,
+      "effect": "slow-zoom-in",
+      "text": [
+        "The 2.8-Gigaton Footprint"
+      ]
+    },
+    {
+      "image": "public/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-02-calcination-trap.jpg",
+      "duration": 8.92,
+      "effect": "slow-zoom-out",
+      "text": [
+        "The Process-Emissions Trap"
+      ]
+    },
+    {
+      "image": "public/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-06-three-routes.jpg",
+      "duration": 8.92,
+      "effect": "pan-right",
+      "text": [
+        "Three Discovery Fronts"
+      ]
+    },
+    {
+      "image": "public/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-03-softening-field.jpg",
+      "duration": 8.92,
+      "effect": "pan-left",
+      "text": [
+        "Where Universal Potentials Lose Trust"
+      ]
+    },
+    {
+      "image": "public/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-07-metastability.jpg",
+      "duration": 8.92,
+      "effect": "pan-up",
+      "text": [
+        "The Metastability Problem"
+      ]
+    },
+    {
+      "image": "public/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-05-correction-loop.jpg",
+      "duration": 8.92,
+      "effect": "pan-down",
+      "text": [
+        "Measure, Correct, Prove"
+      ]
+    },
+    {
+      "image": "public/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-04-blind-accuracy.jpg",
+      "duration": 8.92,
+      "effect": "drift",
+      "text": [
+        "Correction Restores Rank Order"
+      ]
+    },
+    {
+      "image": "public/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-08-lab-to-kiln.jpg",
+      "duration": 8.92,
+      "effect": "slow-zoom-in",
+      "text": [
+        "The Partnership Chain"
+      ]
+    },
+    {
+      "image": "public/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-09-speed-advantage.jpg",
+      "duration": 8.92,
+      "effect": "slow-zoom-out",
+      "text": [
+        "The Computational Moat"
+      ]
+    },
+    {
+      "image": "public/articles/cement-concrete-and-the-weight-of-the-built-world/images/cement-concrete-and-the-weight-of-the-built-world-10-trust-bottleneck.jpg",
+      "duration": 8.92,
+      "effect": "pan-right",
+      "text": [
+        "From Candidates to Deployed Binders"
+      ]
+    }
+  ]
+}

@@ -128,7 +128,7 @@
       "subtitle": "Cutting the non-CO₂ climate forcers",
       "source": "Lupine Science · IPCC AR6 WGI · Kigali Amendment",
       "prompt": "Abstract photograph of two soft luminous spheres, one warm ochre and one cool indigo, floating in hazy atmosphere, shallow depth of field, smooth gradients, cinematic environmental portrait. No text, no letters, no words, no numbers, no labels, no captions, no typography, no watermark, no signature, no logo, no symbols, no icons, no grid lines, no chart lines, no diagrams, no fine line patterns, no handwriting, no UI elements.",
-      "seed": 11329,
+      "seed": 21881,
       "overlay": { "position": "bottom-left", "textColor": "#faf9f6" }
     },
     {
@@ -180,7 +180,7 @@
       "slug": "why-lupi",
       "title": "Why LUPI?",
       "subtitle": "A browser-native molecular viewer for makeability",
-      "source": "Lupine Science · lupi.live",
+      "source": "Lupine Science",
       "prompt": "Minimalist product photograph of a single glowing molecular model resting on a clean white surface, soft indigo light from one side, shallow depth of field, modern tech editorial. No text, no letters, no words, no numbers, no labels, no captions, no typography, no watermark, no signature, no logo, no symbols, no icons, no grid lines, no chart lines, no diagrams, no fine line patterns, no handwriting, no UI elements.",
       "seed": 77985,
       "overlay": { "position": "bottom-left", "textColor": "#16171d" }

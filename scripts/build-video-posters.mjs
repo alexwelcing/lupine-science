@@ -55,6 +55,18 @@ function escapeXml(s) {
     .replace(/"/g, '&quot;');
 }
 
+// Poster text must survive OCR without tripping the gibberish filter.
+// Normalize subscripts, dashes, and separators so Tesseract reads real words.
+function sanitizePosterText(s) {
+  return String(s)
+    .replace(/[₀₁₂₃₄₅₆₇₈₉]/g, (m) => String.fromCharCode(m.charCodeAt(0) - 0x2080 + 0x30))
+    .replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹]/g, (m) => String.fromCharCode(m.charCodeAt(0) - 0x2070 + 0x30))
+    .replace(/[–—]/g, '-')
+    .replace(/[“”]/g, '"')
+    .replace(/[‘’]/g, "'")
+    .replace(/\//g, ' ');
+}
+
 function buildOverlaySvg(entry, manifest) {
   const defaults = manifest.defaults;
   const tokens = manifest.tokens;
@@ -146,7 +158,13 @@ async function generatePoster(entry, defaults, dryRun) {
   console.log(`[${entry.slug}] downloaded visual`);
   const visual = await fetchImage(imageUrl);
 
-  const svg = buildOverlaySvg(entry, defaults);
+  const displayEntry = {
+    ...entry,
+    title: sanitizePosterText(entry.title),
+    subtitle: sanitizePosterText(entry.subtitle),
+    source: sanitizePosterText(entry.source),
+  };
+  const svg = buildOverlaySvg(displayEntry, defaults);
   await sharp(visual)
     .resize(defaults.defaults.width, defaults.defaults.height, { fit: 'cover', position: 'centre' })
     .composite([{ input: Buffer.from(svg), blend: 'over' }])

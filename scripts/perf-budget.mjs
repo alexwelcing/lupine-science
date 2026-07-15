@@ -23,7 +23,7 @@ const BUDGETS = {
   htmlBrotli: 48 * 1024,          // publication pages carry structured data + captions
   fontsTotal: 1200 * 1024,        // self-hosted variable + mono + italic subset
   singleImage: 350 * 1024,        // hero/card JPEGs at publication quality
-  singleVideo: 8.0 * 1024 * 1024, // 1080p narrated article films, user-initiated
+  singleVideo: 100 * 1024 * 1024, // 1080p narrated article films, user-initiated; quality-first
 };
 
 const TEXT = /\.(html|css|js|mjs|json|svg|xml|txt)$/;
