@@ -116,11 +116,16 @@ jobs:
           echo "HYPERFRAMES_BROWSER_PATH=${CHROME_PATH}" >> "$GITHUB_ENV"
 
       - name: Check article-video compositions
-        working-directory: media/projects/article-videos
         env:
           HYPERFRAMES_BROWSER_PATH: ${{ env.HYPERFRAMES_BROWSER_PATH }}
         timeout-minutes: 8
-        run: npm run check
+        run: |
+          if [ -d media/projects/article-videos ]; then
+            cd media/projects/article-videos
+            npm run check
+          else
+            echo "media/projects/article-videos is archived on the wip branch; skipping composition check on main."
+          fi
 
       - name: Install system PDF/QA tools before tests
         run: sudo apt-get update && sudo apt-get install --yes poppler-utils
@@ -212,8 +217,12 @@ jobs:
         env:
           HYPERFRAMES_BROWSER_PATH: ${{ env.HYPERFRAMES_BROWSER_PATH }}
         run: |
-          cd media/projects/article-videos
-          npm run vreg
+          if [ -d media/projects/article-videos ]; then
+            cd media/projects/article-videos
+            npm run vreg
+          else
+            echo "media/projects/article-videos is archived on the wip branch; skipping visual regression on main."
+          fi
 
       - name: Upload visual regression diffs
         if: failure()
