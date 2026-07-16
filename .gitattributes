@@ -1,0 +1,3 @@
+# Workflow YAML is byte-matched by the deploy/notification tests with LF
+# regexes; keep LF on every platform.
+.github/** text eol=lf

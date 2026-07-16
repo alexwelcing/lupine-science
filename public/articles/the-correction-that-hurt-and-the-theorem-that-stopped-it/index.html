@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Correction That Hurt, and the Theorem That Stopped It — Lupine Science</title>
+  <meta name="description" content="Our first correction arm made alloy predictions worse; we turned the failure into a machine-checked law, explored a direction-gated rule that cut lattice errors 3–5×, and then let an adversarial review find where our own claims outran their licenses — those corrections are in this draft.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://lupine.science/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/">
+  <meta property="og:title" content="The Correction That Hurt, and the Theorem That Stopped It — Lupine Science">
+  <meta property="og:description" content="Our first correction arm made alloy predictions worse; we turned the failure into a machine-checked law, explored a direction-gated rule that cut lattice errors 3–5×, and then let an adversarial review find where our own claims outran their licenses — those corrections are in this draft.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://lupine.science/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/">
+  <meta property="og:image" content="https://lupine.science/og-lupine-science.png?v=2">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Correction That Hurt, and the Theorem That Stopped It — Lupine Science">
+  <meta name="twitter:description" content="Our first correction arm made alloy predictions worse; we turned the failure into a machine-checked law, explored a direction-gated rule that cut lattice errors 3–5×, and then let an adversarial review find where our own claims outran their licenses — those corrections are in this draft.">
+  <meta name="twitter:image" content="https://lupine.science/og-lupine-science.png?v=2">
+  <meta name="theme-color" content="#faf9f6">
+  <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
+  <link rel="icon" type="image/png" href="/lupine-science-icon.png">
+  <link rel="apple-touch-icon" href="/lupine-science-icon.png">
+  <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/articles/styles.css">
+  <link rel="stylesheet" href="/components/share/share.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Correction That Hurt, and the Theorem That Stopped It","description":"Our first correction arm made alloy predictions worse; we turned the failure into a machine-checked law, explored a direction-gated rule that cut lattice errors 3–5×, and then let an adversarial review find where our own claims outran their licenses — those corrections are in this draft.","datePublished":"2026-07-13","url":"https://lupine.science/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/","mainEntityOfPage":"https://lupine.science/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/","image":"https://lupine.science/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/hero.jpg?v=2","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png?v=2"}}}</script>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="site-header">
+    <a class="mark" href="/" aria-label="Lupine Science">
+      <svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="bb" x1="190" y1="74" x2="324" y2="356" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#88a7d8"/><stop offset=".35" stop-color="#475b9c"/><stop offset=".78" stop-color="#102f47"/><stop offset="1" stop-color="#071a2a"/>
+    </linearGradient>
+    <linearGradient id="bl" x1="150" y1="330" x2="360" y2="470" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7f907c"/><stop offset="1" stop-color="#4c653d"/>
+    </linearGradient>
+    <radialGradient id="bc" cx="48%" cy="30%" r="68%">
+      <stop offset="0" stop-color="#fffdf3"/><stop offset=".7" stop-color="#f1e8c9"/><stop offset="1" stop-color="#d4c58f"/>
+    </radialGradient>
+  </defs>
+  <g fill="none" stroke="#4c653d" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M256 148 C252 224 258 312 254 448"/><path d="M252 402 C222 372 178 354 124 348"/><path d="M260 402 C290 372 334 354 388 348"/>
+  </g>
+  <g fill="url(#bl)" opacity=".96">
+    <ellipse cx="139" cy="348" rx="18" ry="62" transform="rotate(-78 139 348)"/><ellipse cx="167" cy="384" rx="18" ry="62" transform="rotate(-48 167 384)"/><ellipse cx="214" cy="410" rx="17" ry="58" transform="rotate(-20 214 410)"/><ellipse cx="373" cy="348" rx="18" ry="62" transform="rotate(78 373 348)"/><ellipse cx="345" cy="384" rx="18" ry="62" transform="rotate(48 345 384)"/><ellipse cx="298" cy="410" rx="17" ry="58" transform="rotate(20 298 410)"/>
+  </g>
+  <g fill="none" stroke="#fef8f5" stroke-width="5" stroke-linecap="round" opacity=".66">
+    <path d="M132 348 C170 356 205 373 236 405"/><path d="M380 348 C342 356 307 373 276 405"/>
+  </g>
+  <g fill="url(#bb)" stroke="#fef8f5" stroke-width="5" stroke-linejoin="round">
+    <ellipse cx="256" cy="86" rx="22" ry="34"/><ellipse cx="232" cy="122" rx="23" ry="35" transform="rotate(-24 232 122)"/><ellipse cx="280" cy="122" rx="23" ry="35" transform="rotate(24 280 122)"/><ellipse cx="256" cy="150" rx="30" ry="40"/><ellipse cx="211" cy="182" rx="26" ry="38" transform="rotate(-34 211 182)"/><ellipse cx="301" cy="182" rx="26" ry="38" transform="rotate(34 301 182)"/><ellipse cx="256" cy="216" rx="37" ry="48"/><ellipse cx="204" cy="256" rx="30" ry="43" transform="rotate(-42 204 256)"/><ellipse cx="308" cy="256" rx="30" ry="43" transform="rotate(42 308 256)"/><ellipse cx="256" cy="306" rx="40" ry="52"/>
+  </g>
+  <g fill="url(#bc)">
+    <path d="M244 142 C251 124 261 124 268 142 C262 136 250 136 244 142Z"/><path d="M244 207 C252 186 263 186 271 207 C263 199 252 199 244 207Z"/><path d="M242 296 C252 272 265 272 274 296 C264 286 252 286 242 296Z"/>
+  </g>
+</svg>
+      <span><b>Lupine Science</b> <span class="tld">accelerating materials discovery</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/articles/" aria-current="page">Articles</a>
+      <a href="https://library.lupine.science">Library</a>
+      <a href="https://lupi.live">LUPI</a>
+    </nav>
+  </header>
+  <main id="content" class="article-shell">
+    <article class="article">
+      <p class="article-kicker" aria-label="Article type">Research note</p>
+<h1>The Correction That Hurt, and the Theorem That Stopped It</h1>
+<p class="article-deck">A pre-registered, two-round trial of raw vs. Lupine-corrected uMLIPs on two of the five portfolio targets, with a LAMMPS classical leg and kernel-checked correction licenses</p>
+<ul class="article-byline" aria-label="Publication details"><li><time datetime="2026-07-13">July 13, 2026</time></li> <li aria-hidden="true"><span class="byline-sep" aria-hidden="true">·</span></li> <li><span class="article-status">Draft</span></li></ul>
+<figure class="article-hero">
+  <picture>
+    <img src="/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/hero.jpg?v=2" alt="" width="1280" height="720" loading="eager" fetchpriority="high" decoding="async">
+  </picture>
+</figure>
+
+<hr>
+<p class="lead">If a correction layer is worth trusting, it must survive a trial designed to let it fail. We pre-registered one: two candidate groups from the five-target portfolio, four foundation potentials, a classical LAMMPS baseline, disjoint calibration sets, and success criteria written down before any GPU cycle ran. Round 1 falsified our own first correction. Round 2, licensed by the theorem that failure produced, is the one we are keeping.</p>
+<h2>What we asked</h2>
+<p>Can a correction layer improve single-model predictions on materials it has never seen — and can a reference-free gate tell, in advance, which predictions deserve refusal? We picked two groups where the local instrument is honest: <strong>fcc Cantor-subset alloys</strong> (CoCrNi, CoCrFeNi, with CoNi and FeNi anchors — the one class with a true classical LAMMPS leg, via the shipped 2NN-MEAM potential) and <strong>lead-free halide perovskites</strong> (CsSnCl₃, CsSnBr₃, CsSnI₃, CsGeI₃, with CsPbI₃ as control). MOF sorbents, LMR cathodes, and ammonia catalysts stayed out: their failure modes are barrier and framework problems the local cubic-statics lane cannot measure without bias, and an unbiased trial does not force off-instrument classes into it.</p>
+<p>Every reference value was locked before the run — experimental where it exists (single-crystal constants for CoCrNi from resonant ultrasound; tetrataenite lattice constants), DFT where it does not, unfindable values recorded as null rather than invented. The instrument: <strong>108-atom</strong> random-solid-solution supercells (seed 20260713), Birch–Murnaghan E–V relaxation, relaxed-ion stress–strain elastic probes at <strong>±0.5 %</strong> strain, identical code paths for every arm. The MEAM leg runs the <em>same cells through the same probe functions</em> with LAMMPS supplying forces — the integration we validated earlier the same day on real Ni/EAM physics, exe and python-module legs agreeing to <strong>10⁻⁹ GPa</strong>.</p>
+<h2>What did not survive</h2>
+<p><strong>The cross-class correction.</strong> Round 1’s de-bias arm divided each prediction by the model’s median prediction-to-reference ratio, learned on the elemental fcc metals of our 21-material baseline — a set disjoint from every candidate. On the perovskites it helped marginally. On the alloys it <em>hurt</em>: median bulk-modulus error went <strong>9.1 % → 16.9 %</strong>. The mechanism is plain once seen: the potentials underpredict elemental fcc B₀ (CHGNet’s median ratio is <strong>0.856</strong>), so the correction inflates — but on the alloys the raw predictions already sat above their references. A correction with the wrong sign is not a weaker correction; it is a multiplier on the error.</p>
+<p><strong>The synthetic demo.</strong> Our LAMMPS-bridge demo theorems had been generated from a fabricated log whose C11 sat comfortably inside tolerance. Real Ni/EAM physics gives <strong>C11 = 233.3 GPa</strong> against the 246.5 GPa experimental reference — outside the 5 % gate — and the regenerated module now carries an honest <code>exceeds_tol</code> theorem where the synthetic one flattered.</p>
+<h2>The theorem in the loop</h2>
+<p>The Round-1 failure is now a law, not an anecdote. Two lemmas in <code>Shapes/Certificates.lean</code> — <code>wrong_direction_inflation_worsens</code> and its deflation twin — prove that a correction applied against the true error direction <em>strictly</em> increases error, with the Round-1 alloy numbers instantiated as a kernel-checked witness. A decidable <code>directionVerified</code> predicate turns that into a license: a correction may act only where in-class evidence shows the calibration and target err the same way. No license, no correction — abstention is provably risk-free.</p>
+<h2>What survived</h2>
+<p><strong>Round 2, direction-gated — and honestly exploratory.</strong> With corrections gated per (model, property, class) by leave-one-out evidence inside each candidate group — the held-out candidate never sees its own reference — the rule applied 69 corrections and abstained 71 times. Where it acted: alloy lattice error <strong>0.84 % → 0.17 %</strong>, perovskite lattice error <strong>1.41 % → 0.48 %</strong>. Where evidence was absent or inconsistent it abstained. Two corrections from our own review temper this. First, Round 2’s rule was chosen <em>after</em> Round 1 failed and evaluated on the same nine candidates: it is exploratory rule selection, not a completed trial, and it is now frozen verbatim in the Round-3 preregistration for evaluation on candidates it has never seen. Second, the gate is weaker than the theorem it invokes: the law requires the <em>target’s</em> error direction, the rule checks only its classmates’ — and one alloy cell (FeNi B₀) walked through that gap and received the exact wrong-direction correction the theorem forbids. The gate provably excludes one failure mode on calibration members; the magnitude cap that closes the remaining gap is registered for Round 3. Part of the lattice gains also absorb a known reference-convention offset (high-temperature lattice references against athermal predictions) — the decomposition is registered work.</p>
+<p><strong>The gates as selective prediction — split by class.</strong> Across all nine candidates, the reference-free verdicts refused five. Pooled, the refused candidates carry higher raw error than the issued ones — but that pooled ratio is mostly class composition (alloys are easier than perovskites), and within class the picture is humbler: the perovskite gate barely separates, and among the alloys the gate refused the <em>most accurate</em> candidate. One refusal was a false positive on our own control: CsPbI₃ was refused because CHGNet’s predicted tensor is Born-unstable — defensible physics for a 0 K cubic phase, but a refusal of a subject we designated known-good, and we count it as such. The refusals that carry real content are the physics-gated ones: LiS rocksalt fails Born under every model, and no calibration choice can change that.</p>
+<p><strong>The reproducibility rerun.</strong> The full Round-1 measurement repeated end-to-end returns all nine verdicts identically, with worst-case raw-value drift of <strong>8×10⁻⁴</strong> relative (GPU float nondeterminism amplified through finite differences). The instrument is verdict-stable.</p>
+<h2>The defect cliff</h2>
+<p>The five-materials brief names the perovskite failure mode precisely: tin vacancy formation, at under-coordinated sites the potentials were not trained to see. We measured it. Neutral B-site vacancies, metal-rich limit, 2×2×2 supercells, four models: cross-model spreads on vacancy formation energy run <strong>0.5–1.8 eV</strong> — at the brief’s own conversion (100 meV ≈ 50× in rate), ranking candidates on any single raw potential here is meaningless. Relative to an energy observable of the same kind, defect disagreement runs <strong>2–34×</strong> the bulk-modulus disagreement on the same compounds (comparisons against lattice-constant dispersion inflate the ratio and we do not headline them). CHGNet cannot form the α-Sn reference at all — so the tin rows are a three-model, single-family spread — and predicts <em>negative</em> vacancy formation in CsGeI₃, a cell we flag as invalid rather than average: spontaneous self-destruction of the lattice, the softening signature in its purest form. The literature consensus agrees with the mechanism (the tin vacancy is the accepted oxidation gateway) but publishes its numbers in the halide-rich, ionized-defect convention; our metal-rich neutral panel is therefore graded on disagreement, not on references, and says so.</p>
+<h2>Boundaries</h2>
+<p>Nine candidates demonstrate a method, not a survey. Random-solid-solution cells are only statistically cubic. Alloy B₀ references derive from room-temperature polycrystal moduli set against athermal predictions — part of the residual there is convention, not physics. The vacancy panel is neutral-only, single supercell size, no charge corrections. Two of the four potentials share architecture and training data, so dispersion understates independent error. And no per-property thresholds exist yet for defect energies — the gate that would refuse a vacancy prediction is the next thing to calibrate.</p>
+<h2>Registered next — and what happened when we ran it</h2>
+<p>Round 3 froze the direction-gated rule verbatim, added a magnitude cap, and evaluated it on eight candidates it had never seen — four alkali halides with primary-source elastic references, four out-of-sample perovskites. Kill condition, registered in advance: if the frozen rule fails both groups, the correction layer’s scope claim narrows to same-class lattice constants, in all public material.</p>
+<p><strong>It failed both groups, and the kill fired.</strong> One property survived, decisively: lattice constants, corrected <strong>1.60 % → 0.33 %</strong> (ionics) and <strong>1.75 % → 0.74 %</strong> (perovskites) on candidates the rule never saw, with the gate confident enough to fire on every cell. On every other property the gate abstained on most cells — correctly — and the few firings that slipped past the frozen cap made predictions worse, exactly the behavior the stronger cap theorem says the frozen cap permits. So the claim this program now makes is the one that survived: <em>for lattice constants, within a chemical class, a direction-gated correction transfers out of sample; for everything else, the honest verdict is abstention — and we can prove why.</em></p>
+<p><em>Evidence trail: preregistration and both rounds in the rhizo repository (<code>docs/plans/2026-07-13-unbiased-accuracy-campaign.md</code>, <code>data/candidates/round1</code>, <code>round2</code>, <code>round1_lammps</code>, <code>round2-verify</code>, <code>perovskite_vacancy_panel</code>); thresholds and re-verdicts under <code>data/discovery_gates</code> and <code>data/climate_targets/halide_panel</code>; correction-direction laws, threshold-migration laws, and ensemble-hull refusals in <code>lean-spec/LupineEvidence/Shapes/Certificates.lean</code> and <code>Discovery/Certificates_LiS_V2.lean</code>, all kernel-checked by <code>lake build LupineEvidence</code>, zero <code>sorry</code>; ledger claims landed under <code>discovery_gates_*</code> and <code>correction_direction_validation_*</code>, agent <code>local-gpu-discovery-lane</code>.</em></p>
+
+<div class="share-root" data-url="https://lupine.science/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/" data-title="The Correction That Hurt, and the Theorem That Stopped It" role="group" aria-label="Share">
+  <span class="share-label">Share</span>
+  <ul class="share-list" role="list" aria-label="Share options">
+    <li><a class="share-link share-x" href="https://twitter.com/intent/tweet?text=The%20Correction%20That%20Hurt%2C%20and%20the%20Theorem%20That%20Stopped%20It&amp;url=https%3A%2F%2Flupine.science%2Farticles%2Fthe-correction-that-hurt-and-the-theorem-that-stopped-it%2F" aria-label="Share on X" target="_blank" rel="noopener noreferrer">Share on X</a></li>
+    <li><a class="share-link share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Flupine.science%2Farticles%2Fthe-correction-that-hurt-and-the-theorem-that-stopped-it%2F" aria-label="Share on LinkedIn" target="_blank" rel="noopener noreferrer">Share on LinkedIn</a></li>
+    <li><a class="share-link share-email" href="mailto:?subject=The%20Correction%20That%20Hurt%2C%20and%20the%20Theorem%20That%20Stopped%20It&amp;body=The%20Correction%20That%20Hurt%2C%20and%20the%20Theorem%20That%20Stopped%20It%0A%0Ahttps%3A%2F%2Flupine.science%2Farticles%2Fthe-correction-that-hurt-and-the-theorem-that-stopped-it%2F" aria-label="Share by email">Share by email</a></li>
+  </ul>
+</div>
+    </article>
+  </main>
+  <footer class="foot">
+    <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
+    <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" href="mailto:alex@lupinesci.com" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
+    <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
+  </footer>
+<script type="module">
+import { initAllShareWidgets } from "/components/share/share.mjs";
+(() => {
+  document.querySelectorAll("a.mail").forEach((a) => {
+    const addr = a.dataset.u + "@" + a.dataset.d;
+    a.href = "mailto:" + addr;
+    a.textContent = addr;
+  });
+  const vids = document.querySelectorAll("video[data-autoplay]");
+  if (vids.length) {
+    if (!("IntersectionObserver" in window)) { vids.forEach((v) => { v.preload = "metadata"; }); }
+    else {
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) { e.target.play().catch(() => {}); }
+          else { e.target.pause(); }
+        }
+      }, { rootMargin: "120px" });
+      vids.forEach((v) => io.observe(v));
+    }
+  }
+})();
+</script>
+</body>
+</html>
