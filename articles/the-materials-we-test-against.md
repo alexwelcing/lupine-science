@@ -1,8 +1,8 @@
-# The Materials We Test Against: A Field Guide to the Z1 Panel
+# The Z1 Barrier Panel: Evaluating Foundation MLIPs on 42 Solid-State Electrolyte Chemistries
 
 > **Field note from the live lab**
 > **Date:** 2026-07-20  
-> **Deck:** A guided tour of the 42 lithium-ion conductors behind our barrier campaigns — what they are, why they are the right adversaries, and what a migration barrier actually is  
+> **Deck:** One step in the trust-layer program: the locked Li-ion conductor panels behind our barrier campaigns — what they are, why they are the right adversaries, and what a migration barrier actually is  
 > **Summary:** Our barrier campaigns run on 42 published Li-ion electrolyte materials: 30 frozen test chemistries and 12 disjoint training chemistries. Here is what is in the panels and why these materials decide whether solid-state batteries ever ship.  
 > **Status:** Final
 
