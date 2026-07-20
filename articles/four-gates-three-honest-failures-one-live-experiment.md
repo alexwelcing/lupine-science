@@ -4,13 +4,13 @@
 > **Date:** 2026-07-19  
 > **Deck:** A plain-language status report on our four preregistered Round-4 campaigns — what we measured, what failed, what is still running, and how you can check every number  
 > **Summary:** Three of our four campaign gates have reported in, and all three are failures or abstentions — recorded, hash-locked, and explained. The fourth is running right now. This is what open-science instrumentation looks like when the answers are no.  
-> **Status:** Draft for discussion — Z3 campaign in flight; figures update when it lands
+> **Status:** Final — updated 2026-07-20 with the Z3 verdict and the Z1 float64 confirmation
 
 ---
 
 ![The Campaign Scoreboard](images/four-gates-three-honest-failures-one-live-experiment-01-four-gates-scoreboard.jpg)
 
-<p class="lead">Every few months we write down, in advance and in public, what our software stack must prove about itself — then we force it to actually try. This week three of those gates reported in. All three answers are "no." The fourth experiment is running as you read this. None of that is a disaster; it is the point of having gates at all. Here is the status of each campaign, in plain language, with the receipts.</p>
+<p class="lead">Every few months we write down, in advance and in public, what our software stack must prove about itself — then we force it to actually try. This week all four of those gates reported in. All four answers are "no" — three failures and one principled abstention. None of that is a disaster; it is the point of having gates at all. Here is the final status of each campaign, in plain language, with the receipts.</p>
 
 ## The setup, in one paragraph
 
@@ -26,7 +26,7 @@ Modern "foundation" machine-learning potentials — in our panel, three sizes of
 
 The best model missed by 3.4×, the worst by 6×. More telling than the size of the miss is its *shape*: for the model with full per-path data, **all 26 completed paths under-predict the barrier**. Random noise scatters in both directions; a one-sided miss is a systematic bias — these models, trained mostly on near-equilibrium structures, consistently underestimate how hard it is for an ion to squeeze through a transition state. That is exactly the failure mode our "Honest Errors" program exists to catch, and it replicates, at 30-chemistry scale, a smaller five-compound result we reported (and retracted the corresponding claim for) last round.
 
-Two honesty notes. First, 1–4 of the 30 paths per model failed to converge under the frozen protocol; the pipeline records them as failures rather than estimating around them, so the MAEs above are computed only on completed paths. Second, our first execution ran the models at reduced numerical precision (float32) against the vendor's guidance for geometry optimization. We caught it, fixed it, and re-ran the full panel at float64 — the first run stays on record as executed; the re-run is a separate measurement chain, and we will report both. (Early float64 results were still coming in at publication time.)
+Two honesty notes. First, 1–4 of the 30 paths per model failed to converge under the frozen protocol; the pipeline records them as failures rather than estimating around them, so the MAEs above are computed only on completed paths. Second, our first execution ran the models at reduced numerical precision (float32) against the vendor's guidance for geometry optimization. We caught it, fixed it, and re-ran the full panel at float64 — the first run stays on record as executed; the re-run is a separate measurement chain, and we report both. **The float64 verdicts are identical to within 0.1 meV (135.0 / 151.9 / 174.7 / 242.5): the miss is model error, not numerical noise — full stop.**
 
 ## Round-4 — the elastic-correction test: failed, with an amendment on file
 
@@ -40,15 +40,26 @@ Two honesty notes. First, 1–4 of the 30 paths per model failed to converge und
 
 **The answer.** We can't ask it — not honestly. None of the declared available models exposes the spin-orbit / non-collinear machinery the measurement requires, and no suitable locked reference panel exists. The old move in this situation is to run *something* and spin the story. Our move was an **abstention audit**: a content-addressed document stating precisely what can and cannot be claimed, plus one hash-chained "unsupported" row per model. Building a spin-capable runner is now a scoped engineering task, parked until the current campaigns close.
 
-## Z3 — the catalyst-adsorption test: live right now
+## Z3 — the catalyst-adsorption test: failed, and the failure taught us why
 
 **The question.** Can a small *correction model* (Δ-learning) lift foundation-model adsorption energies to within **0.1 eV** of published DFT references on 20 held-out catalyst systems — the accuracy catalyst screening needs?
 
-**The status.** Running. The baseline measurements — 4 models × 32 systems on Cloud Run — are executing as of this writing. And the very first baseline datapoint explains why the campaign is designed this way:
+**The answer.** No — and the reason is more useful than a pass would have been. The baseline measurements (4 models × 32 systems, 128/128 completed, zero failures) confirmed the first datapoint's pattern at panel scale: every MACE variant underbinds nearly everything, with errors from −1 to **+25.6 eV** growing with molecule size.
 
 ![Z3 first datapoint: the whole miss lives at the interface](images/four-gates-three-honest-failures-one-live-experiment-03-z3-interface-error-anatomy.jpg)
 
-For a 43-atom biomass molecule on nickel, the model's total-energy errors on the separate pieces are modest — but the *interface* is off by **+9.8 eV**. The model barely binds a molecule that DFT (with dispersion corrections) binds strongly. That is chemically sensible: foundation models are trained mostly on bulk crystals, without the long-range dispersion physics that glues big organic molecules to metal surfaces. A systematic, physically-understood bias is precisely what Δ-learning can correct — the campaign fits the correction on 6 training systems, validates on 6 more, and only then scores the 20 held-out systems. Whether it clears the 0.1 eV gate is what the next field note will report.
+Then came the honest part. The correction model was fitted on the 6 training systems and selected on the 6 validation systems, exactly as frozen — and on the 20-system holdout, **every selected correction made things worse than doing nothing**:
+
+| Model | Raw baseline MAE | After Δ-correction | Gate ≤ 0.1 eV |
+|---|---|---|---|
+| chgnet | 0.69 eV | 2.27 eV | ✗ |
+| mace-mp-medium | 2.11 eV | 5.01 eV | ✗ |
+| mace-mp-small | 3.24 eV | 5.00 eV | ✗ |
+| mace-mpa-0-medium | 4.27 eV | 5.91 eV | ✗ |
+
+A single average shift is wrong for every family at once; a size-based fit trained on two giant plastics molecules extrapolates badly. The bias is *structured* — it depends on chemistry and molecule size — so six training points cannot learn a general fix. That is a real result: it tells us exactly what a working correction would need (a much bigger fit budget, or physics features like contact-atom counts), and it rules out the easy version forever.
+
+The best bare-model number, chgnet's 0.69 eV, is still 6.9× the screening gate: **no current foundation MLIP is catalyst-screening accurate on adsorbates this size.** Combined with Z1's barriers and Round-4's elastics, that is three independent measurements of the same systematic direction: these models underbind — at transition states and at interfaces alike.
 
 ## Why you can check all of this
 
@@ -60,12 +71,12 @@ The formal machinery is equally explicit about its limits: the claims registry m
 
 ## What happens next
 
-- **Z1:** float64 re-run completes; both precision chains are reported, then ingestion turns the rows into a formal gate verdict (expected: fail — recorded, not buried).
-- **Z3:** baseline fan-out completes; the Δ-model is fit on train/validation splits and scored on the 20-system holdout. That is the campaign's real question.
+- **Z1:** both precision chains are in and identical; ingestion turns the rows into a formal gate verdict (expected: fail — recorded, not buried).
+- **Z3:** complete — baseline table and the refuted Δ-correction are on record; a viable retry needs a bigger fit budget or physics features, under a new preregistration.
 - **Round-4:** a relaxed-ion elastic recompute is queued as scoped follow-up work.
 - **Z2:** returns when a spin-capable runner exists.
 
-Failing in public, with receipts. More soon.
+Every one of these results is or will be on the library shelf ([library.lupine.science](https://library.lupine.science)) with the full tables, protocols, and hashes. Failing in public, with receipts. More soon.
 
 ---
 
