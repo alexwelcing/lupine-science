@@ -652,6 +652,13 @@ async function legacyRenderPdf(browser, { url, html, output }) {
         font-display: block;
       }
       :root { --serif: "Proof Unicode", serif; }
+
+      /* Print/PDF: video players carry no value on paper. Remove the player
+         and its meta chrome entirely (owner decision 2026-07-20); hero
+         figures that are video-only collapse too. */
+      video, .video-player, .video-player-meta, .article-hero:has(video) {
+        display: none !important;
+      }
     ` });
     await page.evaluate(() => document.fonts.ready).catch(() => {});
     await page.waitForSelector('.katex', { timeout: 5000 }).catch(() => {});
