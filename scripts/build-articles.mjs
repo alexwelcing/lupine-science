@@ -566,15 +566,22 @@ ensureKatexAssets();
 
 const sources = fs.readdirSync(SRC).filter((f) => f.endsWith('.md')).sort();
 const articles = [];
+// Write-then-rename: concurrent readers (parallel test files, deploys
+// mid-build) must never observe a partially written page.
+function writeAtomic(file, contents) {
+  const tmp = `${file}.tmp-${process.pid}`;
+  fs.writeFileSync(tmp, contents);
+  fs.renameSync(tmp, file);
+}
 for (const file of sources) {
   const slug = file.replace(/\.md$/, '');
   const raw = fs.readFileSync(path.join(SRC, file), 'utf8');
   const built = buildArticle(raw, slug);
   fs.mkdirSync(path.join(OUT, slug), { recursive: true });
-  fs.writeFileSync(path.join(OUT, slug, 'index.html'), built.page);
+  writeAtomic(path.join(OUT, slug, 'index.html'), built.page);
   articles.push(built);
   console.log(`built /articles/${slug}/`);
 }
 articles.sort((a, b) => (b.meta.date || '').localeCompare(a.meta.date || ''));
-fs.writeFileSync(path.join(OUT, 'index.html'), buildIndex(articles));
+writeAtomic(path.join(OUT, 'index.html'), buildIndex(articles));
 console.log('built /articles/index.html');
