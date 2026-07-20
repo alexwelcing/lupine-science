@@ -89,8 +89,10 @@ async function generate(asset) {
 const TOKEN = minimaxToken();
 
 async function main() {
+  const specArg = process.argv.find((arg) => arg.startsWith('--spec='))?.slice('--spec='.length);
+  const assets = specArg ? JSON.parse(fs.readFileSync(specArg, 'utf8')) : ASSETS;
   const only = process.argv.find((arg) => arg.startsWith('--only='))?.slice('--only='.length).split(',');
-  const selected = only ? ASSETS.filter((a) => only.includes(a.key)) : ASSETS;
+  const selected = only ? assets.filter((a) => only.includes(a.key)) : assets;
   fs.mkdirSync(OUT_DIR, { recursive: true });
   const manifest = [];
   for (const asset of selected) {

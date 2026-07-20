@@ -71,6 +71,8 @@ The formal machinery is equally explicit about its limits: the claims registry m
 
 ## What happens next
 
+![The trust gate: raw candidates in, one certified ribbon out](images/society-trust-gate.png)
+
 - **Z1:** both precision chains are in and identical; ingestion turns the rows into a formal gate verdict (expected: fail — recorded, not buried).
 - **Z3:** complete — baseline table and the refuted Δ-correction are on record; a viable retry needs a bigger fit budget or physics features, under a new preregistration.
 - **Round-4:** a relaxed-ion elastic recompute is queued as scoped follow-up work.
