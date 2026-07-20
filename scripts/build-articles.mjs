@@ -7,6 +7,7 @@
 // `git diff --exit-code` after a rebuild.
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import MarkdownIt from 'markdown-it';
 import footnote from 'markdown-it-footnote';
@@ -220,6 +221,10 @@ function absoluteSiteUrl(value) {
   if (!value) return undefined;
   return new URL(value, SITE).href;
 }
+function sha256(filePath) {
+  return crypto.createHash('sha256').update(fs.readFileSync(filePath)).digest('hex');
+}
+
 function heroFigure(slug) {
   const dir = path.join(OUT, slug);
   const hasJpg = fs.existsSync(path.join(dir, 'hero.jpg'));
@@ -350,15 +355,14 @@ function shareBar(slug, title) {
   const encodedUrl = encodeURIComponent(url).replace(/[!'()*]/g, (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`);
   const encodedTitle = encodeURIComponent(title).replace(/[!'()*]/g, (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`);
   const actions = [
-    { slug: 'x', href: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`, label: 'Share on X' },
-    { slug: 'linkedin', href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`, label: 'Share on LinkedIn' },
-    { slug: 'email', href: `mailto:?subject=${encodedTitle}&body=${encodedTitle}%0A%0A${encodedUrl}`, label: 'Share by email' },
+    { slug: 'x', href: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`, label: 'X', aria: 'Share on X' },
+    { slug: 'linkedin', href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`, label: 'LinkedIn', aria: 'Share on LinkedIn' },
+    { slug: 'email', href: `mailto:?subject=${encodedTitle}&body=${encodedTitle}%0A%0A${encodedUrl}`, label: 'Email', aria: 'Share by email' },
   ];
   const items = actions.map((a) =>
-    `    <li><a class="share-link share-${a.slug}" href="${esc(a.href)}" aria-label="${esc(a.label)}"${a.slug !== 'email' ? ' target="_blank" rel="noopener noreferrer"' : ''}>${esc(a.label)}</a></li>`
+    `    <li><a class="share-link share-${a.slug}" href="${esc(a.href)}" aria-label="${esc(a.aria)}"${a.slug !== 'email' ? ' target="_blank" rel="noopener noreferrer"' : ''}>${esc(a.label)}</a></li>`
   ).join('\n');
   return `<div class="share-root" data-url="${esc(url)}" data-title="${esc(title)}" role="group" aria-label="Share">
-  <span class="share-label">Share</span>
   <ul class="share-list" role="list" aria-label="Share options">
 ${items}
   </ul>
@@ -407,6 +411,18 @@ function buildArticle(raw, slug) {
   if (headerParts.length || hero || video) {
     const inserted = [...headerParts, hero, video].filter(Boolean).join('\n');
     body = body.replace('</h1>', `</h1>\n${inserted}`);
+  }
+
+  // De-duplicate: when hero.jpg is a copy of the first inline image (the
+  // conventional pattern), drop the redundant inline one so the article
+  // doesn't show the same image twice in a row.
+  const heroPath = path.join(OUT, slug, 'hero.jpg');
+  if (hero && fs.existsSync(heroPath)) {
+    const heroHash = sha256(heroPath);
+    body = body.replace(/<p><img\s+[^>]*src="images\/([^"?]+)[^"]*"[^>]*>\s*<\/p>/, (match, name) => {
+      const inlinePath = path.join(OUT, slug, 'images', name);
+      return fs.existsSync(inlinePath) && sha256(inlinePath) === heroHash ? '' : match;
+    });
   }
 
   // share bar immediately before the footnotes section / heading, or at the end if there are none

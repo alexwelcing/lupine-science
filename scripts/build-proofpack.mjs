@@ -656,7 +656,8 @@ async function legacyRenderPdf(browser, { url, html, output }) {
       /* Print/PDF: video players carry no value on paper. Remove the player
          and its meta chrome entirely (owner decision 2026-07-20); hero
          figures that are video-only collapse too. */
-      video, .video-player, .video-player-meta, .article-hero:has(video) {
+      video, .video-player, .video-player-meta, .article-hero:has(video),
+      .article-video-player, .video-player-label, .video-player-frame {
         display: none !important;
       }
     ` });
