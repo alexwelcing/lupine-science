@@ -1,0 +1,13 @@
+{
+  "model": "minimax/image-01 (api.minimax.io)",
+  "generated_at": "2026-07-20T14:05:13.192Z",
+  "assets": [
+    {
+      "key": "interface-underbinding",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/interface-underbinding.png",
+      "bytes": 149243,
+      "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-07-20%2Fda73dd6d-b059-4d61-aa30-12e99f2d3e23_aigc.jpeg?Expires=1784642712&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=Dt4yf1oM4a5nYHoqhwxbapyOUZo%3D",
+      "prompt": "a large organic molecule drawn as a ball-and-stick model: many small hollow ink circles joined by thin straight ink sticks forming an intricate branching molecular skeleton, floating above a flat square grid of small indigo dots representing a metal crystal surface, a clearly visible empty gap between the molecule and the surface grid, only two or three short dashed indigo lines attempting and failing to bridge the gap, conveying weak missing attraction, sparse precise line art on warm paper"
+    }
+  ]
+}
