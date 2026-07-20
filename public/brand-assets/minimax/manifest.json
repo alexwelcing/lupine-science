@@ -1,13 +1,66 @@
 {
   "model": "minimax/image-01 (api.minimax.io)",
-  "generated_at": "2026-07-20T14:05:13.192Z",
+  "generated_at": "2026-07-20",
   "assets": [
+    {
+      "key": "bits-to-atoms",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/bits-to-atoms.png",
+      "bytes": 167105,
+      "prompt": "tiny dissolving square pixels transforming into a precise crystalline atomic lattice"
+    },
     {
       "key": "interface-underbinding",
       "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/interface-underbinding.png",
       "bytes": 149243,
-      "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-07-20%2Fda73dd6d-b059-4d61-aa30-12e99f2d3e23_aigc.jpeg?Expires=1784642712&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=Dt4yf1oM4a5nYHoqhwxbapyOUZo%3D",
-      "prompt": "a large organic molecule drawn as a ball-and-stick model: many small hollow ink circles joined by thin straight ink sticks forming an intricate branching molecular skeleton, floating above a flat square grid of small indigo dots representing a metal crystal surface, a clearly visible empty gap between the molecule and the surface grid, only two or three short dashed indigo lines attempting and failing to bridge the gap, conveying weak missing attraction, sparse precise line art on warm paper"
+      "prompt": "ball-and-stick molecule hovering above a flat square metal-atom grid, a clear empty gap between them, short dashed indigo lines failing to bridge"
+    },
+    {
+      "key": "receipts-chain",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/receipts-chain.png",
+      "bytes": 104684,
+      "prompt": "a horizontal chain of small crystalline mineral blocks linked by a single thin indigo thread"
+    },
+    {
+      "key": "shape-of-wrongness-hero",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/shape-of-wrongness-hero.png",
+      "bytes": 292823,
+      "prompt": "hundreds of faint thin ink arrows scattered chaotically across warm paper, gradually aligning and merging into ONE luminous indigo ribbon"
+    },
+    {
+      "key": "society-biomass-refinery",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/society-biomass-refinery.png",
+      "bytes": 192614,
+      "prompt": "golden agricultural field stubble drawn in fine ink lines on the left flowing toward a small refinery of ink towers and pipes at center, one luminous indigo reaction core at its heart, a few indigo fuel droplets falling on the right, vast warm paper sky, minimalist editorial science illustration, STRICT palette only: warm off-white paper, deep indigo blue, near-black ink. Absolutely no orange, red, yellow, pink, purple, or green anywhere in the image."
+    },
+    {
+      "key": "society-cement-city",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/society-cement-city.png",
+      "bytes": 366332,
+      "prompt": "a city skyline at dawn drawn in fine architectural ink lines on warm paper, massive concrete towers, bridges and infrastructure, selected structural beams and joints highlighted in faint indigo revealing the hidden material skeleton, bird's-eye three-quarter composition, minimalist editorial science illustration, STRICT palette only: warm off-white paper, deep indigo blue, near-black ink. Absolutely no orange, red, yellow, pink, purple, or green anywhere in the image."
+    },
+    {
+      "key": "society-circular-plastics",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/society-circular-plastics.png",
+      "bytes": 207055,
+      "prompt": "a clean industrial facility drawn in fine ink lines on warm paper, on the left a heap of crushed plastic bottles drawn in ink outline, dissolving into a flowing stream that passes through the facility and emerges on the right as neat small crystalline pellets glowing faint indigo, circular economy made visible, minimalist editorial illustration, STRICT palette only: warm off-white paper, deep indigo blue, near-black ink. Absolutely no orange, red, yellow, pink, purple, or green anywhere in the image."
+    },
+    {
+      "key": "society-electric-flight",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/society-electric-flight.png",
+      "bytes": 104404,
+      "prompt": "a sleek aircraft in side profile drawn in fine ink line art flying through a vast warm paper sky, its fuselage spine carrying a glowing indigo crystalline battery core visible through the hull lines like a skeleton of stored energy, a faint indigo shimmer trailing the wings, minimalist editorial science illustration, STRICT palette only: warm off-white paper, deep indigo blue, near-black ink. Absolutely no orange, red, yellow, pink, purple, or green anywhere in the image."
+    },
+    {
+      "key": "society-grid-storage",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/society-grid-storage.png",
+      "bytes": 256560,
+      "prompt": "a wide plain at dusk with long rows of simple monolithic battery storage cabinets drawn as quiet ink monoliths stretching to the horizon, thin indigo light threads pulsing between them like a calm power grid waking up, enormous empty warm paper sky above, minimalist editorial science illustration, STRICT palette only: warm off-white paper, deep indigo blue, near-black ink. Absolutely no orange, red, yellow, pink, purple, or green anywhere in the image."
+    },
+    {
+      "key": "society-trust-gate",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/society-trust-gate.png",
+      "bytes": 205792,
+      "prompt": "a monumental measuring gate or archway drawn in precise ink lines standing at center-right on warm paper, from the left a chaotic swarm of scattered crystals and faint arrows streaming INTO the gate, and on the right side of the gate the same material emerging perfectly aligned as ONE continuous luminous indigo ribbon flowing outward to the frame edge, the gate emitting a soft measuring indigo light, conveying an instrument that certifies new materials, minimalist editorial illustration, STRICT palette only: warm off-white paper, deep indigo blue, near-black ink. Absolutely no orange, red, yellow, pink, purple, or green anywhere in the image."
     }
   ]
 }

@@ -1,0 +1,38 @@
+[
+ {
+  "key": "society-electric-flight",
+  "aspect": "16:9",
+  "doc": "Z1 barrier work \u2192 solid-state batteries \u2192 electric aviation",
+  "prompt": "a sleek aircraft in side profile drawn in fine ink line art flying through a vast warm paper sky, its fuselage spine carrying a glowing indigo crystalline battery core visible through the hull lines like a skeleton of stored energy, a faint indigo shimmer trailing the wings, minimalist editorial science illustration, STRICT palette only: warm off-white paper, deep indigo blue, near-black ink. Absolutely no orange, red, yellow, pink, purple, or green anywhere in the image."
+ },
+ {
+  "key": "society-grid-storage",
+  "aspect": "16:9",
+  "doc": "Z1 electrolytes \u2192 grid-scale storage",
+  "prompt": "a wide plain at dusk with long rows of simple monolithic battery storage cabinets drawn as quiet ink monoliths stretching to the horizon, thin indigo light threads pulsing between them like a calm power grid waking up, enormous empty warm paper sky above, minimalist editorial science illustration, STRICT palette only: warm off-white paper, deep indigo blue, near-black ink. Absolutely no orange, red, yellow, pink, purple, or green anywhere in the image."
+ },
+ {
+  "key": "society-circular-plastics",
+  "aspect": "16:9",
+  "doc": "Z3 plastics catalysts \u2192 circular economy",
+  "prompt": "a clean industrial facility drawn in fine ink lines on warm paper, on the left a heap of crushed plastic bottles drawn in ink outline, dissolving into a flowing stream that passes through the facility and emerges on the right as neat small crystalline pellets glowing faint indigo, circular economy made visible, minimalist editorial illustration, STRICT palette only: warm off-white paper, deep indigo blue, near-black ink. Absolutely no orange, red, yellow, pink, purple, or green anywhere in the image."
+ },
+ {
+  "key": "society-biomass-refinery",
+  "aspect": "16:9",
+  "doc": "Z3 biomass catalysts \u2192 agricultural waste to fuel",
+  "prompt": "golden agricultural field stubble drawn in fine ink lines on the left flowing toward a small refinery of ink towers and pipes at center, one luminous indigo reaction core at its heart, a few indigo fuel droplets falling on the right, vast warm paper sky, minimalist editorial science illustration, STRICT palette only: warm off-white paper, deep indigo blue, near-black ink. Absolutely no orange, red, yellow, pink, purple, or green anywhere in the image."
+ },
+ {
+  "key": "society-trust-gate",
+  "aspect": "16:9",
+  "doc": "the validation substrate itself \u2192 infrastructure for AI-designed matter",
+  "prompt": "a monumental measuring gate or archway drawn in precise ink lines standing at center-right on warm paper, from the left a chaotic swarm of scattered crystals and faint arrows streaming INTO the gate, and on the right side of the gate the same material emerging perfectly aligned as ONE continuous luminous indigo ribbon flowing outward to the frame edge, the gate emitting a soft measuring indigo light, conveying an instrument that certifies new materials, minimalist editorial illustration, STRICT palette only: warm off-white paper, deep indigo blue, near-black ink. Absolutely no orange, red, yellow, pink, purple, or green anywhere in the image."
+ },
+ {
+  "key": "society-cement-city",
+  "aspect": "16:9",
+  "doc": "cement decarbonization \u2192 the built world",
+  "prompt": "a city skyline at dawn drawn in fine architectural ink lines on warm paper, massive concrete towers, bridges and infrastructure, selected structural beams and joints highlighted in faint indigo revealing the hidden material skeleton, bird's-eye three-quarter composition, minimalist editorial science illustration, STRICT palette only: warm off-white paper, deep indigo blue, near-black ink. Absolutely no orange, red, yellow, pink, purple, or green anywhere in the image."
+ }
+]
