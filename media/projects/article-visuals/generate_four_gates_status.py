@@ -67,7 +67,7 @@ def scoreboard():
 
     ax.text(64, 66, 'The Campaign Scoreboard', ha='center', va='center',
             fontsize=26, fontweight='bold', color=INK)
-    ax.text(64, 60.5, 'Round-4 preregistered campaigns · status 2026-07-19',
+    ax.text(64, 60.5, 'Round-4 preregistered campaigns · final status 2026-07-20',
             ha='center', va='center', fontsize=12.5, color=SECONDARY)
 
     cards = [
@@ -84,9 +84,10 @@ def scoreboard():
              state='ABSTAINED', color=AMBER, soft=SOFT_AMBER,
              note='audit instead of\nfabricated numbers'),
         dict(x=99, title='Z3', sub='Adsorption Δ-learning',
-             metric='128 cells\nrunning', gate='≤ 0.1 eV corrected',
-             state='LIVE', color=SAGE, soft=SOFT_SAGE,
-             note='baseline errors feed\nthe delta model'),
+             metric='corrected 2.27–5.91\neV vs ≤ 0.1 gate',
+             gate='worse than baseline',
+             state='FAILED', color=ROSE, soft=SOFT_ROSE,
+             note='bias is structured;\n6 fit points can’t fix it'),
     ]
     for c in cards:
         box = FancyBboxPatch((c['x'], 16), 24, 38,
