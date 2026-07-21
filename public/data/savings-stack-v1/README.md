@@ -31,3 +31,17 @@ mirroring `LICENSE-DATA.md` in the source repository. Prose chapters are
 covered by the repository's content license; the analysis script by its code
 license. Third-party literature cited inside the digests retains its original
 notices and licenses.
+
+## Reproducing the record
+
+From a checkout of `lupine-rhizo` (or with the inputs from the GCS buckets
+named in the script), recompute the union-anchor record byte-for-byte:
+
+    python3 union_anchor_economics.py \
+      --local /path/to/inputs \
+      --out z1-union-anchor-economics.json \
+      --recorded-at "2026-07-21T04:05:14.724456+00:00"
+
+The pinned `--recorded-at` reproduces this pack's JSON exactly;
+`sha256sum -c z1-union-anchor-economics.json.sha256` then verifies OK.
+Omitting the flag stamps the current time (new runs, new hash, same math).
