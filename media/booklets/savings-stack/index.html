@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Savings Stack — Lupine Science</title>
+<meta name="robots" content="noindex">
+<style>
+  /* ── Brand tokens (docs/brand-book.md §3.1) ─────────────────────────── */
+  :root {
+    --paper: #faf9f6;
+    --paper-deep: #f2efe7;
+    --ink: #16171d;
+    --ink-soft: #4c4e58;
+    --ink-faint: #6e707a;
+    --indigo: #3d4db3;
+    --indigo-deep: #2e3a87;
+    --indigo-wash: rgba(61,77,179,0.08);
+    --indigo-line: rgba(61,77,179,0.24);
+    --ochre: #8a5e1f;
+    --ochre-wash: rgba(168,119,43,0.10);
+    --serif: "Proof Unicode", Georgia, serif;
+    --mono: "IBM Plex Mono", monospace;
+  }
+  @font-face {
+    font-family: "Proof Unicode";
+    src: url("/fonts/proof-unicode.ttf") format("truetype");
+    font-style: normal; font-weight: 100 900; font-display: block;
+  }
+  @font-face {
+    font-family: "IBM Plex Mono";
+    src: url("/fonts/plex-mono-400.woff2") format("woff2");
+    font-style: normal; font-weight: 400; font-display: block;
+  }
+  @font-face {
+    font-family: "IBM Plex Mono";
+    src: url("/fonts/plex-mono-600.woff2") format("woff2");
+    font-style: normal; font-weight: 600; font-display: block;
+  }
+
+  @page { size: Letter; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: var(--paper); }
+  body { font-family: var(--serif); color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  .sheet {
+    width: 8.5in; height: 11in;
+    position: relative; overflow: hidden;
+    background: var(--paper);
+    break-after: page; page-break-after: always;
+    display: flex; flex-direction: column;
+  }
+  .sheet:last-child { break-after: auto; page-break-after: auto; }
+  @media screen {
+    body { background: #e8e6e0; }
+    .sheet { margin: 24px auto; box-shadow: 0 2px 18px rgba(22,23,29,.18); }
+  }
+  @media print {
+    .sheet { margin: 0; box-shadow: none; }
+    a { color: inherit; text-decoration: none; }
+  }
+
+  .pad { padding: 0.92in 0.72in 0.95in; flex: 1; display: flex; flex-direction: column; }
+
+  /* ── Page furniture ─────────────────────────────────────────────────── */
+  .runhead {
+    position: absolute; top: 0.42in; left: 0.72in; right: 0.72in;
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: var(--mono); font-size: 7.2pt; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--ink-faint);
+    border-bottom: 1px solid var(--indigo-line); padding-bottom: 6px;
+  }
+  .folio {
+    position: absolute; bottom: 0.42in; left: 0.72in; right: 0.72in;
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: var(--mono); font-size: 7.2pt; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--ink-faint);
+    border-top: 1px solid var(--indigo-line); padding-top: 6px;
+  }
+  .folio .num { color: var(--indigo); font-weight: 600; }
+
+  /* ── Type system ────────────────────────────────────────────────────── */
+  .eyebrow {
+    font-family: var(--mono); font-size: 8.5pt; font-weight: 600;
+    letter-spacing: 0.26em; text-transform: uppercase; color: var(--indigo);
+  }
+  h1 { font-size: 46pt; font-weight: 500; line-height: 1.04; letter-spacing: -0.01em; }
+  h2 { font-size: 25pt; font-weight: 500; line-height: 1.12; margin: 0.14in 0 0.22in; }
+  h2 .thin { color: var(--ink-faint); }
+  .deck { font-size: 13.5pt; line-height: 1.55; color: var(--ink-soft); }
+  .lead { font-size: 15pt; line-height: 1.62; }
+  .body { font-size: 11pt; line-height: 1.68; color: var(--ink-soft); }
+  .body + .body { margin-top: 0.14in; }
+  .mono { font-family: var(--mono); }
+  .prov {
+    font-family: var(--mono); font-size: 7.6pt; line-height: 1.7;
+    color: var(--ink-faint); letter-spacing: 0.02em;
+  }
+  em { font-style: italic; }
+  .indigo { color: var(--indigo); }
+
+  .rule { border: 0; border-top: 1px solid var(--indigo-line); margin: 0.22in 0; }
+
+  /* ── Cover ──────────────────────────────────────────────────────────── */
+  .cover-art {
+    width: 8.5in; height: 4.78in; display: block;
+    border-bottom: 1px solid var(--indigo-line);
+  }
+  .cover-body { padding: 0.55in 0.72in 0; flex: 1; display: flex; flex-direction: column; }
+  .cover-title { font-size: 57pt; font-weight: 500; line-height: 1.0; letter-spacing: -0.015em; margin-top: 0.16in; }
+  .cover-deck { font-size: 13.5pt; line-height: 1.5; color: var(--ink-soft); margin-top: 0.22in; max-width: 5.9in; }
+  .cover-foot {
+    margin-top: auto; padding: 0 0.72in 0.55in;
+    display: flex; justify-content: space-between; align-items: flex-end;
+  }
+  .cover-foot .mark { width: 0.42in; height: 0.58in; }
+  .cover-meta { font-family: var(--mono); font-size: 8pt; line-height: 1.9; color: var(--ink-faint); text-align: right; letter-spacing: 0.06em; }
+  .cover-meta b { color: var(--ink); font-weight: 600; }
+
+  /* ── Stat blocks ────────────────────────────────────────────────────── */
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.18in; margin-top: 0.24in; }
+  .stat {
+    border-top: 2px solid var(--indigo); padding-top: 0.1in;
+  }
+  .stat .n { font-family: var(--mono); font-size: 21pt; font-weight: 600; color: var(--ink); letter-spacing: -0.01em; }
+  .stat .n .u { font-size: 10pt; color: var(--indigo); }
+  .stat .c { font-size: 9.5pt; line-height: 1.5; color: var(--ink-soft); margin-top: 4px; }
+
+  /* ── Big number monument ────────────────────────────────────────────── */
+  .monument { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .big-number {
+    font-family: var(--mono); font-weight: 600;
+    font-size: 148pt; line-height: 0.95; letter-spacing: -0.045em; color: var(--ink);
+  }
+  .big-number .pct { color: var(--indigo); }
+  .big-caption { font-size: 17pt; line-height: 1.4; margin-top: 0.3in; max-width: 5.6in; }
+  .big-caption em { color: var(--indigo); }
+
+  /* ── Pull quote ─────────────────────────────────────────────────────── */
+  .pull {
+    font-size: 37pt; line-height: 1.22; font-style: italic; font-weight: 500;
+    max-width: 6.4in; letter-spacing: -0.005em;
+  }
+  .pull .mark-q { color: var(--indigo); font-style: normal; }
+  .pull-attr {
+    margin-top: 0.4in; font-family: var(--mono); font-size: 8.5pt;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-faint);
+  }
+
+  /* ── Layer list (detail page) ───────────────────────────────────────── */
+  .layer { display: flex; gap: 0.22in; padding: 0.115in 0; border-top: 1px solid var(--indigo-line); }
+  .layer:last-of-type { border-bottom: 1px solid var(--indigo-line); }
+  .layer .idx { font-family: var(--mono); font-size: 8.5pt; font-weight: 600; color: var(--indigo); padding-top: 3px; min-width: 0.3in; }
+  .layer .what { flex: 1; }
+  .layer .name { font-size: 11.5pt; font-weight: 500; }
+  .layer .num { font-family: var(--mono); font-size: 8pt; color: var(--indigo-deep); margin-top: 2px; }
+  .layer .hole { flex: 0 0 2.35in; font-size: 9pt; line-height: 1.5; color: var(--ink-soft); border-left: 1px solid var(--ochre); padding-left: 0.14in; }
+  .layer .hole b { color: var(--ochre); font-family: var(--mono); font-size: 7.2pt; letter-spacing: 0.14em; text-transform: uppercase; display: block; margin-bottom: 2px; font-weight: 600; }
+
+  /* ── Tables ─────────────────────────────────────────────────────────── */
+  table { border-collapse: collapse; width: 100%; font-size: 10pt; }
+  caption { text-align: left; font-family: var(--mono); font-size: 7.6pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); padding-bottom: 0.08in; }
+  th { font-family: var(--mono); font-size: 7.6pt; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); font-weight: 600; text-align: left; }
+  th.r, td.r { text-align: right; font-variant-numeric: tabular-nums; }
+  td { padding: 5px 8px 5px 0; color: var(--ink-soft); }
+  td.strong { color: var(--ink); font-weight: 500; }
+  tbody tr { border-top: 1px solid var(--indigo-line); }
+  tbody tr:last-child { border-bottom: 1px solid var(--indigo-line); }
+  td.hl { color: var(--indigo); font-family: var(--mono); font-weight: 600; }
+
+  /* ── Callouts ───────────────────────────────────────────────────────── */
+  .callout {
+    background: var(--paper-deep); border: 1px solid var(--indigo-line);
+    border-left: 3px solid var(--indigo); border-radius: 3px;
+    padding: 0.16in 0.2in; font-size: 10pt; line-height: 1.6; color: var(--ink-soft);
+  }
+  .callout .tag { font-family: var(--mono); font-size: 7.2pt; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--indigo); display: block; margin-bottom: 4px; }
+  .callout.derived { border-left-color: var(--ochre); }
+  .callout.derived .tag { color: var(--ochre); }
+
+  /* ── Honesty page ───────────────────────────────────────────────────── */
+  .notclaim { display: flex; gap: 0.2in; padding: 0.13in 0; border-top: 1px solid var(--indigo-line); }
+  .notclaim:last-of-type { border-bottom: 1px solid var(--indigo-line); }
+  .notclaim .x { font-family: var(--mono); font-size: 12pt; font-weight: 600; color: var(--indigo); min-width: 0.34in; padding-top: 2px; }
+  .notclaim .t { font-size: 11.5pt; line-height: 1.5; font-weight: 500; }
+  .notclaim .d { font-size: 9.5pt; line-height: 1.55; color: var(--ink-soft); margin-top: 3px; font-weight: 400; }
+
+  /* ── Loop diagram ───────────────────────────────────────────────────── */
+  .loop { margin-top: 0.26in; }
+  .loop-step { display: flex; gap: 0.18in; padding: 0.09in 0; align-items: baseline; }
+  .loop-step .n {
+    font-family: var(--mono); font-size: 9pt; font-weight: 600; color: var(--paper);
+    background: var(--indigo); border-radius: 50%; width: 0.26in; height: 0.26in;
+    display: inline-flex; align-items: center; justify-content: center; flex: 0 0 0.26in;
+    transform: translateY(2px);
+  }
+  .loop-step .s { font-size: 10.5pt; line-height: 1.5; color: var(--ink-soft); }
+  .loop-step .s b { color: var(--ink); font-weight: 500; }
+
+  /* ── Manifest list (download page) ──────────────────────────────────── */
+  .packlist { font-family: var(--mono); font-size: 8.4pt; line-height: 1.85; color: var(--ink-soft); margin-top: 0.16in; }
+  .packlist .row { display: flex; justify-content: space-between; gap: 0.2in; border-top: 1px solid var(--indigo-line); padding: 3px 0; }
+  .packlist .row:last-child { border-bottom: 1px solid var(--indigo-line); }
+  .packlist .f { color: var(--ink); }
+  .packlist .d { color: var(--ink-faint); text-align: right; }
+  .codeblock {
+    background: var(--paper-deep); border: 1px solid var(--indigo-line); border-radius: 3px;
+    font-family: var(--mono); font-size: 8.2pt; line-height: 1.8; color: var(--ink-soft);
+    padding: 0.14in 0.18in; margin-top: 0.16in; white-space: pre;
+  }
+
+  /* ── Back cover ─────────────────────────────────────────────────────── */
+  .back { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .back .mark { width: 0.62in; height: 0.86in; margin-bottom: 0.35in; }
+  .back .creed { font-size: 16pt; font-style: italic; }
+  .back .links { margin-top: 0.5in; font-family: var(--mono); font-size: 8.5pt; line-height: 2.2; color: var(--ink-soft); letter-spacing: 0.04em; }
+  .back .links b { color: var(--indigo); font-weight: 600; }
+  .back .fine { margin-top: 0.5in; font-family: var(--mono); font-size: 7pt; color: var(--ink-faint); letter-spacing: 0.16em; text-transform: uppercase; }
+
+  .figure-cap { font-family: var(--mono); font-size: 7.6pt; color: var(--ink-faint); line-height: 1.6; margin-top: 0.12in; }
+  .section-tail { margin-top: auto; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════ 01 · COVER ══════════════════════ -->
+<section class="sheet" aria-label="Cover">
+  <img class="cover-art" src="/brand-assets/minimax/savings-stack-cover.png" alt="A dawn landscape in indigo duotone: wind turbines on rolling hills, grid battery cabinets in the foreground, a luminous river linking them under a rising sun.">
+  <div class="cover-body">
+    <span class="eyebrow">Lupine Science · Research booklet · v1</span>
+    <h1 class="cover-title">The Savings<br>Stack</h1>
+    <p class="cover-deck">Seven ways atomistic simulation learned to do less — the measured economics of sharing the expensive part, and the commons that makes every team faster.</p>
+  </div>
+  <div class="cover-foot">
+    <img class="mark" src="/lupine-science-mark.svg" alt="">
+    <p class="cover-meta"><b>July 21, 2026</b><br>Free download · lupine.science<br>Full detail · library.lupine.science</p>
+  </div>
+</section>
+
+<!-- ══════════════════════ 02 · INSIDE COVER / COLOPHON ══════════════════════ -->
+<section class="sheet" aria-label="About this booklet">
+  <div class="pad">
+    <span class="eyebrow">About this booklet</span>
+    <h2>Evidence before claim,<br><span class="thin">in a portable form.</span></h2>
+    <p class="body">This booklet is the public edition of the Savings Stack v1 release: ten citation-verified chapters on compute-savings techniques in atomistic simulation, one machine-readable measurement of cross-model anchor sharing, and the identifier audit that checked every citation. It is a research release note, not a peer-reviewed publication — every number traces to a committed record you can download, hash, and recompute.</p>
+    <hr class="rule">
+    <p class="body"><b style="color:var(--ink)">The one-sentence version.</b> The field independently invented seven layers of compute savings, every layer ships without a correctness certificate, and our measurement says the fix — verified gating, shared across models — is itself a savings technology: four models of guidance cost about ten percent more DFT than one.</p>
+    <div class="section-tail">
+      <table aria-label="Contents">
+        <caption>Contents</caption>
+        <tbody>
+          <tr><td class="strong">The argument</td><td class="r">03</td></tr>
+          <tr><td class="strong">The cost wall</td><td class="r">04</td></tr>
+          <tr><td class="strong">The stack, drawn to scale</td><td class="r">05</td></tr>
+          <tr><td class="strong">Seven layers, one hole</td><td class="r">06</td></tr>
+          <tr><td class="strong">The big number</td><td class="r">07</td></tr>
+          <tr><td class="strong">The chart</td><td class="r">08</td></tr>
+          <tr><td class="strong">The measurement, stated plainly</td><td class="r">09</td></tr>
+          <tr><td class="strong">The theorem commons</td><td class="r">10</td></tr>
+          <tr><td class="strong">How the commons compounds</td><td class="r">11</td></tr>
+          <tr><td class="strong">The demand side already exists</td><td class="r">12</td></tr>
+          <tr><td class="strong">What we do not claim</td><td class="r">13</td></tr>
+          <tr><td class="strong">The citation audit</td><td class="r">14</td></tr>
+          <tr><td class="strong">Data &amp; reproduction</td><td class="r">15</td></tr>
+        </tbody>
+      </table>
+      <p class="prov" style="margin-top:0.24in">Savings Stack v1 · Released 2026-07-21 · Data record z1-union-anchor-economics.json · sha256 22c0ba51d0c798c2… (full hashes in the download pack) · Structured data ODbL-1.0 · Booklet © Lupine Science, content license as per repository · Not peer-reviewed; identifiers and arithmetic verified as recorded on page 14.</p>
+    </div>
+  </div>
+  <div class="folio"><span class="num">02</span><span>Colophon</span></div>
+</section>
+
+<!-- ══════════════════════ 03 · THE ARGUMENT ══════════════════════ -->
+<section class="sheet" aria-label="The argument">
+  <div class="runhead"><span>The Savings Stack</span><span>Lupine Science</span></div>
+  <div class="pad">
+    <span class="eyebrow">01 · The argument</span>
+    <div class="monument">
+      <p class="lead" style="font-size:19pt; line-height:1.62">Atomistic simulation spent forty years making FLOPs cheaper — and the last ten discovering that the real enemy is not the price of a FLOP but the <em>number of times you must call the expensive oracle at all</em>.</p>
+      <hr class="rule" style="margin:0.34in 0">
+      <p class="lead">Every successful savings technology of the machine-learning era — active learning, surrogate transition-state search, Δ-learning, abstention gates — is an evaluation-count reduction with an unpriced correctness risk attached.</p>
+      <p class="lead" style="margin-top:0.18in">Our measured contribution: correctness-gated evaluation, <em>shared across models</em>, is itself a savings technology — and it scales sub-linearly. If that property generalizes, a commons in which teams contribute theorems and anchors back is a machine where we all get faster together, at no marginal cost to anyone.</p>
+      <p class="lead" style="margin-top:0.18in">That is the whole argument. The rest of this booklet is the evidence.</p>
+    </div>
+  </div>
+  <div class="folio"><span class="num">03</span><span>The argument</span></div>
+</section>
+
+<!-- ══════════════════════ 04 · THE COST WALL ══════════════════════ -->
+<section class="sheet" aria-label="The cost wall">
+  <div class="runhead"><span>The Savings Stack</span><span>Lupine Science</span></div>
+  <div class="pad">
+    <span class="eyebrow">02 · The cost wall</span>
+    <h2>Compute got cheap.<br><span class="thin">Answers did not.</span></h2>
+    <p class="body">Delivered supercomputing has never been cheaper, and access is not the bottleneck for a small team — an ACCESS Explore grant (~400k credits) lands in days, with INCITE/ALCC, EuroHPC, and Director's Discretionary pools above that. The bottleneck is that serious atomistic campaigns still price out in the thousands-to-millions of oracle evaluations. A dense CI-NEB band is ~50–100 energy/force evaluations per image-set convergence accounting; a reaction network multiplies that by hundreds of paths; an honest multi-model uncertainty check multiplies again by the model count. FLOP prices falling 30× per decade does not rescue a workload whose evaluation count grows with ambition.</p>
+    <div class="stat-grid">
+      <div class="stat"><span class="n">~30×</span><p class="c">fall in capex per peak PFLOP in a decade — Tianhe-2 ~$7.1M/PF to El Capitan ~$0.22M/PF</p></div>
+      <div class="stat"><span class="n">$800–1,600</span><p class="c">electricity alone per HPL-exaflop-hour on Frontier <span class="mono" style="font-size:7pt">[derived]</span> — real applications sustain 3–10× less than HPL</p></div>
+      <div class="stat"><span class="n">50–100</span><p class="c">energy/force evaluations to converge one dense CI-NEB band, before multiplying by paths and models</p></div>
+      <div class="stat"><span class="n">10^3–10^6</span><p class="c">oracle evaluations for a serious campaign — the quantity every savings layer actually attacks</p></div>
+    </div>
+    <p class="body" style="margin-top:0.26in">So the interesting question is never <em>“what does a FLOP cost”</em> but <em>“who lets you make fewer oracle calls — and when are they wrong.”</em></p>
+    <div class="section-tail">
+      <p class="prov">Sources: backdrop chapters supercomputing-atomistic-history.md and research-compute-resourcing.md in the download pack. Machine performance figures are TOP500 HPL (Rmax). Derived figures are our arithmetic on stated inputs, labeled [derived].</p>
+    </div>
+  </div>
+  <div class="folio"><span class="num">04</span><span>The cost wall</span></div>
+</section>
+
+<!-- ══════════════════════ 05 · THE STACK DIAGRAM ══════════════════════ -->
+<section class="sheet" aria-label="The stack, drawn to scale">
+  <div class="runhead"><span>The Savings Stack</span><span>Lupine Science</span></div>
+  <div class="pad">
+    <span class="eyebrow">03 · The stack, drawn to scale</span>
+    <h2 style="margin-bottom:0.1in">Seven layers of savings.<br><span class="thin">One crack through all of them.</span></h2>
+    <svg viewBox="0 0 690 560" width="6.9in" height="5.6in" role="img" aria-label="A seven-layer ascending stack of savings techniques, each labeled with its strongest verified literature number, with a crack marked no certificate running through all seven and a dashed capstone for the missing certificate layer.">
+      <!-- capstone: the missing layer -->
+      <rect x="196" y="8" width="298" height="46" fill="rgba(61,77,179,0.08)" stroke="#3d4db3" stroke-width="1.5" stroke-dasharray="6 4" rx="2"/>
+      <text x="345" y="27" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#3d4db3">THE MISSING LAYER</text>
+      <text x="345" y="43" text-anchor="middle" font-family="Proof Unicode" font-size="12.5" fill="#3d4db3">a correctness certificate</text>
+      <!-- layer 7 (top solid) -->
+      <rect x="173" y="70" width="344" height="56" fill="#f2efe7" stroke="#16171d" stroke-width="1" rx="2"/>
+      <text x="189" y="95" font-family="Proof Unicode" font-size="13.5" fill="#16171d">Abstention economics</text>
+      <text x="189" y="112" font-family="IBM Plex Mono" font-size="9.5" fill="#3d4db3">87.4% found, full DFT on the 13% tail</text>
+      <!-- layer 6 -->
+      <rect x="150" y="136" width="390" height="56" fill="#f2efe7" stroke="#16171d" stroke-width="1" rx="2"/>
+      <text x="166" y="161" font-family="Proof Unicode" font-size="13.5" fill="#16171d">Active learning</text>
+      <text x="166" y="178" font-family="IBM Plex Mono" font-size="9.5" fill="#3d4db3">&gt;99% of DFT steps skipped (VASP MLFF)</text>
+      <!-- layer 5 -->
+      <rect x="127" y="202" width="436" height="56" fill="#f2efe7" stroke="#16171d" stroke-width="1" rx="2"/>
+      <text x="143" y="227" font-family="Proof Unicode" font-size="13.5" fill="#16171d">Δ-learning &amp; multi-fidelity</text>
+      <text x="143" y="244" font-family="IBM Plex Mono" font-size="9.5" fill="#3d4db3">30× data efficiency (MatterSim, 30 vs 900)</text>
+      <!-- layer 4 -->
+      <rect x="104" y="268" width="482" height="56" fill="#f2efe7" stroke="#16171d" stroke-width="1" rx="2"/>
+      <text x="120" y="293" font-family="Proof Unicode" font-size="13.5" fill="#16171d">Surrogate transition-state search</text>
+      <text x="120" y="310" font-family="IBM Plex Mono" font-size="9.5" fill="#3d4db3">~10× fewer true evaluations (GP surrogates)</text>
+      <!-- layer 3 -->
+      <rect x="81" y="334" width="528" height="56" fill="#f2efe7" stroke="#16171d" stroke-width="1" rx="2"/>
+      <text x="97" y="359" font-family="Proof Unicode" font-size="13.5" fill="#16171d">Path &amp; sampling algorithms</text>
+      <text x="97" y="376" font-family="IBM Plex Mono" font-size="9.5" fill="#3d4db3">10 replicas where 48 were needed (REST2)</text>
+      <!-- layer 2 -->
+      <rect x="58" y="400" width="574" height="56" fill="#f2efe7" stroke="#16171d" stroke-width="1" rx="2"/>
+      <text x="74" y="425" font-family="Proof Unicode" font-size="13.5" fill="#16171d">Electronic-structure surrogates</text>
+      <text x="74" y="442" font-family="IBM Plex Mono" font-size="9.5" fill="#3d4db3">10³× SCF elimination at inference (DeepH)</text>
+      <!-- layer 1 (base) -->
+      <rect x="35" y="466" width="620" height="56" fill="#f2efe7" stroke="#16171d" stroke-width="1" rx="2"/>
+      <text x="51" y="491" font-family="Proof Unicode" font-size="13.5" fill="#16171d">Systems-level DFT acceleration</text>
+      <text x="51" y="508" font-family="IBM Plex Mono" font-size="9.5" fill="#3d4db3">~100× cheaper exact exchange (ACE-ISDF)</text>
+      <!-- the crack -->
+      <polyline points="500,58 455,135 515,205 450,270 525,335 460,400 520,465 475,530" fill="none" stroke="#8a5e1f" stroke-width="2.5" stroke-linejoin="round" opacity="0.9"/>
+      <text x="655" y="546" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#8a5e1f">the shared crack: NO CERTIFICATE</text>
+    </svg>
+    <div class="section-tail">
+      <p class="body">Each layer is measured, replicated, and citable — the strongest verified number is drawn on its stone. And each layer’s own literature names the same hole: the trigger, the variance, the committee estimates <em>where the model is probably wrong</em>. None can say <em>where physics is definitely violated</em>.</p>
+      <p class="prov" style="margin-top:0.1in">One strongest number per layer, each traced in its digest (page 15). AdsorbML (Lan et al., npj Comput. Mater. 2023); Jinnouchi/Kresse PRB 100, 014105; arXiv:2405.04967; Garrido Torres 2019 PRL 122, 156001 (5–25×); REST2 trpcage; DeepH MoS2 supercell; ACE/ACE-ISDF 1,000-atom Si HSE.</p>
+    </div>
+  </div>
+  <div class="folio"><span class="num">05</span><span>The stack</span></div>
+</section>
+
+<!-- ══════════════════════ 06 · SEVEN LAYERS, ONE HOLE ══════════════════════ -->
+<section class="sheet" aria-label="Seven layers, one hole">
+  <div class="runhead"><span>The Savings Stack</span><span>Lupine Science</span></div>
+  <div class="pad">
+    <span class="eyebrow">04 · Seven layers, one hole</span>
+    <h2>What each layer saves —<br><span class="thin">and what each one cannot say.</span></h2>
+    <div class="layer"><span class="idx">01</span><div class="what"><p class="name">Surrogate transition-state search</p><p class="num">5–25× fewer calls, cost decoupled from image count · Garrido Torres 2019; Koistinen/<span style="font-family:var(--serif)">Jónsson</span> 2017; ~10× on 500 molecular reactions (Goswami 2025)</p></div><p class="hole"><b>The hole</b>GP variance is a sampling-density signal, not an accuracy bound. Each search re-trains its surrogate, then discards it.</p></div>
+    <div class="layer"><span class="idx">02</span><div class="what"><p class="name">Active learning</p><p class="num">&gt;99% of first-principles steps skipped (VASP MLFF) · DP-GEN labeled 0.0044% of ~650M configurations · FLARE: ~100–250 calls</p></div><p class="hole"><b>The hole</b>Every mainstream trigger is sufficient-but-not-necessary — DP-GEN’s own authors concede the committee can agree and be wrong. Rare events are the documented miss.</p></div>
+    <div class="layer"><span class="idx">03</span><div class="what"><p class="name">Δ-learning, multi-fidelity, transfer</p><p class="num">MatterSim revPBE0-D3 water: 30 high-fidelity configurations vs 900 from scratch · DPA-2: 1–2 orders less downstream data</p></div><p class="hole"><b>The hole</b>Fine-tuning reintroduces PES softening, fails out-of-distribution, and costs a training run per model per chemistry — the wrong shape for breadth.</p></div>
+    <div class="layer"><span class="idx">04</span><div class="what"><p class="name">Abstention economics</p><p class="num">AdsorbML: DFT-level adsorption minimum in 87.4% of ~1000 systems, full DFT only on the ~13% tail</p></div><p class="hole"><b>The hole</b>No published budget prices abstention across models — every number is per-model. The cross-model sharing economy was unmeasured territory. Until page 07.</p></div>
+    <div class="layer"><span class="idx">05</span><div class="what"><p class="name">Systems-level DFT acceleration</p><p class="num">GPU ports 3–20× per node · reduced-rank exact exchange ~2 orders · Periodic Pulay 3× fewer SCF iterations · ML density guesses −20% total cost</p></div><p class="hole"><b>The hole</b>Cuts the cost per evaluation, not the count — and the aggressive settings carry exactly the silent-failure risk that gates exist to catch.</p></div>
+    <div class="layer"><span class="idx">06</span><div class="what"><p class="name">Electronic-structure surrogates</p><p class="num">ML Hamiltonians eliminate 100% of SCF at inference (DeepH 10³×; HamGNN: 4,284-atom Si in 36 s) · M-OFDFT: chemical accuracy at 27.4×</p></div><p class="hole"><b>The hole</b>Predicted Hamiltonians do not give variationally reliable energies/forces for MD or NEB — and ML functionals fail silently (DM21).</p></div>
+    <div class="layer"><span class="idx">07</span><div class="what"><p class="name">Path &amp; sampling algorithms</p><p class="num">Growing-string TS guess in ~20–90 gradient calls · ART nouveau: 50 vs 463 force evaluations · REST2: 10 replicas vs 48 · OPES ~10×</p></div><p class="hole"><b>The hole</b>Cheap exploration distorts or skips the TS region, and string methods converge to second-order saddles at measured rates — a wrong-curvature failure a theorem can catch.</p></div>
+    <div class="section-tail">
+      <p class="prov">Full rows, access levels (full text vs abstract), and [UNVERIFIED] flags: the seven subdomain digests in the download pack. Evidence cut 2026-07-21.</p>
+    </div>
+  </div>
+  <div class="folio"><span class="num">06</span><span>Seven layers, one hole</span></div>
+</section>
+
+<!-- ══════════════════════ 07 · THE BIG NUMBER ══════════════════════ -->
+<section class="sheet" aria-label="The big number">
+  <div class="runhead"><span>The Savings Stack</span><span>Lupine Science</span></div>
+  <div class="pad">
+    <span class="eyebrow">05 · The big number</span>
+    <div class="monument">
+      <p class="big-number">72.4<span class="pct">%</span></p>
+      <p class="big-caption">fewer DFT evaluations when four models <em>share their anchors</em> instead of each paying for its own.</p>
+      <p class="body" style="margin-top:0.24in; max-width:5.4in">558 naive per-model anchors against 154 shared union anchors across 29 analyzable diffusion paths — 404 evaluations saved, a 3.62× reduction. Measured from recorded campaign artifacts on the locked Z1 panel; no new DFT was run to produce it.</p>
+    </div>
+    <div class="section-tail">
+      <p class="prov">z1-union-anchor-economics.json · sha256 22c0ba51d0c798c2… · recomputed 2026-07-21 from the Round-4 float64 campaign artifacts under the frozen anchor rule of the preregistered sparse-DFT pilot.</p>
+    </div>
+  </div>
+  <div class="folio"><span class="num">07</span><span>The big number</span></div>
+</section>
+
+<!-- ══════════════════════ 08 · THE CHART ══════════════════════ -->
+<section class="sheet" aria-label="The chart">
+  <div class="runhead"><span>The Savings Stack</span><span>Lupine Science</span></div>
+  <div class="pad">
+    <span class="eyebrow">06 · The chart</span>
+    <h2 style="margin-bottom:0.06in">Add models. Pay almost<br><span class="thin">nothing more.</span></h2>
+    <svg viewBox="0 0 690 430" width="6.9in" height="4.3in" role="img" aria-label="Two diverging lines: naive per-model anchor cost explodes from 139.5 to 558 as models go from one to four, while the shared union cost stays nearly flat from 139.5 to 154.">
+      <!-- gridlines -->
+      <line x1="60" y1="370" x2="670" y2="370" stroke="rgba(61,77,179,0.24)" stroke-width="1"/>
+      <line x1="60" y1="285" x2="670" y2="285" stroke="rgba(61,77,179,0.12)" stroke-width="1"/>
+      <line x1="60" y1="200" x2="670" y2="200" stroke="rgba(61,77,179,0.12)" stroke-width="1"/>
+      <line x1="60" y1="115" x2="670" y2="115" stroke="rgba(61,77,179,0.12)" stroke-width="1"/>
+      <line x1="60" y1="30"  x2="670" y2="30"  stroke="rgba(61,77,179,0.12)" stroke-width="1"/>
+      <!-- y tick labels -->
+      <text x="50" y="374" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#6e707a">0</text>
+      <text x="50" y="289" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#6e707a">150</text>
+      <text x="50" y="204" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#6e707a">300</text>
+      <text x="50" y="119" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#6e707a">450</text>
+      <text x="50" y="34"  text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#6e707a">600</text>
+      <!-- x labels -->
+      <text x="58"  y="392" text-anchor="start" font-family="IBM Plex Mono" font-size="10" fill="#6e707a">1 model</text>
+      <text x="263" y="392" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#6e707a">2 models</text>
+      <text x="467" y="392" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#6e707a">3 models</text>
+      <text x="672" y="392" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#6e707a">4 models</text>
+      <text x="365" y="416" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" letter-spacing="2" fill="#6e707a">GUIDANCE MODELS SHARING THE PANEL</text>
+      <!-- saved region at k=4 -->
+      <line x1="670" y1="54" x2="670" y2="283" stroke="#3d4db3" stroke-width="1" stroke-dasharray="3 3" opacity="0.55"/>
+      <!-- naive line -->
+      <polyline points="60,291 263,212 467,133 670,54" fill="none" stroke="#16171d" stroke-width="2.5"/>
+      <circle cx="60" cy="291" r="4.5" fill="#16171d"/>
+      <circle cx="263" cy="212" r="4.5" fill="#16171d"/>
+      <circle cx="467" cy="133" r="4.5" fill="#16171d"/>
+      <circle cx="670" cy="54" r="4.5" fill="#16171d"/>
+      <!-- union line -->
+      <polyline points="60,291 263,286 467,284 670,283" fill="none" stroke="#3d4db3" stroke-width="3.5"/>
+      <circle cx="263" cy="286" r="4.5" fill="#3d4db3"/>
+      <circle cx="467" cy="284" r="4.5" fill="#3d4db3"/>
+      <circle cx="670" cy="283" r="4.5" fill="#3d4db3"/>
+      <!-- value labels -->
+      <text x="60"  y="272" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#16171d">139.5</text>
+      <text x="263" y="193" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#16171d">279</text>
+      <text x="467" y="114" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#16171d">418.5</text>
+      <text x="652" y="42"  text-anchor="end"   font-family="IBM Plex Mono" font-size="11.5" font-weight="600" fill="#16171d">558</text>
+      <text x="263" y="306" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#3d4db3">147.8</text>
+      <text x="467" y="304" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#3d4db3">152</text>
+      <text x="650" y="303" text-anchor="end"   font-family="IBM Plex Mono" font-size="11.5" font-weight="600" fill="#3d4db3">154</text>
+      <!-- series labels -->
+      <text x="650" y="60" text-anchor="end" font-family="IBM Plex Mono" font-size="10.5" fill="#16171d">NAIVE — each model pays its own anchors</text>
+      <text x="650" y="270" text-anchor="end" font-family="IBM Plex Mono" font-size="10.5" fill="#3d4db3">UNION — anchors shared across models</text>
+    </svg>
+    <p class="big-caption" style="margin-top:0.14in">Four models of guidance cost <em>~10% more DFT</em> than one.</p>
+    <p class="body" style="margin-top:0.12in; max-width:6.2in">Mean over model subsets as the ensemble grows from one to four models: the naive bill multiplies almost exactly 4× — 139.5, 279, 418.5, 558 — while the shared union grows 139.5, 147.8, 152, 154, and is already flat at three models. Models largely nominate the same images; each added model costs its full naive share but adds few <em>new</em> anchors. Cross-model validation — the thing everyone agrees multiplies cost — is nearly free at the oracle.</p>
+    <div class="section-tail">
+      <p class="prov">Union-anchor scaling, mean over subsets of the 29 analyzable Z1 paths; cumulative fixed order (chgnet, +mace-mp-small, +mace-mp-medium, +mace-mpa-0-medium) agrees: 142, 144, 152, 154. Record: z1-union-anchor-economics.json and docs/analysis note in the pack.</p>
+    </div>
+  </div>
+  <div class="folio"><span class="num">08</span><span>The chart</span></div>
+</section>
+
+<!-- ══════════════════════ 09 · THE MEASUREMENT, STATED PLAINLY ══════════════════════ -->
+<section class="sheet" aria-label="The measurement, stated plainly">
+  <div class="runhead"><span>The Savings Stack</span><span>Lupine Science</span></div>
+  <div class="pad">
+    <span class="eyebrow">07 · The measurement, stated plainly</span>
+    <h2>One panel, four models,<br><span class="thin">and an honest denominator.</span></h2>
+    <p class="body">The locked Z1 panel holds 30 diffusion paths. Path 14 (<span class="mono" style="font-size:9pt">mp-756912_1_1_1_0_0</span>) failed CI-NEB convergence under the frozen protocol in <em>all four</em> model artifacts, so no profile exists to guide anchors — the analyzable denominator is <b style="color:var(--ink)">29 of 30</b>, on record, with per-model failure records in the JSON. Three more paths carry partial coverage; agreement there is reported under two conventions. Nothing was imputed.</p>
+    <table style="margin-top:0.2in" aria-label="Union-anchor economics">
+      <caption>DFT evaluations under the frozen anchor rule — recorded artifacts only, no DFT run</caption>
+      <thead><tr><th>Basis</th><th class="r">Paths</th><th class="r">Naive</th><th class="r">Union</th><th class="r">Saved</th><th class="r">Ratio</th></tr></thead>
+      <tbody>
+        <tr><td class="strong">All analyzable paths (primary)</td><td class="r">29/30</td><td class="r">558</td><td class="r hl">154</td><td class="r hl">72.4%</td><td class="r">3.62×</td></tr>
+        <tr><td class="strong">Fully-covered paths only</td><td class="r">26/30</td><td class="r">520</td><td class="r">136</td><td class="r">73.8%</td><td class="r">3.82×</td></tr>
+      </tbody>
+    </table>
+    <table style="margin-top:0.22in" aria-label="Cross-model agreement">
+      <caption>Do the models even agree? Predicted saddle/extrema coincidence over 29 paths</caption>
+      <thead><tr><th>Statistic</th><th class="r">Available-models</th><th class="r">All-four-required</th></tr></thead>
+      <tbody>
+        <tr><td class="strong">Saddle (argmax) exact</td><td class="r">23/29</td><td class="r">20/29</td></tr>
+        <tr><td class="strong">Saddle within ±1 image</td><td class="r">26/29</td><td class="r">23/29</td></tr>
+        <tr><td class="strong">Both extrema exact</td><td class="r">10/29</td><td class="r">9/29</td></tr>
+        <tr><td class="strong">Both extrema within ±1</td><td class="r">12/29</td><td class="r">11/29</td></tr>
+      </tbody>
+    </table>
+    <p class="body" style="margin-top:0.22in">The anchor rule is frozen: per model and path, endpoints plus the model-predicted minimum and a window around the model-predicted maximum. The naive total pays every model’s set; the union total pays one evaluation per unique image per path. The protocol itself was validated before any DFT ran — sparse-protocol barrier MAE of 1.2–9.4 meV at ~7 anchors per path against ~50–100 dense evaluations — and one anchor point has since landed on real metal: 32.2 meV against a frozen 40 meV gate.</p>
+    <div class="callout derived" style="margin-top:0.2in">
+      <span class="tag">Derived estimate — undemonstrated as a product</span>
+      Union-sparse evaluation (154 anchors vs a 4-model dense accounting of 200–400 per path) is a ~38–76× reduction in evaluation count; per-anchor levers from the systems layer (mixed precision ~2×, ML density guess ~1.25×) compose orthogonally to ~95–190×. Each factor is individually cited; <em>the product is ours to demonstrate</em> — the pilot program is running.
+    </div>
+    <div class="section-tail">
+      <p class="prov">Method, reconciliation of the retracted earlier figures, and per-path tables: z1-union-anchor-economics.md in the pack. Anchor rule mirrored byte-exact from the frozen pilot implementation.</p>
+    </div>
+  </div>
+  <div class="folio"><span class="num">09</span><span>The measurement</span></div>
+</section>
+
+<!-- ══════════════════════ 10 · PULL QUOTE ══════════════════════ -->
+<section class="sheet" aria-label="The theorem commons, in one sentence">
+  <div class="runhead"><span>The Savings Stack</span><span>Lupine Science</span></div>
+  <div class="pad">
+    <span class="eyebrow">08 · The theorem commons</span>
+    <div class="monument">
+      <p class="pull"><span class="mark-q">“</span>Every team that joins makes every other team faster.<span class="mark-q">”</span></p>
+      <p class="pull-attr">The theorem commons, in one sentence</p>
+    </div>
+  </div>
+  <div class="folio"><span class="num">10</span><span>The theorem commons</span></div>
+</section>
+
+<!-- ══════════════════════ 11 · HOW THE COMMONS COMPOUNDS ══════════════════════ -->
+<section class="sheet" aria-label="How the commons compounds">
+  <div class="runhead"><span>The Savings Stack</span><span>Lupine Science</span></div>
+  <div class="pad">
+    <span class="eyebrow">09 · How the commons compounds</span>
+    <h2>Theorems are non-rival goods<br><span class="thin">with zero marginal sharing cost.</span></h2>
+    <p class="body">A machine-checked physical-law theorem — the curvature signature at a first-order saddle, energy–force consistency, symmetry constraints, boundary conditions — is contributed once and then gates every simulation for everyone, forever. Unlike training data, <em>a theorem leaks nothing about the contributor’s chemistry or commercial targets</em>. It is the shareable residue of work a serious team does anyway: every failed simulation is a candidate theorem, and formalizing your own failure converts your most expensive knowledge into a permanent asset for a commons that pays you back in everyone else’s theorems.</p>
+    <div class="loop">
+      <div class="loop-step"><span class="n">1</span><p class="s"><b>Run your campaign on the commons.</b> Your model’s known failure modes are caught by existing theorems — you save evaluations immediately.</p></div>
+      <div class="loop-step"><span class="n">2</span><p class="s"><b>Your novel failures get formalized.</b> Each new failure mode becomes a new contributed theorem.</p></div>
+      <div class="loop-step"><span class="n">3</span><p class="s"><b>Every member’s gates get sharper.</b> False-accept and false-reject rates both fall, network-wide.</p></div>
+      <div class="loop-step"><span class="n">4</span><p class="s"><b>Savings compound.</b> Evaluations saved grow with membership — gate quality is a monotone function of it.</p></div>
+    </div>
+    <p class="body" style="margin-top:0.24in">The commons has two tiers, and members choose their exposure. <b style="color:var(--ink)">Theorems</b> are zero-leak by construction. <b style="color:var(--ink)">Anchor libraries</b> — a content-addressed store mapping structure-hash to DFT energy and forces — are opt-in per project: one team’s anchor validates every other team’s model on the same path, under the same arithmetic measured on page 07.</p>
+    <div class="section-tail">
+      <p class="prov">The union-anchor economics within one lab — 72–74% savings, sub-linear in model count — are the measured instance of the evaluation-side commons. Theorem layer: 271 build-locked Lean theorems in the open library, zero sorry.</p>
+    </div>
+  </div>
+  <div class="folio"><span class="num">11</span><span>How the commons compounds</span></div>
+</section>
+
+<!-- ══════════════════════ 12 · THE DEMAND SIDE ══════════════════════ -->
+<section class="sheet" aria-label="The demand side already exists">
+  <div class="runhead"><span>The Savings Stack</span><span>Lupine Science</span></div>
+  <div class="pad">
+    <span class="eyebrow">10 · The demand side already exists</span>
+    <div class="monument">
+      <p class="lead" style="font-size:16.5pt">Seven digests, working independently, came back with the same hole. Read the literature’s own concessions:</p>
+      <hr class="rule" style="margin:0.26in 0">
+      <p class="lead">Learned triggers are <em>sufficient-not-necessary</em> — the committee can agree and be wrong (DP-GEN). GP variance <em>underestimates</em> error under strong extrapolation (FLARE). Ensemble σ <em>decorrelates</em> from true error. Fast exploration <em>skips</em> the transition-state region (OneOPES). String methods land on <em>second-order</em> saddles at measured rates. ML functionals fail <em>silently</em> (DM21).</p>
+      <p class="lead" style="margin-top:0.2in">Every one of those failure modes is a <em>physical-law violation detectable without learning anything</em>. A commons of formal theorems is precisely the supply for a demand the field has been circling for five years.</p>
+    </div>
+  </div>
+  <div class="folio"><span class="num">12</span><span>The demand side</span></div>
+</section>
+
+<!-- ══════════════════════ 13 · WHAT WE DO NOT CLAIM ══════════════════════ -->
+<section class="sheet" aria-label="What we do not claim">
+  <div class="runhead"><span>The Savings Stack</span><span>Lupine Science</span></div>
+  <div class="pad">
+    <span class="eyebrow">11 · Restraint, as a policy</span>
+    <h2>What we do not claim.</h2>
+    <div class="notclaim"><span class="x">01</span><div><p class="t">Not generality beyond the measured basis.</p><p class="d">Our measurement is one 30-path barrier panel, four universal MLIPs, one DFT engine (GPAW, frozen PBE/fd settings), one chemistry family. The union scaling curve is four points deep.</p></div></div>
+    <div class="notclaim"><span class="x">02</span><div><p class="t">Not the stacking figure as a measurement.</p><p class="d">The ~38–76× (and composed ~95–190×) evaluation-count reductions are derived estimates — our arithmetic on individually cited factors — labeled derived wherever they appear. The demonstration is the pilot program now running.</p></div></div>
+    <div class="notclaim"><span class="x">03</span><div><p class="t">Not victory over the point solutions.</p><p class="d">For a single isolated saddle search with a cheap oracle, local GP surrogates win outright. For one stable, high-volume chemistry, fine-tuning is the right tool. Our wedge is amortized, multi-path, multi-model workloads — panels, networks, screening campaigns.</p></div></div>
+    <div class="notclaim"><span class="x">04</span><div><p class="t">Not blanket validation of every literature number.</p><p class="d">The digests retain their [UNVERIFIED] claim flags and per-source access levels. The audit verified every identifier — it does not upgrade abstract-only evidence or independently reproduce reported savings factors.</p></div></div>
+    <div class="notclaim"><span class="x">05</span><div><p class="t">Not peer review.</p><p class="d">This is a research release with committed, hashable records — an invitation to inspect and recompute, not a claim of external validation.</p></div></div>
+    <div class="section-tail">
+      <p class="body" style="font-style:italic">Restraint is the brand: a trust layer that overclaims is not one.</p>
+    </div>
+  </div>
+  <div class="folio"><span class="num">13</span><span>What we do not claim</span></div>
+</section>
+
+<!-- ══════════════════════ 14 · THE CITATION AUDIT ══════════════════════ -->
+<section class="sheet" aria-label="The citation audit">
+  <div class="runhead"><span>The Savings Stack</span><span>Lupine Science</span></div>
+  <div class="pad">
+    <span class="eyebrow">12 · The citation audit</span>
+    <h2>Every identifier, checked<br><span class="thin">against its registry.</span></h2>
+    <p class="body">All 163 unique identifiers extracted from the nine digests were verified against the official registries — arXiv IDs against the arXiv Atom API, DOI strings against Crossref Works metadata — with returned titles reviewed against the citing rows. That review caught one live but unrelated DOI hidden in a link target.</p>
+    <div class="stat-grid" style="grid-template-columns:1fr 1fr 1fr">
+      <div class="stat"><span class="n">115/115</span><p class="c">arXiv identifiers verified</p></div>
+      <div class="stat"><span class="n">48/48</span><p class="c">DOI strings verified through Crossref</p></div>
+      <div class="stat"><span class="n">0</span><p class="c">unresolved identifiers</p></div>
+    </div>
+    <p class="body" style="margin-top:0.24in"><b style="color:var(--ink)">Corrections applied on the record.</b> The Chen et al. multi-fidelity citation was moved from a nonexistent DOI to Nature Computational Science 1, 46–53 (10.1038/s43588-020-00002-x). The Nandi 2021 link target — which pointed at a live but unrelated paper — was rebound to the citation text’s own DOI (10.1063/5.0038301). And the VASP MLFF venue was reconciled: PRB 100, 014105 / arXiv:1904.12961 is the melting-point paper behind the &gt;99%-bypass claim; PRL 122, 225701 is the distinct earlier hybrid-perovskite demonstration.</p>
+    <div class="callout" style="margin-top:0.22in">
+      <span class="tag">What the audit does not do</span>
+      Identifier verification does not upgrade abstract-only evidence, does not remove each digest’s [UNVERIFIED] quantitative-claim flags, and does not independently reproduce reported savings factors. It says the citations resolve to what we say they are — no more, and no less.
+    </div>
+    <div class="section-tail">
+      <p class="prov">Full audit record: citation-verification-2026-07-21.md in the pack, with the per-identifier machine-readable artifact and the reproducible checker named there.</p>
+    </div>
+  </div>
+  <div class="folio"><span class="num">14</span><span>The citation audit</span></div>
+</section>
+
+<!-- ══════════════════════ 15 · DATA & REPRODUCTION ══════════════════════ -->
+<section class="sheet" aria-label="Data and reproduction">
+  <div class="runhead"><span>The Savings Stack</span><span>Lupine Science</span></div>
+  <div class="pad">
+    <span class="eyebrow">13 · Data &amp; reproduction</span>
+    <h2>Download it. Hash it.<br><span class="thin">Recompute it.</span></h2>
+    <p class="body">The Savings Stack v1 pack ships the ten chapters, the machine-readable record, the analysis script, and the audit — with a sha256 manifest over every file. Structured data is released under ODbL-1.0; prose and code keep their repository licenses; cited literature keeps its own.</p>
+    <div class="packlist" aria-label="Pack contents">
+      <div class="row"><span class="f">savings-techniques-synthesis-2026-07-21.md</span><span class="d">the synthesis chapter</span></div>
+      <div class="row"><span class="f">savings-surrogate-neb.md</span><span class="d">digest · layer 1</span></div>
+      <div class="row"><span class="f">savings-active-learning.md</span><span class="d">digest · layer 2</span></div>
+      <div class="row"><span class="f">savings-delta-multifidelity.md</span><span class="d">digest · layer 3</span></div>
+      <div class="row"><span class="f">savings-abstention-economics.md</span><span class="d">digest · layer 4</span></div>
+      <div class="row"><span class="f">savings-dft-systems.md</span><span class="d">digest · layer 5</span></div>
+      <div class="row"><span class="f">savings-electronic-surrogates.md</span><span class="d">digest · layer 6</span></div>
+      <div class="row"><span class="f">savings-path-sampling-algorithms.md</span><span class="d">digest · layer 7</span></div>
+      <div class="row"><span class="f">supercomputing-atomistic-history.md</span><span class="d">backdrop · the cost wall</span></div>
+      <div class="row"><span class="f">research-compute-resourcing.md</span><span class="d">backdrop · access &amp; resourcing</span></div>
+      <div class="row"><span class="f">z1-union-anchor-economics.json (+ .sha256)</span><span class="d">the machine-readable record</span></div>
+      <div class="row"><span class="f">z1-union-anchor-economics.md</span><span class="d">method &amp; reconciliation note</span></div>
+      <div class="row"><span class="f">union_anchor_economics.py</span><span class="d">the reproducible analysis</span></div>
+      <div class="row"><span class="f">citation-verification-2026-07-21.md</span><span class="d">the identifier audit</span></div>
+      <div class="row"><span class="f">MANIFEST.sha256</span><span class="d">hashes over every file</span></div>
+    </div>
+    <div class="codeblock">$ sha256sum -c MANIFEST.sha256          # every file: OK
+$ python3 union_anchor_economics.py --local &lt;artifacts&gt; \
+    --out z1-union-anchor-economics.json   # recompute the record</div>
+    <div class="section-tail">
+      <p class="prov">Pack: lupine.science/data/savings-stack-v1/ · Booklet: lupine.science/booklets/the-savings-stack.pdf · Full scientific detail: library.lupine.science, group “savings-stack”.</p>
+    </div>
+  </div>
+  <div class="folio"><span class="num">15</span><span>Data &amp; reproduction</span></div>
+</section>
+
+<!-- ══════════════════════ 16 · BACK COVER ══════════════════════ -->
+<section class="sheet" aria-label="Back cover">
+  <div class="back">
+    <img class="mark" src="/lupine-science-mark.svg" alt="">
+    <p class="creed">Evidence before claim.</p>
+    <p class="links"><b>The Savings Stack · v1</b><br>
+    Booklet &amp; data pack — lupine.science<br>
+    Full detail — library.lupine.science · group “savings-stack”<br>
+    The instrument — lupi.live</p>
+    <p class="fine">Lupine Science · the trust layer for the age of AI-designed matter · July 2026</p>
+  </div>
+</section>
+
+</body>
+</html>

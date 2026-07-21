@@ -112,6 +112,8 @@ const HERO_CAPTIONS = {
     'The Lupine Rhizo build status: 289 theorems, zero sorry, with non-CO₂ climate forcers now machine-checked in Lean 4.',
   'lupi-hfc-refrigerant-research-payloads':
     'R32 refrigerant liquid at 273 K in the Lupi viewer, streamed with full per-atom research payload and temperature-profile sidecars.',
+  'the-savings-stack':
+    'A dawn landscape in indigo duotone — wind turbines, grid storage, and a luminous river linking them: what accelerated materials discovery is for. The Savings Stack booklet, free download.',
 };
 
 const MARK_SVG = `<svg viewBox="100 44 312 440" fill="none" aria-hidden="true">

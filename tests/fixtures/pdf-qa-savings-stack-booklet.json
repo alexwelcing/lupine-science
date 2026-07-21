@@ -1,0 +1,28 @@
+{
+  "minimumPages": 14,
+  "pageSize": "612 x 792 pts (letter)",
+  "requiredText": [
+    "The Savings Stack",
+    "72.4",
+    "558",
+    "154",
+    "139.5",
+    "Four models of guidance cost",
+    "Every team that joins makes every other team faster",
+    "What we do not claim",
+    "115/115",
+    "48/48",
+    "3.62",
+    "29",
+    "library.lupine.science",
+    "savings-stack",
+    "Evidence before claim"
+  ],
+  "forbiddenText": [
+    "624",
+    "79%",
+    "�",
+    "narrated",
+    "Narrated"
+  ]
+}
