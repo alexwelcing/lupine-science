@@ -1,6 +1,7 @@
 {
   "model": "minimax/image-01 (api.minimax.io)",
-  "generated_at": "2026-07-20",
+  "generated_at": "2026-07-21",
+  "note": "catalog of every asset in this directory; merged 2026-07-21 so earlier entries are not lost to single-batch overwrites",
   "assets": [
     {
       "key": "bits-to-atoms",
@@ -9,16 +10,36 @@
       "prompt": "tiny dissolving square pixels transforming into a precise crystalline atomic lattice"
     },
     {
+      "key": "electrolyte-class-gallery",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/electrolyte-class-gallery.png",
+      "bytes": 114019,
+      "note": "committed in 66f6d68; generation prompt not preserved in any manifest"
+    },
+    {
       "key": "interface-underbinding",
       "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/interface-underbinding.png",
       "bytes": 149243,
       "prompt": "ball-and-stick molecule hovering above a flat square metal-atom grid, a clear empty gap between them, short dashed indigo lines failing to bridge"
     },
     {
+      "key": "li-hop-journey",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/li-hop-journey.png",
+      "bytes": 287294,
+      "note": "committed in 66f6d68; generation prompt not preserved in any manifest"
+    },
+    {
       "key": "receipts-chain",
       "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/receipts-chain.png",
       "bytes": 104684,
       "prompt": "a horizontal chain of small crystalline mineral blocks linked by a single thin indigo thread"
+    },
+    {
+      "key": "savings-stack-cover",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/savings-stack-cover.png",
+      "bytes": 574178,
+      "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-07-21%2F2eccabdc-3a4e-49d2-b70c-f66bda69f11d_aigc.jpeg?Expires=1784728970&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=k91gTuPRev%2BD3qgOayeWbAqwu1I%3D",
+      "prompt": "a wide optimistic dawn landscape about accelerated materials discovery for society, drawn in fine precise ink lines on warm paper: rolling hills carrying a row of slender elegant wind turbines, a terraced field of tilted solar panels catching first light, a quiet row of grid-scale battery storage cabinets in the foreground, one luminous indigo river of light flowing from the horizon through the whole scene and linking every element, a large rising indigo sun disc low in a vast empty warm-paper sky, a few fine ink birds as tiny chevrons, conveying stored clean energy and infrastructure built faster, minimalist premium editorial science illustration, STRICT palette only: warm off-white paper, deep indigo blue, near-black ink, no other colors, absolutely no orange red yellow pink purple green",
+      "palette_locked": "brand duotone (ink #16171d \u2192 indigo #3d4db3 \u2192 paper #faf9f6) applied via media/booklets/savings-stack/palette-lock-cover.mjs; raw MiniMax output preserved at media/booklets/savings-stack/cover-raw.png"
     },
     {
       "key": "shape-of-wrongness-hero",
@@ -61,6 +82,18 @@
       "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/society-trust-gate.png",
       "bytes": 205792,
       "prompt": "a monumental measuring gate or archway drawn in precise ink lines standing at center-right on warm paper, from the left a chaotic swarm of scattered crystals and faint arrows streaming INTO the gate, and on the right side of the gate the same material emerging perfectly aligned as ONE continuous luminous indigo ribbon flowing outward to the frame edge, the gate emitting a soft measuring indigo light, conveying an instrument that certifies new materials, minimalist editorial illustration, STRICT palette only: warm off-white paper, deep indigo blue, near-black ink. Absolutely no orange, red, yellow, pink, purple, or green anywhere in the image."
+    },
+    {
+      "key": "tier-ladder",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/tier-ladder.png",
+      "bytes": 139713,
+      "prompt": "seven ascending stone steps drawn in fine ink lines rising from lower left to upper right across warm paper, the bottom steps smooth and calm with a small indigo check glow, growing rougher and more jagged upward, the top step wreathed in a small indigo storm cloud with a question-mark-shaped crack (no letters), a tiny indigo flag planted on the fourth step, minimalist editorial science illustration, STRICT palette only: warm off-white paper, deep indigo blue, near-black ink, no other colors"
+    },
+    {
+      "key": "tier-referee",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/tier-referee.png",
+      "bytes": 124227,
+      "note": "committed in 66f6d68; generation prompt not preserved in any manifest"
     }
   ]
 }
