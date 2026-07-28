@@ -25,6 +25,10 @@ Until recently, Lupi excelled at viewing curated molecular systems: MOFs, protei
 
 Hydrofluorocarbons are a strange climate problem. They were introduced to save the ozone layer, but their greenhouse warming potential is hundreds to thousands of times that of CO₂. The Kigali Amendment aims to cut HFC consumption roughly 80% by 2047, which could avoid up to 0.5 °C of warming by 2100.
 
+![A sealed calorimeter chamber containing one compact refrigerant loop, with a compressor, condenser coil, expansion restriction, and evaporator coil drawn as plain hardware — The chamber measures heat moved around one closed refrigerant loop](images/lupi-hfc-refrigerant-research-payloads-inline-02.jpg)
+
+![An empty supermarket cold room with a compact heat-pump cabinet, one removable research cartridge is seated beside the finned heat exchanger — The removable cartridge exposes refrigerant-property evidence to the real heat-exchanger loop](images/lupi-hfc-refrigerant-research-payloads-inline-01.jpg)
+
 ![Refrigerant 100-year GWP comparison](/result-graphics/gwp-comparison.svg)
 *Refrigerant 100-year global warming potential on a mass basis, with CO₂ = 1. Source: IPCC AR6 WGI Table 7.SM.7.*
 
@@ -37,3 +41,5 @@ Lupi's research payloads make those environments inspectable. You can watch the 
 ## Try it
 
 The HFC trajectories are live in the Lupi gallery at [lupi.live](https://lupi.live). The source code and simulation scripts are in the [Lupi repository](https://github.com/alexwelcing/Lupi).
+
+![A bench calorimeter with an unmarked sealed refrigerant cartridge being inserted into a keyed mechanical cradle beside one heat-exchanger coil — The keyed cradle transfers the same cartridge from evidence storage into calorimeter measurement](images/lupi-hfc-refrigerant-research-payloads-inline-03.jpg)

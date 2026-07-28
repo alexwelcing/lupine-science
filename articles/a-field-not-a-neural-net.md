@@ -32,6 +32,8 @@ For a perfect face-centered-cubic (fcc) bulk atom, $c = 12$, and the field is de
 
 The critical difference between this field and previous correction strategies is that it is measured, not learned. Delta-ML trains a separate model to learn the discrepancy between a fast baseline and an accurate target; it requires per-system retraining and abundant reference data[^6]. Fine-tuning updates uMLIP weights on target-system data; it works when curated training sets exist, which they do not for unexplored composition spaces[^7]. Both approaches treat the error as an arbitrary function to be discovered from data.
 
+![A dense row of identical displacement probes scanning across one ceramic-to-metal interface in a practical cell cross-section — The local probe readings join into one smooth indigo correction band along the interface](images/a-field-not-a-neural-net-inline-01.jpg)
+
 The method imposes the functional form. A cubic spline through three standard anchor observables — the (100) surface probing $c=8$, the (111) surface probing $c=9$, and the vacancy formation energy probing $c=11$ — is fixed by the boundary condition $P(12) = 0$. Linear continuation below $c=8$ predicts the error at $c=7$, which corresponds to the (110) surface energy. That observable is never fitted during field construction; it is predicted blind.
 
 ![Three anchors fix the field](images/a-field-not-a-neural-net-03-field-anchors-spline.jpg)
@@ -55,6 +57,8 @@ At integer-scaled precision of $10^{-4}$ J/m$^2$, 26 of 36 cells improve strictl
 ## Runtime Correction
 
 The field inverts naturally into an additive correction energy:
+
+![A material coupon traveling on a short rail from a prediction cartridge through one compact correction plate and into a tensile-test frame — The bounded correction plate adjusts the predicted path before the physical tensile test](images/a-field-not-a-neural-net-inline-02.jpg)
 
 $$E_{\text{corr}} = -\sum_i P(c_i).$$
 
@@ -96,6 +100,8 @@ These impossibility proofs are not admissions of weakness. They are the feature 
 ## The Six-Step Loop
 
 The field measurement, runtime correction, and formal verification layers close into a six-step discovery cycle:
+
+![A rigid rectangular proof frame mounted over a specimen rail, with one compatible sample carriage passing through and one incompatible carriage stopped at the edge — The frame physically bounds which correction path may proceed to testing](images/a-field-not-a-neural-net-inline-03.jpg)
 
 1. **Simulate** — run a uMLIP through the standard property pipeline: equation of state, surface slabs, vacancy supercells.
 2. **Identify** — compare predictions to the 228-value provenance-annotated reference database.

@@ -22,6 +22,8 @@ Lupine Science exists to close that gap.
 
 **AI predicts matter, but its simulations are wrong in structured ways.**
 
+![A sample-coupon transfer rail beginning at a simple pixel-pattern mask, passing through an X-ray instrument, and ending at a physical bend-test frame — The same coupon is fabricated, measured, and mechanically tested along one traceable rail](images/why-lupine-science-inline-01.jpg)
+
 Those errors are not random noise. They cluster. They live on thin, low-dimensional manifolds of failure. That structure is good news: predictable failure is correctable failure. If you can characterize the error, you can constrain the search. If you can constrain the search, you can promise makeability.
 
 The approach is to treat the error manifold as a first-class object. Its shape is measured, properties about it are proved, and those properties are folded back into the generative model. The result is not another black-box score. It is a **certificate**: a machine-checkable argument that a candidate satisfies stated assumptions about synthesis, stability, and performance.
@@ -31,6 +33,8 @@ The approach is to treat the error manifold as a first-class object. Its shape i
 ## The system
 
 The makeability layer for AI-driven materials discovery has three parts:
+
+![A low evidence table holding three unmarked sample blocks in fitted trays, each tray linked by a tamper-evident physical seal to one nearby instrument socket — The fitted tray and seal preserve sample provenance between storage and measurement](images/why-lupine-science-inline-02.jpg)
 
 1. **Formal rules of makeability.** The rules encode what it means for a material to be synthesizable, stable, and useful. They live in a proof assistant (Lean 4) so they can be audited, composed, and extended.
 
@@ -62,6 +66,8 @@ The film is generated entirely with AI tools—images, motion, narration, and mu
 ## Why now
 
 Three forces are converging:
+
+![A small bridge beam mounted in a laboratory load frame, with scattered displacement probes along the beam converging on one restrained indigo strain ribbon — The probes combine into one measured strain profile used to judge the beam](images/why-lupine-science-inline-03.jpg)
 
 - **Generative models** for molecules and crystals are now fast and cheap enough to flood the design space.
 - **Machine-learning potentials** such as MACE and Orb are accurate enough to replace expensive DFT in many screening loops.

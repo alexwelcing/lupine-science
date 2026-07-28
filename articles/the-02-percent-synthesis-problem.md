@@ -51,6 +51,8 @@ Each filter compounds the next. A candidate that passes an energy screen but fai
 
 The cost of leaving the bottleneck unsolved is not academic. Cobalt-free cathodes are the highest-leverage near-term target because cobalt supply is concentrated: the Democratic Republic of Congo produces roughly 70% of global cobalt[^6]. Any battery chemistry that removes cobalt while preserving energy density and cycle life removes a geopolitical and ethical constraint on electrification.
 
+![A clean pilot corridor of three identical tube furnaces with sample boats, most boats stop on cooling racks and one intact pellet reaches a pressure-test fixture — One indigo route tracks the sole pellet that survives firing and reaches mechanical testing](images/the-02-percent-synthesis-problem-inline-01.jpg)
+
 ![Cobalt Supply and the Net-Zero Abatement Gap](images/the-02-percent-synthesis-problem-06-cobalt-climate.jpg)
 *Cobalt-free cathodes remove a supply-chain chokepoint, while clean-energy investment must more than double this decade.*
 
@@ -65,6 +67,8 @@ The window is narrow. A material discovered in 2035 can still shape 2040 deploym
 
 Closing the gap requires moving from "stable on paper" to "synthesizable in practice." The approach is to learn an error field around each environment rather than to train a bigger model. The field measures how a uMLIP deviates from reference data as a function of local atomic coordination. That correction is applied at runtime with analytic forces, so molecular dynamics and structure relaxations follow proper gradients. The result is a ranked list in which the top candidates are far more likely to survive synthesis, and in which candidates that cannot be rescued are flagged before a furnace is turned on.
 
+![A single ceramic electrolyte disk clamped inside a transparent-sided pressure-and-heat cycling chamber, with a fine crack beginning at its metal interface — The chamber applies combined manufacturing pressure and heat to reveal interface cracking](images/the-02-percent-synthesis-problem-inline-02.jpg)
+
 ![Learning the Environment Error Field](images/the-02-percent-synthesis-problem-05-error-field.jpg)
 *A local environment error field is applied at runtime so molecular dynamics follows corrected gradients.*
 
@@ -77,9 +81,13 @@ The approach is already being validated by the market. POSCO Future M has comple
 
 Predictions are necessary but not sufficient. The path from a corrected energy landscape to a commercial material runs through named experimental collaborators who can synthesize, characterize, and scale the top candidates. The next article in this series turns from the diagnosis to the method: how the environment error field is measured, why the field is measured rather than learned, and how machine-checked proof prevents false positives from propagating through an autonomous pipeline.
 
+![An idle pellet-press station beside orderly trays of warped ceramic disks and one measurement jig holding the next candidate — The measurement jig rejects distorted pellets before they enter the pilot line](images/the-02-percent-synthesis-problem-inline-03.jpg)
+
 ![From Predictions to Partners](images/the-02-percent-synthesis-problem-10-predictions-to-partners.jpg)
 *Corrected predictions must flow into synthesis, characterization, and scale partners — not into another generation cycle.*
 
+
+![A compact battery-module assembly cell with one verified ceramic-pellet cartridge feeding a precise stack press, the rest of the factory floor is empty paper — The cartridge meters one qualified electrolyte pellet into each cell stack](images/the-02-percent-synthesis-problem-spread.jpg)
 ## Footnotes
 
 [^1]: A. Merchant *et al.*, "Scaling deep learning for materials discovery," *Nature* **624**, 80–85 (2023). https://doi.org/10.1038/s41586-023-06735-9

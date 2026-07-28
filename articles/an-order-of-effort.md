@@ -20,6 +20,8 @@ Barriers and interfaces are where MLIPs drift farthest: 135–243 meV of barrier
 
 ![The boundary theorem as referee](images/tier-referee.png)
 
+![A branching sample rail at a quiet allocation station: simple coupons enter a rapid screen while one complex interface coupon is diverted to a reference chamber — The physical switch routes work according to evidence difficulty](images/an-order-of-effort-inline-01.jpg)
+
 **Tier 1 — statics (lattice constants, volumes, relaxed bulk).** Our correction layer *already wins here*: direction-gated corrections cut lattice-constant error from 1.60% to 0.33% and 1.75% to 0.74% in a preregistered round. The error structure is small, one-sided, and tame — and the runtime cost is trivial.
 
 **Tier 2 — elastic response (bulk modulus, elastic constants).** Harder, and we mark it honestly: our own kill condition fired on B0. The theorem work here is *boundary* theorems — classification of which cells may correct and which may not — not correction laws.
@@ -38,6 +40,8 @@ Barriers and interfaces are where MLIPs drift farthest: 135–243 meV of barrier
 
 Non-competition is structural, and it's the part worth stealing: each correction family is licensed only where the family below it *provably cannot act*. Level shifts are dead everywhere — a theorem kills them (`barrier_shift_invariant`), so they never compete. Slope corrections are licensed only by sign stability. Environment-field corrections apply only where a smooth field exists. Anchors are priced exactly: two extrema, exactness, and the model demoted to geometry guide. And a single wobble bound referees all of it: no information-free correction can beat the model's profile wobble, ever. The ladder is not a pile of tricks; it's an ordered stack of licenses with a machine-checked referee.
 
+![A high-pressure material cell enclosed by three nested mechanical containment rings, with the innermost ring carrying a restrained indigo boundary — The nested rings prevent a correction from extending beyond its tested material regime](images/an-order-of-effort-inline-02.jpg)
+
 ## What the next rounds look like
 
 **Round easy-first (now):** Tier 1, where corrections are already proven. The goal is a model-independent runtime win: our system improving *any* model's simulation loop on relaxed-structure observables, with overhead measured per cell. The correction layer is in the runner; the instrumentation is next.
@@ -49,6 +53,8 @@ Non-competition is structural, and it's the part worth stealing: each correction
 ## The upside, stated plainly
 
 What does this process buy? Three things nobody else in this space is selling. **Measured trust**: every accuracy claim hash-locked and preregistered, so "the model says" becomes "here is what the model is worth, per observable." **Machine-checked limits**: the correction boundary means you never spend on a correction that can't work — the impossibility is proved, not discovered. **Priced accuracy**: where corrections pass, runtime wins at laptop cost; where they can't, sparse anchors deliver DFT-grade accuracy at ~10× less DFT compute — with the cost declared before the measurement, not after. That's the offer, and the receipts are the pitch.
+
+![A phased research hall with a simple coupon rack nearest the viewer and progressively enclosed thermal, reaction, and interface test bays farther away — Samples advance only when each increasingly specialized test bay supplies evidence](images/an-order-of-effort-inline-03.jpg)
 
 ## Receipts
 

@@ -24,6 +24,8 @@ The goal is a flywheel in which every simulated candidate carries a formal certi
 
 For readers who do not spend their days inside reticular chemistry or proof assistants:
 
+![A full-height direct-air-capture panel in cutaway with a porous-framework coating bonded to a plain metal support and sparse airflow crossing it — The bonded porous coating captures gas while remaining mechanically supported inside the contactor](images/from-fantasy-frameworks-to-makeable-materials-inline-01.jpg)
+
 - **MOFs** are crystalline sponge-like materials built from metal “nodes” and organic “linkers.” Their pores can store hydrogen, capture CO₂, separate gases, or host catalysts. Because the building blocks are modular, the design space is astronomical.
 - **Generative AI** (diffusion models, graph neural networks, large language models) can now propose new MOFs at machine speed. Recent systems include MatterGen, GNoME, MOF-LLM, and ChatMOF.
 - **The synthesis gap:** a structure that is stable on a computer screen may be kinetically inaccessible, chemically incompatible with real solvents, or so strained that it collapses the moment it is isolated. Most AI-generated MOFs are, in effect, fantasy frameworks.
@@ -149,6 +151,8 @@ A long-term formal model of the closed loop:
 ## The partnership flywheel
 
 A formalization effort in isolation is valuable; a formalization effort **tethered to a real lab** is transformative. The partnership requires an organization with:
+
+![An unoccupied materials bay with a synthesis vessel, wash filter, stability chamber, and pilot cartridge connected in one straight line — One framework batch advances through synthesis and stability checks before entering the pilot cartridge](images/from-fantasy-frameworks-to-makeable-materials-inline-02.jpg)
 
 1. A high-throughput **materials-generation platform** (generative models, structure databases, or computational screening pipelines).
 2. Access to **automated or semi-automated synthesis and characterization** (robotic synthesis, flow chemistry, PXRD, gas-adsorption, electron microscopy, etc.).

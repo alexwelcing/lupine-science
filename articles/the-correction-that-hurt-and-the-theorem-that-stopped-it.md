@@ -20,6 +20,8 @@ Every reference value was locked before the run — experimental where it exists
 
 **The cross-class correction.** Round 1's de-bias arm divided each prediction by the model's median prediction-to-reference ratio, learned on the elemental fcc metals of our 21-material baseline — a set disjoint from every candidate. On the perovskites it helped marginally. On the alloys it *hurt*: median bulk-modulus error went **9.1 % → 16.9 %**. The mechanism is plain once seen: the potentials underpredict elemental fcc B₀ (CHGNet's median ratio is **0.856**), so the correction inflates — but on the alloys the raw predictions already sat above their references. A correction with the wrong sign is not a weaker correction; it is a multiplier on the error.
 
+![A defect-rich ceramic surface beneath a scanning probe, with one smooth polished region ending sharply at a cracked rough region — The probe maps where a smooth correction field ceases to be supported at the defect cliff](images/the-correction-that-hurt-and-the-theorem-that-stopped-it-inline-01.jpg)
+
 **The synthetic demo.** Our LAMMPS-bridge demo theorems had been generated from a fabricated log whose C11 sat comfortably inside tolerance. Real Ni/EAM physics gives **C11 = 233.3 GPa** against the 246.5 GPa experimental reference — outside the 5 % gate — and the regenerated module now carries an honest `exceeds_tol` theorem where the synthetic one flattered.
 
 ## The theorem in the loop
@@ -37,6 +39,8 @@ The Round-1 failure is now a law, not an anecdote. Two lemmas in `Shapes/Certifi
 ## The defect cliff
 
 The five-materials brief names the perovskite failure mode precisely: tin vacancy formation, at under-coordinated sites the potentials were not trained to see. We measured it. Neutral B-site vacancies, metal-rich limit, 2×2×2 supercells, four models: cross-model spreads on vacancy formation energy run **0.5–1.8 eV** — at the brief's own conversion (100 meV ≈ 50× in rate), ranking candidates on any single raw potential here is meaningless. Relative to an energy observable of the same kind, defect disagreement runs **2–34×** the bulk-modulus disagreement on the same compounds (comparisons against lattice-constant dispersion inflate the ratio and we do not headline them). CHGNet cannot form the α-Sn reference at all — so the tin rows are a three-model, single-family spread — and predicts *negative* vacancy formation in CsGeI₃, a cell we flag as invalid rather than average: spontaneous self-destruction of the lattice, the softening signature in its purest form. The literature consensus agrees with the mechanism (the tin vacancy is the accepted oxidation gateway) but publishes its numbers in the halide-rich, ionized-defect convention; our metal-rich neutral panel is therefore graded on disagreement, not on references, and says so.
+
+![A cantilever coupon in a displacement-test jig with three adjacent physical pointers showing raw prediction, corrected prediction, and measured deflection without scales — The pointers compare whether correction moves the prediction toward the measured deflection](images/the-correction-that-hurt-and-the-theorem-that-stopped-it-inline-02.jpg)
 
 ## Boundaries
 

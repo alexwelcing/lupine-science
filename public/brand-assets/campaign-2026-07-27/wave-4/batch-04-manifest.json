@@ -1,0 +1,328 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "t_af9fbc29",
+  "campaign_id": "brand-campaign-2026-07-27",
+  "wave_id": "wave-4-programmatic-pil",
+  "batch_id": "batch-04",
+  "source_manifest": "public/brand-assets/campaign-2026-07-27/shortfall-wave-1-manifest.json",
+  "source_manifest_sha256": "d8c6a9cb14cc5803453a5eaf68409966457f40e1f169cc34d32da040b635e383",
+  "scene_source": "media/projects/article-visuals/wave4_batch_04_scenes.py",
+  "scene_source_sha256": "6e2139236854aac86ccff5cd0612660b8ffb0eba8ba546e1fab78ed12e646f60",
+  "component_source": "media/projects/article-visuals/wave4_scene_components.py",
+  "component_source_sha256": "c66f2efb1dca5bbe8df5499b224afd2f41032cc630bc88fd9e11da6db8b5a629",
+  "palette": [
+    "#faf9f6",
+    "#16171d",
+    "#3d4db3"
+  ],
+  "asset_count": 8,
+  "mechanical_status": "pass",
+  "composition_status": "pending-independent-review",
+  "errors": [],
+  "assets": [
+    {
+      "asset_id": "SW1-B3-A02-02",
+      "original_asset_id": "B3-A02-02",
+      "archetype": "ion-selective-tailings-skid",
+      "specific_physical_scene": "A contained mine-tailings water skid with one ion-selective membrane cassette between a feed tank and a recovered-mineral vessel.",
+      "single_mechanism": "the membrane cassette separates dissolved critical ions into the recovery vessel",
+      "source_spec_hash": "sha256:46e7b1ca816fceed44e990987f74841435a641a81726821af608549a3f10ed23",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b3_a02_02.py",
+      "generator_sha256": "50f831a282d3f290d1cb685bfc862f7950b8cc3debb2d6d6d4af8d5e65c79c6c",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B3-A02-02--ion-selective-tailings-skid.png",
+      "output_sha256": "c1bff1caf40c981fd3184a57c5a795003f48ccb76c53a02767a67968bbb2a780",
+      "bytes": 12253,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1517864,
+        "#16171d": 46117,
+        "#3d4db3": 8883
+      },
+      "paper_ratio": 0.965032,
+      "ink_ratio": 0.02932,
+      "indigo_ratio": 0.005648,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        84,
+        595,
+        1459,
+        977
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B3-A02-03",
+      "original_asset_id": "B3-A02-03",
+      "archetype": "pfas-sorbent-column",
+      "specific_physical_scene": "A PFAS treatment column in cutaway, packed with granular sorbent between an inlet pipe and a sealed effluent sampling bottle.",
+      "single_mechanism": "the packed sorbent captures persistent contaminants before the sampling bottle",
+      "source_spec_hash": "sha256:55ef25f4eb9d58c3e9adb225a98acd5d92b4cef0717abfac5e6cc715a20b78f1",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b3_a02_03.py",
+      "generator_sha256": "7b379b18bf7146736020474ac31e2b393ab92684f54ecec0fe3d3f69146093b6",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B3-A02-03--pfas-sorbent-column.png",
+      "output_sha256": "0107de789d82a852e47f4acbf8cff1b8e942650c80af1d37713fe0ba3e33c7a4",
+      "bytes": 9792,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1515604,
+        "#16171d": 45641,
+        "#3d4db3": 11619
+      },
+      "paper_ratio": 0.963595,
+      "ink_ratio": 0.029018,
+      "indigo_ratio": 0.007387,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        102,
+        585,
+        1429,
+        977
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B3-A02-04",
+      "original_asset_id": "B3-A02-04",
+      "archetype": "shared-pressure-flow-fixture",
+      "specific_physical_scene": "Two unmarked sample cartridges, one mineral-bearing water and one contaminated water, entering the same modular pressure-flow test fixture from opposite sides.",
+      "single_mechanism": "the shared fixture ranks cartridge performance under an identical controlled flow test",
+      "source_spec_hash": "sha256:28cfd593770b497996d4e06ca2165e86db90373a9d49d792eb71747e50b07f83",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b3_a02_04.py",
+      "generator_sha256": "0307864affc3bbb4d7ec9857ed1043b34ca4b483c2923e35cf731dfc63238d3d",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B3-A02-04--shared-pressure-flow-fixture.png",
+      "output_sha256": "58b796d06c1719522906fe11e415dd53fd82c8105a7b249f43a7e60fb38973b8",
+      "bytes": 9131,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1510596,
+        "#16171d": 52557,
+        "#3d4db3": 9711
+      },
+      "paper_ratio": 0.960411,
+      "ink_ratio": 0.033415,
+      "indigo_ratio": 0.006174,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        78,
+        630,
+        1459,
+        1003
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B3-A03-02",
+      "original_asset_id": "B3-A03-02",
+      "archetype": "cold-room-research-cartridge",
+      "specific_physical_scene": "An empty supermarket cold room with a compact heat-pump cabinet; one removable research cartridge is seated beside the finned heat exchanger.",
+      "single_mechanism": "the removable cartridge exposes refrigerant-property evidence to the real heat-exchanger loop",
+      "source_spec_hash": "sha256:74210c8d264fc57bd77d0baf3970ebbc897a953fa12ccec078d5c01fc1a9c4c0",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b3_a03_02.py",
+      "generator_sha256": "d89a6d75e675d565b6aebb2ad13c76d33bf83c5ab9015292924f586dc42ecad2",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B3-A03-02--cold-room-research-cartridge.png",
+      "output_sha256": "5f2269ee620cf538cadd4c011d5b58873d58df5f8dd3ae8b650559736e01682c",
+      "bytes": 9523,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1519361,
+        "#16171d": 48157,
+        "#3d4db3": 5346
+      },
+      "paper_ratio": 0.965984,
+      "ink_ratio": 0.030617,
+      "indigo_ratio": 0.003399,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        90,
+        546,
+        1459,
+        977
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B3-A03-03",
+      "original_asset_id": "B3-A03-03",
+      "archetype": "sealed-loop-calorimeter",
+      "specific_physical_scene": "A sealed calorimeter chamber containing one compact refrigerant loop, with a compressor, condenser coil, expansion restriction, and evaporator coil drawn as plain hardware.",
+      "single_mechanism": "the chamber measures heat moved around one closed refrigerant loop",
+      "source_spec_hash": "sha256:39cf7985db4c57037ec5fe6d849e5afedf6fa81c4f2739a4195fb66a3c70fe2a",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b3_a03_03.py",
+      "generator_sha256": "2a71f16bf1c056e7eb91c23ad1569f746eac735091cf77a6b152cd9abd80499a",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B3-A03-03--sealed-loop-calorimeter.png",
+      "output_sha256": "488e9acedb469f8cf797811bf0e172a8b36ae653c9c5272f9c85c8bbacd92729",
+      "bytes": 10938,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1480029,
+        "#16171d": 77000,
+        "#3d4db3": 15835
+      },
+      "paper_ratio": 0.940977,
+      "ink_ratio": 0.048955,
+      "indigo_ratio": 0.010068,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        114,
+        555,
+        1423,
+        977
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B3-A03-04",
+      "original_asset_id": "B3-A03-04",
+      "archetype": "keyed-cartridge-calorimeter",
+      "specific_physical_scene": "A bench calorimeter with an unmarked sealed refrigerant cartridge being inserted into a keyed mechanical cradle beside one heat-exchanger coil.",
+      "single_mechanism": "the keyed cradle transfers the same cartridge from evidence storage into calorimeter measurement",
+      "source_spec_hash": "sha256:d85b5f639e2ce912071ebe9494f2e16d0f43d19f4b2a98e536adf84de19c2cf4",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b3_a03_04.py",
+      "generator_sha256": "678ceec227f4a6e53fcf14d9d9bfccdd918917b440a089969fe7dd0e9400c94a",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B3-A03-04--keyed-cartridge-calorimeter.png",
+      "output_sha256": "af9d72578ffc30cb9a6eed97629c136388fa0ce4f8f9f18df1e608ccbaebd85c",
+      "bytes": 8962,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1504321,
+        "#16171d": 59818,
+        "#3d4db3": 8725
+      },
+      "paper_ratio": 0.956422,
+      "ink_ratio": 0.038031,
+      "indigo_ratio": 0.005547,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        84,
+        615,
+        1453,
+        1003
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B3-A04-03",
+      "original_asset_id": "B3-A04-03",
+      "archetype": "catalyst-flow-reactor",
+      "specific_physical_scene": "A methane catalyst coupon mounted inside a small flow reactor, with an inlet manifold and one downstream sampling vessel.",
+      "single_mechanism": "the reactor tests conversion across the catalyst coupon before the downstream sample is collected",
+      "source_spec_hash": "sha256:d065e2568bc1459d914867ad5da7e6f8e4896b4744d6d8e0bde395f01db1ec39",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b3_a04_03.py",
+      "generator_sha256": "b72d9179aa138b8123d5f2c0937156aad207c7ce178b7d112e9b76a5db3cebc5",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B3-A04-03--catalyst-flow-reactor.png",
+      "output_sha256": "317c2fb2328637cde8537d1becec999e13b0dd9a6a26d83294a8afbc3d4bd760",
+      "bytes": 9979,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1515947,
+        "#16171d": 46482,
+        "#3d4db3": 10435
+      },
+      "paper_ratio": 0.963813,
+      "ink_ratio": 0.029552,
+      "indigo_ratio": 0.006634,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        90,
+        621,
+        1453,
+        977
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B3-A04-04",
+      "original_asset_id": "B3-A04-04",
+      "archetype": "measured-branch-manifold",
+      "specific_physical_scene": "A physical gas-control manifold with three pipes ending at closed valves and one pipe continuing through a measurement vessel.",
+      "single_mechanism": "only the measured branch remains open and carries the restrained indigo flow",
+      "source_spec_hash": "sha256:33add5d185e4989f227ee4e452088a661bf2e052e1a6b65deda1e4ac9119cc22",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b3_a04_04.py",
+      "generator_sha256": "35465d301fd193476fe8771ca693f45c4fd2b265e56ceff689b3de1036d20c48",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B3-A04-04--measured-branch-manifold.png",
+      "output_sha256": "0f8228f43fa74fe543d0463768d7a452b051e1c8d260bf0e6db4273d7d8f741a",
+      "bytes": 9995,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1513219,
+        "#16171d": 46690,
+        "#3d4db3": 12955
+      },
+      "paper_ratio": 0.962079,
+      "ink_ratio": 0.029685,
+      "indigo_ratio": 0.008237,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        84,
+        582,
+        1447,
+        977
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    }
+  ]
+}

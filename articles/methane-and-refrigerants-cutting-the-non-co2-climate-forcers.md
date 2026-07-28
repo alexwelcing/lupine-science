@@ -34,6 +34,8 @@ The materials bottleneck is severe. The C–H bond in methane is one of the stro
 
 Industrial methanol production today passes through syngas, an energy-intensive sequence of steam methane reforming and partial oxidation that operates at 800–1000 °C and emits CO₂ both from combustion and from the chemistry itself. A direct, low-temperature partial oxidation of methane to methanol would eliminate the syngas step, cut energy use by an estimated 20–30%, and enable distributed processing of stranded biogas and landfill gas[^8]. The prize is large: global methanol demand is roughly 110 Mt per year, worth about $40 billion annually[^9].
 
+![A methane-pyrolysis vessel in cutaway with solid carbon dropping into shallow collection trays and one gas conduit leaving the top — The hot reactor splits methane while solid carbon is physically removed into trays](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-02.jpg)
+
 The direct route has been a long-standing target. Homogeneous systems using Fe- or Cu-exchanged zeolites at sub-200 °C can achieve high selectivity to methanol, but only at low single-pass conversion because the methanol product must be extracted before further oxidation[^10]. Heterogeneous catalysts have struggled to match both metrics simultaneously. The reason is the scaling relation described above: any site with enough activity to dissociate methane also tends to over-oxidise the methanol intermediate.
 
 Breaking scaling relations is a materials-discovery problem that sits exactly at the boundary of what atomistic screening can address. Candidate active sites — single-metal cations in zeolite frameworks, single-atom alloys, confined metal clusters, metal-oxide interfaces — number in the thousands when framework, dopant, and support variations are included. Density functional theory (DFT) is accurate enough for any one candidate but economically impossible across the full space. Raw uMLIPs are fast enough but misrank the candidates because the C–H activation barrier, the O-insertion step, and the desorption energy of methanol all involve under-coordinated metal environments.
@@ -84,6 +86,8 @@ The correction layer changes the screen in three ways. First, corrected intermol
 
 An even more radical path eliminates the working fluid entirely. Solid-state refrigeration exploits caloric effects — magnetocaloric, electrocaloric, and elastocaloric — in which an external field drives an entropy change near room temperature. The technology is attractive because it removes refrigerant leakage and can, in principle, exceed vapor-compression efficiency by 20–50%[^15].
 
+![A building cooling plant with one solid-state caloric module clamped between a warm loop and a cold loop inside an accessible service cabinet — The caloric module pumps heat between the two closed fluid loops](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-03.jpg)
+
 ![Blind Prediction Accuracy Across 36 (Model, Material) Combinations](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-04-blind-prediction-correlation.jpg)
 *Blind tests across 36 model-material combinations yield r = 0.906 with no adjustable parameters, giving capital decisions a DFT-accurate signal at uMLIP speed. Source: Lupine Science formalization library and repository (https://library.lupine.science, https://github.com/alexwelcing/lupine-rhizo).*
 
@@ -114,6 +118,8 @@ The policy timelines are short. The Global Methane Pledge target is 2030. The Ki
 
 What exists is a correction-and-verification layer that can search these spaces with DFT accuracy and uMLIP speed. The addressable impact is substantial: methane and refrigerants together could avoid 0.5–1 °C of warming, and the associated product markets run to tens of billions of dollars per year. Other recovery and remediation targets follow — critical minerals, PFAS, and cement — where the same correction geometry applies to equally large problems.
 
+
+![An empty refrigerated food warehouse with a rooftop heat-pump module connected to one interior cold-room heat exchanger, most of the frame is pale sky and wall — The closed refrigerant loop moves heat from the cold room to the rooftop exchanger](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-spread.jpg)
 ## Footnotes
 
 [^1]: UNEP, *Global Methane Assessment: Benefits and Costs of Mitigating Methane Emissions*, 2021; Global Methane Pledge, launched at COP26, 150+ countries.

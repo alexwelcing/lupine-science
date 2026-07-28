@@ -1,0 +1,164 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "t_7180c733",
+  "campaign_id": "brand-campaign-2026-07-27",
+  "wave_id": "wave-4-programmatic-pilot",
+  "generated_at": "2026-07-28T11:15:05.346326+00:00",
+  "source_manifest": "public/brand-assets/campaign-2026-07-27/shortfall-wave-1-manifest.json",
+  "source_manifest_sha256": "d8c6a9cb14cc5803453a5eaf68409966457f40e1f169cc34d32da040b635e383",
+  "palette": [
+    "#faf9f6",
+    "#16171d",
+    "#3d4db3"
+  ],
+  "pilot_count": 4,
+  "mechanical_status": "pass",
+  "composition_status": "pending-independent-review",
+  "errors": [],
+  "assets": [
+    {
+      "asset_id": "SW1-B1-A01-01",
+      "original_asset_id": "B1-A01-01",
+      "archetype": "industrial-cabinet-row",
+      "specific_physical_scene": "A row of three grid-scale battery cabinets at dawn; the nearest cabinet is a simple cutaway with one ceramic electrolyte plate seated between two flat electrodes, while the other cabinets remain closed.",
+      "single_mechanism": "the ceramic electrolyte plate separates the electrodes while carrying the single indigo ion path inside the nearest cabinet",
+      "source_spec_hash": "sha256:fff0da5f52572f01666abe47d7b49dde6e82f21d1514c7c20e8220aae34cd711",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a01_01.py",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A01-01--industrial-cabinet-row.png",
+      "output_sha256": "8ab175f86b974e9418b4dc3423a6f77e96e7f7f2e6cef60ace5e206d55827dd5",
+      "bytes": 7923,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "palette_histogram": {
+        "#faf9f6": 1300764,
+        "#16171d": 25535,
+        "#3d4db3": 805
+      },
+      "paper_ratio": 0.980152,
+      "ink_ratio": 0.019241,
+      "indigo_ratio": 0.000607,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        140,
+        458,
+        1437,
+        741
+      ],
+      "glyph_risk_control": "PIL primitives only; no font import, text drawing, labels, or symbols",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B1-A02-01",
+      "original_asset_id": "B1-A02-01",
+      "archetype": "laboratory-apparatus",
+      "specific_physical_scene": "A long laboratory bench with many empty ceramic sample boats entering a small tube furnace and only one finished electrolyte pellet resting in a coin-cell test clamp.",
+      "single_mechanism": "the narrow furnace-to-test route makes the physical synthesis bottleneck visible",
+      "source_spec_hash": "sha256:31fdd2a21d7cf106aeb651d255e96996355cac0851e14f5ff67ebb33ffbe61c5",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a02_01.py",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A02-01--laboratory-apparatus.png",
+      "output_sha256": "3ac616f9a19cbd14d7299b7ac1644543c2dbba9f13df0a98e3b30273d0cfbcf3",
+      "bytes": 8190,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "palette_histogram": {
+        "#faf9f6": 1312285,
+        "#16171d": 12444,
+        "#3d4db3": 2375
+      },
+      "paper_ratio": 0.988834,
+      "ink_ratio": 0.009377,
+      "indigo_ratio": 0.00179,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        76,
+        600,
+        689,
+        805
+      ],
+      "glyph_risk_control": "PIL primitives only; no font import, text drawing, labels, or symbols",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B2-A03-01",
+      "original_asset_id": "B2-A03-01",
+      "archetype": "field-infrastructure",
+      "specific_physical_scene": "A landfill gas well manifold feeding a sealed catalytic oxidation unit on a bare service pad, with one pipe route and no visible plume.",
+      "single_mechanism": "the oxidation unit converts collected methane within the sealed vessel",
+      "source_spec_hash": "sha256:3c803c9fddec0360016267d762d76f1e968cf5c45efc92a218a31a6bf5d237bc",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b2_a03_01.py",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B2-A03-01--field-infrastructure.png",
+      "output_sha256": "0df156a8060b4821c52b2acceb4f3f580fd01d359e06f085bcaaf6cca81b7f77",
+      "bytes": 8207,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "palette_histogram": {
+        "#faf9f6": 1302917,
+        "#16171d": 22907,
+        "#3d4db3": 1280
+      },
+      "paper_ratio": 0.981775,
+      "ink_ratio": 0.017261,
+      "indigo_ratio": 0.000965,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        70,
+        454,
+        1467,
+        752
+      ],
+      "glyph_risk_control": "PIL primitives only; no font import, text drawing, labels, or symbols",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B4-A02-03",
+      "original_asset_id": "B4-A02-03",
+      "archetype": "cell-assembly-cutaway",
+      "specific_physical_scene": "A practical solid-state cell casing in cutaway beneath a scanning probe, revealing a ceramic electrolyte pressed against one electrode interface.",
+      "single_mechanism": "the probe inspects the buried electrolyte-to-electrode interface inside the cell",
+      "source_spec_hash": "sha256:8a55dc4df31446b84f913b4f70050ced155a263dbb89ba761a0444db4a5dd136",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a02_03.py",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A02-03--cell-assembly-cutaway.png",
+      "output_sha256": "faba6e0fae4734d5fa4ca81c1e81c1da26bcb4ef963f2aa535addbe87907655f",
+      "bytes": 10008,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1520335,
+        "#16171d": 49088,
+        "#3d4db3": 3441
+      },
+      "paper_ratio": 0.966603,
+      "ink_ratio": 0.031209,
+      "indigo_ratio": 0.002188,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        150,
+        468,
+        1402,
+        846
+      ],
+      "glyph_risk_control": "PIL primitives only; no font import, text drawing, labels, or symbols",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    }
+  ]
+}

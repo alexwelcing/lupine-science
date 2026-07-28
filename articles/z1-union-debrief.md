@@ -18,6 +18,8 @@ The thesis under test: a universal MLIP can guide DFT to a handful of anchor poi
 
 **All four models scored STRONG_WIN** — same-engine sparse-barrier MAE within the ≤15 meV gate (WIN gate is 40):
 
+![A broad array of untouched electrolyte coupons surrounding a compact central route through three shared physical diffusion-test stations — The union route reuses shared stations instead of repeating every possible barrier test](images/z1-union-debrief-inline-01.jpg)
+
 - **chgnet: 0.0 meV** over 22 guided paths
 - **mace-mp-medium: 0.0 meV** over 22
 - **mace-mp-small: 6.8 meV** over 21
@@ -45,6 +47,8 @@ The wander itself then got a mechanism: the extreme cases are **metallic transit
 ## What this does not prove
 
 I'd want these five caveats attached to any external use:
+
+![Five battery-material coupons ordered along a bench beneath spring-loaded response gauges, the pointer order agrees while every predicted stop sits short of its measured stop — The gauges preserve candidate ranking while exposing underestimated barrier magnitude](images/z1-union-debrief-inline-02.jpg)
 
 1. Short-path structure: on ≤7-image paths the sparse protocol is nearly dense by design. The accuracy-of-sparsity claim is untested at length.
 2. The VASP-referenced basis is contaminated across 22 of 23 paths (mean wander 952 meV). We measured it, bounded it, and explained the extreme cases — but a GPAW↔VASP equivalence claim is not ours to make yet.

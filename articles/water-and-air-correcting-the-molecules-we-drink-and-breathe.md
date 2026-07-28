@@ -34,6 +34,8 @@ The response is to measure the error field on anchor observables, add analytic f
 
 ### Reverse-osmosis membranes
 
+![A reverse-osmosis pressure vessel shown in long cutaway, with a spiral membrane element separating an inlet channel from a clean-water collection tube — Pressure drives water through the membrane into the central collection tube](images/water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-01.jpg)
+
 Reverse osmosis is the workhorse of seawater desalination, but it is still energetically expensive and chemically fragile. A modern polyamide thin-film composite membrane reaches roughly 99.5% NaCl rejection at a permeability of about 10 L m⁻² h⁻¹ bar⁻¹, with total energy consumption of 3–4 kWh m⁻³[^1]. The next generation of membranes needs higher permeability without sacrificing rejection, and it needs chlorine tolerance so that biofouling can be controlled without damaging the active layer.
 
 The active layer is a nanoporous polymer network. Its function is controlled by the size, charge, and chemical texture of pores that are only a few nanometres across. Ions and water molecules in those pores are surrounded by under-coordinated functional groups — carbonyls, amines, carboxylates — whose binding energies fall well outside the bulk-polymer distribution on which uMLIPs are trained. A raw uMLIP therefore misranks pore size and charge density, making it impossible to screen candidate chemistries for the true selectivity–permeability trade-off. Corrected binding and diffusion energies recover the right ranking, so synthesis effort goes to pores that are genuinely selective rather than pores that merely look stable on a softened potential surface.
@@ -97,6 +99,8 @@ The limiting steps are C–H and O=O activation at single-atom or small-cluster 
 ## The correction layer, applied
 
 The environment error field is constructed from three anchor observables and a cubic spline that enforces zero error in a reference bulk environment[^5]. For water and air materials, the field is evaluated at the same low-coordination environments that control function: the pore window that selects Li⁺ over Mg²⁺, the metal-linker bond that hydrolyses during AWH cycling, the exchanged cation that activates NOx, the single-atom site that oxidises formaldehyde.
+
+![A rooftop atmospheric-water harvester in a dry built landscape, with a finned sorbent cassette above a small condenser and covered cistern — The sorbent cassette releases captured moisture to the condenser and cistern](images/water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-02.jpg)
 
 ![Accuracy at Screening Speed](images/water-and-air-correcting-the-molecules-we-drink-and-breathe-09-speed-moat.jpg)
 *Corrected uMLIPs stay roughly 10⁵× faster than DFT while adding only 15.6% runtime overhead, making hundred-thousand- to million-candidate screens economically feasible.*

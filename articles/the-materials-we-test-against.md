@@ -24,6 +24,8 @@ Each path is one specific hop: a lithium ion leaving a comfortable site, squeezi
 
 The test panel is locked — 30 chemistries, one migration path each, chosen so no single family dominates. It splits into recognizable neighborhoods of the solid-state-battery map:
 
+![A solid-electrolyte diffusion cell mounted in a small test rig, with one ceramic grain boundary enlarged in cutaway and a restrained indigo path crossing it — The test rig measures the ion migration barrier across one grain boundary](images/the-materials-we-test-against-inline-03.jpg)
+
 ![The materials adversary panel: varied ceramic pellets, thin films, and pressed cells under identical measurement arches](images/the-materials-we-test-against-inline-02--retry-1.jpg)
 
 ![The 30-path Z1 test panel: barrier height by chemistry class](images/panel-barriers-by-class.jpg)
@@ -55,6 +57,8 @@ Three reasons this panel fights back:
 2. **It hits the models' blind spot.** These are dense ceramics with under-coordinated transition states — exactly the out-of-equilibrium configurations foundation models under-train on. Our Round-4 result (all four models under-predicting, 135–243 meV mean error against a 40 meV gate) is the proof.
 3. **It is public and reproducible.** Anyone can rebuild the panel from the source archive (`tools/build_z1_barrier_panel.py`, byte-identical), check the hash, and re-run the comparison — adversaries with receipts.
 
+
+![An empty fleet-charging depot with a row of chargers backed by sealed solid-state storage cabinets, two electrolyte coupons lie in a foreground test tray — The storage cabinets discharge into the chargers during a brief demand peak](images/the-materials-we-test-against-spread.jpg)
 ## Receipts
 
 - Test panel: `data/candidates/z1_nebdft2k_barriers.lock.json` (SHA-256 `192fe54a…`), 30 paths

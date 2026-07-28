@@ -31,6 +31,8 @@ Seven chapters of the underlying book survey the savings layers the field invent
 
 On the locked 30-path Z1 panel, path 14 failed CI-NEB convergence in all four model artifacts — the honest denominator is 29. Across those 29 analyzable diffusion paths, the frozen sparse-anchor protocol would consume **558 naive per-model DFT anchors; shared across the four models, the union is 154 — 72.4% fewer evaluations, a 3.62× reduction.** The scaling law is the headline: as guidance models go from one to four, the naive bill multiplies ~4× (139.5, 279, 418.5, 558) while the union stays nearly flat (139.5, 147.8, 152, 154) — four models of guidance cost ~10% more DFT than one. The numbers were recomputed from recorded campaign artifacts under the frozen anchor rule; an earlier informal figure was retracted as arithmetic drift, and the analysis note in the pack reconciles it line by line. No new DFT was run to produce any of it.
 
+![A sequence of three physical screening fixtures on one bench: a wide tray of candidate coupons, a smaller thermal-test rack, and one final reference-calculation instrument — Successive screening fixtures narrow the candidate set before the expensive reference instrument](images/the-savings-stack-inline-01.jpg)
+
 ![Branching simulation paths reusing the same sparse set of shared anchor evaluations — the blank space is calculations deliberately not run](images/the-savings-stack-inline-02.jpg)
 
 ## What it is — and what it is not
@@ -42,6 +44,8 @@ The citation audit behind the book verified every identifier against its registr
 ## Data and reproduction
 
 The booklet is the cover story; the pack is the evidence. [The v1 pack](/data/savings-stack-v1/README.md) ships all ten chapters, the machine-readable union-anchor record ([JSON](/data/savings-stack-v1/z1-union-anchor-economics.json) + [sha256 sidecar](/data/savings-stack-v1/z1-union-anchor-economics.json.sha256)), the [analysis note](/data/savings-stack-v1/z1-union-anchor-economics.md) and [script](/data/savings-stack-v1/union_anchor_economics.py), the [citation audit](/data/savings-stack-v1/citation-verification-2026-07-21.md), and a [MANIFEST.sha256](/data/savings-stack-v1/MANIFEST.sha256) over every file. Structured data is released under the Open Data Commons Open Database License 1.0 (ODbL-1.0), mirroring the source repository's data license; prose and code keep their repository licenses.
+
+![An open rack of identical unmarked sample cartridges feeding two separated battery test instruments through standardized mechanical sockets — The standardized cartridge socket lets the same physical reference sample serve independent instruments](images/the-savings-stack-inline-03.jpg)
 
 `sha256sum -c MANIFEST.sha256` verifies the pack; `python3 union_anchor_economics.py --local <artifacts> --out z1-union-anchor-economics.json` recomputes the record.
 

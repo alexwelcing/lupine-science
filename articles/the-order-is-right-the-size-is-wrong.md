@@ -26,6 +26,8 @@ The obvious hypotheses were pre-registered first, with coupling-aware nulls —
 statistical controls that grant the physics its own internal correlations
 before crediting any model with "shared structure."
 
+![An unattended specimen pipeline with a model cartridge, a bounded correction jig, and a final engineering decision tray connected by one narrow rail — The rail carries one sample through rank-preserving correction into a physical decision tray](images/the-order-is-right-the-size-is-wrong-inline-03.jpg)
+
 Two headline hypotheses died. Cross-property error is **not** low-dimensional
 in the linear sense: participation ratios sit inside the null band. And
 apparent cross-model alignment — raw cosine similarities as high as 0.96 —

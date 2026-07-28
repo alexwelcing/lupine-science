@@ -76,10 +76,13 @@
 <h1>The Union Verdict: A De-brief on the Z1 Campaign</h1>
 <p class="article-deck">The full account you asked for before we talk — the verdict, the economics, the failures, the catches, and where I'd push back</p>
 <ul class="article-byline" aria-label="Publication details"><li><time datetime="2026-07-24">July 24, 2026</time></li> <li aria-hidden="true"><span class="byline-sep" aria-hidden="true">·</span></li> <li><span class="article-status">Draft</span></li></ul>
-<figure class="article-hero">
+<figure class="article-hero" aria-labelledby="hero-caption">
   <picture>
+    <source srcset="/articles/z1-union-debrief/hero.avif?v=3" type="image/avif">
+    <source srcset="/articles/z1-union-debrief/hero.webp?v=3" type="image/webp">
     <img src="/articles/z1-union-debrief/hero.jpg?v=3" alt="" width="1280" height="720" loading="eager" fetchpriority="high" decoding="async">
   </picture>
+  <figcaption id="hero-caption">A row of solid-electrolyte coupons mounted in identical diffusion rigs, with a sparse set of shared reference pins anchoring the barrier comparison across the whole panel.</figcaption>
 </figure>
 <figure class="article-video-player" aria-labelledby="video-label-z1-union-debrief">
   <figcaption id="video-label-z1-union-debrief" class="video-player-label">Brand film: The Union Verdict: A De-brief on the Z1 Campaign</figcaption>
@@ -99,6 +102,7 @@
 <p>The thesis under test: a universal MLIP can guide DFT to a handful of anchor points near a predicted transition state, and a sparse barrier assembled from those anchors recovers the dense-DFT barrier — and further, that several architecturally different models can <em>share</em> those anchors, because the anchors are model-independent evaluations and only the guidance differs. If both hold, barrier chemistry stops being a per-model expense and becomes shared infrastructure: every additional model’s guidance validated at near-zero marginal cost.</p>
 <h2>The verdict</h2>
 <p><strong>All four models scored STRONG_WIN</strong> — same-engine sparse-barrier MAE within the ≤15 meV gate (WIN gate is 40):</p>
+<p><img src="images/z1-union-debrief-inline-01.jpg?v=3" alt="A broad array of untouched electrolyte coupons surrounding a compact central route through three shared physical diffusion-test stations — The union route reuses shared stations instead of repeating every possible barrier test"></p>
 <ul>
 <li><strong>chgnet: 0.0 meV</strong> over 22 guided paths</li>
 <li><strong>mace-mp-medium: 0.0 meV</strong> over 22</li>
@@ -120,6 +124,7 @@
 <p>The wander itself then got a mechanism: the extreme cases are <strong>metallic transition states</strong> (0.018 eV gap at path-0’s saddle) where the two engines converge to different electronic descriptions on exactly that image. And when GPAW warned that a 34.4° skewed cell might corrupt its own results, we audited instead of hoping: <a href="https://library.lupine.science/#/read/t1-niggli-audit">barrier shifted 3.5 meV</a>, valid. That is the third instance of the pattern this campaign produced — convention offsets, settings offsets, cell offsets: barriers cancel constants; only wander matters.</p>
 <h2>What this does not prove</h2>
 <p>I’d want these five caveats attached to any external use:</p>
+<p><img src="images/z1-union-debrief-inline-02.jpg?v=3" alt="Five battery-material coupons ordered along a bench beneath spring-loaded response gauges, the pointer order agrees while every predicted stop sits short of its measured stop — The gauges preserve candidate ranking while exposing underestimated barrier magnitude"></p>
 <ol>
 <li>Short-path structure: on ≤7-image paths the sparse protocol is nearly dense by design. The accuracy-of-sparsity claim is untested at length.</li>
 <li>The VASP-referenced basis is contaminated across 22 of 23 paths (mean wander 952 meV). We measured it, bounded it, and explained the extreme cases — but a GPAW↔VASP equivalence claim is not ours to make yet.</li>

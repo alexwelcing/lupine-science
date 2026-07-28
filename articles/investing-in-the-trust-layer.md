@@ -42,6 +42,8 @@ The correction-and-verification layer does not compete with any of these layers.
 
 The trust layer is defensible only if it is simultaneously accurate, provable, and deployable. The architecture rests on three pillars that are individually difficult and, to current knowledge, collectively unique in materials science.
 
+![A calibration artifact in a sealed cradle connected by an unbroken physical chain of couplers to a specimen archive and a test instrument — The coupler chain makes every instrument result traceable to the calibration artifact](images/investing-in-the-trust-layer-inline-01.jpg)
+
 ![Predicting the error on a never-fitted observable](images/investing-in-the-trust-layer-04-blind-test-correlation.jpg)
 *Across 36 model-material combinations, the measured error field predicts the never-fitted γ₁₁₀ surface-energy error with Pearson r = 0.906 (95% CI [0.82, 0.96], p = 10⁻⁴) and zero adjustable parameters.*
 
@@ -89,6 +91,8 @@ The investment thesis is therefore not a bet on a single material. It is a bet o
 ## Risk and honesty
 
 A proof-first voice requires naming what is still open. The fcc error field is established; extension to bcc, hcp, and layered structures is the critical path item in Phase 0, with a go/no-go gate at Month 3. A second-shell correction may be needed for systems where first-shell coordination alone does not resolve the error geometry. Industrial validation partners are targeted but not yet contracted; until synthesis data arrive, the transfer claims remain computational.
+
+![A risk-routing bench where candidate trays approach one mechanical evidence gate, several stop in side bays and one continues toward a small pilot reactor — The evidence gate routes insufficient candidates aside before pilot equipment](images/investing-in-the-trust-layer-inline-03.jpg)
 
 ![What is proven, what is on the critical path](images/investing-in-the-trust-layer-07-phase-zero-risk.jpg)
 *The fcc error field is established; the Phase 0 critical path extends it to bcc, hcp, and layered structures, with a Month 3 go/no-go gate and honest caveats about second-shell corrections and pending validation partners.*
