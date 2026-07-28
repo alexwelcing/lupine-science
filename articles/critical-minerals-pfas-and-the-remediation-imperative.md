@@ -120,6 +120,8 @@ The platform is not a point solution for batteries or direct air capture. It is 
 
 Cement and concrete — the heaviest industrial material by mass — present another case where amorphous, metastable, and under-coordinated phases control both emissions and performance. The thread remains the same: the materials bottleneck is a prediction-trust bottleneck, and trust comes from measuring the error, correcting it, and proving what can be believed.
 
+![A public-works scale remediation scene: treatment tanks, monitoring wells, and a materials recovery bay](images/critical-minerals-pfas-and-the-remediation-imperative-spread--retry-1.jpg)
+
 ## Footnotes
 
 [^1]: International Energy Agency, *The Role of Critical Minerals in Clean Energy Transitions*, IEA, 2022.

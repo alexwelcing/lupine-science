@@ -47,6 +47,8 @@ A company whose thesis is proof cannot ask to be taken on faith. Here is where t
 
 None of this is a breakthrough announcement. The claims are modest because the standard is the product. Everything above is checkable today.
 
+![A predicted material crossing three gates — reference evidence, runtime correction, and claim boundary — before entering a practical component assembly](images/the-trust-layer-inline-02--retry-1.jpg)
+
 ## Why in the open
 
 This could have been built as a black box: a proprietary trust score, a private benchmark, an API that says "believe this one." It would have been easier to sell and impossible to believe. A trust layer you cannot check is just another confident model.

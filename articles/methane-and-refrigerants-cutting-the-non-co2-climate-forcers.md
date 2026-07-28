@@ -38,6 +38,8 @@ The direct route has been a long-standing target. Homogeneous systems using Fe- 
 
 Breaking scaling relations is a materials-discovery problem that sits exactly at the boundary of what atomistic screening can address. Candidate active sites — single-metal cations in zeolite frameworks, single-atom alloys, confined metal clusters, metal-oxide interfaces — number in the thousands when framework, dopant, and support variations are included. Density functional theory (DFT) is accurate enough for any one candidate but economically impossible across the full space. Raw uMLIPs are fast enough but misrank the candidates because the C–H activation barrier, the O-insertion step, and the desorption energy of methanol all involve under-coordinated metal environments.
 
+![A direct methane-to-methanol reactor train as practical vessels and heat exchangers, with the catalytic zone marked in indigo](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-01--retry-1.jpg)
+
 ![The Measured Environment Error Field](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-03-environment-error-field.jpg)
 *The environment error field uses three anchor observables and a bulk constraint to correct under-coordinated predictions without retraining the underlying potential. Source: Lupine Science formalization library and repository (https://library.lupine.science, https://github.com/alexwelcing/lupine-rhizo).*
 

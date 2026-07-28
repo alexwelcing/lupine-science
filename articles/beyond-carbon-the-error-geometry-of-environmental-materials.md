@@ -50,6 +50,8 @@ Atmospheric water harvesting sorbents face a different manifestation of the same
 
 Air quality is similarly bound by under-coordinated active sites. Outdoor air pollution causes an estimated 4–7 million premature deaths annually, with NOx, PM₂.₅, and volatile organic compounds as the leading contributors[^6]. Low-temperature NH₃-SCR catalysts for diesel and gasoline exhaust need high NOx conversion below 150 °C because cold-start emissions, before the catalyst reaches light-off, can account for 50–80% of trip emissions[^7]. Those conversions depend on activation barriers for N–O bond cleavage and C–H activation at exchanged cations and single-atom sites that raw uMLIPs misrank.
 
+![Four environmental boundary stations — water membrane, air catalyst, refrigerant heat exchanger, and remediation sorbent — as physical devices under a shared measurement geometry](images/beyond-carbon-the-error-geometry-of-environmental-materials-inline-01--retry-1.jpg)
+
 ## Methane and refrigerants: the non-CO₂ climate forcers
 
 Methane is responsible for roughly 30% of current global warming. Over a twenty-year horizon its global warming potential is 80–85× that of CO₂[^8]. Cutting anthropogenic methane emissions 30% by 2030 — the Global Methane Pledge target — could avoid approximately 0.3 °C of warming by 2040[^9]. Yet low-temperature methane-to-methanol catalysts remain below commercial selectivity, and methane pyrolysis for turquoise hydrogen still requires temperatures well above 800 °C. Both routes are limited by C–H activation and carbon diffusion at under-coordinated metal sites.
@@ -107,6 +109,8 @@ The seven target areas share the same computational pathology and the same respo
 The combined addressable impact is comparable to the climate series. Water and air quality affect billions of people. Methane and refrigerants together could avoid 0.5–1 °C of warming. Critical-mineral recycling and PFAS remediation address trillion-dollar supply-chain and public-health risks. Cement decarbonization is a 2.8 GtCO₂ yr⁻¹ problem. A single correction layer that improves discovery reliability across all of them is the platform thesis.
 
 Subsequent installments examine the targets in detail. The premise is common: the materials bottleneck is, at its root, a prediction-trust bottleneck. Trust comes from measuring the shape of the error, correcting it with analytic forces, and proving which predictions can be believed.
+
+![A calm regional landscape of treatment plants and clean infrastructure, with the material interventions visible but secondary](images/beyond-carbon-the-error-geometry-of-environmental-materials-spread--retry-1.jpg)
 
 ## Footnotes
 

@@ -66,6 +66,8 @@ Unlike data-scale moats that erode as competitors scrape the same training corpo
 
 Transfer is the mechanism. The Li–Zr–Cl field informs Li–Fe–Cl halide solid-electrolyte screening; the fcc field informs body-centered-cubic and hexagonal-close-packed extensions planned for Phase 0; the cobalt-free cathode field transfers to layered oxide and spinel dopant spaces. Theorem families expand in parallel: extending the formalization from fcc to bcc, hcp, and layered structures adds machine-checked protections for the material classes that dominate battery and catalyst targets.
 
+![A compounding evidence flywheel: physical sample archives feeding improved test selection across battery, climate, and infrastructure bays](images/investing-in-the-trust-layer-inline-02--retry-1.jpg)
+
 ![Partnership architecture that deepens the moat](images/investing-in-the-trust-layer-08-partner-flywheel.jpg)
 *A master CRADA with NREL and tier-1 experimental collaborators close the loop between prediction and synthesis, turning every validated measurement into a more trustworthy next prediction.*
 

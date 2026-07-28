@@ -11,13 +11,13 @@
   <meta property="og:description" content="Three of our four campaign gates have reported in, and all three are failures or abstentions — recorded, hash-locked, and explained. The fourth is running right now. This is what open-science instrumentation looks like when the answers are no.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://lupine.science/articles/four-gates-three-honest-failures-one-live-experiment/">
-  <meta property="og:image" content="https://lupine.science/og-lupine-science.png?v=2">
+  <meta property="og:image" content="https://lupine.science/og-lupine-science.png?v=3">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Four Gates, Three Honest Failures, One Live Experiment — Lupine Science">
   <meta name="twitter:description" content="Three of our four campaign gates have reported in, and all three are failures or abstentions — recorded, hash-locked, and explained. The fourth is running right now. This is what open-science instrumentation looks like when the answers are no.">
-  <meta name="twitter:image" content="https://lupine.science/og-lupine-science.png?v=2">
+  <meta name="twitter:image" content="https://lupine.science/og-lupine-science.png?v=3">
   <meta name="theme-color" content="#faf9f6">
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
   <link rel="icon" type="image/png" href="/lupine-science-icon.png">
@@ -26,7 +26,7 @@
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/articles/styles.css">
   <link rel="stylesheet" href="/components/share/share.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Four Gates, Three Honest Failures, One Live Experiment","description":"Three of our four campaign gates have reported in, and all three are failures or abstentions — recorded, hash-locked, and explained. The fourth is running right now. This is what open-science instrumentation looks like when the answers are no.","datePublished":"2026-07-19","url":"https://lupine.science/articles/four-gates-three-honest-failures-one-live-experiment/","mainEntityOfPage":"https://lupine.science/articles/four-gates-three-honest-failures-one-live-experiment/","image":"https://lupine.science/articles/four-gates-three-honest-failures-one-live-experiment/hero.jpg?v=2","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png?v=2"}}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Four Gates, Three Honest Failures, One Live Experiment","description":"Three of our four campaign gates have reported in, and all three are failures or abstentions — recorded, hash-locked, and explained. The fourth is running right now. This is what open-science instrumentation looks like when the answers are no.","datePublished":"2026-07-19","url":"https://lupine.science/articles/four-gates-three-honest-failures-one-live-experiment/","mainEntityOfPage":"https://lupine.science/articles/four-gates-three-honest-failures-one-live-experiment/","image":"https://lupine.science/articles/four-gates-three-honest-failures-one-live-experiment/hero.jpg?v=3","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png?v=3"}}}</script>
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
@@ -77,19 +77,19 @@
 <ul class="article-byline" aria-label="Publication details"><li><time datetime="2026-07-19">July 19, 2026</time></li> <li aria-hidden="true"><span class="byline-sep" aria-hidden="true">·</span></li> <li><span class="article-status">Published</span></li></ul>
 <figure class="article-hero">
   <picture>
-    <img src="/articles/four-gates-three-honest-failures-one-live-experiment/hero.jpg?v=2" alt="" width="1280" height="720" loading="eager" fetchpriority="high" decoding="async">
+    <img src="/articles/four-gates-three-honest-failures-one-live-experiment/hero.jpg?v=3" alt="" width="1280" height="720" loading="eager" fetchpriority="high" decoding="async">
   </picture>
 </figure>
 
 <hr>
-
+<p><img src="images/four-gates-three-honest-failures-one-live-experiment-hero--retry-1.jpg?v=3" alt="Four rigorous test gates — battery barriers, elastic response, magnetism, catalyst adsorption — three paths stopped, one still under measurement"></p>
 <p class="lead">Every few months we write down, in advance and in public, what our software stack must prove about itself — then we force it to actually try. This week all four of those gates reported in. All four answers are "no" — three failures and one principled abstention. None of that is a disaster; it is the point of having gates at all. Here is the final status of each campaign, in plain language, with the receipts.</p>
 <h2>The setup, in one paragraph</h2>
 <p>Modern “foundation” machine-learning potentials — in our panel, three sizes of MACE and one CHGNet — promise to predict how atoms behave without running expensive quantum simulations. If they were accurate enough, battery materials and catalysts could be screened at computer speed. The question our Round-4 campaigns ask is narrow and unforgiving: <em>accurate enough, by how much, measured against which references, locked before we ran anything?</em> Each campaign has a preregistered acceptance test (a “gate”), a locked panel of test systems, and a pipeline that records every artifact by its content hash — so a number cannot be quietly edited after the fact.</p>
 <h2>Z1 — the battery-barrier test: failed, systematically</h2>
 <p><strong>The question.</strong> Can off-the-shelf models predict how fast ions move through solid battery electrolytes? That motion is controlled by <em>migration barriers</em> — the energy hill an ion must climb between stable sites. We set the gate at a mean error of <strong>40 millielectronvolts (meV)</strong> against published quantum-chemical (DFT-NEB) references, across 30 chemistries the models had no business having seen.</p>
 <p><strong>The answer.</strong> Not close — and interestingly not close:</p>
-<p><img src="images/four-gates-three-honest-failures-one-live-experiment-02-z1-barrier-mae-vs-gate.jpg?v=2" alt="Z1: all four models miss the barrier gate; every completed path under-predicts the barrier"></p>
+<p><img src="images/four-gates-three-honest-failures-one-live-experiment-02-z1-barrier-mae-vs-gate.jpg?v=3" alt="Z1: all four models miss the barrier gate; every completed path under-predicts the barrier"></p>
 <p>The best model missed by 3.4×, the worst by 6×. More telling than the size of the miss is its <em>shape</em>: for the model with full per-path data, <strong>all 26 completed paths under-predict the barrier</strong>. Random noise scatters in both directions; a one-sided miss is a systematic bias — these models, trained mostly on near-equilibrium structures, consistently underestimate how hard it is for an ion to squeeze through a transition state. That is exactly the failure mode our “Honest Errors” program exists to catch, and it replicates, at 30-chemistry scale, a smaller five-compound result we reported (and retracted the corresponding claim for) last round.</p>
 <p>Two honesty notes. First, 1–4 of the 30 paths per model failed to converge under the frozen protocol; the pipeline records them as failures rather than estimating around them, so the MAEs above are computed only on completed paths. Second, our first execution ran the models at reduced numerical precision (float32) against the vendor’s guidance for geometry optimization. We caught it, fixed it, and re-ran the full panel at float64 — the first run stays on record as executed; the re-run is a separate measurement chain, and we report both. <strong>The float64 verdicts are identical to within 0.1 meV (135.0 / 151.9 / 174.7 / 242.5): the miss is model error, not numerical noise — full stop.</strong></p>
 <h2>Round-4 — the elastic-correction test: failed, with an amendment on file</h2>
@@ -101,7 +101,7 @@
 <h2>Z3 — the catalyst-adsorption test: failed, and the failure taught us why</h2>
 <p><strong>The question.</strong> Can a small <em>correction model</em> (Δ-learning) lift foundation-model adsorption energies to within <strong>0.1 eV</strong> of published DFT references on 20 held-out catalyst systems — the accuracy catalyst screening needs?</p>
 <p><strong>The answer.</strong> No — and the reason is more useful than a pass would have been. The baseline measurements (4 models × 32 systems, 128/128 completed, zero failures) confirmed the first datapoint’s pattern at panel scale: every MACE variant underbinds nearly everything, with errors from −1 to <strong>+25.6 eV</strong> growing with molecule size.</p>
-<p><img src="images/four-gates-three-honest-failures-one-live-experiment-03-z3-interface-error-anatomy.jpg?v=2" alt="Z3 first datapoint: the whole miss lives at the interface"></p>
+<p><img src="images/four-gates-three-honest-failures-one-live-experiment-03-z3-interface-error-anatomy.jpg?v=3" alt="Z3 first datapoint: the whole miss lives at the interface"></p>
 <p>Then came the honest part. The correction model was fitted on the 6 training systems and selected on the 6 validation systems, exactly as frozen — and on the 20-system holdout, <strong>every selected correction made things worse than doing nothing</strong>:</p>
 <table>
 <thead>
@@ -143,10 +143,10 @@
 <p>The best bare-model number, chgnet’s 0.69 eV, is still 6.9× the screening gate: <strong>no current foundation MLIP is catalyst-screening accurate on adsorbates this size.</strong> Combined with Z1’s barriers and Round-4’s elastics, that is three independent measurements of the same systematic direction: these models underbind — at transition states and at interfaces alike.</p>
 <h2>Why you can check all of this</h2>
 <p>Every stage of every campaign is content-addressed: the manifest we preregistered, the locked panels, each cloud artifact, the measurement rows, and the claims registry that turns rows into verdicts. If any number in this article were edited after the fact, the hashes would stop verifying and the pipeline would refuse to publish it.</p>
-<p><img src="images/four-gates-three-honest-failures-one-live-experiment-04-receipts-pipeline.jpg?v=2" alt="The receipts pipeline: manifest → locked panel → cloud execution → measurement rows → ingestion and gates"></p>
+<p><img src="images/four-gates-three-honest-failures-one-live-experiment-04-receipts-pipeline.jpg?v=3" alt="The receipts pipeline: manifest → locked panel → cloud execution → measurement rows → ingestion and gates"></p>
 <p>The formal machinery is equally explicit about its limits: the claims registry marks every gate <strong>unsupported</strong> until real ingestion lands, and the Lean gate-clearance theorems are labeled, in their own source, as scaffolding placeholders awaiting that evidence. We do not cite ourselves; every reference panel comes from published, external science.</p>
 <h2>What happens next</h2>
-<p><img src="images/society-trust-gate.png?v=2" alt="The trust gate: raw candidates in, one certified ribbon out"></p>
+<p><img src="images/society-trust-gate.png?v=3" alt="The trust gate: raw candidates in, one certified ribbon out"></p>
 <ul>
 <li><strong>Z1:</strong> both precision chains are in and identical; ingestion turns the rows into a formal gate verdict (expected: fail — recorded, not buried).</li>
 <li><strong>Z3:</strong> complete — baseline table and the refuted Δ-correction are on record; a viable retry needs a bigger fit budget or physics features, under a new preregistration.</li>

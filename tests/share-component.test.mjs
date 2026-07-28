@@ -187,12 +187,12 @@ describe('article metadata output', () => {
     assert.match(html, /<meta property="og:title" content="The Trust Layer — Lupine Science">/);
     assert.match(html, /<meta property="og:type" content="video\.other">/);
     assert.match(html, /<meta property="og:url" content="https:\/\/lupine\.science\/articles\/the-trust-layer\/">/);
-    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/videos\/the-trust-layer-poster\.jpg\?v=2">/);
+    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/videos\/the-trust-layer-poster\.jpg\?v=\d+">/);
     assert.match(html, /<meta property="og:image:width" content="1200">/);
     assert.match(html, /<meta property="og:image:height" content="630">/);
     assert.match(html, /<meta name="twitter:card" content="summary_large_image">/);
     assert.match(html, /<meta name="twitter:title" content="The Trust Layer — Lupine Science">/);
-    assert.match(html, /<meta name="twitter:image" content="https:\/\/lupine\.science\/videos\/the-trust-layer-poster\.jpg\?v=2">/);
+    assert.match(html, /<meta name="twitter:image" content="https:\/\/lupine\.science\/videos\/the-trust-layer-poster\.jpg\?v=\d+">/);
   });
 
   it('links the share component stylesheet and module script', async () => {

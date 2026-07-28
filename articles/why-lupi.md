@@ -38,6 +38,8 @@ LUPI is the public face of Lupine Science. It has three jobs:
 
 Under the hood, LUPI connects back to the same formalized makeability record that powers Lupine Science: a growing chain of commitments, simulations, and certificates that say not just *what* a structure is, but *why* it can be made.
 
+![An open provenance chain — structure, model, force field, comparison, and decision — rendered as linked specimen holders on a bench](images/why-lupi-inline-03--retry-1.jpg)
+
 ---
 
 ## The launch film

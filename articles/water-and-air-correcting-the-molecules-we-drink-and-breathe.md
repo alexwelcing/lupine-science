@@ -72,6 +72,8 @@ Transportation is the dominant source of NOx in urban areas, and the problem is 
 
 The chemistry depends on adsorption and redox energetics at exchanged Cu²⁺/Cu⁺ cations inside the zeolite pores. These sites are under-coordinated relative to bulk oxide reference states, and the N–O bond activation barriers that control low-temperature activity fall in the coordination regime where uMLIPs soften the potential surface. Corrected adsorption and redox energies filter out false-positive formulations and identify promoters — Ce, Zr, rare earths — that stabilise active sites against hydrothermal ageing and sulfur poisoning.
 
+![Roadway tunnel filtration and low-temperature emissions control as practical ducts, filters, and catalyst beds](images/water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-03--retry-1.jpg)
+
 ### Particulate filters
 
 Diesel and gasoline direct-injection engines emit fine soot particles that are captured by ceramic filters, typically silicon carbide or cordierite. The filters work, but regeneration — periodic burning of the accumulated soot — imposes a fuel penalty of 3–7% and must stay below about 500 °C to avoid substrate damage[^10]. A catalysed filter that oxidised soot at lower temperature, with lower backpressure and sub-10 nm particle penetration, would reduce both fuel consumption and urban PM₂.₅.

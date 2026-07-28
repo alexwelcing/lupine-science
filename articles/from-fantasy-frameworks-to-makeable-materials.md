@@ -226,6 +226,8 @@ get in touch.
 
 The next frontier in materials discovery is not generating more structures. It is **proving which ones are worth making**.
 
+![A prospectus-scale air-capture facility under development, foregrounded by a modest set of formally screened framework samples](images/from-fantasy-frameworks-to-makeable-materials-spread--retry-1.jpg)
+
 ---
 
 ## References and notes

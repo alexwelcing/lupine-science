@@ -50,9 +50,12 @@ function assetsOf(html, pagePath) {
       for (const part of m[1].split(',')) {
         const url = part.trim().split(/\s+/)[0];
         if (!url || url.startsWith('http') || url.startsWith('#') || url.startsWith('mailto:') || url.startsWith('data:')) continue;
-        let resolved = url;
-        if (!url.startsWith('/')) {
-          resolved = path.posix.join(pagePath, url);
+        // Strip cache-bust query/hash before resolving — otherwise every
+        // busted asset (?v=N) misses existsSync and escapes the budget.
+        const clean = url.split(/[?#]/)[0];
+        let resolved = clean;
+        if (!clean.startsWith('/')) {
+          resolved = path.posix.join(pagePath, clean);
         }
         const abs = path.join(PUBLIC, resolved.replace(/^\//, ''));
         if (fs.existsSync(abs) && fs.statSync(abs).isFile()) found.add(abs);
