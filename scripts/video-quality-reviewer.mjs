@@ -14,6 +14,13 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { JSDOM } from 'jsdom';
 import sharp from 'sharp';
+import {
+  tokenize,
+  loadDictionary,
+  buildDomainCorpus,
+  trainBigramModel,
+  findSuspectWords,
+} from './lib/text-quality.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const VIDEOS_DIR = path.join(ROOT, 'public', 'videos');
@@ -123,125 +130,6 @@ function parseVtt(text) {
   return { cues, errors };
 }
 
-function tokenize(text) {
-  return text
-    .replace(/[^a-zA-Z0-9\s\-]/g, ' ')
-    .split(/\s+|-/)
-    .map((t) => t.trim().toLowerCase())
-    .filter((t) => t.length >= 3);
-}
-
-async function loadDictionary() {
-  try {
-    const raw = await readFile('/usr/share/dict/words', 'utf8');
-    return new Set(raw.split(/\r?\n/).map((w) => w.trim().toLowerCase()).filter(Boolean));
-  } catch {
-    return new Set();
-  }
-}
-
-async function buildDomainCorpus() {
-  const corpus = new Set();
-  const addText = (text) => {
-    for (const t of tokenize(text)) corpus.add(t);
-  };
-
-  try {
-    const sources = (await readdir(ARTICLE_SOURCES_DIR)).filter((f) => f.endsWith('.md'));
-    for (const f of sources) {
-      addText(await readFile(path.join(ARTICLE_SOURCES_DIR, f), 'utf8'));
-    }
-  } catch {
-    // ignore missing source dir
-  }
-
-  try {
-    const vtts = (await readdir(VIDEOS_DIR)).filter((f) => f.endsWith('.vtt'));
-    for (const f of vtts) {
-      addText(await readFile(path.join(VIDEOS_DIR, f), 'utf8'));
-    }
-  } catch {
-    // ignore
-  }
-
-  // Common scientific / Lupine terms that may not appear in articles
-  const extra = [
-    'combinatorial', 'ranking', 'linkers', 'candidates', 'asymmetry', 'metastability',
-    'inversion', 'defect', 'bulk', 'hydrated', 'amorphous', 'networks', 'priorities',
-    'buried', 'breakthroughs', 'predicted', 'structure', 'working', 'material',
-    'error-field', 'observables', 'runtime', 'build-locked', 'machine-learning',
-    'deepmind', 'clean-air', 'low-carbon', 'coordination-specific', 'materials-limited',
-    'single-atom', 'sorbents', 'sorbent', 'metal-organic', 'kinetically', 'ai-generated',
-    'mofs', 'makeability', 'interatomic', 'near-quantum', 'defect-family', 'gigatonnes',
-    'anthropogenic', 'calcination', 'feedstock', 'clean-energy', 'extractants',
-    'nanograms', 'gigatons', 'cobalt-free', 'energy-hungry', 'haber-bosch', 'lead-free',
-    'near-term', 'low-warming', 'atomistic', 'carbon-hydrogen', 'thirty-six',
-    'synthesizability', 'milli-electronvolts', 'fifty-fold', 'density-functional',
-    'enthalpies', 'coupling-aware', 'two-thirds', 'machine-learned', 'machine-checked',
-    'recomputes', 'shortlists', 'web-native', 'browser-native', 'webgl', 'webgpu',
-    'handoffs', 'handoff', 'lithium-manganese-rich', 'atomic-layer', 'nitrous',
-    'hydrofluorocarbon', 'hexafluoride', 'non-co', 'thirty-five', 'under-coordinated',
-    'first-shell', 'blind', 'prediction', 'surface', 'coordination', 'vacancy',
-    'constraint', 'correction', 'force', 'measured', 'spline', 'anchor', 'local',
-    'python', 'compiled', 'overlay', 'refrigerant', 'refrigerants', 'kigali',
-    'amendment', 'hydrofluorocarbons', 'thermophysical', 'inspectable', 'trajectories',
-    'payloads', 'telemetry', 'glyphs', 'impostors', 'colormaps', 'lammps', 'brick',
-    'lod', 'bond', 'dissociation', 'energy', 'organic', 'common', 'source', 'smart',
-    'kirk-othmer', 'encyclopedia', 'chemical', 'technology', 'wiley', 'npj', 'comput',
-    'mater', 'deng', 'ipcc', 'wgi', 'table', 'sections', 'maginn', 'simulation',
-    'cement', 'concrete', 'built', 'world', 'factory', 'kiln', 'smoke', 'emissions',
-    'trust', 'layer', 'investing', 'verification', 'evidence', 'claim', 'network',
-    'gtco₂', 'gtco2', 'gtco', 'non-co₂', 'non-co2', 'nonco2', 'non-co', 'lupi', 'lupi.live', 'lupilive',
-  ];
-  for (const t of extra) corpus.add(t);
-  return corpus;
-}
-
-function hasVowel(token) {
-  return /[aeiouy]/.test(token);
-}
-
-function isScientificToken(token) {
-  if (/^\d+(\.\d+)?$/.test(token)) return true;
-  if (/^(mg|na|cl|ca|fe|al|si|ti|cu|li|k|s|p|n|o|c|h|f)[0-9]*$/.test(token)) return true;
-  return false;
-}
-
-function trainBigramModel(dictionary) {
-  const counts = new Map();
-  const totals = new Map();
-  for (const word of dictionary) {
-    if (word.length < 3) continue;
-    const chars = ['^', ...word.split(''), '$'];
-    for (let i = 0; i < chars.length - 1; i++) {
-      const a = chars[i];
-      const b = chars[i + 1];
-      totals.set(a, (totals.get(a) || 0) + 1);
-      const key = `${a}:${b}`;
-      counts.set(key, (counts.get(key) || 0) + 1);
-    }
-  }
-  return { counts, totals };
-}
-
-function bigramScore(token, model) {
-  if (token.length < 3) return 0;
-  const chars = ['^', ...token.split(''), '$'];
-  let logSum = 0;
-  let n = 0;
-  for (let i = 0; i < chars.length - 1; i++) {
-    const a = chars[i];
-    const b = chars[i + 1];
-    const total = model.totals.get(a) || 0;
-    const count = model.counts.get(`${a}:${b}`) || 0;
-    if (total === 0) return -Infinity;
-    const p = (count + 0.5) / (total + 26);
-    logSum += Math.log(p);
-    n++;
-  }
-  return n ? logSum / n : 0;
-}
-
 function parseArgs() {
   const args = process.argv.slice(2);
   const flags = {
@@ -330,25 +218,11 @@ async function sampleFrames(videoPath, cues, slug, worker, dictionary, corpus, b
 }
 
 function analyzeText(words, dictionary, corpus, bigram) {
-  const unknown = [];
+  // Gibberish detection is delegated to the shared classifier, which keeps
+  // hyphens and honors known compounds ("NON-COMPETITION" -> non+competition).
+  const unknown = findSuspectWords(words, dictionary, corpus, bigram);
   const selfCitations = [];
   const fullText = words.map((w) => w.text).join(' ');
-
-  for (const { text, confidence } of words) {
-    const clean = text.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
-    if (clean.length < 4) continue;
-    if (isScientificToken(clean)) continue;
-    if (dictionary.has(clean) || corpus.has(clean)) continue;
-    // Allow hyphenated parts that are in dictionary
-    const parts = clean.split('-');
-    if (parts.some((p) => p.length >= 3 && (dictionary.has(p) || corpus.has(p)))) continue;
-    const score = bigramScore(clean, bigram);
-    const isNonsense = score < -4.5 || !hasVowel(clean) || /(.{2,})\1/.test(clean);
-    const lowConfidence = confidence !== undefined && confidence < 60;
-    if (isNonsense || lowConfidence) {
-      unknown.push({ word: text, clean, score: score.toFixed(2), confidence });
-    }
-  }
 
   for (const pattern of SELF_CITATION_PATTERNS) {
     const m = fullText.match(pattern);
