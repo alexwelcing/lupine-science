@@ -197,6 +197,17 @@ function publishedVideoUrl(slug) {
   return fs.existsSync(mp4) ? `${SITE}/videos/${slug}.mp4` : undefined;
 }
 
+// Player label per video kind. Most article videos are narrated article
+// summaries; the 2026-07-27 campaign placed five 28-second brand films
+// (descriptive captions, no narration) — label them accurately.
+const VIDEO_KIND = new Map([
+  ['an-order-of-effort', 'Brand film'],
+  ['the-materials-we-test-against', 'Brand film'],
+  ['the-savings-stack', 'Brand film'],
+  ['the-trust-layer', 'Brand film'],
+  ['z1-union-debrief', 'Brand film'],
+]);
+
 function inlineVideoPlayer(slug, title) {
   const mp4Path = path.join(PUBLIC_ROOT, 'videos', `${slug}.mp4`);
   if (!fs.existsSync(mp4Path)) return '';
@@ -208,8 +219,9 @@ function inlineVideoPlayer(slug, title) {
   const captionsTrack = hasCaptions
     ? `    <track kind="captions" src="/videos/${slug}.vtt" srclang="en" label="English" default>\n`
     : '';
+  const kind = VIDEO_KIND.get(slug) ?? 'Narrated summary';
   return `<figure class="article-video-player" aria-labelledby="video-label-${slug}">
-  <figcaption id="video-label-${slug}" class="video-player-label">Narrated summary: ${esc(title)}</figcaption>
+  <figcaption id="video-label-${slug}" class="video-player-label">${kind}: ${esc(title)}</figcaption>
   <div class="video-player-frame">
     <video controls preload="none" width="1920" height="1080"${posterAttr} aria-describedby="video-label-${slug}">
       <source src="/videos/${slug}.mp4" type="video/mp4">
