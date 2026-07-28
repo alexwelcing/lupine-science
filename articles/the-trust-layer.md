@@ -20,6 +20,8 @@ In the last few years, two-thirds of the loop went to software speed.
 
 Generative models learned to propose matter. Not vaguely. They write down specific arrangements of specific atoms, in crystallographic detail, faster than any lab can evaluate them. Imagination stopped being the bottleneck.
 
+![A circular materials bench with four connected stations: powder dosing, small furnace, measurement cradle, and an empty return tray — One specimen circulates through the make-measure-revise loop and returns for adjustment](images/the-trust-layer-inline-01.jpg)
+
 Machine-learned simulators learned to stand in for physics. Screening that once queued for supercomputer time now runs at software speed, close enough to the underlying quantum mechanics to be useful. The first, cheap kind of testing stopped being the bottleneck.
 
 Belief did not get faster.
@@ -52,6 +54,8 @@ None of this is a breakthrough announcement. The claims are modest because the s
 ## Why in the open
 
 This could have been built as a black box: a proprietary trust score, a private benchmark, an API that says "believe this one." It would have been easier to sell and impossible to believe. A trust layer you cannot check is just another confident model.
+
+![A long rack of sealed evidence cartridges connected by identical mechanical couplers to two independent instruments at opposite ends — The common coupler lets independent instruments inspect the same immutable cartridge chain](images/the-trust-layer-inline-03.jpg)
 
 So the evidence ledger, the proofs, and the benchmark data are public, and the site computes them in front of you. Open results are worth more, because other people can build on them without asking permission.
 

@@ -34,6 +34,8 @@ Cobalt–nickel separation adds a further wrinkle. Both elements occur in simila
 
 PFAS are, in a sense, the opposite of a supply-chain problem: they are a material already present in excess. Their useful properties — water, oil, and stain repellence; thermal stability; surfactant behavior — come from the same carbon–fluorine bond that makes them nearly impossible to break down in the environment. The C–F bond dissociation energy is approximately 485 kJ mol⁻¹, one of the strongest in organic chemistry[^7]. Once released, PFAS migrate through soils, aquifers, and food webs. They have been detected in the blood of nearly all people tested in representative U.S. samples, and epidemiological studies associate several PFAS with immune, thyroid, liver, kidney, and developmental effects[^8].
 
+![A contained mine-tailings water skid with one ion-selective membrane cassette between a feed tank and a recovered-mineral vessel — The membrane cassette separates dissolved critical ions into the recovery vessel](images/critical-minerals-pfas-and-the-remediation-imperative-inline-01.jpg)
+
 ![PFAS in the Environment: Eighty Thousand Sites and Counting](images/critical-minerals-pfas-and-the-remediation-imperative-02-pfas-contamination-map.jpg)
 *More than eighty thousand PFAS contamination sites have been identified in the United States, with remediation costs reaching one to five million dollars per site per year. Sources: Environmental Working Group / U.S. EPA; industry analyst estimates.*
 
@@ -65,6 +67,8 @@ The error is not random noise. It has a smooth, measurable structure that correl
 ## The Lupine correction layer
 
 The environment error field measures the systematic departure between uMLIP predictions and higher-fidelity reference data as a function of local atomic environment. For a reference bulk environment — fcc atoms with coordination number twelve — the error is defined as zero. Three anchor observables calibrate the field, and a cubic spline with the bulk constraint predicts the error at environments the field was never directly fitted to. The result is a correction that can be applied at runtime to uMLIP forces and energies[^12].
+
+![A PFAS treatment column in cutaway, packed with granular sorbent between an inlet pipe and a sealed effluent sampling bottle — The packed sorbent captures persistent contaminants before the sampling bottle](images/critical-minerals-pfas-and-the-remediation-imperative-inline-02.jpg)
 
 ![The Lupine Correction Layer](images/critical-minerals-pfas-and-the-remediation-imperative-05-correction-layer.jpg)
 *The environment error field corrects uMLIP predictions at runtime, achieving a Pearson correlation of 0.906 in blind tests while retaining a roughly five-order-of-magnitude speed advantage over DFT. Source: Lupine Science formalization library and repository (https://library.lupine.science, https://github.com/alexwelcing/lupine-rhizo).*
@@ -99,6 +103,8 @@ The third layer is synthesis-aware verification. The correction field has a doma
 ## Why the numbers justify the effort
 
 The quantified impact is deliberately conservative. Critical-mineral demand is projected to grow four- to six-fold by 2040, and battery recycling alone is a thirty-five to fifty billion dollar market by 2030[^1][^4]. Cobalt supply concentration in a single jurisdiction creates price and ethical risk that recycling can mitigate only if separation economics improve. Direct lithium extraction promises to raise lithium recovery from thirty to fifty percent to above eighty percent while reducing water use and land footprint[^6].
+
+![Two unmarked sample cartridges, one mineral-bearing water and one contaminated water, entering the same modular pressure-flow test fixture from opposite sides — The shared fixture ranks cartridge performance under an identical controlled flow test](images/critical-minerals-pfas-and-the-remediation-imperative-inline-03.jpg)
 
 ![The Economics of Trustworthy Prediction](images/critical-minerals-pfas-and-the-remediation-imperative-09-market-opportunity.jpg)
 *A prediction-trust platform that addresses both critical-mineral recovery and PFAS remediation sits at the intersection of two multi-billion-dollar markets driven by four- to six-fold demand growth. Sources: IEA (2022); industry analyst estimates.*

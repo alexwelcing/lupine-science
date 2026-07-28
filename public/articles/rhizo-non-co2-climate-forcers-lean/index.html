@@ -111,6 +111,7 @@
 <p>The module does not replace the IPCC tables; it commits to them. The theorems reference AR6 values as assumptions, so if a future assessment revises a number, the proof breaks in a visible way and can be re-certified.</p>
 <h2>What the new module proves</h2>
 <p><code>ClimateForcers.lean</code> defines the forcer inventory and proves basic cancellation and ordering properties. <code>Validation.ClimateForcers.lean</code> then applies the definitions to two realistic scenarios:</p>
+<p><img src="images/rhizo-non-co2-climate-forcers-lean-inline-02.jpg?v=3" alt="A methane catalyst coupon mounted inside a small flow reactor, with an inlet manifold and one downstream sampling vessel — The reactor tests conversion across the catalyst coupon before the downstream sample is collected"></p>
 <ol>
 <li><strong>Heat-pump leak repair.</strong> A residential heat pump charged with R-410A loses refrigerant over its lifetime. The theorem bounds the CO₂-equivalent warming from the leaked mass and proves that the repair threshold depends on the GWP horizon chosen for the policy.</li>
 <li><strong>Low-GWP substitution.</strong> Replacing R-134a with a next-generation fluid that has GWP &lt; 1 avoids a quantified amount of warming per kilogram deployed. The theorem expresses the savings in terms of the forcer definitions and shows the result is monotone in the replaced charge size.</li>
@@ -119,6 +120,7 @@
 <p><img src="images/rhizo-non-co2-climate-forcers-lean-inline-01--retry-1.jpg?v=3" alt="A formal boundary as interlocking measured blocks around a sealed cooling circuit, with unsupported paths stopping cleanly at the barriers"></p>
 <h2>Implications for materials discovery</h2>
 <p>The same forcer accounting underpins previously published methane-to-methanol, refrigerant-substitution, and cement chemistry articles. When a candidate material is screened, its predicted impact must eventually be expressed in the same climate units as the policy target. Formalized forcer accounting closes the loop: a verified correction of a catalyst barrier or a refrigerant property can be propagated into a machine-checked climate claim.</p>
+<p><img src="images/rhizo-non-co2-climate-forcers-lean-inline-03.jpg?v=3" alt="A physical gas-control manifold with three pipes ending at closed valves and one pipe continuing through a measurement vessel — Only the measured branch remains open and carries the restrained indigo flow"></p>
 <p>The <code>lupine-rhizo</code> repository is open at <a href="https://github.com/alexwelcing/lupine-rhizo">github.com/alexwelcing/lupine-rhizo</a>. The compiled library is browsable at <a href="https://library.lupine.science">library.lupine.science</a>.</p>
 <p><img src="images/rhizo-non-co2-climate-forcers-lean-spread--retry-1.jpg?v=3" alt="A regional network of cooling, methane management, and air-treatment equipment grounded by a small proof-kernel device"></p>
 

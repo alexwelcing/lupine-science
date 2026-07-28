@@ -30,6 +30,8 @@ Foundation machine-learned interatomic potentials (uMLIPs) match near-DFT accura
 
 ![Figure 1: Bulk observables are accurate, but defect-family observables err 15–60× worse per model.](fig1.png)
 
+![Two parallel rows of four unmarked engineering coupons on stepped mechanical pedestals, both rows preserve the same order while the pedestal heights differ — The pedestal ordering shows rank agreement despite mismatched measured magnitude](images/a-smooth-environment-resolved-error-field-inline-01.jpg)
+
 Bulk observables (lattice constants, formation enthalpies) are accurate: median relative errors < 0.5 % and ≈ 3 % respectively. Defect-family observables — surface energies, vacancy energies, stacking-fault energies — err 15–60× worse. This defect/bulk asymmetry is the signature the field explains.
 
 ## Rankings survive where magnitudes fail
@@ -39,6 +41,8 @@ Across materials, predicted rankings track reference rankings closely for surfac
 ## The field and its blind test
 
 ![Figure 4: The environment error field predicts the never-fitted γ₁₁₀ observable with r = 0.906.](fig4.png)
+
+![A sealed prediction cartridge locked in a cradle outside an independent compression-test chamber, with the specimen entering through a separate hatch — The sealed prediction remains untouched until the independent measurement is complete](images/a-smooth-environment-resolved-error-field-inline-02.jpg)
 
 The core hypothesis is simple: the model's energy error is a smooth function of local coordination, accumulated per atom.
 
@@ -59,6 +63,8 @@ Because the field is a function of environments, its inverse is an additive ener
 ## Provable boundaries
 
 Correction has jurisdiction only where order survives. Where rankings invert — for example, MACE-MP-small ordering SFE(Ni) ≤ SFE(Al) while references order the reverse — a machine-checked proof shows that no monotone correction can recover both. The proof kernel certifies data-analysis arithmetic and stated inequalities over SHA-256-provenance data; 190+ build-locked Lean 4 theorems, zero `sorry`.
+
+![A compact correction plate inserted between an interatomic-model cartridge and a finite-element fatigue-test fixture for one turbine-blade coupon — The plate applies a bounded local correction before the coupon simulation reaches the fatigue fixture](images/a-smooth-environment-resolved-error-field-inline-03.jpg)
 
 ## Conclusion
 

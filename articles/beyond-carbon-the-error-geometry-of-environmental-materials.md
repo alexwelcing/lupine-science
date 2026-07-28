@@ -42,6 +42,8 @@ The climate series identified four filters between a predicted structure and a w
 
 Water scarcity affects roughly two billion people, and the UN projects a 40% global freshwater deficit by 2030 under business-as-usual[^3]. Seawater desalination already produces around 97 million cubic metres per day, but reverse-osmosis membranes consume 3–4 kWh m⁻³ and are limited by the selectivity–permeability trade-off[^4]. The active layer of a polyamide membrane is a nanoporous network whose pores are lined with under-coordinated functional groups. uMLIPs trained on bulk polymers cannot accurately predict the binding free energy of ions and water in those pores, so screens misrank pore size and charge density.
 
+![A recirculating corrosion-test loop with four metal coupons mounted along one pipe and a single scanning probe moving across their exposed surfaces — The scanning probe measures local surface error against the same flowing environment](images/beyond-carbon-the-error-geometry-of-environmental-materials-inline-02.jpg)
+
 ![Runtime Correction with Proof Boundaries](images/beyond-carbon-the-error-geometry-of-environmental-materials-05-correction-verification-layer.jpg)
 *A coordination-based error field, three anchor observables, and analytic force corrections let molecular dynamics follow the corrected surface, while proof boundaries stop unsupported claims.*
 
@@ -83,6 +85,8 @@ PFAS remediation adds the strongest bond in organic chemistry. The C–F bond di
 ## Cement: the weight of the built world
 
 Cement production is responsible for roughly 8% of global CO₂ emissions, about 2.8 GtCO₂ yr⁻¹, and approximately 60% of those emissions are process emissions from calcining limestone that cannot be eliminated by renewable electricity alone[^13]. Alternative binders, alternative clinkers, and CO₂-cured concrete are promising, but many of the best performers are amorphous or metastable. Blast-furnace slag, fly ash, calcined clay, and geopolymers form disordered hydrated networks; standard DFT struggles with disorder, and raw uMLIPs mispredict the energetics of under-coordinated Si–O and Al–O bonds.
+
+![A central instrument bench with one calibrated sample holder connected by a restrained indigo line to a compact water-filtration pilot skid across the room — The calibrated holder transfers a measured material result into one filtration pilot decision](images/beyond-carbon-the-error-geometry-of-environmental-materials-inline-03.jpg)
 
 ![Speed That Scales Where DFT Cannot](images/beyond-carbon-the-error-geometry-of-environmental-materials-09-economics-moat.jpg)
 *At roughly 10⁵× the speed of DFT and only modest runtime overhead, corrected potentials can search spaces that brute-force quantum chemistry cannot afford.*

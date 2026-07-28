@@ -34,6 +34,8 @@ Alternative binders and clinkers aim to replace or reduce the CaCO₃-derived li
 
 ### Alternative binders: amorphous networks as the functional phase
 
+![A rotary cement kiln and calciner in side cutaway, with a narrow process-gas duct leading from the calciner to one capture vessel — The capture vessel receives the calcination gas stream through the dedicated duct](images/cement-concrete-and-the-weight-of-the-built-world-inline-01.jpg)
+
 The most promising alternative binders — slag, fly ash, calcined clay, and geopolymers — are not crystalline minerals that can be solved by X-ray diffraction and modeled with a single unit cell. They are glasses, gels, or nanocrystalline assemblages in which reactivity and durability are controlled by the distribution of Si–O, Al–O, and Ca–O bond environments. Blast-furnace slag is a calcium-alumino-silicate glass. Calcined kaolinite (metakaolin) is a layered aluminosilicate whose reactivity depends on the degree of dehydroxylation and disorder. Geopolymer gels are three-dimensional aluminosilicate networks whose stoichiometry and nanoporosity evolve during curing[^5][^12].
 
 These materials are difficult to model with density functional theory (DFT) because DFT is most reliable for well-defined crystalline unit cells with periodic boundary conditions. Amorphous or nanocrystalline models require large supercells and statistical sampling, making DFT prohibitively expensive for screening. uMLIPs are fast enough, but they are trained on bulk equilibrium structures and misrepresent the under-coordinated Si–O and Al–O bonds that dominate dissolution, gelation, and precipitation[^2]. A predicted dissolution rate that is off by a factor of two or three is enough to misrank a binder formulation.
@@ -78,6 +80,8 @@ Corrected carbonate formation and diffusion barriers change the ranking of candi
 
 The common failure across all three fronts is the same defect/bulk asymmetry that corrupts predictions for battery cathodes, direct-air-capture sorbents, and methane catalysts. uMLIPs are trained on equilibrium bulk configurations in which atoms have high, regular coordination numbers. The functional environments in cement — dissolved silicate species, gel pores, hydrate interfaces, and carbonation fronts — have coordination numbers and chemistries that fall outside this training distribution. A recent systematic survey found that uMLIPs soften the potential energy surface by 15–60% in under-coordinated regions, with the largest errors at coordination numbers of four to eight[^2].
 
+![A concrete batching bay where a calcined-clay hopper feeds one mixer, which pours a single beam mold positioned beneath a load frame — The calcined-clay blend moves from hopper through mixer into a structural test beam](images/cement-concrete-and-the-weight-of-the-built-world-inline-02.jpg)
+
 This softening is not random noise. It has a smooth geometric dependence on local coordination and chemical deviation from the bulk. The environment error field exploits that regularity. The field is measured on anchor observables, constrained to zero in a reference bulk environment, and applied as an additive correction to uMLIP energies and forces[^3]. Because the correction is analytic, molecular dynamics and structural relaxations follow the corrected potential energy surface at nearly uMLIP speed. The current Python implementation adds 15.6% overhead and is expected to drop below 1% in a compiled LAMMPS overlay, while the underlying uMLIP remains ~10⁵× faster than DFT[^3].
 
 Blind prediction across 36 (model, material) combinations achieves Pearson r = 0.906 (p = 10⁻⁴, 95% CI [0.82, 0.96]) with zero adjustable parameters[^3]. The result is not a hand-fitted potential but a measured correction that preserves rank order across chemically similar compositions. For cement, that rank-order preservation is critical: a 15% error in dissolution energy can invert the ranking of two binder formulations, sending experiments to the wrong candidate.
@@ -102,12 +106,16 @@ This discipline matters commercially. Investors and offtake partners routinely a
 
 Cement is often treated as a special case — a commodity so cheap, so established, and so geographically fragmented that innovation moves slowly. That view misses the underlying computational structure. The materials that could decarbonize cement are not exotic. They are amorphous oxides, metastable hydrates, carbonated silicates, and multi-component clinkers — the same classes of materials that appear in batteries, catalysts, sorbents, and refrigerants. The failure modes are identical: under-coordinated environments dominate function, composition spaces are too large for DFT, metastable phases outperform equilibrium ones, and systematic errors invert rankings.
 
+![A full-scale concrete beam in a four-point load frame, with one enlarged cutaway window showing the binder-to-aggregate interface beneath the loading nose — The load frame tests whether the material interface transfers force without separating](images/cement-concrete-and-the-weight-of-the-built-world-inline-03.jpg)
+
 The seven target areas of the environmental-expansion series — water, air, methane, refrigerants, critical minerals, PFAS, and cement — share one conclusion. The bottleneck is not a shortage of candidate materials; it is a shortage of trustworthy predictions. Trust comes from measuring the shape of the error, correcting it with analytic forces, and proving which predictions can be believed. Cement, with its 2.8 GtCO₂ per year and its amorphous, metastable chemistry, is one of the hardest and largest places to apply that discipline. It is also one of the most consequential.
 
 ![From Candidates to Deployed Binders](images/cement-concrete-and-the-weight-of-the-built-world-10-trust-bottleneck.jpg)
 *Millions of candidate materials have been predicted, yet only about 0.2% have been validated by synthesis — closing that trust gap is what unlocks cement’s 2.8 GtCO₂ problem. Sources: IEA/GCCA 2024; IPCC AR6.*
 
 
+
+![An unoccupied construction-material sorting bay with a conveyor separating reclaimed aggregate into a clean hopper feeding one precast panel mold — Reclaimed aggregate is graded and returned to a new precast panel](images/cement-concrete-and-the-weight-of-the-built-world-spread.jpg)
 ## Footnotes
 
 [^1]: International Energy Agency and Global Cement and Concrete Association, *Cement Technology Roadmap 2024 — Routes to Net Zero*, IEA, 2024.

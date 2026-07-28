@@ -20,6 +20,8 @@ Modern "foundation" machine-learning potentials — in our panel, three sizes of
 
 **The question.** Can off-the-shelf models predict how fast ions move through solid battery electrolytes? That motion is controlled by *migration barriers* — the energy hill an ion must climb between stable sites. We set the gate at a mean error of **40 millielectronvolts (meV)** against published quantum-chemical (DFT-NEB) references, across 30 chemistries the models had no business having seen.
 
+![A solid-electrolyte migration rig with one ink ridge formed by measurement pins and a lower indigo trajectory passing beneath it — The rig exposes systematic underestimation of the ion migration barrier](images/four-gates-three-honest-failures-one-live-experiment-inline-01.jpg)
+
 **The answer.** Not close — and interestingly not close:
 
 ![Z1: all four models miss the barrier gate; every completed path under-predicts the barrier](images/four-gates-three-honest-failures-one-live-experiment-02-z1-barrier-mae-vs-gate.jpg)
@@ -43,6 +45,8 @@ Two honesty notes. First, 1–4 of the 30 paths per model failed to converge und
 ## Z3 — the catalyst-adsorption test: failed, and the failure taught us why
 
 **The question.** Can a small *correction model* (Δ-learning) lift foundation-model adsorption energies to within **0.1 eV** of published DFT references on 20 held-out catalyst systems — the accuracy catalyst screening needs?
+
+![A magnetic specimen rests in a sealed side tray outside a nonmagnetic correction fixture whose empty cradle is clearly incompatible — The workflow abstains by keeping unsupported magnetic material outside the correction fixture](images/four-gates-three-honest-failures-one-live-experiment-inline-03.jpg)
 
 **The answer.** No — and the reason is more useful than a pass would have been. The baseline measurements (4 models × 32 systems, 128/128 completed, zero failures) confirmed the first datapoint's pattern at panel scale: every MACE variant underbinds nearly everything, with errors from −1 to **+25.6 eV** growing with molecule size.
 

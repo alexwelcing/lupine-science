@@ -20,6 +20,8 @@ That is the idea behind **LUPI** (`lupi.live`): a lightweight, web-native molecu
 
 **Most molecular viewers are either too heavy to share or too simple to trust.**
 
+![Two plain metal field plates mounted side by side beneath the same scanning probe, with their surface mismatch visible as one narrow indigo displacement ribbon — The probe measures the local difference between predicted and reference plates](images/why-lupi-inline-01.jpg)
+
 Desktop tools are powerful, but they trap knowledge on a single machine. Screenshot culture replaces real exploration. Lightweight web viewers, meanwhile, often sacrifice accuracy: they render pretty balls-and-sticks but hide the coordinates, the uncertainty, and the context that make a structure meaningful.
 
 LUPI sits in the middle. It is built for the web first, with enough fidelity to inspect real predictions and enough simplicity to drop into a paper, a slide, or a classroom.
@@ -45,6 +47,8 @@ Under the hood, LUPI connects back to the same formalized makeability record tha
 ## The launch film
 
 The thirty-second film is the first public introduction to LUPI: a sequence of molecular scenes, narrated and scored, that moves from a single structure to the idea of a shared, inspectable world of makeable materials.
+
+![A practical solid-state cell casing in cutaway beneath a scanning probe, revealing a ceramic electrolyte pressed against one electrode interface — The probe inspects the buried electrolyte-to-electrode interface inside the cell](images/why-lupi-inline-02.jpg)
 
 The film is generated with AI tools and composited with open-source software. The same principle applies to the viewer itself: **AI generates the picture; rigorous process produces something shareable.**
 

@@ -29,6 +29,8 @@ The module does not replace the IPCC tables; it commits to them. The theorems re
 
 `ClimateForcers.lean` defines the forcer inventory and proves basic cancellation and ordering properties. `Validation.ClimateForcers.lean` then applies the definitions to two realistic scenarios:
 
+![A methane catalyst coupon mounted inside a small flow reactor, with an inlet manifold and one downstream sampling vessel — The reactor tests conversion across the catalyst coupon before the downstream sample is collected](images/rhizo-non-co2-climate-forcers-lean-inline-02.jpg)
+
 1. **Heat-pump leak repair.** A residential heat pump charged with R-410A loses refrigerant over its lifetime. The theorem bounds the CO₂-equivalent warming from the leaked mass and proves that the repair threshold depends on the GWP horizon chosen for the policy.
 2. **Low-GWP substitution.** Replacing R-134a with a next-generation fluid that has GWP < 1 avoids a quantified amount of warming per kilogram deployed. The theorem expresses the savings in terms of the forcer definitions and shows the result is monotone in the replaced charge size.
 
@@ -39,6 +41,8 @@ Both proofs are checked by `lake build` with no `sorry` axioms. The full library
 ## Implications for materials discovery
 
 The same forcer accounting underpins previously published methane-to-methanol, refrigerant-substitution, and cement chemistry articles. When a candidate material is screened, its predicted impact must eventually be expressed in the same climate units as the policy target. Formalized forcer accounting closes the loop: a verified correction of a catalyst barrier or a refrigerant property can be propagated into a machine-checked climate claim.
+
+![A physical gas-control manifold with three pipes ending at closed valves and one pipe continuing through a measurement vessel — Only the measured branch remains open and carries the restrained indigo flow](images/rhizo-non-co2-climate-forcers-lean-inline-03.jpg)
 
 The `lupine-rhizo` repository is open at [github.com/alexwelcing/lupine-rhizo](https://github.com/alexwelcing/lupine-rhizo). The compiled library is browsable at [library.lupine.science](https://library.lupine.science).
 

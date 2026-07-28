@@ -39,6 +39,8 @@ Finally, the OEM handoff. GM's Wallace Battery Cell Innovation Center and LG Ene
 
 If LMR cathodes are the near-term lever, solid-state batteries with lithium-metal anodes are the long-term leap. Earth-abundant halide solid electrolytes — Li-Zr-Cl and Li-Fe-Cl systems — target >10 mS/cm ionic conductivity, stability versus lithium metal, and compatibility with mechanochemical synthesis. Industry analysts project the solid-state battery market to grow by an order of magnitude or more over the next decade.
 
+![A waist-high pilot line on a bare factory floor: a covered powder hopper feeds one compact sintering furnace, then a ceramic pellet exits onto a cell-test cradle — One continuous indigo material route follows the sample from hopper through furnace to the test cradle](images/from-predicted-crystal-to-commercial-cell-inline-03.jpg)
+
 ![A practical cell as layered architecture — cathode, electrolyte separator, and current collector — with the ion-conduction route traced in indigo](images/from-predicted-crystal-to-commercial-cell-inline-01.jpg)
 
 ![How Lupine makes a uMLIP trustworthy at runtime](images/from-predicted-crystal-to-commercial-cell-03-correction-loop.jpg)
@@ -122,6 +124,8 @@ For partners, handoffs carry documentation. A cathode candidate comes with corre
 
 In a discovery ecosystem that must scale from thousands to millions of validated materials per year, the scarce resource is not prediction volume. It is the trust that turns a predicted crystal into a commercial cell.
 
+
+![An empty electric-bus depot beneath a broad solar canopy, with a quiet row of stationary battery cabinets beside the charging bays and a vast pale sky — The battery cabinets buffer power from the canopy before it reaches the charging pedestals](images/from-predicted-crystal-to-commercial-cell-spread.jpg)
 ## Footnotes
 
 [^1]: A. Merchant *et al.*, "Scaling deep learning for materials discovery," *Nature* **624**, 80–85 (2023). https://doi.org/10.1038/s41586-023-06735-9

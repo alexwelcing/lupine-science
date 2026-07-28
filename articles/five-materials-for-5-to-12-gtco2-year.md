@@ -40,6 +40,8 @@ The targets are not independent scientific bets. They are five instances of the 
 
 ### Cobalt-free lithium-manganese-rich cathodes
 
+![A substation battery enclosure in cutaway beside a transformer, showing one layered cell stack with cathode, ceramic separator, and current collector as plain unmarked slabs — The thin ceramic separator carries the indigo ion path while keeping the two electrodes apart](images/five-materials-for-5-to-12-gtco2-year-inline-01.jpg)
+
 The highest-leverage near-term target is a cobalt-free lithium-manganese-rich (LMR) cathode exceeding **300 Wh/kg cell-level energy density**, cycling stability above **1,000 cycles**, and cost below **$80/kWh**. The EaCAM consortium at Argonne National Laboratory has demonstrated cobalt-free LMR systems at approximately **270 Wh/kg** and ~$80/kWh[^3].
 
 The remaining barrier is voltage fade. LMR cathodes derive excess capacity from oxygen redox, but oxygen redox triggers oxygen loss, transition-metal migration from octahedral to tetrahedral sites, and surface reconstruction into spinel or rock-salt phases that block lithium diffusion[^4]. Removing cobalt—essential for supply-chain security, since the Democratic Republic of Congo produces roughly 70% of global cobalt[^5]—exacerbates the instability.
@@ -75,6 +77,8 @@ The correction addresses metal-linker bond dissociation energies, the key determ
 
 Ammonia synthesis via the Haber-Bosch process consumes **1–2% of global energy** and emits more than **450 MtCO₂/year**, primarily through steam methane reforming[^11]. Electrochemical synthesis at ambient conditions, powered by renewable electricity, could eliminate those emissions while enabling distributed fertilizer production.
 
+![A modular direct-air-capture contactor standing alone on a concrete pad, its front panel cut away to reveal a pleated porous sorbent sheet — Sparse indigo airflow passes through the pleated sorbent and exits the rear plenum](images/five-materials-for-5-to-12-gtco2-year-inline-02.jpg)
+
 Lithium-mediated electrochemical nitrogen reduction has achieved **>90% Faradaic efficiency** at ambient conditions, but energy efficiency is stuck near **28%** because lithium plating requires very negative potentials, dissipating more than 70% of input energy as heat[^12]. The U.S. Department of Energy target is **>60% energy efficiency** at current densities above **300 mA/cm²**[^13].
 
 The challenge is N≡N triple-bond activation—dissociation energy **945 kJ/mol**—under conditions where the hydrogen evolution reaction is thermodynamically favored. DFT screening of N₂ adsorption on stepped surfaces spans coordination environments from c≈4 to c≈9, the full range where the error field operates. uMLIPs underestimate these binding energies due to PES softening, generating false-positive catalyst identifications. Scaling relations between N₂ and NHₓ binding energies compound the error: a mistake in one binding energy propagates to all others, potentially inverting turnover-frequency rankings.
@@ -94,6 +98,8 @@ Metastability adds a second layer of difficulty. Many high-efficiency perovskite
 ## Synthesis: one failure mode, five targets
 
 The five targets span batteries, carbon removal, industrial chemicals, and solar, but they share a common structure. In every case, functional performance is determined by defect-mediated properties in multi-component spaces. In every case, raw uMLIPs systematically soften the potential energy surface at the under-coordinated configurations that govern those properties. And in every case, brute-force DFT is too slow to screen the required compositional space.
+
+![A compact ammonia reactor skid with an insulated reaction tube, heat exchanger, and one catalyst cartridge visible through a clean cutaway — The catalyst cartridge enables ammonia conversion inside the single reaction tube](images/five-materials-for-5-to-12-gtco2-year-inline-03.jpg)
 
 The response is not to train a bigger model. It is to measure the systematic error as a physical field over local atomic environments, correct it at runtime with analytic forces, and verify the resulting claims through machine-checked proof. The environment error field achieves **Pearson r=0.906** in blind prediction of never-fitted surface energies across 36 (model, material) combinations with zero adjustable parameters.
 
