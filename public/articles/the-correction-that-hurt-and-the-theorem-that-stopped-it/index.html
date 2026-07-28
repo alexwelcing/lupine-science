@@ -11,13 +11,13 @@
   <meta property="og:description" content="Our first correction arm made alloy predictions worse; we turned the failure into a machine-checked law, explored a direction-gated rule that cut lattice errors 3–5×, and then let an adversarial review find where our own claims outran their licenses — those corrections are in this draft.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://lupine.science/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/">
-  <meta property="og:image" content="https://lupine.science/og-lupine-science.png?v=2">
+  <meta property="og:image" content="https://lupine.science/og-lupine-science.png?v=3">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="The Correction That Hurt, and the Theorem That Stopped It — Lupine Science">
   <meta name="twitter:description" content="Our first correction arm made alloy predictions worse; we turned the failure into a machine-checked law, explored a direction-gated rule that cut lattice errors 3–5×, and then let an adversarial review find where our own claims outran their licenses — those corrections are in this draft.">
-  <meta name="twitter:image" content="https://lupine.science/og-lupine-science.png?v=2">
+  <meta name="twitter:image" content="https://lupine.science/og-lupine-science.png?v=3">
   <meta name="theme-color" content="#faf9f6">
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
   <link rel="icon" type="image/png" href="/lupine-science-icon.png">
@@ -26,7 +26,7 @@
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/articles/styles.css">
   <link rel="stylesheet" href="/components/share/share.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Correction That Hurt, and the Theorem That Stopped It","description":"Our first correction arm made alloy predictions worse; we turned the failure into a machine-checked law, explored a direction-gated rule that cut lattice errors 3–5×, and then let an adversarial review find where our own claims outran their licenses — those corrections are in this draft.","datePublished":"2026-07-13","url":"https://lupine.science/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/","mainEntityOfPage":"https://lupine.science/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/","image":"https://lupine.science/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/hero.jpg?v=2","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png?v=2"}}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Correction That Hurt, and the Theorem That Stopped It","description":"Our first correction arm made alloy predictions worse; we turned the failure into a machine-checked law, explored a direction-gated rule that cut lattice errors 3–5×, and then let an adversarial review find where our own claims outran their licenses — those corrections are in this draft.","datePublished":"2026-07-13","url":"https://lupine.science/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/","mainEntityOfPage":"https://lupine.science/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/","image":"https://lupine.science/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/hero.jpg?v=3","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png?v=3"}}}</script>
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
@@ -77,7 +77,7 @@
 <ul class="article-byline" aria-label="Publication details"><li><time datetime="2026-07-13">July 13, 2026</time></li> <li aria-hidden="true"><span class="byline-sep" aria-hidden="true">·</span></li> <li><span class="article-status">Draft</span></li></ul>
 <figure class="article-hero">
   <picture>
-    <img src="/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/hero.jpg?v=2" alt="" width="1280" height="720" loading="eager" fetchpriority="high" decoding="async">
+    <img src="/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/hero.jpg?v=3" alt="" width="1280" height="720" loading="eager" fetchpriority="high" decoding="async">
   </picture>
 </figure>
 
@@ -103,7 +103,7 @@
 <p>Round 3 froze the direction-gated rule verbatim, added a magnitude cap, and evaluated it on eight candidates it had never seen — four alkali halides with primary-source elastic references, four out-of-sample perovskites. Kill condition, registered in advance: if the frozen rule fails both groups, the correction layer’s scope claim narrows to same-class lattice constants, in all public material.</p>
 <p><strong>It failed both groups, and the kill fired.</strong> One property survived, decisively: lattice constants, corrected <strong>1.60 % → 0.33 %</strong> (ionics) and <strong>1.75 % → 0.74 %</strong> (perovskites) on candidates the rule never saw, with the gate confident enough to fire on every cell. On every other property the gate abstained on most cells — correctly — and the few firings that slipped past the frozen cap made predictions worse, exactly the behavior the stronger cap theorem says the frozen cap permits. So the claim this program now makes is the one that survived: <em>for lattice constants, within a chemical class, a direction-gated correction transfers out of sample; for everything else, the honest verdict is abstention — and we can prove why.</em></p>
 <p><em>Evidence trail: preregistration and both rounds in the rhizo repository (<code>docs/plans/2026-07-13-unbiased-accuracy-campaign.md</code>, <code>data/candidates/round1</code>, <code>round2</code>, <code>round1_lammps</code>, <code>round2-verify</code>, <code>perovskite_vacancy_panel</code>); thresholds and re-verdicts under <code>data/discovery_gates</code> and <code>data/climate_targets/halide_panel</code>; correction-direction laws, threshold-migration laws, and ensemble-hull refusals in <code>lean-spec/LupineEvidence/Shapes/Certificates.lean</code> and <code>Discovery/Certificates_LiS_V2.lean</code>, all kernel-checked by <code>lake build LupineEvidence</code>, zero <code>sorry</code>; ledger claims landed under <code>discovery_gates_*</code> and <code>correction_direction_validation_*</code>, agent <code>local-gpu-discovery-lane</code>.</em></p>
-<p><img src="images/the-correction-that-hurt-and-the-theorem-that-stopped-it-spread--retry-1.jpg?v=2" alt="A safer pilot program: an unsupported candidate remains at the laboratory boundary while verified paths continue toward battery and structural test rigs"></p>
+<p><img src="images/the-correction-that-hurt-and-the-theorem-that-stopped-it-spread--retry-1.jpg?v=3" alt="A safer pilot program: an unsupported candidate remains at the laboratory boundary while verified paths continue toward battery and structural test rigs"></p>
 
 <div class="share-root" data-url="https://lupine.science/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/" data-title="The Correction That Hurt, and the Theorem That Stopped It" role="group" aria-label="Share">
   <ul class="share-list" role="list" aria-label="Share options">

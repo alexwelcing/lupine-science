@@ -24,7 +24,8 @@ const KATEX_OUT = path.join(PUBLIC_ROOT, 'katex');
 
 // Cache-bust revision for article image assets. Bumping this forces browsers
 // and any edge cache that keyed on the bare URL to fetch a fresh copy.
-const ASSET_CACHE_BUST = '?v=2';
+// v=3: BRAND-1 campaign replaced heroes on 11 articles + homepage (PR #29).
+const ASSET_CACHE_BUST = '?v=3';
 
 function bust(url) {
   if (!url || url.includes('?') || url.includes('#')) return url;
