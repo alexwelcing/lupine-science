@@ -20,8 +20,21 @@ function dataUrl(file, mime) {
 }
 
 let html = fs.readFileSync(TEMPLATE, 'utf8');
-const evidenceText = fs.readFileSync(EVIDENCE, 'utf8').trim().replace(/<\//g, '<\\/');
+const evidenceSource = fs.readFileSync(EVIDENCE, 'utf8').trim();
+const evidence = JSON.parse(evidenceSource);
+const evidenceText = evidenceSource.replace(/<\//g, '<\\/');
 const lock = JSON.parse(fs.readFileSync(ASSET_LOCK, 'utf8'));
+
+const certificationFields = ['slide', 'asset_id', 'path', 'sha256', 'width', 'height'];
+const certifiedAssets = evidence.certified_assets.map((asset) => Object.fromEntries(certificationFields.map((field) => [field, asset[field]])));
+const lockedAssets = lock.assets.map((asset) => Object.fromEntries(certificationFields.map((field) => [field, asset[field]])));
+if (JSON.stringify(lockedAssets) !== JSON.stringify(certifiedAssets)) {
+  throw new Error('asset-lock.json differs from the certified_assets in evidence-manifest.json');
+}
+const palette = Object.values(evidence.brand_palette.values);
+if (JSON.stringify(lock.allowed_palette) !== JSON.stringify(palette)) {
+  throw new Error('asset-lock.json palette differs from evidence-manifest.json');
+}
 
 if (!html.includes('__EVIDENCE_MANIFEST__')) {
   throw new Error('index.html is missing the evidence-manifest marker');

@@ -19,6 +19,14 @@ const evidence = JSON.parse(fs.readFileSync(EVIDENCE_FILE, 'utf8'));
 const lock = JSON.parse(fs.readFileSync(LOCK_FILE, 'utf8'));
 const slideBlocks = [...html.matchAll(/<section class="slide(?: is-active)?"[\s\S]*?<\/section>/g)].map((match) => match[0]);
 
+const certificationFields = ['slide', 'asset_id', 'path', 'sha256', 'width', 'height'];
+const certifiedAssets = evidence.certified_assets.map((asset) => Object.fromEntries(certificationFields.map((field) => [field, asset[field]])));
+const lockedAssets = lock.assets.map((asset) => Object.fromEntries(certificationFields.map((field) => [field, asset[field]])));
+if (JSON.stringify(lockedAssets) !== JSON.stringify(certifiedAssets)) fail('asset lock differs from evidence-manifest certified assets');
+else pass('asset lock is an exact projection of evidence-manifest certifications');
+if (JSON.stringify(lock.allowed_palette) !== JSON.stringify(Object.values(evidence.brand_palette.values))) fail('asset-lock palette differs from evidence manifest');
+else pass('asset-lock palette matches the evidence manifest exactly');
+
 if (slideBlocks.length === 13) pass('exactly 13 slides'); else fail(`expected 13 slides, found ${slideBlocks.length}`);
 if (/<link[^>]+rel="stylesheet"|<script[^>]+src=/.test(html)) fail('external CSS or JavaScript dependency found');
 else pass('all CSS and JavaScript are inline');
@@ -100,10 +108,29 @@ try {
     for (const [index, slide] of slides.entries()) {
       const rect = slide.getBoundingClientRect();
       if (Math.abs(rect.width - 1920) > 0.5 || Math.abs(rect.height - 1080) > 0.5) issues.push(`slide ${index + 1}: ${rect.width}x${rect.height}`);
+      if (slide.scrollWidth > slide.clientWidth + 1 || slide.scrollHeight > slide.clientHeight + 1) issues.push(`slide ${index + 1}: content exceeds slide canvas`);
       const image = slide.querySelector('.deck-asset');
       if (!image?.complete || image.naturalWidth < 1) issues.push(`slide ${index + 1}: image unavailable`);
       for (const element of slide.querySelectorAll('[data-fit]')) {
         if (element.scrollWidth > element.clientWidth + 1 || element.scrollHeight > element.clientHeight + 1) issues.push(`slide ${index + 1}: overflow`);
+      }
+      const clone = slide.cloneNode(true);
+      clone.querySelectorAll('.eyebrow,.slide-no,.source').forEach((element) => element.remove());
+      const hasContentNumber = /\d/.test(clone.textContent);
+      const sourceText = slide.querySelector('.source')?.textContent.trim() || '';
+      if (hasContentNumber && !sourceText) issues.push(`slide ${index + 1}: numeric content has no visible source footer`);
+      const walker = document.createTreeWalker(slide, NodeFilter.SHOW_TEXT);
+      while (walker.nextNode()) {
+        const node = walker.currentNode;
+        if (!node.textContent.trim()) continue;
+        const range = document.createRange();
+        range.selectNodeContents(node);
+        for (const box of range.getClientRects()) {
+          if (box.left < rect.left - 1 || box.right > rect.right + 1 || box.top < rect.top - 1 || box.bottom > rect.bottom + 1) {
+            issues.push(`slide ${index + 1}: text exceeds slide canvas`);
+            break;
+          }
+        }
       }
     }
     return { issues, active: document.querySelector('.slide.is-active')?.dataset.slide };
