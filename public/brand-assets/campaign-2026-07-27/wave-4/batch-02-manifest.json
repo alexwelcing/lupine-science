@@ -1,0 +1,328 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "t_85b138fd",
+  "campaign_id": "brand-campaign-2026-07-27",
+  "wave_id": "wave-4-programmatic-pil",
+  "batch_id": "batch-02",
+  "source_manifest": "public/brand-assets/campaign-2026-07-27/shortfall-wave-1-manifest.json",
+  "source_manifest_sha256": "d8c6a9cb14cc5803453a5eaf68409966457f40e1f169cc34d32da040b635e383",
+  "scene_source": "media/projects/article-visuals/wave4_batch_02_scenes.py",
+  "scene_source_sha256": "fb77578e0bb1a8a8e90fc6f3ff44bb45cb64a1f21511fcbe7c1b9acae5e40880",
+  "component_source": "media/projects/article-visuals/wave4_scene_components.py",
+  "component_source_sha256": "c66f2efb1dca5bbe8df5499b224afd2f41032cc630bc88fd9e11da6db8b5a629",
+  "palette": [
+    "#faf9f6",
+    "#16171d",
+    "#3d4db3"
+  ],
+  "asset_count": 8,
+  "mechanical_status": "pass",
+  "composition_status": "pending-independent-review",
+  "errors": [],
+  "assets": [
+    {
+      "asset_id": "SW1-B1-A04-04",
+      "original_asset_id": "B1-A04-04",
+      "archetype": "grain-boundary-diffusion-cell",
+      "specific_physical_scene": "A solid-electrolyte diffusion cell mounted in a small test rig, with one ceramic grain boundary enlarged in cutaway and a restrained indigo path crossing it.",
+      "single_mechanism": "the test rig measures the ion migration barrier across one grain boundary",
+      "source_spec_hash": "sha256:6a8c4e7a08d6594055b9f508da0ba5aecb3451377d89de5dd3e2f83cea1871d0",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a04_04.py",
+      "generator_sha256": "7b201e38aa3d5a8d593e40c25077036bcfbc37f65f09d5c67b233dabc785cf03",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A04-04--grain-boundary-diffusion-cell.png",
+      "output_sha256": "a3dfd2aa90411ccb0168ed333b914af3f1c4177b494b9a7021ff63e50663457d",
+      "bytes": 11387,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1510430,
+        "#16171d": 52879,
+        "#3d4db3": 9555
+      },
+      "paper_ratio": 0.960306,
+      "ink_ratio": 0.03362,
+      "indigo_ratio": 0.006075,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        135,
+        597,
+        1420,
+        995
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "PIL primitives only; no font import, text drawing, labels, glyphs, arrows, or chart marks",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B1-A04-05",
+      "original_asset_id": "B1-A04-05",
+      "archetype": "storage-backed-fleet-depot",
+      "specific_physical_scene": "An empty fleet-charging depot with a row of chargers backed by sealed solid-state storage cabinets; two electrolyte coupons lie in a foreground test tray.",
+      "single_mechanism": "the storage cabinets discharge into the chargers during a brief demand peak",
+      "source_spec_hash": "sha256:82dd7630c1eae624ad03e7261e1a8549b3e0c30847abf7f064871a3e9c67f03c",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a04_05.py",
+      "generator_sha256": "61fcca08620338bf0c302d9b8a8a76f11f8a7f676e3578a6675707343ae51e0a",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A04-05--storage-backed-fleet-depot.png",
+      "output_sha256": "b8e04b416e2ed2dfedea369dde4d8e7ed281e7c69cd565dc52f5e7c15686dec4",
+      "bytes": 7517,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "palette_histogram": {
+        "#faf9f6": 1286061,
+        "#16171d": 31319,
+        "#3d4db3": 9724
+      },
+      "paper_ratio": 0.969073,
+      "ink_ratio": 0.0236,
+      "indigo_ratio": 0.007327,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        48,
+        492,
+        1485,
+        853
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "PIL primitives only; no font import, text drawing, labels, glyphs, arrows, or chart marks",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B2-A01-02",
+      "original_asset_id": "B2-A01-02",
+      "archetype": "substation-cell-cutaway",
+      "specific_physical_scene": "A substation battery enclosure in cutaway beside a transformer, showing one layered cell stack with cathode, ceramic separator, and current collector as plain unmarked slabs.",
+      "single_mechanism": "the thin ceramic separator carries the indigo ion path while keeping the two electrodes apart",
+      "source_spec_hash": "sha256:a0ce285f565aeaf7b0c76a763cf286600f7c3a7dfd1d5b76eedf2d700dfa04fb",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b2_a01_02.py",
+      "generator_sha256": "16a2043c9a51ab4daf71f80fc3064b84993fd887ccee84c256af263edb3953fe",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B2-A01-02--substation-cell-cutaway.png",
+      "output_sha256": "47bcf90fd38f299cddfee9244fbee750be7a630882d648a1ec7e326a6ca9c9c5",
+      "bytes": 10123,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1493376,
+        "#16171d": 75276,
+        "#3d4db3": 4212
+      },
+      "paper_ratio": 0.949463,
+      "ink_ratio": 0.047859,
+      "indigo_ratio": 0.002678,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        102,
+        555,
+        1459,
+        995
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "PIL primitives only; no font import, text drawing, labels, glyphs, arrows, or chart marks",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B2-A01-03",
+      "original_asset_id": "B2-A01-03",
+      "archetype": "direct-air-capture-contactor",
+      "specific_physical_scene": "A modular direct-air-capture contactor standing alone on a concrete pad, its front panel cut away to reveal a pleated porous sorbent sheet.",
+      "single_mechanism": "sparse indigo airflow passes through the pleated sorbent and exits the rear plenum",
+      "source_spec_hash": "sha256:7414cba9784f24d3831fe337b8de506fd3dca9e17a9e3399f44044648ea107dd",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b2_a01_03.py",
+      "generator_sha256": "504a1a545a91379dad1a7132a9fa8cb2de91450c76690c49d5c2a862d7c8c518",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B2-A01-03--direct-air-capture-contactor.png",
+      "output_sha256": "bcd8ad22b798e13a3c78e8af434c315104cbff0b2a9d94de5688e8d09f2a55b2",
+      "bytes": 8801,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1507312,
+        "#16171d": 55688,
+        "#3d4db3": 9864
+      },
+      "paper_ratio": 0.958323,
+      "ink_ratio": 0.035405,
+      "indigo_ratio": 0.006271,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        219,
+        543,
+        1315,
+        995
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "PIL primitives only; no font import, text drawing, labels, glyphs, arrows, or chart marks",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B2-A01-04",
+      "original_asset_id": "B2-A01-04",
+      "archetype": "ammonia-reactor-skid",
+      "specific_physical_scene": "A compact ammonia reactor skid with an insulated reaction tube, heat exchanger, and one catalyst cartridge visible through a clean cutaway.",
+      "single_mechanism": "the catalyst cartridge enables ammonia conversion inside the single reaction tube",
+      "source_spec_hash": "sha256:2e59d0bbc2bcc9d4fe211870f991d154e3ece8318962fbb11fa4460f00d40a43",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b2_a01_04.py",
+      "generator_sha256": "0fd93b2ffa18c75dbde4bbb1a40295711b878069d7b5202c5b05c15f2737ffbc",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B2-A01-04--ammonia-reactor-skid.png",
+      "output_sha256": "f08d46165a2d0ae46f88a8e82f4a89a0987e32a39922c016deae965f06a63b13",
+      "bytes": 9690,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1509135,
+        "#16171d": 52029,
+        "#3d4db3": 11700
+      },
+      "paper_ratio": 0.959482,
+      "ink_ratio": 0.033079,
+      "indigo_ratio": 0.007439,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        96,
+        618,
+        1453,
+        998
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "PIL primitives only; no font import, text drawing, labels, glyphs, arrows, or chart marks",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B2-A02-02",
+      "original_asset_id": "B2-A02-02",
+      "archetype": "cement-kiln-capture-duct",
+      "specific_physical_scene": "A rotary cement kiln and calciner in side cutaway, with a narrow process-gas duct leading from the calciner to one capture vessel.",
+      "single_mechanism": "the capture vessel receives the calcination gas stream through the dedicated duct",
+      "source_spec_hash": "sha256:5ea2aec609ecf36159cf4125c15addcc277322b6c55901aa7e03a1c5718b86f8",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b2_a02_02.py",
+      "generator_sha256": "e689d4de4acaf5d3c457e66d474a18481ad24f69c717dd581fc0a175b38ee59b",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B2-A02-02--cement-kiln-capture-duct.png",
+      "output_sha256": "8733d9852b306f28f567008a60d9240b0e45227953ea2e751c846dabf17f03bc",
+      "bytes": 14376,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1509372,
+        "#16171d": 54934,
+        "#3d4db3": 8558
+      },
+      "paper_ratio": 0.959633,
+      "ink_ratio": 0.034926,
+      "indigo_ratio": 0.005441,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        81,
+        527,
+        1459,
+        1001
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "PIL primitives only; no font import, text drawing, labels, glyphs, arrows, or chart marks",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B2-A02-03",
+      "original_asset_id": "B2-A02-03",
+      "archetype": "calcined-clay-batching-bay",
+      "specific_physical_scene": "A concrete batching bay where a calcined-clay hopper feeds one mixer, which pours a single beam mold positioned beneath a load frame.",
+      "single_mechanism": "the calcined-clay blend moves from hopper through mixer into a structural test beam",
+      "source_spec_hash": "sha256:b34d3b792312774fdf4237fc39e334f1a56ea28338890e98ed08d2473c416b85",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b2_a02_03.py",
+      "generator_sha256": "451eb755c0cdd9caac917cadfe6618006ec4e6f1c8891cf1a31a22b8936981ad",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B2-A02-03--calcined-clay-batching-bay.png",
+      "output_sha256": "0e7ef1afc100741c006445cf077d68cd90be988fd43e952949b3eebedb6c8ec6",
+      "bytes": 13332,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1487279,
+        "#16171d": 75791,
+        "#3d4db3": 9794
+      },
+      "paper_ratio": 0.945587,
+      "ink_ratio": 0.048187,
+      "indigo_ratio": 0.006227,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        75,
+        529,
+        1462,
+        1001
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "PIL primitives only; no font import, text drawing, labels, glyphs, arrows, or chart marks",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B2-A02-04",
+      "original_asset_id": "B2-A02-04",
+      "archetype": "beam-interface-load-frame",
+      "specific_physical_scene": "A full-scale concrete beam in a four-point load frame, with one enlarged cutaway window showing the binder-to-aggregate interface beneath the loading nose.",
+      "single_mechanism": "the load frame tests whether the material interface transfers force without separating",
+      "source_spec_hash": "sha256:eb90f1d78a23dc5422644674458047f534b07af279dc7cafa7340fcab296d34c",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b2_a02_04.py",
+      "generator_sha256": "09799535212d1a39956f273b9beb989fc0ae17dc8c39b56fcfab8b99ccbb77ed",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B2-A02-04--beam-interface-load-frame.png",
+      "output_sha256": "464ec39160cb17a1d3bdf91663c43f5ae8eff97660d7abd571ddfffe806ed154",
+      "bytes": 11364,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1474703,
+        "#16171d": 91294,
+        "#3d4db3": 6867
+      },
+      "paper_ratio": 0.937591,
+      "ink_ratio": 0.058043,
+      "indigo_ratio": 0.004366,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        78,
+        533,
+        1459,
+        1004
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "PIL primitives only; no font import, text drawing, labels, glyphs, arrows, or chart marks",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    }
+  ]
+}

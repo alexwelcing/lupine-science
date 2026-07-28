@@ -6,7 +6,6 @@ from __future__ import annotations
 import hashlib
 import json
 from collections import Counter
-from datetime import datetime, timezone
 from pathlib import Path
 
 from PIL import Image
@@ -116,17 +115,21 @@ def main() -> None:
             }
         )
 
-    # Reproducibility law for certified evidence: a verifier rerun must not
-    # mutate the manifest. generated_at is preserved from the existing
-    # manifest; only a first-ever run stamps the current time.
-    generated_at = datetime.now(timezone.utc).isoformat()
-    if OUTPUT_MANIFEST.exists():
-        try:
-            prior = json.loads(OUTPUT_MANIFEST.read_text())
-            if isinstance(prior.get("generated_at"), str) and prior["generated_at"]:
-                generated_at = prior["generated_at"]
-        except (json.JSONDecodeError, OSError):
-            pass
+    # Reproducibility law for certified evidence: generated_at derives from
+    # the canonical source manifest (tracked in the repo), never from the
+    # wall clock — a fresh checkout produces a byte-identical manifest.
+    generated_at = source.get("generated_at")
+    if not (isinstance(generated_at, str) and generated_at):
+        generated_at = None
+        if OUTPUT_MANIFEST.exists():
+            try:
+                prior = json.loads(OUTPUT_MANIFEST.read_text())
+                if isinstance(prior.get("generated_at"), str) and prior["generated_at"]:
+                    generated_at = prior["generated_at"]
+            except (json.JSONDecodeError, OSError):
+                pass
+        if generated_at is None:
+            generated_at = "1970-01-01T00:00:00+00:00"
 
     manifest = {
         "schema_version": "1.0.0",

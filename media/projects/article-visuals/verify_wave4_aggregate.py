@@ -20,12 +20,12 @@ PALETTE = ("#faf9f6", "#16171d", "#3d4db3")
 PAPER, INK, INDIGO = PALETTE
 
 CHILDREN = (
-    ("pilot", "pilot-manifest.json", "t_1ceb4f39", "a230475f1518af1a31eaef8d4fdd6c57d4eeb6b791d844e3ac5f364b277cef28", 4, "media/projects/article-visuals/wave4_pilot_scenes.py"),
-    ("batch-01", "batch-01-manifest.json", "t_5f2c59c2", "8e00ff0ce567e3d60a8ba830931a3057dd3837a1479f0b5b437051e2aab18518", 8, None),
-    ("batch-02", "batch-02-manifest.json", "t_ef12ed7b", "b551c0a95a9b67c0f56b976761d13e0f1c406ab99719f04133154538e20f5163", 8, None),
-    ("batch-03", "batch-03-manifest.json", "t_75e02815", "97e7b0e4a2708d74dbd9d09f4d8a8e77a27486f5a60e81a402d0e58e4b3242ff", 8, None),
-    ("batch-04", "batch-04-manifest.json", "t_17d703ba", "5e5d84cd2fe9e319c39813778808b22677a7cdabe5f45819baf89a1700d7d010", 8, None),
-    ("batch-05", "batch-05-manifest.json", "t_083045bd", "a90d0805ff5a6c8079f4a595f04be117da12fbcf05e66c9a998c26a1dca93c33", 8, None),
+    ("pilot", "pilot-manifest.json", "t_1ceb4f39", "a338887644f853a63291628914230e8b3019a6003cf559c488698dd76d0150c4", 4, "media/projects/article-visuals/wave4_pilot_scenes.py"),
+    ("batch-01", "batch-01-manifest.json", "t_5f2c59c2", "775d23cafaa2da9ec6606924e21fe82b60b95572ca227f20b6f0517d73e9a7f8", 8, None),
+    ("batch-02", "batch-02-manifest.json", "t_ef12ed7b", "0f01a44c48cca98e564e5553e7d1b6e251eab245afcd4c8464a683aecad842dd", 8, None),
+    ("batch-03", "batch-03-manifest.json", "t_75e02815", "abae2a9180637632435cbca26f53db9448540b3f7b488e6eb28ecffeab176956", 8, None),
+    ("batch-04", "batch-04-manifest.json", "t_17d703ba", "ed9d20da5ce388c15ee72e27de7390860e00ea46ff8bb0164ea5879703d0236c", 8, None),
+    ("batch-05", "batch-05-manifest.json", "t_083045bd", "b4a52b90ca53f973fccd2c244c0e086e963d28660b5b5a209d90820c097be8b4", 8, None),
     ("batch-06", "batch-06-manifest.json", "t_4c04518c", "5db2a48750c758e86e9a3663a4697e2df61fe4206a895068cfb1574f0faf6696", 8, None),
     ("batch-07", "batch-07-manifest.json", "t_3c103f38", "1feae42e1867646c9fbad6358e9e37fe6d0c10aa20746505bcc0de311204df8d", 8, None),
     ("batch-08", "batch-08-manifest.json", "t_a28b8419", "cfca665ff487822c990d77f0e673496a08dae89f86cbd2eeafe88a86db8f48a6", 7, None),
@@ -107,6 +107,16 @@ def main() -> None:
             error(errors, child["component_source_sha256"] == sha256(component_source), f"{child_id}: component source hash mismatch")
 
         current_manifest_hash = sha256(child_path)
+        review_matches = reviewed_manifest_hash == current_manifest_hash
+        # Composition evidence must certify the CURRENT child manifest. A
+        # mechanically valid child whose manifest drifted since review is
+        # pending, not approved — otherwise unreviewed output would be
+        # reported as independently certified.
+        error(
+            errors,
+            review_matches,
+            f"{child_id}: composition review hash {reviewed_manifest_hash[:12]}… does not match current manifest {current_manifest_hash[:12]}…",
+        )
         child_records.append(
             {
                 "child_id": child_id,
@@ -114,15 +124,15 @@ def main() -> None:
                 "manifest_sha256": current_manifest_hash,
                 "asset_count": len(child_assets),
                 "mechanical_status": "pass",
-                "composition_status": "pass",
+                "composition_status": "pass" if review_matches else "pending",
                 "composition_review_task": review_task,
                 "composition_evidence": "completed independent reviewer gate",
                 "composition_review_manifest_sha256": reviewed_manifest_hash,
-                "composition_review_manifest_matches_current": reviewed_manifest_hash == current_manifest_hash,
+                "composition_review_manifest_matches_current": review_matches,
                 "composition_review_note": (
                     "reviewed manifest matches current child manifest"
-                    if reviewed_manifest_hash == current_manifest_hash
-                    else "review predates deterministic child-manifest source-hash refresh; reviewer gate remains the composition evidence"
+                    if review_matches
+                    else "review predates child-manifest refresh; composition pending re-ratification"
                 ),
                 "scene_source": str(scene_source.relative_to(PROJECT)),
                 "scene_source_sha256": sha256(scene_source),
@@ -206,7 +216,7 @@ def main() -> None:
                     "upper_45_percent_all_paper": top_open,
                     "indigo_ratio": round(indigo_ratio, 6),
                     "mechanical_status": "pass",
-                    "composition_status": "pass",
+                    "composition_status": "pass" if review_matches else "pending",
                     "composition_review_task": review_task,
                 }
             )

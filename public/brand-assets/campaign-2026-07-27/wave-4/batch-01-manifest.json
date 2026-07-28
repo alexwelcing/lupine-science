@@ -1,0 +1,328 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "t_29541a1f",
+  "campaign_id": "brand-campaign-2026-07-27",
+  "wave_id": "wave-4-programmatic-pil",
+  "batch_id": "batch-01",
+  "source_manifest": "public/brand-assets/campaign-2026-07-27/shortfall-wave-1-manifest.json",
+  "source_manifest_sha256": "d8c6a9cb14cc5803453a5eaf68409966457f40e1f169cc34d32da040b635e383",
+  "scene_source": "media/projects/article-visuals/wave4_batch_01_scenes.py",
+  "scene_source_sha256": "37cf6a4c90792a6db02b4069736823c3479ce45adff96c53d0b32b3d9ab93d14",
+  "component_source": "media/projects/article-visuals/wave4_scene_components.py",
+  "component_source_sha256": "c66f2efb1dca5bbe8df5499b224afd2f41032cc630bc88fd9e11da6db8b5a629",
+  "palette": [
+    "#faf9f6",
+    "#16171d",
+    "#3d4db3"
+  ],
+  "asset_count": 8,
+  "mechanical_status": "pass",
+  "composition_status": "pending-independent-review",
+  "errors": [],
+  "assets": [
+    {
+      "asset_id": "SW1-B1-A01-04",
+      "original_asset_id": "B1-A01-04",
+      "archetype": "pilot-material-line",
+      "specific_physical_scene": "A waist-high pilot line on a bare factory floor: a covered powder hopper feeds one compact sintering furnace, then a ceramic pellet exits onto a cell-test cradle.",
+      "single_mechanism": "one continuous indigo material route follows the sample from hopper through furnace to the test cradle",
+      "source_spec_hash": "sha256:52f220b968c843d577651d2bcdf97a636afa3bb8d544a1e1508cc5d19c24da78",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a01_04.py",
+      "generator_sha256": "fff67200eecef93c6431d90e7545f8f46ab3b292f9562f2668a3f051ed235bc8",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A01-04--pilot-material-line.png",
+      "output_sha256": "6d234fe7db6cc663ee01da5d0bef2b3b616edb1dbc2c2c621334e7288d4269ff",
+      "bytes": 11015,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1520442,
+        "#16171d": 42791,
+        "#3d4db3": 9631
+      },
+      "paper_ratio": 0.966671,
+      "ink_ratio": 0.027206,
+      "indigo_ratio": 0.006123,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        90,
+        550,
+        1471,
+        977
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "PIL primitives only; no font import, text drawing, labels, glyphs, arrows, or chart marks",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B1-A01-05",
+      "original_asset_id": "B1-A01-05",
+      "archetype": "electric-bus-depot",
+      "specific_physical_scene": "An empty electric-bus depot beneath a broad solar canopy, with a quiet row of stationary battery cabinets beside the charging bays and a vast pale sky.",
+      "single_mechanism": "the battery cabinets buffer power from the canopy before it reaches the charging pedestals",
+      "source_spec_hash": "sha256:24bc1925d2cc8b056cd84dcac1a0fb12272de9cfbbfc45b5f4d2600e3be5a89c",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a01_05.py",
+      "generator_sha256": "e6e35ee75d5966ea1b42e7cab9a47a06190d1557473dd7cca18061b12bc0ae13",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A01-05--electric-bus-depot.png",
+      "output_sha256": "44ace419b70f444c4312871d46b9ad6fd348c64024d84a5c30db8c5bc5557a9f",
+      "bytes": 8177,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "palette_histogram": {
+        "#faf9f6": 1285308,
+        "#16171d": 35687,
+        "#3d4db3": 6109
+      },
+      "paper_ratio": 0.968506,
+      "ink_ratio": 0.026891,
+      "indigo_ratio": 0.004603,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        44,
+        420,
+        997,
+        822
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "PIL primitives only; no font import, text drawing, labels, glyphs, arrows, or chart marks",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B1-A02-02",
+      "original_asset_id": "B1-A02-02",
+      "archetype": "pilot-furnace-corridor",
+      "specific_physical_scene": "A clean pilot corridor of three identical tube furnaces with sample boats; most boats stop on cooling racks and one intact pellet reaches a pressure-test fixture.",
+      "single_mechanism": "one indigo route tracks the sole pellet that survives firing and reaches mechanical testing",
+      "source_spec_hash": "sha256:8be7ed0610a256c0b9e7fed20c5ef5c9494a21e67e0e864c1a54c4424d540e63",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a02_02.py",
+      "generator_sha256": "e7e7c14365b845217195435a50add0d8f9b856d98cc7328f96ff5c5647359701",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A02-02--pilot-furnace-corridor.png",
+      "output_sha256": "32cfe737150d7e3e8f07fdb579e5f6b58206f23046da945d1b3fcfa339b44681",
+      "bytes": 10092,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1504445,
+        "#16171d": 58749,
+        "#3d4db3": 9670
+      },
+      "paper_ratio": 0.9565,
+      "ink_ratio": 0.037352,
+      "indigo_ratio": 0.006148,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        72,
+        654,
+        1465,
+        991
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "PIL primitives only; no font import, text drawing, labels, glyphs, arrows, or chart marks",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B1-A02-03",
+      "original_asset_id": "B1-A02-03",
+      "archetype": "pressure-heat-chamber",
+      "specific_physical_scene": "A single ceramic electrolyte disk clamped inside a transparent-sided pressure-and-heat cycling chamber, with a fine crack beginning at its metal interface.",
+      "single_mechanism": "the chamber applies combined manufacturing pressure and heat to reveal interface cracking",
+      "source_spec_hash": "sha256:8adf3f4fdf2f079c112db7a7ca5068000f357c9ec5d082b1a6ae7eaa9ab2bd32",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a02_03.py",
+      "generator_sha256": "6742d83fbfb115763944ad9daf9590f49ab06db6769802e5d1d8482fdaeeb53f",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A02-03--pressure-heat-chamber.png",
+      "output_sha256": "fb141a815ed3f3342aede130e1a16e8010d4632a73243686face6151322168b0",
+      "bytes": 9806,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1509322,
+        "#16171d": 52777,
+        "#3d4db3": 10765
+      },
+      "paper_ratio": 0.959601,
+      "ink_ratio": 0.033555,
+      "indigo_ratio": 0.006844,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        210,
+        555,
+        1321,
+        977
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "PIL primitives only; no font import, text drawing, labels, glyphs, arrows, or chart marks",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B1-A02-04",
+      "original_asset_id": "B1-A02-04",
+      "archetype": "pellet-inspection-station",
+      "specific_physical_scene": "An idle pellet-press station beside orderly trays of warped ceramic disks and one measurement jig holding the next candidate.",
+      "single_mechanism": "the measurement jig rejects distorted pellets before they enter the pilot line",
+      "source_spec_hash": "sha256:696762c22a97cf0bee5f23c396bf443e2c0410253bf15418421cd216dd52e478",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a02_04.py",
+      "generator_sha256": "e27694f0e2b06a75e71459813004dfd6fcc6f54c23d3b676c84fd8e62388219c",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A02-04--pellet-inspection-station.png",
+      "output_sha256": "657000e25278c665426adafe8ee8036091677c92ccc86ef5701eabc87bc4f2be",
+      "bytes": 10316,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1510671,
+        "#16171d": 54841,
+        "#3d4db3": 7352
+      },
+      "paper_ratio": 0.960459,
+      "ink_ratio": 0.034867,
+      "indigo_ratio": 0.004674,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        84,
+        609,
+        1465,
+        997
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "PIL primitives only; no font import, text drawing, labels, glyphs, arrows, or chart marks",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B1-A02-05",
+      "original_asset_id": "B1-A02-05",
+      "archetype": "battery-module-assembly",
+      "specific_physical_scene": "A compact battery-module assembly cell with one verified ceramic-pellet cartridge feeding a precise stack press; the rest of the factory floor is empty paper.",
+      "single_mechanism": "the cartridge meters one qualified electrolyte pellet into each cell stack",
+      "source_spec_hash": "sha256:adf974e6c3a081badedb1fd3a7ed4d15d46ea7a14dfc80e4607a9eff475e14b2",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a02_05.py",
+      "generator_sha256": "5ad29e2e0e41011b903019d231e0df9b86db779a8b866b281d90e2227c59559d",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A02-05--battery-module-assembly.png",
+      "output_sha256": "1e2665983e283ed408e25dd2e9bfefc9e762bfcd918eeee03e05fbd42b76d264",
+      "bytes": 6836,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "palette_histogram": {
+        "#faf9f6": 1309629,
+        "#16171d": 13974,
+        "#3d4db3": 3501
+      },
+      "paper_ratio": 0.986832,
+      "ink_ratio": 0.01053,
+      "indigo_ratio": 0.002638,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        64,
+        496,
+        681,
+        822
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "PIL primitives only; no font import, text drawing, labels, glyphs, arrows, or chart marks",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B1-A03-02",
+      "original_asset_id": "B1-A03-02",
+      "archetype": "screening-fixture-bench",
+      "specific_physical_scene": "A sequence of three physical screening fixtures on one bench: a wide tray of candidate coupons, a smaller thermal-test rack, and one final reference-calculation instrument.",
+      "single_mechanism": "successive screening fixtures narrow the candidate set before the expensive reference instrument",
+      "source_spec_hash": "sha256:8ea5345049f028b595ebad5eaabde57eeb9111578183bd843f8ac771cb0cf23d",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a03_02.py",
+      "generator_sha256": "6d04070912eeee457f5b065b9d847f2088d22536d88812aff5bf872003bb72bf",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A03-02--screening-fixture-bench.png",
+      "output_sha256": "1c8a2231b7392c756493b56467c81ebe5fa3f9e2b320e11937ea5f8ddf97bcae",
+      "bytes": 9656,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1516181,
+        "#16171d": 47798,
+        "#3d4db3": 8885
+      },
+      "paper_ratio": 0.963962,
+      "ink_ratio": 0.030389,
+      "indigo_ratio": 0.005649,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        75,
+        648,
+        1465,
+        997
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "PIL primitives only; no font import, text drawing, labels, glyphs, arrows, or chart marks",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B1-A03-04",
+      "original_asset_id": "B1-A03-04",
+      "archetype": "standardized-cartridge-rack",
+      "specific_physical_scene": "An open rack of identical unmarked sample cartridges feeding two separated battery test instruments through standardized mechanical sockets.",
+      "single_mechanism": "the standardized cartridge socket lets the same physical reference sample serve independent instruments",
+      "source_spec_hash": "sha256:9493d3c1538895f226ff107f9b241b1dc505e4c53c33cf0cde6174acf03d52ed",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a03_04.py",
+      "generator_sha256": "204bf45ad88f4940df5eeafc1678423ca4ac7ff63d0bf708a8af153fbf89866b",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A03-04--standardized-cartridge-rack.png",
+      "output_sha256": "c8f804fee5269f924faff38734f7a7b63e73ecb737f9db9776ae94862c5f0987",
+      "bytes": 8629,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1513383,
+        "#16171d": 48807,
+        "#3d4db3": 10674
+      },
+      "paper_ratio": 0.962183,
+      "ink_ratio": 0.031031,
+      "indigo_ratio": 0.006786,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        84,
+        609,
+        1465,
+        977
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "PIL primitives only; no font import, text drawing, labels, glyphs, arrows, or chart marks",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    }
+  ]
+}

@@ -1,0 +1,290 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "t_ac63ca9f",
+  "campaign_id": "brand-campaign-2026-07-27",
+  "wave_id": "wave-4-programmatic-pil",
+  "batch_id": "batch-08",
+  "source_manifest": "public/brand-assets/campaign-2026-07-27/shortfall-wave-1-manifest.json",
+  "source_manifest_sha256": "d8c6a9cb14cc5803453a5eaf68409966457f40e1f169cc34d32da040b635e383",
+  "scene_source": "media/projects/article-visuals/wave4_batch_08_scenes.py",
+  "scene_source_sha256": "a6b5cd34ee8b08098a486818c0086fc3569742dd6417a2aad83b549e24baa878",
+  "component_source": "media/projects/article-visuals/wave4_scene_components.py",
+  "component_source_sha256": "c66f2efb1dca5bbe8df5499b224afd2f41032cc630bc88fd9e11da6db8b5a629",
+  "palette": [
+    "#faf9f6",
+    "#16171d",
+    "#3d4db3"
+  ],
+  "asset_count": 7,
+  "mechanical_status": "pass",
+  "composition_status": "pending-independent-review",
+  "errors": [],
+  "assets": [
+    {
+      "asset_id": "SW1-B6-A02-03",
+      "original_asset_id": "B6-A02-03",
+      "archetype": "nested-containment-pressure-cell",
+      "specific_physical_scene": "A high-pressure material cell enclosed by three nested mechanical containment rings, with the innermost ring carrying a restrained indigo boundary.",
+      "single_mechanism": "the nested rings prevent a correction from extending beyond its tested material regime",
+      "source_spec_hash": "sha256:1f5577443e6a190b39233fb1a893e3eec3a5f98798aa8d7cdb124e2869df2b85",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b6_a02_03.py",
+      "generator_sha256": "6e7447e3ba410508b20bc8df20514ae8b528bc3fd897f683afea8fcfb2d24e16",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A02-03--nested-containment-pressure-cell.png",
+      "output_sha256": "42568b741f592a44a682df66e6ba8df0435dbd2951c0e759956705738b51f30c",
+      "bytes": 15785,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1460167,
+        "#16171d": 100438,
+        "#3d4db3": 12259
+      },
+      "paper_ratio": 0.928349,
+      "ink_ratio": 0.063857,
+      "indigo_ratio": 0.007794,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        120,
+        570,
+        1417,
+        1001
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B6-A02-04",
+      "original_asset_id": "B6-A02-04",
+      "archetype": "phased-evidence-test-hall",
+      "specific_physical_scene": "A phased research hall with a simple coupon rack nearest the viewer and progressively enclosed thermal, reaction, and interface test bays farther away.",
+      "single_mechanism": "samples advance only when each increasingly specialized test bay supplies evidence",
+      "source_spec_hash": "sha256:57753822decb9dddca9abccdffcbd8173374f2802e757c94319492d1ff61bddb",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b6_a02_04.py",
+      "generator_sha256": "ca1c3e6581883fb4257b8f8e4ce574480a135b47b8631233bf5c152c73848d52",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A02-04--phased-evidence-test-hall.png",
+      "output_sha256": "1dfe1d7bd2e5b5c75b941791c54b41bea7c250712be1a1e1d2dc50ede819364f",
+      "bytes": 9430,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1472922,
+        "#16171d": 89400,
+        "#3d4db3": 10542
+      },
+      "paper_ratio": 0.936459,
+      "ink_ratio": 0.056839,
+      "indigo_ratio": 0.006702,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        81,
+        603,
+        1456,
+        1001
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B6-A03-01",
+      "original_asset_id": "B6-A03-01",
+      "archetype": "paired-spring-gauge-row",
+      "specific_physical_scene": "A row of five practical material coupons under paired spring gauges, where each indigo predicted pointer stops below its corresponding ink measured pointer.",
+      "single_mechanism": "the paired gauges show correct ordering but systematically undersized response",
+      "source_spec_hash": "sha256:378cf62fb963bd4263bf425a54ac61e4abb1e711c3563ef597061258a9047b61",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b6_a03_01.py",
+      "generator_sha256": "8e42c1cdfe79212345bdfce4f9fe8a503a1a5f4e27d35a577ecbc92231bed088",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A03-01--paired-spring-gauge-row.png",
+      "output_sha256": "cf9d8d473b483291e834758571f1b97ae643797971cfd1486af10e83957f6a87",
+      "bytes": 8787,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "palette_histogram": {
+        "#faf9f6": 1285548,
+        "#16171d": 23541,
+        "#3d4db3": 18015
+      },
+      "paper_ratio": 0.968687,
+      "ink_ratio": 0.017739,
+      "indigo_ratio": 0.013575,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        70,
+        436,
+        1467,
+        848
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B6-A03-04",
+      "original_asset_id": "B6-A03-04",
+      "archetype": "bounded-correction-decision-rail",
+      "specific_physical_scene": "An unattended specimen pipeline with a model cartridge, a bounded correction jig, and a final engineering decision tray connected by one narrow rail.",
+      "single_mechanism": "the rail carries one sample through rank-preserving correction into a physical decision tray",
+      "source_spec_hash": "sha256:78feca6f566cae588ece80a7794c867e4b92973f437abb79d40280f7a4d8013c",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b6_a03_04.py",
+      "generator_sha256": "281b13f3da89ffa08a10a93a03f14beabacaafeb505187e89d866746136e7a5d",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A03-04--bounded-correction-decision-rail.png",
+      "output_sha256": "6fa0ac2ace842edc078a90b8285c0186ef3b920d15f4ee2aada23e8db2dc52b5",
+      "bytes": 8838,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1507130,
+        "#16171d": 56410,
+        "#3d4db3": 9324
+      },
+      "paper_ratio": 0.958207,
+      "ink_ratio": 0.035865,
+      "indigo_ratio": 0.005928,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        84,
+        654,
+        1453,
+        1003
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B6-A04-01",
+      "original_asset_id": "B6-A04-01",
+      "archetype": "makeability-survival-line",
+      "specific_physical_scene": "A porous-framework powder batch moving from a synthesis vessel through a pellet press and stability chamber into one plain sorbent cartridge.",
+      "single_mechanism": "the makeability line rejects material unless it survives synthesis, shaping, and stability testing",
+      "source_spec_hash": "sha256:ecf289ccd4bc574a8d47f9ab8a21ab33a4328cb8cd24ee8330916eaabd3c7ab5",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b6_a04_01.py",
+      "generator_sha256": "cd596fb677f3d8a93aad24cad6c23a90592709f914825ebf97beda0dd8e6d707",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A04-01--makeability-survival-line.png",
+      "output_sha256": "22e3fc3aa1e82c067252eaa687b2d569edc3ff23d53e84a7502ff905504c5854",
+      "bytes": 9574,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "palette_histogram": {
+        "#faf9f6": 1282723,
+        "#16171d": 37414,
+        "#3d4db3": 6967
+      },
+      "paper_ratio": 0.966558,
+      "ink_ratio": 0.028192,
+      "indigo_ratio": 0.00525,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        56,
+        566,
+        1489,
+        852
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B6-A04-02",
+      "original_asset_id": "B6-A04-02",
+      "archetype": "bonded-dac-panel-cutaway",
+      "specific_physical_scene": "A full-height direct-air-capture panel in cutaway with a porous-framework coating bonded to a plain metal support and sparse airflow crossing it.",
+      "single_mechanism": "the bonded porous coating captures gas while remaining mechanically supported inside the contactor",
+      "source_spec_hash": "sha256:44fb1fe66a677316b11d65d0d991e4251946f3ca1fcca15b2fca6661683c65f0",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b6_a04_02.py",
+      "generator_sha256": "3479d3f1685956fb6ad893c75806f83825f5f62ea0c0d809e90846ccf05ee157",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A04-02--bonded-dac-panel-cutaway.png",
+      "output_sha256": "6059bc8a592ea3fc95c2837a25b59fa9c34fcac2e1d0ea0c4b6c942dc55fff81",
+      "bytes": 10592,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1501198,
+        "#16171d": 61913,
+        "#3d4db3": 9753
+      },
+      "paper_ratio": 0.954436,
+      "ink_ratio": 0.039363,
+      "indigo_ratio": 0.006201,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        126,
+        564,
+        1411,
+        1004
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B6-A04-03",
+      "original_asset_id": "B6-A04-03",
+      "archetype": "straight-materials-check-line",
+      "specific_physical_scene": "An unoccupied materials bay with a synthesis vessel, wash filter, stability chamber, and pilot cartridge connected in one straight line.",
+      "single_mechanism": "one framework batch advances through synthesis and stability checks before entering the pilot cartridge",
+      "source_spec_hash": "sha256:92dca27b3b3c92842ca664a88ea1549621d045067aa75a59863b949e86ab2dd7",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b6_a04_03.py",
+      "generator_sha256": "e64a691844d498c743304cc16f04209bcb529153bcbb5511110a2bc69c77e22d",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A04-03--straight-materials-check-line.png",
+      "output_sha256": "6d872ead2ebbede97189bd71e470b65141f072545ddda24b0df45f504801970c",
+      "bytes": 11615,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1503939,
+        "#16171d": 58461,
+        "#3d4db3": 10464
+      },
+      "paper_ratio": 0.956179,
+      "ink_ratio": 0.037169,
+      "indigo_ratio": 0.006653,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        81,
+        646,
+        1456,
+        1007
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    }
+  ]
+}
