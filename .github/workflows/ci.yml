@@ -78,7 +78,10 @@ jobs:
         run: sudo apt-get update && sudo apt-get install --yes poppler-utils
 
       - name: Install Playwright browser
-        run: npx playwright install chromium
+        # Pin to the playwright-core version in package.json: an unpinned
+        # `npx playwright` fetches the latest release, whose browser build
+        # drifts out of sync with what playwright-core expects at runtime.
+        run: npx --yes playwright@1.61.1 install chromium
 
       - name: Build site
         run: npm run build
@@ -131,7 +134,8 @@ jobs:
         run: sudo apt-get update && sudo apt-get install --yes poppler-utils
 
       - name: Install Playwright browsers for proof-pack tests and PDF rendering
-        run: npx playwright install chromium
+        # Pinned for the same reason as the unit-tests job above.
+        run: npx --yes playwright@1.61.1 install chromium
 
       - name: Build site
         run: npm run build
@@ -188,6 +192,44 @@ jobs:
         with:
           name: video-review-report-${{ github.sha }}
           path: media/projects/video-review/reports/
+          if-no-files-found: ignore
+          retention-days: 14
+
+  image-review:
+    name: Adversarial image-text audit
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install tesseract for OCR
+        run: sudo apt-get update && sudo apt-get install --yes tesseract-ocr
+
+      - name: Download built site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: lupine-science-public-${{ github.sha }}
+          path: public/
+
+      - name: Run adversarial image-text audit
+        run: npm run review:images
+
+      - name: Upload image audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: image-audit-report-${{ github.sha }}
+          path: media/projects/image-review/reports/
           if-no-files-found: ignore
           retention-days: 14
 
