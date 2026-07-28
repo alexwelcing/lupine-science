@@ -9,7 +9,7 @@
   <link rel="canonical" href="https://lupine.science/articles/the-savings-stack/">
   <meta property="og:title" content="The Savings Stack: A Booklet on Doing Less, and the Commons That Makes Everyone Faster — Lupine Science">
   <meta property="og:description" content="The Savings Stack v1 release: a 16-page booklet on compute-savings in atomistic simulation — 72.4% fewer DFT evaluations when four models share anchors (558 naive vs 154 union, 29 paths, 3.62×), 163 citations verified, every number hashable and reproducible.">
-  <meta property="og:type" content="article">
+  <meta property="og:type" content="video.other">
   <meta property="og:url" content="https://lupine.science/articles/the-savings-stack/">
   <meta property="og:image" content="https://lupine.science/articles/the-savings-stack/hero.jpg?v=2">
   <meta property="og:image:width" content="1200">
@@ -24,9 +24,10 @@
   <link rel="apple-touch-icon" href="/lupine-science-icon.png">
   <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="alternate" type="video/mp4" href="https://lupine.science/videos/the-savings-stack.mp4">
   <link rel="stylesheet" href="/articles/styles.css">
   <link rel="stylesheet" href="/components/share/share.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Savings Stack: A Booklet on Doing Less, and the Commons That Makes Everyone Faster","description":"The Savings Stack v1 release: a 16-page booklet on compute-savings in atomistic simulation — 72.4% fewer DFT evaluations when four models share anchors (558 naive vs 154 union, 29 paths, 3.62×), 163 citations verified, every number hashable and reproducible.","datePublished":"2026-07-21","url":"https://lupine.science/articles/the-savings-stack/","mainEntityOfPage":"https://lupine.science/articles/the-savings-stack/","image":"https://lupine.science/articles/the-savings-stack/hero.jpg?v=2","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png?v=2"}}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@context":"https://schema.org","@type":"Article","headline":"The Savings Stack: A Booklet on Doing Less, and the Commons That Makes Everyone Faster","description":"The Savings Stack v1 release: a 16-page booklet on compute-savings in atomistic simulation — 72.4% fewer DFT evaluations when four models share anchors (558 naive vs 154 union, 29 paths, 3.62×), 163 citations verified, every number hashable and reproducible.","datePublished":"2026-07-21","url":"https://lupine.science/articles/the-savings-stack/","mainEntityOfPage":"https://lupine.science/articles/the-savings-stack/","image":"https://lupine.science/articles/the-savings-stack/hero.jpg?v=2","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png?v=2"}},"@id":"https://lupine.science/articles/the-savings-stack/#article"},{"@type":"VideoObject","@id":"https://lupine.science/articles/the-savings-stack/#video","name":"The Savings Stack: A Booklet on Doing Less, and the Commons That Makes Everyone Faster","description":"The Savings Stack v1 release: a 16-page booklet on compute-savings in atomistic simulation — 72.4% fewer DFT evaluations when four models share anchors (558 naive vs 154 union, 29 paths, 3.62×), 163 citations verified, every number hashable and reproducible.","thumbnailUrl":"https://lupine.science/articles/the-savings-stack/hero.jpg?v=2","uploadDate":"2026-07-21","contentUrl":"https://lupine.science/videos/the-savings-stack.mp4","embedUrl":"https://lupine.science/articles/the-savings-stack/","isPartOf":{"@id":"https://lupine.science/articles/the-savings-stack/#article"}}]}</script>
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
@@ -80,7 +81,17 @@
     <source srcset="/articles/the-savings-stack/hero.webp?v=2" type="image/webp">
     <img src="/articles/the-savings-stack/hero.jpg?v=2" alt="" width="1280" height="720" loading="eager" fetchpriority="high" decoding="async">
   </picture>
-  <figcaption id="hero-caption">A dawn landscape in indigo duotone — wind turbines, grid storage, and a luminous river linking them: what accelerated materials discovery is for. The Savings Stack booklet, free download.</figcaption>
+  <figcaption id="hero-caption">Many pale compute lanes converging into a compact shared evaluation backbone that feeds several materials programs: reuse instead of brute force.</figcaption>
+</figure>
+<figure class="article-video-player" aria-labelledby="video-label-the-savings-stack">
+  <figcaption id="video-label-the-savings-stack" class="video-player-label">Narrated summary: The Savings Stack: A Booklet on Doing Less, and the Commons That Makes Everyone Faster</figcaption>
+  <div class="video-player-frame">
+    <video controls preload="none" width="1920" height="1080" aria-describedby="video-label-the-savings-stack">
+      <source src="/videos/the-savings-stack.mp4" type="video/mp4">
+      <p>Your browser does not support the video tag. <a href="/videos/the-savings-stack.mp4" download>Download the MP4</a>.</p>
+    </video>
+  </div>
+  <p class="video-player-meta"><a href="/videos/the-savings-stack.mp4" download>Download MP4</a> · Captions pending</p>
 </figure>
 
 <p class="lead">Today we are releasing <em>The Savings Stack</em> — a sixteen-page booklet on how atomistic simulation learned to do less, what that savings stack is still missing, and the measured economics of sharing the expensive part. It is a free download, built to be read: the literature digests, the union-anchor measurement, and the citation audit are all in the pack behind it, hashed and reproducible.</p>
@@ -96,6 +107,7 @@
 <p><img src="images/spread-chart.jpg?v=2" alt="The chart: naive per-model anchor cost explodes 139.5 → 558 as models go from one to four, while the shared union stays nearly flat at 139.5 → 154"></p>
 <h2>The measured core, in one paragraph</h2>
 <p>On the locked 30-path Z1 panel, path 14 failed CI-NEB convergence in all four model artifacts — the honest denominator is 29. Across those 29 analyzable diffusion paths, the frozen sparse-anchor protocol would consume <strong>558 naive per-model DFT anchors; shared across the four models, the union is 154 — 72.4% fewer evaluations, a 3.62× reduction.</strong> The scaling law is the headline: as guidance models go from one to four, the naive bill multiplies ~4× (139.5, 279, 418.5, 558) while the union stays nearly flat (139.5, 147.8, 152, 154) — four models of guidance cost ~10% more DFT than one. The numbers were recomputed from recorded campaign artifacts under the frozen anchor rule; an earlier informal figure was retracted as arithmetic drift, and the analysis note in the pack reconciles it line by line. No new DFT was run to produce any of it.</p>
+<p><img src="images/the-savings-stack-inline-02.jpg?v=2" alt="Branching simulation paths reusing the same sparse set of shared anchor evaluations — the blank space is calculations deliberately not run"></p>
 <h2>What it is — and what it is not</h2>
 <p>The booklet makes the case for a <em>theorem commons</em>: teams contributing formally verified physical-law theorems back, so everyone’s gates get sharper. Theorems are non-rival and leak nothing about the contributor’s chemistry; the measured union economics are the evaluation-side instance of the same sharing. The case for restraint is designed with equal care: the measured basis is one 30-path panel, four universal MLIPs, one DFT engine, one chemistry family; the multiplicative stacking figure is a derived estimate and is labeled as such wherever it appears; the digests keep their [UNVERIFIED] flags; and none of this is peer-reviewed — it is a research release with committed, hashable records.</p>
 <p>The citation audit behind the book verified every identifier against its registry: <strong>115/115 arXiv, 48/48 DOI, zero unresolved</strong> — with three corrections applied on the record, including the VASP MLFF venue reconciliation. Identifier verification does not upgrade abstract-only evidence, and the booklet says so.</p>

@@ -40,6 +40,8 @@ The makeability layer for AI-driven materials discovery has three parts:
 
 The public face of this work is **LUPI**—a live viewer and measurement tool for exploring the makeability landscape—and the **open record** at `lupine.science`, where claims, refutations, and machine-checked theorems are committed for anyone to inspect.
 
+![Batteries, water systems, clean industry, and research instruments sharing one validation substrate, with open space for the work still to do](images/why-lupine-science-spread--retry-1.jpg)
+
 ---
 
 ## The launch film

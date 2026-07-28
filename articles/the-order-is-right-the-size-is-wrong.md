@@ -60,6 +60,8 @@ surface energy, which probes an unfitted coordination — with r = 0.906
 across 36 cells, zero adjustable parameters, surviving material-clustered
 resampling and a permutation null reported at its true center (0.44, not zero).
 
+![Surface-energy rankings translated into coating and catalyst sample plates: the order holds while the measured distances reveal the magnitude error](images/the-order-is-right-the-size-is-wrong-inline-01--retry-1.jpg)
+
 ## From map to correction
 
 Because the field lives on atomic environments, its inverse is not a
@@ -105,6 +107,8 @@ direction of honesty.
 The registered next tests — hcp metals, alloys, a continuous-coordinate
 field for forces — are in the record with their kill conditions. If they
 break the picture, that will be published with the same prominence.
+
+![A clean-industry pilot selection scene: correct ordering saves experimental capacity even though final magnitudes still require reference measurement](images/the-order-is-right-the-size-is-wrong-spread--retry-1.jpg)
 
 ---
 

@@ -8,7 +8,7 @@
 
 ---
 
-![The Campaign Scoreboard](images/four-gates-three-honest-failures-one-live-experiment-01-four-gates-scoreboard.jpg)
+![Four rigorous test gates — battery barriers, elastic response, magnetism, catalyst adsorption — three paths stopped, one still under measurement](images/four-gates-three-honest-failures-one-live-experiment-hero--retry-1.jpg)
 
 <p class="lead">Every few months we write down, in advance and in public, what our software stack must prove about itself — then we force it to actually try. This week all four of those gates reported in. All four answers are "no" — three failures and one principled abstention. None of that is a disaster; it is the point of having gates at all. Here is the final status of each campaign, in plain language, with the receipts.</p>
 

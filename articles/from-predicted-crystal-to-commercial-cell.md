@@ -39,6 +39,8 @@ Finally, the OEM handoff. GM's Wallace Battery Cell Innovation Center and LG Ene
 
 If LMR cathodes are the near-term lever, solid-state batteries with lithium-metal anodes are the long-term leap. Earth-abundant halide solid electrolytes — Li-Zr-Cl and Li-Fe-Cl systems — target >10 mS/cm ionic conductivity, stability versus lithium metal, and compatibility with mechanochemical synthesis. Industry analysts project the solid-state battery market to grow by an order of magnitude or more over the next decade.
 
+![A practical cell as layered architecture — cathode, electrolyte separator, and current collector — with the ion-conduction route traced in indigo](images/from-predicted-crystal-to-commercial-cell-inline-01.jpg)
+
 ![How Lupine makes a uMLIP trustworthy at runtime](images/from-predicted-crystal-to-commercial-cell-03-correction-loop.jpg)
 *A raw universal machine-learning interatomic potential can underestimate a lithium migration barrier by 60%, shifting conductivity by 5,000×; the runtime correction and Lean 4 proofs bound that error before the next handoff.*
 

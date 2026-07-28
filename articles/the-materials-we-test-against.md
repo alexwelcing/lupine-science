@@ -8,7 +8,7 @@
 
 ---
 
-![A lithium ion squeezing through a lattice bottleneck](images/li-hop-journey.png)
+![The Z1 test range: varied solid-electrolyte sample cells between a charging station and a grid battery, one barrier path crossing each specimen](images/the-materials-we-test-against-hero--retry-1.jpg)
 
 <p class="lead">Every battery is a traffic problem. Ions have to move, and the toll they pay at each crowded passage — the <em>migration barrier</em> — decides whether the battery is fast, safe, and worth building. Our Z1 campaigns measure how well AI models predict those tolls across 42 real materials. This is the tour of what is in the panels, and why these particular materials get a vote on the future of solid-state batteries.</p>
 
@@ -18,9 +18,13 @@ The next battery generation — solid-state, safer, denser — needs electrolyte
 
 Each path is one specific hop: a lithium ion leaving a comfortable site, squeezing through the narrowest point of its lattice — the transition state — and landing in the next site. The energy at the top of that squeeze, relative to the start, is the barrier. Models that predict barriers accurately can screen thousands of candidate electrolytes on a laptop; models that *under*-predict them — which is what we measured, systematically, in every model we tested — quietly tell engineers that dead materials look alive.
 
+![An exploded solid-state cell: the electrolyte as the safety-critical bridge between electrodes, rendered in indigo while the casing stays ink linework](images/the-materials-we-test-against-inline-01--retry-1.jpg)
+
 ## The test panel: 30 frozen adversaries
 
 The test panel is locked — 30 chemistries, one migration path each, chosen so no single family dominates. It splits into recognizable neighborhoods of the solid-state-battery map:
+
+![The materials adversary panel: varied ceramic pellets, thin films, and pressed cells under identical measurement arches](images/the-materials-we-test-against-inline-02--retry-1.jpg)
 
 ![The 30-path Z1 test panel: barrier height by chemistry class](images/panel-barriers-by-class.jpg)
 

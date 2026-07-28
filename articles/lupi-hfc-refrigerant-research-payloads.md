@@ -32,6 +32,8 @@ Finding replacements is hard because the design space is constrained by thermoph
 
 Lupi's research payloads make those environments inspectable. You can watch the temperature profile evolve, see the velocity field, and correlate per-atom forces with local structure. The correction-and-verification layer can then be applied to the same trajectories to recover trustworthy barriers and lifetimes.
 
+![A district cooling and heat-pump network, foregrounded by the compact evidence payload that keeps the infrastructure scene honest](images/lupi-hfc-refrigerant-research-payloads-spread--retry-1.jpg)
+
 ## Try it
 
 The HFC trajectories are live in the Lupi gallery at [lupi.live](https://lupi.live). The source code and simulation scripts are in the [Lupi repository](https://github.com/alexwelcing/Lupi).

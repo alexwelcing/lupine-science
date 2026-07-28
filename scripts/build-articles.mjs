@@ -81,21 +81,21 @@ const md = new MarkdownIt({ html: true, typographer: true })
 // files actually exist next to the article.
 const HERO_CAPTIONS = {
   'water-and-air-correcting-the-molecules-we-drink-and-breathe':
-    'A smooth field gradient: the error-corrected landscape for water and air purification materials.',
+    'A municipal water-treatment line and an urban air-filtration system sharing one civic cross-section, with the critical membrane and catalyst surfaces highlighted in indigo.',
   'methane-and-refrigerants-cutting-the-non-co2-climate-forcers':
     'Two indigo wavefronts crossing: correcting non-CO₂ climate forcers from methane to refrigerants.',
   'critical-minerals-pfas-and-the-remediation-imperative':
-    'A lattice defect highlighted by indigo light: the selective sites behind critical-mineral recovery and PFAS remediation.',
+    'A closed-loop water and mineral recovery facility: contaminated flow enters an ink-lined treatment train and separated critical minerals leave in small indigo sample trays.',
   'cement-concrete-and-the-weight-of-the-built-world':
-    'A disordered network graph in warm paper and indigo: the atomistic tangle of cement hydrate.',
+    'Bridge, housing block, water conduit, and transit viaduct drawn as one continuous civic structure, with selected low-carbon binder zones highlighted in indigo.',
   'beyond-carbon-the-error-geometry-of-environmental-materials':
-    'Scattered error vectors resolving onto a single indigo ribbon: the same shape of wrongness extends beyond carbon to water, air, methane, refrigerants, minerals, PFAS, and cement.',
+    'A civic systems atlas without labels: drinking-water works, air-treatment ducts, refrigerant plant, mineral recovery line, and concrete infrastructure joined by one sparse indigo evidence ribbon.',
   'the-02-percent-synthesis-problem':
     'Scattered error vectors resolving onto a single indigo ribbon: the shape of wrongness in generative materials AI.',
   'a-field-not-a-neural-net':
     'A smooth field gradient over a sparse lattice: the measured error geometry of universal machine-learned interatomic potentials.',
   'five-materials-for-5-to-12-gtco2-year':
-    'Five indigo nodes in a sparse constellation: the material bottlenecks that could unlock 5–12 GtCO₂/year.',
+    'Five grounded infrastructure vignettes — battery storage, air-capture contactor, ammonia plant, solar field, and solid-state cell — connected by a quiet indigo verification line.',
   'from-predicted-crystal-to-commercial-cell':
     'From bits to atoms: a bold indigo ribbon crossing from abstract structure toward makeable hardware.',
   'investing-in-the-trust-layer':
@@ -107,13 +107,13 @@ const HERO_CAPTIONS = {
   'the-order-is-right-the-size-is-wrong':
     'The error field, drawn by the front door’s live instrument in its ∇ᵧE focus — each comet a model’s dominant error direction, computed from the committed benchmark data.',
   'the-trust-layer':
-    'The instrument on the front door: the hyper-ribbon and one cavity of MOF-5, drawn live from committed data.',
+    'A load-bearing civic bridge whose hidden indigo layer is made of measurement, evidence, and verification modules: trust as literal infrastructure.',
   'rhizo-non-co2-climate-forcers-lean':
     'The Lupine Rhizo build status: 289 theorems, zero sorry, with non-CO₂ climate forcers now machine-checked in Lean 4.',
   'lupi-hfc-refrigerant-research-payloads':
-    'R32 refrigerant liquid at 273 K in the Lupi viewer, streamed with full per-atom research payload and temperature-profile sidecars.',
+    'A physical refrigeration loop — compressor, heat exchanger, and sealed refrigerant circuit — with indigo measurement traces and no readable interface text.',
   'the-savings-stack':
-    'A dawn landscape in indigo duotone — wind turbines, grid storage, and a luminous river linking them: what accelerated materials discovery is for. The Savings Stack booklet, free download.',
+    'Many pale compute lanes converging into a compact shared evaluation backbone that feeds several materials programs: reuse instead of brute force.',
 };
 
 const MARK_SVG = `<svg viewBox="100 44 312 440" fill="none" aria-hidden="true">

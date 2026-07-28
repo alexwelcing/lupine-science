@@ -56,6 +56,8 @@ I'd want these five caveats attached to any external use:
 
 The [BarrierTransfer theorem family](https://library.lupine.science/#/read/z1-union-anchor-economics) is machine-checked in Lean 4: the T1 wander law, the same-extrema identity, the sparse-anchor law (sparse ≤ dense), the union law (extrema-covered sample sets are exactly dense), the kinetic corollary (rates bounded by exp(wander/kT)), and the coverage bound (deficit ≤ 2·L·d). The pilot's protocol now has a proved skeleton. The mechanism note is filed [here](https://library.lupine.science/#/read/t1-wander-mechanism) — with the candidate next theorem, a saddle-metallicity gate, inside.
 
+![A provenance corridor of sealed sample panels, compute receipts, and reproduced checkpoints leading into the de-brief table](images/z1-union-debrief-inline-03--retry-1.jpg)
+
 ## The questions for our conversation
 
 1. Commission a **longer-path panel** (the real sparsity test), or first re-attack the **deferred big-7** at adopted settings (now plausibly ~2–4 h/path locally)?
@@ -63,6 +65,8 @@ The [BarrierTransfer theorem family](https://library.lupine.science/#/read/z1-un
 3. Characterize the **mace-small / mace-mpa-0 guidance misses** (which chemistries) before anyone quotes 6.8 meV.
 4. **Wavefunction reuse between neighboring anchors** — an unclaimed 20–33% lever the literature review surfaced; implement before the next campaign?
 5. Z2: the Tiwari fix failed review twice — small physics fix; do I take it directly, or leave it with the team?
+
+![A next-campaign staging area: reusable anchors and preserved evidence supporting a smaller, more focused solid-state battery experiment](images/z1-union-debrief-spread--retry-1.jpg)
 
 ## Resources
 
