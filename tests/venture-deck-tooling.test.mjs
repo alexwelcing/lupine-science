@@ -29,11 +29,11 @@ function workspace() {
   };
 }
 
-function deckHtml({ slides = 12, overflow = false, overlap = false, boxOverlapOnly = false, externalUrl = '' } = {}) {
+function deckHtml({ slides = 12, overflow = false, overflowSlide = 0, overlap = false, boxOverlapOnly = false, externalUrl = '' } = {}) {
   const sections = Array.from({ length: slides }, (_, index) => `
     <section class="slide">
       <h1>Slide ${index + 1}</h1>
-      ${index === 0 && overflow ? '<div style="width:1400px">overflow</div>' : ''}
+      ${index === overflowSlide && overflow ? '<div style="width:1400px">overflow</div>' : ''}
       ${index === 0 && overlap ? '<p data-fit style="position:absolute;left:40px;top:120px;width:300px;height:100px">This long fitted sentence reaches beneath the covering asset.</p><div class="deck-asset" style="position:absolute;left:200px;top:120px;width:200px;height:100px"></div>' : ''}
       ${index === 0 && boxOverlapOnly ? '<p data-fit style="position:absolute;left:40px;top:120px;width:300px;height:100px">Short text.</p><div class="deck-asset" style="position:absolute;left:300px;top:120px;width:200px;height:100px"></div>' : ''}
       ${index === 0 && externalUrl ? `<img src="${externalUrl}" alt="remote">` : ''}
@@ -147,7 +147,16 @@ describe('venture deck render tooling', () => {
     const files = workspace();
     fs.writeFileSync(files.htmlPath, deckHtml({ overflow: true }));
     await assert.rejects(validateDeckHtml({ htmlPath: files.htmlPath }), /overflow detected on slide 1/);
-    assert.match(fs.readFileSync(path.join(ROOT, 'scripts/build-venture-deck.mjs'), 'utf8'), /await validateDeckHtml\(/);
+    assert.match(fs.readFileSync(path.join(ROOT, 'scripts/build-venture-deck.mjs'), 'utf8'), /await validateDeckHtml\(\{[^}]*media: 'screen'/);
+  });
+
+  it('activates and validates every slide hidden by the interactive screen layout', async () => {
+    const files = workspace();
+    const interactiveDeck = deckHtml({ overflow: true, overflowSlide: 1 })
+      .replace('.slide { width:', '.slide { display: none; width:')
+      .replace('</style>', '.slide.is-active { display: block; }</style>');
+    fs.writeFileSync(files.htmlPath, interactiveDeck);
+    await assert.rejects(validateDeckHtml({ htmlPath: files.htmlPath, media: 'screen' }), /overflow detected on slide 2/);
   });
 
   it('cleans only validator-generated QA images and preserves immutable evidence', () => {

@@ -96,13 +96,19 @@ async function inspectRenderedDeck(page, slideSelector) {
     const slides = [...document.querySelectorAll(selector)];
     const overflowIssues = [];
     const overlapIssues = [];
+    const activeStates = slides.map((slide) => slide.classList.contains('is-active'));
+    const inlineDisplays = slides.map((slide) => slide.style.display);
     for (const [index, slide] of slides.entries()) {
+      slides.forEach((candidate, candidateIndex) => candidate.classList.toggle('is-active', candidateIndex === index));
+      if (getComputedStyle(slide).display === 'none') slide.style.display = 'block';
       const candidates = [slide, ...slide.querySelectorAll('*')];
       for (const element of candidates) {
         const style = getComputedStyle(element);
         if (style.display === 'none' || style.visibility === 'hidden') continue;
-        const horizontal = element.scrollWidth > element.clientWidth + 1;
-        const vertical = element.scrollHeight > element.clientHeight + 1;
+        const clipsHorizontally = element === slide || style.overflowX !== 'visible';
+        const clipsVertically = element === slide || style.overflowY !== 'visible';
+        const horizontal = clipsHorizontally && element.scrollWidth > element.clientWidth + 1;
+        const vertical = clipsVertically && element.scrollHeight > element.clientHeight + 1;
         if (!horizontal && !vertical) continue;
         const label = element === slide
           ? 'slide'
@@ -137,6 +143,10 @@ async function inspectRenderedDeck(page, slideSelector) {
         }
       }
     }
+    slides.forEach((slide, index) => {
+      slide.classList.toggle('is-active', activeStates[index]);
+      slide.style.display = inlineDisplays[index];
+    });
     return {
       slideCount: slides.length,
       slideCountValid: slides.length >= minimum && slides.length <= maximum,
@@ -146,14 +156,15 @@ async function inspectRenderedDeck(page, slideSelector) {
   }, { selector: slideSelector, minimum: MIN_SLIDES, maximum: MAX_SLIDES });
 }
 
-async function inspectHtml({ htmlPath, slideSelector = '.slide', webRoot }) {
+async function inspectHtml({ htmlPath, slideSelector = '.slide', webRoot, media = 'screen', viewport = VIEWPORT }) {
   assertInputPaths({ htmlPath, pdfPath: 'not-used' });
   const { server, url } = await startStaticServer(htmlPath, webRoot);
   const allowedOrigin = new URL(url).origin;
   let browser;
   try {
     browser = await chromium.launch({ headless: true });
-    const page = await browser.newPage({ viewport: VIEWPORT, deviceScaleFactor: 1 });
+    const page = await browser.newPage({ viewport, deviceScaleFactor: 1 });
+    await page.emulateMedia({ media });
     const externalRequests = [];
     await page.route('**/*', (route) => {
       const requestUrl = route.request().url();
@@ -193,8 +204,8 @@ async function closeInspection(report) {
   await new Promise((resolve) => report.server.close(resolve));
 }
 
-export async function validateDeckHtml({ htmlPath, slideSelector = '.slide', webRoot }) {
-  const report = await inspectHtml({ htmlPath, slideSelector, webRoot });
+export async function validateDeckHtml({ htmlPath, slideSelector = '.slide', webRoot, media = 'screen', viewport = VIEWPORT }) {
+  const report = await inspectHtml({ htmlPath, slideSelector, webRoot, media, viewport });
   try {
     assertBrowserChecks(report);
     return {

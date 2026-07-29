@@ -92,7 +92,7 @@ async function main() {
   copy(LANDING, PUBLIC_LANDING);
   copy(EVIDENCE, path.join(PUBLIC_VENTURE, 'evidence-manifest.json'));
   copy(ASSET_LOCK, path.join(PUBLIC_VENTURE, 'asset-lock.json'));
-  await validateDeckHtml({ htmlPath: PUBLIC_DECK, webRoot: PUBLIC });
+  await validateDeckHtml({ htmlPath: PUBLIC_DECK, webRoot: PUBLIC, media: 'screen', viewport: { width: 1920, height: 1080 } });
 
   const { server, origin } = await startServer();
   let browser;
