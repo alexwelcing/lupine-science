@@ -7,7 +7,7 @@ import { spawnSync } from 'node:child_process';
 import { afterEach, describe, it } from 'node:test';
 import { PDFDocument } from 'pdf-lib';
 import { chromium } from 'playwright-core';
-import { assertSupportedSlideCount, renderDeckPdf, validateClosureCertification, validateDeckArtifacts } from '../scripts/venture-deck-tools.mjs';
+import { assertSupportedSlideCount, removeGeneratedQaImages, renderDeckPdf, validateClosureCertification, validateDeckArtifacts, validateDeckHtml } from '../scripts/venture-deck-tools.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const PROJECT = path.join(ROOT, 'media/projects/venture-deck');
@@ -141,6 +141,25 @@ describe('venture deck render tooling', () => {
     assert.throws(() => assertSupportedSlideCount(11), /slide count 11 is outside allowed range 12-14/);
     assert.throws(() => assertSupportedSlideCount(15), /slide count 15 is outside allowed range 12-14/);
     assert.match(fs.readFileSync(path.join(ROOT, 'scripts/build-venture-deck.mjs'), 'utf8'), /assertSupportedSlideCount\(slideCount\)/);
+  });
+
+  it('runs overflow and overlap preflight in the canonical builder before PDF rendering', async () => {
+    const files = workspace();
+    fs.writeFileSync(files.htmlPath, deckHtml({ overflow: true }));
+    await assert.rejects(validateDeckHtml({ htmlPath: files.htmlPath }), /overflow detected on slide 1/);
+    assert.match(fs.readFileSync(path.join(ROOT, 'scripts/build-venture-deck.mjs'), 'utf8'), /await validateDeckHtml\(/);
+  });
+
+  it('cleans only validator-generated QA images and preserves immutable evidence', () => {
+    const files = workspace();
+    const generatedSlide = path.join(files.directory, 'slide-01.png');
+    const generatedSheet = path.join(files.directory, 'contact-sheet.png');
+    const acceptanceSheet = path.join(files.directory, 'pdf-contact-sheet-final-t_9972ef40.png');
+    for (const file of [generatedSlide, generatedSheet, acceptanceSheet]) fs.writeFileSync(file, file);
+    removeGeneratedQaImages(files.directory);
+    assert.equal(fs.existsSync(generatedSlide), false);
+    assert.equal(fs.existsSync(generatedSheet), false);
+    assert.equal(fs.existsSync(acceptanceSheet), true);
   });
 
   it('fails when any slide content overflows', async () => {

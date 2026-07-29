@@ -6,7 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
 import { PDFDocument, PDFName } from 'pdf-lib';
-import { assertSupportedSlideCount } from './venture-deck-tools.mjs';
+import { assertSupportedSlideCount, validateDeckHtml } from './venture-deck-tools.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PROJECT = path.join(ROOT, 'media/projects/venture-deck');
@@ -92,6 +92,7 @@ async function main() {
   copy(LANDING, PUBLIC_LANDING);
   copy(EVIDENCE, path.join(PUBLIC_VENTURE, 'evidence-manifest.json'));
   copy(ASSET_LOCK, path.join(PUBLIC_VENTURE, 'asset-lock.json'));
+  await validateDeckHtml({ htmlPath: PUBLIC_DECK, webRoot: PUBLIC });
 
   const { server, origin } = await startServer();
   let browser;

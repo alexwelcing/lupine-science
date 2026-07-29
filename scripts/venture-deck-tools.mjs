@@ -17,6 +17,15 @@ export function assertSupportedSlideCount(slideCount) {
   }
 }
 
+export function removeGeneratedQaImages(qaDirectory) {
+  if (!fs.existsSync(qaDirectory)) return;
+  for (const entry of fs.readdirSync(qaDirectory, { withFileTypes: true })) {
+    if (entry.isFile() && /^(?:slide-\d{2}|contact-sheet)\.png$/.test(entry.name)) {
+      fs.unlinkSync(path.join(qaDirectory, entry.name));
+    }
+  }
+}
+
 const MIME = new Map([
   ['.css', 'text/css; charset=utf-8'],
   ['.html', 'text/html; charset=utf-8'],
@@ -182,6 +191,21 @@ async function closeInspection(report) {
   await report.page.close();
   await report.browser.close();
   await new Promise((resolve) => report.server.close(resolve));
+}
+
+export async function validateDeckHtml({ htmlPath, slideSelector = '.slide', webRoot }) {
+  const report = await inspectHtml({ htmlPath, slideSelector, webRoot });
+  try {
+    assertBrowserChecks(report);
+    return {
+      slideCount: report.slideCount,
+      externalRequests: report.externalRequests,
+      overflowIssues: report.overflowIssues,
+      overlapIssues: report.overlapIssues,
+    };
+  } finally {
+    await closeInspection(report);
+  }
 }
 
 async function normalizePdf(pdfPath) {

@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
 import { PDFDocument } from 'pdf-lib';
 import sharp from 'sharp';
-import { validateClosureCertification } from './venture-deck-tools.mjs';
+import { removeGeneratedQaImages, validateClosureCertification } from './venture-deck-tools.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PROJECT = path.join(ROOT, 'media/projects/venture-deck');
@@ -266,9 +266,7 @@ async function browserChecks() {
     }
 
     fs.mkdirSync(QA, { recursive: true });
-    for (const entry of fs.readdirSync(QA, { withFileTypes: true })) {
-      if (entry.isFile() && path.extname(entry.name).toLowerCase() === '.png') fs.unlinkSync(path.join(QA, entry.name));
-    }
+    removeGeneratedQaImages(QA);
     await page.setViewportSize({ width: 1920, height: 1080 });
     await page.addStyleTag({ content: '.controls{display:none!important}' });
     for (let index = 0; index < 13; index++) {
