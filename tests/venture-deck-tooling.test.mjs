@@ -7,7 +7,7 @@ import { spawnSync } from 'node:child_process';
 import { afterEach, describe, it } from 'node:test';
 import { PDFDocument } from 'pdf-lib';
 import { chromium } from 'playwright-core';
-import { renderDeckPdf, validateClosureCertification, validateDeckArtifacts } from '../scripts/venture-deck-tools.mjs';
+import { assertSupportedSlideCount, renderDeckPdf, validateClosureCertification, validateDeckArtifacts } from '../scripts/venture-deck-tools.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const PROJECT = path.join(ROOT, 'media/projects/venture-deck');
@@ -133,6 +133,14 @@ describe('venture deck render tooling', () => {
 
     await assert.rejects(renderDeckPdf(files), /slide count 11 is outside allowed range 12-14/);
     assert.equal(fs.existsSync(files.pdfPath), false);
+  });
+
+  it('shares the 12-14 slide-count gate with the canonical builder', () => {
+    assert.doesNotThrow(() => assertSupportedSlideCount(12));
+    assert.doesNotThrow(() => assertSupportedSlideCount(14));
+    assert.throws(() => assertSupportedSlideCount(11), /slide count 11 is outside allowed range 12-14/);
+    assert.throws(() => assertSupportedSlideCount(15), /slide count 15 is outside allowed range 12-14/);
+    assert.match(fs.readFileSync(path.join(ROOT, 'scripts/build-venture-deck.mjs'), 'utf8'), /assertSupportedSlideCount\(slideCount\)/);
   });
 
   it('fails when any slide content overflows', async () => {
@@ -305,5 +313,11 @@ describe('venture deck render tooling', () => {
   it('derives the canonical build-manifest slide count rather than hardcoding it', () => {
     const builder = fs.readFileSync(path.join(ROOT, 'scripts/build-venture-deck.mjs'), 'utf8');
     assert.doesNotMatch(builder, /slide_count:\s*13\b/);
+  });
+
+  it('regenerates venture artifacts before the site build packages public output', () => {
+    const scripts = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')).scripts;
+    assert.match(scripts.build, /^npm run venture:build && /);
+    assert.ok(scripts.build.indexOf('npm run venture:build') < scripts.build.indexOf('node scripts/build-headers.mjs'));
   });
 });

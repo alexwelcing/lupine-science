@@ -6,6 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
 import { PDFDocument, PDFName } from 'pdf-lib';
+import { assertSupportedSlideCount } from './venture-deck-tools.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PROJECT = path.join(ROOT, 'media/projects/venture-deck');
@@ -86,6 +87,7 @@ async function main() {
   fs.mkdirSync(PUBLIC_VENTURE, { recursive: true });
   const html = renderDeckHtml();
   const slideCount = [...html.matchAll(/<section class="slide(?: is-active)?"(?=\s|>)/g)].length;
+  assertSupportedSlideCount(slideCount);
   fs.writeFileSync(PUBLIC_DECK, html);
   copy(LANDING, PUBLIC_LANDING);
   copy(EVIDENCE, path.join(PUBLIC_VENTURE, 'evidence-manifest.json'));

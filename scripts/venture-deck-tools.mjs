@@ -11,6 +11,12 @@ const PDF_WIDTH_POINTS = 960;
 const PDF_HEIGHT_POINTS = 540;
 const FIXED_DATE = new Date('2026-07-28T00:00:00.000Z');
 
+export function assertSupportedSlideCount(slideCount) {
+  if (slideCount < MIN_SLIDES || slideCount > MAX_SLIDES) {
+    throw new Error(`slide count ${slideCount} is outside allowed range ${MIN_SLIDES}-${MAX_SLIDES}`);
+  }
+}
+
 const MIME = new Map([
   ['.css', 'text/css; charset=utf-8'],
   ['.html', 'text/html; charset=utf-8'],
@@ -160,9 +166,7 @@ async function inspectHtml({ htmlPath, slideSelector = '.slide', webRoot }) {
 }
 
 function assertBrowserChecks(report) {
-  if (!report.slideCountValid) {
-    throw new Error(`slide count ${report.slideCount} is outside allowed range ${MIN_SLIDES}-${MAX_SLIDES}`);
-  }
+  assertSupportedSlideCount(report.slideCount);
   if (report.externalRequests.length) {
     throw new Error(`external runtime request detected: ${report.externalRequests.join(', ')}`);
   }
