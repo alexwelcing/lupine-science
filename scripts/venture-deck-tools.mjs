@@ -309,12 +309,24 @@ export async function validateDeckArtifacts({ htmlPath, pdfPath, slideSelector =
 
 export function validateClosureCertification({ baseline, aggregate, evidence }) {
   const errors = [];
+  const baselineRecords = Array.isArray(baseline?.images?.records) ? baseline.images.records : [];
+  const acceptedBaselineRecords = baselineRecords.filter((record) => record.final_status === 'accepted');
+  const acceptedBaselineAssetIds = acceptedBaselineRecords.map((record) => record.asset_id);
   const children = Array.isArray(aggregate?.child_manifests) ? aggregate.child_manifests : [];
   const assets = Array.isArray(aggregate?.assets) ? aggregate.assets : [];
   const outputHashes = assets.map((asset) => asset.output_sha256);
 
   if (baseline?.images?.accepted !== 33 || baseline?.videos?.accepted !== 5) {
     errors.push('baseline certification must contain 33 accepted stills and five separately accepted films');
+  }
+  if (acceptedBaselineRecords.length !== 33) {
+    errors.push('baseline accepted-still records must reconcile to exactly 33 accepted stills');
+  }
+  if (new Set(acceptedBaselineAssetIds).size !== acceptedBaselineAssetIds.length) {
+    errors.push('unique baseline accepted-still identities are required');
+  }
+  if (acceptedBaselineAssetIds.some((assetId) => typeof assetId !== 'string' || assetId.trim() === '')) {
+    errors.push('non-empty baseline accepted-still identities are required');
   }
   if (aggregate?.mechanical_status !== 'pass' || aggregate?.composition_status !== 'pass') {
     errors.push('aggregate mechanical and composition certification status must pass');

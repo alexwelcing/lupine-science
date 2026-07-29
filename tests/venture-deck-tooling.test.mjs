@@ -321,6 +321,39 @@ describe('venture deck render tooling', () => {
     assert.match(validateClosureCertification({ baseline, aggregate: failed, evidence }).join('\n'), /child certification status/i);
   });
 
+  it('rejects closure evidence when accepted baseline still records do not reconcile with the summary', () => {
+    const evidence = JSON.parse(fs.readFileSync(path.join(PROJECT, 'evidence-manifest.json'), 'utf8'));
+    const baseline = JSON.parse(fs.readFileSync(path.join(ROOT, evidence.sources['S-STILL-BASELINE'].path), 'utf8'));
+    const aggregate = JSON.parse(fs.readFileSync(path.join(ROOT, evidence.sources['S-WAVE4-AGGREGATE'].path), 'utf8'));
+    const acceptedRecord = baseline.images.records.find((record) => record.final_status === 'accepted');
+
+    acceptedRecord.final_status = 'rejected';
+
+    assert.match(validateClosureCertification({ baseline, aggregate, evidence }).join('\n'), /baseline accepted-still records/i);
+  });
+
+  it('rejects closure evidence when accepted baseline still identities are duplicated', () => {
+    const evidence = JSON.parse(fs.readFileSync(path.join(PROJECT, 'evidence-manifest.json'), 'utf8'));
+    const baseline = JSON.parse(fs.readFileSync(path.join(ROOT, evidence.sources['S-STILL-BASELINE'].path), 'utf8'));
+    const aggregate = JSON.parse(fs.readFileSync(path.join(ROOT, evidence.sources['S-WAVE4-AGGREGATE'].path), 'utf8'));
+    const acceptedRecords = baseline.images.records.filter((record) => record.final_status === 'accepted');
+
+    acceptedRecords[1].asset_id = acceptedRecords[0].asset_id;
+
+    assert.match(validateClosureCertification({ baseline, aggregate, evidence }).join('\n'), /unique baseline accepted-still identities/i);
+  });
+
+  it('rejects closure evidence when an accepted baseline still identity is empty', () => {
+    const evidence = JSON.parse(fs.readFileSync(path.join(PROJECT, 'evidence-manifest.json'), 'utf8'));
+    const baseline = JSON.parse(fs.readFileSync(path.join(ROOT, evidence.sources['S-STILL-BASELINE'].path), 'utf8'));
+    const aggregate = JSON.parse(fs.readFileSync(path.join(ROOT, evidence.sources['S-WAVE4-AGGREGATE'].path), 'utf8'));
+    const acceptedRecord = baseline.images.records.find((record) => record.final_status === 'accepted');
+
+    acceptedRecord.asset_id = '   ';
+
+    assert.match(validateClosureCertification({ baseline, aggregate, evidence }).join('\n'), /non-empty baseline accepted-still identities/i);
+  });
+
   it('routes every supported final build entry point to byte-identical canonical PDF and manifest outputs', () => {
     const entryPoints = [
       { label: 'package script', command: 'npm', args: ['run', 'venture:build'] },
@@ -345,7 +378,7 @@ describe('venture deck render tooling', () => {
 
   it('regenerates venture artifacts before the site build packages public output', () => {
     const scripts = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')).scripts;
-    assert.match(scripts.build, /^npm run venture:build && /);
-    assert.ok(scripts.build.indexOf('npm run venture:build') < scripts.build.indexOf('node scripts/build-headers.mjs'));
+    assert.match(scripts.build, /^npm run venture:build && npm run venture:validate && /);
+    assert.ok(scripts.build.indexOf('npm run venture:validate') < scripts.build.indexOf('node scripts/build-headers.mjs'));
   });
 });
