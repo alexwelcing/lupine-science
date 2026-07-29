@@ -1,0 +1,186 @@
+{
+  "schema_version": "1.0",
+  "deck": "Lupine Science venture deck",
+  "slide_count": 13,
+  "policy": {
+    "asset_source": "deterministic Wave-4 only",
+    "generative_spend": "prohibited",
+    "fallback_assets": "prohibited",
+    "baked_text": "prohibited",
+    "render_mode": "contain; no recolor, filter, gradient mask, shadow, or dark field"
+  },
+  "source_manifest": "public/brand-assets/campaign-2026-07-27/wave-4/aggregate-manifest.json",
+  "source_manifest_sha256": "ca6805dfb4324f0c0f6ebb5504503eb13bc7a3e7de70cd08f0623436b70e9245",
+  "source_manifest_asset_count": 67,
+  "source_manifest_mechanical_status": "pass",
+  "source_manifest_composition_status": "pass",
+  "allowed_palette": [
+    "#faf9f6",
+    "#16171d",
+    "#3d4db3",
+    "#8a5e1f"
+  ],
+  "wave4_asset_palette": [
+    "#faf9f6",
+    "#16171d",
+    "#3d4db3"
+  ],
+  "assets": [
+    {
+      "slide": 1,
+      "asset_id": "SW1-B6-A02-01",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A02-01--specialized-test-bay-sequence.png",
+      "sha256": "999d7c20e337d5dacf6ebd2d98d159ca89eb748e525fa2d05556014543e98ccc",
+      "width": 1536,
+      "height": 864,
+      "specific_physical_scene": "A row of four increasingly specialized test bays: bulk compression, defect scanning, reaction vessel, and interface microscopy, receding across a bare laboratory floor.",
+      "single_mechanism": "each material environment is routed to the level of test equipment its complexity requires",
+      "mechanical_status": "pass",
+      "composition_status": "pass"
+    },
+    {
+      "slide": 2,
+      "asset_id": "SW1-B1-A02-01",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A02-01--laboratory-apparatus.png",
+      "sha256": "3ac616f9a19cbd14d7299b7ac1644543c2dbba9f13df0a98e3b30273d0cfbcf3",
+      "width": 1536,
+      "height": 864,
+      "specific_physical_scene": "A long laboratory bench with many empty ceramic sample boats entering a small tube furnace and only one finished electrolyte pellet resting in a coin-cell test clamp.",
+      "single_mechanism": "the narrow furnace-to-test route makes the physical synthesis bottleneck visible",
+      "mechanical_status": "pass",
+      "composition_status": "pass"
+    },
+    {
+      "slide": 3,
+      "asset_id": "SW1-B5-A02-02",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A02-02--rank-agreement-pedestal-rows.png",
+      "sha256": "ac6b54be64233ddb7cb8cc7477631a663f736e7f98b87246e498740aa06e97be",
+      "width": 1536,
+      "height": 1024,
+      "specific_physical_scene": "Two parallel rows of four unmarked engineering coupons on stepped mechanical pedestals; both rows preserve the same order while the pedestal heights differ.",
+      "single_mechanism": "the pedestal ordering shows rank agreement despite mismatched measured magnitude",
+      "mechanical_status": "pass",
+      "composition_status": "pass"
+    },
+    {
+      "slide": 4,
+      "asset_id": "SW1-B5-A01-02",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A01-02--interface-probe-correction-band.png",
+      "sha256": "044233bb5fd8b017b57abeb5fea47b95e67b1674523f0cf3109f11b84b1bfd7c",
+      "width": 1536,
+      "height": 1024,
+      "specific_physical_scene": "A dense row of identical displacement probes scanning across one ceramic-to-metal interface in a practical cell cross-section.",
+      "single_mechanism": "the local probe readings join into one smooth indigo correction band along the interface",
+      "mechanical_status": "pass",
+      "composition_status": "pass"
+    },
+    {
+      "slide": 5,
+      "asset_id": "SW1-B4-A04-04",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A04-04--evidence-gate-routing-bench.png",
+      "sha256": "c2e032115c877d19d031796c7e7e491afa1d53e8f9f1b627cc334d00b8131878",
+      "width": 1536,
+      "height": 1024,
+      "specific_physical_scene": "A risk-routing bench where candidate trays approach one mechanical evidence gate; several stop in side bays and one continues toward a small pilot reactor.",
+      "single_mechanism": "the evidence gate routes insufficient candidates aside before pilot equipment",
+      "mechanical_status": "pass",
+      "composition_status": "pass"
+    },
+    {
+      "slide": 6,
+      "asset_id": "SW1-B6-A01-01",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A01-01--shared-reference-diffusion-rigs.png",
+      "sha256": "0bc23a01a5ded7390468c36d83af8af9e8da9925d9688f8a3829169b3c8b5ca7",
+      "width": 1536,
+      "height": 864,
+      "specific_physical_scene": "A row of solid-electrolyte coupons mounted in identical diffusion rigs, with a sparse set of shared reference pins aligned across all rigs.",
+      "single_mechanism": "the shared reference pins anchor comparison of migration barriers across the coupon panel",
+      "mechanical_status": "pass",
+      "composition_status": "pass"
+    },
+    {
+      "slide": 7,
+      "asset_id": "SW1-B6-A01-02",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A01-02--union-route-shared-stations.png",
+      "sha256": "524c1a38324b32c213a25f1078143c180f4af99e4f8560ac1034706d82d35a1f",
+      "width": 1536,
+      "height": 1024,
+      "specific_physical_scene": "A broad array of untouched electrolyte coupons surrounding a compact central route through three shared physical diffusion-test stations.",
+      "single_mechanism": "the union route reuses shared stations instead of repeating every possible barrier test",
+      "mechanical_status": "pass",
+      "composition_status": "pass"
+    },
+    {
+      "slide": 8,
+      "asset_id": "SW1-B4-A04-02",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A04-02--calibration-traceability-chain.png",
+      "sha256": "e51ee4fe1704c2961afea9672a70e067c14f5e4b9641016aaa8d86983363b3dd",
+      "width": 1536,
+      "height": 1024,
+      "specific_physical_scene": "A calibration artifact in a sealed cradle connected by an unbroken physical chain of couplers to a specimen archive and a test instrument.",
+      "single_mechanism": "the coupler chain makes every instrument result traceable to the calibration artifact",
+      "mechanical_status": "pass",
+      "composition_status": "pass"
+    },
+    {
+      "slide": 9,
+      "asset_id": "SW1-B3-A01-04",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B3-A01-04--calibrated-holder-filtration-skid.png",
+      "sha256": "0026849a0e0e2c801a86105de52120c81237fddf66641fa031f0b52b2f96dea8",
+      "width": 1536,
+      "height": 1024,
+      "specific_physical_scene": "A central instrument bench with one calibrated sample holder connected by a restrained indigo line to a compact water-filtration pilot skid across the room.",
+      "single_mechanism": "the calibrated holder transfers a measured material result into one filtration pilot decision",
+      "mechanical_status": "pass",
+      "composition_status": "pass"
+    },
+    {
+      "slide": 10,
+      "asset_id": "SW1-B4-A01-03",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A01-03--sealed-evidence-table.png",
+      "sha256": "9794f6d4bbd6883b2448a50e7e22aca6aaf21a64dde9b4bb43023bc94931c972",
+      "width": 1536,
+      "height": 1024,
+      "specific_physical_scene": "A low evidence table holding three unmarked sample blocks in fitted trays, each tray linked by a tamper-evident physical seal to one nearby instrument socket.",
+      "single_mechanism": "the fitted tray and seal preserve sample provenance between storage and measurement",
+      "mechanical_status": "pass",
+      "composition_status": "pass"
+    },
+    {
+      "slide": 11,
+      "asset_id": "SW1-B6-A02-04",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A02-04--phased-evidence-test-hall.png",
+      "sha256": "1dfe1d7bd2e5b5c75b941791c54b41bea7c250712be1a1e1d2dc50ede819364f",
+      "width": 1536,
+      "height": 1024,
+      "specific_physical_scene": "A phased research hall with a simple coupon rack nearest the viewer and progressively enclosed thermal, reaction, and interface test bays farther away.",
+      "single_mechanism": "samples advance only when each increasingly specialized test bay supplies evidence",
+      "mechanical_status": "pass",
+      "composition_status": "pass"
+    },
+    {
+      "slide": 12,
+      "asset_id": "SW1-B5-A04-04",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A04-04--magnetic-specimen-abstention-tray.png",
+      "sha256": "4b53989ed5655f8c9895fe910212267a2160c203ecce03628574a9fd84e71217",
+      "width": 1536,
+      "height": 1024,
+      "specific_physical_scene": "A magnetic specimen rests in a sealed side tray outside a nonmagnetic correction fixture whose empty cradle is clearly incompatible.",
+      "single_mechanism": "the workflow abstains by keeping unsupported magnetic material outside the correction fixture",
+      "mechanical_status": "pass",
+      "composition_status": "pass"
+    },
+    {
+      "slide": 13,
+      "asset_id": "SW1-B4-A04-01",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A04-01--gated-pilot-pipeline.png",
+      "sha256": "f505cc0182c1c943a90d213288d1224c545ed2d70606f75895f600112d95c5b4",
+      "width": 1536,
+      "height": 864,
+      "specific_physical_scene": "A narrow pilot pipeline from powder hopper through sintering furnace to a pressure-test fixture, with one inspection gate interrupting the route before scale-up equipment.",
+      "single_mechanism": "the inspection gate admits only measured samples to the pilot press",
+      "mechanical_status": "pass",
+      "composition_status": "pass"
+    }
+  ]
+}

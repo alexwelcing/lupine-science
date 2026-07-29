@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "build": "scripts/build-venture-deck.mjs",
+  "fixed_metadata_date": "2026-07-28T00:00:00.000Z",
+  "slide_count": 13,
+  "inputs": {
+    "html_template": {
+      "path": "media/projects/venture-deck/index.html",
+      "sha256": "b6d1b9ced5263bc5bd8f2d0917450cf45e0a13d63fbd21c59be8d2e60014865e"
+    },
+    "narrative": {
+      "path": "media/projects/venture-deck/narrative-script.md",
+      "sha256": "1e8f35388e475f20594fb886df57619903879464043283028460f086ec427f36"
+    },
+    "evidence_manifest": {
+      "path": "media/projects/venture-deck/evidence-manifest.json",
+      "sha256": "31ae280842a5d41134de937166dab2cd74a7b3564ba09ca56b09e3029fd12d00"
+    },
+    "asset_lock": {
+      "path": "media/projects/venture-deck/asset-lock.json",
+      "sha256": "a8416820a8f12b2bfd3cfdb8122f32c0516885a81e0f6e6d5bea7c3e0cae1d89"
+    },
+    "art_direction": {
+      "path": "media/projects/venture-deck/art-direction.md",
+      "sha256": "ef5c0b579f3a30e4abe597792a4ea2655441bc504ab291feef0e15b412018912"
+    }
+  },
+  "outputs": {
+    "html": {
+      "path": "public/venture/deck.html",
+      "sha256": "00420814760132d0e706d102a4f77a11e2356e7b7eed01feb14baecf9c063d13"
+    },
+    "pdf": {
+      "path": "media/projects/venture-deck/lupine-science-venture-deck.pdf",
+      "sha256": "9b2074556f758f0bdbf4e23a36706c119d0fea71f143d01f06407b3ac3322efa",
+      "bytes": 414318,
+      "pages": 13
+    },
+    "public_pdf": {
+      "path": "public/venture/lupine-science-venture-deck.pdf",
+      "sha256": "9b2074556f758f0bdbf4e23a36706c119d0fea71f143d01f06407b3ac3322efa",
+      "bytes": 414318,
+      "pages": 13
+    },
+    "landing": {
+      "path": "public/venture/index.html",
+      "sha256": "85b191ec1213eae35a13effbf5de7a79fe583ebf9c9d1c1885679f4443c9c208"
+    }
+  }
+}
