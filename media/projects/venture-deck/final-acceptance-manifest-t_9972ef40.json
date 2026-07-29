@@ -1,0 +1,299 @@
+{
+  "schema_version": "1.0",
+  "manifest_type": "venture_deck_final_acceptance",
+  "task_id": "t_9972ef40",
+  "parent_task_id": "t_2c7a1366",
+  "remediation_tasks": [
+    "t_d56cbe59",
+    "t_e89a73fb",
+    "t_f0bda334"
+  ],
+  "generated_at": "2026-07-29T02:08:46.011773+00:00",
+  "verdict": "PASS",
+  "approval_scope": "working-tree artifacts in canonical repository; no deployment performed",
+  "repository": {
+    "root": "/home/alex/Dev/lupine/lupine-science",
+    "git_head": "bff2dd88956c2ed19ffd70d9c2696899e81a219e",
+    "dirty_path_count": 85
+  },
+  "authority": {
+    "cost_clarification": "Director comment on t_2c7a1366 confirms canonical $14.65; bare 4.65 was a substring artifact.",
+    "still_closure": "t_c2a1f8e3 final PASS: 33 certified baseline stills + 67 independently certified Wave-4 replacements = 100/100 unique still slots; five certified films excluded from denominator."
+  },
+  "requirements": [
+    {
+      "id": "slide_count",
+      "status": "PASS",
+      "evidence": "13 sequential slides (within 12–14)"
+    },
+    {
+      "id": "aspect_ratio",
+      "status": "PASS",
+      "evidence": "13 PDF pages at 960x540pt; 16:9 HTML stage"
+    },
+    {
+      "id": "self_contained_inline_css",
+      "status": "PASS",
+      "evidence": "validator confirms inline deck CSS/JS and no remote runtime URLs"
+    },
+    {
+      "id": "pdf_page_parity",
+      "status": "PASS",
+      "evidence": "13 HTML slides = 13 PDF pages; project/public PDFs byte-identical"
+    },
+    {
+      "id": "zero_overflow_broken_assets_fake_text",
+      "status": "PASS",
+      "evidence": "all geometry/overlap gates pass at three viewports; 0 broken images; all visible authored copy is live/extractable text; HTML and PDF visual contact sheets PASS"
+    },
+    {
+      "id": "brand_law",
+      "status": "PASS",
+      "evidence": "authored palette restricted to #faf9f6,#16171d,#3d4db3,#8a5e1f; no gradients, shadows, opacity colors, people, stock 3D, neon, or dark fields observed"
+    },
+    {
+      "id": "visible_sources_numerical_claims",
+      "status": "PASS",
+      "evidence": "all rendered claim IDs resolve; source footers visible on slides 1–12; slide 13 contains owner-controlled non-factual ask only; remediation report resolves prior slide 3/10 findings"
+    },
+    {
+      "id": "parent_verified_numbers_only",
+      "status": "PASS",
+      "evidence": "$14.65 retained per canonical source/director clarification; exact 100/100 unique-still closure supported by t_c2a1f8e3; no fabricated commercial numbers"
+    },
+    {
+      "id": "no_retraining_framing",
+      "status": "PASS",
+      "evidence": "slide 4 visibly says No fine-tuning. No retraining.; runtime additive correction framing is explicit"
+    },
+    {
+      "id": "honest_risks",
+      "status": "PASS",
+      "evidence": "slide 12 exact headline: One 30-path panel. One chemistry family. Not peer-reviewed.; five additional limitations visible"
+    },
+    {
+      "id": "owner_decision_ask",
+      "status": "PASS",
+      "evidence": "exactly three visible [OWNER DECISION] fields; no amount, terms, valuation, percentages, or runway fabricated"
+    },
+    {
+      "id": "provenance",
+      "status": "PASS",
+      "evidence": "13/13 locked deterministic Wave-4 assets; 11/11 source hashes; 67-slot closure source lock and 33+67 arithmetic verified"
+    },
+    {
+      "id": "responsive_venture_surface",
+      "status": "PASS",
+      "evidence": "landing links resolve; browser and validator pass 1280x577 regression with stage/control separation"
+    },
+    {
+      "id": "durable_qa_reports",
+      "status": "PASS",
+      "evidence": "three required Markdown reports survived two validation reruns"
+    },
+    {
+      "id": "supported_build_entrypoints",
+      "status": "PASS",
+      "evidence": "tooling regression executes all three supported final entry points and verifies byte-identical PDF + build-manifest integrity"
+    }
+  ],
+  "determinism": {
+    "two_consecutive_canonical_builds_byte_identical": true,
+    "hash_list_pass_1_sha256": "28f53d44fc8914a0ea01df2236a748d7839d2673413e5134be03a18e9320fefe",
+    "hash_list_pass_2_sha256": "28f53d44fc8914a0ea01df2236a748d7839d2673413e5134be03a18e9320fefe",
+    "hash_lists_equal": true
+  },
+  "counts": {
+    "slides": 13,
+    "pdf_pages": 13,
+    "source_locks": 13,
+    "certified_assets": 13,
+    "owner_decision_fields_visible": 3,
+    "qa_slide_pngs": 13
+  },
+  "artifacts": [
+    {
+      "path": "media/projects/venture-deck/deck.html",
+      "sha256": "a6d3faefaa5dfd159ea6f1cf80741e97f06670843303309c24774bf7050f623f",
+      "bytes": 377436
+    },
+    {
+      "path": "public/venture/deck.html",
+      "sha256": "00420814760132d0e706d102a4f77a11e2356e7b7eed01feb14baecf9c063d13",
+      "bytes": 69121
+    },
+    {
+      "path": "media/projects/venture-deck/lupine-science-venture-deck.pdf",
+      "sha256": "9b2074556f758f0bdbf4e23a36706c119d0fea71f143d01f06407b3ac3322efa",
+      "bytes": 414318
+    },
+    {
+      "path": "public/venture/lupine-science-venture-deck.pdf",
+      "sha256": "9b2074556f758f0bdbf4e23a36706c119d0fea71f143d01f06407b3ac3322efa",
+      "bytes": 414318
+    },
+    {
+      "path": "media/projects/venture-deck/evidence-manifest.json",
+      "sha256": "31ae280842a5d41134de937166dab2cd74a7b3564ba09ca56b09e3029fd12d00",
+      "bytes": 39588
+    },
+    {
+      "path": "public/venture/evidence-manifest.json",
+      "sha256": "31ae280842a5d41134de937166dab2cd74a7b3564ba09ca56b09e3029fd12d00",
+      "bytes": 39588
+    },
+    {
+      "path": "media/projects/venture-deck/build-manifest.json",
+      "sha256": "52187170a09aa205e0aa84d93a142867797204353279e35a32313215803dd53c",
+      "bytes": 1794
+    },
+    {
+      "path": "public/venture/build-manifest.json",
+      "sha256": "52187170a09aa205e0aa84d93a142867797204353279e35a32313215803dd53c",
+      "bytes": 1794
+    },
+    {
+      "path": "public/venture/index.html",
+      "sha256": "85b191ec1213eae35a13effbf5de7a79fe583ebf9c9d1c1885679f4443c9c208",
+      "bytes": 5096
+    }
+  ],
+  "qa_evidence": [
+    {
+      "path": "media/projects/venture-deck/qa/independent-claim-audit-t_b3bd6408.md",
+      "sha256": "03ef601888fdba7c2f90aa9ed960434d05ace7559859c7de6c93f7dbca9307f0",
+      "bytes": 13015
+    },
+    {
+      "path": "media/projects/venture-deck/qa/remediation-ledger-t_d56cbe59.md",
+      "sha256": "aec137b90a9849edaa6fa7fbeb82865825732a64529a3600bf28b09b8864f930",
+      "bytes": 4512
+    },
+    {
+      "path": "media/projects/venture-deck/qa/closure-builder-remediation-t_f0bda334.md",
+      "sha256": "c8abf9d6c3e8205351092fe36617402902d11537605f769082968c16b5c7e203",
+      "bytes": 3986
+    },
+    {
+      "path": "media/projects/venture-deck/validation-report.md",
+      "sha256": "d09ba79fd1eec723dc62956e29cd4cc534a80064f678f7bf5b46c698b62d6525",
+      "bytes": 4500
+    },
+    {
+      "path": "media/projects/venture-deck/qa/contact-sheet.png",
+      "sha256": "6d0ae2402537e6bc57ed4d41e0c50293087fa7bc014edd88a84dd7da07a4ae21",
+      "bytes": 675160
+    },
+    {
+      "path": "media/projects/venture-deck/qa/pdf-contact-sheet-final-t_9972ef40.png",
+      "sha256": "5f436f191d8dca13f82ee13859695cae8ba103915ee5841794ea6df435d73117",
+      "bytes": 2085598
+    }
+  ],
+  "commands": [
+    {
+      "command": "npm run venture:build (pass 1)",
+      "exit_code": 0,
+      "result": "13-page PDF, 414318 bytes; project/public outputs written"
+    },
+    {
+      "command": "npm run venture:validate (pass 1)",
+      "exit_code": 0,
+      "result": "25 validation gates PASS, including 1920x1080, 1280x800, and 1280x577 geometry"
+    },
+    {
+      "command": "npm run venture:build (pass 2)",
+      "exit_code": 0,
+      "result": "byte-identical artifact hash list to pass 1"
+    },
+    {
+      "command": "npm run venture:validate (pass 2)",
+      "exit_code": 0,
+      "result": "25 validation gates PASS; 13 screenshots and HTML contact sheet regenerated"
+    },
+    {
+      "command": "node --test tests/venture-deck-tooling.test.mjs",
+      "exit_code": 0,
+      "result": "15/15 PASS, including all supported builder entry points and manifest/PDF parity"
+    },
+    {
+      "command": "npm run test",
+      "exit_code": 0,
+      "result": "87/87 PASS"
+    },
+    {
+      "command": "npm run lint",
+      "exit_code": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "npm run typecheck",
+      "exit_code": 0,
+      "result": "PASS (no TypeScript files; project-defined skip)"
+    },
+    {
+      "command": "npm run build",
+      "exit_code": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "npm run verify",
+      "exit_code": 0,
+      "result": "PASS; static, article-image, motion-manifest, and performance gates"
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "pdfinfo + pdffonts + pdftotext final PDF",
+      "exit_code": 0,
+      "result": "13 pages; 960x540pt; embedded fonts; extractable authored text"
+    },
+    {
+      "command": "pdftoppm -png -r 96 + montage",
+      "exit_code": 0,
+      "result": "13/13 PDF pages rasterized; independent contact-sheet visual inspection PASS"
+    },
+    {
+      "command": "live loopback browser audit http://127.0.0.1:8765/venture/deck.html at 1280x577",
+      "exit_code": 0,
+      "result": "13 slides; stage x=127.111,y=0,w=1025.778,h=577,right=1152.889,bottom=577; 0 broken images; 0 external resources; 0 console/JS errors; controls separated from content"
+    }
+  ],
+  "command_log": {
+    "path": "/tmp/venture-final-gate-t_9972ef40.log",
+    "sha256": "af260af173897589e65ab35019dce81dcd9a393a770ff740169950f78dd13975",
+    "durability": "session-local raw log; command/result summaries are embedded above"
+  },
+  "browser_observation": {
+    "viewport": [
+      1280,
+      577
+    ],
+    "stage": {
+      "x": 127.111083984375,
+      "y": 0,
+      "width": 1025.77783203125,
+      "height": 577,
+      "right": 1152.888916015625,
+      "bottom": 577
+    },
+    "slide_count": 13,
+    "broken_images": 0,
+    "external_resources": 0,
+    "console_errors": 0
+  },
+  "visual_observation": {
+    "html_contact_sheet": "PASS: all 13 slides present, consistent, unclipped, no blank/corrupt slide",
+    "native_slide_08": "PASS: exact scoped closure, arithmetic, gate citation, and five-film exclusion legible and unobstructed",
+    "native_slide_12": "PASS: mandatory risk statement visually dominant and all limitations legible",
+    "native_slide_13": "PASS: three owner-decision rows visible, with no fabricated financing values",
+    "pdf_raster_contact_sheet": "PASS: 13/13 pages render without clipping, corruption, missing text, or broken assets"
+  },
+  "known_non_blocking_context": [
+    "Repository contains unrelated pre-existing/uncommitted campaign and site work; acceptance is hash-locked to the artifacts listed in this manifest.",
+    "No commit, pull request, deployment, or merge performed by this gate."
+  ]
+}
