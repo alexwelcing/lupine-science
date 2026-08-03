@@ -15,8 +15,10 @@ import katexPlugin from 'markdown-it-katex';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = path.join(ROOT, 'articles');
-const OUT = path.join(ROOT, 'public', 'articles');
-const PUBLIC_ROOT = path.join(ROOT, 'public');
+const PUBLIC_ROOT = process.env.LUPINE_BUILD_PUBLIC_ROOT
+  ? path.resolve(process.env.LUPINE_BUILD_PUBLIC_ROOT)
+  : path.join(ROOT, 'public');
+const OUT = path.join(PUBLIC_ROOT, 'articles');
 const SITE = 'https://lupine.science';
 
 const KATEX_SRC = path.join(ROOT, 'node_modules', 'katex', 'dist');
@@ -649,7 +651,7 @@ function videoHead(article, url) {
       url: `${SITE}/articles/${slug}/`,
     },
   };
-  return head({
+  return renderHead({
     title: `${title} — Video — Lupine Science`,
     description,
     url,
@@ -723,7 +725,7 @@ function buildVideoIndex(articles) {
   return `<!doctype html>
 <html lang="en">
 <head>
-  ${head({
+  ${renderHead({
     title: 'Videos — Lupine Science',
     description: 'Narrated motion versions and short films from Lupine Science articles.',
     url,
@@ -735,7 +737,7 @@ function buildVideoIndex(articles) {
     .videos-index { max-width: 1100px; margin: 0 auto; padding: clamp(40px, 7vh, 84px) 22px 80px; }
     .videos-index h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.1; margin: 0 0 .5rem; }
     .videos-index .lead { color: var(--ink-soft); font-size: 1.15rem; max-width: 680px; margin: 0 0 2.5rem; }
-    .video-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 28px; list-style: none; padding: 0; margin: 0; }
+    .video-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 28px; list-style: none; padding: 0; margin: 0; }
     .video-card { background: #fff; border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; }
     .video-card-primary { display: block; text-decoration: none; color: inherit; }
     .video-card-primary img { display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; border-bottom: 1px solid var(--rule); }
@@ -766,7 +768,7 @@ function buildNotFoundPage() {
   return `<!doctype html>
 <html lang="en">
 <head>
-  ${head({
+  ${renderHead({
     title: 'Content not found — Lupine Science',
     description: 'The requested Lupine Science page or download is not available.',
     url: `${SITE}/404.html`,

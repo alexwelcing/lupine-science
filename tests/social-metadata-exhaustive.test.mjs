@@ -8,6 +8,7 @@ import { renderHead } from '../scripts/build-articles.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ARTICLES = path.join(ROOT, 'public', 'articles');
+const VIDEOS = path.join(ROOT, 'public', 'videos');
 const SITE = 'https://lupine.science';
 
 function documentFromHead(head) {
@@ -95,5 +96,25 @@ describe('social metadata rendering', () => {
 
     assert.ok(unicodeTitles > 0, 'expected representative Unicode article titles');
     assert.ok(unicodeDescriptions > 0, 'expected representative Unicode article descriptions');
+  });
+
+  it('emits page-specific Open Graph and Twitter metadata for every video detail route', () => {
+    for (const slug of articleSlugs().filter((candidate) => fs.existsSync(path.join(VIDEOS, candidate, 'index.html')))) {
+      const document = new JSDOM(fs.readFileSync(path.join(VIDEOS, slug, 'index.html'), 'utf8')).window.document;
+      const canonical = `${SITE}/videos/${slug}/`;
+      const title = only(document, 'meta[property="og:title"]', slug).content;
+      const description = only(document, 'meta[property="og:description"]', slug).content;
+      const image = only(document, 'meta[property="og:image"]', slug).content;
+
+      assert.equal(only(document, 'link[rel="canonical"]', slug).href, canonical);
+      assert.equal(only(document, 'meta[property="og:url"]', slug).content, canonical);
+      assert.equal(only(document, 'meta[property="og:type"]', slug).content, 'video.other');
+      assert.equal(only(document, 'meta[name="twitter:card"]', slug).content, 'summary_large_image');
+      assert.equal(only(document, 'meta[name="twitter:title"]', slug).content, title);
+      assert.equal(only(document, 'meta[name="twitter:description"]', slug).content, description);
+      assert.equal(only(document, 'meta[name="twitter:image"]', slug).content, image);
+      assert.match(image, new RegExp(`^${SITE.replaceAll('.', '\\.')}/videos/${slug}-poster\\.jpg\\?v=\\d+$`));
+      assert.doesNotMatch(`${title}${description}`, /�/, `${slug}: metadata must preserve Unicode`);
+    }
   });
 });

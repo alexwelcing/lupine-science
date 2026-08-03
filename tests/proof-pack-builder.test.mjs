@@ -175,6 +175,25 @@ describe('proof-pack generator API', () => {
       fs.rmSync(outDir, { recursive: true, force: true });
     }
   });
+
+  it('replaces stale proof-pack artifacts and revalidates them end to end offline', async () => {
+    const outDir = fs.mkdtempSync(path.join(os.tmpdir(), 'proofpack-stale-refresh-'));
+    try {
+      const first = await generateProofPack(SLUG, { outDir });
+      fs.writeFileSync(first.pdfPath, 'stale PDF');
+      fs.writeFileSync(first.manifestPath, '{"stale":true}\n');
+
+      const refreshed = await generateProofPack(SLUG, { outDir });
+      const manifest = JSON.parse(fs.readFileSync(refreshed.manifestPath, 'utf8'));
+      assert.equal(refreshed.validated, true);
+      assert.equal(manifest.build.slug, SLUG);
+      assert.equal(manifest.inputs.articleHtml.path, `public/articles/${SLUG}/index.html`);
+      assert.deepEqual(validateProofPackOutput(refreshed.manifestPath), []);
+      assert.notEqual(fs.readFileSync(refreshed.pdfPath, 'utf8'), 'stale PDF');
+    } finally {
+      fs.rmSync(outDir, { recursive: true, force: true });
+    }
+  });
 });
 
 describe('proof-pack output validation', () => {
