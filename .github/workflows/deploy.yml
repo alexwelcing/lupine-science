@@ -8,7 +8,10 @@ on:
     branches: ['**']
 
 concurrency:
-  group: lupine-science-deploy-${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
+  # A branch push and its pull_request run share a head SHA but have different
+  # deployment eligibility. Keep them in separate groups so the later push
+  # completion cannot cancel an in-flight preview smoke gate.
+  group: lupine-science-deploy-${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}-${{ github.event_name == 'workflow_run' && github.event.workflow_run.event || github.event_name }}
   cancel-in-progress: true
 
 permissions:
@@ -206,6 +209,8 @@ jobs:
           node-version: '22'
 
       - name: Install PDF smoke dependencies
+        # workflow_run evaluates this job from the default branch, so keep the
+        # PDF extractor installation here rather than relying on PR setup.
         run: |
           sudo apt-get update
           sudo apt-get install -y poppler-utils
@@ -351,6 +356,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+
+      - name: Install PDF smoke dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
 
       - name: Download exact artifact from successful CI run
         uses: actions/download-artifact@v4

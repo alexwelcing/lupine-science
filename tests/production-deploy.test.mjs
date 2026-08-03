@@ -68,6 +68,15 @@ test('publication and production require separate protected owner approvals', as
   assert.match(source, /production_approval_record/);
 });
 
+test('production live smoke installs the PDF extractor before verification', async () => {
+  const source = await workflow();
+
+  assert.match(
+    source,
+    /deploy-production:[\s\S]*name: Install PDF smoke dependencies[\s\S]*sudo apt-get install -y poppler-utils[\s\S]*name: Smoke test production deployment URL/,
+  );
+});
+
 test('preview deploy runs the machine-readable smoke gate without deployment credentials', async () => {
   const source = await workflow();
 
@@ -81,4 +90,13 @@ test('preview deploy runs the machine-readable smoke gate without deployment cre
   assert.match(source, /SMOKE_REPORT_PATH: \$\{\{ runner\.temp \}\}\/live-smoke-preview\.json/);
   assert.match(source, /name: live-smoke-preview-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
   assert.match(source, /retention-days: 90/);
+});
+
+test('push and pull-request CI completions cannot cancel each other’s deploy gate', async () => {
+  const source = await workflow();
+
+  assert.match(
+    source,
+    /group: lupine-science-deploy-\$\{\{ github\.event_name == 'workflow_run' && github\.event\.workflow_run\.head_sha \|\| github\.sha \}\}-\$\{\{ github\.event_name == 'workflow_run' && github\.event\.workflow_run\.event \|\| github\.event_name \}\}/,
+  );
 });
