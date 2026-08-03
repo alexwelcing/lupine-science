@@ -4,7 +4,8 @@ on:
   workflow_run:
     workflows: [CI]
     types: [completed]
-    branches: ['*']
+    # `*` does not match `/`, which silently skips worktree/task branches.
+    branches: ['**']
 
 concurrency:
   group: lupine-science-deploy-${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}

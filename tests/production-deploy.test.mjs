@@ -44,6 +44,7 @@ test('production deploy records a durable receipt and invokes live verification'
 test('preview deploy runs the machine-readable smoke gate without deployment credentials', async () => {
   const source = await workflow();
 
+  assert.match(source, /branches: \['\*\*'\]/);
   assert.match(source, /deploy-preview:[\s\S]*outputs:\n\s+url: \$\{\{ steps\.deploy\.outputs\.url \}\}/);
   assert.match(source, /preview-smoke:\n\s+needs: deploy-preview/);
   assert.match(source, /preview-smoke:[\s\S]*permissions:\n\s+contents: read/);
