@@ -3,9 +3,14 @@ import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 
 const workflowUrl = new URL('../.github/workflows/deploy.yml', import.meta.url);
+const ciWorkflowUrl = new URL('../.github/workflows/ci.yml', import.meta.url);
 
 async function workflow() {
   return readFile(workflowUrl, 'utf8');
+}
+
+async function ciWorkflow() {
+  return readFile(ciWorkflowUrl, 'utf8');
 }
 
 test('production deploy accepts only a green main push and uses protected environment approval', async () => {
@@ -20,7 +25,10 @@ test('production deploy accepts only a green main push and uses protected enviro
 
 test('production deploy uses the exact artifact created by the approved CI run', async () => {
   const source = await workflow();
+  const ciSource = await ciWorkflow();
 
+  assert.match(ciSource, /name: lupine-science-public-\$\{\{ github\.event\.pull_request\.head\.sha \|\| github\.sha \}\}/);
+  assert.doesNotMatch(ciSource, /name: lupine-science-public-\$\{\{ github\.sha \}\}/);
   assert.match(source, /name: Download exact artifact from successful CI run/);
   assert.match(source, /name: lupine-science-public-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
   assert.match(source, /run-id: \$\{\{ github\.event\.workflow_run\.id \}\}/);
@@ -49,6 +57,7 @@ test('preview deploy runs the machine-readable smoke gate without deployment cre
   assert.match(source, /preview-smoke:\n\s+needs: deploy-preview/);
   assert.match(source, /preview-smoke:[\s\S]*permissions:\n\s+contents: read/);
   assert.match(source, /name: Checkout exact preview revision[\s\S]*ref: \$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
+  assert.match(source, /preview-smoke:[\s\S]*name: Install PDF smoke dependencies[\s\S]*sudo apt-get install -y poppler-utils/);
   assert.match(source, /SMOKE_PREVIEW_BASE_URL: \$\{\{ needs\.deploy-preview\.outputs\.url \}\}/);
   assert.match(source, /SMOKE_REPORT_PATH: \$\{\{ runner\.temp \}\}\/live-smoke-preview\.json/);
   assert.match(source, /name: live-smoke-preview-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
