@@ -57,6 +57,8 @@ jobs:
     environment:
       name: preview
       url: ${{ steps.deploy.outputs.url }}
+    outputs:
+      url: ${{ steps.deploy.outputs.url }}
 
     steps:
       # This job has deployment credentials and a write-capable GITHUB_TOKEN.
@@ -183,6 +185,42 @@ jobs:
       - name: Show output
         run: echo "${{ steps.deploy.outputs.url }}"
 
+  preview-smoke:
+    needs: deploy-preview
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      # Keep untrusted pull-request code out of the credentialed deploy job.
+      # This follow-up job has no Cloudflare secrets or write-capable token.
+      - name: Checkout exact preview revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Run machine-readable preview smoke gate
+        env:
+          SMOKE_PREVIEW_BASE_URL: ${{ needs.deploy-preview.outputs.url }}
+          SMOKE_REPORT_PATH: ${{ runner.temp }}/live-smoke-preview.json
+          SMOKE_ATTEMPTS: '5'
+          SMOKE_DELAY_MS: '10000'
+        run: npm run smoke
+
+      - name: Upload preview smoke gate
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: live-smoke-preview-${{ github.event.workflow_run.head_sha }}
+          path: ${{ runner.temp }}/live-smoke-preview.json
+          if-no-files-found: error
+          retention-days: 90
+
   deploy-production:
     needs: lighthouse
     if: |
@@ -307,6 +345,7 @@ jobs:
       - name: Smoke test production deployment URL
         env:
           SMOKE_PREVIEW_BASE_URL: ${{ steps.deploy.outputs.url }}
+          SMOKE_REPORT_PATH: ${{ runner.temp }}/smoke-deployment-url.json
           SMOKE_ATTEMPTS: '5'
           SMOKE_DELAY_MS: '10000'
         run: |
@@ -316,6 +355,7 @@ jobs:
       - name: Smoke test custom domain
         env:
           SMOKE_PRODUCTION_BASE_URL: https://lupine.science
+          SMOKE_REPORT_PATH: ${{ runner.temp }}/smoke-custom-domain.json
           SMOKE_ATTEMPTS: '5'
           SMOKE_DELAY_MS: '10000'
         run: |
@@ -355,7 +395,9 @@ jobs:
           path: |
             ${{ runner.temp }}/wrangler-production.log
             ${{ runner.temp }}/smoke-deployment-url.log
+            ${{ runner.temp }}/smoke-deployment-url.json
             ${{ runner.temp }}/smoke-custom-domain.log
+            ${{ runner.temp }}/smoke-custom-domain.json
             ${{ runner.temp }}/security-headers.log
           if-no-files-found: ignore
           retention-days: 14

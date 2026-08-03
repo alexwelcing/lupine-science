@@ -458,7 +458,7 @@ function buildArticle(raw, slug) {
   const hasJpg = fs.existsSync(path.join(OUT, slug, 'hero.jpg'));
   const ogImage = slug === 'from-fantasy-frameworks-to-makeable-materials'
     ? `${SITE}/og-mof-formalization.png`
-    : `${SITE}/og-lupine-science.png`;
+    : `${SITE}/og-lupine-science.jpg`;
   const ogImageWidth = 1200;
   const ogImageHeight = 630;
   const twitterCard = 'summary_large_image';
@@ -573,7 +573,7 @@ function buildIndex(articles) {
     title: 'Articles — Lupine Science',
     description: 'Articles, prospectuses, and research notes on formalized, machine-checked materials discovery.',
     url: `${SITE}/articles/`,
-    ogImage: `${SITE}/og-lupine-science.png`,
+    ogImage: `${SITE}/og-lupine-science.jpg`,
     ogType: 'website',
     jsonld,
   })}
