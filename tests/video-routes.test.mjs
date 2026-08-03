@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { before, describe, it } from 'node:test';
 import { fileURLToPath } from 'node:url';
@@ -20,11 +21,18 @@ function read(...segments) {
   return fs.readFileSync(path.join(PUBLIC, ...segments), 'utf8');
 }
 
-before(() => {
-  const result = spawnSync(process.execPath, ['scripts/build-articles.mjs'], {
+function buildArticles(publicRoot) {
+  return spawnSync(process.execPath, ['scripts/build-articles.mjs'], {
     cwd: ROOT,
     encoding: 'utf8',
+    env: publicRoot
+      ? { ...process.env, LUPINE_BUILD_PUBLIC_ROOT: publicRoot }
+      : process.env,
   });
+}
+
+before(() => {
+  const result = buildArticles();
   assert.equal(result.status, 0, result.stderr || result.stdout);
 });
 
@@ -66,5 +74,39 @@ describe('article and video publication routes', () => {
     assert.match(html, /page or download is not available/i);
     assert.match(html, /href="\/videos\/"/);
     assert.match(html, /href="\/articles\/"/);
+  });
+
+  it('refreshes stale article, video detail, and video index route outputs', () => {
+    const slug = 'methane-and-refrigerants-cutting-the-non-co2-climate-forcers';
+    const publicRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'article-route-refresh-'));
+    const videosRoot = path.join(publicRoot, 'videos');
+    const files = [
+      path.join(publicRoot, 'articles', slug, 'index.html'),
+      path.join(videosRoot, slug, 'index.html'),
+      path.join(videosRoot, 'index.html'),
+    ];
+
+    try {
+      fs.mkdirSync(path.join(videosRoot, slug), { recursive: true });
+      for (const extension of ['mp4', 'jpg', 'vtt']) {
+        const suffix = extension === 'jpg' ? '-poster.jpg' : `.${extension}`;
+        fs.writeFileSync(path.join(videosRoot, `${slug}${suffix}`), `fixture ${extension}\n`);
+      }
+      for (const file of files) {
+        fs.mkdirSync(path.dirname(file), { recursive: true });
+        fs.writeFileSync(file, '<!-- stale-output-sentinel -->\n');
+      }
+
+      const result = buildArticles(publicRoot);
+      assert.equal(result.status, 0, result.stderr || result.stdout);
+
+      for (const file of files) {
+        const refreshed = fs.readFileSync(file, 'utf8');
+        assert.doesNotMatch(refreshed, /stale-output-sentinel/, path.relative(ROOT, file));
+        assert.match(refreshed, /Non-CO₂/, `${path.relative(ROOT, file)} must preserve Unicode on rebuild`);
+      }
+    } finally {
+      fs.rmSync(publicRoot, { recursive: true, force: true });
+    }
   });
 });
