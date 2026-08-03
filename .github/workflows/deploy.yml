@@ -206,6 +206,8 @@ jobs:
           node-version: '22'
 
       - name: Install PDF smoke dependencies
+        # workflow_run evaluates this job from the default branch, so keep the
+        # PDF extractor installation here rather than relying on PR setup.
         run: |
           sudo apt-get update
           sudo apt-get install -y poppler-utils
