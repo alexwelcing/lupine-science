@@ -96,15 +96,35 @@ if awk "BEGIN {exit !(${mem_used_pct} > ${MAX_USED_MEM_PERCENT})}"; then
   pause_dispatch "memory used ${mem_used_pct}% > ${MAX_USED_MEM_PERCENT}%"
 fi
 
-# Find any single hermes process consuming too much CPU for >1 minute would be
-# handled by the load/memory guards above; log it here for diagnostics.
+# Find any single hermes process consuming too much CPU. A single-sample spike
+# is normal for the hourly timers (health-watchdog, wiki refresh, standup), so
+# only alert when the SAME pid was hot in both the previous minute's sample
+# (persisted in HOT_STATE_FILE) and the current one. Processes younger than
+# MIN_PROC_AGE_SECONDS are skipped entirely: a process that just started
+# legitimately burns CPU.
+HOT_STATE_FILE="${LOG_DIR}/.hot-hermes-state"
+MIN_PROC_AGE_SECONDS=90
+
+prev_hot_pids=""
+if [[ -f "${HOT_STATE_FILE}" ]]; then
+  prev_hot_pids=$(cat "${HOT_STATE_FILE}" 2>/dev/null || true)
+fi
+
+current_hot_pids=""
 cpu_high_pids=""
-while read -r pid pcpu comm; do
+while read -r pid pcpu etimes comm; do
   if [[ -z "${pid}" ]]; then continue; fi
   if awk "BEGIN {exit !(${pcpu} > ${MAX_SINGLE_CPU})}"; then
-    cpu_high_pids="${cpu_high_pids} ${pid}(${pcpu}%)"
+    if (( etimes < MIN_PROC_AGE_SECONDS )); then continue; fi
+    current_hot_pids="${current_hot_pids} ${pid}"
+    if grep -qw "${pid}" <<< "${prev_hot_pids}"; then
+      cpu_high_pids="${cpu_high_pids} ${pid}(${pcpu}%)"
+    fi
   fi
-done < <(ps -eo pid,pcpu,comm --sort=-pcpu | awk '$3 ~ /hermes/ {print $1, $2, $3}')
+done < <(ps -eo pid,pcpu,etimes,comm --sort=-pcpu | awk '$4 ~ /hermes/ {print $1, $2, $3, $4}')
+
+# Persist this minute's hot set for the next run (overwrite, even if empty).
+printf '%s\n' "${current_hot_pids# }" > "${HOT_STATE_FILE}"
 
 if [[ -n "${cpu_high_pids}" ]]; then
   alert "hot hermes processes:${cpu_high_pids}"
