@@ -22,11 +22,13 @@ describe('video share integration', () => {
     assert.match(html, /initAllShareWidgets\(\)/);
   });
 
-  it('uses a video thumbnail for the video index social preview', () => {
+  it('uses a released-film thumbnail for the video index social preview', () => {
+    // the index previews a film from the released two-film slate
+    // (why-lupine-science / why-lupi), never declined inventory
     const html = readPublicPage('videos');
 
-    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/videos\/the-02-percent-synthesis-problem-poster\.jpg\?v=\d+">/);
-    assert.match(html, /<meta name="twitter:image" content="https:\/\/lupine\.science\/videos\/the-02-percent-synthesis-problem-poster\.jpg\?v=\d+">/);
+    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/videos\/why-lupine-science-poster\.jpg\?v=\d+">/);
+    assert.match(html, /<meta name="twitter:image" content="https:\/\/lupine\.science\/videos\/why-lupine-science-poster\.jpg\?v=\d+">/);
   });
 
   it('integrates sharing and the video thumbnail into published video article pages', () => {
