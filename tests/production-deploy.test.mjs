@@ -68,6 +68,15 @@ test('publication and production require separate protected owner approvals', as
   assert.match(source, /production_approval_record/);
 });
 
+test('production live smoke installs the PDF extractor before verification', async () => {
+  const source = await workflow();
+
+  assert.match(
+    source,
+    /deploy-production:[\s\S]*name: Install PDF smoke dependencies[\s\S]*sudo apt-get install -y poppler-utils[\s\S]*name: Smoke test production deployment URL/,
+  );
+});
+
 test('preview deploy runs the machine-readable smoke gate without deployment credentials', async () => {
   const source = await workflow();
 

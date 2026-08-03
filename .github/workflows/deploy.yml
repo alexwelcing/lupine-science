@@ -357,6 +357,11 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Install PDF smoke dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+
       - name: Download exact artifact from successful CI run
         uses: actions/download-artifact@v4
         with:
