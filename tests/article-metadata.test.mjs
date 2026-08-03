@@ -107,7 +107,7 @@ describe('published article video discovery metadata', () => {
       assert.ok(video.name, `expected VideoObject.name for ${slug}`);
       assert.ok(video.description, `expected VideoObject.description for ${slug}`);
       assert.equal(video.contentUrl, `https://lupine.science/videos/${slug}.mp4`);
-      assert.equal(video.embedUrl, `https://lupine.science/articles/${slug}/`);
+      assert.equal(video.embedUrl, `https://lupine.science/videos/${slug}/`);
       assert.equal(video.uploadDate, nodes.find((node) => node['@type'] === 'Article')?.datePublished);
       assert.match(video.thumbnailUrl, /^https:\/\/lupine\.science\//);
     }
