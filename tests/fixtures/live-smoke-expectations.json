@@ -28,7 +28,7 @@
     { "path": "/articles/why-lupine-science/", "marker": "Why Lupine Science?" },
     { "path": "/articles/z1-union-debrief/", "marker": "The Union Verdict: A De-brief on the Z1 Campaign" },
     { "path": "/presentations/climate-investor-value/", "marker": "The trust layer for climate-critical materials." },
-    { "path": "/videos/", "marker": "Article videos.", "sitemap": false },
+    { "path": "/videos/", "marker": "Films.", "sitemap": false },
     { "path": "/brand-assets/", "marker": "Brand assets.", "sitemap": false },
     { "path": "/result-graphics/", "marker": "Result graphics.", "sitemap": false }
   ],
