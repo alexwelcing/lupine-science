@@ -182,7 +182,7 @@ jobs:
       - name: Download built site artifact
         uses: actions/download-artifact@v4
         with:
-          name: lupine-science-public-${{ github.sha }}
+          name: lupine-science-public-${{ github.event.pull_request.head.sha || github.sha }}
           path: public/
 
       - name: Run smart video reviewer
@@ -220,7 +220,7 @@ jobs:
       - name: Download built site artifact
         uses: actions/download-artifact@v4
         with:
-          name: lupine-science-public-${{ github.sha }}
+          name: lupine-science-public-${{ github.event.pull_request.head.sha || github.sha }}
           path: public/
 
       - name: Run adversarial image-text audit

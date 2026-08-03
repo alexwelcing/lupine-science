@@ -28,6 +28,7 @@ test('production deploy uses the exact artifact created by the approved CI run',
   const ciSource = await ciWorkflow();
 
   assert.match(ciSource, /name: lupine-science-public-\$\{\{ github\.event\.pull_request\.head\.sha \|\| github\.sha \}\}/);
+  assert.doesNotMatch(ciSource, /name: lupine-science-public-\$\{\{ github\.sha \}\}/);
   assert.match(source, /name: Download exact artifact from successful CI run/);
   assert.match(source, /name: lupine-science-public-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
   assert.match(source, /run-id: \$\{\{ github\.event\.workflow_run\.id \}\}/);
