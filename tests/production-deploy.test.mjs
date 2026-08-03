@@ -82,3 +82,12 @@ test('preview deploy runs the machine-readable smoke gate without deployment cre
   assert.match(source, /name: live-smoke-preview-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
   assert.match(source, /retention-days: 90/);
 });
+
+test('push and pull-request CI completions cannot cancel each other’s deploy gate', async () => {
+  const source = await workflow();
+
+  assert.match(
+    source,
+    /group: lupine-science-deploy-\$\{\{ github\.event_name == 'workflow_run' && github\.event\.workflow_run\.head_sha \|\| github\.sha \}\}-\$\{\{ github\.event_name == 'workflow_run' && github\.event\.workflow_run\.event \|\| github\.event_name \}\}/,
+  );
+});
