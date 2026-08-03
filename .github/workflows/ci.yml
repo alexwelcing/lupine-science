@@ -93,6 +93,95 @@ jobs:
         if: failure()
         run: echo '### Unit tests failed — run `npm test` locally.' >> "$GITHUB_STEP_SUMMARY"
 
+  publication-visual-checks:
+    name: Publication visual checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: release/visual-checks/package-lock.json
+
+      - name: Install visual-check harness
+        working-directory: release/visual-checks
+        run: npm ci
+
+      - name: Install pinned Playwright browser
+        working-directory: release/visual-checks
+        run: npx playwright install --with-deps chromium
+
+      - name: Run deterministic component, R3F, and video-frame checks
+        working-directory: release/visual-checks
+        run: npm run visual:selftest
+
+      - name: Upload visual gate decision and evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: publication-visual-gate-${{ github.sha }}
+          path: release/visual-checks/visual-results/
+          if-no-files-found: error
+          retention-days: 90
+
+  publication-smoke-checks:
+    name: Publication route, media, PDF, and OG smoke checks
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies and PDF validator
+        run: |
+          npm ci
+          sudo apt-get update
+          sudo apt-get install --yes poppler-utils
+
+      - name: Download exact built site
+        uses: actions/download-artifact@v4
+        with:
+          name: lupine-science-public-${{ github.event.pull_request.head.sha || github.sha }}
+          path: public/
+
+      - name: Run full smoke suite against release artifact
+        env:
+          SMOKE_BASE_URL: http://127.0.0.1:4174
+          SMOKE_REPORT_PATH: ${{ runner.temp }}/publication-smoke-gate.json
+          SMOKE_ATTEMPTS: '1'
+          SMOKE_DELAY_MS: '0'
+        run: |
+          python3 -m http.server 4174 --directory public >"$RUNNER_TEMP/publication-smoke-server.log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for attempt in 1 2 3 4 5; do
+            curl --fail --silent http://127.0.0.1:4174/health >/dev/null && break
+            sleep 1
+          done
+          curl --fail --silent http://127.0.0.1:4174/health >/dev/null
+          npm run smoke
+
+      - name: Upload smoke gate decision and evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: publication-smoke-gate-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/publication-smoke-gate.json
+            ${{ runner.temp }}/publication-smoke-server.log
+          if-no-files-found: error
+          retention-days: 90
+
   build:
     name: Build site
     needs: [lint, typecheck, unit-tests]

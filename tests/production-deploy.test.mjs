@@ -49,6 +49,25 @@ test('production deploy records a durable receipt and invokes live verification'
   assert.match(source, /name: Security headers are live/);
 });
 
+test('release certification consumes both required CI artifacts and fails closed', async () => {
+  const source = await workflow();
+
+  assert.match(source, /release-certification:[\s\S]*name: publication-visual-gate-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
+  assert.match(source, /release-certification:[\s\S]*name: publication-smoke-gate-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
+  assert.match(source, /release-certification:[\s\S]*node scripts\/validate-release-gates\.mjs/);
+  assert.match(source, /release-certification:[\s\S]*if-no-files-found: error/);
+});
+
+test('publication and production require separate protected owner approvals', async () => {
+  const source = await workflow();
+
+  assert.match(source, /publication-signoff:[\s\S]*environment:\n\s+name: publication/);
+  assert.match(source, /deploy-production:\n\s+needs: \[lighthouse, release-certification, publication-signoff\]/);
+  assert.match(source, /deploy-production:[\s\S]*environment:\n\s+name: production/);
+  assert.match(source, /publication-owner-signoff-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
+  assert.match(source, /production_approval_record/);
+});
+
 test('preview deploy runs the machine-readable smoke gate without deployment credentials', async () => {
   const source = await workflow();
 
