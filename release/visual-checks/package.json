@@ -1,0 +1,20 @@
+{
+  "name": "publication-visual-checks",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "visual:test": "playwright test",
+    "visual:update": "VISUAL_UPDATE_BASELINES=1 playwright test --update-snapshots",
+    "visual:ci": "CI=1 playwright test",
+    "visual:selftest": "VISUAL_FIXTURE_SERVER=1 playwright test",
+    "visual:selftest:update": "VISUAL_FIXTURE_SERVER=1 VISUAL_UPDATE_BASELINES=1 playwright test --update-snapshots"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "seed": 20250801,
+  "epochMs": 1754006400000,
+  "viewport": { "width": 1280, "height": 720 },
+  "checks": [
+    {
+      "id": "component-hero",
+      "kind": "component",
+      "url": "http://127.0.0.1:4173/",
+      "selector": "#hero"
+    },
+    {
+      "id": "r3f-scene",
+      "kind": "r3f",
+      "url": "http://127.0.0.1:4173/",
+      "selector": "#scene",
+      "scene": {
+        "requiredObjects": ["Crystal"],
+        "minObjectCount": 2,
+        "cameraType": "PerspectiveCamera"
+      }
+    },
+    {
+      "id": "video-frame-0.5s",
+      "kind": "video-frame",
+      "url": "http://127.0.0.1:4173/",
+      "selector": "#video",
+      "timeSeconds": 0.5
+    }
+  ]
+}
