@@ -318,31 +318,31 @@ import { initAllShareWidgets } from "/components/share/share.mjs";
 })();
 </script>`;
 
-function head({ title, description, url, ogTitle = title, ogDescription = description, ogUrl = url, ogImage, ogType, jsonld, preloadImage, math, videoUrl }) {
+export function renderHead({ title, description, url, ogTitle = title, ogDescription = description, ogUrl = url, ogImage, ogType, jsonld, preloadImage, math, videoUrl }) {
   return `<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(description)}">
   <meta name="robots" content="index,follow">
-  <link rel="canonical" href="${url}">
+  <link rel="canonical" href="${esc(url)}">
   <meta property="og:title" content="${esc(ogTitle)}">
   <meta property="og:description" content="${esc(ogDescription)}">
   <meta property="og:type" content="${esc(ogType)}">
-  <meta property="og:url" content="${ogUrl}">
-  <meta property="og:image" content="${ogImage}">
+  <meta property="og:url" content="${esc(ogUrl)}">
+  <meta property="og:image" content="${esc(ogImage)}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${esc(ogTitle)}">
   <meta name="twitter:description" content="${esc(ogDescription)}">
-  <meta name="twitter:image" content="${ogImage}">
+  <meta name="twitter:image" content="${esc(ogImage)}">
   <meta name="theme-color" content="#faf9f6">
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
   <link rel="icon" type="image/png" href="/lupine-science-icon.png">
   <link rel="apple-touch-icon" href="/lupine-science-icon.png">
   <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
-${videoUrl ? `  <link rel="alternate" type="video/mp4" href="${videoUrl}">\n` : ''}${preloadImage ? `  <link rel="preload" href="${preloadImage}" as="image" fetchpriority="high">\n` : ''}${math ? '  <link rel="stylesheet" href="/katex/katex.min.css">\n' : ''}  <link rel="stylesheet" href="/articles/styles.css">
+${videoUrl ? `  <link rel="alternate" type="video/mp4" href="${esc(videoUrl)}">\n` : ''}${preloadImage ? `  <link rel="preload" href="${esc(preloadImage)}" as="image" fetchpriority="high">\n` : ''}${math ? '  <link rel="stylesheet" href="/katex/katex.min.css">\n' : ''}  <link rel="stylesheet" href="/articles/styles.css">
   <link rel="stylesheet" href="/components/share/share.css">
   <script type="application/ld+json">${JSON.stringify(jsonld)}</script>`;
 }
@@ -510,7 +510,7 @@ function buildArticle(raw, slug) {
   const page = `<!doctype html>
 <html lang="en">
 <head>
-  ${head({
+  ${renderHead({
     title: `${title} — Lupine Science`,
     description,
     url,
@@ -569,7 +569,7 @@ function buildIndex(articles) {
   return `<!doctype html>
 <html lang="en">
 <head>
-  ${head({
+  ${renderHead({
     title: 'Articles — Lupine Science',
     description: 'Articles, prospectuses, and research notes on formalized, machine-checked materials discovery.',
     url: `${SITE}/articles/`,
