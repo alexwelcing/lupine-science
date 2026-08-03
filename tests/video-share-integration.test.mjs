@@ -22,6 +22,17 @@ describe('video share integration', () => {
     assert.match(html, /initAllShareWidgets\(\)/);
   });
 
+  it('keeps video sharing usable without JavaScript and at 320px', () => {
+    const html = readPublicPage('videos');
+
+    assert.match(html, /<a class="skip" href="#content">Skip to content<\/a>/);
+    assert.match(html, /grid-template-columns:\s*repeat\(auto-fit, minmax\(min\(100%, 320px\), 1fr\)\)/);
+    assert.deepEqual(
+      [...html.matchAll(/class="share-link [^"]+"[^>]*aria-label="([^"]+)"/g)].map((match) => match[1]),
+      ['Share on X', 'Share on LinkedIn', 'Share by email'],
+    );
+  });
+
   it('uses a video thumbnail for the video index social preview', () => {
     const html = readPublicPage('videos');
 
