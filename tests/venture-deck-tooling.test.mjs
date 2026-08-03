@@ -274,6 +274,29 @@ describe('venture deck render tooling', () => {
     assert.doesNotMatch(JSON.stringify(evidence.discrepancies_and_exclusions['D-100-CHAIN']), /100\/100 certification chain/i);
   });
 
+  it('fails closed to the two frozen public economics claims', () => {
+    const template = fs.readFileSync(path.join(PROJECT, 'index.html'), 'utf8');
+    const evidence = JSON.parse(fs.readFileSync(path.join(PROJECT, 'evidence-manifest.json'), 'utf8'));
+    const visibleTemplate = template.replace(/<script type="application\/json" id="evidence-manifest">[\s\S]*?<\/script>/, '');
+    const economicsSlide = visibleTemplate.match(/<section class="slide" id="slide-07"[\s\S]*?<\/section>/)?.[0] || '';
+    const currencyClaims = visibleTemplate.match(/\$\d+(?:\.\d+)?/g) || [];
+    const economicsPercentages = economicsSlide.replace(/<[^>]*>/g, ' ').match(/\d+(?:\.\d+)?%/g) || [];
+
+    assert.deepEqual(evidence.policy.frozen_public_economics, [
+      '72.4% fewer DFT evaluations',
+      '$14.65 per 129 anchors',
+    ]);
+    assert.ok(currencyClaims.length > 0);
+    assert.ok(currencyClaims.every((claim) => claim === '$14.65'));
+    assert.match(visibleTemplate, /\$14\.65 per 129 anchors/);
+    assert.ok(economicsPercentages.length > 0);
+    assert.ok(economicsPercentages.every((claim) => claim === '72.4%'));
+    assert.doesNotMatch(visibleTemplate, /\b(?:558|154|139\.5|430|3\.62|3\.33|61\.0)\b/);
+    assert.deepEqual(evidence.slide_claim_ids['7'], ['C-ECON-01']);
+    assert.equal(evidence.claims['C-ECON-02'], undefined);
+    assert.equal(evidence.claims['C-ECON-DISTINCTION'], undefined);
+  });
+
   it('rejects closure evidence unless every Wave-4 group and aggregate certification passes', () => {
     const evidence = JSON.parse(fs.readFileSync(path.join(PROJECT, 'evidence-manifest.json'), 'utf8'));
     const baseline = JSON.parse(fs.readFileSync(path.join(ROOT, evidence.sources['S-STILL-BASELINE'].path), 'utf8'));
