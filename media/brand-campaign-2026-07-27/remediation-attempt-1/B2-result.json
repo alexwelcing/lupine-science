@@ -1,0 +1,702 @@
+[
+  {
+    "asset_id": "B2-A01-01-R1",
+    "original_asset_id": "B2-A01-01",
+    "key": "five-materials-for-5-to-12-gtco2-year-hero--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/five-materials-for-5-to-12-gtco2-year-hero.png",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/five-materials-for-5-to-12-gtco2-year-hero--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/five-materials-for-5-to-12-gtco2-year-hero--retry-1.jpg",
+    "bytes": 77239,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. Five grounded infrastructure vignettes—battery storage, air-capture contactor, ammonia plant, solar field, and solid-state cell—connected by a quiet indigo verification line across warm paper. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming. FINAL QA CORRECTION FOR THE ONLY RETRY: Generate the exact original physical system at the requested slot aspect with 40–60% clean warm-paper negative space. Use only literal warm paper #faf9f6, near-black ink #16171d, and restrained indigo #3d4db3. Use no ochre or other hue. Render absolutely no text-like marks, glyphs, labels, numbers, logos, signage, people, faces, silhouettes, plants, flowers, neon, dark fields, stock-3D polish, or molecule-as-hero imagery.",
+    "spec_hash": "sha256:9f2dc706098ae1d7fd0fb77fd3f0f849963c2f8bef9ee945c709377f01597e14",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed decorative off-palette color, forbidden subjects or marks, and generic infrastructure drift. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:20:08.281Z",
+    "source_dimensions": {
+      "width": 1280,
+      "height": 720
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:20:26.225Z"
+  },
+  {
+    "asset_id": "B2-A01-02-R1",
+    "original_asset_id": "B2-A01-02",
+    "key": "five-materials-for-5-to-12-gtco2-year-inline-01--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/five-materials-for-5-to-12-gtco2-year-inline-01.png",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/five-materials-for-5-to-12-gtco2-year-inline-01--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/five-materials-for-5-to-12-gtco2-year-inline-01--retry-1.jpg",
+    "bytes": 292621,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A paired cathode and electrolyte shown inside a practical storage module, with the surrounding grid substation and transmission line making the system benefit legible. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming. FINAL QA CORRECTION FOR THE ONLY RETRY: Generate the exact original physical system at the requested slot aspect with 40–60% clean warm-paper negative space. Use only literal warm paper #faf9f6, near-black ink #16171d, and restrained indigo #3d4db3. Use no ochre or other hue. Render absolutely no text-like marks, glyphs, labels, numbers, logos, signage, people, faces, silhouettes, plants, flowers, neon, dark fields, stock-3D polish, or molecule-as-hero imagery.",
+    "spec_hash": "sha256:5f3b5cf06cf66ee0bae3ddcb94571d74421c06b55b21bb01172df6ec562c17e9",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed decorative off-palette color, forbidden subjects or marks, and generic infrastructure drift. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:20:26.226Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:20:45.704Z"
+  },
+  {
+    "asset_id": "B2-A01-03-R1",
+    "original_asset_id": "B2-A01-03",
+    "key": "five-materials-for-5-to-12-gtco2-year-inline-02--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/five-materials-for-5-to-12-gtco2-year-inline-02.png",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/five-materials-for-5-to-12-gtco2-year-inline-02--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/five-materials-for-5-to-12-gtco2-year-inline-02--retry-1.jpg",
+    "bytes": 222702,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A porous air-capture panel integrated into a modular industrial contactor, with airflow rendered as sparse indigo ribbons and no claim of perfect capture. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming. FINAL QA CORRECTION FOR THE ONLY RETRY: Generate the exact original physical system at the requested slot aspect with 40–60% clean warm-paper negative space. Use only literal warm paper #faf9f6, near-black ink #16171d, and restrained indigo #3d4db3. Use no ochre or other hue. Render absolutely no text-like marks, glyphs, labels, numbers, logos, signage, people, faces, silhouettes, plants, flowers, neon, dark fields, stock-3D polish, or molecule-as-hero imagery.",
+    "spec_hash": "sha256:ab77a50fac294093b08aa942a6ce0996960b43d8d77093ace34e7bd327a82653",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed decorative off-palette color, forbidden subjects or marks, and generic infrastructure drift. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:20:45.704Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:22:25.521Z"
+  },
+  {
+    "asset_id": "B2-A01-04-R1",
+    "original_asset_id": "B2-A01-04",
+    "key": "five-materials-for-5-to-12-gtco2-year-inline-03--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/five-materials-for-5-to-12-gtco2-year-inline-03.png",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/five-materials-for-5-to-12-gtco2-year-inline-03--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/five-materials-for-5-to-12-gtco2-year-inline-03--retry-1.jpg",
+    "bytes": 346571,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. An ammonia reactor and lead-free solar module sharing a clean industrial horizon, their critical material interfaces highlighted rather than idealized. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming. FINAL QA CORRECTION FOR THE ONLY RETRY: Generate the exact original physical system at the requested slot aspect with 40–60% clean warm-paper negative space. Use only literal warm paper #faf9f6, near-black ink #16171d, and restrained indigo #3d4db3. Use no ochre or other hue. Render absolutely no text-like marks, glyphs, labels, numbers, logos, signage, people, faces, silhouettes, plants, flowers, neon, dark fields, stock-3D polish, or molecule-as-hero imagery.",
+    "spec_hash": "sha256:486b4f79b132ae32f31be1c97ea0d86603d878998ae47e338c1ebc06db2cd2a9",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed decorative off-palette color, forbidden subjects or marks, and generic infrastructure drift. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:22:25.521Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:22:44.557Z"
+  },
+  {
+    "asset_id": "B2-A01-05-R1",
+    "original_asset_id": "B2-A01-05",
+    "key": "five-materials-for-5-to-12-gtco2-year-spread--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/five-materials-for-5-to-12-gtco2-year-spread.png",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/five-materials-for-5-to-12-gtco2-year-spread--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/five-materials-for-5-to-12-gtco2-year-spread--retry-1.jpg",
+    "bytes": 275339,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A measured portfolio landscape in which five pilot-scale material systems occupy separate bays, each with ample uncertainty space and no triumphant finished-city claim. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming. FINAL QA CORRECTION FOR THE ONLY RETRY: Generate the exact original physical system at the requested slot aspect with 40–60% clean warm-paper negative space. Use only literal warm paper #faf9f6, near-black ink #16171d, and restrained indigo #3d4db3. Use no ochre or other hue. Render absolutely no text-like marks, glyphs, labels, numbers, logos, signage, people, faces, silhouettes, plants, flowers, neon, dark fields, stock-3D polish, or molecule-as-hero imagery.",
+    "spec_hash": "sha256:3c72e2d88c308d0f5d74cd5b3c6ae72cba0ef83f4f5f6c0fc0d44bc3d64a1e9f",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed decorative off-palette color, forbidden subjects or marks, and generic infrastructure drift.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:22:44.557Z",
+    "source_dimensions": {
+      "width": 1280,
+      "height": 720
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:23:02.950Z"
+  },
+  {
+    "asset_id": "B2-A02-01-R1",
+    "original_asset_id": "B2-A02-01",
+    "key": "cement-concrete-and-the-weight-of-the-built-world-hero--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/cement-concrete-and-the-weight-of-the-built-world-hero.png",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/cement-concrete-and-the-weight-of-the-built-world-hero--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/cement-concrete-and-the-weight-of-the-built-world-hero--retry-1.jpg",
+    "bytes": 242124,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A bridge, housing block, water conduit, and transit viaduct drawn as one continuous civic structure, with selected low-carbon binder zones softly highlighted in indigo. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming. FINAL QA CORRECTION FOR THE ONLY RETRY: Generate the exact original physical system at the requested slot aspect with 40–60% clean warm-paper negative space. Use only literal warm paper #faf9f6, near-black ink #16171d, and restrained indigo #3d4db3. Use no ochre or other hue. Render absolutely no text-like marks, glyphs, labels, numbers, logos, signage, people, faces, silhouettes, plants, flowers, neon, dark fields, stock-3D polish, or molecule-as-hero imagery.",
+    "spec_hash": "sha256:73cfd691c6ba88f36af484c1aca6e1dcb1861013869832def99b6b84d6ba8784",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed decorative off-palette color, forbidden subjects or marks, and generic infrastructure drift.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:23:02.950Z",
+    "source_dimensions": {
+      "width": 1280,
+      "height": 720
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:23:21.241Z"
+  },
+  {
+    "asset_id": "B2-A02-02-R1",
+    "original_asset_id": "B2-A02-02",
+    "key": "cement-concrete-and-the-weight-of-the-built-world-inline-01--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/cement-concrete-and-the-weight-of-the-built-world-inline-01.png",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/cement-concrete-and-the-weight-of-the-built-world-inline-01--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/cement-concrete-and-the-weight-of-the-built-world-inline-01--retry-1.jpg",
+    "bytes": 389616,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A cement kiln and calcination line in precise cutaway, where the unavoidable process-emission stream is visible as pale ink and the intervention points are restrained indigo accents. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming. FINAL QA CORRECTION FOR THE ONLY RETRY: Generate the exact original physical system at the requested slot aspect with 40–60% clean warm-paper negative space. Use only literal warm paper #faf9f6, near-black ink #16171d, and restrained indigo #3d4db3. Use no ochre or other hue. Render absolutely no text-like marks, glyphs, labels, numbers, logos, signage, people, faces, silhouettes, plants, flowers, neon, dark fields, stock-3D polish, or molecule-as-hero imagery.",
+    "spec_hash": "sha256:8780e81248264540849369e4dbe4b8121aebdfa8608cfada023dee1982dee15a",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed decorative off-palette color, forbidden subjects or marks, and generic infrastructure drift. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:23:21.242Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:23:39.226Z"
+  },
+  {
+    "asset_id": "B2-A02-03-R1",
+    "original_asset_id": "B2-A02-03",
+    "key": "cement-concrete-and-the-weight-of-the-built-world-inline-02--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/cement-concrete-and-the-weight-of-the-built-world-inline-02.png",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/cement-concrete-and-the-weight-of-the-built-world-inline-02--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/cement-concrete-and-the-weight-of-the-built-world-inline-02--retry-1.jpg",
+    "bytes": 191587,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. Three practical binder routes—calcined-clay blend, alternative clinker, and carbon-cured block—shown as sample blocks leading toward the same structural test frame. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming. FINAL QA CORRECTION FOR THE ONLY RETRY: Generate the exact original physical system at the requested slot aspect with 40–60% clean warm-paper negative space. Use only literal warm paper #faf9f6, near-black ink #16171d, and restrained indigo #3d4db3. Use no ochre or other hue. Render absolutely no text-like marks, glyphs, labels, numbers, logos, signage, people, faces, silhouettes, plants, flowers, neon, dark fields, stock-3D polish, or molecule-as-hero imagery.",
+    "spec_hash": "sha256:2f84ff917c669a9305e02177f2c7fb69756363f1d613b1dfba49502cccdc4047",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed decorative off-palette color, forbidden subjects or marks, and generic infrastructure drift. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:23:39.226Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:23:58.141Z"
+  },
+  {
+    "asset_id": "B2-A02-04-R1",
+    "original_asset_id": "B2-A02-04",
+    "key": "cement-concrete-and-the-weight-of-the-built-world-inline-03--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/cement-concrete-and-the-weight-of-the-built-world-inline-03.png",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/cement-concrete-and-the-weight-of-the-built-world-inline-03--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/cement-concrete-and-the-weight-of-the-built-world-inline-03--retry-1.jpg",
+    "bytes": 262441,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A concrete pore-and-interface study translated into a full beam test: fine indigo measurements at the material interface support an ink-rendered bridge span above. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming. FINAL QA CORRECTION FOR THE ONLY RETRY: Generate the exact original physical system at the requested slot aspect with 40–60% clean warm-paper negative space. Use only literal warm paper #faf9f6, near-black ink #16171d, and restrained indigo #3d4db3. Use no ochre or other hue. Render absolutely no text-like marks, glyphs, labels, numbers, logos, signage, people, faces, silhouettes, plants, flowers, neon, dark fields, stock-3D polish, or molecule-as-hero imagery.",
+    "spec_hash": "sha256:cbf66ad808bf4ed3018bc25bfcaebf99c388437f3445e156df5ccdd09e35d293",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed decorative off-palette color, forbidden subjects or marks, and generic infrastructure drift.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:23:58.141Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:24:18.233Z"
+  },
+  {
+    "asset_id": "B2-A02-05-R1",
+    "original_asset_id": "B2-A02-05",
+    "key": "cement-concrete-and-the-weight-of-the-built-world-spread--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/cement-concrete-and-the-weight-of-the-built-world-spread.png",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/cement-concrete-and-the-weight-of-the-built-world-spread--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/cement-concrete-and-the-weight-of-the-built-world-spread--retry-1.jpg",
+    "bytes": 377943,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A calm future streetscape under construction with reused aggregate, lower-clinker panels, and CO₂-cured blocks represented as distinct material textures, not a utopian finished skyline. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming. FINAL QA CORRECTION FOR THE ONLY RETRY: Generate the exact original physical system at the requested slot aspect with 40–60% clean warm-paper negative space. Use only literal warm paper #faf9f6, near-black ink #16171d, and restrained indigo #3d4db3. Use no ochre or other hue. Render absolutely no text-like marks, glyphs, labels, numbers, logos, signage, people, faces, silhouettes, plants, flowers, neon, dark fields, stock-3D polish, or molecule-as-hero imagery.",
+    "spec_hash": "sha256:75cc92133c7356f17d38419415f80172882c5b4b3a3c6a1f5b6276a60564dcd1",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed decorative off-palette color, forbidden subjects or marks, and generic infrastructure drift. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:24:18.234Z",
+    "source_dimensions": {
+      "width": 1280,
+      "height": 720
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:24:37.305Z"
+  },
+  {
+    "asset_id": "B2-A03-01-R1",
+    "original_asset_id": "B2-A03-01",
+    "key": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers-hero--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-hero.png",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-hero--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-hero--retry-1.jpg",
+    "bytes": 250075,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A landfill gas manifold, industrial methane conversion unit, and building cooling loop arranged across one clean systems landscape, with controlled indigo flow paths and no visible emissions spectacle. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming. FINAL QA CORRECTION FOR THE ONLY RETRY: Generate the exact original physical system at the requested slot aspect with 40–60% clean warm-paper negative space. Use only literal warm paper #faf9f6, near-black ink #16171d, and restrained indigo #3d4db3. Use no ochre or other hue. Render absolutely no text-like marks, glyphs, labels, numbers, logos, signage, people, faces, silhouettes, plants, flowers, neon, dark fields, stock-3D polish, or molecule-as-hero imagery.",
+    "spec_hash": "sha256:5c8d673955ae27ebe56dfd74e144ab7833e59ffb6027d831f86b34c7a32fbba8",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed decorative off-palette color, forbidden subjects or marks, and generic infrastructure drift. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:24:37.305Z",
+    "source_dimensions": {
+      "width": 1280,
+      "height": 720
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:26:15.177Z"
+  },
+  {
+    "asset_id": "B2-A03-02-R1",
+    "original_asset_id": "B2-A03-02",
+    "key": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-01--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-01.png",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-01--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-01--retry-1.jpg",
+    "bytes": 205226,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A direct methane-to-methanol reactor train shown as practical vessels and heat exchangers, one indigo catalytic zone indicating where material performance matters. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming. FINAL QA CORRECTION FOR THE ONLY RETRY: Generate the exact original physical system at the requested slot aspect with 40–60% clean warm-paper negative space. Use only literal warm paper #faf9f6, near-black ink #16171d, and restrained indigo #3d4db3. Use no ochre or other hue. Render absolutely no text-like marks, glyphs, labels, numbers, logos, signage, people, faces, silhouettes, plants, flowers, neon, dark fields, stock-3D polish, or molecule-as-hero imagery.",
+    "spec_hash": "sha256:a40f5d526a8a67fffab9819dffdce6d789cd8d23246e227a5aa156e33adfdf0a",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed decorative off-palette color, forbidden subjects or marks, and generic infrastructure drift. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:26:15.178Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:26:34.397Z"
+  },
+  {
+    "asset_id": "B2-A03-03-R1",
+    "original_asset_id": "B2-A03-03",
+    "key": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-02--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-02.png",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-02--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-02--retry-1.jpg",
+    "bytes": 351177,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A turquoise-hydrogen pyrolysis module with solid carbon collected in orderly trays and hydrogen moving through one indigo conduit, avoiding flame or fossil-fuel glamour. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming. FINAL QA CORRECTION FOR THE ONLY RETRY: Generate the exact original physical system at the requested slot aspect with 40–60% clean warm-paper negative space. Use only literal warm paper #faf9f6, near-black ink #16171d, and restrained indigo #3d4db3. Use no ochre or other hue. Render absolutely no text-like marks, glyphs, labels, numbers, logos, signage, people, faces, silhouettes, plants, flowers, neon, dark fields, stock-3D polish, or molecule-as-hero imagery.",
+    "spec_hash": "sha256:dc60f941f3f3c260dd7d3da2bf8bc41e063d6a3b46c5138189b3645611bf6df5",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed decorative off-palette color, forbidden subjects or marks, and generic infrastructure drift. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:26:34.397Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:28:14.421Z"
+  },
+  {
+    "asset_id": "B2-A03-04-R1",
+    "original_asset_id": "B2-A03-04",
+    "key": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-03--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-03.png",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-03--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-03--retry-1.jpg",
+    "bytes": 265957,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A building cooling plant transitioning from a conventional refrigerant loop to a solid-state caloric module, expressed as two restrained engineering cutaways. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming. FINAL QA CORRECTION FOR THE ONLY RETRY: Generate the exact original physical system at the requested slot aspect with 40–60% clean warm-paper negative space. Use only literal warm paper #faf9f6, near-black ink #16171d, and restrained indigo #3d4db3. Use no ochre or other hue. Render absolutely no text-like marks, glyphs, labels, numbers, logos, signage, people, faces, silhouettes, plants, flowers, neon, dark fields, stock-3D polish, or molecule-as-hero imagery.",
+    "spec_hash": "sha256:c6205bb4cd50688cd8e155a0a69d3141eaab30174abd598893003ffe18f2c82f",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed decorative off-palette color, forbidden subjects or marks, and generic infrastructure drift.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:28:14.422Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:28:31.607Z"
+  },
+  {
+    "asset_id": "B2-A03-05-R1",
+    "original_asset_id": "B2-A03-05",
+    "key": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers-spread--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-spread.png",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-spread--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-spread--retry-1.jpg",
+    "bytes": 342547,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A district-scale food cold chain and hospital cooling network supplied by efficient material systems, with no people and no claim that all pathways are commercial today. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming. FINAL QA CORRECTION FOR THE ONLY RETRY: Generate the exact original physical system at the requested slot aspect with 40–60% clean warm-paper negative space. Use only literal warm paper #faf9f6, near-black ink #16171d, and restrained indigo #3d4db3. Use no ochre or other hue. Render absolutely no text-like marks, glyphs, labels, numbers, logos, signage, people, faces, silhouettes, plants, flowers, neon, dark fields, stock-3D polish, or molecule-as-hero imagery.",
+    "spec_hash": "sha256:04d06ef175c900ae4a491bd2a3f964aeb087e9a833963d9b512fde7b5e370163",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed decorative off-palette color, forbidden subjects or marks, and generic infrastructure drift. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:28:31.608Z",
+    "source_dimensions": {
+      "width": 1280,
+      "height": 720
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:28:49.850Z"
+  },
+  {
+    "asset_id": "B2-A04-01-R1",
+    "original_asset_id": "B2-A04-01",
+    "key": "water-and-air-correcting-the-molecules-we-drink-and-breathe-hero--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/water-and-air-correcting-the-molecules-we-drink-and-breathe-hero.png",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/water-and-air-correcting-the-molecules-we-drink-and-breathe-hero--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/water-and-air-correcting-the-molecules-we-drink-and-breathe-hero--retry-1.jpg",
+    "bytes": 240585,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A municipal water-treatment line and urban air-filtration system sharing one civic cross-section, their critical membrane and catalyst surfaces highlighted in indigo. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming. FINAL QA CORRECTION FOR THE ONLY RETRY: Generate the exact original physical system at the requested slot aspect with 40–60% clean warm-paper negative space. Use only literal warm paper #faf9f6, near-black ink #16171d, and restrained indigo #3d4db3. Use no ochre or other hue. Render absolutely no text-like marks, glyphs, labels, numbers, logos, signage, people, faces, silhouettes, plants, flowers, neon, dark fields, stock-3D polish, or molecule-as-hero imagery.",
+    "spec_hash": "sha256:e4d7775ad8a24b196ed4c572b7fc31a1b26384a9ae4c22236a0aa39114a7d6ce",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed decorative off-palette color, forbidden subjects or marks, and generic infrastructure drift. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:28:49.851Z",
+    "source_dimensions": {
+      "width": 1280,
+      "height": 720
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:29:09.425Z"
+  },
+  {
+    "asset_id": "B2-A04-02-R1",
+    "original_asset_id": "B2-A04-02",
+    "key": "water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-01--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-01.png",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-01--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-01--retry-1.jpg",
+    "bytes": 261713,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A reverse-osmosis plant cutaway where a thin indigo membrane separates clean-water flow from concentrate, emphasizing lower-energy separation through system architecture. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming. FINAL QA CORRECTION FOR THE ONLY RETRY: Generate the exact original physical system at the requested slot aspect with 40–60% clean warm-paper negative space. Use only literal warm paper #faf9f6, near-black ink #16171d, and restrained indigo #3d4db3. Use no ochre or other hue. Render absolutely no text-like marks, glyphs, labels, numbers, logos, signage, people, faces, silhouettes, plants, flowers, neon, dark fields, stock-3D polish, or molecule-as-hero imagery.",
+    "spec_hash": "sha256:05adef0d74dc3afac868adde26ce09c8bc4314b1208ef1b6ae65cd48d052b68a",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed decorative off-palette color, forbidden subjects or marks, and generic infrastructure drift. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:29:09.426Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:29:28.421Z"
+  },
+  {
+    "asset_id": "B2-A04-03-R1",
+    "original_asset_id": "B2-A04-03",
+    "key": "water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-02--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-02.png",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-02--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-02--retry-1.jpg",
+    "bytes": 414952,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. An atmospheric water-harvesting module operating in a dry built environment, with sparse indigo moisture paths condensing into a storage cistern and no lush vegetation. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming. FINAL QA CORRECTION FOR THE ONLY RETRY: Generate the exact original physical system at the requested slot aspect with 40–60% clean warm-paper negative space. Use only literal warm paper #faf9f6, near-black ink #16171d, and restrained indigo #3d4db3. Use no ochre or other hue. Render absolutely no text-like marks, glyphs, labels, numbers, logos, signage, people, faces, silhouettes, plants, flowers, neon, dark fields, stock-3D polish, or molecule-as-hero imagery.",
+    "spec_hash": "sha256:eab49e9ca939d3998f3c05360db6262510a3e85393e24f610b520793d75eb5f3",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed decorative off-palette color, forbidden subjects or marks, and generic infrastructure drift. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:29:28.422Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:29:47.347Z"
+  },
+  {
+    "asset_id": "B2-A04-04-R1",
+    "original_asset_id": "B2-A04-04",
+    "key": "water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-03--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-03.png",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-03--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-03--retry-1.jpg",
+    "bytes": 465001,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A roadway tunnel filtration and low-temperature emissions-control system shown as practical ducts, filters, and catalyst beds, with airborne particles as faint ink marks. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming. FINAL QA CORRECTION FOR THE ONLY RETRY: Generate the exact original physical system at the requested slot aspect with 40–60% clean warm-paper negative space. Use only literal warm paper #faf9f6, near-black ink #16171d, and restrained indigo #3d4db3. Use no ochre or other hue. Render absolutely no text-like marks, glyphs, labels, numbers, logos, signage, people, faces, silhouettes, plants, flowers, neon, dark fields, stock-3D polish, or molecule-as-hero imagery.",
+    "spec_hash": "sha256:bd96dd210a617a481691ea423cc3568f5aa01e1512e260d2575ab05ae7592305",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed decorative off-palette color, forbidden subjects or marks, and generic infrastructure drift.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:29:47.348Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:30:05.265Z"
+  },
+  {
+    "asset_id": "B2-A04-05-R1",
+    "original_asset_id": "B2-A04-05",
+    "key": "water-and-air-correcting-the-molecules-we-drink-and-breathe-spread--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/water-and-air-correcting-the-molecules-we-drink-and-breathe-spread.png",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/water-and-air-correcting-the-molecules-we-drink-and-breathe-spread--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/water-and-air-correcting-the-molecules-we-drink-and-breathe-spread--retry-1.jpg",
+    "bytes": 361366,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A water-secure neighborhood infrastructure scene—reservoir, treatment works, distribution pipes, and clean-air transit corridor—grounded by visible material components in the foreground. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming. FINAL QA CORRECTION FOR THE ONLY RETRY: Generate the exact original physical system at the requested slot aspect with 40–60% clean warm-paper negative space. Use only literal warm paper #faf9f6, near-black ink #16171d, and restrained indigo #3d4db3. Use no ochre or other hue. Render absolutely no text-like marks, glyphs, labels, numbers, logos, signage, people, faces, silhouettes, plants, flowers, neon, dark fields, stock-3D polish, or molecule-as-hero imagery.",
+    "spec_hash": "sha256:c76838fb1c831c97f92ee54ce0e5f039a1ebd7e2b218ba4bfa538ea8d4526cfc",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed decorative off-palette color, forbidden subjects or marks, and generic infrastructure drift. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:30:05.267Z",
+    "source_dimensions": {
+      "width": 1280,
+      "height": 720
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:30:22.016Z"
+  }
+]

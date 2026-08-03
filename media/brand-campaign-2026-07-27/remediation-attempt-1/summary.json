@@ -1,0 +1,36 @@
+{
+  "campaign": "campaign-2026-07-27",
+  "attempt": 1,
+  "accepted_untouched": [
+    "B1-A01-02",
+    "B1-A03-01",
+    "B1-A03-03"
+  ],
+  "batches": {
+    "B1": {
+      "requested": 17,
+      "spec_path": "/home/alex/Dev/lupine/lupine-science/media/brand-campaign-2026-07-27/remediation-attempt-1/B1-retry-1.json"
+    },
+    "B2": {
+      "requested": 20,
+      "spec_path": "/home/alex/Dev/lupine/lupine-science/media/brand-campaign-2026-07-27/remediation-attempt-1/B2-retry-1.json"
+    },
+    "B3": {
+      "requested": 20,
+      "spec_path": "/home/alex/Dev/lupine/lupine-science/media/brand-campaign-2026-07-27/remediation-attempt-1/B3-retry-1.json"
+    },
+    "B4": {
+      "requested": 20,
+      "spec_path": "/home/alex/Dev/lupine/lupine-science/media/brand-campaign-2026-07-27/remediation-attempt-1/B4-retry-1.json"
+    },
+    "B5": {
+      "requested": 20,
+      "spec_path": "/home/alex/Dev/lupine/lupine-science/media/brand-campaign-2026-07-27/remediation-attempt-1/B5-retry-1.json"
+    },
+    "B6": {
+      "requested": 20,
+      "spec_path": "/home/alex/Dev/lupine/lupine-science/media/brand-campaign-2026-07-27/remediation-attempt-1/B6-retry-1.json"
+    }
+  },
+  "requested": 117
+}

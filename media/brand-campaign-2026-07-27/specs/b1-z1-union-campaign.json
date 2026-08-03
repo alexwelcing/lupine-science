@@ -1,0 +1,102 @@
+[
+  {
+    "key": "b1-z1-union-campaign-shared-anchor-map-a",
+    "aspect": "16:9",
+    "prompt": "four visibly different route traces crossing a broad terrain map and converging only at a small shared set of solid survey markers, panoramic arrangement with the main relationship spanning the frame and generous open space around it"
+  },
+  {
+    "key": "b1-z1-union-campaign-shared-anchor-map-b",
+    "aspect": "16:9",
+    "prompt": "four visibly different route traces crossing a broad terrain map and converging only at a small shared set of solid survey markers, closer wide view emphasizing the central physical relationship and one quiet secondary detail"
+  },
+  {
+    "key": "b1-z1-union-campaign-shared-anchor-map-c",
+    "aspect": "16:9",
+    "prompt": "four visibly different route traces crossing a broad terrain map and converging only at a small shared set of solid survey markers, high overhead view revealing the whole system, its junctions, and its limits"
+  },
+  {
+    "key": "b1-z1-union-campaign-shared-anchor-map-d",
+    "aspect": "16:9",
+    "prompt": "four visibly different route traces crossing a broad terrain map and converging only at a small shared set of solid survey markers, asymmetrical wide view with one dominant focal structure and a restrained supporting structure"
+  },
+  {
+    "key": "b1-z1-union-campaign-guidance-split-a",
+    "aspect": "1:1",
+    "prompt": "four paths between two stable basins, two passing through the narrow central saddle and two bending just below it, with measured points only at selected extrema, centered specimen-like composition showing the complete relationship at a glance"
+  },
+  {
+    "key": "b1-z1-union-campaign-guidance-split-b",
+    "aspect": "1:1",
+    "prompt": "four paths between two stable basins, two passing through the narrow central saddle and two bending just below it, with measured points only at selected extrema, close square view emphasizing the decisive interaction or boundary"
+  },
+  {
+    "key": "b1-z1-union-campaign-guidance-split-c",
+    "aspect": "1:1",
+    "prompt": "four paths between two stable basins, two passing through the narrow central saddle and two bending just below it, with measured points only at selected extrema, overhead square arrangement showing the system and its surrounding context"
+  },
+  {
+    "key": "b1-z1-union-campaign-guidance-split-d",
+    "aspect": "1:1",
+    "prompt": "four paths between two stable basins, two passing through the narrow central saddle and two bending just below it, with measured points only at selected extrema, off-center square crop with a strong focal object and a quieter comparison nearby"
+  },
+  {
+    "key": "b1-z1-union-campaign-sparse-checkpoints-a",
+    "aspect": "1:1",
+    "prompt": "a winding migration route through a crystal-like landscape with a few solid inspection pins placed at peaks and valleys while the rest remains lightly sketched, centered specimen-like composition showing the complete relationship at a glance"
+  },
+  {
+    "key": "b1-z1-union-campaign-sparse-checkpoints-b",
+    "aspect": "1:1",
+    "prompt": "a winding migration route through a crystal-like landscape with a few solid inspection pins placed at peaks and valleys while the rest remains lightly sketched, close square view emphasizing the decisive interaction or boundary"
+  },
+  {
+    "key": "b1-z1-union-campaign-sparse-checkpoints-c",
+    "aspect": "1:1",
+    "prompt": "a winding migration route through a crystal-like landscape with a few solid inspection pins placed at peaks and valleys while the rest remains lightly sketched, overhead square arrangement showing the system and its surrounding context"
+  },
+  {
+    "key": "b1-z1-union-campaign-sparse-checkpoints-d",
+    "aspect": "1:1",
+    "prompt": "a winding migration route through a crystal-like landscape with a few solid inspection pins placed at peaks and valleys while the rest remains lightly sketched, off-center square crop with a strong focal object and a quieter comparison nearby"
+  },
+  {
+    "key": "b1-z1-union-campaign-offset-wander-a",
+    "aspect": "16:9",
+    "prompt": "two parallel measurement traces spanning a long field, maintaining a steady gap in one region and visibly wandering apart around one difficult central passage, wide left-to-right sequence with distinct stages and clear breathing room"
+  },
+  {
+    "key": "b1-z1-union-campaign-offset-wander-b",
+    "aspect": "16:9",
+    "prompt": "two parallel measurement traces spanning a long field, maintaining a steady gap in one region and visibly wandering apart around one difficult central passage, panoramic field view emphasizing relationships across the full system"
+  },
+  {
+    "key": "b1-z1-union-campaign-offset-wander-c",
+    "aspect": "16:9",
+    "prompt": "two parallel measurement traces spanning a long field, maintaining a steady gap in one region and visibly wandering apart around one difficult central passage, wide overhead arrangement with visible provenance from start to finish"
+  },
+  {
+    "key": "b1-z1-union-campaign-offset-wander-d",
+    "aspect": "16:9",
+    "prompt": "two parallel measurement traces spanning a long field, maintaining a steady gap in one region and visibly wandering apart around one difficult central passage, split-zone wide composition contrasting two conditions using physical form alone"
+  },
+  {
+    "key": "b1-z1-union-campaign-receipts-after-friction-a",
+    "aspect": "16:9",
+    "prompt": "a horizontal chain of crystalline specimen tiles linked by a continuous inspection thread, with one repaired junction and one deferred empty position, wide left-to-right sequence with distinct stages and clear breathing room"
+  },
+  {
+    "key": "b1-z1-union-campaign-receipts-after-friction-b",
+    "aspect": "16:9",
+    "prompt": "a horizontal chain of crystalline specimen tiles linked by a continuous inspection thread, with one repaired junction and one deferred empty position, panoramic field view emphasizing relationships across the full system"
+  },
+  {
+    "key": "b1-z1-union-campaign-receipts-after-friction-c",
+    "aspect": "16:9",
+    "prompt": "a horizontal chain of crystalline specimen tiles linked by a continuous inspection thread, with one repaired junction and one deferred empty position, wide overhead arrangement with visible provenance from start to finish"
+  },
+  {
+    "key": "b1-z1-union-campaign-receipts-after-friction-d",
+    "aspect": "16:9",
+    "prompt": "a horizontal chain of crystalline specimen tiles linked by a continuous inspection thread, with one repaired junction and one deferred empty position, split-zone wide composition contrasting two conditions using physical form alone"
+  }
+]

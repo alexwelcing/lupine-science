@@ -35,5 +35,22 @@ test('production deploy records a durable receipt and invokes live verification'
   assert.match(source, /retention-days: 90/);
   assert.match(source, /name: Smoke test production deployment URL/);
   assert.match(source, /name: Smoke test custom domain/);
+  assert.match(source, /SMOKE_REPORT_PATH: \$\{\{ runner\.temp \}\}\/smoke-deployment-url\.json/);
+  assert.match(source, /SMOKE_REPORT_PATH: \$\{\{ runner\.temp \}\}\/smoke-custom-domain\.json/);
+  assert.match(source, /path:[\s\S]*smoke-deployment-url\.json[\s\S]*smoke-custom-domain\.json/);
   assert.match(source, /name: Security headers are live/);
+});
+
+test('preview deploy runs the machine-readable smoke gate without deployment credentials', async () => {
+  const source = await workflow();
+
+  assert.match(source, /branches: \['\*\*'\]/);
+  assert.match(source, /deploy-preview:[\s\S]*outputs:\n\s+url: \$\{\{ steps\.deploy\.outputs\.url \}\}/);
+  assert.match(source, /preview-smoke:\n\s+needs: deploy-preview/);
+  assert.match(source, /preview-smoke:[\s\S]*permissions:\n\s+contents: read/);
+  assert.match(source, /name: Checkout exact preview revision[\s\S]*ref: \$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
+  assert.match(source, /SMOKE_PREVIEW_BASE_URL: \$\{\{ needs\.deploy-preview\.outputs\.url \}\}/);
+  assert.match(source, /SMOKE_REPORT_PATH: \$\{\{ runner\.temp \}\}\/live-smoke-preview\.json/);
+  assert.match(source, /name: live-smoke-preview-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
+  assert.match(source, /retention-days: 90/);
 });

@@ -1,0 +1,702 @@
+[
+  {
+    "asset_id": "B4-A01-01-R1",
+    "original_asset_id": "B4-A01-01",
+    "key": "why-lupine-science-hero--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupine-science-hero.jpg",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupine-science-hero--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupine-science-hero--retry-1.jpg",
+    "bytes": 418274,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A monumental but quiet measurement gateway between a cloud of predicted material forms and a row of real energy and infrastructure components, with only evidence-backed paths continuing in indigo. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Make the named trust mechanism physical and readable without words: gates, sealed records, measurement routes, abstention paths, or instruments as specified by the original concept. Preserve 40–60% warm-paper negative space; use only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+    "spec_hash": "sha256:06ab4974ac8ace77768d7ce9d7c0effa109881119cd1b8a8f9cd8155683205e7",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed flowers, generated marks, decorative color, or abstract trust-layer imagery.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:41:43.115Z",
+    "source_dimensions": {
+      "width": 1280,
+      "height": 720
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:43:21.458Z"
+  },
+  {
+    "asset_id": "B4-A01-02-R1",
+    "original_asset_id": "B4-A01-02",
+    "key": "why-lupine-science-inline-01--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupine-science-inline-01.jpg",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupine-science-inline-01--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupine-science-inline-01--retry-1.jpg",
+    "bytes": 356986,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. Bits becoming buildable matter through a sequence of pixel fragments, instrument readings, sample coupons, and a tested structural component rather than a direct digital-to-crystal jump. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Make the named trust mechanism physical and readable without words: gates, sealed records, measurement routes, abstention paths, or instruments as specified by the original concept. Preserve 40–60% warm-paper negative space; use only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+    "spec_hash": "sha256:6d1a699ec99917f0511d1e5ba0105b925ca6ee84690781e4f546177e71f0fcc7",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed flowers, generated marks, decorative color, or abstract trust-layer imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:43:21.458Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:43:40.822Z"
+  },
+  {
+    "asset_id": "B4-A01-03-R1",
+    "original_asset_id": "B4-A01-03",
+    "key": "why-lupine-science-inline-02--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupine-science-inline-02.jpg",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupine-science-inline-02--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupine-science-inline-02--retry-1.jpg",
+    "bytes": 614787,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. An open evidence table with sample blocks, diffraction plates, and provenance links radiating toward independent laboratory instruments, no screens or legible documents. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Make the named trust mechanism physical and readable without words: gates, sealed records, measurement routes, abstention paths, or instruments as specified by the original concept. Preserve 40–60% warm-paper negative space; use only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+    "spec_hash": "sha256:0809aad6daabef8688bc6ee44990a43ad0c833beda7cac19412afd7532461d8e",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed flowers, generated marks, decorative color, or abstract trust-layer imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:43:40.822Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:43:59.818Z"
+  },
+  {
+    "asset_id": "B4-A01-04-R1",
+    "original_asset_id": "B4-A01-04",
+    "key": "why-lupine-science-inline-03--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupine-science-inline-03.jpg",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupine-science-inline-03--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupine-science-inline-03--retry-1.jpg",
+    "bytes": 375041,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. The shape-of-wrongness motif embedded into a practical test bridge: scattered faint error vectors converge onto a measured indigo ribbon that supports a downstream component decision. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Make the named trust mechanism physical and readable without words: gates, sealed records, measurement routes, abstention paths, or instruments as specified by the original concept. Preserve 40–60% warm-paper negative space; use only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+    "spec_hash": "sha256:b276c284a038f8647e80ef7b5fd48d89d79d49afee788d573e6bc819e0d60708",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed flowers, generated marks, decorative color, or abstract trust-layer imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:43:59.819Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:44:16.487Z"
+  },
+  {
+    "asset_id": "B4-A01-05-R1",
+    "original_asset_id": "B4-A01-05",
+    "key": "why-lupine-science-spread--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupine-science-spread.jpg",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupine-science-spread--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupine-science-spread--retry-1.jpg",
+    "bytes": 386883,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A restrained panorama of batteries, water systems, clean industry, and research instruments sharing one validation substrate, with generous paper space signaling that the work remains open. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Make the named trust mechanism physical and readable without words: gates, sealed records, measurement routes, abstention paths, or instruments as specified by the original concept. Preserve 40–60% warm-paper negative space; use only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+    "spec_hash": "sha256:911558cf87bf8e9cafe31c6e174f6b68cc46b398f83de9a6186c38f119af2b1e",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed flowers, generated marks, decorative color, or abstract trust-layer imagery.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:44:16.488Z",
+    "source_dimensions": {
+      "width": 1280,
+      "height": 720
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:44:34.959Z"
+  },
+  {
+    "asset_id": "B4-A02-01-R1",
+    "original_asset_id": "B4-A02-01",
+    "key": "why-lupi-hero--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupi-hero.jpg",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupi-hero--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupi-hero--retry-1.jpg",
+    "bytes": 409833,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. An inspectable atomistic evidence scene represented as a transparent material specimen inside an open instrument frame, with coordinates and force paths conveyed geometrically but no interface text. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Make the named trust mechanism physical and readable without words: gates, sealed records, measurement routes, abstention paths, or instruments as specified by the original concept. Preserve 40–60% warm-paper negative space; use only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+    "spec_hash": "sha256:6d23f737683adf1c0af6596f9a67aabd734a3d0f71f13ff40e6880ed59ae9cd1",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed flowers, generated marks, decorative color, or abstract trust-layer imagery.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:44:34.960Z",
+    "source_dimensions": {
+      "width": 1280,
+      "height": 720
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:46:13.503Z"
+  },
+  {
+    "asset_id": "B4-A02-02-R1",
+    "original_asset_id": "B4-A02-02",
+    "key": "why-lupi-inline-01--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupi-inline-01.jpg",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupi-inline-01--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupi-inline-01--retry-1.jpg",
+    "bytes": 361782,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A model prediction and reference observation placed side by side as two physical field plates, their mismatch traced by a single indigo vector ribbon. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Make the named trust mechanism physical and readable without words: gates, sealed records, measurement routes, abstention paths, or instruments as specified by the original concept. Preserve 40–60% warm-paper negative space; use only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+    "spec_hash": "sha256:8fdd5b62914b8a872aada09cef28a0f975657cd17cfd25ae1a73773c0431d65d",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed flowers, generated marks, decorative color, or abstract trust-layer imagery.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:46:13.504Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:46:32.221Z"
+  },
+  {
+    "asset_id": "B4-A02-03-R1",
+    "original_asset_id": "B4-A02-03",
+    "key": "why-lupi-inline-02--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupi-inline-02.jpg",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupi-inline-02--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupi-inline-02--retry-1.jpg",
+    "bytes": 616032,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A research viewer as a window through layers of a battery electrolyte, revealing interfaces and migration pathways that connect directly to a practical cell casing. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Make the named trust mechanism physical and readable without words: gates, sealed records, measurement routes, abstention paths, or instruments as specified by the original concept. Preserve 40–60% warm-paper negative space; use only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+    "spec_hash": "sha256:341d538c0142c4835f40cb73ffd27d31e2cd4848f61df3aaa32481dcefd55b74",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed flowers, generated marks, decorative color, or abstract trust-layer imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:46:32.221Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:46:51.899Z"
+  },
+  {
+    "asset_id": "B4-A02-04-R1",
+    "original_asset_id": "B4-A02-04",
+    "key": "why-lupi-inline-03--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupi-inline-03.jpg",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupi-inline-03--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupi-inline-03--retry-1.jpg",
+    "bytes": 493252,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. An open provenance chain of structure, model, force field, comparison, and decision rendered as linked specimen holders on a bench. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Make the named trust mechanism physical and readable without words: gates, sealed records, measurement routes, abstention paths, or instruments as specified by the original concept. Preserve 40–60% warm-paper negative space; use only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+    "spec_hash": "sha256:299a1995243fcd4a74cb454a3eb51343ed8fe4ae324731aefeaaffb464daad34",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed flowers, generated marks, decorative color, or abstract trust-layer imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:46:51.899Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:47:10.953Z"
+  },
+  {
+    "asset_id": "B4-A02-05-R1",
+    "original_asset_id": "B4-A02-05",
+    "key": "why-lupi-spread--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupi-spread.jpg",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupi-spread--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/why-lupi-spread--retry-1.jpg",
+    "bytes": 469234,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A shared materials observatory serving battery, catalyst, and infrastructure test bays, communicating access and inspection without depicting users or a futuristic control room. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Make the named trust mechanism physical and readable without words: gates, sealed records, measurement routes, abstention paths, or instruments as specified by the original concept. Preserve 40–60% warm-paper negative space; use only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+    "spec_hash": "sha256:93a77b1c2c2c52aa84825861399c029c388bfb1815c8292aa035e5697c85791e",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed flowers, generated marks, decorative color, or abstract trust-layer imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:47:10.953Z",
+    "source_dimensions": {
+      "width": 1280,
+      "height": 720
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:47:27.979Z"
+  },
+  {
+    "asset_id": "B4-A03-01-R1",
+    "original_asset_id": "B4-A03-01",
+    "key": "the-trust-layer-hero--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/the-trust-layer-hero.jpg",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/the-trust-layer-hero--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/the-trust-layer-hero--retry-1.jpg",
+    "bytes": 462608,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A load-bearing civic bridge whose hidden indigo layer is composed of measurement, evidence, and verification modules, making trust literal infrastructure without words. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Make the named trust mechanism physical and readable without words: gates, sealed records, measurement routes, abstention paths, or instruments as specified by the original concept. Preserve 40–60% warm-paper negative space; use only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+    "spec_hash": "sha256:330461bf772e2ab73de4d61829bfd9996e52074f07f7e7a4fbddb6e4b6387aa5",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed flowers, generated marks, decorative color, or abstract trust-layer imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:47:27.979Z",
+    "source_dimensions": {
+      "width": 1280,
+      "height": 720
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:47:46.188Z"
+  },
+  {
+    "asset_id": "B4-A03-02-R1",
+    "original_asset_id": "B4-A03-02",
+    "key": "the-trust-layer-inline-01--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/the-trust-layer-inline-01.jpg",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/the-trust-layer-inline-01--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/the-trust-layer-inline-01--retry-1.jpg",
+    "bytes": 218078,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. The oldest experiment loop—propose, make, measure, revise—shown as four physical stations in a circular bench arrangement, with the measured return path in indigo. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Make the named trust mechanism physical and readable without words: gates, sealed records, measurement routes, abstention paths, or instruments as specified by the original concept. Preserve 40–60% warm-paper negative space; use only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+    "spec_hash": "sha256:1049ef271df941e3abeebdb1ea233c4573334aefbdedce7b9ed3c6f06d50c46b",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed flowers, generated marks, decorative color, or abstract trust-layer imagery.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:47:46.189Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:48:03.630Z"
+  },
+  {
+    "asset_id": "B4-A03-03-R1",
+    "original_asset_id": "B4-A03-03",
+    "key": "the-trust-layer-inline-02--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/the-trust-layer-inline-02.jpg",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/the-trust-layer-inline-02--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/the-trust-layer-inline-02--retry-1.jpg",
+    "bytes": 473927,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A predicted material crossing three gates for reference evidence, runtime correction, and claim boundary before entering a practical component assembly. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Make the named trust mechanism physical and readable without words: gates, sealed records, measurement routes, abstention paths, or instruments as specified by the original concept. Preserve 40–60% warm-paper negative space; use only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+    "spec_hash": "sha256:bec5d39517f37002597b3abd06890e6761617e2c415cb229c3dfbee90f212d80",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed flowers, generated marks, decorative color, or abstract trust-layer imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:48:03.631Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:49:43.086Z"
+  },
+  {
+    "asset_id": "B4-A03-04-R1",
+    "original_asset_id": "B4-A03-04",
+    "key": "the-trust-layer-inline-03--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/the-trust-layer-inline-03.jpg",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/the-trust-layer-inline-03--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/the-trust-layer-inline-03--retry-1.jpg",
+    "bytes": 714427,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. An open ledger represented by a long evidence rack accessible from multiple independent instruments, each contribution linked but not centralized into a glowing network. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Make the named trust mechanism physical and readable without words: gates, sealed records, measurement routes, abstention paths, or instruments as specified by the original concept. Preserve 40–60% warm-paper negative space; use only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+    "spec_hash": "sha256:2112337cd28bb39160104617e37689e63e71ba11a6b97dd66f55cfc45d75b599",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed flowers, generated marks, decorative color, or abstract trust-layer imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:49:43.087Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:51:22.490Z"
+  },
+  {
+    "asset_id": "B4-A03-05-R1",
+    "original_asset_id": "B4-A03-05",
+    "key": "the-trust-layer-spread--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/the-trust-layer-spread.jpg",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/the-trust-layer-spread--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/the-trust-layer-spread--retry-1.jpg",
+    "bytes": 344813,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A broad clean-infrastructure landscape resting on a visible, thin indigo validation foundation; the layer supports decisions but does not dominate the society it serves. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Make the named trust mechanism physical and readable without words: gates, sealed records, measurement routes, abstention paths, or instruments as specified by the original concept. Preserve 40–60% warm-paper negative space; use only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+    "spec_hash": "sha256:0282383ab5b8f59410d88d6d1b738b7066262cb2bc7a7a6f11936e438c737e57",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed flowers, generated marks, decorative color, or abstract trust-layer imagery.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:51:22.491Z",
+    "source_dimensions": {
+      "width": 1280,
+      "height": 720
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:51:40.939Z"
+  },
+  {
+    "asset_id": "B4-A04-01-R1",
+    "original_asset_id": "B4-A04-01",
+    "key": "investing-in-the-trust-layer-hero--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/investing-in-the-trust-layer-hero.jpg",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/investing-in-the-trust-layer-hero--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/investing-in-the-trust-layer-hero--retry-1.jpg",
+    "bytes": 307604,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A materials innovation pipeline from computation to pilot plant with leak points made visible as interrupted ink channels and a measured indigo layer sealing only verified connections. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Make the named trust mechanism physical and readable without words: gates, sealed records, measurement routes, abstention paths, or instruments as specified by the original concept. Preserve 40–60% warm-paper negative space; use only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+    "spec_hash": "sha256:5b37ee2939e0fffd55884dbe493295a6de85fcbefacd67460bc9a3db97d6ee7a",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed flowers, generated marks, decorative color, or abstract trust-layer imagery.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:51:40.940Z",
+    "source_dimensions": {
+      "width": 1280,
+      "height": 720
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:51:56.803Z"
+  },
+  {
+    "asset_id": "B4-A04-02-R1",
+    "original_asset_id": "B4-A04-02",
+    "key": "investing-in-the-trust-layer-inline-01--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/investing-in-the-trust-layer-inline-01.jpg",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/investing-in-the-trust-layer-inline-01--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/investing-in-the-trust-layer-inline-01--retry-1.jpg",
+    "bytes": 460400,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. Three defensibility pillars—proof apparatus, self-refutation archive, and expanding material coverage—rendered as distinct structural supports under one research platform. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Make the named trust mechanism physical and readable without words: gates, sealed records, measurement routes, abstention paths, or instruments as specified by the original concept. Preserve 40–60% warm-paper negative space; use only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+    "spec_hash": "sha256:490b09ac3bfb756bb1e68143e2b45bb985152c71bafb64a0fb18591eb6714fae",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed flowers, generated marks, decorative color, or abstract trust-layer imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:51:56.804Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:52:15.233Z"
+  },
+  {
+    "asset_id": "B4-A04-03-R1",
+    "original_asset_id": "B4-A04-03",
+    "key": "investing-in-the-trust-layer-inline-02--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/investing-in-the-trust-layer-inline-02.jpg",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/investing-in-the-trust-layer-inline-02--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/investing-in-the-trust-layer-inline-02--retry-1.jpg",
+    "bytes": 581536,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A compounding evidence flywheel shown as physical sample archives feeding improved test selection across battery, climate, and infrastructure bays, with no financial symbols. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Make the named trust mechanism physical and readable without words: gates, sealed records, measurement routes, abstention paths, or instruments as specified by the original concept. Preserve 40–60% warm-paper negative space; use only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+    "spec_hash": "sha256:c5f17f2675a06d084f3f1faa2e468c7f53aa15ff42e5f915c42ff5401df610d0",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed flowers, generated marks, decorative color, or abstract trust-layer imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:52:15.234Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:52:35.314Z"
+  },
+  {
+    "asset_id": "B4-A04-04-R1",
+    "original_asset_id": "B4-A04-04",
+    "key": "investing-in-the-trust-layer-inline-03--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/investing-in-the-trust-layer-inline-03.jpg",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/investing-in-the-trust-layer-inline-03--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/investing-in-the-trust-layer-inline-03--retry-1.jpg",
+    "bytes": 537866,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A risk-aware portfolio scene in which some candidate paths stop, one is marked for more evidence, and a few proceed to pilot equipment; ochre may appear only as a tiny caution marker here. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Make the named trust mechanism physical and readable without words: gates, sealed records, measurement routes, abstention paths, or instruments as specified by the original concept. Preserve 40–60% warm-paper negative space; use only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+    "spec_hash": "sha256:39bc2f2dddc0712865c72e7011aa0535b77107e17bcafcd83c1f2a6564036e73",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed flowers, generated marks, decorative color, or abstract trust-layer imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:52:35.315Z",
+    "source_dimensions": {
+      "width": 1248,
+      "height": 832
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 1024
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:52:55.129Z"
+  },
+  {
+    "asset_id": "B4-A04-05-R1",
+    "original_asset_id": "B4-A04-05",
+    "key": "investing-in-the-trust-layer-spread--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/investing-in-the-trust-layer-spread.jpg",
+    "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/investing-in-the-trust-layer-spread--retry-1.jpg",
+    "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/investing-in-the-trust-layer-spread--retry-1.jpg",
+    "bytes": 353012,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A long-horizon materials foundry supported by a quiet indigo trust substrate, framed as infrastructure under construction rather than an autonomous replicator already achieved. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Make the named trust mechanism physical and readable without words: gates, sealed records, measurement routes, abstention paths, or instruments as specified by the original concept. Preserve 40–60% warm-paper negative space; use only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+    "spec_hash": "sha256:23ea76b53d065139161684d876a91789948b0df71983e87a361370f1fd2b6168",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed flowers, generated marks, decorative color, or abstract trust-layer imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1,
+    "status": "generated",
+    "started_at": "2026-07-28T04:52:55.129Z",
+    "source_dimensions": {
+      "width": 1280,
+      "height": 720
+    },
+    "target_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "output_dimensions": {
+      "width": 1536,
+      "height": 864
+    },
+    "postprocessed_to_target": true,
+    "postprocess_error": null,
+    "completed_at": "2026-07-28T04:53:12.640Z"
+  }
+]

@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "brand-campaign-2026-07-27",
+  "task_id": "t_052d74ab",
+  "evaluated_at": "2026-07-28T03:16:33-04:00",
+  "evaluated_video_count": 5,
+  "candidate_selection": "The five immutable *-qa-attempt-1.mp4 replacements named by public/videos/campaign-2026-07-27/qa-attempt-1-probe-report.json were evaluated; superseded originals were not treated as candidates.",
+  "policy_sources": [
+    "media/brand-campaign-2026-07-27/campaign-video-storyboards.json",
+    "media/brand-campaign-2026-07-27/asset-matrix.json",
+    "docs/brand-guidelines.md",
+    "docs/video-review-playbook.md"
+  ],
+  "method": {
+    "playability": "Independent ffprobe -show_error -show_format -show_streams -count_frames inspection plus ffmpeg -v error -xerror full decode with the first video and audio streams mapped to the null muxer.",
+    "hash": "SHA-256 over the exact candidate bytes at evaluation time.",
+    "visual": "Settled-shot contact sheets were inspected for brand, palette, text, composition, and claim safety. Exact midpoint frames were independently decoded from every shot transition and assembled into media/brand-campaign-2026-07-27/qa/transition-midpoints-contact-sheet.jpg.",
+    "text_policy": "Visible overlays were reconciled with deterministic COMPOSITION_TEXT and make_card definitions in render_campaign_videos.py. Output type sizes account for the renderer's 960x540 to 1920x1080 2x scale.",
+    "scientific_honesty": "Every deterministic title, body, and disclosure was compared with the corresponding film's truthful thesis and claims_and_evidence_constraints."
+  },
+  "global_findings": {
+    "playability": "PASS for all five candidates: valid MP4-family container at probe score 100, H.264 High@L4.0 1920x1080 yuv420p progressive video at 30 fps, AAC-LC mono 48 kHz audio, exact storyboard durations/frame counts, and clean full decode with empty stderr.",
+    "brand_palette": "PASS in settled shots: warm paper dominates, ink/soft-ink and indigo are restrained, and ochre is used only for cautions/abstention/boundary emphasis. No people, faces, plants, flowers, neon, dark backgrounds, glowing circuits, logos, or stock-3D/molecule-hero imagery were found.",
+    "scientific_honesty": "PASS for all five candidates: claims remain bounded by the storyboard evidence contracts and required draft/editorial/deployment qualifications are visible.",
+    "blocking_text_policy": "FAIL for all five candidates. The renderer produces 34 px body copy against the 48 px minimum, 20-24 px labels/footers against the 36 px minimum, and 18 px QA labels against the 36 px minimum. A single visible text node below the applicable floor is a rejection under docs/video-review-playbook.md.",
+    "blocking_transition_integrity": "FAIL for all five candidates. render_campaign_videos.py alpha-blends fully typeset outgoing and incoming cards for 12 frames (0.4 s). Every one of the 22 independently decoded transition midpoints contains simultaneous readable/ghosted text systems and focal competition, violating the zero-tolerance no-collision transition rule.",
+    "publication_disposition": "All five candidates are permanently excluded from wiring. No regeneration was requested or performed."
+  },
+  "summary": {
+    "pass": 0,
+    "fail": 5,
+    "permanently_excluded": 5
+  },
+  "records": [
+    {
+      "film_id": "01-z1-campaign-story",
+      "path": "public/videos/campaign-2026-07-27/01-z1-union-verdict-qa-attempt-1.mp4",
+      "sha256": "5ace393923af277227916ee6bc786b5da63bebd5742ae385f0b3a5b5e5be1b27",
+      "bytes": 1064842,
+      "verdict": "fail",
+      "wiring_eligible": false,
+      "failure_reason": "Text-policy and transition-integrity rejection: body, label, footer, and QA overlay text is below the mandatory 48/36 px floors; all five transition midpoints show outgoing/incoming text collisions and competing focal systems.",
+      "playability_evidence": {
+        "ffprobe_exit_code": 0,
+        "probe_score": 100,
+        "container": "mov,mp4,m4a,3gp,3g2,mj2",
+        "stream_count": 2,
+        "duration_seconds": 28.0,
+        "video": {"codec": "h264", "profile": "High", "level": 40, "width": 1920, "height": 1080, "pixel_format": "yuv420p", "frame_rate": "30/1", "frame_count": 840, "field_order": "progressive"},
+        "audio": {"codec": "aac", "profile": "LC", "sample_rate_hz": 48000, "channels": 1, "duration_seconds": 28.0},
+        "full_decode": {"command_policy": "ffmpeg -v error -xerror; mapped video+audio to null", "exit_code": 0, "stderr": "", "clean": true}
+      },
+      "policy_checks": {
+        "brand_palette": {"verdict": "pass", "reason": "Settled shots use the prescribed warm-paper editorial system, restrained indigo, ink/soft-ink, and warning-only ochre."},
+        "ocr_and_text": {"verdict": "fail", "reason": "All copy is deterministic and spelled correctly, but body copy renders at 34 px, metadata/footer at 20-24 px, and QA labels at 18 px; these are below mandatory floors."},
+        "composition": {"verdict": "fail", "reason": "Settled shots are balanced, but transitions fail zero tolerance at 3.8, 8.8, 13.8, 19.8, and 24.8 seconds due to ghosted superimposed outgoing/incoming copy."},
+        "scientific_honesty": {"verdict": "pass", "reason": "430-to-129, 70% fewer, 129/129, zero failures, 61.0 wall-hours, $14.65, and 6.8 meV deficits are bounded to one panel/chemistry family/engine and the close displays FOR EDITOR REVIEW."}
+      },
+      "transition_midpoint_seconds": [3.8, 8.8, 13.8, 19.8, 24.8]
+    },
+    {
+      "film_id": "02-savings-stack",
+      "path": "public/videos/campaign-2026-07-27/02-savings-stack-qa-attempt-1.mp4",
+      "sha256": "48ed48f919b3e12ec06fcc84d355279921404c1a96c1526b33fea2b00e41996e",
+      "bytes": 1101244,
+      "verdict": "fail",
+      "wiring_eligible": false,
+      "failure_reason": "Text-policy and transition-integrity rejection: body, label, footer, and QA overlay text is below the mandatory 48/36 px floors; all four transition midpoints show outgoing/incoming text collisions and competing focal systems.",
+      "playability_evidence": {
+        "ffprobe_exit_code": 0,
+        "probe_score": 100,
+        "container": "mov,mp4,m4a,3gp,3g2,mj2",
+        "stream_count": 2,
+        "duration_seconds": 28.0,
+        "video": {"codec": "h264", "profile": "High", "level": 40, "width": 1920, "height": 1080, "pixel_format": "yuv420p", "frame_rate": "30/1", "frame_count": 840, "field_order": "progressive"},
+        "audio": {"codec": "aac", "profile": "LC", "sample_rate_hz": 48000, "channels": 1, "duration_seconds": 28.0},
+        "full_decode": {"command_policy": "ffmpeg -v error -xerror; mapped video+audio to null", "exit_code": 0, "stderr": "", "clean": true}
+      },
+      "policy_checks": {
+        "brand_palette": {"verdict": "pass", "reason": "Settled shots use warm paper, ink/soft-ink, restrained indigo, and only a narrow ochre distinction line."},
+        "ocr_and_text": {"verdict": "fail", "reason": "All copy is deterministic and spelled correctly, but body copy renders at 34 px, metadata/footer at 20-24 px, and QA labels at 18 px; these are below mandatory floors."},
+        "composition": {"verdict": "fail", "reason": "Settled shots are clear, but transitions fail zero tolerance at 3.8, 14.8, 18.8, and 23.8 seconds due to ghosted superimposed outgoing/incoming copy."},
+        "scientific_honesty": {"verdict": "pass", "reason": "The film states that layers are not independent multipliers; confines 558-to-154, 72.4% fewer, and 3.62x to 29 analyzable Z1 paths; states the about-10% curve comparison; and discloses panel/model/engine/chemistry limits and non-peer-review status."}
+      },
+      "transition_midpoint_seconds": [3.8, 14.8, 18.8, 23.8]
+    },
+    {
+      "film_id": "03-trust-layer",
+      "path": "public/videos/campaign-2026-07-27/03-trust-layer-qa-attempt-1.mp4",
+      "sha256": "b3e3657062ccb36327c1e313923c04f37f7d9c3e89483bb4c6697c227f1b6049",
+      "bytes": 933070,
+      "verdict": "fail",
+      "wiring_eligible": false,
+      "failure_reason": "Text-policy and transition-integrity rejection: body, label, footer, and QA overlay text is below the mandatory 48/36 px floors; all four transition midpoints show outgoing/incoming text collisions and competing focal systems, including a conspicuous shot 3-to-4 collision at 13.8 s.",
+      "playability_evidence": {
+        "ffprobe_exit_code": 0,
+        "probe_score": 100,
+        "container": "mov,mp4,m4a,3gp,3g2,mj2",
+        "stream_count": 2,
+        "duration_seconds": 24.0,
+        "video": {"codec": "h264", "profile": "High", "level": 40, "width": 1920, "height": 1080, "pixel_format": "yuv420p", "frame_rate": "30/1", "frame_count": 720, "field_order": "progressive"},
+        "audio": {"codec": "aac", "profile": "LC", "sample_rate_hz": 48000, "channels": 1, "duration_seconds": 24.0},
+        "full_decode": {"command_policy": "ffmpeg -v error -xerror; mapped video+audio to null", "exit_code": 0, "stderr": "", "clean": true}
+      },
+      "policy_checks": {
+        "brand_palette": {"verdict": "pass", "reason": "Settled shots use warm paper, ink/soft-ink, restrained indigo, and ochre only at unsupported-case abstention."},
+        "ocr_and_text": {"verdict": "fail", "reason": "All copy is deterministic and spelled correctly, but body copy renders at 34 px, metadata/footer at 20-24 px, and QA labels at 18 px; these are below mandatory floors."},
+        "composition": {"verdict": "fail", "reason": "Transitions fail zero tolerance at 3.8, 7.8, 13.8, and 18.8 seconds. At 13.8 s, 'A referee, not a confidence score' and 'Trust becomes load-bearing' remain simultaneously readable and overlap."},
+        "scientific_honesty": {"verdict": "pass", "reason": "The Draft status is visible; correct/anchor/abstain routes remain distinct; no uncontracted partner is claimed; and the theorem disclaimer explicitly limits proof to its statement and inputs rather than experimental truth."}
+      },
+      "transition_midpoint_seconds": [3.8, 7.8, 13.8, 18.8]
+    },
+    {
+      "film_id": "04-order-of-effort",
+      "path": "public/videos/campaign-2026-07-27/04-order-of-effort-qa-attempt-1.mp4",
+      "sha256": "2d2a796f96506471cfadfdf2e27c81d85d044f290e18bdd8c00207e801fce420",
+      "bytes": 1264498,
+      "verdict": "fail",
+      "wiring_eligible": false,
+      "failure_reason": "Text-policy and transition-integrity rejection: body, label, footer, and QA overlay text is below the mandatory 48/36 px floors; all four transition midpoints show outgoing/incoming text collisions and competing focal systems.",
+      "playability_evidence": {
+        "ffprobe_exit_code": 0,
+        "probe_score": 100,
+        "container": "mov,mp4,m4a,3gp,3g2,mj2",
+        "stream_count": 2,
+        "duration_seconds": 28.0,
+        "video": {"codec": "h264", "profile": "High", "level": 40, "width": 1920, "height": 1080, "pixel_format": "yuv420p", "frame_rate": "30/1", "frame_count": 840, "field_order": "progressive"},
+        "audio": {"codec": "aac", "profile": "LC", "sample_rate_hz": 48000, "channels": 1, "duration_seconds": 28.0},
+        "full_decode": {"command_policy": "ffmpeg -v error -xerror; mapped video+audio to null", "exit_code": 0, "stderr": "", "clean": true}
+      },
+      "policy_checks": {
+        "brand_palette": {"verdict": "pass", "reason": "Settled shots use warm paper, ink/soft-ink, restrained indigo, and ochre only for the bounded/abstention warning."},
+        "ocr_and_text": {"verdict": "fail", "reason": "All copy is deterministic and spelled correctly, but body copy renders at 34 px, metadata/footer at 20-24 px, and QA labels at 18 px; these are below mandatory floors."},
+        "composition": {"verdict": "fail", "reason": "Settled ladder and portfolio compositions are legible, but transitions fail zero tolerance at 3.8, 14.8, 19.8, and 23.8 seconds due to ghosted superimposed outgoing/incoming copy and diagrams."},
+        "scientific_honesty": {"verdict": "pass", "reason": "Seven tiers and evidence-dependent responses are shown; no family acts outside its domain; Tier 1/Tier 5 are scoped; other tiers remain bounded/on-policy/abstention; and the close rejects universal correction and savings guarantees."}
+      },
+      "transition_midpoint_seconds": [3.8, 14.8, 19.8, 23.8]
+    },
+    {
+      "film_id": "05-materials-in-society",
+      "path": "public/videos/campaign-2026-07-27/05-materials-for-society-qa-attempt-1.mp4",
+      "sha256": "3845a7de90db3a6432e489bdf76922b924f18def96a999a5d668f57a7330f69d",
+      "bytes": 1161903,
+      "verdict": "fail",
+      "wiring_eligible": false,
+      "failure_reason": "Text-policy and transition-integrity rejection: body, label, footer, and QA overlay text is below the mandatory 48/36 px floors; all five transition midpoints show outgoing/incoming text collisions and competing focal systems.",
+      "playability_evidence": {
+        "ffprobe_exit_code": 0,
+        "probe_score": 100,
+        "container": "mov,mp4,m4a,3gp,3g2,mj2",
+        "stream_count": 2,
+        "duration_seconds": 30.0,
+        "video": {"codec": "h264", "profile": "High", "level": 40, "width": 1920, "height": 1080, "pixel_format": "yuv420p", "frame_rate": "30/1", "frame_count": 900, "field_order": "progressive"},
+        "audio": {"codec": "aac", "profile": "LC", "sample_rate_hz": 48000, "channels": 1, "duration_seconds": 30.0},
+        "full_decode": {"command_policy": "ffmpeg -v error -xerror; mapped video+audio to null", "exit_code": 0, "stderr": "", "clean": true}
+      },
+      "policy_checks": {
+        "brand_palette": {"verdict": "pass", "reason": "Settled shots use the prescribed warm-paper editorial system with restrained indigo and ink/soft-ink; ochre is reserved for the Draft/contingency close."},
+        "ocr_and_text": {"verdict": "fail", "reason": "All copy is deterministic and spelled correctly, but body copy renders at 34 px, metadata/footer at 20-24 px, and QA labels at 18 px; these are below mandatory floors."},
+        "composition": {"verdict": "fail", "reason": "Settled mechanism diagrams have clear hierarchy, but transitions fail zero tolerance at 3.8, 9.8, 14.8, 19.8, and 24.8 seconds due to ghosted superimposed outgoing/incoming copy and diagrams."},
+        "scientific_honesty": {"verdict": "pass", "reason": "Infrastructure is labeled plausible rather than deployed; battery references are computed rather than device outcomes; DAC/ammonia/lead-free absorber claims remain contingent/proposed/targets; and the close says 'Not a prediction' plus 'DRAFT PORTFOLIO · all outcomes remain contingent'."}
+      },
+      "transition_midpoint_seconds": [3.8, 9.8, 14.8, 19.8, 24.8]
+    }
+  ]
+}

@@ -1,0 +1,1156 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "brand-campaign-2026-07-27",
+  "qa_evidence": {
+    "images": {
+      "path": "media/brand-campaign-2026-07-27/qa/image-qa-evidence.json",
+      "sha256": "47e90027fe69a14b2fa74ee7d04bd9cb3d8ca608cbe9c7cb96ad28ca3936135c",
+      "review_task": "t_4e7abd15",
+      "reviewed_at": "2026-07-28T03:16:32-04:00"
+    },
+    "videos": {
+      "path": "media/brand-campaign-2026-07-27/qa/video-qa-evidence.json",
+      "sha256": "021335227d9a37c57c5b7ad1fb813e580c81199ed62e480ce40553415907088b",
+      "review_task": "t_052d74ab",
+      "reviewed_at": "2026-07-28T03:16:33-04:00"
+    }
+  },
+  "gate": {
+    "verdict": "BLOCK",
+    "detail": "accepted images: 33, short by 67; accepted videos: 0, short by 5",
+    "criteria": {
+      "accepted_images": {
+        "minimum": 100,
+        "maximum": 150,
+        "actual": 33,
+        "pass": false
+      },
+      "accepted_playable_videos": {
+        "exact": 5,
+        "actual": 0,
+        "pass": false
+      }
+    }
+  },
+  "counts": {
+    "images": {
+      "inventory": 120,
+      "accepted": 33,
+      "excluded": 87,
+      "per_batch": {
+        "B1": {
+          "inventory": 20,
+          "candidate_files": 13,
+          "accepted": 6,
+          "excluded": 14,
+          "candidate_qa_failures": 7,
+          "excluded_without_candidate_file": 7
+        },
+        "B2": {
+          "inventory": 20,
+          "candidate_files": 20,
+          "accepted": 5,
+          "excluded": 15,
+          "candidate_qa_failures": 15,
+          "excluded_without_candidate_file": 0
+        },
+        "B3": {
+          "inventory": 20,
+          "candidate_files": 20,
+          "accepted": 9,
+          "excluded": 11,
+          "candidate_qa_failures": 11,
+          "excluded_without_candidate_file": 0
+        },
+        "B4": {
+          "inventory": 20,
+          "candidate_files": 20,
+          "accepted": 6,
+          "excluded": 14,
+          "candidate_qa_failures": 14,
+          "excluded_without_candidate_file": 0
+        },
+        "B5": {
+          "inventory": 20,
+          "candidate_files": 20,
+          "accepted": 2,
+          "excluded": 18,
+          "candidate_qa_failures": 18,
+          "excluded_without_candidate_file": 0
+        },
+        "B6": {
+          "inventory": 20,
+          "candidate_files": 20,
+          "accepted": 5,
+          "excluded": 15,
+          "candidate_qa_failures": 15,
+          "excluded_without_candidate_file": 0
+        }
+      }
+    },
+    "videos": {
+      "evaluated": 5,
+      "playable_candidates": 5,
+      "accepted_playable": 0,
+      "excluded": 5,
+      "per_video": [
+        {
+          "film_id": "01-z1-campaign-story",
+          "evaluated": 1,
+          "playable": 1,
+          "accepted": 0,
+          "excluded": 1
+        },
+        {
+          "film_id": "02-savings-stack",
+          "evaluated": 1,
+          "playable": 1,
+          "accepted": 0,
+          "excluded": 1
+        },
+        {
+          "film_id": "03-trust-layer",
+          "evaluated": 1,
+          "playable": 1,
+          "accepted": 0,
+          "excluded": 1
+        },
+        {
+          "film_id": "04-order-of-effort",
+          "evaluated": 1,
+          "playable": 1,
+          "accepted": 0,
+          "excluded": 1
+        },
+        {
+          "film_id": "05-materials-in-society",
+          "evaluated": 1,
+          "playable": 1,
+          "accepted": 0,
+          "excluded": 1
+        }
+      ]
+    }
+  },
+  "assets": {
+    "images": {
+      "accepted": [
+        {
+          "asset_id": "B1-A01-02",
+          "batch": "B1",
+          "path": "public/brand-assets/campaign-2026-07-27/B1/from-predicted-crystal-to-commercial-cell-inline-01.jpg",
+          "sha256": "da5df46703d7f88ccb1dcdad8b92bc0f005957bc3513ee4a30f3af95587bc5b8"
+        },
+        {
+          "asset_id": "B1-A03-01",
+          "batch": "B1",
+          "path": "public/brand-assets/campaign-2026-07-27/B1/the-savings-stack-hero.jpg",
+          "sha256": "3cb95989234dd6c51eac54acaa922bad632a920887822090beff932b12ff7eed"
+        },
+        {
+          "asset_id": "B1-A03-03",
+          "batch": "B1",
+          "path": "public/brand-assets/campaign-2026-07-27/B1/the-savings-stack-inline-02.jpg",
+          "sha256": "f18b5014c43da560a7c2a5b72bccd798fee944a9b4089e27d8729188d82edd5e"
+        },
+        {
+          "asset_id": "B1-A04-01",
+          "batch": "B1",
+          "path": "public/brand-assets/campaign-2026-07-27/B1/the-materials-we-test-against-hero--retry-1.jpg",
+          "sha256": "d3069c911ccb38f99a625fbb365bf4a4ff0258b6a18d2f792ec17b137c4a32d7"
+        },
+        {
+          "asset_id": "B1-A04-02",
+          "batch": "B1",
+          "path": "public/brand-assets/campaign-2026-07-27/B1/the-materials-we-test-against-inline-01--retry-1.jpg",
+          "sha256": "51f66132a784bfbedb690dc9a2cd21464ea66da5c0f0f78cc34880c3d092e9d6"
+        },
+        {
+          "asset_id": "B1-A04-03",
+          "batch": "B1",
+          "path": "public/brand-assets/campaign-2026-07-27/B1/the-materials-we-test-against-inline-02--retry-1.jpg",
+          "sha256": "01df02eb49d026b3a574740e0b0d15001dc4d9c6fe3eb6f9b3aa1bb1396a3d98"
+        },
+        {
+          "asset_id": "B2-A01-01",
+          "batch": "B2",
+          "path": "public/brand-assets/campaign-2026-07-27/B2/five-materials-for-5-to-12-gtco2-year-hero--retry-1.jpg",
+          "sha256": "c73eadd013d49caccce857d0838d801fa1928ac612f54abe7987a3b0950d8123"
+        },
+        {
+          "asset_id": "B2-A02-01",
+          "batch": "B2",
+          "path": "public/brand-assets/campaign-2026-07-27/B2/cement-concrete-and-the-weight-of-the-built-world-hero--retry-1.jpg",
+          "sha256": "8dbb8813f8cde80aceff647cdf8bdc750afb788b91193ece8a9774c52c6dc768"
+        },
+        {
+          "asset_id": "B2-A03-02",
+          "batch": "B2",
+          "path": "public/brand-assets/campaign-2026-07-27/B2/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-01--retry-1.jpg",
+          "sha256": "a6e5d0e7cc9544263f67db8f341ec241fe0ac6d48d2bf24b90ed34fcffb975af"
+        },
+        {
+          "asset_id": "B2-A04-01",
+          "batch": "B2",
+          "path": "public/brand-assets/campaign-2026-07-27/B2/water-and-air-correcting-the-molecules-we-drink-and-breathe-hero--retry-1.jpg",
+          "sha256": "f18741451e31515b441542758ea6e40283c8ba3614b475c64a2603c39ea856ed"
+        },
+        {
+          "asset_id": "B2-A04-04",
+          "batch": "B2",
+          "path": "public/brand-assets/campaign-2026-07-27/B2/water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-03--retry-1.jpg",
+          "sha256": "c3193ed34f2f69080f9e8a89ecb870358f52b6ac64768b0220618d35dbde9b6b"
+        },
+        {
+          "asset_id": "B3-A01-01",
+          "batch": "B3",
+          "path": "public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-hero--retry-1.jpg",
+          "sha256": "b611e2950ba35bc3523f294066ebf57a0542b6ae0eaa2701185390ac43aafcf7"
+        },
+        {
+          "asset_id": "B3-A01-02",
+          "batch": "B3",
+          "path": "public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-inline-01--retry-1.jpg",
+          "sha256": "f0476a8db937f63eb553e710320fbedbf8ce15583778e28cc6c5c1afe6e68132"
+        },
+        {
+          "asset_id": "B3-A01-05",
+          "batch": "B3",
+          "path": "public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-spread--retry-1.jpg",
+          "sha256": "a32584eede52f5d70121b5705494aa6c62762e52090e8e6a192894e14f25dd73"
+        },
+        {
+          "asset_id": "B3-A02-01",
+          "batch": "B3",
+          "path": "public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-hero--retry-1.jpg",
+          "sha256": "28fddce01dff90345f49000fdaa6af5610afa83e9df87c4c8ddee505505b7b30"
+        },
+        {
+          "asset_id": "B3-A02-05",
+          "batch": "B3",
+          "path": "public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-spread--retry-1.jpg",
+          "sha256": "d6e16184cd82fd363d871e3f7438bdb9745a0c2477c8d7309d7c9e1f87a00cf0"
+        },
+        {
+          "asset_id": "B3-A03-01",
+          "batch": "B3",
+          "path": "public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-hero--retry-1.jpg",
+          "sha256": "f07ed2e32b8315fac8a6550197c339fc8f36cdc83a596273f778679b1f49b662"
+        },
+        {
+          "asset_id": "B3-A03-05",
+          "batch": "B3",
+          "path": "public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-spread--retry-1.jpg",
+          "sha256": "f312dc3a3339b71c95449c03d2a6d73ffb60396aa7c58372e7d570ed1322b35f"
+        },
+        {
+          "asset_id": "B3-A04-02",
+          "batch": "B3",
+          "path": "public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-inline-01--retry-1.jpg",
+          "sha256": "b24d99bc75f2082510e79e405f203a5b4084cddc611d07c8542e87995db2fb67"
+        },
+        {
+          "asset_id": "B3-A04-05",
+          "batch": "B3",
+          "path": "public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-spread--retry-1.jpg",
+          "sha256": "9267207c40378f9faf2cc0b5bb0de2889ebe48e9dffe83784c9cad31e8071297"
+        },
+        {
+          "asset_id": "B4-A01-05",
+          "batch": "B4",
+          "path": "public/brand-assets/campaign-2026-07-27/B4/why-lupine-science-spread--retry-1.jpg",
+          "sha256": "84e3a22cf935eb318033d208b5a7be67430322a6558310ec58f7ca92bb14f406"
+        },
+        {
+          "asset_id": "B4-A02-01",
+          "batch": "B4",
+          "path": "public/brand-assets/campaign-2026-07-27/B4/why-lupi-hero--retry-1.jpg",
+          "sha256": "633ea86ab93f6f1b9029ac1afa9ca62bff6e083b196e91ce726dffba181fcf0b"
+        },
+        {
+          "asset_id": "B4-A02-04",
+          "batch": "B4",
+          "path": "public/brand-assets/campaign-2026-07-27/B4/why-lupi-inline-03--retry-1.jpg",
+          "sha256": "e9a2bdcf9021a8d7516bbb0266e17c77083e7c423e91b1e05bd98849c8da8796"
+        },
+        {
+          "asset_id": "B4-A03-01",
+          "batch": "B4",
+          "path": "public/brand-assets/campaign-2026-07-27/B4/the-trust-layer-hero--retry-1.jpg",
+          "sha256": "7226aed57f88ab8ad111346dd0aa9a89d495a8fa1acdd37a2e077e4cb9e6f484"
+        },
+        {
+          "asset_id": "B4-A03-03",
+          "batch": "B4",
+          "path": "public/brand-assets/campaign-2026-07-27/B4/the-trust-layer-inline-02--retry-1.jpg",
+          "sha256": "6a50c25302f39c4be06b623c4e96ab76a82b890f832c6cd5741c185b20b0bd07"
+        },
+        {
+          "asset_id": "B4-A04-03",
+          "batch": "B4",
+          "path": "public/brand-assets/campaign-2026-07-27/B4/investing-in-the-trust-layer-inline-02--retry-1.jpg",
+          "sha256": "7435ae0bd15a84b0bceeb112deced8e9cbf201bc65953bbc86f0a96b8d1fa80c"
+        },
+        {
+          "asset_id": "B5-A03-05",
+          "batch": "B5",
+          "path": "public/brand-assets/campaign-2026-07-27/B5/the-correction-that-hurt-and-the-theorem-that-stopped-it-spread--retry-1.jpg",
+          "sha256": "77882aee3923c7729b7a84c150b4f579b0f57b82240476926aa924d5deb3fe14"
+        },
+        {
+          "asset_id": "B5-A04-01",
+          "batch": "B5",
+          "path": "public/brand-assets/campaign-2026-07-27/B5/four-gates-three-honest-failures-one-live-experiment-hero--retry-1.jpg",
+          "sha256": "537d4e1d8f77ef692daa44c2a41fedac5263416cce03021e93f5426703699f09"
+        },
+        {
+          "asset_id": "B6-A01-04",
+          "batch": "B6",
+          "path": "public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-inline-03--retry-1.jpg",
+          "sha256": "cf12838ae029318cbd8bcaad9a76d70b668a5b94c5380db14e15f5a9d31a8173"
+        },
+        {
+          "asset_id": "B6-A01-05",
+          "batch": "B6",
+          "path": "public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-spread--retry-1.jpg",
+          "sha256": "848c88885bb02460a9210e4b24c3b81e6fd3d49ad09ed520bb48e8f8648a5fca"
+        },
+        {
+          "asset_id": "B6-A03-02",
+          "batch": "B6",
+          "path": "public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-inline-01--retry-1.jpg",
+          "sha256": "8c52adf54f7b56f2465f323f09e0b0cca2f39f2d76008ce04d0970eadf06af93"
+        },
+        {
+          "asset_id": "B6-A03-05",
+          "batch": "B6",
+          "path": "public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-spread--retry-1.jpg",
+          "sha256": "4ad8fb8d3782f2a5efd014900c37ef7e19eb91c6362eb8bec4762e2b7320f202"
+        },
+        {
+          "asset_id": "B6-A04-05",
+          "batch": "B6",
+          "path": "public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-spread--retry-1.jpg",
+          "sha256": "574a28e95c257328fa51f965ab61a0ca0f53ca3b4acc8980c2f290e45adeb130"
+        }
+      ],
+      "excluded": [
+        {
+          "asset_id": "B1-A01-01",
+          "batch": "B1",
+          "path": "public/brand-assets/campaign-2026-07-27/B1/from-predicted-crystal-to-commercial-cell-hero.jpg",
+          "exclusion_class": "no_candidate_after_allowed_remediation",
+          "reason": "attempt-1-failed"
+        },
+        {
+          "asset_id": "B1-A01-03",
+          "batch": "B1",
+          "path": "public/brand-assets/campaign-2026-07-27/B1/from-predicted-crystal-to-commercial-cell-inline-02.jpg",
+          "exclusion_class": "no_candidate_after_allowed_remediation",
+          "reason": "attempt-1-failed"
+        },
+        {
+          "asset_id": "B1-A01-04",
+          "batch": "B1",
+          "path": "public/brand-assets/campaign-2026-07-27/B1/from-predicted-crystal-to-commercial-cell-inline-03--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "readable-or-text-like-baked-labels"
+          ]
+        },
+        {
+          "asset_id": "B1-A01-05",
+          "batch": "B1",
+          "path": "public/brand-assets/campaign-2026-07-27/B1/from-predicted-crystal-to-commercial-cell-spread.jpg",
+          "exclusion_class": "no_candidate_after_allowed_remediation",
+          "reason": "attempt-1-failed"
+        },
+        {
+          "asset_id": "B1-A02-01",
+          "batch": "B1",
+          "path": "public/brand-assets/campaign-2026-07-27/B1/the-02-percent-synthesis-problem-hero.jpg",
+          "exclusion_class": "no_candidate_after_allowed_remediation",
+          "reason": "attempt-1-failed"
+        },
+        {
+          "asset_id": "B1-A02-02",
+          "batch": "B1",
+          "path": "public/brand-assets/campaign-2026-07-27/B1/the-02-percent-synthesis-problem-inline-01--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B1-A02-03",
+          "batch": "B1",
+          "path": "public/brand-assets/campaign-2026-07-27/B1/the-02-percent-synthesis-problem-inline-02.jpg",
+          "exclusion_class": "no_candidate_after_allowed_remediation",
+          "reason": "attempt-1-failed"
+        },
+        {
+          "asset_id": "B1-A02-04",
+          "batch": "B1",
+          "path": "public/brand-assets/campaign-2026-07-27/B1/the-02-percent-synthesis-problem-inline-03--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B1-A02-05",
+          "batch": "B1",
+          "path": "public/brand-assets/campaign-2026-07-27/B1/the-02-percent-synthesis-problem-spread--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B1-A03-02",
+          "batch": "B1",
+          "path": "public/brand-assets/campaign-2026-07-27/B1/the-savings-stack-inline-01.jpg",
+          "exclusion_class": "no_candidate_after_allowed_remediation",
+          "reason": "attempt-1-failed"
+        },
+        {
+          "asset_id": "B1-A03-04",
+          "batch": "B1",
+          "path": "public/brand-assets/campaign-2026-07-27/B1/the-savings-stack-inline-03.jpg",
+          "exclusion_class": "no_candidate_after_allowed_remediation",
+          "reason": "attempt-1-failed"
+        },
+        {
+          "asset_id": "B1-A03-05",
+          "batch": "B1",
+          "path": "public/brand-assets/campaign-2026-07-27/B1/the-savings-stack-spread--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "forbidden-people-or-plant-imagery"
+          ]
+        },
+        {
+          "asset_id": "B1-A04-04",
+          "batch": "B1",
+          "path": "public/brand-assets/campaign-2026-07-27/B1/the-materials-we-test-against-inline-03--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "dark-neon-or-stock-3d-aesthetic"
+          ]
+        },
+        {
+          "asset_id": "B1-A04-05",
+          "batch": "B1",
+          "path": "public/brand-assets/campaign-2026-07-27/B1/the-materials-we-test-against-spread--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "forbidden-people-or-plant-imagery"
+          ]
+        },
+        {
+          "asset_id": "B2-A01-02",
+          "batch": "B2",
+          "path": "public/brand-assets/campaign-2026-07-27/B2/five-materials-for-5-to-12-gtco2-year-inline-01--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B2-A01-03",
+          "batch": "B2",
+          "path": "public/brand-assets/campaign-2026-07-27/B2/five-materials-for-5-to-12-gtco2-year-inline-02--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B2-A01-04",
+          "batch": "B2",
+          "path": "public/brand-assets/campaign-2026-07-27/B2/five-materials-for-5-to-12-gtco2-year-inline-03--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B2-A01-05",
+          "batch": "B2",
+          "path": "public/brand-assets/campaign-2026-07-27/B2/five-materials-for-5-to-12-gtco2-year-spread--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B2-A02-02",
+          "batch": "B2",
+          "path": "public/brand-assets/campaign-2026-07-27/B2/cement-concrete-and-the-weight-of-the-built-world-inline-01--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B2-A02-03",
+          "batch": "B2",
+          "path": "public/brand-assets/campaign-2026-07-27/B2/cement-concrete-and-the-weight-of-the-built-world-inline-02--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B2-A02-04",
+          "batch": "B2",
+          "path": "public/brand-assets/campaign-2026-07-27/B2/cement-concrete-and-the-weight-of-the-built-world-inline-03--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B2-A02-05",
+          "batch": "B2",
+          "path": "public/brand-assets/campaign-2026-07-27/B2/cement-concrete-and-the-weight-of-the-built-world-spread--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "forbidden-people-or-plant-imagery"
+          ]
+        },
+        {
+          "asset_id": "B2-A03-01",
+          "batch": "B2",
+          "path": "public/brand-assets/campaign-2026-07-27/B2/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-hero--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "readable-or-text-like-baked-labels"
+          ]
+        },
+        {
+          "asset_id": "B2-A03-03",
+          "batch": "B2",
+          "path": "public/brand-assets/campaign-2026-07-27/B2/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-02--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B2-A03-04",
+          "batch": "B2",
+          "path": "public/brand-assets/campaign-2026-07-27/B2/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-03--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B2-A03-05",
+          "batch": "B2",
+          "path": "public/brand-assets/campaign-2026-07-27/B2/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-spread--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B2-A04-02",
+          "batch": "B2",
+          "path": "public/brand-assets/campaign-2026-07-27/B2/water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-01--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "forbidden-people-or-plant-imagery"
+          ]
+        },
+        {
+          "asset_id": "B2-A04-03",
+          "batch": "B2",
+          "path": "public/brand-assets/campaign-2026-07-27/B2/water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-02--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B2-A04-05",
+          "batch": "B2",
+          "path": "public/brand-assets/campaign-2026-07-27/B2/water-and-air-correcting-the-molecules-we-drink-and-breathe-spread--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "forbidden-people-or-plant-imagery"
+          ]
+        },
+        {
+          "asset_id": "B3-A01-03",
+          "batch": "B3",
+          "path": "public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-inline-02--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism"
+          ]
+        },
+        {
+          "asset_id": "B3-A01-04",
+          "batch": "B3",
+          "path": "public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-inline-03--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "dark-neon-or-stock-3d-aesthetic"
+          ]
+        },
+        {
+          "asset_id": "B3-A02-02",
+          "batch": "B3",
+          "path": "public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-inline-01--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B3-A02-03",
+          "batch": "B3",
+          "path": "public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-inline-02--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "readable-or-text-like-baked-labels"
+          ]
+        },
+        {
+          "asset_id": "B3-A02-04",
+          "batch": "B3",
+          "path": "public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-inline-03--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "dark-neon-or-stock-3d-aesthetic"
+          ]
+        },
+        {
+          "asset_id": "B3-A03-02",
+          "batch": "B3",
+          "path": "public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-inline-01--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism"
+          ]
+        },
+        {
+          "asset_id": "B3-A03-03",
+          "batch": "B3",
+          "path": "public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-inline-02--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "dark-neon-or-stock-3d-aesthetic"
+          ]
+        },
+        {
+          "asset_id": "B3-A03-04",
+          "batch": "B3",
+          "path": "public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-inline-03--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "dark-neon-or-stock-3d-aesthetic"
+          ]
+        },
+        {
+          "asset_id": "B3-A04-01",
+          "batch": "B3",
+          "path": "public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-hero--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "readable-or-text-like-baked-labels"
+          ]
+        },
+        {
+          "asset_id": "B3-A04-03",
+          "batch": "B3",
+          "path": "public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-inline-02--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "readable-or-text-like-baked-labels"
+          ]
+        },
+        {
+          "asset_id": "B3-A04-04",
+          "batch": "B3",
+          "path": "public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-inline-03--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B4-A01-01",
+          "batch": "B4",
+          "path": "public/brand-assets/campaign-2026-07-27/B4/why-lupine-science-hero--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B4-A01-02",
+          "batch": "B4",
+          "path": "public/brand-assets/campaign-2026-07-27/B4/why-lupine-science-inline-01--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism"
+          ]
+        },
+        {
+          "asset_id": "B4-A01-03",
+          "batch": "B4",
+          "path": "public/brand-assets/campaign-2026-07-27/B4/why-lupine-science-inline-02--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B4-A01-04",
+          "batch": "B4",
+          "path": "public/brand-assets/campaign-2026-07-27/B4/why-lupine-science-inline-03--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism"
+          ]
+        },
+        {
+          "asset_id": "B4-A02-02",
+          "batch": "B4",
+          "path": "public/brand-assets/campaign-2026-07-27/B4/why-lupi-inline-01--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B4-A02-03",
+          "batch": "B4",
+          "path": "public/brand-assets/campaign-2026-07-27/B4/why-lupi-inline-02--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B4-A02-05",
+          "batch": "B4",
+          "path": "public/brand-assets/campaign-2026-07-27/B4/why-lupi-spread--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "dark-neon-or-stock-3d-aesthetic",
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B4-A03-02",
+          "batch": "B4",
+          "path": "public/brand-assets/campaign-2026-07-27/B4/the-trust-layer-inline-01--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "readable-or-text-like-baked-labels"
+          ]
+        },
+        {
+          "asset_id": "B4-A03-04",
+          "batch": "B4",
+          "path": "public/brand-assets/campaign-2026-07-27/B4/the-trust-layer-inline-03--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "dark-neon-or-stock-3d-aesthetic"
+          ]
+        },
+        {
+          "asset_id": "B4-A03-05",
+          "batch": "B4",
+          "path": "public/brand-assets/campaign-2026-07-27/B4/the-trust-layer-spread--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B4-A04-01",
+          "batch": "B4",
+          "path": "public/brand-assets/campaign-2026-07-27/B4/investing-in-the-trust-layer-hero--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism"
+          ]
+        },
+        {
+          "asset_id": "B4-A04-02",
+          "batch": "B4",
+          "path": "public/brand-assets/campaign-2026-07-27/B4/investing-in-the-trust-layer-inline-01--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B4-A04-04",
+          "batch": "B4",
+          "path": "public/brand-assets/campaign-2026-07-27/B4/investing-in-the-trust-layer-inline-03--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "forbidden-people-or-plant-imagery"
+          ]
+        },
+        {
+          "asset_id": "B4-A04-05",
+          "batch": "B4",
+          "path": "public/brand-assets/campaign-2026-07-27/B4/investing-in-the-trust-layer-spread--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism"
+          ]
+        },
+        {
+          "asset_id": "B5-A01-01",
+          "batch": "B5",
+          "path": "public/brand-assets/campaign-2026-07-27/B5/a-field-not-a-neural-net-hero--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism"
+          ]
+        },
+        {
+          "asset_id": "B5-A01-02",
+          "batch": "B5",
+          "path": "public/brand-assets/campaign-2026-07-27/B5/a-field-not-a-neural-net-inline-01--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B5-A01-03",
+          "batch": "B5",
+          "path": "public/brand-assets/campaign-2026-07-27/B5/a-field-not-a-neural-net-inline-02--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism"
+          ]
+        },
+        {
+          "asset_id": "B5-A01-04",
+          "batch": "B5",
+          "path": "public/brand-assets/campaign-2026-07-27/B5/a-field-not-a-neural-net-inline-03--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "readable-or-text-like-baked-labels"
+          ]
+        },
+        {
+          "asset_id": "B5-A01-05",
+          "batch": "B5",
+          "path": "public/brand-assets/campaign-2026-07-27/B5/a-field-not-a-neural-net-spread--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "forbidden-people-or-plant-imagery"
+          ]
+        },
+        {
+          "asset_id": "B5-A02-01",
+          "batch": "B5",
+          "path": "public/brand-assets/campaign-2026-07-27/B5/a-smooth-environment-resolved-error-field-hero--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B5-A02-02",
+          "batch": "B5",
+          "path": "public/brand-assets/campaign-2026-07-27/B5/a-smooth-environment-resolved-error-field-inline-01--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "readable-or-text-like-baked-labels"
+          ]
+        },
+        {
+          "asset_id": "B5-A02-03",
+          "batch": "B5",
+          "path": "public/brand-assets/campaign-2026-07-27/B5/a-smooth-environment-resolved-error-field-inline-02--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "forbidden-people-or-plant-imagery"
+          ]
+        },
+        {
+          "asset_id": "B5-A02-04",
+          "batch": "B5",
+          "path": "public/brand-assets/campaign-2026-07-27/B5/a-smooth-environment-resolved-error-field-inline-03--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B5-A02-05",
+          "batch": "B5",
+          "path": "public/brand-assets/campaign-2026-07-27/B5/a-smooth-environment-resolved-error-field-spread--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "readable-or-text-like-baked-labels"
+          ]
+        },
+        {
+          "asset_id": "B5-A03-01",
+          "batch": "B5",
+          "path": "public/brand-assets/campaign-2026-07-27/B5/the-correction-that-hurt-and-the-theorem-that-stopped-it-hero--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism"
+          ]
+        },
+        {
+          "asset_id": "B5-A03-02",
+          "batch": "B5",
+          "path": "public/brand-assets/campaign-2026-07-27/B5/the-correction-that-hurt-and-the-theorem-that-stopped-it-inline-01--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism"
+          ]
+        },
+        {
+          "asset_id": "B5-A03-03",
+          "batch": "B5",
+          "path": "public/brand-assets/campaign-2026-07-27/B5/the-correction-that-hurt-and-the-theorem-that-stopped-it-inline-02--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism"
+          ]
+        },
+        {
+          "asset_id": "B5-A03-04",
+          "batch": "B5",
+          "path": "public/brand-assets/campaign-2026-07-27/B5/the-correction-that-hurt-and-the-theorem-that-stopped-it-inline-03--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B5-A04-02",
+          "batch": "B5",
+          "path": "public/brand-assets/campaign-2026-07-27/B5/four-gates-three-honest-failures-one-live-experiment-inline-01--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B5-A04-03",
+          "batch": "B5",
+          "path": "public/brand-assets/campaign-2026-07-27/B5/four-gates-three-honest-failures-one-live-experiment-inline-02--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "readable-or-text-like-baked-labels"
+          ]
+        },
+        {
+          "asset_id": "B5-A04-04",
+          "batch": "B5",
+          "path": "public/brand-assets/campaign-2026-07-27/B5/four-gates-three-honest-failures-one-live-experiment-inline-03--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism"
+          ]
+        },
+        {
+          "asset_id": "B5-A04-05",
+          "batch": "B5",
+          "path": "public/brand-assets/campaign-2026-07-27/B5/four-gates-three-honest-failures-one-live-experiment-spread--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "forbidden-people-or-plant-imagery"
+          ]
+        },
+        {
+          "asset_id": "B6-A01-01",
+          "batch": "B6",
+          "path": "public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-hero--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism"
+          ]
+        },
+        {
+          "asset_id": "B6-A01-02",
+          "batch": "B6",
+          "path": "public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-inline-01--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B6-A01-03",
+          "batch": "B6",
+          "path": "public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-inline-02--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism"
+          ]
+        },
+        {
+          "asset_id": "B6-A02-01",
+          "batch": "B6",
+          "path": "public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-hero--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism"
+          ]
+        },
+        {
+          "asset_id": "B6-A02-02",
+          "batch": "B6",
+          "path": "public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-inline-01--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "readable-or-text-like-baked-labels"
+          ]
+        },
+        {
+          "asset_id": "B6-A02-03",
+          "batch": "B6",
+          "path": "public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-inline-02--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "off-palette-or-decorative-ochre/cyan/orange"
+          ]
+        },
+        {
+          "asset_id": "B6-A02-04",
+          "batch": "B6",
+          "path": "public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-inline-03--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism"
+          ]
+        },
+        {
+          "asset_id": "B6-A02-05",
+          "batch": "B6",
+          "path": "public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-spread--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism"
+          ]
+        },
+        {
+          "asset_id": "B6-A03-01",
+          "batch": "B6",
+          "path": "public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-hero--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism"
+          ]
+        },
+        {
+          "asset_id": "B6-A03-03",
+          "batch": "B6",
+          "path": "public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-inline-02--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism"
+          ]
+        },
+        {
+          "asset_id": "B6-A03-04",
+          "batch": "B6",
+          "path": "public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-inline-03--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "readable-or-text-like-baked-labels"
+          ]
+        },
+        {
+          "asset_id": "B6-A04-01",
+          "batch": "B6",
+          "path": "public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-hero--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "dark-neon-or-stock-3d-aesthetic"
+          ]
+        },
+        {
+          "asset_id": "B6-A04-02",
+          "batch": "B6",
+          "path": "public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-inline-01--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "dark-neon-or-stock-3d-aesthetic"
+          ]
+        },
+        {
+          "asset_id": "B6-A04-03",
+          "batch": "B6",
+          "path": "public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-inline-02--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "dark-neon-or-stock-3d-aesthetic"
+          ]
+        },
+        {
+          "asset_id": "B6-A04-04",
+          "batch": "B6",
+          "path": "public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-inline-03--retry-1.jpg",
+          "exclusion_class": "candidate_failed_qa",
+          "reason": [
+            "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism"
+          ]
+        }
+      ]
+    },
+    "videos": {
+      "accepted": [],
+      "excluded": [
+        {
+          "film_id": "01-z1-campaign-story",
+          "path": "public/videos/campaign-2026-07-27/01-z1-union-verdict-qa-attempt-1.mp4",
+          "playable": true,
+          "exclusion_class": "publication_qa_failed",
+          "reason": "Text-policy and transition-integrity rejection: body, label, footer, and QA overlay text is below the mandatory 48/36 px floors; all five transition midpoints show outgoing/incoming text collisions and competing focal systems."
+        },
+        {
+          "film_id": "02-savings-stack",
+          "path": "public/videos/campaign-2026-07-27/02-savings-stack-qa-attempt-1.mp4",
+          "playable": true,
+          "exclusion_class": "publication_qa_failed",
+          "reason": "Text-policy and transition-integrity rejection: body, label, footer, and QA overlay text is below the mandatory 48/36 px floors; all four transition midpoints show outgoing/incoming text collisions and competing focal systems."
+        },
+        {
+          "film_id": "03-trust-layer",
+          "path": "public/videos/campaign-2026-07-27/03-trust-layer-qa-attempt-1.mp4",
+          "playable": true,
+          "exclusion_class": "publication_qa_failed",
+          "reason": "Text-policy and transition-integrity rejection: body, label, footer, and QA overlay text is below the mandatory 48/36 px floors; all four transition midpoints show outgoing/incoming text collisions and competing focal systems, including a conspicuous shot 3-to-4 collision at 13.8 s."
+        },
+        {
+          "film_id": "04-order-of-effort",
+          "path": "public/videos/campaign-2026-07-27/04-order-of-effort-qa-attempt-1.mp4",
+          "playable": true,
+          "exclusion_class": "publication_qa_failed",
+          "reason": "Text-policy and transition-integrity rejection: body, label, footer, and QA overlay text is below the mandatory 48/36 px floors; all four transition midpoints show outgoing/incoming text collisions and competing focal systems."
+        },
+        {
+          "film_id": "05-materials-in-society",
+          "path": "public/videos/campaign-2026-07-27/05-materials-for-society-qa-attempt-1.mp4",
+          "playable": true,
+          "exclusion_class": "publication_qa_failed",
+          "reason": "Text-policy and transition-integrity rejection: body, label, footer, and QA overlay text is below the mandatory 48/36 px floors; all five transition midpoints show outgoing/incoming text collisions and competing focal systems."
+        }
+      ]
+    }
+  },
+  "integrity": {
+    "algorithm": "sha256",
+    "canonicalization": "UTF-8 JSON, keys sorted, compact separators; omit integrity.manifest_sha256 before hashing",
+    "manifest_sha256": "4daf44e3e5a0824409527c7c1ec236bb0787bd163ca3ee9efabb7d0325a3edb2"
+  }
+}

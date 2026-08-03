@@ -258,27 +258,27 @@ def viz_05():
 def viz_06():
     fig, ax = plt.subplots(figsize=(12.8, 7.2))
     ax.set_xlim(0, 10)
-    ax.set_ylim(0, 10)
+    ax.set_ylim(-0.7, 10.2)
     ax.axis('off')
     stages = [
-        ('Atomic barrier\ncorrection', '≈60–100 meV', 9.0, PRIMARY),
-        ('Material property', 'σ, selectivity,\nactivity', 7.0, AMBER),
-        ('Device performance', '>400 Wh/kg\n>2 mmol/g\n>60% eff.', 5.0, SAGE),
+        ('Atomic barrier\ncorrection', '≈60–100 meV', 9.3, PRIMARY),
+        ('Material property', 'σ, selectivity,\nactivity', 7.2, AMBER),
+        ('Device performance', '>400 Wh/kg\n>2 mmol/g\n>60% eff.', 5.1, SAGE),
         ('Sector deployment', 'EVs / grid storage\nDAC / ammonia / solar', 3.0, SLATE),
-        ('Annual CO₂ impact', '5–12 GtCO₂/year', 1.0, ROSE),
+        ('Annual CO₂ impact', '5–12 GtCO₂/year', 0.9, ROSE),
     ]
     for i, (title, detail, y, color) in enumerate(stages):
         w = 8.0 - i * 1.2
         left = (10 - w) / 2
-        rect = FancyBboxPatch((left, y - 0.7), w, 1.4, boxstyle='round,pad=0.05,rounding_size=0.2',
+        rect = FancyBboxPatch((left, y - 0.875), w, 1.75, boxstyle='round,pad=0.05,rounding_size=0.2',
                               facecolor=color, edgecolor=TEXT, linewidth=1, alpha=0.9)
         ax.add_patch(rect)
-        ax.text(5, y + 0.15, title, ha='center', va='center', fontsize=14, fontweight='bold', color='white')
-        ax.text(5, y - 0.25, detail, ha='center', va='center', fontsize=11, color='white')
+        ax.text(5, y + 0.38, title, ha='center', va='center', fontsize=14, fontweight='bold', color='white')
+        ax.text(5, y + 0.0, detail, ha='center', va='top', fontsize=10, color='white', linespacing=1.1)
         if i < len(stages) - 1:
-            ax.annotate('', xy=(5, y - 0.9), xytext=(5, y - 1.7),
+            ax.annotate('', xy=(5, y - 0.975), xytext=(5, y - 1.45),
                         arrowprops=dict(arrowstyle='->', color=TEXT, lw=2))
-    ax.text(0.5, 0.2, 'σ ∝ e^(−Eₐ/kBT): a sub-0.1 eV correction changes room-temperature rates by orders of magnitude.',
+    ax.text(0.5, -0.35, 'σ ∝ e^(−Eₐ/kBT): a sub-0.1 eV correction changes room-temperature rates by orders of magnitude.',
             fontsize=11, color=SECONDARY)
     ax.set_title('How a 100 meV Correction Translates to Gigatonne Impact', fontsize=20, pad=15)
     plt.tight_layout(pad=0.8)

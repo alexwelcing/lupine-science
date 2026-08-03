@@ -3,6 +3,7 @@ import { after, before, test } from 'node:test';
 import http from 'node:http';
 
 import { resolveBaseUrls, runSmokeSuite } from '../scripts/smoke-live.mjs';
+import { normalizeExtractedText } from '../scripts/lib/live-smoke-suite.mjs';
 
 let baseUrl;
 let server;
@@ -10,6 +11,7 @@ let server;
 const page = ({ path = '/', body = '', links = '' } = {}) => `<!doctype html>
 <html><head>
 <title>Test page</title>
+<meta name="description" content="Smoke fixture">
 <meta property="og:title" content="Test page">
 <meta property="og:description" content="Smoke fixture">
 <meta property="og:type" content="website">
@@ -30,6 +32,7 @@ before(async () => {
     if (request.url === '/paper.pdf') return send(200, 'application/pdf', 'pdf');
     if (request.url === '/missing.mp4') return send(404, 'text/plain', 'missing');
     if (request.url === '/missing-share.jpg') return send(404, 'text/plain', 'missing');
+    if (request.url === '/infrastructure/') return send(503, 'text/plain', 'temporarily unavailable');
     if (request.url === '/healthy/') {
       return send(200, 'text/html', page({
         path: '/healthy/',
@@ -85,6 +88,14 @@ test('resolveBaseUrls keeps the legacy single-target variable as a fallback', ()
   ]);
 });
 
+test('PDF text normalization preserves sections between mathematical angle operators', () => {
+  const extracted = 'energy < threshold\nFive Materials That Could Unlock\nconfidence > baseline';
+  assert.equal(
+    normalizeExtractedText(extracted),
+    'energy < threshold Five Materials That Could Unlock confidence > baseline'
+  );
+});
+
 test('runSmokeSuite validates pages, OG metadata, canonical/share URLs, videos, and downloads', async () => {
   const result = await runSmokeSuite({
     baseUrl,
@@ -95,10 +106,12 @@ test('runSmokeSuite validates pages, OG metadata, canonical/share URLs, videos, 
   });
 
   assert.equal(result.failures.length, 0, result.failures.map(failure => failure.message).join('\n'));
+  assert.equal(result.outcome, 'pass');
+  assert.equal(result.summary.total, result.checks.length);
+  assert.ok(result.checks.every(check => check.status === 'pass'));
   assert.equal(result.pagesChecked, 1);
   assert.deepEqual(result.assetsChecked.sort(), [
     `${baseUrl}/film.mp4`,
-    `${baseUrl}/healthy/`,
     `${baseUrl}/paper.pdf`,
     `${baseUrl}/share.jpg`
   ].sort());
@@ -114,9 +127,12 @@ test('runSmokeSuite returns actionable diagnostics for an unresolved video', asy
   });
 
   assert.equal(result.failures.length, 1);
-  assert.match(result.failures[0].message, /video link/);
-  assert.match(result.failures[0].message, /missing\.mp4/);
-  assert.match(result.failures[0].message, /HTTP 404/);
+  assert.match(result.failures[0].message, /video asset/);
+  assert.equal(result.failures[0].url, `${baseUrl}/missing.mp4`);
+  assert.equal(result.failures[0].classification, 'content');
+  const failedCheck = result.checks.find(check => check.id === result.failures[0].checkId);
+  assert.equal(failedCheck.actual, 404);
+  assert.equal(result.outcome, 'content_failure');
 });
 
 test('runSmokeSuite reports every required Open Graph and canonical tag', async () => {
@@ -128,14 +144,32 @@ test('runSmokeSuite reports every required Open Graph and canonical tag', async 
     timeoutMs: 1_000
   });
 
-  assert.deepEqual(result.failures.map(failure => failure.message).sort(), [
-    'missing canonical link',
-    'missing og:description',
-    'missing og:image',
-    'missing og:title',
-    'missing og:type',
-    'missing og:url'
+  assert.deepEqual(result.failures.map(failure => failure.checkId).sort(), [
+    'meta:/missing-metadata/:canonical',
+    'meta:/missing-metadata/:description',
+    'meta:/missing-metadata/:ogDescription',
+    'meta:/missing-metadata/:ogImage',
+    'meta:/missing-metadata/:ogTitle',
+    'meta:/missing-metadata/:ogType',
+    'meta:/missing-metadata/:ogUrl',
+    'meta:/missing-metadata/:title-consistency'
   ]);
+});
+
+test('runSmokeSuite distinguishes infrastructure failures from content failures', async () => {
+  const result = await runSmokeSuite({
+    baseUrl,
+    paths: ['/infrastructure/'],
+    attempts: 1,
+    delayMs: 0,
+    timeoutMs: 1_000
+  });
+
+  assert.equal(result.failures.length, 1);
+  assert.equal(result.failures[0].classification, 'infrastructure');
+  assert.equal(result.outcome, 'infrastructure_failure');
+  assert.equal(result.summary.infrastructureFailures, 1);
+  assert.equal(result.summary.contentFailures, 0);
 });
 
 test('runSmokeSuite resolves canonical and Open Graph share URLs', async () => {
@@ -147,8 +181,8 @@ test('runSmokeSuite resolves canonical and Open Graph share URLs', async () => {
     timeoutMs: 1_000
   });
 
-  const diagnostics = result.failures.map(failure => failure.message).join('\n');
-  assert.match(diagnostics, /canonical URL broken.*HTTP 404/);
-  assert.match(diagnostics, /og:url broken.*HTTP 404/);
-  assert.match(diagnostics, /og:image broken.*HTTP 404/);
+  const checkIds = result.failures.map(failure => failure.checkId);
+  assert.ok(checkIds.includes('meta:/broken-share-urls/:canonical'));
+  assert.ok(checkIds.includes('meta:/broken-share-urls/:ogUrl'));
+  assert.ok(checkIds.includes('asset:http://127.0.0.1:' + new URL(baseUrl).port + '/missing-share.jpg:http'));
 });

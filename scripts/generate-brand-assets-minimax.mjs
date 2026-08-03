@@ -5,6 +5,7 @@
 // no flowers, no dark neon, no glowing-circuit tropes, no stock 3D renders.
 // Usage: FAL_KEY=... node scripts/generate-brand-assets-minimax.mjs [--only key1,key2]
 
+import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -12,7 +13,8 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const OUT_DIR = path.join(ROOT, 'public', 'brand-assets', 'minimax');
+const outDirArg = process.argv.find((arg) => arg.startsWith('--out-dir='))?.slice('--out-dir='.length);
+const OUT_DIR = outDirArg ? path.resolve(outDirArg) : path.join(ROOT, 'public', 'brand-assets', 'minimax');
 
 function minimaxToken() {
   const auth = JSON.parse(fs.readFileSync(path.join(os.homedir(), '.hermes', 'auth.json'), 'utf8'));
@@ -57,16 +59,41 @@ const ASSETS = [
   },
 ];
 
+function dimensions(file) {
+  const identified = spawnSync('identify', ['-format', '%w %h', file], { encoding: 'utf8' });
+  if (identified.status !== 0) return null;
+  const [width, height] = identified.stdout.trim().split(/\s+/).map(Number);
+  return Number.isFinite(width) && Number.isFinite(height) ? { width, height } : null;
+}
+
+function resizeToTarget(file, width, height) {
+  if (!width || !height) return { resized: false, error: null };
+  const extension = path.extname(file);
+  const temporary = `${file.slice(0, -extension.length)}.resize-tmp${extension}`;
+  const resized = spawnSync(
+    'magick',
+    [file, '-resize', `${width}x${height}^`, '-gravity', 'center', '-extent', `${width}x${height}`, temporary],
+    { encoding: 'utf8' },
+  );
+  if (resized.status !== 0) {
+    fs.rmSync(temporary, { force: true });
+    return { resized: false, error: (resized.stderr || resized.stdout || 'ImageMagick failed').trim() };
+  }
+  fs.renameSync(temporary, file);
+  return { resized: true, error: null };
+}
+
 async function generate(asset) {
+  const exactPrompt = asset.exact_prompt ?? `${asset.prompt}, ${STYLE}`;
   const response = await fetch('https://api.minimax.io/v1/image_generation', {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${TOKEN}`,
+      Authorization: 'Bearer ' + TOKEN,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       model: 'image-01',
-      prompt: `${asset.prompt}, ${STYLE}`,
+      prompt: exactPrompt,
       aspect_ratio: asset.aspect,
       n: 1,
     }),
@@ -81,9 +108,34 @@ async function generate(asset) {
   const download = await fetch(url);
   if (!download.ok) throw new Error(`download failed for ${asset.key}: HTTP ${download.status}`);
   const buffer = Buffer.from(await download.arrayBuffer());
-  const file = path.join(OUT_DIR, `${asset.key}.png`);
+  const contentType = download.headers.get('content-type') ?? '';
+  const extension = contentType.includes('png') ? '.png' : '.jpg';
+  const file = path.join(OUT_DIR, `${asset.key}${extension}`);
   fs.writeFileSync(file, buffer);
-  return { key: asset.key, file, bytes: buffer.length, url };
+  const sourceDimensions = dimensions(file);
+  const postprocess = resizeToTarget(file, asset.target_width, asset.target_height);
+  const outputDimensions = dimensions(file);
+  const finalBytes = fs.statSync(file).size;
+  return {
+    asset_id: asset.asset_id,
+    original_asset_id: asset.original_asset_id ?? asset.asset_id,
+    key: asset.key,
+    original_path: asset.original_path,
+    replacement_path: file,
+    output_path: file,
+    bytes: finalBytes,
+    exact_prompt: exactPrompt,
+    spec_hash: asset.spec_hash,
+    qa_reason: asset.qa_reason,
+    qa_sources: asset.qa_sources,
+    attempt: asset.attempt,
+    source_dimensions: sourceDimensions,
+    target_dimensions:
+      asset.target_width && asset.target_height ? { width: asset.target_width, height: asset.target_height } : null,
+    output_dimensions: outputDimensions,
+    postprocessed_to_target: postprocess.resized,
+    postprocess_error: postprocess.error,
+  };
 }
 
 const TOKEN = minimaxToken();
@@ -94,18 +146,74 @@ async function main() {
   const only = process.argv.find((arg) => arg.startsWith('--only='))?.slice('--only='.length).split(',');
   const selected = only ? assets.filter((a) => only.includes(a.key)) : assets;
   fs.mkdirSync(OUT_DIR, { recursive: true });
-  const manifest = [];
+  const manifestPath = path.join(OUT_DIR, 'manifest.json');
+  const existingManifest = fs.existsSync(manifestPath)
+    ? JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+    : { model: 'minimax/image-01 (api.minimax.io)', assets: [] };
+  const manifest = Array.isArray(existingManifest.assets) ? existingManifest.assets : [];
+  const results = [];
+  const saveManifest = () =>
+    fs.writeFileSync(
+      manifestPath,
+      JSON.stringify({ ...existingManifest, updated_at: new Date().toISOString(), assets: manifest }, null, 2) + '\n',
+    );
+
   for (const asset of selected) {
+    const originalAssetId = asset.original_asset_id ?? asset.asset_id;
+    if (asset.attempt != null) {
+      const priorAttempt = manifest.find(
+        (record) => record.original_asset_id === originalAssetId && record.attempt === asset.attempt,
+      );
+      if (priorAttempt) {
+        process.stderr.write(`skipping ${originalAssetId}: attempt ${asset.attempt} already recorded\n`);
+        results.push(priorAttempt);
+        continue;
+      }
+
+      const pendingRecord = {
+        asset_id: asset.asset_id,
+        original_asset_id: originalAssetId,
+        key: asset.key,
+        original_path: asset.original_path,
+        replacement_path: null,
+        output_path: null,
+        bytes: 0,
+        exact_prompt: asset.exact_prompt ?? `${asset.prompt}, ${STYLE}`,
+        spec_hash: asset.spec_hash,
+        qa_reason: asset.qa_reason,
+        qa_sources: asset.qa_sources,
+        attempt: asset.attempt,
+        status: 'attempt_started',
+        started_at: new Date().toISOString(),
+      };
+      manifest.push(pendingRecord);
+      saveManifest();
+      process.stderr.write(`generating ${asset.key}…\n`);
+      try {
+        const generated = await generate(asset);
+        Object.assign(pendingRecord, generated, { status: 'generated', completed_at: new Date().toISOString() });
+        process.stderr.write(`  wrote ${generated.output_path} (${generated.bytes} bytes)\n`);
+      } catch (error) {
+        Object.assign(pendingRecord, {
+          status: 'failed',
+          error: error instanceof Error ? error.message : String(error),
+          completed_at: new Date().toISOString(),
+        });
+        process.stderr.write(`  FAILED ${asset.key}: ${pendingRecord.error}\n`);
+      }
+      saveManifest();
+      results.push(pendingRecord);
+      continue;
+    }
+
     process.stderr.write(`generating ${asset.key}…\n`);
     const record = await generate(asset);
-    manifest.push({ ...record, prompt: asset.prompt });
-    process.stderr.write(`  wrote ${record.file} (${record.bytes} bytes)\n`);
+    manifest.push(record);
+    saveManifest();
+    results.push(record);
+    process.stderr.write(`  wrote ${record.output_path} (${record.bytes} bytes)\n`);
   }
-  fs.writeFileSync(
-    path.join(OUT_DIR, 'manifest.json'),
-    JSON.stringify({ model: 'minimax/image-01 (api.minimax.io)', generated_at: new Date().toISOString(), assets: manifest }, null, 2) + '\n',
-  );
-  console.log(JSON.stringify(manifest.map(({ key, file, bytes }) => ({ key, file, bytes })), null, 2));
+  console.log(JSON.stringify(results, null, 2));
 }
 
 main().catch((error) => {

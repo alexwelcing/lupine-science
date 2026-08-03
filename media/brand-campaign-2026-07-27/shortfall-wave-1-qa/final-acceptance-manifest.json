@@ -1,0 +1,1435 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "t_f3318465",
+  "campaign_id": "brand-campaign-2026-07-27",
+  "wave_id": "shortfall-wave-1",
+  "certification": {
+    "status": "FINAL",
+    "decision": "REJECT_ALL",
+    "reviewed_count": 67,
+    "accepted_count": 0,
+    "rejected_count": 67,
+    "accepted_asset_ids": [],
+    "accepted_unique_source_asset_ids": [],
+    "batch_tallies": {
+      "B1": {
+        "reviewed": 12,
+        "accepted": 0,
+        "rejected": 12
+      },
+      "B2": {
+        "reviewed": 13,
+        "accepted": 0,
+        "rejected": 13
+      },
+      "B3": {
+        "reviewed": 10,
+        "accepted": 0,
+        "rejected": 10
+      },
+      "B4": {
+        "reviewed": 10,
+        "accepted": 0,
+        "rejected": 10
+      },
+      "B5": {
+        "reviewed": 10,
+        "accepted": 0,
+        "rejected": 10
+      },
+      "B6": {
+        "reviewed": 12,
+        "accepted": 0,
+        "rejected": 12
+      }
+    }
+  },
+  "campaign_accounting": {
+    "prior_independently_certified_unique_slots": 33,
+    "newly_accepted_asset_count": 0,
+    "newly_accepted_unique_source_slots": 0,
+    "dedupe_key": "source_asset_id",
+    "cap": 100,
+    "final_certified_total": 33,
+    "progress": "33/100",
+    "remaining_to_goal": 67,
+    "formula": "min(100, prior_independently_certified_unique_slots + count(unique accepted source_asset_id))"
+  },
+  "provenance": {
+    "source_manifest_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/shortfall-wave-1-manifest.json",
+    "source_manifest_sha256": "d8c6a9cb14cc5803453a5eaf68409966457f40e1f169cc34d32da040b635e383",
+    "approved_scene_manifest_path": "/home/alex/.hermes/kanban/boards/lupine/workspaces/t_8e571660/shortfall-wave-1-scene-specs.json",
+    "approved_scene_manifest_sha256": "bd9333fef20fe2cfe2268fd0a75c7715e67943c6bd55c222619d0df04ef7e70e",
+    "upstream_evidence_path": "/home/alex/Dev/lupine/lupine-science/media/brand-campaign-2026-07-27/shortfall-wave-1-qa/verdict-evidence.json",
+    "upstream_task_id": "t_2b35afb3",
+    "contact_sheets": {
+      "B1": "/home/alex/Dev/lupine/lupine-science/media/brand-campaign-2026-07-27/shortfall-wave-1-qa/contact-sheet-B1.jpg",
+      "B2": "/home/alex/Dev/lupine/lupine-science/media/brand-campaign-2026-07-27/shortfall-wave-1-qa/contact-sheet-B2.jpg",
+      "B3": "/home/alex/Dev/lupine/lupine-science/media/brand-campaign-2026-07-27/shortfall-wave-1-qa/contact-sheet-B3.jpg",
+      "B4": "/home/alex/Dev/lupine/lupine-science/media/brand-campaign-2026-07-27/shortfall-wave-1-qa/contact-sheet-B4.jpg",
+      "B5": "/home/alex/Dev/lupine/lupine-science/media/brand-campaign-2026-07-27/shortfall-wave-1-qa/contact-sheet-B5.jpg",
+      "B6": "/home/alex/Dev/lupine/lupine-science/media/brand-campaign-2026-07-27/shortfall-wave-1-qa/contact-sheet-B6.jpg"
+    }
+  },
+  "method": {
+    "integrity_gate": "Reconciled every record to the aggregate source manifest by asset ID, source asset ID, path, SHA-256, scene, and mechanism.",
+    "visual_gate": "Independently inspected every labeled B1-B6 panel and reconciled the visible composition against its specific_physical_scene, single_mechanism, and strict BRAND-1.6 rejection classes.",
+    "acceptance_rule": "Generation, decode, dimensions, hash integrity, and machine metrics do not imply editorial acceptance; any strict visual exclusion or failure to practically depict the requested mechanism is a reject."
+  },
+  "assets": [
+    {
+      "asset_id": "SW1-B1-A01-01",
+      "source_asset_id": "B1-A01-01",
+      "batch": "B1",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B1/shortfall-wave-1/from-predicted-crystal-to-commercial-cell-hero--shortfall-wave-1.jpg",
+      "sha256": "a5a470d7c2af926f27a5ef960fba8adde130a80de5a245d4c21c7ff005dd8df2",
+      "specific_physical_scene": "A row of three grid-scale battery cabinets at dawn; the nearest cabinet is a simple cutaway with one ceramic electrolyte plate seated between two flat electrodes, while the other cabinets remain closed.",
+      "single_mechanism": "the ceramic electrolyte plate separates the electrodes while carrying the single indigo ion path inside the nearest cabinet",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "orange/ochre sky wash",
+        "cutaway lacks a legible ceramic-plate/electrode ion-path mechanism"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "off_palette_color"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B1-A01-04",
+      "source_asset_id": "B1-A01-04",
+      "batch": "B1",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B1/shortfall-wave-1/from-predicted-crystal-to-commercial-cell-inline-03--shortfall-wave-1.jpg",
+      "sha256": "2468e003bc5ce69104e18679ce6c207db2544d19cd9b6dc8f31143a81973895b",
+      "specific_physical_scene": "A waist-high pilot line on a bare factory floor: a covered powder hopper feeds one compact sintering furnace, then a ceramic pellet exits onto a cell-test cradle.",
+      "single_mechanism": "one continuous indigo material route follows the sample from hopper through furnace to the test cradle",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "readable generated \u201clupine\u201d signature/logo",
+        "pseudo-label marks on walls/equipment",
+        "cyan/teal route drift"
+      ],
+      "rejection_classes": [
+        "off_palette_color",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B1-A01-05",
+      "source_asset_id": "B1-A01-05",
+      "batch": "B1",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B1/shortfall-wave-1/from-predicted-crystal-to-commercial-cell-spread--shortfall-wave-1.jpg",
+      "sha256": "3b54eee6601ac99af95651cb6d6e9ad6971cbfcc346771e1db90d58cd7eb9b58",
+      "specific_physical_scene": "An empty electric-bus depot beneath a broad solar canopy, with a quiet row of stationary battery cabinets beside the charging bays and a vast pale sky.",
+      "single_mechanism": "the battery cabinets buffer power from the canopy before it reaches the charging pedestals",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "text-like cabinet marks",
+        "buffer-to-charger path is not concretely depicted"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B1-A02-01",
+      "source_asset_id": "B1-A02-01",
+      "batch": "B1",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B1/shortfall-wave-1/the-02-percent-synthesis-problem-hero--shortfall-wave-1.jpg",
+      "sha256": "cb6470b936e1858890492def040fa6b1fcb1fe76e9ffbeec4db301138a1e860d",
+      "specific_physical_scene": "A long laboratory bench with many empty ceramic sample boats entering a small tube furnace and only one finished electrolyte pellet resting in a coin-cell test clamp.",
+      "single_mechanism": "the narrow furnace-to-test route makes the physical synthesis bottleneck visible",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "text-like control marks",
+        "yellow/orange and cyan accents"
+      ],
+      "rejection_classes": [
+        "off_palette_color",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B1-A02-02",
+      "source_asset_id": "B1-A02-02",
+      "batch": "B1",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B1/shortfall-wave-1/the-02-percent-synthesis-problem-inline-01--shortfall-wave-1.jpg",
+      "sha256": "1a164d3e9897d394e3cabf1f7aeec6198f669d8ca0d6aec9f0ffe64afbf67dd4",
+      "specific_physical_scene": "A clean pilot corridor of three identical tube furnaces with sample boats; most boats stop on cooling racks and one intact pellet reaches a pressure-test fixture.",
+      "single_mechanism": "one indigo route tracks the sole pellet that survives firing and reaches mechanical testing",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "cyan/teal and orange/ochre machinery",
+        "text-like/glyph marks",
+        "surviving-pellet route is ambiguous"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "off_palette_color",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B1-A02-03",
+      "source_asset_id": "B1-A02-03",
+      "batch": "B1",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B1/shortfall-wave-1/the-02-percent-synthesis-problem-inline-02--shortfall-wave-1.jpg",
+      "sha256": "e4fdbd445dd7f65af3ad5db27993639f9877d7962d1704f13c14446b62f06449",
+      "specific_physical_scene": "A single ceramic electrolyte disk clamped inside a transparent-sided pressure-and-heat cycling chamber, with a fine crack beginning at its metal interface.",
+      "single_mechanism": "the chamber applies combined manufacturing pressure and heat to reveal interface cracking",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "cyan/blue wash outside restrained path",
+        "pressure-and-heat cycling mechanism is generic/ambiguous"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "off_palette_color"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B1-A02-04",
+      "source_asset_id": "B1-A02-04",
+      "batch": "B1",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B1/shortfall-wave-1/the-02-percent-synthesis-problem-inline-03--shortfall-wave-1.jpg",
+      "sha256": "144f27c209953a14f17dd955ba85eff54b0e746d0dcaac000990ee8c042ccfd5",
+      "specific_physical_scene": "An idle pellet-press station beside orderly trays of warped ceramic disks and one measurement jig holding the next candidate.",
+      "single_mechanism": "the measurement jig rejects distorted pellets before they enter the pilot line",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "generated signature at lower right",
+        "dense cyan/teal field",
+        "text-like control-panel marks"
+      ],
+      "rejection_classes": [
+        "off_palette_color",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B1-A02-05",
+      "source_asset_id": "B1-A02-05",
+      "batch": "B1",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B1/shortfall-wave-1/the-02-percent-synthesis-problem-spread--shortfall-wave-1.jpg",
+      "sha256": "190c3f21cc8917a7181e3b1a7419b41229f3f1d20a296b2515c24837007011c9",
+      "specific_physical_scene": "A compact battery-module assembly cell with one verified ceramic-pellet cartridge feeding a precise stack press; the rest of the factory floor is empty paper.",
+      "single_mechanism": "the cartridge meters one qualified electrolyte pellet into each cell stack",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "generic factory silhouette does not show qualified-pellet metering mechanism"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B1-A03-02",
+      "source_asset_id": "B1-A03-02",
+      "batch": "B1",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B1/shortfall-wave-1/the-savings-stack-inline-01--shortfall-wave-1.jpg",
+      "sha256": "7871cf38ff62179e57c487129c2a76758855fc3e51cd1115b07990e01280a5c6",
+      "specific_physical_scene": "A sequence of three physical screening fixtures on one bench: a wide tray of candidate coupons, a smaller thermal-test rack, and one final reference-calculation instrument.",
+      "single_mechanism": "successive screening fixtures narrow the candidate set before the expensive reference instrument",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "dense text-like panel patterning",
+        "cyan/teal field",
+        "three-stage screening mechanism is not legible"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "off_palette_color",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B1-A03-04",
+      "source_asset_id": "B1-A03-04",
+      "batch": "B1",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B1/shortfall-wave-1/the-savings-stack-inline-03--shortfall-wave-1.jpg",
+      "sha256": "1fce245de91630e8a44fb7d85ef9897ad79d8cee0d8ce4e27c1a380ffc0e8cbd",
+      "specific_physical_scene": "An open rack of identical unmarked sample cartridges feeding two separated battery test instruments through standardized mechanical sockets.",
+      "single_mechanism": "the standardized cartridge socket lets the same physical reference sample serve independent instruments",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "cyan/teal cartridge field",
+        "text-like instrument marks"
+      ],
+      "rejection_classes": [
+        "off_palette_color",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B1-A04-04",
+      "source_asset_id": "B1-A04-04",
+      "batch": "B1",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B1/shortfall-wave-1/the-materials-we-test-against-inline-03--shortfall-wave-1.jpg",
+      "sha256": "28d6f714ebe58ba6e0686c1c9efb5711293237917541a89fa3fc28d8fd94e80a",
+      "specific_physical_scene": "A solid-electrolyte diffusion cell mounted in a small test rig, with one ceramic grain boundary enlarged in cutaway and a restrained indigo path crossing it.",
+      "single_mechanism": "the test rig measures the ion migration barrier across one grain boundary",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "prohibited arrow and decorative squiggle glyphs",
+        "grain-boundary measurement mechanism is not legible"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B1-A04-05",
+      "source_asset_id": "B1-A04-05",
+      "batch": "B1",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B1/shortfall-wave-1/the-materials-we-test-against-spread--shortfall-wave-1.jpg",
+      "sha256": "6df4119128dd79899370bd08a45353f2add1622961a9d7c6c86dedce92bafe6a",
+      "specific_physical_scene": "An empty fleet-charging depot with a row of chargers backed by sealed solid-state storage cabinets; two electrolyte coupons lie in a foreground test tray.",
+      "single_mechanism": "the storage cabinets discharge into the chargers during a brief demand peak",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "open warm-paper proxy below 45%",
+        "text-like cabinet marks",
+        "storage-to-charger discharge path is not shown"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "inadequate_warm_paper_negative_space",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B2-A01-02",
+      "source_asset_id": "B2-A01-02",
+      "batch": "B2",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/five-materials-for-5-to-12-gtco2-year-inline-01--shortfall-wave-1.jpg",
+      "sha256": "ce39c5b380ca360511aedc755d60cb5b63b15d8e9586d8dfb910198d620ca832",
+      "specific_physical_scene": "A substation battery enclosure in cutaway beside a transformer, showing one layered cell stack with cathode, ceramic separator, and current collector as plain unmarked slabs.",
+      "single_mechanism": "the thin ceramic separator carries the indigo ion path while keeping the two electrodes apart",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "large green and yellow fields",
+        "cyan/teal drift"
+      ],
+      "rejection_classes": [
+        "off_palette_color"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B2-A01-03",
+      "source_asset_id": "B2-A01-03",
+      "batch": "B2",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/five-materials-for-5-to-12-gtco2-year-inline-02--shortfall-wave-1.jpg",
+      "sha256": "ec044d9b0ce9336c93f9ba0222210f8a9129f178ee102e9188f0d256fdbf78c6",
+      "specific_physical_scene": "A modular direct-air-capture contactor standing alone on a concrete pad, its front panel cut away to reveal a pleated porous sorbent sheet.",
+      "single_mechanism": "sparse indigo airflow passes through the pleated sorbent and exits the rear plenum",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "icon/glyph on contactor cabinet",
+        "cyan/teal plume/wash"
+      ],
+      "rejection_classes": [
+        "off_palette_color",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B2-A01-04",
+      "source_asset_id": "B2-A01-04",
+      "batch": "B2",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/five-materials-for-5-to-12-gtco2-year-inline-03--shortfall-wave-1.jpg",
+      "sha256": "d7ec5fea09b976974f3a102eb8916607fec3246de865679f7828f64bfa6d0f2d",
+      "specific_physical_scene": "A compact ammonia reactor skid with an insulated reaction tube, heat exchanger, and one catalyst cartridge visible through a clean cutaway.",
+      "single_mechanism": "the catalyst cartridge enables ammonia conversion inside the single reaction tube",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "cyan/teal plume and shading",
+        "generated tiny signature/mark"
+      ],
+      "rejection_classes": [
+        "off_palette_color",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B2-A02-02",
+      "source_asset_id": "B2-A02-02",
+      "batch": "B2",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/cement-concrete-and-the-weight-of-the-built-world-inline-01--shortfall-wave-1.jpg",
+      "sha256": "d4aa7984439cc878615c561de0273a16ceaf28c28a1842b684acd6d23dc3e9dc",
+      "specific_physical_scene": "A rotary cement kiln and calciner in side cutaway, with a narrow process-gas duct leading from the calciner to one capture vessel.",
+      "single_mechanism": "the capture vessel receives the calcination gas stream through the dedicated duct",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "text-like equipment marks",
+        "generic process line does not clearly show kiln/calciner-to-capture-vessel mechanism"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B2-A02-03",
+      "source_asset_id": "B2-A02-03",
+      "batch": "B2",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/cement-concrete-and-the-weight-of-the-built-world-inline-02--shortfall-wave-1.jpg",
+      "sha256": "482980620d704c0611948df6f113f338218108959f08075e12804b258a78625d",
+      "specific_physical_scene": "A concrete batching bay where a calcined-clay hopper feeds one mixer, which pours a single beam mold positioned beneath a load frame.",
+      "single_mechanism": "the calcined-clay blend moves from hopper through mixer into a structural test beam",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "generated signature",
+        "plant/grass forms",
+        "generic concrete plant does not clearly show specified beam-mold/load-frame handoff"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "people_or_plants",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B2-A02-04",
+      "source_asset_id": "B2-A02-04",
+      "batch": "B2",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/cement-concrete-and-the-weight-of-the-built-world-inline-03--shortfall-wave-1.jpg",
+      "sha256": "35fa20b3113268be07fdf798ce570efb0c447adaffdd66ae25468815b7728ebd",
+      "specific_physical_scene": "A full-scale concrete beam in a four-point load frame, with one enlarged cutaway window showing the binder-to-aggregate interface beneath the loading nose.",
+      "single_mechanism": "the load frame tests whether the material interface transfers force without separating",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "generic beam/chute omits the specified four-point load frame and interface cutaway"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B2-A02-05",
+      "source_asset_id": "B2-A02-05",
+      "batch": "B2",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/cement-concrete-and-the-weight-of-the-built-world-spread--shortfall-wave-1.jpg",
+      "sha256": "4c7e1f08f21a388036769dba2beb270cefb6bdbbf2ca84c56ba56e62bef5c558",
+      "specific_physical_scene": "An unoccupied construction-material sorting bay with a conveyor separating reclaimed aggregate into a clean hopper feeding one precast panel mold.",
+      "single_mechanism": "reclaimed aggregate is graded and returned to a new precast panel",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "large orange/ochre buildings and red/orange vehicle",
+        "plant/grass forms"
+      ],
+      "rejection_classes": [
+        "off_palette_color",
+        "people_or_plants"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B2-A03-01",
+      "source_asset_id": "B2-A03-01",
+      "batch": "B2",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-hero--shortfall-wave-1.jpg",
+      "sha256": "03f21efef89afa9995cb2f81bcdef7bbdae16877a171ddf65c84c525aa4ffce5",
+      "specific_physical_scene": "A landfill gas well manifold feeding a sealed catalytic oxidation unit on a bare service pad, with one pipe route and no visible plume.",
+      "single_mechanism": "the oxidation unit converts collected methane within the sealed vessel",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "visible trees/plants",
+        "generic building does not clearly depict sealed landfill-gas oxidation mechanism"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "people_or_plants"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B2-A03-03",
+      "source_asset_id": "B2-A03-03",
+      "batch": "B2",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-02--shortfall-wave-1.jpg",
+      "sha256": "8b08da748a6c352c5357f4d91cd6cf758d94306b34229491734b18caa118ee60",
+      "specific_physical_scene": "A methane-pyrolysis vessel in cutaway with solid carbon dropping into shallow collection trays and one gas conduit leaving the top.",
+      "single_mechanism": "the hot reactor splits methane while solid carbon is physically removed into trays",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "cyan/teal field",
+        "specified solid-carbon removal trays are not legible"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "off_palette_color"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B2-A03-04",
+      "source_asset_id": "B2-A03-04",
+      "batch": "B2",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-03--shortfall-wave-1.jpg",
+      "sha256": "11f6e908317e0419951b7cfa599d1668944a4f7ff3e336857a2cab0c2be7ceee",
+      "specific_physical_scene": "A building cooling plant with one solid-state caloric module clamped between a warm loop and a cold loop inside an accessible service cabinet.",
+      "single_mechanism": "the caloric module pumps heat between the two closed fluid loops",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "orange/ochre piping",
+        "text-like component marks"
+      ],
+      "rejection_classes": [
+        "off_palette_color",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B2-A03-05",
+      "source_asset_id": "B2-A03-05",
+      "batch": "B2",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-spread--shortfall-wave-1.jpg",
+      "sha256": "13b521b1b5052520943f5af1ea2db817d34fc53a54311f6ae54b48f7f0b39e33",
+      "specific_physical_scene": "An empty refrigerated food warehouse with a rooftop heat-pump module connected to one interior cold-room heat exchanger; most of the frame is pale sky and wall.",
+      "single_mechanism": "the closed refrigerant loop moves heat from the cold room to the rooftop exchanger",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "orange/ochre ground and red/orange door",
+        "specified closed refrigerant loop is not legible"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "off_palette_color"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B2-A04-02",
+      "source_asset_id": "B2-A04-02",
+      "batch": "B2",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-01--shortfall-wave-1.jpg",
+      "sha256": "2adb96183a41a8c7237baf15ac10c2029969e421be2cefe226bed37acc402108",
+      "specific_physical_scene": "A reverse-osmosis pressure vessel shown in long cutaway, with a spiral membrane element separating an inlet channel from a clean-water collection tube.",
+      "single_mechanism": "pressure drives water through the membrane into the central collection tube",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "cyan/teal wash across pressure vessel",
+        "spiral membrane separation path is ambiguous"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "off_palette_color"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B2-A04-03",
+      "source_asset_id": "B2-A04-03",
+      "batch": "B2",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-02--shortfall-wave-1.jpg",
+      "sha256": "88b315d2b23442e38a88537f4fc983d595e5382287f00524c0a62fc87e815684",
+      "specific_physical_scene": "A rooftop atmospheric-water harvester in a dry built landscape, with a finned sorbent cassette above a small condenser and covered cistern.",
+      "single_mechanism": "the sorbent cassette releases captured moisture to the condenser and cistern",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "generated \u201cLupine Science\u201d signature/logo",
+        "orange/ochre landscape wash"
+      ],
+      "rejection_classes": [
+        "off_palette_color",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B3-A01-03",
+      "source_asset_id": "B3-A01-03",
+      "batch": "B3",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/shortfall-wave-1/beyond-carbon-the-error-geometry-of-environmental-materials-inline-02--shortfall-wave-1.jpg",
+      "sha256": "a2cde3a6dcc71e5d2a7ad26a65bfd9a7cada1633f3b588940982556c90c0aea9",
+      "specific_physical_scene": "A recirculating corrosion-test loop with four metal coupons mounted along one pipe and a single scanning probe moving across their exposed surfaces.",
+      "single_mechanism": "the scanning probe measures local surface error against the same flowing environment",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "schematic glyph/mark candidates along probe line",
+        "four-coupon recirculating loop is not clearly depicted"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B3-A01-04",
+      "source_asset_id": "B3-A01-04",
+      "batch": "B3",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/shortfall-wave-1/beyond-carbon-the-error-geometry-of-environmental-materials-inline-03--shortfall-wave-1.jpg",
+      "sha256": "7a1aa4117c6267d92fda9371fb1bfa02e58c612380f33c696256ddde8b80fcef",
+      "specific_physical_scene": "A central instrument bench with one calibrated sample holder connected by a restrained indigo line to a compact water-filtration pilot skid across the room.",
+      "single_mechanism": "the calibrated holder transfers a measured material result into one filtration pilot decision",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "pseudo-writing on cabinet",
+        "icon/glyph on cabinet",
+        "cyan/teal wall and route"
+      ],
+      "rejection_classes": [
+        "off_palette_color",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B3-A02-02",
+      "source_asset_id": "B3-A02-02",
+      "batch": "B3",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/shortfall-wave-1/critical-minerals-pfas-and-the-remediation-imperative-inline-01--shortfall-wave-1.jpg",
+      "sha256": "05813974985b3f7c27a17b08b15342d3ec1d203e1f253802d0b545fe2a335510",
+      "specific_physical_scene": "A contained mine-tailings water skid with one ion-selective membrane cassette between a feed tank and a recovered-mineral vessel.",
+      "single_mechanism": "the membrane cassette separates dissolved critical ions into the recovery vessel",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "text-like/glyph marks on long process line",
+        "membrane cassette and recovery-vessel separation are not legible"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B3-A02-03",
+      "source_asset_id": "B3-A02-03",
+      "batch": "B3",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/shortfall-wave-1/critical-minerals-pfas-and-the-remediation-imperative-inline-02--shortfall-wave-1.jpg",
+      "sha256": "25e1233688ad9468114e4119fdcaf9b76b799151fef224120c7fdc4002ea0629",
+      "specific_physical_scene": "A PFAS treatment column in cutaway, packed with granular sorbent between an inlet pipe and a sealed effluent sampling bottle.",
+      "single_mechanism": "the packed sorbent captures persistent contaminants before the sampling bottle",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "generated signatures/marks",
+        "cyan/teal liquid field"
+      ],
+      "rejection_classes": [
+        "off_palette_color",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B3-A02-04",
+      "source_asset_id": "B3-A02-04",
+      "batch": "B3",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/shortfall-wave-1/critical-minerals-pfas-and-the-remediation-imperative-inline-03--shortfall-wave-1.jpg",
+      "sha256": "aab331838fbe26f8a489fecf992cc5c0cba93ffa1a2e815ec07ea1862c6edb25",
+      "specific_physical_scene": "Two unmarked sample cartridges, one mineral-bearing water and one contaminated water, entering the same modular pressure-flow test fixture from opposite sides.",
+      "single_mechanism": "the shared fixture ranks cartridge performance under an identical controlled flow test",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "pseudo-writing on both cartridges",
+        "cyan/teal fluid fields"
+      ],
+      "rejection_classes": [
+        "off_palette_color",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B3-A03-02",
+      "source_asset_id": "B3-A03-02",
+      "batch": "B3",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/shortfall-wave-1/lupi-hfc-refrigerant-research-payloads-inline-01--shortfall-wave-1.jpg",
+      "sha256": "6364fc0b43d6f071b7686f1114b42df94f49a0ee363d0c5e413023388bb1f1aa",
+      "specific_physical_scene": "An empty supermarket cold room with a compact heat-pump cabinet; one removable research cartridge is seated beside the finned heat exchanger.",
+      "single_mechanism": "the removable cartridge exposes refrigerant-property evidence to the real heat-exchanger loop",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "label-like marks on cabinet",
+        "generated vertical signature/mark",
+        "cyan/teal room shading"
+      ],
+      "rejection_classes": [
+        "off_palette_color",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B3-A03-03",
+      "source_asset_id": "B3-A03-03",
+      "batch": "B3",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/shortfall-wave-1/lupi-hfc-refrigerant-research-payloads-inline-02--shortfall-wave-1.jpg",
+      "sha256": "fd8cb80969ee28581d699dfeeed7e1f912e7ee6b1fc81f273514e1bc57871fb2",
+      "specific_physical_scene": "A sealed calorimeter chamber containing one compact refrigerant loop, with a compressor, condenser coil, expansion restriction, and evaporator coil drawn as plain hardware.",
+      "single_mechanism": "the chamber measures heat moved around one closed refrigerant loop",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "generic enclosure does not depict the specified compressor/condenser/expansion/evaporator loop"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B3-A03-04",
+      "source_asset_id": "B3-A03-04",
+      "batch": "B3",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/shortfall-wave-1/lupi-hfc-refrigerant-research-payloads-inline-03--shortfall-wave-1.jpg",
+      "sha256": "dd4b5b32203561bdbf4c0630c3404354ed65741cf81382971f1d784a250f0a10",
+      "specific_physical_scene": "A bench calorimeter with an unmarked sealed refrigerant cartridge being inserted into a keyed mechanical cradle beside one heat-exchanger coil.",
+      "single_mechanism": "the keyed cradle transfers the same cartridge from evidence storage into calorimeter measurement",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "red indicator dot",
+        "blue/cyan control dot",
+        "text-like equipment marks"
+      ],
+      "rejection_classes": [
+        "off_palette_color",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B3-A04-03",
+      "source_asset_id": "B3-A04-03",
+      "batch": "B3",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/shortfall-wave-1/rhizo-non-co2-climate-forcers-lean-inline-02--shortfall-wave-1.jpg",
+      "sha256": "8851bdaa44cdd486370dd6f41af7906b88126af262ba11ea73f46661a3e8b764",
+      "specific_physical_scene": "A methane catalyst coupon mounted inside a small flow reactor, with an inlet manifold and one downstream sampling vessel.",
+      "single_mechanism": "the reactor tests conversion across the catalyst coupon before the downstream sample is collected",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "red/orange accent inside vessel",
+        "downstream sampling mechanism is ambiguous"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "off_palette_color"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B3-A04-04",
+      "source_asset_id": "B3-A04-04",
+      "batch": "B3",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/shortfall-wave-1/rhizo-non-co2-climate-forcers-lean-inline-03--shortfall-wave-1.jpg",
+      "sha256": "ad40de4a4822b20b6f91a9a080d92fc921acc77149917a9ddf48e530a5d74578",
+      "specific_physical_scene": "A physical gas-control manifold with three pipes ending at closed valves and one pipe continuing through a measurement vessel.",
+      "single_mechanism": "only the measured branch remains open and carries the restrained indigo flow",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "generated vertical signature/mark",
+        "schematic valve/glyph marks"
+      ],
+      "rejection_classes": [
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B4-A01-02",
+      "source_asset_id": "B4-A01-02",
+      "batch": "B4",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/shortfall-wave-1/why-lupine-science-inline-01--shortfall-wave-1.jpg",
+      "sha256": "1cabe503057104f82aeac88633f9d81e87bcd860cacf111c7a8b3ff5fc90107b",
+      "specific_physical_scene": "A sample-coupon transfer rail beginning at a simple pixel-pattern mask, passing through an X-ray instrument, and ending at a physical bend-test frame.",
+      "single_mechanism": "the same coupon is fabricated, measured, and mechanically tested along one traceable rail",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "generic industrial silhouette omits the mask/X-ray/bend-test transfer rail"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B4-A01-03",
+      "source_asset_id": "B4-A01-03",
+      "batch": "B4",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/shortfall-wave-1/why-lupine-science-inline-02--shortfall-wave-1.jpg",
+      "sha256": "706de70d8faa137413540e76f9cb5868d61a143f729749ead6a7b9199e239871",
+      "specific_physical_scene": "A low evidence table holding three unmarked sample blocks in fitted trays, each tray linked by a tamper-evident physical seal to one nearby instrument socket.",
+      "single_mechanism": "the fitted tray and seal preserve sample provenance between storage and measurement",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "pseudo-writing on all four trays",
+        "label/icon-like instrument marks"
+      ],
+      "rejection_classes": [
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B4-A01-04",
+      "source_asset_id": "B4-A01-04",
+      "batch": "B4",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/shortfall-wave-1/why-lupine-science-inline-03--shortfall-wave-1.jpg",
+      "sha256": "91cb4e033ee52e18534acef33b8ba18c4a41db91ae5c429ab8d14a6a280e51fa",
+      "specific_physical_scene": "A small bridge beam mounted in a laboratory load frame, with scattered displacement probes along the beam converging on one restrained indigo strain ribbon.",
+      "single_mechanism": "the probes combine into one measured strain profile used to judge the beam",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "dense pseudo-writing/glyphs along beam",
+        "glow/starburst at right endpoint"
+      ],
+      "rejection_classes": [
+        "dark_neon_or_stock_3d",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B4-A02-02",
+      "source_asset_id": "B4-A02-02",
+      "batch": "B4",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/shortfall-wave-1/why-lupi-inline-01--shortfall-wave-1.jpg",
+      "sha256": "183cc69d7d9b5c313f96014a4babd9fd37d2c080693f615e966a1ced97a18ab0",
+      "specific_physical_scene": "Two plain metal field plates mounted side by side beneath the same scanning probe, with their surface mismatch visible as one narrow indigo displacement ribbon.",
+      "single_mechanism": "the probe measures the local difference between predicted and reference plates",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "prohibited arrow/flow glyphs",
+        "does not clearly depict two plates under one scanning probe"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B4-A02-03",
+      "source_asset_id": "B4-A02-03",
+      "batch": "B4",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/shortfall-wave-1/why-lupi-inline-02--shortfall-wave-1.jpg",
+      "sha256": "458e2d2d1cdabe0d6a0eb9cf66816284fc37f704ffc3130a6999a77b9e277bed",
+      "specific_physical_scene": "A practical solid-state cell casing in cutaway beneath a scanning probe, revealing a ceramic electrolyte pressed against one electrode interface.",
+      "single_mechanism": "the probe inspects the buried electrolyte-to-electrode interface inside the cell",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "cyan/teal cutaway field",
+        "scanning probe and buried interface inspection are not clearly depicted"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "off_palette_color"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B4-A03-02",
+      "source_asset_id": "B4-A03-02",
+      "batch": "B4",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/shortfall-wave-1/the-trust-layer-inline-01--shortfall-wave-1.jpg",
+      "sha256": "87ff616346daf75ed69288a2d5ef2d477df38fb8b26c84b9b612b0a8bd40b384",
+      "specific_physical_scene": "A circular materials bench with four connected stations: powder dosing, small furnace, measurement cradle, and an empty return tray.",
+      "single_mechanism": "one specimen circulates through the make-measure-revise loop and returns for adjustment",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "diagrammatic arrow/glyph marks",
+        "four make-measure-revise stations are not legible"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B4-A03-04",
+      "source_asset_id": "B4-A03-04",
+      "batch": "B4",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/shortfall-wave-1/the-trust-layer-inline-03--shortfall-wave-1.jpg",
+      "sha256": "38c96e966c88ab830c7f69f977581f7c2ce804d29ac3d5f62b1e10419b0ac98b",
+      "specific_physical_scene": "A long rack of sealed evidence cartridges connected by identical mechanical couplers to two independent instruments at opposite ends.",
+      "single_mechanism": "the common coupler lets independent instruments inspect the same immutable cartridge chain",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "cyan/teal repeated field",
+        "sealed-cartridge chain and opposing instruments are ambiguous"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "off_palette_color"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B4-A04-01",
+      "source_asset_id": "B4-A04-01",
+      "batch": "B4",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/shortfall-wave-1/investing-in-the-trust-layer-hero--shortfall-wave-1.jpg",
+      "sha256": "1829d4c158de123d545cf6b5e15b12a31b94eb166f0c66bfbe6105926024f120",
+      "specific_physical_scene": "A narrow pilot pipeline from powder hopper through sintering furnace to a pressure-test fixture, with one inspection gate interrupting the route before scale-up equipment.",
+      "single_mechanism": "the inspection gate admits only measured samples to the pilot press",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "diagrammatic symbols/glyphs along coupler chain",
+        "archive/instrument endpoints are ambiguous"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B4-A04-02",
+      "source_asset_id": "B4-A04-02",
+      "batch": "B4",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/shortfall-wave-1/investing-in-the-trust-layer-inline-01--shortfall-wave-1.jpg",
+      "sha256": "d4570e0551e9fc05f9438dbf6e325d61357c0f087e3cdbb9d73795c47e3ad23f",
+      "specific_physical_scene": "A calibration artifact in a sealed cradle connected by an unbroken physical chain of couplers to a specimen archive and a test instrument.",
+      "single_mechanism": "the coupler chain makes every instrument result traceable to the calibration artifact",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "decorative molecule/network/icon glyphs rather than a plain traceability chain"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B4-A04-04",
+      "source_asset_id": "B4-A04-04",
+      "batch": "B4",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B4/shortfall-wave-1/investing-in-the-trust-layer-inline-03--shortfall-wave-1.jpg",
+      "sha256": "2806113cf7f73318ad2d3449c9e8be94b0c404f2bb9cc2d09c8dafeeb741e549",
+      "specific_physical_scene": "A risk-routing bench where candidate trays approach one mechanical evidence gate; several stop in side bays and one continues toward a small pilot reactor.",
+      "single_mechanism": "the evidence gate routes insufficient candidates aside before pilot equipment",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "text-like equipment marks",
+        "cyan/teal field",
+        "candidate-routing gate is ambiguous"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "off_palette_color",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B5-A01-02",
+      "source_asset_id": "B5-A01-02",
+      "batch": "B5",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/shortfall-wave-1/a-field-not-a-neural-net-inline-01--shortfall-wave-1.jpg",
+      "sha256": "48dd76642b1e4661e7f2cfcb78480d03439164dccaebad76b69a9296bf29d56d",
+      "specific_physical_scene": "A dense row of identical displacement probes scanning across one ceramic-to-metal interface in a practical cell cross-section.",
+      "single_mechanism": "the local probe readings join into one smooth indigo correction band along the interface",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "plant/grass-like spike field",
+        "large cyan/teal wash",
+        "probe-array mechanism is not legible"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "off_palette_color",
+        "people_or_plants"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B5-A01-03",
+      "source_asset_id": "B5-A01-03",
+      "batch": "B5",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/shortfall-wave-1/a-field-not-a-neural-net-inline-02--shortfall-wave-1.jpg",
+      "sha256": "ec327b250faeb135941a362e28c449253271958e164a91cc1153aeafb7128351",
+      "specific_physical_scene": "A material coupon traveling on a short rail from a prediction cartridge through one compact correction plate and into a tensile-test frame.",
+      "single_mechanism": "the bounded correction plate adjusts the predicted path before the physical tensile test",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "abstract/glow-like radiating geometry",
+        "specified rail/correction-plate/tensile-frame mechanism is absent"
+      ],
+      "rejection_classes": [
+        "dark_neon_or_stock_3d",
+        "generic_abstract_or_mechanism_not_depicted"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B5-A01-04",
+      "source_asset_id": "B5-A01-04",
+      "batch": "B5",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/shortfall-wave-1/a-field-not-a-neural-net-inline-03--shortfall-wave-1.jpg",
+      "sha256": "00529016647ef15a818d6461ed6a65711610eb8a61905b432680ea3cbe4c326f",
+      "specific_physical_scene": "A rigid rectangular proof frame mounted over a specimen rail, with one compatible sample carriage passing through and one incompatible carriage stopped at the edge.",
+      "single_mechanism": "the frame physically bounds which correction path may proceed to testing",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "yellow and red blocks",
+        "generic frame does not clearly show compatible versus stopped carriage"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "off_palette_color"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B5-A02-02",
+      "source_asset_id": "B5-A02-02",
+      "batch": "B5",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/shortfall-wave-1/a-smooth-environment-resolved-error-field-inline-01--shortfall-wave-1.jpg",
+      "sha256": "af4de424524c9b9f512fe5e22e2c13cebc89cf25b8a8f08a9fb7a7222f5b181d",
+      "specific_physical_scene": "Two parallel rows of four unmarked engineering coupons on stepped mechanical pedestals; both rows preserve the same order while the pedestal heights differ.",
+      "single_mechanism": "the pedestal ordering shows rank agreement despite mismatched measured magnitude",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "glow/luminous halos",
+        "generic insulator-like objects do not depict ordered coupon rows"
+      ],
+      "rejection_classes": [
+        "dark_neon_or_stock_3d",
+        "generic_abstract_or_mechanism_not_depicted",
+        "off_palette_color"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B5-A02-03",
+      "source_asset_id": "B5-A02-03",
+      "batch": "B5",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/shortfall-wave-1/a-smooth-environment-resolved-error-field-inline-02--shortfall-wave-1.jpg",
+      "sha256": "ca1463348cdcfc4e9a53f3a721c5e6b1cb7aa554b8e99953696c63960a56a3a8",
+      "specific_physical_scene": "A sealed prediction cartridge locked in a cradle outside an independent compression-test chamber, with the specimen entering through a separate hatch.",
+      "single_mechanism": "the sealed prediction remains untouched until the independent measurement is complete",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "visible human figure",
+        "readable/pseudo machine labels",
+        "green/orange wiring"
+      ],
+      "rejection_classes": [
+        "off_palette_color",
+        "people_or_plants",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B5-A02-04",
+      "source_asset_id": "B5-A02-04",
+      "batch": "B5",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/shortfall-wave-1/a-smooth-environment-resolved-error-field-inline-03--shortfall-wave-1.jpg",
+      "sha256": "8301c7ff9eb36207729f5fad8470c547ee02e399fb1981bac451e9e34d9c412b",
+      "specific_physical_scene": "A compact correction plate inserted between an interatomic-model cartridge and a finite-element fatigue-test fixture for one turbine-blade coupon.",
+      "single_mechanism": "the plate applies a bounded local correction before the coupon simulation reaches the fatigue fixture",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "stock/glossy 3D-like device rendering",
+        "correction-plate/fatigue-fixture mechanism is ambiguous"
+      ],
+      "rejection_classes": [
+        "dark_neon_or_stock_3d",
+        "generic_abstract_or_mechanism_not_depicted"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B5-A03-02",
+      "source_asset_id": "B5-A03-02",
+      "batch": "B5",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/shortfall-wave-1/the-correction-that-hurt-and-the-theorem-that-stopped-it-inline-01--shortfall-wave-1.jpg",
+      "sha256": "91d457bf8be45ef70b80cd3939fed20b39e8850a3a10ed0b8f1b1e3e6e9a79ce",
+      "specific_physical_scene": "A defect-rich ceramic surface beneath a scanning probe, with one smooth polished region ending sharply at a cracked rough region.",
+      "single_mechanism": "the probe maps where a smooth correction field ceases to be supported at the defect cliff",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "glow/starburst effect",
+        "generated signature/mark",
+        "generic impact scene does not show bounded probe mapping"
+      ],
+      "rejection_classes": [
+        "dark_neon_or_stock_3d",
+        "generic_abstract_or_mechanism_not_depicted",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B5-A03-03",
+      "source_asset_id": "B5-A03-03",
+      "batch": "B5",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/shortfall-wave-1/the-correction-that-hurt-and-the-theorem-that-stopped-it-inline-02--shortfall-wave-1.jpg",
+      "sha256": "e3b57783d1a4247da3d55e323684ddb76763f6e4323782606e962528999cb2e3",
+      "specific_physical_scene": "A cantilever coupon in a displacement-test jig with three adjacent physical pointers showing raw prediction, corrected prediction, and measured deflection without scales.",
+      "single_mechanism": "the pointers compare whether correction moves the prediction toward the measured deflection",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "pseudo-writing and chart-like marks",
+        "three physical deflection pointers are not clearly legible"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B5-A04-02",
+      "source_asset_id": "B5-A04-02",
+      "batch": "B5",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/shortfall-wave-1/four-gates-three-honest-failures-one-live-experiment-inline-01--shortfall-wave-1.jpg",
+      "sha256": "61546135d8fbc97f6d5b68d594fd5b7919eaf9ccac97d73acd8a088d52a87086",
+      "specific_physical_scene": "A solid-electrolyte migration rig with one ink ridge formed by measurement pins and a lower indigo trajectory passing beneath it.",
+      "single_mechanism": "the rig exposes systematic underestimation of the ion migration barrier",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "generic ridge/pin graphic does not clearly distinguish measured barrier from underestimated trajectory"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "off_palette_color"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B5-A04-04",
+      "source_asset_id": "B5-A04-04",
+      "batch": "B5",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/shortfall-wave-1/four-gates-three-honest-failures-one-live-experiment-inline-03--shortfall-wave-1.jpg",
+      "sha256": "184bc17204d73cf2e82cc824b9780ecdda60e73bb6a96fae92b7d4536ed83941",
+      "specific_physical_scene": "A magnetic specimen rests in a sealed side tray outside a nonmagnetic correction fixture whose empty cradle is clearly incompatible.",
+      "single_mechanism": "the workflow abstains by keeping unsupported magnetic material outside the correction fixture",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "label-like side panel",
+        "generic box does not clearly show unsupported magnetic specimen abstention"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B6-A01-01",
+      "source_asset_id": "B6-A01-01",
+      "batch": "B6",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/z1-union-debrief-hero--shortfall-wave-1.jpg",
+      "sha256": "295b7d8afa76d9b43f6d3dfa6bb8f252018655c38336964cce73be894d61fe48",
+      "specific_physical_scene": "A row of solid-electrolyte coupons mounted in identical diffusion rigs, with a sparse set of shared reference pins aligned across all rigs.",
+      "single_mechanism": "the shared reference pins anchor comparison of migration barriers across the coupon panel",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "multiple prohibited arrows and diagram glyphs",
+        "does not depict physical coupon diffusion rigs"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B6-A01-02",
+      "source_asset_id": "B6-A01-02",
+      "batch": "B6",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/z1-union-debrief-inline-01--shortfall-wave-1.jpg",
+      "sha256": "f6d9133d32ae84f07d3b0e5b1f5d2a8d261684f4bede4593e59d841e1beb4b86",
+      "specific_physical_scene": "A broad array of untouched electrolyte coupons surrounding a compact central route through three shared physical diffusion-test stations.",
+      "single_mechanism": "the union route reuses shared stations instead of repeating every possible barrier test",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "map/diagram glyphs and arrow-like route",
+        "physical shared diffusion-test stations are not legible"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "off_palette_color",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B6-A01-03",
+      "source_asset_id": "B6-A01-03",
+      "batch": "B6",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/z1-union-debrief-inline-02--shortfall-wave-1.jpg",
+      "sha256": "6e2138cfba9589e3663aab0717b550d0e15859e5961fda7e9e0f790a3ac5b10e",
+      "specific_physical_scene": "Five battery-material coupons ordered along a bench beneath spring-loaded response gauges; the pointer order agrees while every predicted stop sits short of its measured stop.",
+      "single_mechanism": "the gauges preserve candidate ranking while exposing underestimated barrier magnitude",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "multiple prohibited arrows",
+        "gauge pointer comparison is diagrammatic rather than plain physical hardware"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B6-A02-01",
+      "source_asset_id": "B6-A02-01",
+      "batch": "B6",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/an-order-of-effort-hero--shortfall-wave-1.jpg",
+      "sha256": "c30a49f358007ac3f0b12d9a96da9af21778cde4d036958fbe0d242351601804",
+      "specific_physical_scene": "A row of four increasingly specialized test bays: bulk compression, defect scanning, reaction vessel, and interface microscopy, receding across a bare laboratory floor.",
+      "single_mechanism": "each material environment is routed to the level of test equipment its complexity requires",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "visible human figure",
+        "multiple labels/pseudo-writing on test bays",
+        "cyan/teal drift"
+      ],
+      "rejection_classes": [
+        "off_palette_color",
+        "people_or_plants",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B6-A02-02",
+      "source_asset_id": "B6-A02-02",
+      "batch": "B6",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/an-order-of-effort-inline-01--shortfall-wave-1.jpg",
+      "sha256": "c5d31e99a650def28b9531d334412f3dcb50d6db969fb068b44d2e4930fbf54e",
+      "specific_physical_scene": "A branching sample rail at a quiet allocation station: simple coupons enter a rapid screen while one complex interface coupon is diverted to a reference chamber.",
+      "single_mechanism": "the physical switch routes work according to evidence difficulty",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "many readable/text-like rail labels and marks",
+        "possible tiny silhouettes",
+        "open warm-paper proxy below 45%"
+      ],
+      "rejection_classes": [
+        "inadequate_warm_paper_negative_space",
+        "other_strict_exclusion",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B6-A02-03",
+      "source_asset_id": "B6-A02-03",
+      "batch": "B6",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/an-order-of-effort-inline-02--shortfall-wave-1.jpg",
+      "sha256": "e9cd129975357f2faf3c3df68256d178cdbf89cdafabb7357a2e216ff7647bfe",
+      "specific_physical_scene": "A high-pressure material cell enclosed by three nested mechanical containment rings, with the innermost ring carrying a restrained indigo boundary.",
+      "single_mechanism": "the nested rings prevent a correction from extending beyond its tested material regime",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "stock/glossy 3D appearance",
+        "generic aperture does not depict a high-pressure cell with three containment rings"
+      ],
+      "rejection_classes": [
+        "dark_neon_or_stock_3d",
+        "generic_abstract_or_mechanism_not_depicted"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B6-A02-04",
+      "source_asset_id": "B6-A02-04",
+      "batch": "B6",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/an-order-of-effort-inline-03--shortfall-wave-1.jpg",
+      "sha256": "add4c6d1f8d21ca28f8dca266ef1acc452c4145359cf93c6f02391ae0988c769",
+      "specific_physical_scene": "A phased research hall with a simple coupon rack nearest the viewer and progressively enclosed thermal, reaction, and interface test bays farther away.",
+      "single_mechanism": "samples advance only when each increasingly specialized test bay supplies evidence",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "traffic-light red/yellow/green rack",
+        "labels/pseudo-writing on bays",
+        "generated signature/mark"
+      ],
+      "rejection_classes": [
+        "off_palette_color",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B6-A03-01",
+      "source_asset_id": "B6-A03-01",
+      "batch": "B6",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/the-order-is-right-the-size-is-wrong-hero--shortfall-wave-1.jpg",
+      "sha256": "8a95220d24daf56fdeff871ba8f63850f8c072c8b7f5650e1233c6d031061a89",
+      "specific_physical_scene": "A row of five practical material coupons under paired spring gauges, where each indigo predicted pointer stops below its corresponding ink measured pointer.",
+      "single_mechanism": "the paired gauges show correct ordering but systematically undersized response",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "abstract blue splash sequence",
+        "paired spring-gauge mechanism is absent"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "off_palette_color",
+        "other_strict_exclusion"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B6-A03-04",
+      "source_asset_id": "B6-A03-04",
+      "batch": "B6",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/the-order-is-right-the-size-is-wrong-inline-03--shortfall-wave-1.jpg",
+      "sha256": "c9b71084332dbb92432af2c928b27aaf4df20d953f12e461e501287463fb33c7",
+      "specific_physical_scene": "An unattended specimen pipeline with a model cartridge, a bounded correction jig, and a final engineering decision tray connected by one narrow rail.",
+      "single_mechanism": "the rail carries one sample through rank-preserving correction into a physical decision tray",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "readable labels including \u201cSample\u201d and pseudo-technical callouts"
+      ],
+      "rejection_classes": [
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B6-A04-01",
+      "source_asset_id": "B6-A04-01",
+      "batch": "B6",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/from-fantasy-frameworks-to-makeable-materials-hero--shortfall-wave-1.jpg",
+      "sha256": "cbfa2f7b32d7c2b9300c60ef74a43d4200b858a2591b3f22c0d9abbc09a18134",
+      "specific_physical_scene": "A porous-framework powder batch moving from a synthesis vessel through a pellet press and stability chamber into one plain sorbent cartridge.",
+      "single_mechanism": "the makeability line rejects material unless it survives synthesis, shaping, and stability testing",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "traffic-light red/yellow/green indicator",
+        "plume/glow and arrow glyphs",
+        "text-like machine marks"
+      ],
+      "rejection_classes": [
+        "dark_neon_or_stock_3d",
+        "off_palette_color",
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B6-A04-02",
+      "source_asset_id": "B6-A04-02",
+      "batch": "B6",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/from-fantasy-frameworks-to-makeable-materials-inline-01--shortfall-wave-1.jpg",
+      "sha256": "ec0ada23dec65cb44c7529502dc2ed79ba832fedd776e58cd4e8104268156b13",
+      "specific_physical_scene": "A full-height direct-air-capture panel in cutaway with a porous-framework coating bonded to a plain metal support and sparse airflow crossing it.",
+      "single_mechanism": "the bonded porous coating captures gas while remaining mechanically supported inside the contactor",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "cyan/teal wash across support and coating",
+        "sparse airflow/mechanical-support mechanism is ambiguous"
+      ],
+      "rejection_classes": [
+        "generic_abstract_or_mechanism_not_depicted",
+        "off_palette_color"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    },
+    {
+      "asset_id": "SW1-B6-A04-03",
+      "source_asset_id": "B6-A04-03",
+      "batch": "B6",
+      "path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/from-fantasy-frameworks-to-makeable-materials-inline-02--shortfall-wave-1.jpg",
+      "sha256": "cc3808b355b50a5092777b1cbd258bb9cae571bcea6624493b64ace58c95b836",
+      "specific_physical_scene": "An unoccupied materials bay with a synthesis vessel, wash filter, stability chamber, and pilot cartridge connected in one straight line.",
+      "single_mechanism": "one framework batch advances through synthesis and stability checks before entering the pilot cartridge",
+      "verdict": "REJECT",
+      "rejection_reasons": [
+        "many readable/pseudo labels and callouts across the full process line"
+      ],
+      "rejection_classes": [
+        "text_pseudo_label_or_symbol"
+      ],
+      "integrity_verified": true,
+      "source_manifest_match": true
+    }
+  ]
+}

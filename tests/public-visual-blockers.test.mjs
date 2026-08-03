@@ -59,6 +59,31 @@ test('brand library uses self-hosted typography and every card image exists', ()
   }
 });
 
+test('public pages use the published canonical OG image and brand metadata is consistent', () => {
+  const html = fs.readFileSync(path.join(PUBLIC, 'brand-assets/index.html'), 'utf8');
+  const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
+  const description = html.match(/<meta name="description" content="([^"]+)">/)?.[1];
+  const ogTitle = html.match(/<meta property="og:title" content="([^"]+)">/)?.[1];
+  const ogImage = path.join(PUBLIC, 'og-lupine-science.jpg');
+
+  assert.ok(description, 'brand library must publish a meta description');
+  assert.equal(ogTitle, title, 'brand library og:title must match its page title');
+  assert.deepEqual(
+    fs.readFileSync(ogImage).subarray(0, 2),
+    Buffer.from([0xff, 0xd8]),
+    'canonical Open Graph image must contain JPEG bytes'
+  );
+  const staleReferences = walkHtml(PUBLIC)
+    .filter((file) => fs.readFileSync(file, 'utf8').includes('og-lupine-science.png'))
+    .map((file) => path.relative(ROOT, file));
+  assert.deepEqual(staleReferences, [], 'public pages must not reference the deleted legacy PNG');
+  assert.doesNotMatch(
+    fs.readFileSync(path.join(ROOT, 'scripts', 'build-articles.mjs'), 'utf8'),
+    /og-lupine-science\.png/,
+    'article builds must not restore the deleted legacy PNG reference'
+  );
+});
+
 test('article stylesheet contains guards for long links and code blocks', () => {
   const css = fs.readFileSync(path.join(PUBLIC, 'articles/styles.css'), 'utf8');
   assert.match(css, /\.article a\s*\{[^}]*overflow-wrap:\s*anywhere/s);

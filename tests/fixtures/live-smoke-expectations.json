@@ -1,0 +1,52 @@
+{
+  "canonicalOrigin": "https://lupine.science",
+  "routes": [
+    { "path": "/", "marker": "Before a lab spends a year on a material, know whether to trust the prediction." },
+    { "path": "/articles/", "marker": "Research notes, prospectuses, and formalization roadmaps." },
+    { "path": "/articles/a-field-not-a-neural-net/", "marker": "A Field, Not a Neural Net" },
+    { "path": "/articles/a-smooth-environment-resolved-error-field/", "marker": "A smooth, environment-resolved error field" },
+    { "path": "/articles/an-order-of-effort/", "marker": "An Order of Effort" },
+    { "path": "/articles/beyond-carbon-the-error-geometry-of-environmental-materials/", "marker": "Beyond Carbon: The Error Geometry of Environmental Materials" },
+    { "path": "/articles/cement-concrete-and-the-weight-of-the-built-world/", "marker": "Cement, Concrete, and the Weight of the Built World" },
+    { "path": "/articles/critical-minerals-pfas-and-the-remediation-imperative/", "marker": "Critical Minerals, PFAS, and the Remediation Imperative" },
+    { "path": "/articles/five-materials-for-5-to-12-gtco2-year/", "marker": "Five Materials That Could Unlock 5–12 GtCO₂/Year" },
+    { "path": "/articles/four-gates-three-honest-failures-one-live-experiment/", "marker": "Four Gates, Three Honest Failures, One Live Experiment" },
+    { "path": "/articles/from-fantasy-frameworks-to-makeable-materials/", "marker": "From Fantasy Frameworks to Makeable Materials" },
+    { "path": "/articles/from-predicted-crystal-to-commercial-cell/", "marker": "From Predicted Crystal to Commercial Cell" },
+    { "path": "/articles/investing-in-the-trust-layer/", "marker": "Investing in the Trust Layer" },
+    { "path": "/articles/lupi-hfc-refrigerant-research-payloads/", "marker": "Lupi Gains HFC Refrigerant Research Payloads" },
+    { "path": "/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/", "marker": "Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers" },
+    { "path": "/articles/rhizo-non-co2-climate-forcers-lean/", "marker": "Non-CO₂ Climate Forcers, Now Formalized in Lean" },
+    { "path": "/articles/the-02-percent-synthesis-problem/", "marker": "The 0.2% Synthesis Problem" },
+    { "path": "/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/", "marker": "The Correction That Hurt, and the Theorem That Stopped It" },
+    { "path": "/articles/the-materials-we-test-against/", "marker": "The Z1 Barrier Panel" },
+    { "path": "/articles/the-order-is-right-the-size-is-wrong/", "marker": "The Order Is Right, the Size Is Wrong" },
+    { "path": "/articles/the-savings-stack/", "marker": "The Savings Stack" },
+    { "path": "/articles/the-trust-layer/", "marker": "The Trust Layer" },
+    { "path": "/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/", "marker": "Water and Air: Correcting the Molecules Humans Drink and Breathe" },
+    { "path": "/articles/why-lupi/", "marker": "Why LUPI?" },
+    { "path": "/articles/why-lupine-science/", "marker": "Why Lupine Science?" },
+    { "path": "/articles/z1-union-debrief/", "marker": "The Union Verdict: A De-brief on the Z1 Campaign" },
+    { "path": "/presentations/climate-investor-value/", "marker": "The trust layer for climate-critical materials." },
+    { "path": "/videos/", "marker": "Article videos.", "sitemap": false },
+    { "path": "/brand-assets/", "marker": "Brand assets.", "sitemap": false },
+    { "path": "/result-graphics/", "marker": "Result graphics.", "sitemap": false }
+  ],
+  "pdfs": [
+    {
+      "path": "/proof-pack-climate-series.pdf",
+      "minimumBytes": 100000,
+      "requiredSections": ["The 0.2% Synthesis Problem", "A Field, Not a Neural Net", "Five Materials That Could Unlock", "From Predicted Crystal to Commercial Cell", "Investing in the Trust Layer"]
+    },
+    {
+      "path": "/booklets/the-savings-stack.pdf",
+      "minimumBytes": 100000,
+      "requiredSections": ["The Savings Stack", "Evidence before claim", "Four models of guidance cost", "What we do not claim"]
+    },
+    {
+      "path": "/papers/memorandum-correction-boundary-2026-07-20.pdf",
+      "minimumBytes": 100000,
+      "requiredSections": ["A Correction Boundary for Foundation Interatomic Potentials", "Abstract", "Machine-Checked Limits", "Model-Guided Sparse DFT"]
+    }
+  ]
+}
