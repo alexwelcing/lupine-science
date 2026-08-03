@@ -1,0 +1,402 @@
+{
+  "model": "minimax/image-01 (api.minimax.io)",
+  "assets": [
+    {
+      "asset_id": "SW1-B6-A01-01",
+      "original_asset_id": "B6-A01-01",
+      "key": "z1-union-debrief-hero--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/z1-union-debrief-hero--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/z1-union-debrief-hero--shortfall-wave-1.jpg",
+      "bytes": 210967,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: A row of solid-electrolyte coupons mounted in identical diffusion rigs, with a sparse set of shared reference pins aligned across all rigs. Depict only this mechanism: the shared reference pins anchor comparison of migration barriers across the coupon panel. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:f7cb2e2c05e1da220d1c2abe7740c303442706cb05c86276366771a4326488a2",
+      "qa_reason": "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:10:50.333Z",
+      "source_dimensions": {
+        "width": 1280,
+        "height": 720
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:11:05.720Z"
+    },
+    {
+      "asset_id": "SW1-B6-A01-02",
+      "original_asset_id": "B6-A01-02",
+      "key": "z1-union-debrief-inline-01--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/z1-union-debrief-inline-01--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/z1-union-debrief-inline-01--shortfall-wave-1.jpg",
+      "bytes": 266384,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: A broad array of untouched electrolyte coupons surrounding a compact central route through three shared physical diffusion-test stations. Depict only this mechanism: the union route reuses shared stations instead of repeating every possible barrier test. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:50fde59c118e6b137b5537f05780f3e3ed530fb2520c7e98ac3fce97bc2e9280",
+      "qa_reason": "off-palette-or-decorative-ochre/cyan/orange",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:11:05.721Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:11:22.291Z"
+    },
+    {
+      "asset_id": "SW1-B6-A01-03",
+      "original_asset_id": "B6-A01-03",
+      "key": "z1-union-debrief-inline-02--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/z1-union-debrief-inline-02--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/z1-union-debrief-inline-02--shortfall-wave-1.jpg",
+      "bytes": 245769,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: Five battery-material coupons ordered along a bench beneath spring-loaded response gauges; the pointer order agrees while every predicted stop sits short of its measured stop. Depict only this mechanism: the gauges preserve candidate ranking while exposing underestimated barrier magnitude. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:ab0e0bdbcb5b7ef3555eb54a7739b34ba405bab0c78869b5ccaf5189ba6021e8",
+      "qa_reason": "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:11:22.291Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:11:40.177Z"
+    },
+    {
+      "asset_id": "SW1-B6-A02-01",
+      "original_asset_id": "B6-A02-01",
+      "key": "an-order-of-effort-hero--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/an-order-of-effort-hero--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/an-order-of-effort-hero--shortfall-wave-1.jpg",
+      "bytes": 215825,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: A row of four increasingly specialized test bays: bulk compression, defect scanning, reaction vessel, and interface microscopy, receding across a bare laboratory floor. Depict only this mechanism: each material environment is routed to the level of test equipment its complexity requires. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:fd27cd2ec4da911fa5056ac5d3b586506fd338a472bbf02b60d885eb0925caa9",
+      "qa_reason": "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:11:40.177Z",
+      "source_dimensions": {
+        "width": 1280,
+        "height": 720
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:11:56.977Z"
+    },
+    {
+      "asset_id": "SW1-B6-A02-02",
+      "original_asset_id": "B6-A02-02",
+      "key": "an-order-of-effort-inline-01--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/an-order-of-effort-inline-01--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/an-order-of-effort-inline-01--shortfall-wave-1.jpg",
+      "bytes": 240036,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: A branching sample rail at a quiet allocation station: simple coupons enter a rapid screen while one complex interface coupon is diverted to a reference chamber. Depict only this mechanism: the physical switch routes work according to evidence difficulty. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:174e107fad864cac702dbc0a7060642ee8ebc2a0c8491eb1948511f110d912f5",
+      "qa_reason": "readable-or-text-like-baked-labels",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:11:56.977Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:12:15.072Z"
+    },
+    {
+      "asset_id": "SW1-B6-A02-03",
+      "original_asset_id": "B6-A02-03",
+      "key": "an-order-of-effort-inline-02--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/an-order-of-effort-inline-02--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/an-order-of-effort-inline-02--shortfall-wave-1.jpg",
+      "bytes": 227340,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: A high-pressure material cell enclosed by three nested mechanical containment rings, with the innermost ring carrying a restrained indigo boundary. Depict only this mechanism: the nested rings prevent a correction from extending beyond its tested material regime. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:1f5577443e6a190b39233fb1a893e3eec3a5f98798aa8d7cdb124e2869df2b85",
+      "qa_reason": "off-palette-or-decorative-ochre/cyan/orange",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:12:15.072Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:12:32.109Z"
+    },
+    {
+      "asset_id": "SW1-B6-A02-04",
+      "original_asset_id": "B6-A02-04",
+      "key": "an-order-of-effort-inline-03--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/an-order-of-effort-inline-03--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/an-order-of-effort-inline-03--shortfall-wave-1.jpg",
+      "bytes": 269237,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: A phased research hall with a simple coupon rack nearest the viewer and progressively enclosed thermal, reaction, and interface test bays farther away. Depict only this mechanism: samples advance only when each increasingly specialized test bay supplies evidence. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:57753822decb9dddca9abccdffcbd8173374f2802e757c94319492d1ff61bddb",
+      "qa_reason": "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:12:32.109Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:12:49.589Z"
+    },
+    {
+      "asset_id": "SW1-B6-A03-01",
+      "original_asset_id": "B6-A03-01",
+      "key": "the-order-is-right-the-size-is-wrong-hero--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/the-order-is-right-the-size-is-wrong-hero--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/the-order-is-right-the-size-is-wrong-hero--shortfall-wave-1.jpg",
+      "bytes": 136352,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: A row of five practical material coupons under paired spring gauges, where each indigo predicted pointer stops below its corresponding ink measured pointer. Depict only this mechanism: the paired gauges show correct ordering but systematically undersized response. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:378cf62fb963bd4263bf425a54ac61e4abb1e711c3563ef597061258a9047b61",
+      "qa_reason": "concept-or-slot-fit-failure: generic/abstract scene does not clearly depict the requested practical mechanism",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:12:49.589Z",
+      "source_dimensions": {
+        "width": 1280,
+        "height": 720
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:13:05.981Z"
+    },
+    {
+      "asset_id": "SW1-B6-A03-04",
+      "original_asset_id": "B6-A03-04",
+      "key": "the-order-is-right-the-size-is-wrong-inline-03--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/the-order-is-right-the-size-is-wrong-inline-03--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/the-order-is-right-the-size-is-wrong-inline-03--shortfall-wave-1.jpg",
+      "bytes": 147813,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: An unattended specimen pipeline with a model cartridge, a bounded correction jig, and a final engineering decision tray connected by one narrow rail. Depict only this mechanism: the rail carries one sample through rank-preserving correction into a physical decision tray. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:78feca6f566cae588ece80a7794c867e4b92973f437abb79d40280f7a4d8013c",
+      "qa_reason": "readable-or-text-like-baked-labels",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:13:05.981Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:13:23.635Z"
+    },
+    {
+      "asset_id": "SW1-B6-A04-01",
+      "original_asset_id": "B6-A04-01",
+      "key": "from-fantasy-frameworks-to-makeable-materials-hero--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/from-fantasy-frameworks-to-makeable-materials-hero--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/from-fantasy-frameworks-to-makeable-materials-hero--shortfall-wave-1.jpg",
+      "bytes": 125767,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: A porous-framework powder batch moving from a synthesis vessel through a pellet press and stability chamber into one plain sorbent cartridge. Depict only this mechanism: the makeability line rejects material unless it survives synthesis, shaping, and stability testing. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:ecf289ccd4bc574a8d47f9ab8a21ab33a4328cb8cd24ee8330916eaabd3c7ab5",
+      "qa_reason": "dark-neon-or-stock-3d-aesthetic",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:13:23.635Z",
+      "source_dimensions": {
+        "width": 1280,
+        "height": 720
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:13:40.040Z"
+    },
+    {
+      "asset_id": "SW1-B6-A04-02",
+      "original_asset_id": "B6-A04-02",
+      "key": "from-fantasy-frameworks-to-makeable-materials-inline-01--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/from-fantasy-frameworks-to-makeable-materials-inline-01--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/from-fantasy-frameworks-to-makeable-materials-inline-01--shortfall-wave-1.jpg",
+      "bytes": 207050,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: A full-height direct-air-capture panel in cutaway with a porous-framework coating bonded to a plain metal support and sparse airflow crossing it. Depict only this mechanism: the bonded porous coating captures gas while remaining mechanically supported inside the contactor. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:44fb1fe66a677316b11d65d0d991e4251946f3ca1fcca15b2fca6661683c65f0",
+      "qa_reason": "dark-neon-or-stock-3d-aesthetic",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:13:40.040Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:13:57.548Z"
+    },
+    {
+      "asset_id": "SW1-B6-A04-03",
+      "original_asset_id": "B6-A04-03",
+      "key": "from-fantasy-frameworks-to-makeable-materials-inline-02--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/from-fantasy-frameworks-to-makeable-materials-inline-02--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/shortfall-wave-1/from-fantasy-frameworks-to-makeable-materials-inline-02--shortfall-wave-1.jpg",
+      "bytes": 179719,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: An unoccupied materials bay with a synthesis vessel, wash filter, stability chamber, and pilot cartridge connected in one straight line. Depict only this mechanism: one framework batch advances through synthesis and stability checks before entering the pilot cartridge. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:92dca27b3b3c92842ca664a88ea1549621d045067aa75a59863b949e86ab2dd7",
+      "qa_reason": "dark-neon-or-stock-3d-aesthetic",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:13:57.548Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:14:15.624Z"
+    }
+  ],
+  "updated_at": "2026-07-28T11:14:15.624Z"
+}

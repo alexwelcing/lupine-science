@@ -1,0 +1,102 @@
+[
+  {
+    "key": "b4-materials-batteries-lithium-bottleneck-a",
+    "aspect": "16:9",
+    "prompt": "one small ion moving between two stable sites through the narrowest opening in a dense ceramic lattice, with the constriction clearly visible, panoramic arrangement with the main relationship spanning the frame and generous open space around it"
+  },
+  {
+    "key": "b4-materials-batteries-lithium-bottleneck-b",
+    "aspect": "16:9",
+    "prompt": "one small ion moving between two stable sites through the narrowest opening in a dense ceramic lattice, with the constriction clearly visible, closer wide view emphasizing the central physical relationship and one quiet secondary detail"
+  },
+  {
+    "key": "b4-materials-batteries-lithium-bottleneck-c",
+    "aspect": "16:9",
+    "prompt": "one small ion moving between two stable sites through the narrowest opening in a dense ceramic lattice, with the constriction clearly visible, high overhead view revealing the whole system, its junctions, and its limits"
+  },
+  {
+    "key": "b4-materials-batteries-lithium-bottleneck-d",
+    "aspect": "16:9",
+    "prompt": "one small ion moving between two stable sites through the narrowest opening in a dense ceramic lattice, with the constriction clearly visible, asymmetrical wide view with one dominant focal structure and a restrained supporting structure"
+  },
+  {
+    "key": "b4-materials-batteries-chemistry-neighborhoods-a",
+    "aspect": "16:9",
+    "prompt": "several clearly different crystalline specimen families arranged as neighboring groups on one museum-like materials table, each group with a distinct lattice character, wide left-to-right sequence with distinct stages and clear breathing room"
+  },
+  {
+    "key": "b4-materials-batteries-chemistry-neighborhoods-b",
+    "aspect": "16:9",
+    "prompt": "several clearly different crystalline specimen families arranged as neighboring groups on one museum-like materials table, each group with a distinct lattice character, panoramic field view emphasizing relationships across the full system"
+  },
+  {
+    "key": "b4-materials-batteries-chemistry-neighborhoods-c",
+    "aspect": "16:9",
+    "prompt": "several clearly different crystalline specimen families arranged as neighboring groups on one museum-like materials table, each group with a distinct lattice character, wide overhead arrangement with visible provenance from start to finish"
+  },
+  {
+    "key": "b4-materials-batteries-chemistry-neighborhoods-d",
+    "aspect": "16:9",
+    "prompt": "several clearly different crystalline specimen families arranged as neighboring groups on one museum-like materials table, each group with a distinct lattice character, split-zone wide composition contrasting two conditions using physical form alone"
+  },
+  {
+    "key": "b4-materials-batteries-barrier-landscape-a",
+    "aspect": "1:1",
+    "prompt": "several ion migration routes crossing a shared crystal landscape, some through low passes and others ending before steep high walls, centered specimen-like composition showing the complete relationship at a glance"
+  },
+  {
+    "key": "b4-materials-batteries-barrier-landscape-b",
+    "aspect": "1:1",
+    "prompt": "several ion migration routes crossing a shared crystal landscape, some through low passes and others ending before steep high walls, close square view emphasizing the decisive interaction or boundary"
+  },
+  {
+    "key": "b4-materials-batteries-barrier-landscape-c",
+    "aspect": "1:1",
+    "prompt": "several ion migration routes crossing a shared crystal landscape, some through low passes and others ending before steep high walls, overhead square arrangement showing the system and its surrounding context"
+  },
+  {
+    "key": "b4-materials-batteries-barrier-landscape-d",
+    "aspect": "1:1",
+    "prompt": "several ion migration routes crossing a shared crystal landscape, some through low passes and others ending before steep high walls, off-center square crop with a strong focal object and a quieter comparison nearby"
+  },
+  {
+    "key": "b4-materials-batteries-disjoint-panels-a",
+    "aspect": "1:1",
+    "prompt": "two separate open specimen drawers holding different crystal samples, divided by a clear gap with no pieces crossing between them, centered specimen-like composition showing the complete relationship at a glance"
+  },
+  {
+    "key": "b4-materials-batteries-disjoint-panels-b",
+    "aspect": "1:1",
+    "prompt": "two separate open specimen drawers holding different crystal samples, divided by a clear gap with no pieces crossing between them, close square view emphasizing the decisive interaction or boundary"
+  },
+  {
+    "key": "b4-materials-batteries-disjoint-panels-c",
+    "aspect": "1:1",
+    "prompt": "two separate open specimen drawers holding different crystal samples, divided by a clear gap with no pieces crossing between them, overhead square arrangement showing the system and its surrounding context"
+  },
+  {
+    "key": "b4-materials-batteries-disjoint-panels-d",
+    "aspect": "1:1",
+    "prompt": "two separate open specimen drawers holding different crystal samples, divided by a clear gap with no pieces crossing between them, off-center square crop with a strong focal object and a quieter comparison nearby"
+  },
+  {
+    "key": "b4-materials-batteries-cell-to-grid-a",
+    "aspect": "16:9",
+    "prompt": "a cutaway solid-state battery cell centered on a ceramic ion pathway, connected by restrained lines to a home, a workshop, and a grid storage cabinet, wide left-to-right sequence with distinct stages and clear breathing room"
+  },
+  {
+    "key": "b4-materials-batteries-cell-to-grid-b",
+    "aspect": "16:9",
+    "prompt": "a cutaway solid-state battery cell centered on a ceramic ion pathway, connected by restrained lines to a home, a workshop, and a grid storage cabinet, panoramic field view emphasizing relationships across the full system"
+  },
+  {
+    "key": "b4-materials-batteries-cell-to-grid-c",
+    "aspect": "16:9",
+    "prompt": "a cutaway solid-state battery cell centered on a ceramic ion pathway, connected by restrained lines to a home, a workshop, and a grid storage cabinet, wide overhead arrangement with visible provenance from start to finish"
+  },
+  {
+    "key": "b4-materials-batteries-cell-to-grid-d",
+    "aspect": "16:9",
+    "prompt": "a cutaway solid-state battery cell centered on a ceramic ion pathway, connected by restrained lines to a home, a workshop, and a grid storage cabinet, split-zone wide composition contrasting two conditions using physical form alone"
+  }
+]

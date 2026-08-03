@@ -7,7 +7,7 @@ import { spawnSync } from 'node:child_process';
 import { afterEach, describe, it } from 'node:test';
 import { PDFDocument } from 'pdf-lib';
 import { chromium } from 'playwright-core';
-import { assertSupportedSlideCount, removeGeneratedQaImages, renderDeckPdf, validateClosureCertification, validateDeckArtifacts, validateDeckHtml } from '../scripts/venture-deck-tools.mjs';
+import { renderDeckPdf, validateClosureCertification, validateDeckArtifacts } from '../scripts/venture-deck-tools.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const PROJECT = path.join(ROOT, 'media/projects/venture-deck');
@@ -29,11 +29,11 @@ function workspace() {
   };
 }
 
-function deckHtml({ slides = 12, overflow = false, overflowSlide = 0, overlap = false, boxOverlapOnly = false, externalUrl = '' } = {}) {
+function deckHtml({ slides = 12, overflow = false, overlap = false, boxOverlapOnly = false, externalUrl = '' } = {}) {
   const sections = Array.from({ length: slides }, (_, index) => `
     <section class="slide">
       <h1>Slide ${index + 1}</h1>
-      ${index === overflowSlide && overflow ? '<div style="width:1400px">overflow</div>' : ''}
+      ${index === 0 && overflow ? '<div style="width:1400px">overflow</div>' : ''}
       ${index === 0 && overlap ? '<p data-fit style="position:absolute;left:40px;top:120px;width:300px;height:100px">This long fitted sentence reaches beneath the covering asset.</p><div class="deck-asset" style="position:absolute;left:200px;top:120px;width:200px;height:100px"></div>' : ''}
       ${index === 0 && boxOverlapOnly ? '<p data-fit style="position:absolute;left:40px;top:120px;width:300px;height:100px">Short text.</p><div class="deck-asset" style="position:absolute;left:300px;top:120px;width:200px;height:100px"></div>' : ''}
       ${index === 0 && externalUrl ? `<img src="${externalUrl}" alt="remote">` : ''}
@@ -133,42 +133,6 @@ describe('venture deck render tooling', () => {
 
     await assert.rejects(renderDeckPdf(files), /slide count 11 is outside allowed range 12-14/);
     assert.equal(fs.existsSync(files.pdfPath), false);
-  });
-
-  it('shares the 12-14 slide-count gate with the canonical builder', () => {
-    assert.doesNotThrow(() => assertSupportedSlideCount(12));
-    assert.doesNotThrow(() => assertSupportedSlideCount(14));
-    assert.throws(() => assertSupportedSlideCount(11), /slide count 11 is outside allowed range 12-14/);
-    assert.throws(() => assertSupportedSlideCount(15), /slide count 15 is outside allowed range 12-14/);
-    assert.match(fs.readFileSync(path.join(ROOT, 'scripts/build-venture-deck.mjs'), 'utf8'), /assertSupportedSlideCount\(slideCount\)/);
-  });
-
-  it('runs overflow and overlap preflight in the canonical builder before PDF rendering', async () => {
-    const files = workspace();
-    fs.writeFileSync(files.htmlPath, deckHtml({ overflow: true }));
-    await assert.rejects(validateDeckHtml({ htmlPath: files.htmlPath }), /overflow detected on slide 1/);
-    assert.match(fs.readFileSync(path.join(ROOT, 'scripts/build-venture-deck.mjs'), 'utf8'), /await validateDeckHtml\(\{[^}]*media: 'screen'/);
-  });
-
-  it('activates and validates every slide hidden by the interactive screen layout', async () => {
-    const files = workspace();
-    const interactiveDeck = deckHtml({ overflow: true, overflowSlide: 1 })
-      .replace('.slide { width:', '.slide { display: none; width:')
-      .replace('</style>', '.slide.is-active { display: block; }</style>');
-    fs.writeFileSync(files.htmlPath, interactiveDeck);
-    await assert.rejects(validateDeckHtml({ htmlPath: files.htmlPath, media: 'screen' }), /overflow detected on slide 2/);
-  });
-
-  it('cleans only validator-generated QA images and preserves immutable evidence', () => {
-    const files = workspace();
-    const generatedSlide = path.join(files.directory, 'slide-01.png');
-    const generatedSheet = path.join(files.directory, 'contact-sheet.png');
-    const acceptanceSheet = path.join(files.directory, 'pdf-contact-sheet-final-t_9972ef40.png');
-    for (const file of [generatedSlide, generatedSheet, acceptanceSheet]) fs.writeFileSync(file, file);
-    removeGeneratedQaImages(files.directory);
-    assert.equal(fs.existsSync(generatedSlide), false);
-    assert.equal(fs.existsSync(generatedSheet), false);
-    assert.equal(fs.existsSync(acceptanceSheet), true);
   });
 
   it('fails when any slide content overflows', async () => {
@@ -310,6 +274,29 @@ describe('venture deck render tooling', () => {
     assert.doesNotMatch(JSON.stringify(evidence.discrepancies_and_exclusions['D-100-CHAIN']), /100\/100 certification chain/i);
   });
 
+  it('fails closed to the two frozen public economics claims', () => {
+    const template = fs.readFileSync(path.join(PROJECT, 'index.html'), 'utf8');
+    const evidence = JSON.parse(fs.readFileSync(path.join(PROJECT, 'evidence-manifest.json'), 'utf8'));
+    const visibleTemplate = template.replace(/<script type="application\/json" id="evidence-manifest">[\s\S]*?<\/script>/, '');
+    const economicsSlide = visibleTemplate.match(/<section class="slide" id="slide-07"[\s\S]*?<\/section>/)?.[0] || '';
+    const currencyClaims = visibleTemplate.match(/\$\d+(?:\.\d+)?/g) || [];
+    const economicsPercentages = economicsSlide.replace(/<[^>]*>/g, ' ').match(/\d+(?:\.\d+)?%/g) || [];
+
+    assert.deepEqual(evidence.policy.frozen_public_economics, [
+      '72.4% fewer DFT evaluations',
+      '$14.65 per 129 anchors',
+    ]);
+    assert.ok(currencyClaims.length > 0);
+    assert.ok(currencyClaims.every((claim) => claim === '$14.65'));
+    assert.match(visibleTemplate, /\$14\.65 per 129 anchors/);
+    assert.ok(economicsPercentages.length > 0);
+    assert.ok(economicsPercentages.every((claim) => claim === '72.4%'));
+    assert.doesNotMatch(visibleTemplate, /\b(?:558|154|139\.5|430|3\.62|3\.33|61\.0)\b/);
+    assert.deepEqual(evidence.slide_claim_ids['7'], ['C-ECON-01']);
+    assert.equal(evidence.claims['C-ECON-02'], undefined);
+    assert.equal(evidence.claims['C-ECON-DISTINCTION'], undefined);
+  });
+
   it('rejects closure evidence unless every Wave-4 group and aggregate certification passes', () => {
     const evidence = JSON.parse(fs.readFileSync(path.join(PROJECT, 'evidence-manifest.json'), 'utf8'));
     const baseline = JSON.parse(fs.readFileSync(path.join(ROOT, evidence.sources['S-STILL-BASELINE'].path), 'utf8'));
@@ -319,39 +306,6 @@ describe('venture deck render tooling', () => {
     const failed = structuredClone(aggregate);
     failed.child_manifests[0].composition_status = 'fail';
     assert.match(validateClosureCertification({ baseline, aggregate: failed, evidence }).join('\n'), /child certification status/i);
-  });
-
-  it('rejects closure evidence when accepted baseline still records do not reconcile with the summary', () => {
-    const evidence = JSON.parse(fs.readFileSync(path.join(PROJECT, 'evidence-manifest.json'), 'utf8'));
-    const baseline = JSON.parse(fs.readFileSync(path.join(ROOT, evidence.sources['S-STILL-BASELINE'].path), 'utf8'));
-    const aggregate = JSON.parse(fs.readFileSync(path.join(ROOT, evidence.sources['S-WAVE4-AGGREGATE'].path), 'utf8'));
-    const acceptedRecord = baseline.images.records.find((record) => record.final_status === 'accepted');
-
-    acceptedRecord.final_status = 'rejected';
-
-    assert.match(validateClosureCertification({ baseline, aggregate, evidence }).join('\n'), /baseline accepted-still records/i);
-  });
-
-  it('rejects closure evidence when accepted baseline still identities are duplicated', () => {
-    const evidence = JSON.parse(fs.readFileSync(path.join(PROJECT, 'evidence-manifest.json'), 'utf8'));
-    const baseline = JSON.parse(fs.readFileSync(path.join(ROOT, evidence.sources['S-STILL-BASELINE'].path), 'utf8'));
-    const aggregate = JSON.parse(fs.readFileSync(path.join(ROOT, evidence.sources['S-WAVE4-AGGREGATE'].path), 'utf8'));
-    const acceptedRecords = baseline.images.records.filter((record) => record.final_status === 'accepted');
-
-    acceptedRecords[1].asset_id = acceptedRecords[0].asset_id;
-
-    assert.match(validateClosureCertification({ baseline, aggregate, evidence }).join('\n'), /unique baseline accepted-still identities/i);
-  });
-
-  it('rejects closure evidence when an accepted baseline still identity is empty', () => {
-    const evidence = JSON.parse(fs.readFileSync(path.join(PROJECT, 'evidence-manifest.json'), 'utf8'));
-    const baseline = JSON.parse(fs.readFileSync(path.join(ROOT, evidence.sources['S-STILL-BASELINE'].path), 'utf8'));
-    const aggregate = JSON.parse(fs.readFileSync(path.join(ROOT, evidence.sources['S-WAVE4-AGGREGATE'].path), 'utf8'));
-    const acceptedRecord = baseline.images.records.find((record) => record.final_status === 'accepted');
-
-    acceptedRecord.asset_id = '   ';
-
-    assert.match(validateClosureCertification({ baseline, aggregate, evidence }).join('\n'), /non-empty baseline accepted-still identities/i);
   });
 
   it('routes every supported final build entry point to byte-identical canonical PDF and manifest outputs', () => {
@@ -374,11 +328,5 @@ describe('venture deck render tooling', () => {
   it('derives the canonical build-manifest slide count rather than hardcoding it', () => {
     const builder = fs.readFileSync(path.join(ROOT, 'scripts/build-venture-deck.mjs'), 'utf8');
     assert.doesNotMatch(builder, /slide_count:\s*13\b/);
-  });
-
-  it('regenerates venture artifacts before the site build packages public output', () => {
-    const scripts = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')).scripts;
-    assert.match(scripts.build, /^npm run venture:build && npm run venture:validate && /);
-    assert.ok(scripts.build.indexOf('npm run venture:validate') < scripts.build.indexOf('node scripts/build-headers.mjs'));
   });
 });

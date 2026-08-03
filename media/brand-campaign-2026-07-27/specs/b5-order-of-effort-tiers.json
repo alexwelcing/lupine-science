@@ -1,0 +1,102 @@
+[
+  {
+    "key": "b5-order-of-effort-tiers-calm-to-storm-ladder-a",
+    "aspect": "16:9",
+    "prompt": "a seven-stage scientific stairway rising from calm regular lattices into increasingly irregular and unresolved material states, with each stage visibly different, panoramic arrangement with the main relationship spanning the frame and generous open space around it"
+  },
+  {
+    "key": "b5-order-of-effort-tiers-calm-to-storm-ladder-b",
+    "aspect": "16:9",
+    "prompt": "a seven-stage scientific stairway rising from calm regular lattices into increasingly irregular and unresolved material states, with each stage visibly different, closer wide view emphasizing the central physical relationship and one quiet secondary detail"
+  },
+  {
+    "key": "b5-order-of-effort-tiers-calm-to-storm-ladder-c",
+    "aspect": "16:9",
+    "prompt": "a seven-stage scientific stairway rising from calm regular lattices into increasingly irregular and unresolved material states, with each stage visibly different, high overhead view revealing the whole system, its junctions, and its limits"
+  },
+  {
+    "key": "b5-order-of-effort-tiers-calm-to-storm-ladder-d",
+    "aspect": "16:9",
+    "prompt": "a seven-stage scientific stairway rising from calm regular lattices into increasingly irregular and unresolved material states, with each stage visibly different, asymmetrical wide view with one dominant focal structure and a restrained supporting structure"
+  },
+  {
+    "key": "b5-order-of-effort-tiers-boundary-referee-a",
+    "aspect": "1:1",
+    "prompt": "a calibrated divider crossing a field of material problems, allowing a smooth correction path on one side and redirecting rough paths toward measurement on the other, centered specimen-like composition showing the complete relationship at a glance"
+  },
+  {
+    "key": "b5-order-of-effort-tiers-boundary-referee-b",
+    "aspect": "1:1",
+    "prompt": "a calibrated divider crossing a field of material problems, allowing a smooth correction path on one side and redirecting rough paths toward measurement on the other, close square view emphasizing the decisive interaction or boundary"
+  },
+  {
+    "key": "b5-order-of-effort-tiers-boundary-referee-c",
+    "aspect": "1:1",
+    "prompt": "a calibrated divider crossing a field of material problems, allowing a smooth correction path on one side and redirecting rough paths toward measurement on the other, overhead square arrangement showing the system and its surrounding context"
+  },
+  {
+    "key": "b5-order-of-effort-tiers-boundary-referee-d",
+    "aspect": "1:1",
+    "prompt": "a calibrated divider crossing a field of material problems, allowing a smooth correction path on one side and redirecting rough paths toward measurement on the other, off-center square crop with a strong focal object and a quieter comparison nearby"
+  },
+  {
+    "key": "b5-order-of-effort-tiers-scoped-toolkit-a",
+    "aspect": "16:9",
+    "prompt": "a precise toolkit of differently shaped scientific instruments beside several distinct material observables, with only matching pairs connected and mismatched tools set aside, wide left-to-right sequence with distinct stages and clear breathing room"
+  },
+  {
+    "key": "b5-order-of-effort-tiers-scoped-toolkit-b",
+    "aspect": "16:9",
+    "prompt": "a precise toolkit of differently shaped scientific instruments beside several distinct material observables, with only matching pairs connected and mismatched tools set aside, panoramic field view emphasizing relationships across the full system"
+  },
+  {
+    "key": "b5-order-of-effort-tiers-scoped-toolkit-c",
+    "aspect": "16:9",
+    "prompt": "a precise toolkit of differently shaped scientific instruments beside several distinct material observables, with only matching pairs connected and mismatched tools set aside, wide overhead arrangement with visible provenance from start to finish"
+  },
+  {
+    "key": "b5-order-of-effort-tiers-scoped-toolkit-d",
+    "aspect": "16:9",
+    "prompt": "a precise toolkit of differently shaped scientific instruments beside several distinct material observables, with only matching pairs connected and mismatched tools set aside, split-zone wide composition contrasting two conditions using physical form alone"
+  },
+  {
+    "key": "b5-order-of-effort-tiers-extrema-anchor-route-a",
+    "aspect": "1:1",
+    "prompt": "a lightly sketched energy route across several hills and valleys with solid measurement fixtures placed only at selected highest and lowest points, centered specimen-like composition showing the complete relationship at a glance"
+  },
+  {
+    "key": "b5-order-of-effort-tiers-extrema-anchor-route-b",
+    "aspect": "1:1",
+    "prompt": "a lightly sketched energy route across several hills and valleys with solid measurement fixtures placed only at selected highest and lowest points, close square view emphasizing the decisive interaction or boundary"
+  },
+  {
+    "key": "b5-order-of-effort-tiers-extrema-anchor-route-c",
+    "aspect": "1:1",
+    "prompt": "a lightly sketched energy route across several hills and valleys with solid measurement fixtures placed only at selected highest and lowest points, overhead square arrangement showing the system and its surrounding context"
+  },
+  {
+    "key": "b5-order-of-effort-tiers-extrema-anchor-route-d",
+    "aspect": "1:1",
+    "prompt": "a lightly sketched energy route across several hills and valleys with solid measurement fixtures placed only at selected highest and lowest points, off-center square crop with a strong focal object and a quieter comparison nearby"
+  },
+  {
+    "key": "b5-order-of-effort-tiers-abstention-domain-a",
+    "aspect": "16:9",
+    "prompt": "a carefully engineered research road ending at a firm observation platform before a wide unmapped material landscape, with no false bridge beyond, wide left-to-right sequence with distinct stages and clear breathing room"
+  },
+  {
+    "key": "b5-order-of-effort-tiers-abstention-domain-b",
+    "aspect": "16:9",
+    "prompt": "a carefully engineered research road ending at a firm observation platform before a wide unmapped material landscape, with no false bridge beyond, panoramic field view emphasizing relationships across the full system"
+  },
+  {
+    "key": "b5-order-of-effort-tiers-abstention-domain-c",
+    "aspect": "16:9",
+    "prompt": "a carefully engineered research road ending at a firm observation platform before a wide unmapped material landscape, with no false bridge beyond, wide overhead arrangement with visible provenance from start to finish"
+  },
+  {
+    "key": "b5-order-of-effort-tiers-abstention-domain-d",
+    "aspect": "16:9",
+    "prompt": "a carefully engineered research road ending at a firm observation platform before a wide unmapped material landscape, with no false bridge beyond, split-zone wide composition contrasting two conditions using physical form alone"
+  }
+]

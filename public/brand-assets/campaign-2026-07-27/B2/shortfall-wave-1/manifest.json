@@ -1,0 +1,435 @@
+{
+  "model": "minimax/image-01 (api.minimax.io)",
+  "assets": [
+    {
+      "asset_id": "SW1-B2-A01-02",
+      "original_asset_id": "B2-A01-02",
+      "key": "five-materials-for-5-to-12-gtco2-year-inline-01--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/five-materials-for-5-to-12-gtco2-year-inline-01--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/five-materials-for-5-to-12-gtco2-year-inline-01--shortfall-wave-1.jpg",
+      "bytes": 327297,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: A substation battery enclosure in cutaway beside a transformer, showing one layered cell stack with cathode, ceramic separator, and current collector as plain unmarked slabs. Depict only this mechanism: the thin ceramic separator carries the indigo ion path while keeping the two electrodes apart. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:a0ce285f565aeaf7b0c76a763cf286600f7c3a7dfd1d5b76eedf2d700dfa04fb",
+      "qa_reason": "off-palette-or-decorative-ochre/cyan/orange",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:07:01.050Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:07:18.852Z"
+    },
+    {
+      "asset_id": "SW1-B2-A01-03",
+      "original_asset_id": "B2-A01-03",
+      "key": "five-materials-for-5-to-12-gtco2-year-inline-02--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/five-materials-for-5-to-12-gtco2-year-inline-02--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/five-materials-for-5-to-12-gtco2-year-inline-02--shortfall-wave-1.jpg",
+      "bytes": 205371,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: A modular direct-air-capture contactor standing alone on a concrete pad, its front panel cut away to reveal a pleated porous sorbent sheet. Depict only this mechanism: sparse indigo airflow passes through the pleated sorbent and exits the rear plenum. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:7414cba9784f24d3831fe337b8de506fd3dca9e17a9e3399f44044648ea107dd",
+      "qa_reason": "off-palette-or-decorative-ochre/cyan/orange",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:07:18.852Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:07:36.934Z"
+    },
+    {
+      "asset_id": "SW1-B2-A01-04",
+      "original_asset_id": "B2-A01-04",
+      "key": "five-materials-for-5-to-12-gtco2-year-inline-03--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/five-materials-for-5-to-12-gtco2-year-inline-03--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/five-materials-for-5-to-12-gtco2-year-inline-03--shortfall-wave-1.jpg",
+      "bytes": 236470,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: A compact ammonia reactor skid with an insulated reaction tube, heat exchanger, and one catalyst cartridge visible through a clean cutaway. Depict only this mechanism: the catalyst cartridge enables ammonia conversion inside the single reaction tube. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:2e59d0bbc2bcc9d4fe211870f991d154e3ece8318962fbb11fa4460f00d40a43",
+      "qa_reason": "off-palette-or-decorative-ochre/cyan/orange",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:07:36.934Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:07:54.329Z"
+    },
+    {
+      "asset_id": "SW1-B2-A02-02",
+      "original_asset_id": "B2-A02-02",
+      "key": "cement-concrete-and-the-weight-of-the-built-world-inline-01--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/cement-concrete-and-the-weight-of-the-built-world-inline-01--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/cement-concrete-and-the-weight-of-the-built-world-inline-01--shortfall-wave-1.jpg",
+      "bytes": 251490,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: A rotary cement kiln and calciner in side cutaway, with a narrow process-gas duct leading from the calciner to one capture vessel. Depict only this mechanism: the capture vessel receives the calcination gas stream through the dedicated duct. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:5ea2aec609ecf36159cf4125c15addcc277322b6c55901aa7e03a1c5718b86f8",
+      "qa_reason": "off-palette-or-decorative-ochre/cyan/orange",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:07:54.330Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:08:11.818Z"
+    },
+    {
+      "asset_id": "SW1-B2-A02-03",
+      "original_asset_id": "B2-A02-03",
+      "key": "cement-concrete-and-the-weight-of-the-built-world-inline-02--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/cement-concrete-and-the-weight-of-the-built-world-inline-02--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/cement-concrete-and-the-weight-of-the-built-world-inline-02--shortfall-wave-1.jpg",
+      "bytes": 386096,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: A concrete batching bay where a calcined-clay hopper feeds one mixer, which pours a single beam mold positioned beneath a load frame. Depict only this mechanism: the calcined-clay blend moves from hopper through mixer into a structural test beam. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:b34d3b792312774fdf4237fc39e334f1a56ea28338890e98ed08d2473c416b85",
+      "qa_reason": "off-palette-or-decorative-ochre/cyan/orange",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:08:11.818Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:08:29.575Z"
+    },
+    {
+      "asset_id": "SW1-B2-A02-04",
+      "original_asset_id": "B2-A02-04",
+      "key": "cement-concrete-and-the-weight-of-the-built-world-inline-03--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/cement-concrete-and-the-weight-of-the-built-world-inline-03--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/cement-concrete-and-the-weight-of-the-built-world-inline-03--shortfall-wave-1.jpg",
+      "bytes": 265267,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: A full-scale concrete beam in a four-point load frame, with one enlarged cutaway window showing the binder-to-aggregate interface beneath the loading nose. Depict only this mechanism: the load frame tests whether the material interface transfers force without separating. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:eb90f1d78a23dc5422644674458047f534b07af279dc7cafa7340fcab296d34c",
+      "qa_reason": "off-palette-or-decorative-ochre/cyan/orange",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:08:29.575Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:08:46.230Z"
+    },
+    {
+      "asset_id": "SW1-B2-A02-05",
+      "original_asset_id": "B2-A02-05",
+      "key": "cement-concrete-and-the-weight-of-the-built-world-spread--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/cement-concrete-and-the-weight-of-the-built-world-spread--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/cement-concrete-and-the-weight-of-the-built-world-spread--shortfall-wave-1.jpg",
+      "bytes": 281037,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: An unoccupied construction-material sorting bay with a conveyor separating reclaimed aggregate into a clean hopper feeding one precast panel mold. Depict only this mechanism: reclaimed aggregate is graded and returned to a new precast panel. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:1c41f8a6c582bbda95259f4e17c7c2a3508f1c851b5a2ea26150470c5d1d832e",
+      "qa_reason": "forbidden-people-or-plant-imagery",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:08:46.230Z",
+      "source_dimensions": {
+        "width": 1280,
+        "height": 720
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:09:05.542Z"
+    },
+    {
+      "asset_id": "SW1-B2-A03-01",
+      "original_asset_id": "B2-A03-01",
+      "key": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers-hero--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-hero--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-hero--shortfall-wave-1.jpg",
+      "bytes": 142552,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: A landfill gas well manifold feeding a sealed catalytic oxidation unit on a bare service pad, with one pipe route and no visible plume. Depict only this mechanism: the oxidation unit converts collected methane within the sealed vessel. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:3c803c9fddec0360016267d762d76f1e968cf5c45efc92a218a31a6bf5d237bc",
+      "qa_reason": "readable-or-text-like-baked-labels",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:09:05.542Z",
+      "source_dimensions": {
+        "width": 1280,
+        "height": 720
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:09:21.450Z"
+    },
+    {
+      "asset_id": "SW1-B2-A03-03",
+      "original_asset_id": "B2-A03-03",
+      "key": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-02--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-02--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-02--shortfall-wave-1.jpg",
+      "bytes": 215076,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: A methane-pyrolysis vessel in cutaway with solid carbon dropping into shallow collection trays and one gas conduit leaving the top. Depict only this mechanism: the hot reactor splits methane while solid carbon is physically removed into trays. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:22a921ef8fa1801b697625bb45d77aea3638cbec85e4f6d6471c79990d16c712",
+      "qa_reason": "off-palette-or-decorative-ochre/cyan/orange",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:09:21.450Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:09:40.949Z"
+    },
+    {
+      "asset_id": "SW1-B2-A03-04",
+      "original_asset_id": "B2-A03-04",
+      "key": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-03--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-03--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-03--shortfall-wave-1.jpg",
+      "bytes": 310330,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: A building cooling plant with one solid-state caloric module clamped between a warm loop and a cold loop inside an accessible service cabinet. Depict only this mechanism: the caloric module pumps heat between the two closed fluid loops. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:8d5dcacd9791a96bbf7ee61e7e5bca28d333d83bfecb2ee2b313a21afd15ada5",
+      "qa_reason": "off-palette-or-decorative-ochre/cyan/orange",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:09:40.949Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:09:58.922Z"
+    },
+    {
+      "asset_id": "SW1-B2-A03-05",
+      "original_asset_id": "B2-A03-05",
+      "key": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers-spread--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-spread--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-spread--shortfall-wave-1.jpg",
+      "bytes": 171274,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: An empty refrigerated food warehouse with a rooftop heat-pump module connected to one interior cold-room heat exchanger; most of the frame is pale sky and wall. Depict only this mechanism: the closed refrigerant loop moves heat from the cold room to the rooftop exchanger. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:097544d14e370bb4b327e11c568965be51bc4e0707945b538acaff44b9608636",
+      "qa_reason": "off-palette-or-decorative-ochre/cyan/orange",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:09:58.922Z",
+      "source_dimensions": {
+        "width": 1280,
+        "height": 720
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:10:15.268Z"
+    },
+    {
+      "asset_id": "SW1-B2-A04-02",
+      "original_asset_id": "B2-A04-02",
+      "key": "water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-01--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-01--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-01--shortfall-wave-1.jpg",
+      "bytes": 239466,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: A reverse-osmosis pressure vessel shown in long cutaway, with a spiral membrane element separating an inlet channel from a clean-water collection tube. Depict only this mechanism: pressure drives water through the membrane into the central collection tube. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:c4e76b3473aa41e945a038161eda218a13bb855019b4ceb62fdca0457bd5943b",
+      "qa_reason": "forbidden-people-or-plant-imagery",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:10:15.268Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:10:32.617Z"
+    },
+    {
+      "asset_id": "SW1-B2-A04-03",
+      "original_asset_id": "B2-A04-03",
+      "key": "water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-02--shortfall-wave-1",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-02--shortfall-wave-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B2/shortfall-wave-1/water-and-air-correcting-the-molecules-we-drink-and-breathe-inline-02--shortfall-wave-1.jpg",
+      "bytes": 351855,
+      "exact_prompt": "Editorial scientific ink illustration for Lupine Science on dominant warm off-white paper #faf9f6. Specific physical scene: A rooftop atmospheric-water harvester in a dry built landscape, with a finned sorbent cassette above a small condenser and covered cistern. Depict only this mechanism: the sorbent cassette releases captured moisture to the condenser and cistern. Composition: the physical subject occupies at most the lower or side 55% of the frame; preserve at least 45% completely open warm-paper negative space. Use fine matte near-black #16171d linework and deep indigo #3d4db3 only on the functional path, under 12% of image area; flat two-dimensional printmaking, subtle paper grain, no glow. Hard exclusions: no people, faces, hands, plants, flowers, trees, animals; no text, letters, numbers, words, labels, logos, signage, screens, pseudo-writing, glyphs, icons, arrows, chart marks, or decorative symbols; no dark field or black background, no neon, no luminous effects, no stock 3D, no glossy render, no chrome, no cyan, teal, turquoise, orange, yellow, ochre, red, green, or blue other than exact indigo; no gradients, molecule hero, fantasy machinery, utopian outcome, or unsupported success claim.",
+      "spec_hash": "sha256:e3f1db187a3620d5d695c634b1e0f8501ceaeb5b53b6375a2dff21aa92488bd2",
+      "qa_reason": "off-palette-or-decorative-ochre/cyan/orange",
+      "qa_sources": [
+        "t_02dbe8b4",
+        "t_8e571660"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T11:10:32.617Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T11:10:50.283Z"
+    }
+  ],
+  "updated_at": "2026-07-28T11:10:50.283Z"
+}

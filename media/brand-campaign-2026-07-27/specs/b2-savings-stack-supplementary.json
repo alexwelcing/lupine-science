@@ -1,0 +1,102 @@
+[
+  {
+    "key": "b2-savings-stack-supplementary-shared-spine-a",
+    "aspect": "16:9",
+    "prompt": "a tall stack of distinct scientific layers supported by one continuous central spine, with each layer touching the same shared structure, panoramic arrangement with the main relationship spanning the frame and generous open space around it"
+  },
+  {
+    "key": "b2-savings-stack-supplementary-shared-spine-b",
+    "aspect": "16:9",
+    "prompt": "a tall stack of distinct scientific layers supported by one continuous central spine, with each layer touching the same shared structure, closer wide view emphasizing the central physical relationship and one quiet secondary detail"
+  },
+  {
+    "key": "b2-savings-stack-supplementary-shared-spine-c",
+    "aspect": "16:9",
+    "prompt": "a tall stack of distinct scientific layers supported by one continuous central spine, with each layer touching the same shared structure, high overhead view revealing the whole system, its junctions, and its limits"
+  },
+  {
+    "key": "b2-savings-stack-supplementary-shared-spine-d",
+    "aspect": "16:9",
+    "prompt": "a tall stack of distinct scientific layers supported by one continuous central spine, with each layer touching the same shared structure, asymmetrical wide view with one dominant focal structure and a restrained supporting structure"
+  },
+  {
+    "key": "b2-savings-stack-supplementary-routes-to-common-checkpoints-a",
+    "aspect": "16:9",
+    "prompt": "several separate routes leaving individual work areas and merging around a compact ring of shared inspection stations before separating again, wide left-to-right sequence with distinct stages and clear breathing room"
+  },
+  {
+    "key": "b2-savings-stack-supplementary-routes-to-common-checkpoints-b",
+    "aspect": "16:9",
+    "prompt": "several separate routes leaving individual work areas and merging around a compact ring of shared inspection stations before separating again, panoramic field view emphasizing relationships across the full system"
+  },
+  {
+    "key": "b2-savings-stack-supplementary-routes-to-common-checkpoints-c",
+    "aspect": "16:9",
+    "prompt": "several separate routes leaving individual work areas and merging around a compact ring of shared inspection stations before separating again, wide overhead arrangement with visible provenance from start to finish"
+  },
+  {
+    "key": "b2-savings-stack-supplementary-routes-to-common-checkpoints-d",
+    "aspect": "16:9",
+    "prompt": "several separate routes leaving individual work areas and merging around a compact ring of shared inspection stations before separating again, split-zone wide composition contrasting two conditions using physical form alone"
+  },
+  {
+    "key": "b2-savings-stack-supplementary-dense-to-selective-a",
+    "aspect": "1:1",
+    "prompt": "a dense field of faint candidate points narrowing into a deliberate sparse constellation of solid inspection points along one route, centered specimen-like composition showing the complete relationship at a glance"
+  },
+  {
+    "key": "b2-savings-stack-supplementary-dense-to-selective-b",
+    "aspect": "1:1",
+    "prompt": "a dense field of faint candidate points narrowing into a deliberate sparse constellation of solid inspection points along one route, close square view emphasizing the decisive interaction or boundary"
+  },
+  {
+    "key": "b2-savings-stack-supplementary-dense-to-selective-c",
+    "aspect": "1:1",
+    "prompt": "a dense field of faint candidate points narrowing into a deliberate sparse constellation of solid inspection points along one route, overhead square arrangement showing the system and its surrounding context"
+  },
+  {
+    "key": "b2-savings-stack-supplementary-dense-to-selective-d",
+    "aspect": "1:1",
+    "prompt": "a dense field of faint candidate points narrowing into a deliberate sparse constellation of solid inspection points along one route, off-center square crop with a strong focal object and a quieter comparison nearby"
+  },
+  {
+    "key": "b2-savings-stack-supplementary-theorem-commons-a",
+    "aspect": "1:1",
+    "prompt": "a common foundation assembled from interlocking geometric proof blocks supporting several distinct lightweight research structures above it, centered specimen-like composition showing the complete relationship at a glance"
+  },
+  {
+    "key": "b2-savings-stack-supplementary-theorem-commons-b",
+    "aspect": "1:1",
+    "prompt": "a common foundation assembled from interlocking geometric proof blocks supporting several distinct lightweight research structures above it, close square view emphasizing the decisive interaction or boundary"
+  },
+  {
+    "key": "b2-savings-stack-supplementary-theorem-commons-c",
+    "aspect": "1:1",
+    "prompt": "a common foundation assembled from interlocking geometric proof blocks supporting several distinct lightweight research structures above it, overhead square arrangement showing the system and its surrounding context"
+  },
+  {
+    "key": "b2-savings-stack-supplementary-theorem-commons-d",
+    "aspect": "1:1",
+    "prompt": "a common foundation assembled from interlocking geometric proof blocks supporting several distinct lightweight research structures above it, off-center square crop with a strong focal object and a quieter comparison nearby"
+  },
+  {
+    "key": "b2-savings-stack-supplementary-hashable-pack-a",
+    "aspect": "16:9",
+    "prompt": "source specimens, analysis instruments, and sealed archive tiles connected in a clear provenance chain, with intentionally blank archive surfaces, wide left-to-right sequence with distinct stages and clear breathing room"
+  },
+  {
+    "key": "b2-savings-stack-supplementary-hashable-pack-b",
+    "aspect": "16:9",
+    "prompt": "source specimens, analysis instruments, and sealed archive tiles connected in a clear provenance chain, with intentionally blank archive surfaces, panoramic field view emphasizing relationships across the full system"
+  },
+  {
+    "key": "b2-savings-stack-supplementary-hashable-pack-c",
+    "aspect": "16:9",
+    "prompt": "source specimens, analysis instruments, and sealed archive tiles connected in a clear provenance chain, with intentionally blank archive surfaces, wide overhead arrangement with visible provenance from start to finish"
+  },
+  {
+    "key": "b2-savings-stack-supplementary-hashable-pack-d",
+    "aspect": "16:9",
+    "prompt": "source specimens, analysis instruments, and sealed archive tiles connected in a clear provenance chain, with intentionally blank archive surfaces, split-zone wide composition contrasting two conditions using physical form alone"
+  }
+]

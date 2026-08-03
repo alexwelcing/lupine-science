@@ -20,6 +20,8 @@ const normalize = (value) => value.replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
   .replace(/\s+/g, ' ')
   .trim();
 
+export const normalizeExtractedText = (value) => value.replace(/\s+/g, ' ').trim();
+
 const tagValue = (html, attribute, name, valueAttribute = 'content') => {
   const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const first = new RegExp(`<[^>]+\\b${attribute}=["']${escaped}["'][^>]+\\b${valueAttribute}=["']([^"']+)["'][^>]*>`, 'i');
@@ -196,7 +198,7 @@ function extractPdfText(bytes) {
     });
     if (result.error?.code === 'ENOENT') return { error: 'pdftotext is not installed' };
     if (result.status !== 0) return { error: result.stderr.trim() || `pdftotext exited ${result.status}` };
-    return { text: normalize(result.stdout) };
+    return { text: normalizeExtractedText(result.stdout) };
   } finally {
     fs.rmSync(directory, { recursive: true, force: true });
   }

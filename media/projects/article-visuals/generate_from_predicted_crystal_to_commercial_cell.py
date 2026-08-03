@@ -168,7 +168,7 @@ def viz_02():
 def viz_03():
     fig, ax = plt.subplots(figsize=(FIG_W, FIG_H))
     ax.set_xlim(-1.3, 1.3)
-    ax.set_ylim(-1.2, 1.2)
+    ax.set_ylim(-1.38, 1.2)
     ax.axis('off')
 
     steps = [
@@ -190,14 +190,20 @@ def viz_03():
         ax.add_patch(circle)
         ax.text(x, y + 0.04, title, ha='center', va='center',
                 fontsize=9, fontweight='bold', color='white', linespacing=0.95)
-        # description outside
-        label_r = 1.05
-        lx = label_r * math.cos(theta)
-        ly = label_r * math.sin(theta)
-        ax.text(lx, ly, desc, ha='center', va='center', fontsize=8, color=SECONDARY, linespacing=1.0)
 
         next_i = (i + 1) % n
         theta_next = math.radians(angles[next_i])
+
+        # description at mid-edge, radially clear of both node ellipses
+        mx = math.cos(theta) + math.cos(theta_next)
+        my = math.sin(theta) + math.sin(theta_next)
+        norm = math.hypot(mx, my)
+        label_r = 1.02
+        lx = label_r * mx / norm
+        ly = label_r * my / norm
+        ax.text(lx, ly, desc, ha='center', va='center', fontsize=8, color=SECONDARY, linespacing=1.0,
+                bbox=dict(boxstyle='round,pad=0.25', facecolor=BG, edgecolor='none'))
+
         frac = 0.06
         x1 = radius * math.cos(theta) + frac * (radius * math.cos(theta_next) - radius * math.cos(theta))
         y1 = radius * math.sin(theta) + frac * (radius * math.sin(theta_next) - radius * math.sin(theta))

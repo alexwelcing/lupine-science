@@ -1,5 +1,26 @@
 # Lupine Science Changelog
 
+## 2026-07-16
+
+### Added
+- Adversarial image-text audit `npm run review:images` (`scripts/review-images.mjs`): dual-pass OCR (default + sparse-normalized) of all 164 shipped rasters and `<text>` extraction for result-graphic SVGs, classifying tokens against dictionary, domain corpus, and a character-bigram pathology model. P0 = likely fake text (blocks CI); P1 = eyeball queue.
+- Shared classifier `scripts/lib/text-quality.mjs` used by both the image and video reviewers (digit tokens treated as data labels, hyphen-compound matching, unit and model-name lexicons).
+- Blocking `image-review` job in CI (`.github/workflows/ci.yml`); a P0 fails the pipeline and blocks deploy. Corpus fallback keeps it working on runners without `/usr/share/dict/words`.
+- `docs/image-credibility-audit.md` documenting the gate, the triage, and the fix-at-generator policy.
+- MiniMax base-image cache (`media/projects/article-visuals/base-cache/`): scene bases are re-composited deterministically instead of re-rolled, and the client falls back to the system Python when the chart venv lacks `requests`.
+
+### Changed
+- Replaced `beyond-carbon-…-10-platform-roadmap.jpg` (AI-hallucinated gibberish text, 91 suspects) with a matplotlib rebuild carrying the real measure → correct → prove arc; manifest type updated to `concept-diagram`. Policy: failed illustrations are rebuilt as code, never re-rolled with an image model.
+- Re-rendered 14 charts with text-collision defects found by the audit: five-materials-06, critical-minerals-02/-04/-05/-07, from-predicted-crystal-03, cement-05, a-field-04/-06, beyond-carbon-09, methane-03/-07, water-04. All verified overlap-free by eye.
+- Re-rolled the PFAS contamination map base with a strict no-typography prompt after one roll shipped hallucinated state labels (including the literal word "FAKE"); final base is text-free and cached.
+- Refactored `scripts/video-quality-reviewer.mjs` onto the shared classifier (no behavior change).
+
+### Verified
+- `npm run review:images` final: **0 P0**, 2 documented P1 files (stable OCR misreads of italic serif: "Wh/kg", "NOx/VOCs", "projected") — down from 27 P0 / 18 P1. All 15 defect fixes eyeballed individually.
+- `npm run review:videos` regression after the classifier refactor: **99.7/100 average, 0 P0** across 18 videos — unchanged.
+- `npm run build` and `npm run verify` pass.
+- Known follow-up (content, not imagery): Lean theorem counts differ across charts (77 vs 190 vs 271) as the library grows — needs a single-source-of-truth pass.
+
 ## 2026-07-15
 
 ### Added

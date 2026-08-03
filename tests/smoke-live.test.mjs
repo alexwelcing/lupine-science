@@ -3,6 +3,7 @@ import { after, before, test } from 'node:test';
 import http from 'node:http';
 
 import { resolveBaseUrls, runSmokeSuite } from '../scripts/smoke-live.mjs';
+import { normalizeExtractedText } from '../scripts/lib/live-smoke-suite.mjs';
 
 let baseUrl;
 let server;
@@ -85,6 +86,14 @@ test('resolveBaseUrls keeps the legacy single-target variable as a fallback', ()
   assert.deepEqual(resolveBaseUrls({ SMOKE_BASE_URL: 'https://legacy.example.test/' }), [
     'https://legacy.example.test'
   ]);
+});
+
+test('PDF text normalization preserves sections between mathematical angle operators', () => {
+  const extracted = 'energy < threshold\nFive Materials That Could Unlock\nconfidence > baseline';
+  assert.equal(
+    normalizeExtractedText(extracted),
+    'energy < threshold Five Materials That Could Unlock confidence > baseline'
+  );
 });
 
 test('runSmokeSuite validates pages, OG metadata, canonical/share URLs, videos, and downloads', async () => {

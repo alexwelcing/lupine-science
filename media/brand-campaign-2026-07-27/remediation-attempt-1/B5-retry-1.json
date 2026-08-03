@@ -1,0 +1,362 @@
+[
+  {
+    "asset_id": "B5-A01-01-R1",
+    "original_asset_id": "B5-A01-01",
+    "key": "a-field-not-a-neural-net-hero--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/a-field-not-a-neural-net-hero.jpg",
+    "aspect": "16:9",
+    "target_width": 1536,
+    "target_height": 864,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A smooth indigo correction field draped across a practical material test surface, guiding a downstream battery and catalyst decision without depicting a neural-network brain. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Anchor the exact original concept in a real specimen, interface, test apparatus, or bounded field. Show proof limits through geometry, never labels.",
+    "spec_hash": "sha256:29ede7a7f38ab47844945479f8e81979b90b4c02ec1b1eb5774be23626eca800",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, palette drift, or abstract mechanism imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1
+  },
+  {
+    "asset_id": "B5-A01-02-R1",
+    "original_asset_id": "B5-A01-02",
+    "key": "a-field-not-a-neural-net-inline-01--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/a-field-not-a-neural-net-inline-01.jpg",
+    "aspect": "3:2",
+    "target_width": 1536,
+    "target_height": 1024,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. An array of identical measurement probes sampling local material environments across a component interface, their readings joining into one continuous indigo field. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Anchor the exact original concept in a real specimen, interface, test apparatus, or bounded field. Show proof limits through geometry, never labels.",
+    "spec_hash": "sha256:ddaa459e225deb238e77605999636b23e61ec1008a258ab31aeecabaf703aaaa",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, palette drift, or abstract mechanism imagery.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1
+  },
+  {
+    "asset_id": "B5-A01-03-R1",
+    "original_asset_id": "B5-A01-03",
+    "key": "a-field-not-a-neural-net-inline-02--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/a-field-not-a-neural-net-inline-02.jpg",
+    "aspect": "3:2",
+    "target_width": 1536,
+    "target_height": 1024,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A runtime correction loop inside a simulation-to-test pipeline, represented by a compact field plate adjusting a predicted path before a specimen enters an engineering rig. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Anchor the exact original concept in a real specimen, interface, test apparatus, or bounded field. Show proof limits through geometry, never labels.",
+    "spec_hash": "sha256:9b8d7d1c9e47edf7bd75b892cf618c23dfaaacfcdecc9dce8a711e1cba64d4a0",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, palette drift, or abstract mechanism imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1
+  },
+  {
+    "asset_id": "B5-A01-04-R1",
+    "original_asset_id": "B5-A01-04",
+    "key": "a-field-not-a-neural-net-inline-03--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/a-field-not-a-neural-net-inline-03.jpg",
+    "aspect": "3:2",
+    "target_width": 1536,
+    "target_height": 1024,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A proof boundary as a precise structural frame: supported correction paths pass through in indigo while incompatible paths stop without sparks or failure drama. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Anchor the exact original concept in a real specimen, interface, test apparatus, or bounded field. Show proof limits through geometry, never labels.",
+    "spec_hash": "sha256:f43762a8ccbaca7a4c70e3c5c757e7171caeefa425868742bd696b9ae8a2317a",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, palette drift, or abstract mechanism imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1
+  },
+  {
+    "asset_id": "B5-A01-05-R1",
+    "original_asset_id": "B5-A01-05",
+    "key": "a-field-not-a-neural-net-spread--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/a-field-not-a-neural-net-spread.jpg",
+    "aspect": "16:9",
+    "target_width": 1536,
+    "target_height": 864,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A research campus using one measured field method across energy-storage, clean-industry, and water-treatment test bays, emphasizing shared method rather than universal success. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Anchor the exact original concept in a real specimen, interface, test apparatus, or bounded field. Show proof limits through geometry, never labels.",
+    "spec_hash": "sha256:375dda6616f016970c09d280d2d964c7e3d2aab6f2740473f457583acbf0e79b",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, palette drift, or abstract mechanism imagery.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1
+  },
+  {
+    "asset_id": "B5-A02-01-R1",
+    "original_asset_id": "B5-A02-01",
+    "key": "a-smooth-environment-resolved-error-field-hero--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/a-smooth-environment-resolved-error-field-hero.jpg",
+    "aspect": "16:9",
+    "target_width": 1536,
+    "target_height": 864,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A topographic error landscape flowing across several real material surfaces and resolving into a smooth indigo field that informs a physical surface-energy test. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Anchor the exact original concept in a real specimen, interface, test apparatus, or bounded field. Show proof limits through geometry, never labels.",
+    "spec_hash": "sha256:72aa8468ff1040229c0cd2ef31151c529942f5325b877b9aff03110fa1190af6",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, palette drift, or abstract mechanism imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1
+  },
+  {
+    "asset_id": "B5-A02-02-R1",
+    "original_asset_id": "B5-A02-02",
+    "key": "a-smooth-environment-resolved-error-field-inline-01--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/a-smooth-environment-resolved-error-field-inline-01.jpg",
+    "aspect": "3:2",
+    "target_width": 1536,
+    "target_height": 1024,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. Two ranked rows of engineering specimens whose order remains consistent while their measured magnitudes differ, expressed through height and spacing rather than charts or numbers. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Anchor the exact original concept in a real specimen, interface, test apparatus, or bounded field. Show proof limits through geometry, never labels.",
+    "spec_hash": "sha256:1a9b6940002ef4da3f8b7e4db4561610b1c97cd935cd1b38d8b6fbc0d12441fd",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, palette drift, or abstract mechanism imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1
+  },
+  {
+    "asset_id": "B5-A02-03-R1",
+    "original_asset_id": "B5-A02-03",
+    "key": "a-smooth-environment-resolved-error-field-inline-02--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/a-smooth-environment-resolved-error-field-inline-02.jpg",
+    "aspect": "3:2",
+    "target_width": 1536,
+    "target_height": 1024,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A blind-test apparatus where a sealed indigo field prediction meets an independent measurement chamber, with no celebratory check mark or implied perfection. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Anchor the exact original concept in a real specimen, interface, test apparatus, or bounded field. Show proof limits through geometry, never labels.",
+    "spec_hash": "sha256:2b524f31b34993fefa4b75dbcb4d884711d2b6e133226ac8d087e4fbb00a327c",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, palette drift, or abstract mechanism imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1
+  },
+  {
+    "asset_id": "B5-A02-04-R1",
+    "original_asset_id": "B5-A02-04",
+    "key": "a-smooth-environment-resolved-error-field-inline-03--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/a-smooth-environment-resolved-error-field-inline-03.jpg",
+    "aspect": "3:2",
+    "target_width": 1536,
+    "target_height": 1024,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A runtime correction layer inserted between an interatomic model cartridge and a practical component simulation, the layer visibly bounded at unfamiliar environments. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Anchor the exact original concept in a real specimen, interface, test apparatus, or bounded field. Show proof limits through geometry, never labels.",
+    "spec_hash": "sha256:188ed794fa2b872a3cb0a0046cc526d7e2190f38620da6600dc853f46a29f622",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, palette drift, or abstract mechanism imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1
+  },
+  {
+    "asset_id": "B5-A02-05-R1",
+    "original_asset_id": "B5-A02-05",
+    "key": "a-smooth-environment-resolved-error-field-spread--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/a-smooth-environment-resolved-error-field-spread.jpg",
+    "aspect": "16:9",
+    "target_width": 1536,
+    "target_height": 864,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A courtroom-like evidence spread of field maps, test specimens, and sealed audit links supporting a restrained infrastructure decision in the background. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Anchor the exact original concept in a real specimen, interface, test apparatus, or bounded field. Show proof limits through geometry, never labels.",
+    "spec_hash": "sha256:f4f41a0b01a23c2452a44656a1157506d96b3fc46df02c1c2389ddcc3d460717",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, palette drift, or abstract mechanism imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1
+  },
+  {
+    "asset_id": "B5-A03-01-R1",
+    "original_asset_id": "B5-A03-01",
+    "key": "the-correction-that-hurt-and-the-theorem-that-stopped-it-hero--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/the-correction-that-hurt-and-the-theorem-that-stopped-it-hero.jpg",
+    "aspect": "16:9",
+    "target_width": 1536,
+    "target_height": 864,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A correction path that improves one engineering specimen but bends another away from its measured test line, halted by a precise indigo theorem gate before deployment. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Anchor the exact original concept in a real specimen, interface, test apparatus, or bounded field. Show proof limits through geometry, never labels.",
+    "spec_hash": "sha256:70b44d61df734257c04950cbee1d38fd68aed440243e18f4ed8359276229a47a",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, palette drift, or abstract mechanism imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1
+  },
+  {
+    "asset_id": "B5-A03-02-R1",
+    "original_asset_id": "B5-A03-02",
+    "key": "the-correction-that-hurt-and-the-theorem-that-stopped-it-inline-01--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/the-correction-that-hurt-and-the-theorem-that-stopped-it-inline-01.jpg",
+    "aspect": "3:2",
+    "target_width": 1536,
+    "target_height": 1024,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A defect-rich material surface forming a visible cliff in the correction field, with the supported smooth region and unsupported rough region clearly separated. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Anchor the exact original concept in a real specimen, interface, test apparatus, or bounded field. Show proof limits through geometry, never labels.",
+    "spec_hash": "sha256:f3640a03d052019b2763d202adb300508846b9cada7282affb1a0d5a72377104",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, palette drift, or abstract mechanism imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1
+  },
+  {
+    "asset_id": "B5-A03-03-R1",
+    "original_asset_id": "B5-A03-03",
+    "key": "the-correction-that-hurt-and-the-theorem-that-stopped-it-inline-02--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/the-correction-that-hurt-and-the-theorem-that-stopped-it-inline-02.jpg",
+    "aspect": "3:2",
+    "target_width": 1536,
+    "target_height": 1024,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A test bench comparing raw, corrected, and measured component responses through physical displacement gauges, with no numeric labels and one restrained ochre warning marker. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Anchor the exact original concept in a real specimen, interface, test apparatus, or bounded field. Show proof limits through geometry, never labels.",
+    "spec_hash": "sha256:e4d4006aa82075563000e83dab1f1085200b40a054a5fe64b98260e70777f151",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, palette drift, or abstract mechanism imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1
+  },
+  {
+    "asset_id": "B5-A03-04-R1",
+    "original_asset_id": "B5-A03-04",
+    "key": "the-correction-that-hurt-and-the-theorem-that-stopped-it-inline-03--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/the-correction-that-hurt-and-the-theorem-that-stopped-it-inline-03.jpg",
+    "aspect": "3:2",
+    "target_width": 1536,
+    "target_height": 1024,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A self-refutation archive represented by preserved failed sample trays connected to the next experiment design, showing failure as reusable infrastructure. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Anchor the exact original concept in a real specimen, interface, test apparatus, or bounded field. Show proof limits through geometry, never labels.",
+    "spec_hash": "sha256:81476ec17fd18ed7d5db633243f98d6504d9cd28a162653e824e2edcbb82183c",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, palette drift, or abstract mechanism imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1
+  },
+  {
+    "asset_id": "B5-A03-05-R1",
+    "original_asset_id": "B5-A03-05",
+    "key": "the-correction-that-hurt-and-the-theorem-that-stopped-it-spread--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/the-correction-that-hurt-and-the-theorem-that-stopped-it-spread.jpg",
+    "aspect": "16:9",
+    "target_width": 1536,
+    "target_height": 864,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A safer pilot program where an unsupported candidate remains at the laboratory boundary while verified paths continue toward battery and structural test rigs. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Anchor the exact original concept in a real specimen, interface, test apparatus, or bounded field. Show proof limits through geometry, never labels.",
+    "spec_hash": "sha256:2225f8b4eec2b4cc9dd737e023d8dab7dcff954a44605269d76ba0f556f21165",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, palette drift, or abstract mechanism imagery.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1
+  },
+  {
+    "asset_id": "B5-A04-01-R1",
+    "original_asset_id": "B5-A04-01",
+    "key": "four-gates-three-honest-failures-one-live-experiment-hero--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/four-gates-three-honest-failures-one-live-experiment-hero.jpg",
+    "aspect": "16:9",
+    "target_width": 1536,
+    "target_height": 864,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. Four rigorous industrial test gates across battery barriers, elastic response, magnetism, and catalyst adsorption; three paths stop, one remains under active measurement, with no victory framing. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Anchor the exact original concept in a real specimen, interface, test apparatus, or bounded field. Show proof limits through geometry, never labels.",
+    "spec_hash": "sha256:313d5ee244390e8b549def187431532c7bc3711a469d168982d71f4d96064689",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, palette drift, or abstract mechanism imagery.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1
+  },
+  {
+    "asset_id": "B5-A04-02-R1",
+    "original_asset_id": "B5-A04-02",
+    "key": "four-gates-three-honest-failures-one-live-experiment-inline-01--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/four-gates-three-honest-failures-one-live-experiment-inline-01.jpg",
+    "aspect": "3:2",
+    "target_width": 1536,
+    "target_height": 1024,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A solid-state battery barrier rig showing systematic underestimation as a predicted indigo path falling below the measured ink ridge, connected to the consequence for cell decisions. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Anchor the exact original concept in a real specimen, interface, test apparatus, or bounded field. Show proof limits through geometry, never labels.",
+    "spec_hash": "sha256:c28eae63dce6c6fdc21a5900f436ec24df459e30dd6e4dd309638f6e70cc39d4",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, palette drift, or abstract mechanism imagery.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1
+  },
+  {
+    "asset_id": "B5-A04-03-R1",
+    "original_asset_id": "B5-A04-03",
+    "key": "four-gates-three-honest-failures-one-live-experiment-inline-02--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/four-gates-three-honest-failures-one-live-experiment-inline-02.jpg",
+    "aspect": "3:2",
+    "target_width": 1536,
+    "target_height": 1024,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. An elastic-correction apparatus and an adsorption test chamber presented as two honest failed branches feeding a shared evidence archive. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Anchor the exact original concept in a real specimen, interface, test apparatus, or bounded field. Show proof limits through geometry, never labels.",
+    "spec_hash": "sha256:fa83052c79eef9dcb3911e1973ce063110781c436b0ab65beab59689d3fc005f",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, palette drift, or abstract mechanism imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1
+  },
+  {
+    "asset_id": "B5-A04-04-R1",
+    "original_asset_id": "B5-A04-04",
+    "key": "four-gates-three-honest-failures-one-live-experiment-inline-03--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/four-gates-three-honest-failures-one-live-experiment-inline-03.jpg",
+    "aspect": "3:2",
+    "target_width": 1536,
+    "target_height": 1024,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A deliberate abstention scene: a magnetic specimen rests outside the correction frame because the required evidence is absent, marked only by a tiny ochre caution accent. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Anchor the exact original concept in a real specimen, interface, test apparatus, or bounded field. Show proof limits through geometry, never labels.",
+    "spec_hash": "sha256:4e19afbca68ae9620b32c78d0c33686194e51a299116cdf09ca4efe886615754",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, palette drift, or abstract mechanism imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1
+  },
+  {
+    "asset_id": "B5-A04-05-R1",
+    "original_asset_id": "B5-A04-05",
+    "key": "four-gates-three-honest-failures-one-live-experiment-spread--retry-1",
+    "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B5/four-gates-three-honest-failures-one-live-experiment-spread.jpg",
+    "aspect": "16:9",
+    "target_width": 1536,
+    "target_height": 864,
+    "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A living experimental commons where preserved failures narrow the next set of material tests, allowing fewer, better-equipped pilot bays to continue. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Anchor the exact original concept in a real specimen, interface, test apparatus, or bounded field. Show proof limits through geometry, never labels.",
+    "spec_hash": "sha256:4bfcbc3b3cd2a58fb8f0bc3817e38228a01907e62b58cb929604edfba67354f2",
+    "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, palette drift, or abstract mechanism imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+    "qa_sources": [
+      "t_f5047e27",
+      "t_805f6ca4",
+      "t_73e4535a"
+    ],
+    "attempt": 1
+  }
+]
