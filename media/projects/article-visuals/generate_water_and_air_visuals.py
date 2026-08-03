@@ -300,8 +300,16 @@ def make_04():
                     transform=ax_scatter.transAxes, ha='left', va='top', fontsize=11,
                     bbox=dict(boxstyle='round,pad=0.35', facecolor=SOFT_INDIGO, edgecolor=PRIMARY))
 
+    # Sync marginals with the aspect-shrunk scatter box
+    fig.canvas.draw()
+    sp = ax_scatter.get_position()
+    tp = ax_top.get_position()
+    ax_top.set_position([sp.x0, tp.y0, sp.width, tp.height])
+    rp = ax_right.get_position()
+    ax_right.set_position([sp.x1 + 0.012, sp.y0, rp.width, sp.height])
+
     add_title(fig, 'Blind Prediction Accuracy Across Models and Materials')
-    add_source(fig, 'Source: Lupine Science Strategic Discovery Plan')
+    add_source(fig, 'Source: Lupine Science Strategic Discovery Plan', y=0.01)
     return save_jpg(fig, f'{SLUG}-04-blind-prediction.jpg')
 
 

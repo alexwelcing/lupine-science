@@ -330,7 +330,7 @@ def make_05():
     fig = plt.figure(figsize=(FIG_W, FIG_H), dpi=DPI, facecolor=BG)
     ax = fig.add_axes([0.05, 0.10, 0.90, 0.76])
     ax.set_xlim(-1.3, 1.3)
-    ax.set_ylim(-1.25, 1.25)
+    ax.set_ylim(-1.40, 1.25)
     ax.axis('off')
     ax.set_facecolor(BG)
 
@@ -350,15 +350,16 @@ def make_05():
         theta = np.radians(angles[i])
         x = radius * np.cos(theta)
         y = radius * np.sin(theta)
-        circle = Circle((x, y), 0.24, facecolor=color, edgecolor=INK, linewidth=2, alpha=0.95)
+        circle = Circle((x, y), 0.24, facecolor=color, edgecolor=INK, linewidth=2, alpha=0.95, zorder=4)
         ax.add_patch(circle)
         ax.text(x, y, label, ha='center', va='center', fontsize=9,
-                fontweight='bold', color='white', linespacing=1.1)
+                fontweight='bold', color='white', linespacing=1.1, zorder=5,
+                bbox=dict(boxstyle='round,pad=0.15', facecolor=color, edgecolor='none'))
 
         # Arrow to next
         next_i = (i + 1) % n
         theta_next = np.radians(angles[next_i])
-        frac = 0.07
+        frac = 0.33
         x1 = radius * np.cos(theta) + frac * (radius * np.cos(theta_next) - radius * np.cos(theta))
         y1 = radius * np.sin(theta) + frac * (radius * np.sin(theta_next) - radius * np.sin(theta))
         x2 = radius * np.cos(theta_next) - frac * (radius * np.cos(theta_next) - radius * np.cos(theta))
@@ -373,18 +374,16 @@ def make_05():
             fontweight='bold', color=INDIGO)
     ax.text(0, -0.08, 'loop', ha='center', va='center', fontsize=10, color=INDIGO)
 
-    # Stats below
+    # Stats below: three stacked, non-overlapping columns
     stats = [
         ('uMLIP speedup vs. DFT', '~10⁵×'),
         ('Correction overhead', '15.6% → <1%'),
         ('Build-locked theorems', '77, zero sorry'),
     ]
-    sx = -1.0
-    for label, val in stats:
-        ax.text(sx, -1.08, label, ha='left', va='center', fontsize=9, color=SECONDARY)
-        ax.text(sx + 0.42, -1.08, val, ha='left', va='center', fontsize=10,
+    for sx, (label, val) in zip((-0.88, 0.0, 0.88), stats):
+        ax.text(sx, -1.14, label, ha='center', va='center', fontsize=9, color=SECONDARY)
+        ax.text(sx, -1.28, val, ha='center', va='center', fontsize=10,
                 fontweight='bold', color=INDIGO)
-        sx += 0.72
 
     add_title(fig, 'Measure, Correct, Prove')
     add_source(fig, 'Source: Lupine Science, Strategic Discovery Plan')

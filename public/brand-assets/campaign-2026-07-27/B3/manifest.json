@@ -1,0 +1,866 @@
+{
+  "model": "minimax/image-01 (api.minimax.io)",
+  "assets": [
+    {
+      "asset_id": "B3-A01-01",
+      "key": "beyond-carbon-the-error-geometry-of-environmental-materials-hero",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-hero.jpg",
+      "bytes": 151463,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A wide civic systems atlas without labels: drinking-water works, air-treatment ducts, refrigerant plant, mineral recovery line, and concrete infrastructure connected by one sparse indigo evidence ribbon. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:f377560190e99277caac3ce3097974512c2833ee2bbcababf3a0f7013e4f0229"
+    },
+    {
+      "asset_id": "B3-A01-02",
+      "key": "beyond-carbon-the-error-geometry-of-environmental-materials-inline-01",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-inline-01.jpg",
+      "bytes": 150045,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. Four environmental boundary stations—water membrane, air catalyst, refrigerant heat exchanger, and remediation sorbent—presented as physical devices under a shared measurement geometry. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:b033860fdecc2b23be794a9d2e4820e265677256e8532f6e36d1b7e63215f623"
+    },
+    {
+      "asset_id": "B3-A01-03",
+      "key": "beyond-carbon-the-error-geometry-of-environmental-materials-inline-02",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-inline-02.jpg",
+      "bytes": 328449,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A material error field shown as faint vector drift across multiple real equipment surfaces, resolving into indigo alignment only where measurements support correction. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:e62be5dc9dbd3e8c2de6691cb8a7468c12d34377d70463884bbf818f54270c80"
+    },
+    {
+      "asset_id": "B3-A01-04",
+      "key": "beyond-carbon-the-error-geometry-of-environmental-materials-inline-03",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-inline-03.jpg",
+      "bytes": 160187,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A verification platform depicted as a central instrument bench sending restrained evidence paths to water, air, remediation, and infrastructure pilots, not as a glowing AI network. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:eb60fcc85356f971856243b01c0db02bdeb4beb1c0fdc41a2bedfadde4d81c34"
+    },
+    {
+      "asset_id": "B3-A01-05",
+      "key": "beyond-carbon-the-error-geometry-of-environmental-materials-spread",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-spread.jpg",
+      "bytes": 225541,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A calm regional landscape of treatment plants and clean infrastructure with the material interventions visible but secondary, emphasizing societal service over molecular imagery. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:8841af2d57a44121f717d0a00581662a6685e3ebe69e871532e1199d066d027e"
+    },
+    {
+      "asset_id": "B3-A02-01",
+      "key": "critical-minerals-pfas-and-the-remediation-imperative-hero",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-hero.jpg",
+      "bytes": 316576,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A closed-loop water and mineral recovery facility where contaminated flow enters an ink-lined treatment train and separated critical minerals leave in small indigo sample trays. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:262b6e6548792b266cf4c4aa392b19c3c409c82bbcdc0a796a469c89a6c9e087"
+    },
+    {
+      "asset_id": "B3-A02-02",
+      "key": "critical-minerals-pfas-and-the-remediation-imperative-inline-01",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-inline-01.jpg",
+      "bytes": 331594,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A mine-tailings water circuit with selective recovery membranes and sorbent beds, shown as contained industrial infrastructure with no pristine-nature before/after trope. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:737dd45e080ebcaee90b793bf0641010045f5b8eb142a46f00c718c341097f4c"
+    },
+    {
+      "asset_id": "B3-A02-03",
+      "key": "critical-minerals-pfas-and-the-remediation-imperative-inline-02",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-inline-02.jpg",
+      "bytes": 209065,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A PFAS treatment sequence of capture media, destructive reactor, and verified effluent sampling, with indigo used only on the active material zones and flow checkpoints. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:c839526ecf8f0773cac41b03e71e58d3e531a0d8303795059b1b91e5cbe9960d"
+    },
+    {
+      "asset_id": "B3-A02-04",
+      "key": "critical-minerals-pfas-and-the-remediation-imperative-inline-03",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-inline-03.jpg",
+      "bytes": 111891,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. Two supply chains—critical-mineral recovery and persistent-chemical remediation—passing through the same measured ranking gate before pilot deployment. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:afd12e8500656ea56d716efcb9f8cc6c304452141e0b30eb1c68dc1ab1d6402c"
+    },
+    {
+      "asset_id": "B3-A02-05",
+      "key": "critical-minerals-pfas-and-the-remediation-imperative-spread",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-spread.jpg",
+      "bytes": 234171,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A public-works scale remediation scene with treatment tanks, monitoring wells, and a materials recovery bay, careful and provisional rather than depicting total cleanup. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:46b80e8e7a0d1762c59917b1b6d5c14006122388e0db0add43fb24b02e31291c"
+    },
+    {
+      "asset_id": "B3-A03-01",
+      "key": "lupi-hfc-refrigerant-research-payloads-hero",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-hero.jpg",
+      "bytes": 128926,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A browser-like evidence viewport translated into a physical refrigeration loop: compressor, heat exchanger, and sealed refrigerant circuit with indigo measurement traces and no readable interface text. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:ed6787c81a644fe46c513169af927fbf8efcadf331b8fff64db49190d1551325"
+    },
+    {
+      "asset_id": "B3-A03-02",
+      "key": "lupi-hfc-refrigerant-research-payloads-inline-01",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-inline-01.jpg",
+      "bytes": 259978,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A supermarket cold-room plant and heat-pump module connected to a compact research payload cartridge, showing how inspectable data supports cooling decisions. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:5c67c6605d7b6f42ea3797a7ac781b9c787357a1c0e8f774f4c2a8c5ecbf850e"
+    },
+    {
+      "asset_id": "B3-A03-03",
+      "key": "lupi-hfc-refrigerant-research-payloads-inline-02",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-inline-02.jpg",
+      "bytes": 161372,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. Three refrigerant-system conditions represented by sealed test chambers and pressure-safe piping, each observed through the same sparse indigo coordinate frame. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:2180cd2c17d1fa08ec7e6543680220f9c57558117687c3d0c9f8d97ae7d2d25b"
+    },
+    {
+      "asset_id": "B3-A03-04",
+      "key": "lupi-hfc-refrigerant-research-payloads-inline-03",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-inline-03.jpg",
+      "bytes": 146579,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A payload handoff from simulation evidence to a bench calorimeter and then to a practical heat exchanger, with provenance conveyed by unbroken geometric links rather than labels. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:8f45f18085445cbb3d13fb276257053008fb5d46ac519d617e3523288194d98f"
+    },
+    {
+      "asset_id": "B3-A03-05",
+      "key": "lupi-hfc-refrigerant-research-payloads-spread",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-spread.jpg",
+      "bytes": 270519,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A district cooling and heat-pump network on warm paper, foregrounded by the compact evidence payload that prevents the infrastructure scene from becoming an unsupported promise. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:d25dd5860e9b9aeb5c820ef2b65c98f6368d12d83a6d2dcd30cf67626a067fb3"
+    },
+    {
+      "asset_id": "B3-A04-01",
+      "key": "rhizo-non-co2-climate-forcers-lean-hero",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-hero.jpg",
+      "bytes": 113234,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A methane control unit, refrigerant loop, and clean-air catalyst arranged beneath a precise indigo proof scaffold that touches only supported system boundaries. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:9dc7e2f9f3714056bf0142216dc4c234f211132f27713e8f923b32ad7c588965"
+    },
+    {
+      "asset_id": "B3-A04-02",
+      "key": "rhizo-non-co2-climate-forcers-lean-inline-01",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-inline-01.jpg",
+      "bytes": 256725,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A formal boundary represented as interlocking measured blocks around a sealed cooling circuit, with unsupported paths stopping cleanly at ink barriers. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:19c4cf07bac61cfa64900f8a6a33b4424fbb38b7c8c9378e0e1d8a46ebb778b6"
+    },
+    {
+      "asset_id": "B3-A04-03",
+      "key": "rhizo-non-co2-climate-forcers-lean-inline-02",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-inline-02.jpg",
+      "bytes": 129424,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A verification chain from environmental assumption to material test to engineering control, expressed through physical instruments and exact geometric joins without symbols or text. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:a5e37cc0c1b807dc243e8c3884f863bc24f5b23b2301a3de91ff80544374cc39"
+    },
+    {
+      "asset_id": "B3-A04-04",
+      "key": "rhizo-non-co2-climate-forcers-lean-inline-03",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-inline-03.jpg",
+      "bytes": 170558,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A climate-forcer decision tree rendered as branching industrial pipes: verified indigo branches reach measurement vessels while uncertain ink branches terminate visibly. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:10e655ed96ebe173415000984f64d984802fe0c477eaea41bbef8d318e5d788e"
+    },
+    {
+      "asset_id": "B3-A04-05",
+      "key": "rhizo-non-co2-climate-forcers-lean-spread",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-spread.jpg",
+      "bytes": 135327,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A regional network of cooling, methane management, and air-treatment equipment grounded by a small proof kernel device, communicating disciplined deployment rather than solved climate change. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:84f0b707c179d0d637fc22c66a72b61477422695db127346a6f9901eddafeb89"
+    },
+    {
+      "asset_id": "B3-A01-01-R1",
+      "original_asset_id": "B3-A01-01",
+      "key": "beyond-carbon-the-error-geometry-of-environmental-materials-hero--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-hero.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-hero--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-hero--retry-1.jpg",
+      "bytes": 403470,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A wide civic systems atlas without labels: drinking-water works, air-treatment ducts, refrigerant plant, mineral recovery line, and concrete infrastructure connected by one sparse indigo evidence ribbon. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Center the named correction or proof apparatus and show an honest unsupported boundary through geometry, never labels. Keep 40–60% clean warm-paper negative space and only #faf9f6 paper, #16171d ink, and #3d4db3 indigo.",
+      "spec_hash": "sha256:f377560190e99277caac3ce3097974512c2833ee2bbcababf3a0f7013e4f0229",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed off-palette accents, forbidden vegetation or marks, and generic proof/correction imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:30:10.587Z",
+      "source_dimensions": {
+        "width": 1280,
+        "height": 720
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:30:29.143Z"
+    },
+    {
+      "asset_id": "B3-A01-02-R1",
+      "original_asset_id": "B3-A01-02",
+      "key": "beyond-carbon-the-error-geometry-of-environmental-materials-inline-01--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-inline-01.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-inline-01--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-inline-01--retry-1.jpg",
+      "bytes": 344282,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. Four environmental boundary stations—water membrane, air catalyst, refrigerant heat exchanger, and remediation sorbent—presented as physical devices under a shared measurement geometry. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Center the named correction or proof apparatus and show an honest unsupported boundary through geometry, never labels. Keep 40–60% clean warm-paper negative space and only #faf9f6 paper, #16171d ink, and #3d4db3 indigo.",
+      "spec_hash": "sha256:b033860fdecc2b23be794a9d2e4820e265677256e8532f6e36d1b7e63215f623",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed off-palette accents, forbidden vegetation or marks, and generic proof/correction imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:30:29.143Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:30:47.773Z"
+    },
+    {
+      "asset_id": "B3-A01-03-R1",
+      "original_asset_id": "B3-A01-03",
+      "key": "beyond-carbon-the-error-geometry-of-environmental-materials-inline-02--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-inline-02.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-inline-02--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-inline-02--retry-1.jpg",
+      "bytes": 428673,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A material error field shown as faint vector drift across multiple real equipment surfaces, resolving into indigo alignment only where measurements support correction. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Center the named correction or proof apparatus and show an honest unsupported boundary through geometry, never labels. Keep 40–60% clean warm-paper negative space and only #faf9f6 paper, #16171d ink, and #3d4db3 indigo.",
+      "spec_hash": "sha256:e62be5dc9dbd3e8c2de6691cb8a7468c12d34377d70463884bbf818f54270c80",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed off-palette accents, forbidden vegetation or marks, and generic proof/correction imagery.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:30:47.773Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:31:05.641Z"
+    },
+    {
+      "asset_id": "B3-A01-04-R1",
+      "original_asset_id": "B3-A01-04",
+      "key": "beyond-carbon-the-error-geometry-of-environmental-materials-inline-03--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-inline-03.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-inline-03--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-inline-03--retry-1.jpg",
+      "bytes": 587223,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A verification platform depicted as a central instrument bench sending restrained evidence paths to water, air, remediation, and infrastructure pilots, not as a glowing AI network. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Center the named correction or proof apparatus and show an honest unsupported boundary through geometry, never labels. Keep 40–60% clean warm-paper negative space and only #faf9f6 paper, #16171d ink, and #3d4db3 indigo.",
+      "spec_hash": "sha256:eb60fcc85356f971856243b01c0db02bdeb4beb1c0fdc41a2bedfadde4d81c34",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed off-palette accents, forbidden vegetation or marks, and generic proof/correction imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:31:05.642Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:31:24.095Z"
+    },
+    {
+      "asset_id": "B3-A01-05-R1",
+      "original_asset_id": "B3-A01-05",
+      "key": "beyond-carbon-the-error-geometry-of-environmental-materials-spread--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-spread.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-spread--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/beyond-carbon-the-error-geometry-of-environmental-materials-spread--retry-1.jpg",
+      "bytes": 423129,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A calm regional landscape of treatment plants and clean infrastructure with the material interventions visible but secondary, emphasizing societal service over molecular imagery. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Center the named correction or proof apparatus and show an honest unsupported boundary through geometry, never labels. Keep 40–60% clean warm-paper negative space and only #faf9f6 paper, #16171d ink, and #3d4db3 indigo.",
+      "spec_hash": "sha256:8841af2d57a44121f717d0a00581662a6685e3ebe69e871532e1199d066d027e",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed off-palette accents, forbidden vegetation or marks, and generic proof/correction imagery.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:31:24.096Z",
+      "source_dimensions": {
+        "width": 1280,
+        "height": 720
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:31:41.890Z"
+    },
+    {
+      "asset_id": "B3-A02-01-R1",
+      "original_asset_id": "B3-A02-01",
+      "key": "critical-minerals-pfas-and-the-remediation-imperative-hero--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-hero.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-hero--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-hero--retry-1.jpg",
+      "bytes": 336355,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A closed-loop water and mineral recovery facility where contaminated flow enters an ink-lined treatment train and separated critical minerals leave in small indigo sample trays. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Center the named correction or proof apparatus and show an honest unsupported boundary through geometry, never labels. Keep 40–60% clean warm-paper negative space and only #faf9f6 paper, #16171d ink, and #3d4db3 indigo.",
+      "spec_hash": "sha256:262b6e6548792b266cf4c4aa392b19c3c409c82bbcdc0a796a469c89a6c9e087",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed off-palette accents, forbidden vegetation or marks, and generic proof/correction imagery.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:31:41.891Z",
+      "source_dimensions": {
+        "width": 1280,
+        "height": 720
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:31:58.330Z"
+    },
+    {
+      "asset_id": "B3-A02-02-R1",
+      "original_asset_id": "B3-A02-02",
+      "key": "critical-minerals-pfas-and-the-remediation-imperative-inline-01--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-inline-01.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-inline-01--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-inline-01--retry-1.jpg",
+      "bytes": 559191,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A mine-tailings water circuit with selective recovery membranes and sorbent beds, shown as contained industrial infrastructure with no pristine-nature before/after trope. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Center the named correction or proof apparatus and show an honest unsupported boundary through geometry, never labels. Keep 40–60% clean warm-paper negative space and only #faf9f6 paper, #16171d ink, and #3d4db3 indigo.",
+      "spec_hash": "sha256:737dd45e080ebcaee90b793bf0641010045f5b8eb142a46f00c718c341097f4c",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed off-palette accents, forbidden vegetation or marks, and generic proof/correction imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:31:58.331Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:32:18.135Z"
+    },
+    {
+      "asset_id": "B3-A02-03-R1",
+      "original_asset_id": "B3-A02-03",
+      "key": "critical-minerals-pfas-and-the-remediation-imperative-inline-02--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-inline-02.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-inline-02--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-inline-02--retry-1.jpg",
+      "bytes": 503539,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A PFAS treatment sequence of capture media, destructive reactor, and verified effluent sampling, with indigo used only on the active material zones and flow checkpoints. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Center the named correction or proof apparatus and show an honest unsupported boundary through geometry, never labels. Keep 40–60% clean warm-paper negative space and only #faf9f6 paper, #16171d ink, and #3d4db3 indigo.",
+      "spec_hash": "sha256:c839526ecf8f0773cac41b03e71e58d3e531a0d8303795059b1b91e5cbe9960d",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed off-palette accents, forbidden vegetation or marks, and generic proof/correction imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:32:18.136Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:32:38.205Z"
+    },
+    {
+      "asset_id": "B3-A02-04-R1",
+      "original_asset_id": "B3-A02-04",
+      "key": "critical-minerals-pfas-and-the-remediation-imperative-inline-03--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-inline-03.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-inline-03--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-inline-03--retry-1.jpg",
+      "bytes": 772896,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. Two supply chains—critical-mineral recovery and persistent-chemical remediation—passing through the same measured ranking gate before pilot deployment. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Center the named correction or proof apparatus and show an honest unsupported boundary through geometry, never labels. Keep 40–60% clean warm-paper negative space and only #faf9f6 paper, #16171d ink, and #3d4db3 indigo.",
+      "spec_hash": "sha256:afd12e8500656ea56d716efcb9f8cc6c304452141e0b30eb1c68dc1ab1d6402c",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed off-palette accents, forbidden vegetation or marks, and generic proof/correction imagery.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:32:38.206Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:34:18.446Z"
+    },
+    {
+      "asset_id": "B3-A02-05-R1",
+      "original_asset_id": "B3-A02-05",
+      "key": "critical-minerals-pfas-and-the-remediation-imperative-spread--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-spread.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-spread--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/critical-minerals-pfas-and-the-remediation-imperative-spread--retry-1.jpg",
+      "bytes": 494701,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A public-works scale remediation scene with treatment tanks, monitoring wells, and a materials recovery bay, careful and provisional rather than depicting total cleanup. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Center the named correction or proof apparatus and show an honest unsupported boundary through geometry, never labels. Keep 40–60% clean warm-paper negative space and only #faf9f6 paper, #16171d ink, and #3d4db3 indigo.",
+      "spec_hash": "sha256:46b80e8e7a0d1762c59917b1b6d5c14006122388e0db0add43fb24b02e31291c",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed off-palette accents, forbidden vegetation or marks, and generic proof/correction imagery.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:34:18.446Z",
+      "source_dimensions": {
+        "width": 1280,
+        "height": 720
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:34:35.931Z"
+    },
+    {
+      "asset_id": "B3-A03-01-R1",
+      "original_asset_id": "B3-A03-01",
+      "key": "lupi-hfc-refrigerant-research-payloads-hero--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-hero.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-hero--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-hero--retry-1.jpg",
+      "bytes": 298194,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A browser-like evidence viewport translated into a physical refrigeration loop: compressor, heat exchanger, and sealed refrigerant circuit with indigo measurement traces and no readable interface text. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Center the named correction or proof apparatus and show an honest unsupported boundary through geometry, never labels. Keep 40–60% clean warm-paper negative space and only #faf9f6 paper, #16171d ink, and #3d4db3 indigo.",
+      "spec_hash": "sha256:ed6787c81a644fe46c513169af927fbf8efcadf331b8fff64db49190d1551325",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed off-palette accents, forbidden vegetation or marks, and generic proof/correction imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:34:35.932Z",
+      "source_dimensions": {
+        "width": 1280,
+        "height": 720
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:34:54.628Z"
+    },
+    {
+      "asset_id": "B3-A03-02-R1",
+      "original_asset_id": "B3-A03-02",
+      "key": "lupi-hfc-refrigerant-research-payloads-inline-01--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-inline-01.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-inline-01--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-inline-01--retry-1.jpg",
+      "bytes": 484903,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A supermarket cold-room plant and heat-pump module connected to a compact research payload cartridge, showing how inspectable data supports cooling decisions. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Center the named correction or proof apparatus and show an honest unsupported boundary through geometry, never labels. Keep 40–60% clean warm-paper negative space and only #faf9f6 paper, #16171d ink, and #3d4db3 indigo.",
+      "spec_hash": "sha256:5c67c6605d7b6f42ea3797a7ac781b9c787357a1c0e8f774f4c2a8c5ecbf850e",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed off-palette accents, forbidden vegetation or marks, and generic proof/correction imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:34:54.628Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:35:13.894Z"
+    },
+    {
+      "asset_id": "B3-A03-03-R1",
+      "original_asset_id": "B3-A03-03",
+      "key": "lupi-hfc-refrigerant-research-payloads-inline-02--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-inline-02.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-inline-02--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-inline-02--retry-1.jpg",
+      "bytes": 471437,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. Three refrigerant-system conditions represented by sealed test chambers and pressure-safe piping, each observed through the same sparse indigo coordinate frame. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Center the named correction or proof apparatus and show an honest unsupported boundary through geometry, never labels. Keep 40–60% clean warm-paper negative space and only #faf9f6 paper, #16171d ink, and #3d4db3 indigo.",
+      "spec_hash": "sha256:2180cd2c17d1fa08ec7e6543680220f9c57558117687c3d0c9f8d97ae7d2d25b",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed off-palette accents, forbidden vegetation or marks, and generic proof/correction imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:35:13.894Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:36:52.137Z"
+    },
+    {
+      "asset_id": "B3-A03-04-R1",
+      "original_asset_id": "B3-A03-04",
+      "key": "lupi-hfc-refrigerant-research-payloads-inline-03--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-inline-03.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-inline-03--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-inline-03--retry-1.jpg",
+      "bytes": 531458,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A payload handoff from simulation evidence to a bench calorimeter and then to a practical heat exchanger, with provenance conveyed by unbroken geometric links rather than labels. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Center the named correction or proof apparatus and show an honest unsupported boundary through geometry, never labels. Keep 40–60% clean warm-paper negative space and only #faf9f6 paper, #16171d ink, and #3d4db3 indigo.",
+      "spec_hash": "sha256:8f45f18085445cbb3d13fb276257053008fb5d46ac519d617e3523288194d98f",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed off-palette accents, forbidden vegetation or marks, and generic proof/correction imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:36:52.137Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:37:10.580Z"
+    },
+    {
+      "asset_id": "B3-A03-05-R1",
+      "original_asset_id": "B3-A03-05",
+      "key": "lupi-hfc-refrigerant-research-payloads-spread--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-spread.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-spread--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/lupi-hfc-refrigerant-research-payloads-spread--retry-1.jpg",
+      "bytes": 565854,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A district cooling and heat-pump network on warm paper, foregrounded by the compact evidence payload that prevents the infrastructure scene from becoming an unsupported promise. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Center the named correction or proof apparatus and show an honest unsupported boundary through geometry, never labels. Keep 40–60% clean warm-paper negative space and only #faf9f6 paper, #16171d ink, and #3d4db3 indigo.",
+      "spec_hash": "sha256:d25dd5860e9b9aeb5c820ef2b65c98f6368d12d83a6d2dcd30cf67626a067fb3",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed off-palette accents, forbidden vegetation or marks, and generic proof/correction imagery.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:37:10.581Z",
+      "source_dimensions": {
+        "width": 1280,
+        "height": 720
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:37:29.006Z"
+    },
+    {
+      "asset_id": "B3-A04-01-R1",
+      "original_asset_id": "B3-A04-01",
+      "key": "rhizo-non-co2-climate-forcers-lean-hero--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-hero.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-hero--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-hero--retry-1.jpg",
+      "bytes": 372588,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A methane control unit, refrigerant loop, and clean-air catalyst arranged beneath a precise indigo proof scaffold that touches only supported system boundaries. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Center the named correction or proof apparatus and show an honest unsupported boundary through geometry, never labels. Keep 40–60% clean warm-paper negative space and only #faf9f6 paper, #16171d ink, and #3d4db3 indigo.",
+      "spec_hash": "sha256:9dc7e2f9f3714056bf0142216dc4c234f211132f27713e8f923b32ad7c588965",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed off-palette accents, forbidden vegetation or marks, and generic proof/correction imagery.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:37:29.006Z",
+      "source_dimensions": {
+        "width": 1280,
+        "height": 720
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:37:45.799Z"
+    },
+    {
+      "asset_id": "B3-A04-02-R1",
+      "original_asset_id": "B3-A04-02",
+      "key": "rhizo-non-co2-climate-forcers-lean-inline-01--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-inline-01.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-inline-01--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-inline-01--retry-1.jpg",
+      "bytes": 437515,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A formal boundary represented as interlocking measured blocks around a sealed cooling circuit, with unsupported paths stopping cleanly at ink barriers. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Center the named correction or proof apparatus and show an honest unsupported boundary through geometry, never labels. Keep 40–60% clean warm-paper negative space and only #faf9f6 paper, #16171d ink, and #3d4db3 indigo.",
+      "spec_hash": "sha256:19c4cf07bac61cfa64900f8a6a33b4424fbb38b7c8c9378e0e1d8a46ebb778b6",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed off-palette accents, forbidden vegetation or marks, and generic proof/correction imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:37:45.799Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:39:26.180Z"
+    },
+    {
+      "asset_id": "B3-A04-03-R1",
+      "original_asset_id": "B3-A04-03",
+      "key": "rhizo-non-co2-climate-forcers-lean-inline-02--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-inline-02.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-inline-02--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-inline-02--retry-1.jpg",
+      "bytes": 281199,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A verification chain from environmental assumption to material test to engineering control, expressed through physical instruments and exact geometric joins without symbols or text. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Center the named correction or proof apparatus and show an honest unsupported boundary through geometry, never labels. Keep 40–60% clean warm-paper negative space and only #faf9f6 paper, #16171d ink, and #3d4db3 indigo.",
+      "spec_hash": "sha256:a5e37cc0c1b807dc243e8c3884f863bc24f5b23b2301a3de91ff80544374cc39",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed off-palette accents, forbidden vegetation or marks, and generic proof/correction imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:39:26.181Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:39:46.092Z"
+    },
+    {
+      "asset_id": "B3-A04-04-R1",
+      "original_asset_id": "B3-A04-04",
+      "key": "rhizo-non-co2-climate-forcers-lean-inline-03--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-inline-03.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-inline-03--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-inline-03--retry-1.jpg",
+      "bytes": 312515,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A climate-forcer decision tree rendered as branching industrial pipes: verified indigo branches reach measurement vessels while uncertain ink branches terminate visibly. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Center the named correction or proof apparatus and show an honest unsupported boundary through geometry, never labels. Keep 40–60% clean warm-paper negative space and only #faf9f6 paper, #16171d ink, and #3d4db3 indigo.",
+      "spec_hash": "sha256:10e655ed96ebe173415000984f64d984802fe0c477eaea41bbef8d318e5d788e",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed off-palette accents, forbidden vegetation or marks, and generic proof/correction imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:39:46.092Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:41:25.793Z"
+    },
+    {
+      "asset_id": "B3-A04-05-R1",
+      "original_asset_id": "B3-A04-05",
+      "key": "rhizo-non-co2-climate-forcers-lean-spread--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-spread.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-spread--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B3/rhizo-non-co2-climate-forcers-lean-spread--retry-1.jpg",
+      "bytes": 364940,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A regional network of cooling, methane management, and air-treatment equipment grounded by a small proof kernel device, communicating disciplined deployment rather than solved climate change. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Center the named correction or proof apparatus and show an honest unsupported boundary through geometry, never labels. Keep 40–60% clean warm-paper negative space and only #faf9f6 paper, #16171d ink, and #3d4db3 indigo.",
+      "spec_hash": "sha256:84f0b707c179d0d637fc22c66a72b61477422695db127346a6f9901eddafeb89",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed off-palette accents, forbidden vegetation or marks, and generic proof/correction imagery. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:41:25.794Z",
+      "source_dimensions": {
+        "width": 1280,
+        "height": 720
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:41:43.063Z"
+    }
+  ],
+  "updated_at": "2026-07-28T04:41:43.063Z"
+}

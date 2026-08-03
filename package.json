@@ -20,6 +20,8 @@
     "proofpack:update-goldens": "node scripts/update-proofpack-goldens.mjs",
     "proofpack:validate": "node scripts/validate-proofpack.mjs",
     "pdf:check": "node scripts/check-pdf.mjs",
+    "venture:build": "node scripts/build-venture-deck.mjs",
+    "venture:validate": "node scripts/validate-venture-deck.mjs",
     "ci": "NODE_USE_ENV_PROXY=1 node scripts/dev/ci-watch.mjs",
     "dev": "node scripts/dev/serve.mjs",
     "shots": "node scripts/dev/screenshot.mjs",

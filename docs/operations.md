@@ -134,9 +134,17 @@ Configure the environment in GitHub → repository **Settings** → **Environmen
 → `production` with:
 
 - required reviewer: `alexwelcing`
-- deployment branches: protected branches only, or an explicit `main` rule
+- administrator bypass disabled
+- deployment branches: explicit `main` rule
 - environment secrets: `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`
 - optional notification secret: `SLACK_DEPLOY_WEBHOOK_URL`
+
+GitHub notifies the required reviewer when a production job reaches the gate.
+The job remains in `Waiting` without access to environment secrets until an
+approval is recorded. A rejection fails the job without running its deployment
+steps; an unreviewed job automatically fails after GitHub's 30-day approval
+timeout. Administrator bypass is disabled, so every production deployment must
+have an approval record.
 
 The workflow itself also rejects every source except a successful push CI run
 whose `head_branch` is exactly `main`; environment branch policy is defense in
@@ -146,6 +154,10 @@ merge so only reviewed, green commits can reach this gate.
 Current production approver:
 
 - `alexwelcing` — repository owner/maintainer
+
+This is the initial reviewer because `alexwelcing` is currently the repository's
+only collaborator. Self-review remains enabled so the sole authorized maintainer
+can release; add a second maintainer before enabling "Prevent self-review."
 
 To audit or update the gate, open GitHub → repository **Settings** →
 **Environments** → `production`. The protection rules must keep required
