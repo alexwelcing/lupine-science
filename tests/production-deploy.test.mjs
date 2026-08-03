@@ -57,6 +57,7 @@ test('preview deploy runs the machine-readable smoke gate without deployment cre
   assert.match(source, /preview-smoke:\n\s+needs: deploy-preview/);
   assert.match(source, /preview-smoke:[\s\S]*permissions:\n\s+contents: read/);
   assert.match(source, /name: Checkout exact preview revision[\s\S]*ref: \$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
+  assert.match(source, /preview-smoke:[\s\S]*name: Install PDF smoke dependencies[\s\S]*sudo apt-get install -y poppler-utils/);
   assert.match(source, /SMOKE_PREVIEW_BASE_URL: \$\{\{ needs\.deploy-preview\.outputs\.url \}\}/);
   assert.match(source, /SMOKE_REPORT_PATH: \$\{\{ runner\.temp \}\}\/live-smoke-preview\.json/);
   assert.match(source, /name: live-smoke-preview-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
