@@ -101,8 +101,16 @@ async function staticChecks() {
   else pass('three owner-controlled financing fields preserved');
   if (!visibleHtml.includes('One 30-path panel. One chemistry family. Not peer-reviewed.')) fail('mandatory risk headline is missing');
   else pass('mandatory risk headline is exact');
-  if (/(?<!1)4\.65/.test(visibleHtml)) fail('deck contains forbidden unsupported 4.65');
-  else pass('forbidden standalone 4.65 claim absent');
+  const currencyClaims = visibleHtml.match(/\$\d+(?:\.\d+)?/g) || [];
+  if (!currencyClaims.length || currencyClaims.some((claim) => claim !== '$14.65')) fail(`deck contains economics outside the frozen cost claim: ${currencyClaims.join(', ') || 'missing $14.65'}`);
+  else if (!visibleHtml.includes('$14.65 per 129 anchors')) fail('deck does not preserve the frozen $14.65 per 129 anchors basis');
+  else pass('public cost economics are frozen to $14.65 per 129 anchors');
+  const economicsSlide = visibleHtml.match(/<section class="slide" id="slide-07"[\s\S]*?<\/section>/)?.[0] || '';
+  const economicsSlideText = economicsSlide.replace(/<[^>]*>/g, ' ');
+  const economicsPercentages = economicsSlideText.match(/\d+(?:\.\d+)?%/g) || [];
+  if (!economicsPercentages.length || economicsPercentages.some((claim) => claim !== '72.4%')) fail(`slide 7 contains economics outside the frozen savings claim: ${economicsPercentages.join(', ') || 'missing 72.4%'}`);
+  else if (/\b(?:558|154|139\.5|430|3\.62|3\.33|61\.0)\b/.test(visibleHtml)) fail('deck preserves superseded or derived economics outside the frozen allowlist');
+  else pass('public savings economics are frozen to 72.4% fewer DFT evaluations');
   const scopedStillClaim = '100/100 unique still slots';
   const scopedStillClaimCount = visibleHtml.split(scopedStillClaim).length - 1;
   const otherHundredClaims = visibleHtml.replaceAll(scopedStillClaim, '').match(/100\/100/gi) || [];
@@ -123,9 +131,6 @@ async function staticChecks() {
   if (closureClaim?.claim !== '33 certified baseline stills + 67 independently certified Wave-4 replacements = 100/100 unique still slots.' || closureClaim?.closure_gate_task !== 't_c2a1f8e3' || closureClaim?.films_outside_denominator !== 5) fail('evidence manifest closure claim is missing or incorrectly scoped');
   if (closureDecision?.decision !== 'Use only the precisely scoped 100/100 unique still slots closure claim; do not imply models, campaigns, films, or generic certification.') fail('D-100-CHAIN does not preserve the precise closure scope');
   if (!failures.some((item) => /baseline|aggregate|child certification|per-asset|certified outputs|closure arithmetic|closure source|closure claim|D-100-CHAIN/.test(item))) pass('closure evidence proves 33 + 67 = 100 still slots with all certifications passing and five films separate');
-  if (!visibleHtml.includes('$14.65 cloud-equivalent')) fail('source-backed $14.65 is missing');
-  else pass('source-backed $14.65 is present');
-
   const imageSources = [...html.matchAll(/<img class="deck-asset"[^>]+src="([^"]+)"/g)].map((match) => match[1].replace(/^\//, 'public/'));
   const lockedSources = lock.assets.map((asset) => asset.path);
   if (JSON.stringify(imageSources) !== JSON.stringify(lockedSources)) fail('rendered asset sequence differs from asset lock');

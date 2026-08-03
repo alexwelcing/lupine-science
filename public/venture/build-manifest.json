@@ -6,15 +6,15 @@
   "inputs": {
     "html_template": {
       "path": "media/projects/venture-deck/index.html",
-      "sha256": "81e6a51abee027e92c18e2616aa6d93f42a0f1e64afbc425c6c451e8f1e59a38"
+      "sha256": "e68f0281e48b55b6509299ab349dbdf402ef2dbd81fac5efb154d5217cef3fa1"
     },
     "narrative": {
       "path": "media/projects/venture-deck/narrative-script.md",
-      "sha256": "1e8f35388e475f20594fb886df57619903879464043283028460f086ec427f36"
+      "sha256": "3693a87f822a82c4b51128f738f89857308b9254c534383091b24a136a92a3a3"
     },
     "evidence_manifest": {
       "path": "media/projects/venture-deck/evidence-manifest.json",
-      "sha256": "31ae280842a5d41134de937166dab2cd74a7b3564ba09ca56b09e3029fd12d00"
+      "sha256": "d0982243740ec88613ffda427cbbe898ee7194abe6a554cc9f2c27c6d4fc1e87"
     },
     "asset_lock": {
       "path": "media/projects/venture-deck/asset-lock.json",
@@ -22,24 +22,24 @@
     },
     "art_direction": {
       "path": "media/projects/venture-deck/art-direction.md",
-      "sha256": "ef5c0b579f3a30e4abe597792a4ea2655441bc504ab291feef0e15b412018912"
+      "sha256": "a5dfdc15acbbbe782596707bf5da6f707e80e88c3cd27c53951c2e9c8d3bb015"
     }
   },
   "outputs": {
     "html": {
       "path": "public/venture/deck.html",
-      "sha256": "19fee1d207b7879fc631bd1386ae875778bdb6bfd7c12be00b5dfc789e9c1603"
+      "sha256": "bf8b47322b9e9ba5893a93565424cfc5429a998899dadb964351e8d34baf8f74"
     },
     "pdf": {
       "path": "media/projects/venture-deck/lupine-science-venture-deck.pdf",
-      "sha256": "df07fa8db91c14ab25636d9d9c84405e19d902a3c8f1412b2ffd711defe0ff91",
-      "bytes": 403698,
+      "sha256": "03d577ce27ab29fcb4cdf14c6c16a6daff0bcf0e020da05d661137a35090b2e9",
+      "bytes": 402702,
       "pages": 13
     },
     "public_pdf": {
       "path": "public/venture/lupine-science-venture-deck.pdf",
-      "sha256": "df07fa8db91c14ab25636d9d9c84405e19d902a3c8f1412b2ffd711defe0ff91",
-      "bytes": 403698,
+      "sha256": "03d577ce27ab29fcb4cdf14c6c16a6daff0bcf0e020da05d661137a35090b2e9",
+      "bytes": 402702,
       "pages": 13
     },
     "landing": {
