@@ -119,6 +119,8 @@ const HERO_CAPTIONS = {
     'A row of solid-electrolyte coupons mounted in identical diffusion rigs, with a sparse set of shared reference pins anchoring the barrier comparison across the whole panel.',
   'an-order-of-effort':
     'A row of four increasingly specialized test bays — bulk compression, defect scanning, reaction vessel, interface microscopy — each material environment routed to the equipment its complexity requires.',
+  'the-small-cell-held-mlip-elastic-benchmark':
+    'A compact crystal cell and a larger repeated supercell feed the same elastic gauge, while a separate brass correction path turns away from the matched result.',
 };
 
 const MARK_SVG = `<svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
