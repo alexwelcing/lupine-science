@@ -11,6 +11,21 @@ const PDF_WIDTH_POINTS = 960;
 const PDF_HEIGHT_POINTS = 540;
 const FIXED_DATE = new Date('2026-07-28T00:00:00.000Z');
 
+export function assertSupportedSlideCount(slideCount) {
+  if (slideCount < MIN_SLIDES || slideCount > MAX_SLIDES) {
+    throw new Error(`slide count ${slideCount} is outside allowed range ${MIN_SLIDES}-${MAX_SLIDES}`);
+  }
+}
+
+export function removeGeneratedQaImages(qaDirectory) {
+  if (!fs.existsSync(qaDirectory)) return;
+  for (const entry of fs.readdirSync(qaDirectory, { withFileTypes: true })) {
+    if (entry.isFile() && /^(?:slide-\d{2}|contact-sheet)\.png$/.test(entry.name)) {
+      fs.unlinkSync(path.join(qaDirectory, entry.name));
+    }
+  }
+}
+
 const MIME = new Map([
   ['.css', 'text/css; charset=utf-8'],
   ['.html', 'text/html; charset=utf-8'],
@@ -81,13 +96,19 @@ async function inspectRenderedDeck(page, slideSelector) {
     const slides = [...document.querySelectorAll(selector)];
     const overflowIssues = [];
     const overlapIssues = [];
+    const activeStates = slides.map((slide) => slide.classList.contains('is-active'));
+    const inlineDisplays = slides.map((slide) => slide.style.display);
     for (const [index, slide] of slides.entries()) {
+      slides.forEach((candidate, candidateIndex) => candidate.classList.toggle('is-active', candidateIndex === index));
+      if (getComputedStyle(slide).display === 'none') slide.style.display = 'block';
       const candidates = [slide, ...slide.querySelectorAll('*')];
       for (const element of candidates) {
         const style = getComputedStyle(element);
         if (style.display === 'none' || style.visibility === 'hidden') continue;
-        const horizontal = element.scrollWidth > element.clientWidth + 1;
-        const vertical = element.scrollHeight > element.clientHeight + 1;
+        const clipsHorizontally = element === slide || style.overflowX !== 'visible';
+        const clipsVertically = element === slide || style.overflowY !== 'visible';
+        const horizontal = clipsHorizontally && element.scrollWidth > element.clientWidth + 1;
+        const vertical = clipsVertically && element.scrollHeight > element.clientHeight + 1;
         if (!horizontal && !vertical) continue;
         const label = element === slide
           ? 'slide'
@@ -122,6 +143,10 @@ async function inspectRenderedDeck(page, slideSelector) {
         }
       }
     }
+    slides.forEach((slide, index) => {
+      slide.classList.toggle('is-active', activeStates[index]);
+      slide.style.display = inlineDisplays[index];
+    });
     return {
       slideCount: slides.length,
       slideCountValid: slides.length >= minimum && slides.length <= maximum,
@@ -131,14 +156,15 @@ async function inspectRenderedDeck(page, slideSelector) {
   }, { selector: slideSelector, minimum: MIN_SLIDES, maximum: MAX_SLIDES });
 }
 
-async function inspectHtml({ htmlPath, slideSelector = '.slide', webRoot }) {
+async function inspectHtml({ htmlPath, slideSelector = '.slide', webRoot, media = 'screen', viewport = VIEWPORT }) {
   assertInputPaths({ htmlPath, pdfPath: 'not-used' });
   const { server, url } = await startStaticServer(htmlPath, webRoot);
   const allowedOrigin = new URL(url).origin;
   let browser;
   try {
     browser = await chromium.launch({ headless: true });
-    const page = await browser.newPage({ viewport: VIEWPORT, deviceScaleFactor: 1 });
+    const page = await browser.newPage({ viewport, deviceScaleFactor: 1 });
+    await page.emulateMedia({ media });
     const externalRequests = [];
     await page.route('**/*', (route) => {
       const requestUrl = route.request().url();
@@ -160,9 +186,7 @@ async function inspectHtml({ htmlPath, slideSelector = '.slide', webRoot }) {
 }
 
 function assertBrowserChecks(report) {
-  if (!report.slideCountValid) {
-    throw new Error(`slide count ${report.slideCount} is outside allowed range ${MIN_SLIDES}-${MAX_SLIDES}`);
-  }
+  assertSupportedSlideCount(report.slideCount);
   if (report.externalRequests.length) {
     throw new Error(`external runtime request detected: ${report.externalRequests.join(', ')}`);
   }
@@ -178,6 +202,21 @@ async function closeInspection(report) {
   await report.page.close();
   await report.browser.close();
   await new Promise((resolve) => report.server.close(resolve));
+}
+
+export async function validateDeckHtml({ htmlPath, slideSelector = '.slide', webRoot, media = 'screen', viewport = VIEWPORT }) {
+  const report = await inspectHtml({ htmlPath, slideSelector, webRoot, media, viewport });
+  try {
+    assertBrowserChecks(report);
+    return {
+      slideCount: report.slideCount,
+      externalRequests: report.externalRequests,
+      overflowIssues: report.overflowIssues,
+      overlapIssues: report.overlapIssues,
+    };
+  } finally {
+    await closeInspection(report);
+  }
 }
 
 async function normalizePdf(pdfPath) {
@@ -270,12 +309,24 @@ export async function validateDeckArtifacts({ htmlPath, pdfPath, slideSelector =
 
 export function validateClosureCertification({ baseline, aggregate, evidence }) {
   const errors = [];
+  const baselineRecords = Array.isArray(baseline?.images?.records) ? baseline.images.records : [];
+  const acceptedBaselineRecords = baselineRecords.filter((record) => record.final_status === 'accepted');
+  const acceptedBaselineAssetIds = acceptedBaselineRecords.map((record) => record.asset_id);
   const children = Array.isArray(aggregate?.child_manifests) ? aggregate.child_manifests : [];
   const assets = Array.isArray(aggregate?.assets) ? aggregate.assets : [];
   const outputHashes = assets.map((asset) => asset.output_sha256);
 
   if (baseline?.images?.accepted !== 33 || baseline?.videos?.accepted !== 5) {
     errors.push('baseline certification must contain 33 accepted stills and five separately accepted films');
+  }
+  if (acceptedBaselineRecords.length !== 33) {
+    errors.push('baseline accepted-still records must reconcile to exactly 33 accepted stills');
+  }
+  if (new Set(acceptedBaselineAssetIds).size !== acceptedBaselineAssetIds.length) {
+    errors.push('unique baseline accepted-still identities are required');
+  }
+  if (acceptedBaselineAssetIds.some((assetId) => typeof assetId !== 'string' || assetId.trim() === '')) {
+    errors.push('non-empty baseline accepted-still identities are required');
   }
   if (aggregate?.mechanical_status !== 'pass' || aggregate?.composition_status !== 'pass') {
     errors.push('aggregate mechanical and composition certification status must pass');
