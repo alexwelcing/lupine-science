@@ -27,10 +27,13 @@ const KATEX_OUT = path.join(PUBLIC_ROOT, 'katex');
 // and any edge cache that keyed on the bare URL to fetch a fresh copy.
 // v=3: BRAND-1 campaign replaced heroes on 11 articles + homepage (PR #29).
 const ASSET_CACHE_BUST = '?v=3';
+const ARTICLE_ASSET_CACHE_BUST = new Map([
+  ['shared-dft-anchors', '?v=4'],
+]);
 
-function bust(url) {
+function bust(url, slug) {
   if (!url || url.includes('?') || url.includes('#')) return url;
-  return `${url}${ASSET_CACHE_BUST}`;
+  return `${url}${ARTICLE_ASSET_CACHE_BUST.get(slug) || ASSET_CACHE_BUST}`;
 }
 
 // Append the cache-bust query to local image URLs inside rendered Markdown.
@@ -41,7 +44,7 @@ function bustInlineImages(html, slug) {
     if (!u) return u;
     const trimmed = u.trim();
     if (trimmed.startsWith('images/') || trimmed.startsWith(`/articles/${slug}/`) || trimmed.startsWith(`${SITE}/articles/${slug}/`)) {
-      return bust(trimmed);
+      return bust(trimmed, slug);
     }
     return trimmed;
   };
@@ -256,7 +259,7 @@ function heroFigure(slug) {
   const caption = HERO_CAPTIONS[slug] || '';
   if (hasMp4 && hasJpg) {
     return `<figure class="article-hero"${caption ? ' aria-labelledby="hero-caption"' : ''}>
-  <video preload="none" loop muted playsinline poster="${bust(`/articles/${slug}/hero.jpg`)}" width="1280" height="720" data-autoplay aria-label="${esc(caption || 'Article film')}">
+  <video preload="none" loop muted playsinline poster="${bust(`/articles/${slug}/hero.jpg`, slug)}" width="1280" height="720" data-autoplay aria-label="${esc(caption || 'Article film')}">
     <source src="/articles/${slug}/hero.mp4" type="video/mp4">
   </video>
 ${caption ? `  <figcaption id="hero-caption">${caption}</figcaption>\n` : ''}</figure>`;
@@ -290,7 +293,7 @@ function pictureSources(slug, base, { eager = false } = {}) {
   const webp = fs.existsSync(path.join(dir, `${base}.webp`));
   const loading = eager ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"';
   return `<picture>
-${avif ? `    <source srcset="${bust(`/articles/${slug}/${base}.avif`)}" type="image/avif">\n` : ''}${webp ? `    <source srcset="${bust(`/articles/${slug}/${base}.webp`)}" type="image/webp">\n` : ''}    <img src="${bust(`/articles/${slug}/${base}.jpg`)}" alt="" width="1280" height="720" ${loading} decoding="async">
+${avif ? `    <source srcset="${bust(`/articles/${slug}/${base}.avif`, slug)}" type="image/avif">\n` : ''}${webp ? `    <source srcset="${bust(`/articles/${slug}/${base}.webp`, slug)}" type="image/webp">\n` : ''}    <img src="${bust(`/articles/${slug}/${base}.jpg`, slug)}" alt="" width="1280" height="720" ${loading} decoding="async">
   </picture>`;
 }
 
@@ -497,7 +500,7 @@ async function buildArticle(raw, slug) {
   const socialTitle = meta.ogTitle || `${title} — Lupine Science`;
   const socialDescription = meta.ogDescription || description;
   const socialUrl = absoluteSiteUrl(meta.ogUrl) || url;
-  const socialImage = bust(absoluteSiteUrl(meta.ogImage) || videoPoster || ogImage);
+  const socialImage = bust(absoluteSiteUrl(meta.ogImage) || videoPoster || ogImage, slug);
   const socialType = meta.ogType || (videoUrl ? 'video.other' : 'article');
 
   const articleJsonLd = {
@@ -508,7 +511,7 @@ async function buildArticle(raw, slug) {
     datePublished: meta.date || undefined,
     url,
     mainEntityOfPage: url,
-    image: hasJpg ? bust(`${SITE}/articles/${slug}/hero.jpg`) : ogImage,
+    image: hasJpg ? bust(`${SITE}/articles/${slug}/hero.jpg`, slug) : ogImage,
     author: { '@type': 'Organization', name: 'Lupine Science', url: SITE },
     publisher: { '@type': 'Organization', name: 'Lupine Science', url: SITE, logo: { '@type': 'ImageObject', url: bust(`${SITE}/lupine-science-icon.png`) } },
   };
