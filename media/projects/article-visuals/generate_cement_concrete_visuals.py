@@ -38,7 +38,8 @@ SOFT_ROSE = '#f0d5d5'
 COLORS = [INDIGO, AMBER, SAGE, SLATE, ROSE]
 
 SLUG = 'cement-concrete-and-the-weight-of-the-built-world'
-OUT_DIR = Path('/home/alex/Dev/lupine/lupine-science/public/articles') / SLUG / 'images'
+REPO_ROOT = Path(__file__).resolve().parents[3]
+OUT_DIR = REPO_ROOT / 'public/articles' / SLUG / 'images'
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 DPI = 150
@@ -389,7 +390,7 @@ def make_05():
     add_source(fig, 'Source: Lupine Science, Strategic Discovery Plan')
     filename = f'{SLUG}-05-correction-loop.jpg'
     register(filename, 'Measure, Correct, Prove', 'concept-diagram',
-             'Lupine measures the error field, applies an analytic correction at nearly uMLIP speed, and proves which predictions are supported by 77 build-locked theorems. Source: Lupine Science, Strategic Discovery Plan.')
+             'Lupine measures the error field, applies an analytic correction at nearly uMLIP speed, and proves which predictions are supported by the machine-generated theorem inventory. Source: Lupine Science, Strategic Discovery Plan.')
     return save_jpg(fig, filename)
 
 

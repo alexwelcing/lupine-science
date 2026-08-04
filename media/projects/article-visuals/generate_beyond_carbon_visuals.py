@@ -35,7 +35,8 @@ SOFT_ROSE = '#f2d6d6'
 COLORS = [INDIGO, AMBER, SAGE, SLATE, ROSE]
 
 SLUG = 'beyond-carbon-the-error-geometry-of-environmental-materials'
-OUT_DIR = Path(f'/home/alex/Dev/lupine/lupine-science/public/articles/{SLUG}/images')
+REPO_ROOT = Path(__file__).resolve().parents[3]
+OUT_DIR = REPO_ROOT / 'public/articles' / SLUG / 'images'
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 DPI = 150
@@ -556,7 +557,7 @@ def make_10():
         ('2 · CORRECT', 'Analytic forces\nat runtime',
          'r = 0.906 blind prediction\nzero adjustable parameters\n15.6% → <1% compiled overhead', SAGE),
         ('3 · PROVE', 'Machine-checked\ntrust',
-         '190 build-locked Lean 4 theorems\nzero sorry\nimpossibility proofs where unsupported', INDIGO),
+         'Machine-generated Lean 4 theorem inventory\nzero sorry\nimpossibility proofs where unsupported', INDIGO),
     ]
 
     box_w, box_h = 0.28, 0.34
@@ -613,7 +614,7 @@ MANIFEST = [
         'filename': f'{SLUG}-04-blind-prediction-panel.jpg',
         'title': 'Measured Correction, Machine-Checked Proof',
         'type': 'evidence-panel',
-        'caption': 'Across 36 blind model–material pairs the error field predicts corrections with r = 0.906, while a build-locked library of 77 Lean 4 theorems bounds what can be believed.'
+        'caption': 'Across 36 blind model–material pairs the error field predicts corrections with r = 0.906, while the machine-generated Lean 4 theorem inventory bounds what can be believed.'
     },
     {
         'filename': f'{SLUG}-05-correction-verification-layer.jpg',

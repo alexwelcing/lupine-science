@@ -28,7 +28,7 @@ Content (real numbers from `articles/beyond-carbon-the-error-geometry-of-environ
 - Three stages, left → right, connected by arrows, one brand-colored rounded box each:
   1. "1 · MEASURE" — "Atomic coordination error field" — detail: "3 anchor observables\ncubic spline + bulk constraint P(12) = 0"
   2. "2 · CORRECT" — "Analytic forces at runtime" — detail: "r = 0.906 blind prediction\nzero adjustable parameters\n15.6% → <1% compiled overhead"
-  3. "3 · PROVE" — "Machine-checked trust" — detail: "190 build-locked Lean 4 theorems\nzero sorry\nimpossibility proofs where unsupported"
+  3. "3 · PROVE" — "Machine-checked trust" — detail: "machine-generated Lean 4 theorem inventory\nzero sorry\nimpossibility proofs where unsupported"
 - Small caption line at bottom: "Each installment follows the same arc: measure, correct, prove."
 - Source line: "Source: Lupine Science, Strategic Discovery Plan"
 Also update `public/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/manifest.json`:

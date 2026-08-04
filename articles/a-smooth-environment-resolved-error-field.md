@@ -62,7 +62,7 @@ Because the field is a function of environments, its inverse is an additive ener
 
 ## Provable boundaries
 
-Correction has jurisdiction only where order survives. Where rankings invert — for example, MACE-MP-small ordering SFE(Ni) ≤ SFE(Al) while references order the reverse — a machine-checked proof shows that no monotone correction can recover both. The proof kernel certifies data-analysis arithmetic and stated inequalities over SHA-256-provenance data; 190+ build-locked Lean 4 theorems, zero `sorry`.
+Correction has jurisdiction only where order survives. Where rankings invert — for example, MACE-MP-small ordering SFE(Ni) ≤ SFE(Al) while references order the reverse — a machine-checked proof shows that no monotone correction can recover both. The proof kernel certifies data-analysis arithmetic and stated inequalities over SHA-256-provenance data; {{LEAN_THEOREM_COUNT}} build-locked Lean 4 theorems, zero `sorry`.
 
 ![A compact correction plate inserted between an interatomic-model cartridge and a finite-element fatigue-test fixture for one turbine-blade coupon — The plate applies a bounded local correction before the coupon simulation reaches the fatigue fixture](images/a-smooth-environment-resolved-error-field-inline-03.jpg)
 

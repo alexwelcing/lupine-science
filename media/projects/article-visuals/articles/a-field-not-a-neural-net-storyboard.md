@@ -14,8 +14,8 @@ Universal machine-learning interatomic potentials (uMLIPs) are fast but systemat
 - **Single idea:** Vast computational discovery pipelines collapse to a trickle of independently validated materials, exposing the gap between prediction and experiment.
 - **Data points to show:**
   - GNoME predicted 2.2 million crystals; 736 independently synthesized by late 2023 → 0.033% validation rate [^1]
-  - A-Lab reported 63% autonomous synthesis success [^2]
-  - Critique: two-thirds of A-Lab "novel" targets were already-known disordered phases → true discovery rate near zero [^2]
+  - A-Lab Author Correction: 36 confirmed of 57 eligible targets, 4 inconclusive, one removed [^2]
+  - Independent critique: many A-Lab "novel" targets were already-known disordered phases; keep this distinct from the corrected synthesis record [^2]
 - **Suggested form:** Funnel chart (wide top: predicted structures; narrow middle: claimed successes; narrowest bottom: validated novel discoveries).
 - **Generation:** Programmatic (matplotlib)
 - **Caption:** Predicted materials vastly outrun verified discoveries: GNoME’s 2.2 million crystals produced only 736 confirmed syntheses, while A-Lab’s headline success rate collapsed once duplicates were removed. Sources: Merchant et al., *Nature* 624, 80–85 (2023); Szymanski et al., *Nature* 624, 86–91 (2023); Leeman et al., *PRX Energy* 3, 011002 (2024).
@@ -133,7 +133,7 @@ Universal machine-learning interatomic potentials (uMLIPs) are fast but systemat
 - **Data points to show:**
   - Neural-net path: delta-ML requires per-system retraining and abundant reference data [^6]; fine-tuning requires curated training sets that do not exist for unexplored spaces [^7]
   - Field path: three anchors transfer within a crystal-structure family; no retraining of uMLIP weights
-  - Proof layer: 8 Lean 4 modules, 77 build-locked theorems, ~225 declarations, zero `sorry` proofs
+  - Proof layer: machine-generated Lean 4 theorem inventory, zero `sorry` proofs
 - **Suggested form:** Two-column comparison diagram contrasting the "train a bigger net" loop with the "measure a field + prove claims" loop.
 - **Generation:** Programmatic (matplotlib)
 - **Caption:** Lupine replaces the arms race for bigger models with a measured field and formal verification, eliminating per-system retraining while raising the standard of evidence.

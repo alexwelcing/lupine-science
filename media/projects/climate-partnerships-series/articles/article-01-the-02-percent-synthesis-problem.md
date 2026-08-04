@@ -26,7 +26,7 @@ Body: GNoME funnel — 2.2M crystals predicted, 380K computed stable, only 736 i
 
 ## The A-Lab cautionary tale
 
-Body: 63% success headline, then the critique — two-thirds of "novel" targets were known disordered phases; true novel discovery rate collapsed to near zero.
+Body: Author Correction confirms 36 of 57 eligible targets; discuss the separate novelty critique without substituting it for the corrected synthesis record.
 
 ## Four structural barriers
 

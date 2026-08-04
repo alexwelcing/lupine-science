@@ -11,7 +11,8 @@ import matplotlib.patches as mpatches
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch, Circle, Wedge
 import numpy as np
 
-OUT_DIR = Path('/home/alex/Dev/lupine/lupine-science/public/articles/five-materials-for-5-to-12-gtco2-year/images')
+REPO_ROOT = Path(__file__).resolve().parents[3]
+OUT_DIR = REPO_ROOT / 'public/articles/five-materials-for-5-to-12-gtco2-year/images'
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # Brand palette
@@ -169,7 +170,7 @@ def viz_03():
     stats = [
         '• Error field anchored to measurable observables',
         '• Runtime correction target overhead <1%',
-        '• 77 build-locked Lean 4 theorems, zero sorry proofs',
+        '• Machine-generated Lean 4 theorem inventory, zero sorry proofs',
     ]
     for j, st in enumerate(stats):
         ax.text(0.02, 0.08 - j * 0.05, st, transform=ax.transAxes, fontsize=11, color=TEXT)

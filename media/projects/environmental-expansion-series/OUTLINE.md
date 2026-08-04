@@ -25,7 +25,7 @@ Climate is not the only planetary boundary constrained by materials that do not 
 
 ### Footnote sources
 
-- Lupine environment error field: r = 0.906 blind prediction, 77 Lean 4 theorems, 15.6% runtime overhead. See `climate.md`, Section 3.
+- Lupine environment error field: r = 0.906 blind prediction, machine-generated Lean 4 theorem inventory, 15.6% runtime overhead. See `climate.md`, Section 3.
 - GNoME 0.2% synthesis problem and A-Lab disordered-phase critique. See `climate.md`, Section 2.1.
 - Environmental impact framing: UN Water, WHO/State of Global Air, UNEP Global Methane Assessment, IEA cement and critical-minerals roadmaps. See `environment.md`, Sections 2–8.
 

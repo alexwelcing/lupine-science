@@ -11,7 +11,7 @@
 - The IEA projects batteries are directly linked to ~20% of required 2030 CO₂ reductions and indirectly to another 40%.
 - Clean energy investment must grow from $1.8 trillion (2023) to $4.5 trillion annually by the early 2030s; a substantial fraction of that gap is a materials gap.
 - Google DeepMind's GNoME predicted 2.2 million crystals; 380,000 were computed stable; only 736 had been independently synthesized by late 2023 — a 0.2% validation rate.
-- The A-Lab autonomous synthesis facility reported 63% success, but subsequent critique found two-thirds of "novel" targets were known disordered phases, reducing the true novel discovery rate to near zero.
+- A-Lab's Author Correction (Nature 650:E1, 2026) records 36 confirmed of 57 eligible targets, 4 inconclusive, and one compound removed; the independent critique of novelty is reported separately.
 - These failures stem from four structural barriers: defect/bulk asymmetry, combinatorial wall, metastability, and ranking inversion.
 - The gap between "predicted stable" and "synthesized and functional" is the defining bottleneck in computational materials discovery.
 
@@ -19,7 +19,7 @@
 
 1. **Lead.** Open with the climate investment gap and the counterintuitive claim: we are not short of predictions; we are short of validated predictions.
 2. **The 0.2% number.** Walk through GNoME's 2.2M → 380K → 736 funnel. Explain why this is not a GNoME failure but a structural pipeline failure.
-3. **A-Lab as cautionary tale.** Report the 63% headline, then the critique. Use it to show that faster synthesis without better verification does not solve the bottleneck.
+3. **A-Lab as cautionary tale.** Report the corrected 36-of-57-eligible record with its Author Correction provenance, then distinguish the independent novelty critique. Use the episode to show that faster synthesis without better verification does not solve the bottleneck.
 4. **Four barriers, briefly named.** One paragraph each: defect/bulk asymmetry, combinatorial wall, metastability, ranking inversion. This sets up Article 2.
 5. **Why it matters for climate.** Connect the narrow deployment window (2025–2035) to the cost of false positives and missed positives.
 6. **Transition.** Introduce Lupine Science as a correction-and-verification layer, not another generator.
@@ -39,7 +39,7 @@
 - Three anchor observables (100, 111, vacancy formation energy) fix the field; a cubic spline with P(12)=0 predicts the never-fitted 110 surface energy.
 - Blind prediction achieves Pearson r=0.906 (p=10⁻⁴, 95% CI [0.82, 0.96]) across 36 (model, material) combinations with zero adjustable parameters.
 - Runtime correction adds 15.6% overhead in Python and will drop below 1% in a compiled LAMMPS overlay; corrected uMLIPs remain ~10⁵× faster than DFT.
-- 77 build-locked Lean 4 theorems with zero sorry proofs provide machine-checked guarantees.
+- The machine-generated Lean 4 theorem inventory, with zero sorry proofs, provides machine-checked guarantees.
 - The kernel-rejected claim episode: a claim that survived statistical filtering was rejected at integer precision, reducing the count from 27/36 to 26/36.
 - Where correction fails, Lupine proves impossibility rather than reporting a p-value.
 
@@ -50,7 +50,7 @@
 3. **How it is measured, not learned.** Three anchors; cubic spline; P(12)=0; blind prediction of the 110 surface energy.
 4. **The r=0.906 result.** Present the table, the confidence interval, and the null mean (r=0.44).
 5. **Runtime correction.** Analytic forces, LAMMPS overlay, 15.6% overhead now, <1% soon.
-6. **Formal verification.** 77 theorems, zero sorry; the kernel-rejected claim as a vignette.
+6. **Formal verification.** Machine-generated theorem inventory, zero sorry; the kernel-rejected claim as a vignette.
 7. **Impossibility proofs.** Explain the three boundary conditions where correction cannot apply and why that is actionable.
 8. **The six-step loop.** Briefly describe simulate → identify → validate → generate → verify → improve.
 9. **Transition to climate targets.** This method is not abstract; it maps onto five specific material bottlenecks.
@@ -151,7 +151,7 @@
 ### Key claims (from `/home/alex/Dev/lupine/climate.md`)
 
 - Lupine's competitive position is a correction-and-verification layer between structure generation and experimental synthesis.
-- The three pillars of defensibility: (1) measured error field, not learned; (2) 77 build-locked Lean 4 theorems with zero sorry proofs; (3) runtime overlay compatible with LAMMPS and any uMLIP.
+- The three pillars of defensibility: (1) measured error field, not learned; (2) a machine-generated Lean 4 theorem inventory with zero sorry proofs; (3) runtime overlay compatible with LAMMPS and any uMLIP.
 - The moat deepens with use: each screening campaign adds validated field measurements; each impossibility proof sharpens the boundary of applicability; each experimental validation tightens the feedback loop.
 - Comparison with alternatives: DFT (accurate but 10⁵× slower); raw uMLIPs (fast but 15–60% defect errors); delta-ML (requires per-system retraining); fine-tuning (requires curated target-system data).
 - The NIST MGI economic analysis estimates $123B–$270B in annual value from improved materials innovation infrastructure.
