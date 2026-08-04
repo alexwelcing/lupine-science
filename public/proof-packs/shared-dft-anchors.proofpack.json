@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-04T02:28:38.450Z",
+  "generatedAt": "2026-08-04T03:22:55.975Z",
   "build": {
     "script": "scripts/build-proofpack.mjs",
     "mode": "per-article",
@@ -13,7 +13,7 @@
     },
     "articleHtml": {
       "path": "public/articles/shared-dft-anchors/index.html",
-      "sha256": "d20fee5376f57e8d557e61da57b8a6cc9cfc7bf9b97d29d1e7837627fa307eca"
+      "sha256": "3910cf0dc18eb6bec098b857c33fbaabf782f789bebf854de51e2b975d6683bb"
     },
     "figures": {
       "images/projected-evaluation-counts.png": "1db5981ce922739f621eb641dc46315554ab06f730969377ebaf41ce273c8988"
