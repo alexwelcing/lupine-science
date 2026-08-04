@@ -31,7 +31,7 @@ Implementation references:
 
 ## Typography and Unicode release gate
 
-- Use repository-local `proof-unicode.ttf` (Noto Serif) for reading text and `IBM Plex Mono` for labels, numbers, metadata, and source lines. Chromium converts the variable Newsreader webfont to Type 3 PDF fonts, which are not reliable across print engines; it must not be used in generated PDFs. `font-display: block` prevents a PDF being captured with fallback metrics.
+- Use repository-local `proof-unicode.ttf` (Noto Serif) for reading text, `proof-math.ttf` (Noto Sans Math) for mathematical extraction-test glyphs, and `IBM Plex Mono` for labels, numbers, metadata, and source lines. Chromium converts the variable Newsreader webfont to Type 3 PDF fonts, which are not reliable across print engines; it must not be used in generated PDFs. `font-display: block` prevents a PDF being captured with fallback metrics.
 - Production is offline and deterministic: no Google Fonts, CDN CSS, remote images, analytics, or post-load substitutions. Await `document.fonts.ready` before printing.
 - Every released PDF must report all fonts as embedded and Unicode mapped via `pdffonts`, with no Type 3 fonts (the proof-pack regression test checks all three conditions).
 - Every preview and production pack must contain and successfully round-trip this exact coverage string through `pdftotext`:
