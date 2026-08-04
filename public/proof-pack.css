@@ -34,6 +34,13 @@
   font-weight: 100 900;
   font-display: block;
 }
+@font-face {
+  font-family: "Proof Math";
+  src: url("/fonts/proof-math.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+}
 
 :root {
   --paper: #faf9f6;
@@ -153,7 +160,7 @@ p { margin: 0 0 0.13in; }
 .summary-grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 0.3in; }
 .key-findings { margin: 0; padding: 0; list-style: none; }
 .key-findings li { padding: 0.12in 0 0.12in 0.22in; border-top: 0.5pt solid var(--rule); position: relative; }
-.key-findings li::before { content: "◆"; position: absolute; left: 0; top: 0.14in; color: var(--indigo); font-size: 6pt; }
+.key-findings li::before { content: "·"; position: absolute; left: 0; top: 0.08in; color: var(--indigo); font-size: 12pt; }
 .key-findings strong { color: var(--indigo-deep); font-family: var(--mono); font-size: 9pt; }
 
 .callout { padding: 0.18in; border: 0.75pt solid #c9cdec; border-left: 3pt solid var(--indigo); background: var(--indigo-wash); }
@@ -184,9 +191,10 @@ td.numeric { font-family: var(--mono); font-size: 8.5pt; text-align: right; whit
 
 .bibliography { margin: 0; padding-left: 0.24in; font-size: 8.5pt; line-height: 1.35; }
 .bibliography li { margin: 0 0 0.09in; padding-left: 0.05in; break-inside: avoid; }
+.bibliography em { font-style: normal; }
 .bibliography a { overflow-wrap: anywhere; }
 .unicode-test { margin-top: 0.28in; padding-top: 0.12in; border-top: 0.5pt solid var(--rule); color: var(--ink-faint); font-size: 8.5pt; }
-.unicode-test p:first-of-type { font-family: "Proof Unicode", serif; }
+.unicode-test p:first-of-type { font-family: "Proof Unicode", "Proof Math", serif; }
 .unicode-test code { font-family: var(--mono); font-size: 7.5pt; }
 
 @page { size: Letter; margin: 0; }

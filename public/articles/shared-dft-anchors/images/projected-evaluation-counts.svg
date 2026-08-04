@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Projected DFT evaluation counts with separate and shared anchors</title>
+  <desc id="desc">A horizontal comparison shows 558 projected evaluations when four model-specific anchor sets are evaluated separately and 154 projected evaluations when duplicate image indices are shared. The locked reduction is 72.4 percent.</desc>
+  <rect width="1200" height="720" fill="#f7f3e9"/>
+  <g fill="#17243a" font-family="IBM Plex Mono, monospace">
+    <text x="84" y="92" font-size="25" letter-spacing="2">LOCKED 29-PATH Z1 ANALYSIS</text>
+    <text x="84" y="146" font-family="Georgia, serif" font-size="42">Projected reference-evaluation count</text>
+  </g>
+  <line x1="84" y1="184" x2="1116" y2="184" stroke="#a9a28e" stroke-width="2"/>
+  <g font-family="IBM Plex Mono, monospace" fill="#17243a">
+    <text x="84" y="267" font-size="24">SEPARATE MODEL ANCHORS</text>
+    <rect x="84" y="294" width="930" height="92" rx="4" fill="#c9b98a"/>
+    <text x="1038" y="358" font-size="52" font-weight="700">558</text>
+    <text x="84" y="459" font-size="24">SHARED UNION ANCHORS</text>
+    <rect x="84" y="486" width="257" height="92" rx="4" fill="#425ca8"/>
+    <text x="365" y="550" font-size="52" font-weight="700">154</text>
+  </g>
+  <g transform="translate(783 463)">
+    <rect width="333" height="151" rx="6" fill="#17243a"/>
+    <text x="166.5" y="68" text-anchor="middle" fill="#f7f3e9" font-family="Georgia, serif" font-size="56">72.4%</text>
+    <text x="166.5" y="108" text-anchor="middle" fill="#f7f3e9" font-family="IBM Plex Mono, monospace" font-size="17" letter-spacing="1.2">FEWER DFT EVALUATIONS</text>
+  </g>
+  <g fill="#5d6470" font-family="IBM Plex Mono, monospace" font-size="17">
+    <text x="84" y="653">29 analyzable paths · frozen sparse-anchor rule · prediction-side accounting only</text>
+    <text x="1116" y="687" text-anchor="end">Source record: z1-union-anchor-economics.json</text>
+  </g>
+</svg>

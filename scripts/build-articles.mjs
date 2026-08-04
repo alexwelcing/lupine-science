@@ -12,6 +12,7 @@ import { fileURLToPath } from 'node:url';
 import MarkdownIt from 'markdown-it';
 import footnote from 'markdown-it-footnote';
 import katexPlugin from 'markdown-it-katex';
+import { readProofPackMetadata } from './lib/proof-pack-metadata.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = path.join(ROOT, 'articles');
@@ -115,6 +116,8 @@ const HERO_CAPTIONS = {
     'A physical refrigeration loop — compressor, heat exchanger, and sealed refrigerant circuit — with indigo measurement traces and no readable interface text.',
   'the-savings-stack':
     'Many pale compute lanes converging into a compact shared evaluation backbone that feeds several materials programs: reuse instead of brute force.',
+  'shared-dft-anchors':
+    'The locked Z1 evaluation-count comparison: 558 projected separate-model anchors and 154 projected shared-union anchors, labeled 72.4% fewer DFT evaluations.',
   'z1-union-debrief':
     'A row of solid-electrolyte coupons mounted in identical diffusion rigs, with a sparse set of shared reference pins anchoring the barrier comparison across the whole panel.',
   'an-order-of-effort':
@@ -175,6 +178,7 @@ function extractMeta(raw) {
     ['ogImage', 'OG Image'],
     ['ogUrl', 'OG URL'],
     ['ogType', 'OG Type'],
+    ['proofPack', 'Proof Pack'],
   ]) {
     const m = raw.match(new RegExp(`^> \\\*\\*${name}:\\\*\\*\\s*(.+?)\\s*$`, 'm'));
     if (m) meta[key] = m[1];
@@ -388,7 +392,30 @@ ${items}
 </div>`;
 }
 
-function buildArticle(raw, slug) {
+async function proofDownloadCard(meta, slug, title) {
+  if (!meta.proofPack) return '';
+  const expectedHref = `/proof-packs/${slug}.proofpack.pdf`;
+  if (meta.proofPack !== expectedHref) {
+    throw new Error(`Proof Pack for ${slug} must be ${expectedHref}`);
+  }
+  const pdfPath = path.join(PUBLIC_ROOT, meta.proofPack.slice(1));
+  if (!fs.existsSync(pdfPath)) throw new Error(`Proof Pack for ${slug} does not exist: ${meta.proofPack}`);
+  const { pageCount, size, updatedDate } = await readProofPackMetadata(pdfPath);
+  const updated = formatDate(updatedDate);
+  const headingId = `proof-download-title-${slug}`;
+  return `<aside class="proof-download" aria-labelledby="${headingId}">
+  <div>
+    <p class="eyebrow">Evidence proof pack</p>
+    <h2 id="${headingId}">Download the evidence behind this article</h2>
+    <p class="description">Locked figure, method, boundaries, bibliography, and audit links in one publication-ready document.</p>
+    <p class="metadata">PDF · ${pageCount} ${pageCount === 1 ? 'page' : 'pages'} · ${size} · updated ${updated}</p>
+  </div>
+  <a class="proof-download__action" href="${esc(meta.proofPack)}" download aria-label="Download PDF for ${esc(title)}">Download PDF</a>
+  <span class="proof-download__print-url">${esc(`${SITE}${meta.proofPack}`)}</span>
+</aside>`;
+}
+
+async function buildArticle(raw, slug) {
   let body = md.render(raw);
   body = wrapInlineFigures(body);
   body = bustInlineImages(body, slug);
@@ -427,8 +454,9 @@ function buildArticle(raw, slug) {
   }
   const hero = heroFigure(slug);
   const video = inlineVideoPlayer(slug, title);
-  if (headerParts.length || hero || video) {
-    const inserted = [...headerParts, hero, video].filter(Boolean).join('\n');
+  const proofDownload = await proofDownloadCard(meta, slug, title);
+  if (headerParts.length || proofDownload || hero || video) {
+    const inserted = [...headerParts, proofDownload, hero, video].filter(Boolean).join('\n');
     body = body.replace('</h1>', `</h1>\n${inserted}`);
   }
 
@@ -611,7 +639,7 @@ function writeAtomic(file, contents) {
 for (const file of sources) {
   const slug = file.replace(/\.md$/, '');
   const raw = fs.readFileSync(path.join(SRC, file), 'utf8');
-  const built = buildArticle(raw, slug);
+  const built = await buildArticle(raw, slug);
   fs.mkdirSync(path.join(OUT, slug), { recursive: true });
   writeAtomic(path.join(OUT, slug, 'index.html'), built.page);
   articles.push(built);

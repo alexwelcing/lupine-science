@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sharing DFT anchors reduces projected evaluations by 72.4% — Lupine Science</title>
+  <meta name="description" content="Under the preregistered sparse-anchor rule, the locked Z1 records require 558 projected DFT evaluations when four model-specific anchor sets are counted separately and 154 when duplicate image indices are shared: 72.4% fewer DFT evaluations.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://lupine.science/articles/shared-dft-anchors/">
+  <meta property="og:title" content="Sharing DFT anchors reduces projected evaluations by 72.4% — Lupine Science">
+  <meta property="og:description" content="Under the preregistered sparse-anchor rule, the locked Z1 records require 558 projected DFT evaluations when four model-specific anchor sets are counted separately and 154 when duplicate image indices are shared: 72.4% fewer DFT evaluations.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://lupine.science/articles/shared-dft-anchors/">
+  <meta property="og:image" content="https://lupine.science/articles/shared-dft-anchors/hero.jpg?v=3">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sharing DFT anchors reduces projected evaluations by 72.4% — Lupine Science">
+  <meta name="twitter:description" content="Under the preregistered sparse-anchor rule, the locked Z1 records require 558 projected DFT evaluations when four model-specific anchor sets are counted separately and 154 when duplicate image indices are shared: 72.4% fewer DFT evaluations.">
+  <meta name="twitter:image" content="https://lupine.science/articles/shared-dft-anchors/hero.jpg?v=3">
+  <meta name="theme-color" content="#faf9f6">
+  <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
+  <link rel="icon" type="image/png" href="/lupine-science-icon.png">
+  <link rel="apple-touch-icon" href="/lupine-science-icon.png">
+  <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/articles/styles.css">
+  <link rel="stylesheet" href="/components/share/share.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Sharing DFT anchors reduces projected evaluations by 72.4%","description":"Under the preregistered sparse-anchor rule, the locked Z1 records require 558 projected DFT evaluations when four model-specific anchor sets are counted separately and 154 when duplicate image indices are shared: 72.4% fewer DFT evaluations.","datePublished":"2026-08-03","url":"https://lupine.science/articles/shared-dft-anchors/","mainEntityOfPage":"https://lupine.science/articles/shared-dft-anchors/","image":"https://lupine.science/articles/shared-dft-anchors/hero.jpg?v=3","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png?v=3"}}}</script>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="site-header">
+    <a class="mark" href="/" aria-label="Lupine Science">
+      <svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="bb" x1="190" y1="74" x2="324" y2="356" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#88a7d8"/><stop offset=".35" stop-color="#475b9c"/><stop offset=".78" stop-color="#102f47"/><stop offset="1" stop-color="#071a2a"/>
+    </linearGradient>
+    <linearGradient id="bl" x1="150" y1="330" x2="360" y2="470" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7f907c"/><stop offset="1" stop-color="#4c653d"/>
+    </linearGradient>
+    <radialGradient id="bc" cx="48%" cy="30%" r="68%">
+      <stop offset="0" stop-color="#fffdf3"/><stop offset=".7" stop-color="#f1e8c9"/><stop offset="1" stop-color="#d4c58f"/>
+    </radialGradient>
+  </defs>
+  <g fill="none" stroke="#4c653d" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M256 148 C252 224 258 312 254 448"/><path d="M252 402 C222 372 178 354 124 348"/><path d="M260 402 C290 372 334 354 388 348"/>
+  </g>
+  <g fill="url(#bl)" opacity=".96">
+    <ellipse cx="139" cy="348" rx="18" ry="62" transform="rotate(-78 139 348)"/><ellipse cx="167" cy="384" rx="18" ry="62" transform="rotate(-48 167 384)"/><ellipse cx="214" cy="410" rx="17" ry="58" transform="rotate(-20 214 410)"/><ellipse cx="373" cy="348" rx="18" ry="62" transform="rotate(78 373 348)"/><ellipse cx="345" cy="384" rx="18" ry="62" transform="rotate(48 345 384)"/><ellipse cx="298" cy="410" rx="17" ry="58" transform="rotate(20 298 410)"/>
+  </g>
+  <g fill="none" stroke="#fef8f5" stroke-width="5" stroke-linecap="round" opacity=".66">
+    <path d="M132 348 C170 356 205 373 236 405"/><path d="M380 348 C342 356 307 373 276 405"/>
+  </g>
+  <g fill="url(#bb)" stroke="#fef8f5" stroke-width="5" stroke-linejoin="round">
+    <ellipse cx="256" cy="86" rx="22" ry="34"/><ellipse cx="232" cy="122" rx="23" ry="35" transform="rotate(-24 232 122)"/><ellipse cx="280" cy="122" rx="23" ry="35" transform="rotate(24 280 122)"/><ellipse cx="256" cy="150" rx="30" ry="40"/><ellipse cx="211" cy="182" rx="26" ry="38" transform="rotate(-34 211 182)"/><ellipse cx="301" cy="182" rx="26" ry="38" transform="rotate(34 301 182)"/><ellipse cx="256" cy="216" rx="37" ry="48"/><ellipse cx="204" cy="256" rx="30" ry="43" transform="rotate(-42 204 256)"/><ellipse cx="308" cy="256" rx="30" ry="43" transform="rotate(42 308 256)"/><ellipse cx="256" cy="306" rx="40" ry="52"/>
+  </g>
+  <g fill="url(#bc)">
+    <path d="M244 142 C251 124 261 124 268 142 C262 136 250 136 244 142Z"/><path d="M244 207 C252 186 263 186 271 207 C263 199 252 199 244 207Z"/><path d="M242 296 C252 272 265 272 274 296 C264 286 252 286 242 296Z"/>
+  </g>
+</svg>
+      <span><b>Lupine Science</b> <span class="tld">accelerating materials discovery</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/articles/" aria-current="page">Articles</a>
+      <a href="https://library.lupine.science">Library</a>
+      <a href="https://lupi.live">LUPI</a>
+    </nav>
+  </header>
+  <main id="content" class="article-shell">
+    <article class="article">
+      <p class="article-kicker" aria-label="Article type">proof-pack</p>
+<h1>Sharing DFT anchors reduces projected evaluations by 72.4%</h1>
+<p class="article-deck">A frozen, artifact-backed analysis of 29 analyzable diffusion paths compares four separately evaluated sparse-anchor sets with their shared union.</p>
+<ul class="article-byline" aria-label="Publication details"><li><time datetime="2026-08-03">August 3, 2026</time></li> <li aria-hidden="true"><span class="byline-sep" aria-hidden="true">·</span></li> <li><span class="article-status">Published</span></li></ul>
+<aside class="proof-download" aria-labelledby="proof-download-title-shared-dft-anchors">
+  <div>
+    <p class="eyebrow">Evidence proof pack</p>
+    <h2 id="proof-download-title-shared-dft-anchors">Download the evidence behind this article</h2>
+    <p class="description">Locked figure, method, boundaries, bibliography, and audit links in one publication-ready document.</p>
+    <p class="metadata">PDF · 5 pages · 182 KB · updated August 3, 2026</p>
+  </div>
+  <a class="proof-download__action" href="/proof-packs/shared-dft-anchors.proofpack.pdf" download aria-label="Download PDF for Sharing DFT anchors reduces projected evaluations by 72.4%">Download PDF</a>
+  <span class="proof-download__print-url">https://lupine.science/proof-packs/shared-dft-anchors.proofpack.pdf</span>
+</aside>
+<figure class="article-hero" aria-labelledby="hero-caption">
+  <picture>
+    <img src="/articles/shared-dft-anchors/hero.jpg?v=3" alt="" width="1280" height="720" loading="eager" fetchpriority="high" decoding="async">
+  </picture>
+  <figcaption id="hero-caption">The locked Z1 evaluation-count comparison: 558 projected separate-model anchors and 154 projected shared-union anchors, labeled 72.4% fewer DFT evaluations.</figcaption>
+</figure>
+
+<div class="callout claim">
+  <strong>Claim.</strong> On the locked Z1 panel’s 29 analyzable paths, sharing identical sparse-anchor image indices across four universal interatomic-potential guides reduces the projected DFT evaluation count from 558 to 154: 72.4% fewer DFT evaluations.
+</div>
+<p class="lead">Reference calculations are the scarce part of many atomistic workflows. This proof pack asks a narrow accounting question: if four models nominate sparse images on the same paths, how many distinct reference evaluations remain after identical image indices are evaluated once and shared?</p>
+<h2>Abstract</h2>
+<p>We analyze recorded prediction profiles from four universal machine-learned interatomic potentials on a locked panel of diffusion paths. A frozen rule selects endpoints, a predicted minimum, and a bounded neighborhood around the predicted maximum for each available model–path profile. The separate-model accounting contains 558 projected reference evaluations. Deduplicating equal image indices within each path leaves a union of 154 projected evaluations, or <strong>72.4% fewer DFT evaluations</strong>. One panel path is excluded because all four recorded artifacts lack a converged prediction profile; three additional paths retain only their available model records, without imputation. This is prediction-side accounting, not a claim that the shared set has already been evaluated by DFT, not an accuracy result, and not a universal savings rate.</p>
+<h2>Result</h2>
+<figure>
+  <img src="images/projected-evaluation-counts.png?v=3" alt="Horizontal comparison of 558 projected separate-model DFT evaluations and 154 projected shared-union evaluations, labeled 72.4 percent fewer across 29 analyzable paths.">
+  <figcaption><strong>Figure 1.</strong> Frozen evaluation-count comparison on the 29 analyzable Z1 paths. The two bars report the separate-model anchor count and the deduplicated within-path union count. <span class="figure-source">Source: committed machine-readable analysis record; figure checksum is locked in the proof-pack manifest.</span></figcaption>
+</figure>
+<table>
+<thead>
+<tr>
+<th>Accounting basis</th>
+<th style="text-align:right">Analyzable paths</th>
+<th style="text-align:right">Projected DFT evaluations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Four model-specific anchor sets, counted separately</td>
+<td style="text-align:right">29</td>
+<td style="text-align:right">558</td>
+</tr>
+<tr>
+<td>Within-path union of identical image indices</td>
+<td style="text-align:right">29</td>
+<td style="text-align:right">154</td>
+</tr>
+</tbody>
+</table>
+<p>The percentage is reported exactly as the reviewed public claim. No dollar amount, wall-time conversion, annualization, or additional economic multiplier is inferred in this paper.</p>
+<h2>Method</h2>
+<p>For model (m) and path (p), let (A(m,p)) be the anchor indices selected from the recorded predicted image-energy profile. The frozen rule includes both endpoints, the predicted minimum, and a clamped neighborhood around the predicted maximum. The separate-model total counts every available (A(m,p)). The shared total counts each index in the within-path union only once.</p>
+<p>The analysis reads the locked panel and four recorded campaign artifacts. It does not rerun DFT. Input SHA-256 digests are stored in the machine-readable record. The accompanying script reproduces the JSON from repository-relative local artifacts or the recorded object locations; a pinned recording timestamp supports byte-for-byte JSON verification.</p>
+<h2>Exclusions and fail-closed handling</h2>
+<p>The panel contains 30 paths, but the primary denominator is 29 analyzable paths. One path lacks a converged prediction profile in every model artifact and is excluded rather than imputed. Three paths have partial model coverage; their available profiles are included and their missing profiles remain missing. The record preserves per-model failure entries.</p>
+<p>The result is deliberately separate from any realized execution record. This paper does not combine projected and realized denominators, does not substitute one anchor count for another, and does not infer a new percentage from a different campaign.</p>
+<h2>What the result establishes</h2>
+<ul>
+<li>It establishes the projected reference-evaluation count under one frozen selection rule on one locked panel.</li>
+<li>It shows that identical image indices nominated by different model guides can be deduplicated before reference evaluation.</li>
+<li>It provides a machine-readable record, input digests, a deterministic analysis script, and a locked figure.</li>
+</ul>
+<h2>What the result does not establish</h2>
+<ul>
+<li>It does not show that the 154-member union has been evaluated by DFT.</li>
+<li>It does not establish accuracy parity between shared and separately evaluated anchors.</li>
+<li>It does not estimate dollars, wall time, energy use, or emissions.</li>
+<li>It does not claim that 72.4% transfers to other panels, chemistries, engines, model sets, or anchor rules.</li>
+<li>It does not upgrade literature items that remain marked unverified or abstract-only in the underlying research digests.</li>
+</ul>
+<h2>Historical context</h2>
+<p>The nudged elastic band method made a discrete chain of images a standard way to optimize minimum-energy paths. Later surrogate-assisted NEB work reduced the number of expensive evaluations required inside a single search. The present result addresses a different reuse boundary: multiple model guides nominate images on the same path, and identical reference-evaluation sites are shared across those guides. The context is established by independent literature; the 558-to-154 measurement itself is supported by the internal auditable record linked below, not by those papers.</p>
+<h2>Reproduction and audit</h2>
+<p>From the released data pack, verify all file digests with:</p>
+<p><code>sha256sum -c MANIFEST.sha256</code></p>
+<p>Recompute the union-anchor JSON with the released <code>union_anchor_economics.py</code>, the recorded local inputs, and the pinned <code>--recorded-at</code> timestamp documented in the pack README. Compare the resulting JSON against its SHA-256 sidecar. The proof-pack manifest separately locks the figure input and generated PDF.</p>
+<h2>Bibliography</h2>
+<ol>
+<li>Henkelman, G.; Uberuaga, B. P.; Jónsson, H. <em>A climbing image nudged elastic band method for finding saddle points and minimum energy paths.</em> Journal of Chemical Physics 113, 9901–9904 (2000). DOI: <a href="https://doi.org/10.1063/1.1329672">10.1063/1.1329672</a>.</li>
+<li>Garrido Torres, J. A.; Jennings, P. C.; Hansen, M. H.; Boes, J. R.; Bligaard, T. <em>Low-Scaling Algorithm for Nudged Elastic Band Calculations Using a Surrogate Machine Learning Model.</em> Physical Review Letters 122, 156001 (2019). DOI: <a href="https://doi.org/10.1103/PhysRevLett.122.156001">10.1103/PhysRevLett.122.156001</a>.</li>
+<li>Deng, B. et al. <em>CHGNet as a pretrained universal neural network potential for charge-informed atomistic modelling.</em> Nature Machine Intelligence 5, 1031–1041 (2023). DOI: <a href="https://doi.org/10.1038/s42256-023-00716-3">10.1038/s42256-023-00716-3</a>.</li>
+</ol>
+<h2>Audit links</h2>
+<ul>
+<li><a href="/data/savings-stack-v1/README.md">Released data and reproduction pack</a></li>
+<li><a href="/data/savings-stack-v1/z1-union-anchor-economics.json">Machine-readable union-anchor record</a></li>
+<li><a href="/data/savings-stack-v1/z1-union-anchor-economics.json.sha256">SHA-256 sidecar</a></li>
+<li><a href="/data/savings-stack-v1/z1-union-anchor-economics.md">Analysis note</a></li>
+<li><a href="/data/savings-stack-v1/union_anchor_economics.py">Reproduction script</a></li>
+<li><a href="/data/savings-stack-v1/citation-verification-2026-07-21.md">Citation identifier audit</a></li>
+<li><a href="/data/savings-stack-v1/MANIFEST.sha256">Complete data-pack manifest</a></li>
+</ul>
+<hr>
+<p><strong>Author:</strong> Alex Welcing · <strong>Institution:</strong> Lupine Science · <strong>Evidence cutoff:</strong> 2026-07-21 · <strong>Editorial status:</strong> Independently reviewed and approved for publication 2026-08-03.</p>
+
+<div class="share-root" data-url="https://lupine.science/articles/shared-dft-anchors/" data-title="Sharing DFT anchors reduces projected evaluations by 72.4%" role="group" aria-label="Share">
+  <ul class="share-list" role="list" aria-label="Share options">
+    <li><a class="share-link share-x" href="https://twitter.com/intent/tweet?text=Sharing%20DFT%20anchors%20reduces%20projected%20evaluations%20by%2072.4%25&amp;url=https%3A%2F%2Flupine.science%2Farticles%2Fshared-dft-anchors%2F" aria-label="Share on X" target="_blank" rel="noopener noreferrer">X</a></li>
+    <li><a class="share-link share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Flupine.science%2Farticles%2Fshared-dft-anchors%2F" aria-label="Share on LinkedIn" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+    <li><a class="share-link share-email" href="mailto:?subject=Sharing%20DFT%20anchors%20reduces%20projected%20evaluations%20by%2072.4%25&amp;body=Sharing%20DFT%20anchors%20reduces%20projected%20evaluations%20by%2072.4%25%0A%0Ahttps%3A%2F%2Flupine.science%2Farticles%2Fshared-dft-anchors%2F" aria-label="Share by email">Email</a></li>
+  </ul>
+</div>
+    </article>
+  </main>
+  <footer class="foot">
+    <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
+    <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" href="mailto:alex@lupinesci.com" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
+    <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
+  </footer>
+<script type="module">
+import { initAllShareWidgets } from "/components/share/share.mjs";
+(() => {
+  document.querySelectorAll("a.mail").forEach((a) => {
+    const addr = a.dataset.u + "@" + a.dataset.d;
+    a.href = "mailto:" + addr;
+    a.textContent = addr;
+  });
+  const vids = document.querySelectorAll("video[data-autoplay]");
+  if (vids.length) {
+    if (!("IntersectionObserver" in window)) { vids.forEach((v) => { v.preload = "metadata"; }); }
+    else {
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) { e.target.play().catch(() => {}); }
+          else { e.target.pause(); }
+        }
+      }, { rootMargin: "120px" });
+      vids.forEach((v) => io.observe(v));
+    }
+  }
+})();
+</script>
+</body>
+</html>
