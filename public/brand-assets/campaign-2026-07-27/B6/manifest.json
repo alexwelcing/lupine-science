@@ -1,0 +1,866 @@
+{
+  "model": "minimax/image-01 (api.minimax.io)",
+  "assets": [
+    {
+      "asset_id": "B6-A01-01",
+      "key": "z1-union-debrief-hero",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-hero.jpg",
+      "bytes": 212893,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. Multiple model-specific battery-barrier paths converging on a shared sparse set of indigo evaluation anchors across a panel of solid-electrolyte samples. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:026a868d27dd36ebf67cbc3d4323774e32a5666dc1714dfd462c904b3ac8194d"
+    },
+    {
+      "asset_id": "B6-A01-02",
+      "key": "z1-union-debrief-inline-01",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-inline-01.jpg",
+      "bytes": 175298,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A campaign map of many possible barrier calculations reduced to a compact union route through shared physical test stations, with skipped work visible as untouched paper. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:13d69754470f24b021b2b994e1ad6762bf281c8c04d0df95b57b62e3b568dc1f"
+    },
+    {
+      "asset_id": "B6-A01-03",
+      "key": "z1-union-debrief-inline-02",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-inline-02.jpg",
+      "bytes": 114100,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. The honest verdict shown as candidate battery paths whose rank order is retained while magnitude gauges remain misaligned, avoiding a success/failure binary. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:b8af29a7e8d14b8fb1c9dd72b3ecbee3b6795695fd7091e7fcbba790f8d3c3f3"
+    },
+    {
+      "asset_id": "B6-A01-04",
+      "key": "z1-union-debrief-inline-03",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-inline-03.jpg",
+      "bytes": 351147,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A provenance corridor of sealed sample panels, compute receipts, and reproduced checkpoints leading into a debrief table with no people or readable documents. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:731a564f237a8462c620f1c4ccca19543248482042a06a900b90e5a3ece4ff99"
+    },
+    {
+      "asset_id": "B6-A01-05",
+      "key": "z1-union-debrief-spread",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-spread.jpg",
+      "bytes": 195908,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A next-campaign staging area where reusable anchors and preserved evidence support a smaller, more focused solid-state battery experiment—not a claim of deployment. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:b98aeb8cbb3bad52bb37e82dc33d0c8379c7ddb8e18ccc176939d8f292c43c0a"
+    },
+    {
+      "asset_id": "B6-A02-01",
+      "key": "an-order-of-effort-hero",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-hero.jpg",
+      "bytes": 171143,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A measured ladder of research effort from smooth bulk materials through defects, reactions, and complex interfaces, each rung tied to an appropriate societal test system. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:9eabb65167902bdbafab0ca277961efc3c4f41355d147beb309ef93b82339b48"
+    },
+    {
+      "asset_id": "B6-A02-02",
+      "key": "an-order-of-effort-inline-01",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-inline-01.jpg",
+      "bytes": 199375,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A resource allocation map where low-complexity supported tasks enter battery and structural screens while harder tasks route to reference calculation and experiment. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:fb066225880812fe0223ff013e7d30456b955aa91756a16158e5ad5bffabbd04"
+    },
+    {
+      "asset_id": "B6-A02-03",
+      "key": "an-order-of-effort-inline-02",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-inline-02.jpg",
+      "bytes": 286263,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. Nested correction boundaries shown as engineering containment rings around material regimes, preventing one method from overriding another outside its evidence domain. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:528e01d5d7890052bf87176f63c19706007ddfa02dc868148c74dd959cda35cf"
+    },
+    {
+      "asset_id": "B6-A02-04",
+      "key": "an-order-of-effort-inline-03",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-inline-03.jpg",
+      "bytes": 351850,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A phased research campaign represented by increasingly specialized test bays and compute stations, with uncertainty widening honestly toward the hard end. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:abc34967e5fb43fec6030f77cca7e05f086fb7046d8010db8ec15a39dfe52a86"
+    },
+    {
+      "asset_id": "B6-A02-05",
+      "key": "an-order-of-effort-spread",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-spread.jpg",
+      "bytes": 114668,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A balanced portfolio of near-term correction work and frontier reference experiments supporting clean-energy infrastructure without claiming one law covers all matter. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:d5f31b9a2e51df22267a0038ad5c4117d2ddb4ac34e6d83fe6f966ddb42f727b"
+    },
+    {
+      "asset_id": "B6-A03-01",
+      "key": "the-order-is-right-the-size-is-wrong-hero",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-hero.jpg",
+      "bytes": 173245,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A row of practical material candidates ordered correctly along a test bench while their predicted response bars are visibly too short, communicated through physical gauges without numbers. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:c3920d31076999f495f9efe971ef0862a534cc650c4dca887943ad1e0aafff30"
+    },
+    {
+      "asset_id": "B6-A03-02",
+      "key": "the-order-is-right-the-size-is-wrong-inline-01",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-inline-01.jpg",
+      "bytes": 177557,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A surface-energy ranking translated into coating and catalyst sample plates, with indigo order preserved but ink measurement distances revealing magnitude error. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:0217cecff762e6034b8f40205ceaa9c8a4e3c6707ee755d835b57f0ff315ad4d"
+    },
+    {
+      "asset_id": "B6-A03-03",
+      "key": "the-order-is-right-the-size-is-wrong-inline-02",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-inline-02.jpg",
+      "bytes": 247226,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A correction field stretching predictions toward measured scale while a proof frame limits how far each adjustment may move. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:9b6d79078ed552004d913ea1f75c27b2ae1e69dbfb7026ca4dd71c5753319bf5"
+    },
+    {
+      "asset_id": "B6-A03-04",
+      "key": "the-order-is-right-the-size-is-wrong-inline-03",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-inline-03.jpg",
+      "bytes": 107015,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A simulation operator pipeline represented without people: model cartridge, rank-preserving field, bounded correction, and engineering decision tray. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:e7eb4ced7031ac7067e215da9304aa26b068d8cf55dede584977e2e855bcfd70"
+    },
+    {
+      "asset_id": "B6-A03-05",
+      "key": "the-order-is-right-the-size-is-wrong-spread",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-spread.jpg",
+      "bytes": 172324,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A clean-industry pilot selection scene where correct ordering saves experimental capacity even though final magnitudes still require reference measurement. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:c2c71b9de241e241269b2baa21cec19398e04d464f3dc7b6b2eaa64509c5c9d0"
+    },
+    {
+      "asset_id": "B6-A04-01",
+      "key": "from-fantasy-frameworks-to-makeable-materials-hero",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-hero.jpg",
+      "bytes": 368802,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. An immense field of speculative porous framework silhouettes narrowing through assembly, synthesizability, stability, and operation gates into a few physical sorbent modules. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:1b2054cefd3555d49bdf7b742bd945c250589a9e44582bdb837cd7324e399712"
+    },
+    {
+      "asset_id": "B6-A04-02",
+      "key": "from-fantasy-frameworks-to-makeable-materials-inline-01",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-inline-01.jpg",
+      "bytes": 437211,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A reticular material shown at component scale inside an air-capture contactor, with joints and pore channels highlighted as engineering constraints rather than jewel-like molecular decoration. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:b332dee94185c0f375f3e3aa58fd19136b4e919590a68fb2655ad05d0c05d38b"
+    },
+    {
+      "asset_id": "B6-A04-03",
+      "key": "from-fantasy-frameworks-to-makeable-materials-inline-02",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-inline-02.jpg",
+      "bytes": 112730,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A makeability workflow of building blocks, synthesis vessel, stability chamber, and pilot cartridge linked by exact indigo proof boundaries. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:4fca476c92df7bb5f2862fdd8f44c1fd7ab5dd8ef045d80f3eb92c4c0e8161be"
+    },
+    {
+      "asset_id": "B6-A04-04",
+      "key": "from-fantasy-frameworks-to-makeable-materials-inline-03",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-inline-03.jpg",
+      "bytes": 262583,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A generative design stream encountering legal geometric constraints: invalid structures stop cleanly while valid candidates proceed to physical sample trays. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:7942f8658cf3dd9381f3ea3ff9796aecac38c4067a53338997b5e2e4e954a955"
+    },
+    {
+      "asset_id": "B6-A04-05",
+      "key": "from-fantasy-frameworks-to-makeable-materials-spread",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-spread.jpg",
+      "bytes": 183480,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A prospectus-scale air-capture facility under development, foregrounded by a modest set of formally screened framework samples and ample visual uncertainty. Warm off-white #faf9f6 must dominate; near-black ink #16171d supplies fine structural linework; indigo #3d4db3 is the only light/accent and should occupy a small, purposeful area. No other hues. Ochre #8a5e1f is forbidden unless the concept explicitly calls for a tiny warning-only marker. Strict exclusions: text, letters, numbers, labels, logos, people, faces, flowers, plants, neon, dark backgrounds, glowing circuits, stock 3D rendering, molecule-as-hero cliché, unsupported before/after transformation, overclaiming.",
+      "spec_hash": "sha256:8833991b8de70f9741e96bd9592b71883807565f7edd002e194c1ee3c2a700fe"
+    },
+    {
+      "asset_id": "B6-A01-01-R1",
+      "original_asset_id": "B6-A01-01",
+      "key": "z1-union-debrief-hero--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-hero.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-hero--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-hero--retry-1.jpg",
+      "bytes": 372431,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. Multiple model-specific battery-barrier paths converging on a shared sparse set of indigo evaluation anchors across a panel of solid-electrolyte samples. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Preserve the bounded original concept using physical anchors, test stations, gauges without markings, proof frames, and pilot modules. Keep 40–60% clean warm-paper space and only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+      "spec_hash": "sha256:026a868d27dd36ebf67cbc3d4323774e32a5666dc1714dfd462c904b3ac8194d",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, dark/neon fields, molecular glamour, stock-3D treatment, or decorative color.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:42:21.253Z",
+      "source_dimensions": {
+        "width": 1280,
+        "height": 720
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:42:38.382Z"
+    },
+    {
+      "asset_id": "B6-A01-02-R1",
+      "original_asset_id": "B6-A01-02",
+      "key": "z1-union-debrief-inline-01--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-inline-01.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-inline-01--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-inline-01--retry-1.jpg",
+      "bytes": 654660,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A campaign map of many possible barrier calculations reduced to a compact union route through shared physical test stations, with skipped work visible as untouched paper. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Preserve the bounded original concept using physical anchors, test stations, gauges without markings, proof frames, and pilot modules. Keep 40–60% clean warm-paper space and only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+      "spec_hash": "sha256:13d69754470f24b021b2b994e1ad6762bf281c8c04d0df95b57b62e3b568dc1f",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, dark/neon fields, molecular glamour, stock-3D treatment, or decorative color. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:42:38.382Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:42:57.349Z"
+    },
+    {
+      "asset_id": "B6-A01-03-R1",
+      "original_asset_id": "B6-A01-03",
+      "key": "z1-union-debrief-inline-02--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-inline-02.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-inline-02--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-inline-02--retry-1.jpg",
+      "bytes": 520568,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. The honest verdict shown as candidate battery paths whose rank order is retained while magnitude gauges remain misaligned, avoiding a success/failure binary. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Preserve the bounded original concept using physical anchors, test stations, gauges without markings, proof frames, and pilot modules. Keep 40–60% clean warm-paper space and only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+      "spec_hash": "sha256:b8af29a7e8d14b8fb1c9dd72b3ecbee3b6795695fd7091e7fcbba790f8d3c3f3",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, dark/neon fields, molecular glamour, stock-3D treatment, or decorative color.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:42:57.349Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:43:14.285Z"
+    },
+    {
+      "asset_id": "B6-A01-04-R1",
+      "original_asset_id": "B6-A01-04",
+      "key": "z1-union-debrief-inline-03--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-inline-03.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-inline-03--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-inline-03--retry-1.jpg",
+      "bytes": 674561,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A provenance corridor of sealed sample panels, compute receipts, and reproduced checkpoints leading into a debrief table with no people or readable documents. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Preserve the bounded original concept using physical anchors, test stations, gauges without markings, proof frames, and pilot modules. Keep 40–60% clean warm-paper space and only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+      "spec_hash": "sha256:731a564f237a8462c620f1c4ccca19543248482042a06a900b90e5a3ece4ff99",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, dark/neon fields, molecular glamour, stock-3D treatment, or decorative color. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:43:14.286Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:43:31.894Z"
+    },
+    {
+      "asset_id": "B6-A01-05-R1",
+      "original_asset_id": "B6-A01-05",
+      "key": "z1-union-debrief-spread--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-spread.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-spread--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-spread--retry-1.jpg",
+      "bytes": 644244,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A next-campaign staging area where reusable anchors and preserved evidence support a smaller, more focused solid-state battery experiment—not a claim of deployment. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Preserve the bounded original concept using physical anchors, test stations, gauges without markings, proof frames, and pilot modules. Keep 40–60% clean warm-paper space and only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+      "spec_hash": "sha256:b98aeb8cbb3bad52bb37e82dc33d0c8379c7ddb8e18ccc176939d8f292c43c0a",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, dark/neon fields, molecular glamour, stock-3D treatment, or decorative color. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:43:31.894Z",
+      "source_dimensions": {
+        "width": 1280,
+        "height": 720
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:43:49.256Z"
+    },
+    {
+      "asset_id": "B6-A02-01-R1",
+      "original_asset_id": "B6-A02-01",
+      "key": "an-order-of-effort-hero--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-hero.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-hero--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-hero--retry-1.jpg",
+      "bytes": 263165,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A measured ladder of research effort from smooth bulk materials through defects, reactions, and complex interfaces, each rung tied to an appropriate societal test system. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Preserve the bounded original concept using physical anchors, test stations, gauges without markings, proof frames, and pilot modules. Keep 40–60% clean warm-paper space and only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+      "spec_hash": "sha256:9eabb65167902bdbafab0ca277961efc3c4f41355d147beb309ef93b82339b48",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, dark/neon fields, molecular glamour, stock-3D treatment, or decorative color. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:43:49.256Z",
+      "source_dimensions": {
+        "width": 1280,
+        "height": 720
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:44:07.771Z"
+    },
+    {
+      "asset_id": "B6-A02-02-R1",
+      "original_asset_id": "B6-A02-02",
+      "key": "an-order-of-effort-inline-01--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-inline-01.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-inline-01--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-inline-01--retry-1.jpg",
+      "bytes": 431749,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A resource allocation map where low-complexity supported tasks enter battery and structural screens while harder tasks route to reference calculation and experiment. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Preserve the bounded original concept using physical anchors, test stations, gauges without markings, proof frames, and pilot modules. Keep 40–60% clean warm-paper space and only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+      "spec_hash": "sha256:fb066225880812fe0223ff013e7d30456b955aa91756a16158e5ad5bffabbd04",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, dark/neon fields, molecular glamour, stock-3D treatment, or decorative color. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:44:07.772Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:44:27.691Z"
+    },
+    {
+      "asset_id": "B6-A02-03-R1",
+      "original_asset_id": "B6-A02-03",
+      "key": "an-order-of-effort-inline-02--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-inline-02.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-inline-02--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-inline-02--retry-1.jpg",
+      "bytes": 458123,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. Nested correction boundaries shown as engineering containment rings around material regimes, preventing one method from overriding another outside its evidence domain. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Preserve the bounded original concept using physical anchors, test stations, gauges without markings, proof frames, and pilot modules. Keep 40–60% clean warm-paper space and only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+      "spec_hash": "sha256:528e01d5d7890052bf87176f63c19706007ddfa02dc868148c74dd959cda35cf",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, dark/neon fields, molecular glamour, stock-3D treatment, or decorative color. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:44:27.692Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:44:44.929Z"
+    },
+    {
+      "asset_id": "B6-A02-04-R1",
+      "original_asset_id": "B6-A02-04",
+      "key": "an-order-of-effort-inline-03--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-inline-03.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-inline-03--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-inline-03--retry-1.jpg",
+      "bytes": 380703,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A phased research campaign represented by increasingly specialized test bays and compute stations, with uncertainty widening honestly toward the hard end. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Preserve the bounded original concept using physical anchors, test stations, gauges without markings, proof frames, and pilot modules. Keep 40–60% clean warm-paper space and only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+      "spec_hash": "sha256:abc34967e5fb43fec6030f77cca7e05f086fb7046d8010db8ec15a39dfe52a86",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, dark/neon fields, molecular glamour, stock-3D treatment, or decorative color. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:44:44.929Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:45:02.317Z"
+    },
+    {
+      "asset_id": "B6-A02-05-R1",
+      "original_asset_id": "B6-A02-05",
+      "key": "an-order-of-effort-spread--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-spread.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-spread--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/an-order-of-effort-spread--retry-1.jpg",
+      "bytes": 424270,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A balanced portfolio of near-term correction work and frontier reference experiments supporting clean-energy infrastructure without claiming one law covers all matter. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Preserve the bounded original concept using physical anchors, test stations, gauges without markings, proof frames, and pilot modules. Keep 40–60% clean warm-paper space and only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+      "spec_hash": "sha256:d5f31b9a2e51df22267a0038ad5c4117d2ddb4ac34e6d83fe6f966ddb42f727b",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, dark/neon fields, molecular glamour, stock-3D treatment, or decorative color. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:45:02.318Z",
+      "source_dimensions": {
+        "width": 1280,
+        "height": 720
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:45:19.579Z"
+    },
+    {
+      "asset_id": "B6-A03-01-R1",
+      "original_asset_id": "B6-A03-01",
+      "key": "the-order-is-right-the-size-is-wrong-hero--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-hero.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-hero--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-hero--retry-1.jpg",
+      "bytes": 279784,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A row of practical material candidates ordered correctly along a test bench while their predicted response bars are visibly too short, communicated through physical gauges without numbers. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Preserve the bounded original concept using physical anchors, test stations, gauges without markings, proof frames, and pilot modules. Keep 40–60% clean warm-paper space and only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+      "spec_hash": "sha256:c3920d31076999f495f9efe971ef0862a534cc650c4dca887943ad1e0aafff30",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, dark/neon fields, molecular glamour, stock-3D treatment, or decorative color. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:45:19.579Z",
+      "source_dimensions": {
+        "width": 1280,
+        "height": 720
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:45:41.316Z"
+    },
+    {
+      "asset_id": "B6-A03-02-R1",
+      "original_asset_id": "B6-A03-02",
+      "key": "the-order-is-right-the-size-is-wrong-inline-01--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-inline-01.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-inline-01--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-inline-01--retry-1.jpg",
+      "bytes": 489955,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A surface-energy ranking translated into coating and catalyst sample plates, with indigo order preserved but ink measurement distances revealing magnitude error. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Preserve the bounded original concept using physical anchors, test stations, gauges without markings, proof frames, and pilot modules. Keep 40–60% clean warm-paper space and only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+      "spec_hash": "sha256:0217cecff762e6034b8f40205ceaa9c8a4e3c6707ee755d835b57f0ff315ad4d",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, dark/neon fields, molecular glamour, stock-3D treatment, or decorative color.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:45:41.316Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:47:19.350Z"
+    },
+    {
+      "asset_id": "B6-A03-03-R1",
+      "original_asset_id": "B6-A03-03",
+      "key": "the-order-is-right-the-size-is-wrong-inline-02--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-inline-02.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-inline-02--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-inline-02--retry-1.jpg",
+      "bytes": 469990,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A correction field stretching predictions toward measured scale while a proof frame limits how far each adjustment may move. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Preserve the bounded original concept using physical anchors, test stations, gauges without markings, proof frames, and pilot modules. Keep 40–60% clean warm-paper space and only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+      "spec_hash": "sha256:9b6d79078ed552004d913ea1f75c27b2ae1e69dbfb7026ca4dd71c5753319bf5",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, dark/neon fields, molecular glamour, stock-3D treatment, or decorative color.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:47:19.351Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:47:37.116Z"
+    },
+    {
+      "asset_id": "B6-A03-04-R1",
+      "original_asset_id": "B6-A03-04",
+      "key": "the-order-is-right-the-size-is-wrong-inline-03--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-inline-03.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-inline-03--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-inline-03--retry-1.jpg",
+      "bytes": 473886,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A simulation operator pipeline represented without people: model cartridge, rank-preserving field, bounded correction, and engineering decision tray. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Preserve the bounded original concept using physical anchors, test stations, gauges without markings, proof frames, and pilot modules. Keep 40–60% clean warm-paper space and only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+      "spec_hash": "sha256:e7eb4ced7031ac7067e215da9304aa26b068d8cf55dede584977e2e855bcfd70",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, dark/neon fields, molecular glamour, stock-3D treatment, or decorative color. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:47:37.117Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:47:55.802Z"
+    },
+    {
+      "asset_id": "B6-A03-05-R1",
+      "original_asset_id": "B6-A03-05",
+      "key": "the-order-is-right-the-size-is-wrong-spread--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-spread.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-spread--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/the-order-is-right-the-size-is-wrong-spread--retry-1.jpg",
+      "bytes": 470000,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A clean-industry pilot selection scene where correct ordering saves experimental capacity even though final magnitudes still require reference measurement. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Preserve the bounded original concept using physical anchors, test stations, gauges without markings, proof frames, and pilot modules. Keep 40–60% clean warm-paper space and only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+      "spec_hash": "sha256:c2c71b9de241e241269b2baa21cec19398e04d464f3dc7b6b2eaa64509c5c9d0",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, dark/neon fields, molecular glamour, stock-3D treatment, or decorative color. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:47:55.802Z",
+      "source_dimensions": {
+        "width": 1280,
+        "height": 720
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:48:13.002Z"
+    },
+    {
+      "asset_id": "B6-A04-01-R1",
+      "original_asset_id": "B6-A04-01",
+      "key": "from-fantasy-frameworks-to-makeable-materials-hero--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-hero.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-hero--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-hero--retry-1.jpg",
+      "bytes": 462020,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. An immense field of speculative porous framework silhouettes narrowing through assembly, synthesizability, stability, and operation gates into a few physical sorbent modules. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Preserve the bounded original concept using physical anchors, test stations, gauges without markings, proof frames, and pilot modules. Keep 40–60% clean warm-paper space and only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+      "spec_hash": "sha256:1b2054cefd3555d49bdf7b742bd945c250589a9e44582bdb837cd7324e399712",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, dark/neon fields, molecular glamour, stock-3D treatment, or decorative color. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:48:13.003Z",
+      "source_dimensions": {
+        "width": 1280,
+        "height": 720
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:48:29.688Z"
+    },
+    {
+      "asset_id": "B6-A04-02-R1",
+      "original_asset_id": "B6-A04-02",
+      "key": "from-fantasy-frameworks-to-makeable-materials-inline-01--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-inline-01.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-inline-01--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-inline-01--retry-1.jpg",
+      "bytes": 727657,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A reticular material shown at component scale inside an air-capture contactor, with joints and pore channels highlighted as engineering constraints rather than jewel-like molecular decoration. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Preserve the bounded original concept using physical anchors, test stations, gauges without markings, proof frames, and pilot modules. Keep 40–60% clean warm-paper space and only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+      "spec_hash": "sha256:b332dee94185c0f375f3e3aa58fd19136b4e919590a68fb2655ad05d0c05d38b",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, dark/neon fields, molecular glamour, stock-3D treatment, or decorative color. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:48:29.689Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:48:47.005Z"
+    },
+    {
+      "asset_id": "B6-A04-03-R1",
+      "original_asset_id": "B6-A04-03",
+      "key": "from-fantasy-frameworks-to-makeable-materials-inline-02--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-inline-02.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-inline-02--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-inline-02--retry-1.jpg",
+      "bytes": 640013,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A makeability workflow of building blocks, synthesis vessel, stability chamber, and pilot cartridge linked by exact indigo proof boundaries. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Preserve the bounded original concept using physical anchors, test stations, gauges without markings, proof frames, and pilot modules. Keep 40–60% clean warm-paper space and only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+      "spec_hash": "sha256:4fca476c92df7bb5f2862fdd8f44c1fd7ab5dd8ef045d80f3eb92c4c0e8161be",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, dark/neon fields, molecular glamour, stock-3D treatment, or decorative color. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:48:47.006Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:49:05.917Z"
+    },
+    {
+      "asset_id": "B6-A04-04-R1",
+      "original_asset_id": "B6-A04-04",
+      "key": "from-fantasy-frameworks-to-makeable-materials-inline-03--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-inline-03.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-inline-03--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-inline-03--retry-1.jpg",
+      "bytes": 530043,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A generative design stream encountering legal geometric constraints: invalid structures stop cleanly while valid candidates proceed to physical sample trays. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Preserve the bounded original concept using physical anchors, test stations, gauges without markings, proof frames, and pilot modules. Keep 40–60% clean warm-paper space and only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+      "spec_hash": "sha256:7942f8658cf3dd9381f3ea3ff9796aecac38c4067a53338997b5e2e4e954a955",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, dark/neon fields, molecular glamour, stock-3D treatment, or decorative color. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:49:05.918Z",
+      "source_dimensions": {
+        "width": 1248,
+        "height": 832
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:49:23.233Z"
+    },
+    {
+      "asset_id": "B6-A04-05-R1",
+      "original_asset_id": "B6-A04-05",
+      "key": "from-fantasy-frameworks-to-makeable-materials-spread--retry-1",
+      "original_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-spread.jpg",
+      "replacement_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-spread--retry-1.jpg",
+      "output_path": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/campaign-2026-07-27/B6/from-fantasy-frameworks-to-makeable-materials-spread--retry-1.jpg",
+      "bytes": 403931,
+      "exact_prompt": "Editorial scientific illustration for Lupine Science; calm premium research-monograph linework with practical systems before atomic imagery. Original matrix concept: Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A prospectus-scale air-capture facility under development, foregrounded by a modest set of formally screened framework samples and ample visual uncertainty. QA correction: keep 40–60% clean warm-paper negative space; use only literal #faf9f6 paper, #16171d ink, and restrained #3d4db3 indigo; use no ochre or other hue. Render no text-like marks, glyphs, pseudo-writing, labels, numbers, logos, signage, people, hands, faces, silhouettes, plants, flowers, neon, dark fields, glow, molecular hero framing, generic stock architecture, or glossy stock-3D polish. Batch-specific emphasis: Preserve the bounded original concept using physical anchors, test stations, gauges without markings, proof frames, and pilot modules. Keep 40–60% clean warm-paper space and only #faf9f6, #16171d, and #3d4db3 with no ochre.",
+      "spec_hash": "sha256:8833991b8de70f9741e96bd9592b71883807565f7edd002e194c1ee3c2a700fe",
+      "qa_reason": "Editorial QA rejected this slot: its export was below the required native 1536-pixel slot dimensions; the batch also showed people, generated marks, dark/neon fields, molecular glamour, stock-3D treatment, or decorative color. Independent OCR/palette/composition QA also rejected this slot; its batch-card verdict supplies the asset-specific evidence.",
+      "qa_sources": [
+        "t_f5047e27",
+        "t_805f6ca4",
+        "t_73e4535a"
+      ],
+      "attempt": 1,
+      "status": "generated",
+      "started_at": "2026-07-28T04:49:23.234Z",
+      "source_dimensions": {
+        "width": 1280,
+        "height": 720
+      },
+      "target_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "output_dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "postprocessed_to_target": true,
+      "postprocess_error": null,
+      "completed_at": "2026-07-28T04:49:40.995Z"
+    }
+  ],
+  "updated_at": "2026-07-28T04:49:40.995Z"
+}

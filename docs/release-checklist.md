@@ -45,8 +45,11 @@ python -m http.server 8080 -d public
 - [ ] The `production` environment required reviewers list includes
       `alexwelcing` (repository owner/maintainer); add only maintainers who are
       authorized to publish `lupine.science`.
-- [ ] The `production` environment limits deployment branches to protected
-      branches or an explicit `main` rule.
+- [ ] The `production` environment disables administrator bypass and limits
+      deployment branches to the explicit `main` rule.
+- [ ] Approval-gate verification covers `Waiting` plus reviewer notification,
+      successful continuation after approval, failure on rejection, and GitHub's
+      automatic failure after the 30-day approval timeout.
 - [ ] Workflow runs `npm run verify`.
 - [ ] Every pull request creates a Cloudflare Pages preview after successful CI,
       and the URL appears in both a sticky PR comment and the check summary.

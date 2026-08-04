@@ -1,15 +1,8 @@
 # Article Title
 
-> **Type:** article
->
 > **Date:** YYYY-MM-DD
->
-> **Scope:** One-line topic
->
-> **Description:** A one-sentence summary for cards, search results, and social previews.
->
-> **Audience:** Investors, materials scientists, AI-for-science teams, and the curious public
->
+> **Deck:** One-line topic
+> **Summary:** A one-sentence summary for cards, search results, and social previews.
 > **Status:** Draft
 
 <p class="lead">A strong opening paragraph that states the single idea of the piece.</p>

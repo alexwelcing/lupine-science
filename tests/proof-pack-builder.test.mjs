@@ -14,6 +14,7 @@ const OUT_DIR = path.join(ROOT, 'public', 'proof-packs');
 const SLUG = 'five-materials-for-5-to-12-gtco2-year';
 const PDF_PATH = path.join(OUT_DIR, `${SLUG}.proofpack.pdf`);
 const MANIFEST_PATH = path.join(OUT_DIR, `${SLUG}.proofpack.json`);
+
 const UNICODE_COVERAGE_STRING =
   'CO₂ · CH₄ · GtCO₂/year · en dash – · em dash — · “curly quotes” · α β γ Δ μ σ ∑ ∂ ≈ ≤ ≥ ± × · José García · Zoë Šimůnková · François L’Écuyer';
 
@@ -78,6 +79,11 @@ describe('proof-pack output validation', () => {
     const report = await inspectPdf(PDF_PATH, path.join(ROOT, 'tests', 'fixtures', 'proof-pack-expectations.json'));
     assert.ok(report.fonts.allEmbedded, 'not all fonts are embedded');
     assert.ok(report.fonts.allUnicodeMapped, 'not all fonts have Unicode maps');
+    assert.deepEqual(
+      report.fonts.type3,
+      [],
+      `Type 3 fonts can render incorrectly in print engines: ${report.fonts.type3.join(', ')}`
+    );
     assert.equal(report.info['Page size'], '612 x 792 pts (letter)');
   });
 
@@ -126,12 +132,21 @@ describe('proof-pack determinism', () => {
 });
 
 describe('proof-pack consolidated mode', () => {
-  it('produces the legacy climate-series PDF', () => {
+  it('produces the legacy climate-series PDF without Type 3 fonts', async () => {
     const consolidatedPath = path.join(ROOT, 'public', 'proof-pack-climate-series.pdf');
     const before = fs.existsSync(consolidatedPath);
     const result = run(['--consolidated']);
     assert.equal(result.status, 0, result.stderr);
     assert.ok(fs.existsSync(consolidatedPath), 'consolidated PDF should exist');
+    const report = await inspectPdf(
+      consolidatedPath,
+      path.join(ROOT, 'tests', 'fixtures', 'pdf-qa-expectations.json')
+    );
+    assert.deepEqual(
+      report.fonts.type3,
+      [],
+      `Type 3 fonts can render incorrectly in print engines: ${report.fonts.type3.join(', ')}`
+    );
     if (!before) {
       // Leave the file in the expected production location.
     }

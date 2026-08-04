@@ -1,0 +1,1995 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "t_7db192e7",
+  "campaign_id": "brand-campaign-2026-07-27",
+  "wave_id": "wave-4-programmatic-pil",
+  "canonical_source": "public/brand-assets/campaign-2026-07-27/shortfall-wave-1-manifest.json",
+  "canonical_source_sha256": "d8c6a9cb14cc5803453a5eaf68409966457f40e1f169cc34d32da040b635e383",
+  "canonical_asset_count": 67,
+  "asset_count": 67,
+  "unique_asset_id_count": 67,
+  "unique_output_sha256_count": 67,
+  "rendered_sw1_png_count": 67,
+  "omissions": [],
+  "extras": [],
+  "palette": [
+    "#faf9f6",
+    "#16171d",
+    "#3d4db3"
+  ],
+  "indigo_ratio_range": [
+    0.000607,
+    0.014222
+  ],
+  "mechanical_status": "pass",
+  "composition_status": "pass",
+  "pilot_manifest_mutation": "none; reviewer evidence is recorded separately",
+  "campaign_100_of_100_claim": "not made; this reconciliation proves only the canonical 67-slot Wave-4 set",
+  "child_manifests": [
+    {
+      "child_id": "pilot",
+      "manifest_path": "public/brand-assets/campaign-2026-07-27/wave-4/pilot-manifest.json",
+      "manifest_sha256": "a338887644f853a63291628914230e8b3019a6003cf559c488698dd76d0150c4",
+      "asset_count": 4,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_1ceb4f39",
+      "composition_evidence": "completed independent reviewer gate",
+      "composition_review_manifest_sha256": "a338887644f853a63291628914230e8b3019a6003cf559c488698dd76d0150c4",
+      "composition_review_manifest_matches_current": true,
+      "composition_review_note": "reviewed manifest matches current child manifest",
+      "scene_source": "media/projects/article-visuals/wave4_pilot_scenes.py",
+      "scene_source_sha256": "487d32cc51b2dfda3af2d38ca814004c9b99cc88a593c2553f71c166f17e5e1d",
+      "component_source": "media/projects/article-visuals/wave4_scene_components.py",
+      "component_source_sha256": "c66f2efb1dca5bbe8df5499b224afd2f41032cc630bc88fd9e11da6db8b5a629"
+    },
+    {
+      "child_id": "batch-01",
+      "manifest_path": "public/brand-assets/campaign-2026-07-27/wave-4/batch-01-manifest.json",
+      "manifest_sha256": "775d23cafaa2da9ec6606924e21fe82b60b95572ca227f20b6f0517d73e9a7f8",
+      "asset_count": 8,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_5f2c59c2",
+      "composition_evidence": "completed independent reviewer gate",
+      "composition_review_manifest_sha256": "775d23cafaa2da9ec6606924e21fe82b60b95572ca227f20b6f0517d73e9a7f8",
+      "composition_review_manifest_matches_current": true,
+      "composition_review_note": "reviewed manifest matches current child manifest",
+      "scene_source": "media/projects/article-visuals/wave4_batch_01_scenes.py",
+      "scene_source_sha256": "37cf6a4c90792a6db02b4069736823c3479ce45adff96c53d0b32b3d9ab93d14",
+      "component_source": "media/projects/article-visuals/wave4_scene_components.py",
+      "component_source_sha256": "c66f2efb1dca5bbe8df5499b224afd2f41032cc630bc88fd9e11da6db8b5a629"
+    },
+    {
+      "child_id": "batch-02",
+      "manifest_path": "public/brand-assets/campaign-2026-07-27/wave-4/batch-02-manifest.json",
+      "manifest_sha256": "0f01a44c48cca98e564e5553e7d1b6e251eab245afcd4c8464a683aecad842dd",
+      "asset_count": 8,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_ef12ed7b",
+      "composition_evidence": "completed independent reviewer gate",
+      "composition_review_manifest_sha256": "0f01a44c48cca98e564e5553e7d1b6e251eab245afcd4c8464a683aecad842dd",
+      "composition_review_manifest_matches_current": true,
+      "composition_review_note": "reviewed manifest matches current child manifest",
+      "scene_source": "media/projects/article-visuals/wave4_batch_02_scenes.py",
+      "scene_source_sha256": "fb77578e0bb1a8a8e90fc6f3ff44bb45cb64a1f21511fcbe7c1b9acae5e40880",
+      "component_source": "media/projects/article-visuals/wave4_scene_components.py",
+      "component_source_sha256": "c66f2efb1dca5bbe8df5499b224afd2f41032cc630bc88fd9e11da6db8b5a629"
+    },
+    {
+      "child_id": "batch-03",
+      "manifest_path": "public/brand-assets/campaign-2026-07-27/wave-4/batch-03-manifest.json",
+      "manifest_sha256": "abae2a9180637632435cbca26f53db9448540b3f7b488e6eb28ecffeab176956",
+      "asset_count": 8,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_75e02815",
+      "composition_evidence": "completed independent reviewer gate",
+      "composition_review_manifest_sha256": "abae2a9180637632435cbca26f53db9448540b3f7b488e6eb28ecffeab176956",
+      "composition_review_manifest_matches_current": true,
+      "composition_review_note": "reviewed manifest matches current child manifest",
+      "scene_source": "media/projects/article-visuals/wave4_batch_03_scenes.py",
+      "scene_source_sha256": "831b4b0472cd07a79913004d74e5ece244f797be787ab0d01b61ae9fa80a030a",
+      "component_source": "media/projects/article-visuals/wave4_scene_components.py",
+      "component_source_sha256": "c66f2efb1dca5bbe8df5499b224afd2f41032cc630bc88fd9e11da6db8b5a629"
+    },
+    {
+      "child_id": "batch-04",
+      "manifest_path": "public/brand-assets/campaign-2026-07-27/wave-4/batch-04-manifest.json",
+      "manifest_sha256": "ed9d20da5ce388c15ee72e27de7390860e00ea46ff8bb0164ea5879703d0236c",
+      "asset_count": 8,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_17d703ba",
+      "composition_evidence": "completed independent reviewer gate",
+      "composition_review_manifest_sha256": "ed9d20da5ce388c15ee72e27de7390860e00ea46ff8bb0164ea5879703d0236c",
+      "composition_review_manifest_matches_current": true,
+      "composition_review_note": "reviewed manifest matches current child manifest",
+      "scene_source": "media/projects/article-visuals/wave4_batch_04_scenes.py",
+      "scene_source_sha256": "6e2139236854aac86ccff5cd0612660b8ffb0eba8ba546e1fab78ed12e646f60",
+      "component_source": "media/projects/article-visuals/wave4_scene_components.py",
+      "component_source_sha256": "c66f2efb1dca5bbe8df5499b224afd2f41032cc630bc88fd9e11da6db8b5a629"
+    },
+    {
+      "child_id": "batch-05",
+      "manifest_path": "public/brand-assets/campaign-2026-07-27/wave-4/batch-05-manifest.json",
+      "manifest_sha256": "b4a52b90ca53f973fccd2c244c0e086e963d28660b5b5a209d90820c097be8b4",
+      "asset_count": 8,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_083045bd",
+      "composition_evidence": "completed independent reviewer gate",
+      "composition_review_manifest_sha256": "b4a52b90ca53f973fccd2c244c0e086e963d28660b5b5a209d90820c097be8b4",
+      "composition_review_manifest_matches_current": true,
+      "composition_review_note": "reviewed manifest matches current child manifest",
+      "scene_source": "media/projects/article-visuals/wave4_batch_05_scenes.py",
+      "scene_source_sha256": "1572ef9b719abc803a2df6dc6274a25820327e13b2667bf8a28f0182be853166",
+      "component_source": "media/projects/article-visuals/wave4_scene_components.py",
+      "component_source_sha256": "c66f2efb1dca5bbe8df5499b224afd2f41032cc630bc88fd9e11da6db8b5a629"
+    },
+    {
+      "child_id": "batch-06",
+      "manifest_path": "public/brand-assets/campaign-2026-07-27/wave-4/batch-06-manifest.json",
+      "manifest_sha256": "5db2a48750c758e86e9a3663a4697e2df61fe4206a895068cfb1574f0faf6696",
+      "asset_count": 8,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_4c04518c",
+      "composition_evidence": "completed independent reviewer gate",
+      "composition_review_manifest_sha256": "5db2a48750c758e86e9a3663a4697e2df61fe4206a895068cfb1574f0faf6696",
+      "composition_review_manifest_matches_current": true,
+      "composition_review_note": "reviewed manifest matches current child manifest",
+      "scene_source": "media/projects/article-visuals/wave4_batch_06_scenes.py",
+      "scene_source_sha256": "4969e1e1f92569c77d90a3874bb1c1516954b793f9236441aa1e5ae647a82844",
+      "component_source": "media/projects/article-visuals/wave4_scene_components.py",
+      "component_source_sha256": "c66f2efb1dca5bbe8df5499b224afd2f41032cc630bc88fd9e11da6db8b5a629"
+    },
+    {
+      "child_id": "batch-07",
+      "manifest_path": "public/brand-assets/campaign-2026-07-27/wave-4/batch-07-manifest.json",
+      "manifest_sha256": "1feae42e1867646c9fbad6358e9e37fe6d0c10aa20746505bcc0de311204df8d",
+      "asset_count": 8,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_3c103f38",
+      "composition_evidence": "completed independent reviewer gate",
+      "composition_review_manifest_sha256": "1feae42e1867646c9fbad6358e9e37fe6d0c10aa20746505bcc0de311204df8d",
+      "composition_review_manifest_matches_current": true,
+      "composition_review_note": "reviewed manifest matches current child manifest",
+      "scene_source": "media/projects/article-visuals/wave4_batch_07_scenes.py",
+      "scene_source_sha256": "882620dda44b4829656e8bf7efe88b89e7d4241bbd2026e80a2dbd5d1fbd48bf",
+      "component_source": "media/projects/article-visuals/wave4_scene_components.py",
+      "component_source_sha256": "c66f2efb1dca5bbe8df5499b224afd2f41032cc630bc88fd9e11da6db8b5a629"
+    },
+    {
+      "child_id": "batch-08",
+      "manifest_path": "public/brand-assets/campaign-2026-07-27/wave-4/batch-08-manifest.json",
+      "manifest_sha256": "cfca665ff487822c990d77f0e673496a08dae89f86cbd2eeafe88a86db8f48a6",
+      "asset_count": 7,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_a28b8419",
+      "composition_evidence": "completed independent reviewer gate",
+      "composition_review_manifest_sha256": "cfca665ff487822c990d77f0e673496a08dae89f86cbd2eeafe88a86db8f48a6",
+      "composition_review_manifest_matches_current": true,
+      "composition_review_note": "reviewed manifest matches current child manifest",
+      "scene_source": "media/projects/article-visuals/wave4_batch_08_scenes.py",
+      "scene_source_sha256": "a6b5cd34ee8b08098a486818c0086fc3569742dd6417a2aad83b549e24baa878",
+      "component_source": "media/projects/article-visuals/wave4_scene_components.py",
+      "component_source_sha256": "c66f2efb1dca5bbe8df5499b224afd2f41032cc630bc88fd9e11da6db8b5a629"
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": "SW1-B1-A01-01",
+      "child_id": "pilot",
+      "original_asset_id": "B1-A01-01",
+      "specific_physical_scene": "A row of three grid-scale battery cabinets at dawn; the nearest cabinet is a simple cutaway with one ceramic electrolyte plate seated between two flat electrodes, while the other cabinets remain closed.",
+      "single_mechanism": "the ceramic electrolyte plate separates the electrodes while carrying the single indigo ion path inside the nearest cabinet",
+      "source_spec_hash": "sha256:fff0da5f52572f01666abe47d7b49dde6e82f21d1514c7c20e8220aae34cd711",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a01_01.py",
+      "generator_sha256": "c41bd4a8e72af6c3b0336914ca7fd0d6f3bab664cdedb5b1505eb4a309b77cbc",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A01-01--industrial-cabinet-row.png",
+      "output_sha256": "8ab175f86b974e9418b4dc3423a6f77e96e7f7f2e6cef60ace5e206d55827dd5",
+      "bytes": 7923,
+      "dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "palette_histogram": {
+        "#faf9f6": 1300764,
+        "#16171d": 25535,
+        "#3d4db3": 805
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.000607,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_1ceb4f39"
+    },
+    {
+      "asset_id": "SW1-B1-A01-04",
+      "child_id": "batch-01",
+      "original_asset_id": "B1-A01-04",
+      "specific_physical_scene": "A waist-high pilot line on a bare factory floor: a covered powder hopper feeds one compact sintering furnace, then a ceramic pellet exits onto a cell-test cradle.",
+      "single_mechanism": "one continuous indigo material route follows the sample from hopper through furnace to the test cradle",
+      "source_spec_hash": "sha256:52f220b968c843d577651d2bcdf97a636afa3bb8d544a1e1508cc5d19c24da78",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a01_04.py",
+      "generator_sha256": "fff67200eecef93c6431d90e7545f8f46ab3b292f9562f2668a3f051ed235bc8",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A01-04--pilot-material-line.png",
+      "output_sha256": "6d234fe7db6cc663ee01da5d0bef2b3b616edb1dbc2c2c621334e7288d4269ff",
+      "bytes": 11015,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1520442,
+        "#16171d": 42791,
+        "#3d4db3": 9631
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.006123,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_5f2c59c2"
+    },
+    {
+      "asset_id": "SW1-B1-A01-05",
+      "child_id": "batch-01",
+      "original_asset_id": "B1-A01-05",
+      "specific_physical_scene": "An empty electric-bus depot beneath a broad solar canopy, with a quiet row of stationary battery cabinets beside the charging bays and a vast pale sky.",
+      "single_mechanism": "the battery cabinets buffer power from the canopy before it reaches the charging pedestals",
+      "source_spec_hash": "sha256:24bc1925d2cc8b056cd84dcac1a0fb12272de9cfbbfc45b5f4d2600e3be5a89c",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a01_05.py",
+      "generator_sha256": "e6e35ee75d5966ea1b42e7cab9a47a06190d1557473dd7cca18061b12bc0ae13",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A01-05--electric-bus-depot.png",
+      "output_sha256": "44ace419b70f444c4312871d46b9ad6fd348c64024d84a5c30db8c5bc5557a9f",
+      "bytes": 8177,
+      "dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "palette_histogram": {
+        "#faf9f6": 1285308,
+        "#16171d": 35687,
+        "#3d4db3": 6109
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.004603,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_5f2c59c2"
+    },
+    {
+      "asset_id": "SW1-B1-A02-01",
+      "child_id": "pilot",
+      "original_asset_id": "B1-A02-01",
+      "specific_physical_scene": "A long laboratory bench with many empty ceramic sample boats entering a small tube furnace and only one finished electrolyte pellet resting in a coin-cell test clamp.",
+      "single_mechanism": "the narrow furnace-to-test route makes the physical synthesis bottleneck visible",
+      "source_spec_hash": "sha256:31fdd2a21d7cf106aeb651d255e96996355cac0851e14f5ff67ebb33ffbe61c5",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a02_01.py",
+      "generator_sha256": "3d32ac7696dd8e522726126ac8a9fd10269f33193892f6dbd05a879a54307809",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A02-01--laboratory-apparatus.png",
+      "output_sha256": "3ac616f9a19cbd14d7299b7ac1644543c2dbba9f13df0a98e3b30273d0cfbcf3",
+      "bytes": 8190,
+      "dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "palette_histogram": {
+        "#faf9f6": 1312285,
+        "#16171d": 12444,
+        "#3d4db3": 2375
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.00179,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_1ceb4f39"
+    },
+    {
+      "asset_id": "SW1-B1-A02-02",
+      "child_id": "batch-01",
+      "original_asset_id": "B1-A02-02",
+      "specific_physical_scene": "A clean pilot corridor of three identical tube furnaces with sample boats; most boats stop on cooling racks and one intact pellet reaches a pressure-test fixture.",
+      "single_mechanism": "one indigo route tracks the sole pellet that survives firing and reaches mechanical testing",
+      "source_spec_hash": "sha256:8be7ed0610a256c0b9e7fed20c5ef5c9494a21e67e0e864c1a54c4424d540e63",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a02_02.py",
+      "generator_sha256": "e7e7c14365b845217195435a50add0d8f9b856d98cc7328f96ff5c5647359701",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A02-02--pilot-furnace-corridor.png",
+      "output_sha256": "32cfe737150d7e3e8f07fdb579e5f6b58206f23046da945d1b3fcfa339b44681",
+      "bytes": 10092,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1504445,
+        "#16171d": 58749,
+        "#3d4db3": 9670
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.006148,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_5f2c59c2"
+    },
+    {
+      "asset_id": "SW1-B1-A02-03",
+      "child_id": "batch-01",
+      "original_asset_id": "B1-A02-03",
+      "specific_physical_scene": "A single ceramic electrolyte disk clamped inside a transparent-sided pressure-and-heat cycling chamber, with a fine crack beginning at its metal interface.",
+      "single_mechanism": "the chamber applies combined manufacturing pressure and heat to reveal interface cracking",
+      "source_spec_hash": "sha256:8adf3f4fdf2f079c112db7a7ca5068000f357c9ec5d082b1a6ae7eaa9ab2bd32",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a02_03.py",
+      "generator_sha256": "6742d83fbfb115763944ad9daf9590f49ab06db6769802e5d1d8482fdaeeb53f",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A02-03--pressure-heat-chamber.png",
+      "output_sha256": "fb141a815ed3f3342aede130e1a16e8010d4632a73243686face6151322168b0",
+      "bytes": 9806,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1509322,
+        "#16171d": 52777,
+        "#3d4db3": 10765
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.006844,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_5f2c59c2"
+    },
+    {
+      "asset_id": "SW1-B1-A02-04",
+      "child_id": "batch-01",
+      "original_asset_id": "B1-A02-04",
+      "specific_physical_scene": "An idle pellet-press station beside orderly trays of warped ceramic disks and one measurement jig holding the next candidate.",
+      "single_mechanism": "the measurement jig rejects distorted pellets before they enter the pilot line",
+      "source_spec_hash": "sha256:696762c22a97cf0bee5f23c396bf443e2c0410253bf15418421cd216dd52e478",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a02_04.py",
+      "generator_sha256": "e27694f0e2b06a75e71459813004dfd6fcc6f54c23d3b676c84fd8e62388219c",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A02-04--pellet-inspection-station.png",
+      "output_sha256": "657000e25278c665426adafe8ee8036091677c92ccc86ef5701eabc87bc4f2be",
+      "bytes": 10316,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1510671,
+        "#16171d": 54841,
+        "#3d4db3": 7352
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.004674,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_5f2c59c2"
+    },
+    {
+      "asset_id": "SW1-B1-A02-05",
+      "child_id": "batch-01",
+      "original_asset_id": "B1-A02-05",
+      "specific_physical_scene": "A compact battery-module assembly cell with one verified ceramic-pellet cartridge feeding a precise stack press; the rest of the factory floor is empty paper.",
+      "single_mechanism": "the cartridge meters one qualified electrolyte pellet into each cell stack",
+      "source_spec_hash": "sha256:adf974e6c3a081badedb1fd3a7ed4d15d46ea7a14dfc80e4607a9eff475e14b2",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a02_05.py",
+      "generator_sha256": "5ad29e2e0e41011b903019d231e0df9b86db779a8b866b281d90e2227c59559d",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A02-05--battery-module-assembly.png",
+      "output_sha256": "1e2665983e283ed408e25dd2e9bfefc9e762bfcd918eeee03e05fbd42b76d264",
+      "bytes": 6836,
+      "dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "palette_histogram": {
+        "#faf9f6": 1309629,
+        "#16171d": 13974,
+        "#3d4db3": 3501
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.002638,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_5f2c59c2"
+    },
+    {
+      "asset_id": "SW1-B1-A03-02",
+      "child_id": "batch-01",
+      "original_asset_id": "B1-A03-02",
+      "specific_physical_scene": "A sequence of three physical screening fixtures on one bench: a wide tray of candidate coupons, a smaller thermal-test rack, and one final reference-calculation instrument.",
+      "single_mechanism": "successive screening fixtures narrow the candidate set before the expensive reference instrument",
+      "source_spec_hash": "sha256:8ea5345049f028b595ebad5eaabde57eeb9111578183bd843f8ac771cb0cf23d",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a03_02.py",
+      "generator_sha256": "6d04070912eeee457f5b065b9d847f2088d22536d88812aff5bf872003bb72bf",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A03-02--screening-fixture-bench.png",
+      "output_sha256": "1c8a2231b7392c756493b56467c81ebe5fa3f9e2b320e11937ea5f8ddf97bcae",
+      "bytes": 9656,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1516181,
+        "#16171d": 47798,
+        "#3d4db3": 8885
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.005649,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_5f2c59c2"
+    },
+    {
+      "asset_id": "SW1-B1-A03-04",
+      "child_id": "batch-01",
+      "original_asset_id": "B1-A03-04",
+      "specific_physical_scene": "An open rack of identical unmarked sample cartridges feeding two separated battery test instruments through standardized mechanical sockets.",
+      "single_mechanism": "the standardized cartridge socket lets the same physical reference sample serve independent instruments",
+      "source_spec_hash": "sha256:9493d3c1538895f226ff107f9b241b1dc505e4c53c33cf0cde6174acf03d52ed",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a03_04.py",
+      "generator_sha256": "204bf45ad88f4940df5eeafc1678423ca4ac7ff63d0bf708a8af153fbf89866b",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A03-04--standardized-cartridge-rack.png",
+      "output_sha256": "c8f804fee5269f924faff38734f7a7b63e73ecb737f9db9776ae94862c5f0987",
+      "bytes": 8629,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1513383,
+        "#16171d": 48807,
+        "#3d4db3": 10674
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.006786,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_5f2c59c2"
+    },
+    {
+      "asset_id": "SW1-B1-A04-04",
+      "child_id": "batch-02",
+      "original_asset_id": "B1-A04-04",
+      "specific_physical_scene": "A solid-electrolyte diffusion cell mounted in a small test rig, with one ceramic grain boundary enlarged in cutaway and a restrained indigo path crossing it.",
+      "single_mechanism": "the test rig measures the ion migration barrier across one grain boundary",
+      "source_spec_hash": "sha256:6a8c4e7a08d6594055b9f508da0ba5aecb3451377d89de5dd3e2f83cea1871d0",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a04_04.py",
+      "generator_sha256": "7b201e38aa3d5a8d593e40c25077036bcfbc37f65f09d5c67b233dabc785cf03",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A04-04--grain-boundary-diffusion-cell.png",
+      "output_sha256": "a3dfd2aa90411ccb0168ed333b914af3f1c4177b494b9a7021ff63e50663457d",
+      "bytes": 11387,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1510430,
+        "#16171d": 52879,
+        "#3d4db3": 9555
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.006075,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_ef12ed7b"
+    },
+    {
+      "asset_id": "SW1-B1-A04-05",
+      "child_id": "batch-02",
+      "original_asset_id": "B1-A04-05",
+      "specific_physical_scene": "An empty fleet-charging depot with a row of chargers backed by sealed solid-state storage cabinets; two electrolyte coupons lie in a foreground test tray.",
+      "single_mechanism": "the storage cabinets discharge into the chargers during a brief demand peak",
+      "source_spec_hash": "sha256:82dd7630c1eae624ad03e7261e1a8549b3e0c30847abf7f064871a3e9c67f03c",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a04_05.py",
+      "generator_sha256": "61fcca08620338bf0c302d9b8a8a76f11f8a7f676e3578a6675707343ae51e0a",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A04-05--storage-backed-fleet-depot.png",
+      "output_sha256": "b8e04b416e2ed2dfedea369dde4d8e7ed281e7c69cd565dc52f5e7c15686dec4",
+      "bytes": 7517,
+      "dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "palette_histogram": {
+        "#faf9f6": 1286061,
+        "#16171d": 31319,
+        "#3d4db3": 9724
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.007327,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_ef12ed7b"
+    },
+    {
+      "asset_id": "SW1-B2-A01-02",
+      "child_id": "batch-02",
+      "original_asset_id": "B2-A01-02",
+      "specific_physical_scene": "A substation battery enclosure in cutaway beside a transformer, showing one layered cell stack with cathode, ceramic separator, and current collector as plain unmarked slabs.",
+      "single_mechanism": "the thin ceramic separator carries the indigo ion path while keeping the two electrodes apart",
+      "source_spec_hash": "sha256:a0ce285f565aeaf7b0c76a763cf286600f7c3a7dfd1d5b76eedf2d700dfa04fb",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b2_a01_02.py",
+      "generator_sha256": "16a2043c9a51ab4daf71f80fc3064b84993fd887ccee84c256af263edb3953fe",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B2-A01-02--substation-cell-cutaway.png",
+      "output_sha256": "47bcf90fd38f299cddfee9244fbee750be7a630882d648a1ec7e326a6ca9c9c5",
+      "bytes": 10123,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1493376,
+        "#16171d": 75276,
+        "#3d4db3": 4212
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.002678,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_ef12ed7b"
+    },
+    {
+      "asset_id": "SW1-B2-A01-03",
+      "child_id": "batch-02",
+      "original_asset_id": "B2-A01-03",
+      "specific_physical_scene": "A modular direct-air-capture contactor standing alone on a concrete pad, its front panel cut away to reveal a pleated porous sorbent sheet.",
+      "single_mechanism": "sparse indigo airflow passes through the pleated sorbent and exits the rear plenum",
+      "source_spec_hash": "sha256:7414cba9784f24d3831fe337b8de506fd3dca9e17a9e3399f44044648ea107dd",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b2_a01_03.py",
+      "generator_sha256": "504a1a545a91379dad1a7132a9fa8cb2de91450c76690c49d5c2a862d7c8c518",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B2-A01-03--direct-air-capture-contactor.png",
+      "output_sha256": "bcd8ad22b798e13a3c78e8af434c315104cbff0b2a9d94de5688e8d09f2a55b2",
+      "bytes": 8801,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1507312,
+        "#16171d": 55688,
+        "#3d4db3": 9864
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.006271,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_ef12ed7b"
+    },
+    {
+      "asset_id": "SW1-B2-A01-04",
+      "child_id": "batch-02",
+      "original_asset_id": "B2-A01-04",
+      "specific_physical_scene": "A compact ammonia reactor skid with an insulated reaction tube, heat exchanger, and one catalyst cartridge visible through a clean cutaway.",
+      "single_mechanism": "the catalyst cartridge enables ammonia conversion inside the single reaction tube",
+      "source_spec_hash": "sha256:2e59d0bbc2bcc9d4fe211870f991d154e3ece8318962fbb11fa4460f00d40a43",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b2_a01_04.py",
+      "generator_sha256": "0fd93b2ffa18c75dbde4bbb1a40295711b878069d7b5202c5b05c15f2737ffbc",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B2-A01-04--ammonia-reactor-skid.png",
+      "output_sha256": "f08d46165a2d0ae46f88a8e82f4a89a0987e32a39922c016deae965f06a63b13",
+      "bytes": 9690,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1509135,
+        "#16171d": 52029,
+        "#3d4db3": 11700
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.007439,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_ef12ed7b"
+    },
+    {
+      "asset_id": "SW1-B2-A02-02",
+      "child_id": "batch-02",
+      "original_asset_id": "B2-A02-02",
+      "specific_physical_scene": "A rotary cement kiln and calciner in side cutaway, with a narrow process-gas duct leading from the calciner to one capture vessel.",
+      "single_mechanism": "the capture vessel receives the calcination gas stream through the dedicated duct",
+      "source_spec_hash": "sha256:5ea2aec609ecf36159cf4125c15addcc277322b6c55901aa7e03a1c5718b86f8",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b2_a02_02.py",
+      "generator_sha256": "e689d4de4acaf5d3c457e66d474a18481ad24f69c717dd581fc0a175b38ee59b",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B2-A02-02--cement-kiln-capture-duct.png",
+      "output_sha256": "8733d9852b306f28f567008a60d9240b0e45227953ea2e751c846dabf17f03bc",
+      "bytes": 14376,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1509372,
+        "#16171d": 54934,
+        "#3d4db3": 8558
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.005441,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_ef12ed7b"
+    },
+    {
+      "asset_id": "SW1-B2-A02-03",
+      "child_id": "batch-02",
+      "original_asset_id": "B2-A02-03",
+      "specific_physical_scene": "A concrete batching bay where a calcined-clay hopper feeds one mixer, which pours a single beam mold positioned beneath a load frame.",
+      "single_mechanism": "the calcined-clay blend moves from hopper through mixer into a structural test beam",
+      "source_spec_hash": "sha256:b34d3b792312774fdf4237fc39e334f1a56ea28338890e98ed08d2473c416b85",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b2_a02_03.py",
+      "generator_sha256": "451eb755c0cdd9caac917cadfe6618006ec4e6f1c8891cf1a31a22b8936981ad",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B2-A02-03--calcined-clay-batching-bay.png",
+      "output_sha256": "0e7ef1afc100741c006445cf077d68cd90be988fd43e952949b3eebedb6c8ec6",
+      "bytes": 13332,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1487279,
+        "#16171d": 75791,
+        "#3d4db3": 9794
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.006227,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_ef12ed7b"
+    },
+    {
+      "asset_id": "SW1-B2-A02-04",
+      "child_id": "batch-02",
+      "original_asset_id": "B2-A02-04",
+      "specific_physical_scene": "A full-scale concrete beam in a four-point load frame, with one enlarged cutaway window showing the binder-to-aggregate interface beneath the loading nose.",
+      "single_mechanism": "the load frame tests whether the material interface transfers force without separating",
+      "source_spec_hash": "sha256:eb90f1d78a23dc5422644674458047f534b07af279dc7cafa7340fcab296d34c",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b2_a02_04.py",
+      "generator_sha256": "09799535212d1a39956f273b9beb989fc0ae17dc8c39b56fcfab8b99ccbb77ed",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B2-A02-04--beam-interface-load-frame.png",
+      "output_sha256": "464ec39160cb17a1d3bdf91663c43f5ae8eff97660d7abd571ddfffe806ed154",
+      "bytes": 11364,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1474703,
+        "#16171d": 91294,
+        "#3d4db3": 6867
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.004366,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_ef12ed7b"
+    },
+    {
+      "asset_id": "SW1-B2-A02-05",
+      "child_id": "batch-03",
+      "original_asset_id": "B2-A02-05",
+      "specific_physical_scene": "An unoccupied construction-material sorting bay with a conveyor separating reclaimed aggregate into a clean hopper feeding one precast panel mold.",
+      "single_mechanism": "reclaimed aggregate is graded and returned to a new precast panel",
+      "source_spec_hash": "sha256:1c41f8a6c582bbda95259f4e17c7c2a3508f1c851b5a2ea26150470c5d1d832e",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b2_a02_05.py",
+      "generator_sha256": "5a0c0a0032d28a700b80fbf4aa7f9b61912595991b06482936449d97e130667f",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B2-A02-05--aggregate-precast-sorting-bay.png",
+      "output_sha256": "15b4580070c29385eedf4d372863c88ce571ae0b339cbc38338a372aa3feb01c",
+      "bytes": 8247,
+      "dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "palette_histogram": {
+        "#faf9f6": 1297786,
+        "#16171d": 24122,
+        "#3d4db3": 5196
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.003915,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_75e02815"
+    },
+    {
+      "asset_id": "SW1-B2-A03-01",
+      "child_id": "pilot",
+      "original_asset_id": "B2-A03-01",
+      "specific_physical_scene": "A landfill gas well manifold feeding a sealed catalytic oxidation unit on a bare service pad, with one pipe route and no visible plume.",
+      "single_mechanism": "the oxidation unit converts collected methane within the sealed vessel",
+      "source_spec_hash": "sha256:3c803c9fddec0360016267d762d76f1e968cf5c45efc92a218a31a6bf5d237bc",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b2_a03_01.py",
+      "generator_sha256": "d2ef5cc1cda3e756b27fe1d40d51793a3219cedb4b46f57ed5267103455fd4fc",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B2-A03-01--field-infrastructure.png",
+      "output_sha256": "0df156a8060b4821c52b2acceb4f3f580fd01d359e06f085bcaaf6cca81b7f77",
+      "bytes": 8207,
+      "dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "palette_histogram": {
+        "#faf9f6": 1302917,
+        "#16171d": 22907,
+        "#3d4db3": 1280
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.000965,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_1ceb4f39"
+    },
+    {
+      "asset_id": "SW1-B2-A03-03",
+      "child_id": "batch-03",
+      "original_asset_id": "B2-A03-03",
+      "specific_physical_scene": "A methane-pyrolysis vessel in cutaway with solid carbon dropping into shallow collection trays and one gas conduit leaving the top.",
+      "single_mechanism": "the hot reactor splits methane while solid carbon is physically removed into trays",
+      "source_spec_hash": "sha256:22a921ef8fa1801b697625bb45d77aea3638cbec85e4f6d6471c79990d16c712",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b2_a03_03.py",
+      "generator_sha256": "90b1756e31a706a2937978175d3913d3ba99160496b1944daa417ced37d5ecc3",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B2-A03-03--methane-pyrolysis-cutaway.png",
+      "output_sha256": "445fcf2897cf3906b4569b1e5f3ac30812e66329a2fce7b8c9df401d94809869",
+      "bytes": 11841,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1523811,
+        "#16171d": 42565,
+        "#3d4db3": 6488
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.004125,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_75e02815"
+    },
+    {
+      "asset_id": "SW1-B2-A03-04",
+      "child_id": "batch-03",
+      "original_asset_id": "B2-A03-04",
+      "specific_physical_scene": "A building cooling plant with one solid-state caloric module clamped between a warm loop and a cold loop inside an accessible service cabinet.",
+      "single_mechanism": "the caloric module pumps heat between the two closed fluid loops",
+      "source_spec_hash": "sha256:8d5dcacd9791a96bbf7ee61e7e5bca28d333d83bfecb2ee2b313a21afd15ada5",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b2_a03_04.py",
+      "generator_sha256": "3dd48bace0439a39929485d97c9a2d353cfb84cf39e154473a1a759c616b3674",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B2-A03-04--caloric-module-service-cabinet.png",
+      "output_sha256": "f9b6feaecf6c16f68f903cac872c8f6df28c979e86728e5079e4d35e3433d460",
+      "bytes": 8755,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1510773,
+        "#16171d": 43758,
+        "#3d4db3": 18333
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.011656,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_75e02815"
+    },
+    {
+      "asset_id": "SW1-B2-A03-05",
+      "child_id": "batch-03",
+      "original_asset_id": "B2-A03-05",
+      "specific_physical_scene": "An empty refrigerated food warehouse with a rooftop heat-pump module connected to one interior cold-room heat exchanger; most of the frame is pale sky and wall.",
+      "single_mechanism": "the closed refrigerant loop moves heat from the cold room to the rooftop exchanger",
+      "source_spec_hash": "sha256:097544d14e370bb4b327e11c568965be51bc4e0707945b538acaff44b9608636",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b2_a03_05.py",
+      "generator_sha256": "ce5d821c202d702e6a40f29a04b48fc40d2a394d0f3365dc2d6ec2097a742a19",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B2-A03-05--refrigerated-warehouse-loop.png",
+      "output_sha256": "986f796c1ce8ffbde47ed35d27ececf55d927f6d86317ac920293ef1f8b58c94",
+      "bytes": 6947,
+      "dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "palette_histogram": {
+        "#faf9f6": 1299185,
+        "#16171d": 20296,
+        "#3d4db3": 7623
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.005744,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_75e02815"
+    },
+    {
+      "asset_id": "SW1-B2-A04-02",
+      "child_id": "batch-03",
+      "original_asset_id": "B2-A04-02",
+      "specific_physical_scene": "A reverse-osmosis pressure vessel shown in long cutaway, with a spiral membrane element separating an inlet channel from a clean-water collection tube.",
+      "single_mechanism": "pressure drives water through the membrane into the central collection tube",
+      "source_spec_hash": "sha256:c4e76b3473aa41e945a038161eda218a13bb855019b4ceb62fdca0457bd5943b",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b2_a04_02.py",
+      "generator_sha256": "71eb53d7fd48d71ce3c5c54f70e38b2fdbb822817dc81c8e8f74f3b317dbc190",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B2-A04-02--reverse-osmosis-cutaway.png",
+      "output_sha256": "b5debf7734bb3d002648ba5a8e8f2fa132d5190c6e036daf93a3cce396cff551",
+      "bytes": 11698,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1481679,
+        "#16171d": 78404,
+        "#3d4db3": 12781
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.008126,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_75e02815"
+    },
+    {
+      "asset_id": "SW1-B2-A04-03",
+      "child_id": "batch-03",
+      "original_asset_id": "B2-A04-03",
+      "specific_physical_scene": "A rooftop atmospheric-water harvester in a dry built landscape, with a finned sorbent cassette above a small condenser and covered cistern.",
+      "single_mechanism": "the sorbent cassette releases captured moisture to the condenser and cistern",
+      "source_spec_hash": "sha256:e3f1db187a3620d5d695c634b1e0f8501ceaeb5b53b6375a2dff21aa92488bd2",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b2_a04_03.py",
+      "generator_sha256": "9deb62c75f21794b5c8087252f6e58e6940621d832b99ecd375455a03e122c63",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B2-A04-03--atmospheric-water-harvester.png",
+      "output_sha256": "0f0e9ce021c0a82dce5a6d1b11cd1463b63b2b2c4754b2d4f4bf9db4280117dd",
+      "bytes": 8910,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1499892,
+        "#16171d": 63141,
+        "#3d4db3": 9831
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.00625,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_75e02815"
+    },
+    {
+      "asset_id": "SW1-B3-A01-03",
+      "child_id": "batch-03",
+      "original_asset_id": "B3-A01-03",
+      "specific_physical_scene": "A recirculating corrosion-test loop with four metal coupons mounted along one pipe and a single scanning probe moving across their exposed surfaces.",
+      "single_mechanism": "the scanning probe measures local surface error against the same flowing environment",
+      "source_spec_hash": "sha256:b76374550e108b0138a4e54a502a111298ebfd61608e22ac8e242d1de998f037",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b3_a01_03.py",
+      "generator_sha256": "00f913c9fdca1091166ec1170b5c09b458c0ccfa540dddbdf369d0542078543c",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B3-A01-03--corrosion-test-loop.png",
+      "output_sha256": "ecededa1159173f57f5c6e7feb1ebf669272d0d0128f709b841171ab6dfd806f",
+      "bytes": 10507,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1480296,
+        "#16171d": 70198,
+        "#3d4db3": 22370
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.014222,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_75e02815"
+    },
+    {
+      "asset_id": "SW1-B3-A01-04",
+      "child_id": "batch-03",
+      "original_asset_id": "B3-A01-04",
+      "specific_physical_scene": "A central instrument bench with one calibrated sample holder connected by a restrained indigo line to a compact water-filtration pilot skid across the room.",
+      "single_mechanism": "the calibrated holder transfers a measured material result into one filtration pilot decision",
+      "source_spec_hash": "sha256:b79c02e1660c6edc3754e9b3e6a93e7f3cd86d61dc84395ee3595f1ba694e94b",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b3_a01_04.py",
+      "generator_sha256": "783cfa693ae4c0025e94b85690354ce6f1376055555cafd54a5959d6ed2f7889",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B3-A01-04--calibrated-holder-filtration-skid.png",
+      "output_sha256": "0026849a0e0e2c801a86105de52120c81237fddf66641fa031f0b52b2f96dea8",
+      "bytes": 10662,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1509328,
+        "#16171d": 54349,
+        "#3d4db3": 9187
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.005841,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_75e02815"
+    },
+    {
+      "asset_id": "SW1-B3-A02-02",
+      "child_id": "batch-04",
+      "original_asset_id": "B3-A02-02",
+      "specific_physical_scene": "A contained mine-tailings water skid with one ion-selective membrane cassette between a feed tank and a recovered-mineral vessel.",
+      "single_mechanism": "the membrane cassette separates dissolved critical ions into the recovery vessel",
+      "source_spec_hash": "sha256:46e7b1ca816fceed44e990987f74841435a641a81726821af608549a3f10ed23",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b3_a02_02.py",
+      "generator_sha256": "50f831a282d3f290d1cb685bfc862f7950b8cc3debb2d6d6d4af8d5e65c79c6c",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B3-A02-02--ion-selective-tailings-skid.png",
+      "output_sha256": "c1bff1caf40c981fd3184a57c5a795003f48ccb76c53a02767a67968bbb2a780",
+      "bytes": 12253,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1517864,
+        "#16171d": 46117,
+        "#3d4db3": 8883
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.005648,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_17d703ba"
+    },
+    {
+      "asset_id": "SW1-B3-A02-03",
+      "child_id": "batch-04",
+      "original_asset_id": "B3-A02-03",
+      "specific_physical_scene": "A PFAS treatment column in cutaway, packed with granular sorbent between an inlet pipe and a sealed effluent sampling bottle.",
+      "single_mechanism": "the packed sorbent captures persistent contaminants before the sampling bottle",
+      "source_spec_hash": "sha256:55ef25f4eb9d58c3e9adb225a98acd5d92b4cef0717abfac5e6cc715a20b78f1",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b3_a02_03.py",
+      "generator_sha256": "7b379b18bf7146736020474ac31e2b393ab92684f54ecec0fe3d3f69146093b6",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B3-A02-03--pfas-sorbent-column.png",
+      "output_sha256": "0107de789d82a852e47f4acbf8cff1b8e942650c80af1d37713fe0ba3e33c7a4",
+      "bytes": 9792,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1515604,
+        "#16171d": 45641,
+        "#3d4db3": 11619
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.007387,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_17d703ba"
+    },
+    {
+      "asset_id": "SW1-B3-A02-04",
+      "child_id": "batch-04",
+      "original_asset_id": "B3-A02-04",
+      "specific_physical_scene": "Two unmarked sample cartridges, one mineral-bearing water and one contaminated water, entering the same modular pressure-flow test fixture from opposite sides.",
+      "single_mechanism": "the shared fixture ranks cartridge performance under an identical controlled flow test",
+      "source_spec_hash": "sha256:28cfd593770b497996d4e06ca2165e86db90373a9d49d792eb71747e50b07f83",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b3_a02_04.py",
+      "generator_sha256": "0307864affc3bbb4d7ec9857ed1043b34ca4b483c2923e35cf731dfc63238d3d",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B3-A02-04--shared-pressure-flow-fixture.png",
+      "output_sha256": "58b796d06c1719522906fe11e415dd53fd82c8105a7b249f43a7e60fb38973b8",
+      "bytes": 9131,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1510596,
+        "#16171d": 52557,
+        "#3d4db3": 9711
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.006174,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_17d703ba"
+    },
+    {
+      "asset_id": "SW1-B3-A03-02",
+      "child_id": "batch-04",
+      "original_asset_id": "B3-A03-02",
+      "specific_physical_scene": "An empty supermarket cold room with a compact heat-pump cabinet; one removable research cartridge is seated beside the finned heat exchanger.",
+      "single_mechanism": "the removable cartridge exposes refrigerant-property evidence to the real heat-exchanger loop",
+      "source_spec_hash": "sha256:74210c8d264fc57bd77d0baf3970ebbc897a953fa12ccec078d5c01fc1a9c4c0",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b3_a03_02.py",
+      "generator_sha256": "d89a6d75e675d565b6aebb2ad13c76d33bf83c5ab9015292924f586dc42ecad2",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B3-A03-02--cold-room-research-cartridge.png",
+      "output_sha256": "5f2269ee620cf538cadd4c011d5b58873d58df5f8dd3ae8b650559736e01682c",
+      "bytes": 9523,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1519361,
+        "#16171d": 48157,
+        "#3d4db3": 5346
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.003399,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_17d703ba"
+    },
+    {
+      "asset_id": "SW1-B3-A03-03",
+      "child_id": "batch-04",
+      "original_asset_id": "B3-A03-03",
+      "specific_physical_scene": "A sealed calorimeter chamber containing one compact refrigerant loop, with a compressor, condenser coil, expansion restriction, and evaporator coil drawn as plain hardware.",
+      "single_mechanism": "the chamber measures heat moved around one closed refrigerant loop",
+      "source_spec_hash": "sha256:39cf7985db4c57037ec5fe6d849e5afedf6fa81c4f2739a4195fb66a3c70fe2a",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b3_a03_03.py",
+      "generator_sha256": "2a71f16bf1c056e7eb91c23ad1569f746eac735091cf77a6b152cd9abd80499a",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B3-A03-03--sealed-loop-calorimeter.png",
+      "output_sha256": "488e9acedb469f8cf797811bf0e172a8b36ae653c9c5272f9c85c8bbacd92729",
+      "bytes": 10938,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1480029,
+        "#16171d": 77000,
+        "#3d4db3": 15835
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.010068,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_17d703ba"
+    },
+    {
+      "asset_id": "SW1-B3-A03-04",
+      "child_id": "batch-04",
+      "original_asset_id": "B3-A03-04",
+      "specific_physical_scene": "A bench calorimeter with an unmarked sealed refrigerant cartridge being inserted into a keyed mechanical cradle beside one heat-exchanger coil.",
+      "single_mechanism": "the keyed cradle transfers the same cartridge from evidence storage into calorimeter measurement",
+      "source_spec_hash": "sha256:d85b5f639e2ce912071ebe9494f2e16d0f43d19f4b2a98e536adf84de19c2cf4",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b3_a03_04.py",
+      "generator_sha256": "678ceec227f4a6e53fcf14d9d9bfccdd918917b440a089969fe7dd0e9400c94a",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B3-A03-04--keyed-cartridge-calorimeter.png",
+      "output_sha256": "af9d72578ffc30cb9a6eed97629c136388fa0ce4f8f9f18df1e608ccbaebd85c",
+      "bytes": 8962,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1504321,
+        "#16171d": 59818,
+        "#3d4db3": 8725
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.005547,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_17d703ba"
+    },
+    {
+      "asset_id": "SW1-B3-A04-03",
+      "child_id": "batch-04",
+      "original_asset_id": "B3-A04-03",
+      "specific_physical_scene": "A methane catalyst coupon mounted inside a small flow reactor, with an inlet manifold and one downstream sampling vessel.",
+      "single_mechanism": "the reactor tests conversion across the catalyst coupon before the downstream sample is collected",
+      "source_spec_hash": "sha256:d065e2568bc1459d914867ad5da7e6f8e4896b4744d6d8e0bde395f01db1ec39",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b3_a04_03.py",
+      "generator_sha256": "b72d9179aa138b8123d5f2c0937156aad207c7ce178b7d112e9b76a5db3cebc5",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B3-A04-03--catalyst-flow-reactor.png",
+      "output_sha256": "317c2fb2328637cde8537d1becec999e13b0dd9a6a26d83294a8afbc3d4bd760",
+      "bytes": 9979,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1515947,
+        "#16171d": 46482,
+        "#3d4db3": 10435
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.006634,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_17d703ba"
+    },
+    {
+      "asset_id": "SW1-B3-A04-04",
+      "child_id": "batch-04",
+      "original_asset_id": "B3-A04-04",
+      "specific_physical_scene": "A physical gas-control manifold with three pipes ending at closed valves and one pipe continuing through a measurement vessel.",
+      "single_mechanism": "only the measured branch remains open and carries the restrained indigo flow",
+      "source_spec_hash": "sha256:33add5d185e4989f227ee4e452088a661bf2e052e1a6b65deda1e4ac9119cc22",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b3_a04_04.py",
+      "generator_sha256": "35465d301fd193476fe8771ca693f45c4fd2b265e56ceff689b3de1036d20c48",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B3-A04-04--measured-branch-manifold.png",
+      "output_sha256": "0f8228f43fa74fe543d0463768d7a452b051e1c8d260bf0e6db4273d7d8f741a",
+      "bytes": 9995,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1513219,
+        "#16171d": 46690,
+        "#3d4db3": 12955
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.008237,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_17d703ba"
+    },
+    {
+      "asset_id": "SW1-B4-A01-02",
+      "child_id": "batch-05",
+      "original_asset_id": "B4-A01-02",
+      "specific_physical_scene": "A sample-coupon transfer rail beginning at a simple pixel-pattern mask, passing through an X-ray instrument, and ending at a physical bend-test frame.",
+      "single_mechanism": "the same coupon is fabricated, measured, and mechanically tested along one traceable rail",
+      "source_spec_hash": "sha256:fd66671a7ac0905d885d14c5b8181688e85e93ef6bfe72ca7a7e2d93ac4747f2",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a01_02.py",
+      "generator_sha256": "8da4b2bdf701af0dac07fbb68fc8ca5bb1baaa1643fcf437e5e4579ea1c15a15",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A01-02--coupon-transfer-rail.png",
+      "output_sha256": "df2e94d28f81018cae44994d05ce68fb43f2913ddbccd92cdb700a6a8d26b5da",
+      "bytes": 9449,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1485853,
+        "#16171d": 77525,
+        "#3d4db3": 9486
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.006031,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_083045bd"
+    },
+    {
+      "asset_id": "SW1-B4-A01-03",
+      "child_id": "batch-05",
+      "original_asset_id": "B4-A01-03",
+      "specific_physical_scene": "A low evidence table holding three unmarked sample blocks in fitted trays, each tray linked by a tamper-evident physical seal to one nearby instrument socket.",
+      "single_mechanism": "the fitted tray and seal preserve sample provenance between storage and measurement",
+      "source_spec_hash": "sha256:1a9482f7119e37420966fa0c57253a49f0d9f2122422dbc6168079fbb84340d2",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a01_03.py",
+      "generator_sha256": "5b27c1ffb08c2a78bb3cbcf1adaa435f035d5341af2c08bf31678a19657a2b92",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A01-03--sealed-evidence-table.png",
+      "output_sha256": "9794f6d4bbd6883b2448a50e7e22aca6aaf21a64dde9b4bb43023bc94931c972",
+      "bytes": 8512,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1510346,
+        "#16171d": 53383,
+        "#3d4db3": 9135
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.005808,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_083045bd"
+    },
+    {
+      "asset_id": "SW1-B4-A01-04",
+      "child_id": "batch-05",
+      "original_asset_id": "B4-A01-04",
+      "specific_physical_scene": "A small bridge beam mounted in a laboratory load frame, with scattered displacement probes along the beam converging on one restrained indigo strain ribbon.",
+      "single_mechanism": "the probes combine into one measured strain profile used to judge the beam",
+      "source_spec_hash": "sha256:eb70eef5440a8962ce47f36735e4f662975fe33241606f870561f0c769360318",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a01_04.py",
+      "generator_sha256": "a35462448c4e2d8071ebab73b94cf64e6e921b084e8ccbd8b5e188aadc2add6d",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A01-04--instrumented-beam-load-frame.png",
+      "output_sha256": "369b6660470b93bd137dee75b078c68429bc7dcee2b050987eab21662de9d3f3",
+      "bytes": 9204,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1475926,
+        "#16171d": 90052,
+        "#3d4db3": 6886
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.004378,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_083045bd"
+    },
+    {
+      "asset_id": "SW1-B4-A02-02",
+      "child_id": "batch-05",
+      "original_asset_id": "B4-A02-02",
+      "specific_physical_scene": "Two plain metal field plates mounted side by side beneath the same scanning probe, with their surface mismatch visible as one narrow indigo displacement ribbon.",
+      "single_mechanism": "the probe measures the local difference between predicted and reference plates",
+      "source_spec_hash": "sha256:d464f7b325a01da52a1fe2664163f35ea5a88aa02cfcc1e1d7c61678c241fbbc",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a02_02.py",
+      "generator_sha256": "d986a4aeb3b59a42fffef16ce8f97924c3e8948a936be107eff92afb872b2f37",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A02-02--paired-plate-scanner.png",
+      "output_sha256": "e2163bff60932a274fff267b4aece34ad5570a8802ad173740ee0533f2eac597",
+      "bytes": 8022,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1491573,
+        "#16171d": 73940,
+        "#3d4db3": 7351
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.004674,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_083045bd"
+    },
+    {
+      "asset_id": "SW1-B4-A02-03",
+      "child_id": "pilot",
+      "original_asset_id": "B4-A02-03",
+      "specific_physical_scene": "A practical solid-state cell casing in cutaway beneath a scanning probe, revealing a ceramic electrolyte pressed against one electrode interface.",
+      "single_mechanism": "the probe inspects the buried electrolyte-to-electrode interface inside the cell",
+      "source_spec_hash": "sha256:8a55dc4df31446b84f913b4f70050ced155a263dbb89ba761a0444db4a5dd136",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a02_03.py",
+      "generator_sha256": "5d078fdb40c88d258aa23dbb30148b730d1201732004fd6cca0832e6abff67a3",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A02-03--cell-assembly-cutaway.png",
+      "output_sha256": "faba6e0fae4734d5fa4ca81c1e81c1da26bcb4ef963f2aa535addbe87907655f",
+      "bytes": 10008,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1520335,
+        "#16171d": 49088,
+        "#3d4db3": 3441
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.002188,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_1ceb4f39"
+    },
+    {
+      "asset_id": "SW1-B4-A03-02",
+      "child_id": "batch-05",
+      "original_asset_id": "B4-A03-02",
+      "specific_physical_scene": "A circular materials bench with four connected stations: powder dosing, small furnace, measurement cradle, and an empty return tray.",
+      "single_mechanism": "one specimen circulates through the make-measure-revise loop and returns for adjustment",
+      "source_spec_hash": "sha256:18faed51f092c28b054ea6736200d56cd2a69ef97db5463f75f2909bf9e520bc",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a03_02.py",
+      "generator_sha256": "c218f393f107adfab160721cbc87a04e26f4b545322373af6019a152050b5746",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A03-02--four-station-materials-loop.png",
+      "output_sha256": "7c6cea015da2ee65bbff009486c4cd44e1792fa4b1c9d4e39ef1c8994b9650d6",
+      "bytes": 14310,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1481529,
+        "#16171d": 75583,
+        "#3d4db3": 15752
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.010015,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_083045bd"
+    },
+    {
+      "asset_id": "SW1-B4-A03-04",
+      "child_id": "batch-05",
+      "original_asset_id": "B4-A03-04",
+      "specific_physical_scene": "A long rack of sealed evidence cartridges connected by identical mechanical couplers to two independent instruments at opposite ends.",
+      "single_mechanism": "the common coupler lets independent instruments inspect the same immutable cartridge chain",
+      "source_spec_hash": "sha256:71ff6c71e5fbaa3b641ff2d0bda041102e10b717833b529f567b928aca519d2c",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a03_04.py",
+      "generator_sha256": "a2a9d9907cb1b503a0f5aee7dceb5756d182289383fdc348945715a14d117d7e",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A03-04--dual-instrument-cartridge-rack.png",
+      "output_sha256": "815ab5a8ddbc87c976f5016b3c7f288119e3d9bf8106370765ec259fbd42236c",
+      "bytes": 8582,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1497271,
+        "#16171d": 65702,
+        "#3d4db3": 9891
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.006289,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_083045bd"
+    },
+    {
+      "asset_id": "SW1-B4-A04-01",
+      "child_id": "batch-05",
+      "original_asset_id": "B4-A04-01",
+      "specific_physical_scene": "A narrow pilot pipeline from powder hopper through sintering furnace to a pressure-test fixture, with one inspection gate interrupting the route before scale-up equipment.",
+      "single_mechanism": "the inspection gate admits only measured samples to the pilot press",
+      "source_spec_hash": "sha256:eabf753a8ff9a81c4deb3db08ec2af22f84c4345129427d25bcc96a69fe06f2d",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a04_01.py",
+      "generator_sha256": "825fc959e04af89303003e1a8636ada64f7585fa1bef73416f743bac02d8044e",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A04-01--gated-pilot-pipeline.png",
+      "output_sha256": "f505cc0182c1c943a90d213288d1224c545ed2d70606f75895f600112d95c5b4",
+      "bytes": 8658,
+      "dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "palette_histogram": {
+        "#faf9f6": 1294381,
+        "#16171d": 27932,
+        "#3d4db3": 4791
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.00361,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_083045bd"
+    },
+    {
+      "asset_id": "SW1-B4-A04-02",
+      "child_id": "batch-05",
+      "original_asset_id": "B4-A04-02",
+      "specific_physical_scene": "A calibration artifact in a sealed cradle connected by an unbroken physical chain of couplers to a specimen archive and a test instrument.",
+      "single_mechanism": "the coupler chain makes every instrument result traceable to the calibration artifact",
+      "source_spec_hash": "sha256:0b0f9764ffde7936af25059eed7817dcff88827606f71657feab6c93491f4a5e",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a04_02.py",
+      "generator_sha256": "74a6927f3915b6142b6b436f30de3dbecc2e65058da1a82272d7ead3df64afa4",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A04-02--calibration-traceability-chain.png",
+      "output_sha256": "e51ee4fe1704c2961afea9672a70e067c14f5e4b9641016aaa8d86983363b3dd",
+      "bytes": 9256,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1504990,
+        "#16171d": 58469,
+        "#3d4db3": 9405
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.00598,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_083045bd"
+    },
+    {
+      "asset_id": "SW1-B4-A04-04",
+      "child_id": "batch-06",
+      "original_asset_id": "B4-A04-04",
+      "specific_physical_scene": "A risk-routing bench where candidate trays approach one mechanical evidence gate; several stop in side bays and one continues toward a small pilot reactor.",
+      "single_mechanism": "the evidence gate routes insufficient candidates aside before pilot equipment",
+      "source_spec_hash": "sha256:37af62e9e7f13c9f213978adfd1eb48bfd7781eb265e32fd07abe40d4e77a95f",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a04_04.py",
+      "generator_sha256": "a7115c228b7a19524c1fb685047dca8593904d559385a01c66f5439d338cec4a",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A04-04--evidence-gate-routing-bench.png",
+      "output_sha256": "c2e032115c877d19d031796c7e7e491afa1d53e8f9f1b627cc334d00b8131878",
+      "bytes": 9916,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1487530,
+        "#16171d": 74812,
+        "#3d4db3": 10522
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.00669,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_4c04518c"
+    },
+    {
+      "asset_id": "SW1-B5-A01-02",
+      "child_id": "batch-06",
+      "original_asset_id": "B5-A01-02",
+      "specific_physical_scene": "A dense row of identical displacement probes scanning across one ceramic-to-metal interface in a practical cell cross-section.",
+      "single_mechanism": "the local probe readings join into one smooth indigo correction band along the interface",
+      "source_spec_hash": "sha256:26e0f85f3b0c7954ce04aabc0ba51aa137422ef68118a4764acc4c92752f339a",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b5_a01_02.py",
+      "generator_sha256": "0f2896221be32641f691db430511ba9a22171bbea8207e0ad405187ee4ebab9f",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A01-02--interface-probe-correction-band.png",
+      "output_sha256": "044233bb5fd8b017b57abeb5fea47b95e67b1674523f0cf3109f11b84b1bfd7c",
+      "bytes": 9357,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1506236,
+        "#16171d": 53297,
+        "#3d4db3": 13331
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.008476,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_4c04518c"
+    },
+    {
+      "asset_id": "SW1-B5-A01-03",
+      "child_id": "batch-06",
+      "original_asset_id": "B5-A01-03",
+      "specific_physical_scene": "A material coupon traveling on a short rail from a prediction cartridge through one compact correction plate and into a tensile-test frame.",
+      "single_mechanism": "the bounded correction plate adjusts the predicted path before the physical tensile test",
+      "source_spec_hash": "sha256:48abb5b800dcb651e174b843f70fb504655d6cf47297ccfcdb8aa468d5f30482",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b5_a01_03.py",
+      "generator_sha256": "924422b0d241b096800da7e42dabb075998af2c108fcb886556726728b763524",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A01-03--bounded-correction-tensile-rail.png",
+      "output_sha256": "1eeff058778a9092ab96693728b358ee6d803e5752ec442f18623790217ec668",
+      "bytes": 8798,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1500158,
+        "#16171d": 64149,
+        "#3d4db3": 8557
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.00544,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_4c04518c"
+    },
+    {
+      "asset_id": "SW1-B5-A01-04",
+      "child_id": "batch-06",
+      "original_asset_id": "B5-A01-04",
+      "specific_physical_scene": "A rigid rectangular proof frame mounted over a specimen rail, with one compatible sample carriage passing through and one incompatible carriage stopped at the edge.",
+      "single_mechanism": "the frame physically bounds which correction path may proceed to testing",
+      "source_spec_hash": "sha256:6905cabf37d729b3eb19562bfaaf60ad61934cc967239f122daf94a9227def1b",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b5_a01_04.py",
+      "generator_sha256": "ce97ba6f343c20c982aeb63556ef43d8444a0d09ce37f5ac63cddb301753e0da",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A01-04--proof-frame-specimen-rail.png",
+      "output_sha256": "d0bf7c380328a3c04eb13e050501a6742d25d9b603fe23038f72e036cdcd0516",
+      "bytes": 7994,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1505370,
+        "#16171d": 55956,
+        "#3d4db3": 11538
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.007336,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_4c04518c"
+    },
+    {
+      "asset_id": "SW1-B5-A02-02",
+      "child_id": "batch-06",
+      "original_asset_id": "B5-A02-02",
+      "specific_physical_scene": "Two parallel rows of four unmarked engineering coupons on stepped mechanical pedestals; both rows preserve the same order while the pedestal heights differ.",
+      "single_mechanism": "the pedestal ordering shows rank agreement despite mismatched measured magnitude",
+      "source_spec_hash": "sha256:d15fe6e29575b7013227f504c90b5ef4d506f423cdd3935492d66c2919d63b0b",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b5_a02_02.py",
+      "generator_sha256": "9143378fd7bb94986cc6eb2c93d12e6e490f448c853160984a24c8333dd8865a",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A02-02--rank-agreement-pedestal-rows.png",
+      "output_sha256": "ac6b54be64233ddb7cb8cc7477631a663f736e7f98b87246e498740aa06e97be",
+      "bytes": 9249,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1522340,
+        "#16171d": 40023,
+        "#3d4db3": 10501
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.006676,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_4c04518c"
+    },
+    {
+      "asset_id": "SW1-B5-A02-03",
+      "child_id": "batch-06",
+      "original_asset_id": "B5-A02-03",
+      "specific_physical_scene": "A sealed prediction cartridge locked in a cradle outside an independent compression-test chamber, with the specimen entering through a separate hatch.",
+      "single_mechanism": "the sealed prediction remains untouched until the independent measurement is complete",
+      "source_spec_hash": "sha256:be83aefde67a99220e321473e4b04c19c95e96af82bde48f9b56c2170263e7d2",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b5_a02_03.py",
+      "generator_sha256": "0313f56ed64bb276a970ba4e22d4fe61cdbb48a307a902cb5661dbfab4abd74a",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A02-03--sealed-prediction-compression-test.png",
+      "output_sha256": "63d1fb7c6888299d3ffe88251e9b4f97495d4d36c20103a29c0548666f978fce",
+      "bytes": 8320,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1505257,
+        "#16171d": 62603,
+        "#3d4db3": 5004
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.003181,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_4c04518c"
+    },
+    {
+      "asset_id": "SW1-B5-A02-04",
+      "child_id": "batch-06",
+      "original_asset_id": "B5-A02-04",
+      "specific_physical_scene": "A compact correction plate inserted between an interatomic-model cartridge and a finite-element fatigue-test fixture for one turbine-blade coupon.",
+      "single_mechanism": "the plate applies a bounded local correction before the coupon simulation reaches the fatigue fixture",
+      "source_spec_hash": "sha256:0c91e5562dd5560986985dab88b8929be0614e5e607adaf0056f4b01a73e60cc",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b5_a02_04.py",
+      "generator_sha256": "ffcb812e707747f43bcaf4a741321536fb544adcf0e3170cabd420c570203a46",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A02-04--correction-plate-fatigue-fixture.png",
+      "output_sha256": "b308b1b57ae11b8055e00f2332493b4f2bf06df187b65ee3abb3c59de6b840f0",
+      "bytes": 9239,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1488982,
+        "#16171d": 73993,
+        "#3d4db3": 9889
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.006287,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_4c04518c"
+    },
+    {
+      "asset_id": "SW1-B5-A03-02",
+      "child_id": "batch-06",
+      "original_asset_id": "B5-A03-02",
+      "specific_physical_scene": "A defect-rich ceramic surface beneath a scanning probe, with one smooth polished region ending sharply at a cracked rough region.",
+      "single_mechanism": "the probe maps where a smooth correction field ceases to be supported at the defect cliff",
+      "source_spec_hash": "sha256:4971a0dc3cc2c7e5818942e005bdf42201498b1c077f87696c2e5e40498c901d",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b5_a03_02.py",
+      "generator_sha256": "7262e4ee9c5a0adda9855f1daa88f95ad519d8f376d87ffdae8d1503ac6ec840",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A03-02--probe-mapped-defect-cliff.png",
+      "output_sha256": "c32dd362203795cc37325eae6088a4bb8d1e3e2a87befa29365bba3e9cbcc4ee",
+      "bytes": 9289,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1523499,
+        "#16171d": 41606,
+        "#3d4db3": 7759
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.004933,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_4c04518c"
+    },
+    {
+      "asset_id": "SW1-B5-A03-03",
+      "child_id": "batch-07",
+      "original_asset_id": "B5-A03-03",
+      "specific_physical_scene": "A cantilever coupon in a displacement-test jig with three adjacent physical pointers showing raw prediction, corrected prediction, and measured deflection without scales.",
+      "single_mechanism": "the pointers compare whether correction moves the prediction toward the measured deflection",
+      "source_spec_hash": "sha256:416b98f5708ffd1615b6c6810d983260802fcb75ec5ba7239d4b7fbc196ff4db",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b5_a03_03.py",
+      "generator_sha256": "88c2e6521e019880a7e252054b1eb2853e2b80a981ef3b77c5ce9cd657601bdc",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A03-03--cantilever-three-pointer-jig.png",
+      "output_sha256": "7a78c6f2ff66338e9bfa547571a733259f12eccce5da5614a894478c67e39900",
+      "bytes": 8276,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1503101,
+        "#16171d": 63130,
+        "#3d4db3": 6633
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.004217,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_3c103f38"
+    },
+    {
+      "asset_id": "SW1-B5-A04-02",
+      "child_id": "batch-07",
+      "original_asset_id": "B5-A04-02",
+      "specific_physical_scene": "A solid-electrolyte migration rig with one ink ridge formed by measurement pins and a lower indigo trajectory passing beneath it.",
+      "single_mechanism": "the rig exposes systematic underestimation of the ion migration barrier",
+      "source_spec_hash": "sha256:a900c0fd70f6eb05bfea7071e87da7c8befa0709aaae0f16237b0f8d012a2562",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b5_a04_02.py",
+      "generator_sha256": "341e1bf40f4fe9026a9c953c2519855b7388c99d79d59792a26fcb4ab5d68c17",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A04-02--migration-ridge-pin-rig.png",
+      "output_sha256": "6478bca6ff44ed51b9f193893831e363101f6b1ea377fa4a60f22ff3cf3bf42f",
+      "bytes": 8818,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1480016,
+        "#16171d": 80616,
+        "#3d4db3": 12232
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.007777,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_3c103f38"
+    },
+    {
+      "asset_id": "SW1-B5-A04-04",
+      "child_id": "batch-07",
+      "original_asset_id": "B5-A04-04",
+      "specific_physical_scene": "A magnetic specimen rests in a sealed side tray outside a nonmagnetic correction fixture whose empty cradle is clearly incompatible.",
+      "single_mechanism": "the workflow abstains by keeping unsupported magnetic material outside the correction fixture",
+      "source_spec_hash": "sha256:4a93cd1835470be67944ff89943524b5091f0cf1f735e10f1bf0df4f39fe8758",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b5_a04_04.py",
+      "generator_sha256": "52f3fad81d3e4bbf370883480f3c99f5f542451eaefea83d410a8c2ac77474a6",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A04-04--magnetic-specimen-abstention-tray.png",
+      "output_sha256": "4b53989ed5655f8c9895fe910212267a2160c203ecce03628574a9fd84e71217",
+      "bytes": 8479,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1495068,
+        "#16171d": 73963,
+        "#3d4db3": 3833
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.002437,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_3c103f38"
+    },
+    {
+      "asset_id": "SW1-B6-A01-01",
+      "child_id": "batch-07",
+      "original_asset_id": "B6-A01-01",
+      "specific_physical_scene": "A row of solid-electrolyte coupons mounted in identical diffusion rigs, with a sparse set of shared reference pins aligned across all rigs.",
+      "single_mechanism": "the shared reference pins anchor comparison of migration barriers across the coupon panel",
+      "source_spec_hash": "sha256:f7cb2e2c05e1da220d1c2abe7740c303442706cb05c86276366771a4326488a2",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b6_a01_01.py",
+      "generator_sha256": "6b71f558589c3a3ab8863cef8eadafbccc6220a5c9737ec8034dbab668a613f6",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A01-01--shared-reference-diffusion-rigs.png",
+      "output_sha256": "0bc23a01a5ded7390468c36d83af8af9e8da9925d9688f8a3829169b3c8b5ca7",
+      "bytes": 6953,
+      "dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "palette_histogram": {
+        "#faf9f6": 1263482,
+        "#16171d": 56020,
+        "#3d4db3": 7602
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.005728,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_3c103f38"
+    },
+    {
+      "asset_id": "SW1-B6-A01-02",
+      "child_id": "batch-07",
+      "original_asset_id": "B6-A01-02",
+      "specific_physical_scene": "A broad array of untouched electrolyte coupons surrounding a compact central route through three shared physical diffusion-test stations.",
+      "single_mechanism": "the union route reuses shared stations instead of repeating every possible barrier test",
+      "source_spec_hash": "sha256:50fde59c118e6b137b5537f05780f3e3ed530fb2520c7e98ac3fce97bc2e9280",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b6_a01_02.py",
+      "generator_sha256": "513124b6894cfcddad90e1d65a789ea2df848691a1461633868130f894138be3",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A01-02--union-route-shared-stations.png",
+      "output_sha256": "524c1a38324b32c213a25f1078143c180f4af99e4f8560ac1034706d82d35a1f",
+      "bytes": 9827,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1511533,
+        "#16171d": 53726,
+        "#3d4db3": 7605
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.004835,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_3c103f38"
+    },
+    {
+      "asset_id": "SW1-B6-A01-03",
+      "child_id": "batch-07",
+      "original_asset_id": "B6-A01-03",
+      "specific_physical_scene": "Five battery-material coupons ordered along a bench beneath spring-loaded response gauges; the pointer order agrees while every predicted stop sits short of its measured stop.",
+      "single_mechanism": "the gauges preserve candidate ranking while exposing underestimated barrier magnitude",
+      "source_spec_hash": "sha256:ab0e0bdbcb5b7ef3555eb54a7739b34ba405bab0c78869b5ccaf5189ba6021e8",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b6_a01_03.py",
+      "generator_sha256": "b8e0dc5d85ca62d4dff8deab4622b5d0106195108ab475088d68f6d82acff336",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A01-03--ranked-coupon-response-gauges.png",
+      "output_sha256": "65ce90f0958e405cee8a73c7804250b10c2ad95ac0154aa4f4de4b85c27f4003",
+      "bytes": 10899,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1492816,
+        "#16171d": 68564,
+        "#3d4db3": 11484
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.007301,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_3c103f38"
+    },
+    {
+      "asset_id": "SW1-B6-A02-01",
+      "child_id": "batch-07",
+      "original_asset_id": "B6-A02-01",
+      "specific_physical_scene": "A row of four increasingly specialized test bays: bulk compression, defect scanning, reaction vessel, and interface microscopy, receding across a bare laboratory floor.",
+      "single_mechanism": "each material environment is routed to the level of test equipment its complexity requires",
+      "source_spec_hash": "sha256:fd27cd2ec4da911fa5056ac5d3b586506fd338a472bbf02b60d885eb0925caa9",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b6_a02_01.py",
+      "generator_sha256": "83d06a940e2847c5a45850f4f74cf6ded65e731e2a84545549eca9e209e281e7",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A02-01--specialized-test-bay-sequence.png",
+      "output_sha256": "999d7c20e337d5dacf6ebd2d98d159ca89eb748e525fa2d05556014543e98ccc",
+      "bytes": 9119,
+      "dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "palette_histogram": {
+        "#faf9f6": 1283258,
+        "#16171d": 36263,
+        "#3d4db3": 7583
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.005714,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_3c103f38"
+    },
+    {
+      "asset_id": "SW1-B6-A02-02",
+      "child_id": "batch-07",
+      "original_asset_id": "B6-A02-02",
+      "specific_physical_scene": "A branching sample rail at a quiet allocation station: simple coupons enter a rapid screen while one complex interface coupon is diverted to a reference chamber.",
+      "single_mechanism": "the physical switch routes work according to evidence difficulty",
+      "source_spec_hash": "sha256:174e107fad864cac702dbc0a7060642ee8ebc2a0c8491eb1948511f110d912f5",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b6_a02_02.py",
+      "generator_sha256": "bf393d8dec4657e094d0082af3cf7cb65eb28bddcfcd98184e863314b2e580f0",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A02-02--evidence-allocation-switch-rail.png",
+      "output_sha256": "a109abf12dd916f85750e0dfea7ff071bbeba7ef98edc535a4d0db2d5fa1e702",
+      "bytes": 10219,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1505085,
+        "#16171d": 61295,
+        "#3d4db3": 6484
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.004122,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_3c103f38"
+    },
+    {
+      "asset_id": "SW1-B6-A02-03",
+      "child_id": "batch-08",
+      "original_asset_id": "B6-A02-03",
+      "specific_physical_scene": "A high-pressure material cell enclosed by three nested mechanical containment rings, with the innermost ring carrying a restrained indigo boundary.",
+      "single_mechanism": "the nested rings prevent a correction from extending beyond its tested material regime",
+      "source_spec_hash": "sha256:1f5577443e6a190b39233fb1a893e3eec3a5f98798aa8d7cdb124e2869df2b85",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b6_a02_03.py",
+      "generator_sha256": "6e7447e3ba410508b20bc8df20514ae8b528bc3fd897f683afea8fcfb2d24e16",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A02-03--nested-containment-pressure-cell.png",
+      "output_sha256": "42568b741f592a44a682df66e6ba8df0435dbd2951c0e759956705738b51f30c",
+      "bytes": 15785,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1460167,
+        "#16171d": 100438,
+        "#3d4db3": 12259
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.007794,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_a28b8419"
+    },
+    {
+      "asset_id": "SW1-B6-A02-04",
+      "child_id": "batch-08",
+      "original_asset_id": "B6-A02-04",
+      "specific_physical_scene": "A phased research hall with a simple coupon rack nearest the viewer and progressively enclosed thermal, reaction, and interface test bays farther away.",
+      "single_mechanism": "samples advance only when each increasingly specialized test bay supplies evidence",
+      "source_spec_hash": "sha256:57753822decb9dddca9abccdffcbd8173374f2802e757c94319492d1ff61bddb",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b6_a02_04.py",
+      "generator_sha256": "ca1c3e6581883fb4257b8f8e4ce574480a135b47b8631233bf5c152c73848d52",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A02-04--phased-evidence-test-hall.png",
+      "output_sha256": "1dfe1d7bd2e5b5c75b941791c54b41bea7c250712be1a1e1d2dc50ede819364f",
+      "bytes": 9430,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1472922,
+        "#16171d": 89400,
+        "#3d4db3": 10542
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.006702,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_a28b8419"
+    },
+    {
+      "asset_id": "SW1-B6-A03-01",
+      "child_id": "batch-08",
+      "original_asset_id": "B6-A03-01",
+      "specific_physical_scene": "A row of five practical material coupons under paired spring gauges, where each indigo predicted pointer stops below its corresponding ink measured pointer.",
+      "single_mechanism": "the paired gauges show correct ordering but systematically undersized response",
+      "source_spec_hash": "sha256:378cf62fb963bd4263bf425a54ac61e4abb1e711c3563ef597061258a9047b61",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b6_a03_01.py",
+      "generator_sha256": "8e42c1cdfe79212345bdfce4f9fe8a503a1a5f4e27d35a577ecbc92231bed088",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A03-01--paired-spring-gauge-row.png",
+      "output_sha256": "cf9d8d473b483291e834758571f1b97ae643797971cfd1486af10e83957f6a87",
+      "bytes": 8787,
+      "dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "palette_histogram": {
+        "#faf9f6": 1285548,
+        "#16171d": 23541,
+        "#3d4db3": 18015
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.013575,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_a28b8419"
+    },
+    {
+      "asset_id": "SW1-B6-A03-04",
+      "child_id": "batch-08",
+      "original_asset_id": "B6-A03-04",
+      "specific_physical_scene": "An unattended specimen pipeline with a model cartridge, a bounded correction jig, and a final engineering decision tray connected by one narrow rail.",
+      "single_mechanism": "the rail carries one sample through rank-preserving correction into a physical decision tray",
+      "source_spec_hash": "sha256:78feca6f566cae588ece80a7794c867e4b92973f437abb79d40280f7a4d8013c",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b6_a03_04.py",
+      "generator_sha256": "281b13f3da89ffa08a10a93a03f14beabacaafeb505187e89d866746136e7a5d",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A03-04--bounded-correction-decision-rail.png",
+      "output_sha256": "6fa0ac2ace842edc078a90b8285c0186ef3b920d15f4ee2aada23e8db2dc52b5",
+      "bytes": 8838,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1507130,
+        "#16171d": 56410,
+        "#3d4db3": 9324
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.005928,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_a28b8419"
+    },
+    {
+      "asset_id": "SW1-B6-A04-01",
+      "child_id": "batch-08",
+      "original_asset_id": "B6-A04-01",
+      "specific_physical_scene": "A porous-framework powder batch moving from a synthesis vessel through a pellet press and stability chamber into one plain sorbent cartridge.",
+      "single_mechanism": "the makeability line rejects material unless it survives synthesis, shaping, and stability testing",
+      "source_spec_hash": "sha256:ecf289ccd4bc574a8d47f9ab8a21ab33a4328cb8cd24ee8330916eaabd3c7ab5",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b6_a04_01.py",
+      "generator_sha256": "cd596fb677f3d8a93aad24cad6c23a90592709f914825ebf97beda0dd8e6d707",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A04-01--makeability-survival-line.png",
+      "output_sha256": "22e3fc3aa1e82c067252eaa687b2d569edc3ff23d53e84a7502ff905504c5854",
+      "bytes": 9574,
+      "dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "palette_histogram": {
+        "#faf9f6": 1282723,
+        "#16171d": 37414,
+        "#3d4db3": 6967
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.00525,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_a28b8419"
+    },
+    {
+      "asset_id": "SW1-B6-A04-02",
+      "child_id": "batch-08",
+      "original_asset_id": "B6-A04-02",
+      "specific_physical_scene": "A full-height direct-air-capture panel in cutaway with a porous-framework coating bonded to a plain metal support and sparse airflow crossing it.",
+      "single_mechanism": "the bonded porous coating captures gas while remaining mechanically supported inside the contactor",
+      "source_spec_hash": "sha256:44fb1fe66a677316b11d65d0d991e4251946f3ca1fcca15b2fca6661683c65f0",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b6_a04_02.py",
+      "generator_sha256": "3479d3f1685956fb6ad893c75806f83825f5f62ea0c0d809e90846ccf05ee157",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A04-02--bonded-dac-panel-cutaway.png",
+      "output_sha256": "6059bc8a592ea3fc95c2837a25b59fa9c34fcac2e1d0ea0c4b6c942dc55fff81",
+      "bytes": 10592,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1501198,
+        "#16171d": 61913,
+        "#3d4db3": 9753
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.006201,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_a28b8419"
+    },
+    {
+      "asset_id": "SW1-B6-A04-03",
+      "child_id": "batch-08",
+      "original_asset_id": "B6-A04-03",
+      "specific_physical_scene": "An unoccupied materials bay with a synthesis vessel, wash filter, stability chamber, and pilot cartridge connected in one straight line.",
+      "single_mechanism": "one framework batch advances through synthesis and stability checks before entering the pilot cartridge",
+      "source_spec_hash": "sha256:92dca27b3b3c92842ca664a88ea1549621d045067aa75a59863b949e86ab2dd7",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b6_a04_03.py",
+      "generator_sha256": "e64a691844d498c743304cc16f04209bcb529153bcbb5511110a2bc69c77e22d",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A04-03--straight-materials-check-line.png",
+      "output_sha256": "6d872ead2ebbede97189bd71e470b65141f072545ddda24b0df45f504801970c",
+      "bytes": 11615,
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1503939,
+        "#16171d": 58461,
+        "#3d4db3": 10464
+      },
+      "upper_45_percent_all_paper": true,
+      "indigo_ratio": 0.006653,
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "composition_review_task": "t_a28b8419"
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,328 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "t_cf642292",
+  "campaign_id": "brand-campaign-2026-07-27",
+  "wave_id": "wave-4-programmatic-pil",
+  "batch_id": "batch-06",
+  "source_manifest": "public/brand-assets/campaign-2026-07-27/shortfall-wave-1-manifest.json",
+  "source_manifest_sha256": "d8c6a9cb14cc5803453a5eaf68409966457f40e1f169cc34d32da040b635e383",
+  "scene_source": "media/projects/article-visuals/wave4_batch_06_scenes.py",
+  "scene_source_sha256": "4969e1e1f92569c77d90a3874bb1c1516954b793f9236441aa1e5ae647a82844",
+  "component_source": "media/projects/article-visuals/wave4_scene_components.py",
+  "component_source_sha256": "c66f2efb1dca5bbe8df5499b224afd2f41032cc630bc88fd9e11da6db8b5a629",
+  "palette": [
+    "#faf9f6",
+    "#16171d",
+    "#3d4db3"
+  ],
+  "asset_count": 8,
+  "mechanical_status": "pass",
+  "composition_status": "pending-independent-review",
+  "errors": [],
+  "assets": [
+    {
+      "asset_id": "SW1-B4-A04-04",
+      "original_asset_id": "B4-A04-04",
+      "archetype": "evidence-gate-routing-bench",
+      "specific_physical_scene": "A risk-routing bench where candidate trays approach one mechanical evidence gate; several stop in side bays and one continues toward a small pilot reactor.",
+      "single_mechanism": "the evidence gate routes insufficient candidates aside before pilot equipment",
+      "source_spec_hash": "sha256:37af62e9e7f13c9f213978adfd1eb48bfd7781eb265e32fd07abe40d4e77a95f",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a04_04.py",
+      "generator_sha256": "a7115c228b7a19524c1fb685047dca8593904d559385a01c66f5439d338cec4a",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A04-04--evidence-gate-routing-bench.png",
+      "output_sha256": "c2e032115c877d19d031796c7e7e491afa1d53e8f9f1b627cc334d00b8131878",
+      "bytes": 9916,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1487530,
+        "#16171d": 74812,
+        "#3d4db3": 10522
+      },
+      "paper_ratio": 0.945746,
+      "ink_ratio": 0.047564,
+      "indigo_ratio": 0.00669,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        75,
+        579,
+        1462,
+        1021
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B5-A01-02",
+      "original_asset_id": "B5-A01-02",
+      "archetype": "interface-probe-correction-band",
+      "specific_physical_scene": "A dense row of identical displacement probes scanning across one ceramic-to-metal interface in a practical cell cross-section.",
+      "single_mechanism": "the local probe readings join into one smooth indigo correction band along the interface",
+      "source_spec_hash": "sha256:26e0f85f3b0c7954ce04aabc0ba51aa137422ef68118a4764acc4c92752f339a",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b5_a01_02.py",
+      "generator_sha256": "0f2896221be32641f691db430511ba9a22171bbea8207e0ad405187ee4ebab9f",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A01-02--interface-probe-correction-band.png",
+      "output_sha256": "044233bb5fd8b017b57abeb5fea47b95e67b1674523f0cf3109f11b84b1bfd7c",
+      "bytes": 9357,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1506236,
+        "#16171d": 53297,
+        "#3d4db3": 13331
+      },
+      "paper_ratio": 0.957639,
+      "ink_ratio": 0.033885,
+      "indigo_ratio": 0.008476,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        126,
+        600,
+        1411,
+        955
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B5-A01-03",
+      "original_asset_id": "B5-A01-03",
+      "archetype": "bounded-correction-tensile-rail",
+      "specific_physical_scene": "A material coupon traveling on a short rail from a prediction cartridge through one compact correction plate and into a tensile-test frame.",
+      "single_mechanism": "the bounded correction plate adjusts the predicted path before the physical tensile test",
+      "source_spec_hash": "sha256:48abb5b800dcb651e174b843f70fb504655d6cf47297ccfcdb8aa468d5f30482",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b5_a01_03.py",
+      "generator_sha256": "924422b0d241b096800da7e42dabb075998af2c108fcb886556726728b763524",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A01-03--bounded-correction-tensile-rail.png",
+      "output_sha256": "1eeff058778a9092ab96693728b358ee6d803e5752ec442f18623790217ec668",
+      "bytes": 8798,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1500158,
+        "#16171d": 64149,
+        "#3d4db3": 8557
+      },
+      "paper_ratio": 0.953775,
+      "ink_ratio": 0.040785,
+      "indigo_ratio": 0.00544,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        81,
+        594,
+        1456,
+        994
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B5-A01-04",
+      "original_asset_id": "B5-A01-04",
+      "archetype": "proof-frame-specimen-rail",
+      "specific_physical_scene": "A rigid rectangular proof frame mounted over a specimen rail, with one compatible sample carriage passing through and one incompatible carriage stopped at the edge.",
+      "single_mechanism": "the frame physically bounds which correction path may proceed to testing",
+      "source_spec_hash": "sha256:6905cabf37d729b3eb19562bfaaf60ad61934cc967239f122daf94a9227def1b",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b5_a01_04.py",
+      "generator_sha256": "ce97ba6f343c20c982aeb63556ef43d8444a0d09ce37f5ac63cddb301753e0da",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A01-04--proof-frame-specimen-rail.png",
+      "output_sha256": "d0bf7c380328a3c04eb13e050501a6742d25d9b603fe23038f72e036cdcd0516",
+      "bytes": 7994,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1505370,
+        "#16171d": 55956,
+        "#3d4db3": 11538
+      },
+      "paper_ratio": 0.957088,
+      "ink_ratio": 0.035576,
+      "indigo_ratio": 0.007336,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        90,
+        597,
+        1447,
+        977
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B5-A02-02",
+      "original_asset_id": "B5-A02-02",
+      "archetype": "rank-agreement-pedestal-rows",
+      "specific_physical_scene": "Two parallel rows of four unmarked engineering coupons on stepped mechanical pedestals; both rows preserve the same order while the pedestal heights differ.",
+      "single_mechanism": "the pedestal ordering shows rank agreement despite mismatched measured magnitude",
+      "source_spec_hash": "sha256:d15fe6e29575b7013227f504c90b5ef4d506f423cdd3935492d66c2919d63b0b",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b5_a02_02.py",
+      "generator_sha256": "9143378fd7bb94986cc6eb2c93d12e6e490f448c853160984a24c8333dd8865a",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A02-02--rank-agreement-pedestal-rows.png",
+      "output_sha256": "ac6b54be64233ddb7cb8cc7477631a663f736e7f98b87246e498740aa06e97be",
+      "bytes": 9249,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1522340,
+        "#16171d": 40023,
+        "#3d4db3": 10501
+      },
+      "paper_ratio": 0.967878,
+      "ink_ratio": 0.025446,
+      "indigo_ratio": 0.006676,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        108,
+        596,
+        1429,
+        992
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B5-A02-03",
+      "original_asset_id": "B5-A02-03",
+      "archetype": "sealed-prediction-compression-test",
+      "specific_physical_scene": "A sealed prediction cartridge locked in a cradle outside an independent compression-test chamber, with the specimen entering through a separate hatch.",
+      "single_mechanism": "the sealed prediction remains untouched until the independent measurement is complete",
+      "source_spec_hash": "sha256:be83aefde67a99220e321473e4b04c19c95e96af82bde48f9b56c2170263e7d2",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b5_a02_03.py",
+      "generator_sha256": "0313f56ed64bb276a970ba4e22d4fe61cdbb48a307a902cb5661dbfab4abd74a",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A02-03--sealed-prediction-compression-test.png",
+      "output_sha256": "63d1fb7c6888299d3ffe88251e9b4f97495d4d36c20103a29c0548666f978fce",
+      "bytes": 8320,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1505257,
+        "#16171d": 62603,
+        "#3d4db3": 5004
+      },
+      "paper_ratio": 0.957017,
+      "ink_ratio": 0.039802,
+      "indigo_ratio": 0.003181,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        90,
+        582,
+        1447,
+        980
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B5-A02-04",
+      "original_asset_id": "B5-A02-04",
+      "archetype": "correction-plate-fatigue-fixture",
+      "specific_physical_scene": "A compact correction plate inserted between an interatomic-model cartridge and a finite-element fatigue-test fixture for one turbine-blade coupon.",
+      "single_mechanism": "the plate applies a bounded local correction before the coupon simulation reaches the fatigue fixture",
+      "source_spec_hash": "sha256:0c91e5562dd5560986985dab88b8929be0614e5e607adaf0056f4b01a73e60cc",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b5_a02_04.py",
+      "generator_sha256": "ffcb812e707747f43bcaf4a741321536fb544adcf0e3170cabd420c570203a46",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A02-04--correction-plate-fatigue-fixture.png",
+      "output_sha256": "b308b1b57ae11b8055e00f2332493b4f2bf06df187b65ee3abb3c59de6b840f0",
+      "bytes": 9239,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1488982,
+        "#16171d": 73993,
+        "#3d4db3": 9889
+      },
+      "paper_ratio": 0.946669,
+      "ink_ratio": 0.047043,
+      "indigo_ratio": 0.006287,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        75,
+        594,
+        1462,
+        994
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B5-A03-02",
+      "original_asset_id": "B5-A03-02",
+      "archetype": "probe-mapped-defect-cliff",
+      "specific_physical_scene": "A defect-rich ceramic surface beneath a scanning probe, with one smooth polished region ending sharply at a cracked rough region.",
+      "single_mechanism": "the probe maps where a smooth correction field ceases to be supported at the defect cliff",
+      "source_spec_hash": "sha256:4971a0dc3cc2c7e5818942e005bdf42201498b1c077f87696c2e5e40498c901d",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b5_a03_02.py",
+      "generator_sha256": "7262e4ee9c5a0adda9855f1daa88f95ad519d8f376d87ffdae8d1503ac6ec840",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A03-02--probe-mapped-defect-cliff.png",
+      "output_sha256": "c32dd362203795cc37325eae6088a4bb8d1e3e2a87befa29365bba3e9cbcc4ee",
+      "bytes": 9289,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1523499,
+        "#16171d": 41606,
+        "#3d4db3": 7759
+      },
+      "paper_ratio": 0.968615,
+      "ink_ratio": 0.026452,
+      "indigo_ratio": 0.004933,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        120,
+        522,
+        1417,
+        961
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    }
+  ]
+}

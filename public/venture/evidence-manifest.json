@@ -1,0 +1,892 @@
+{
+  "schema_version": "2.0",
+  "artifact": "VENTURE evidence, source-footer, palette, and certified asset manifest",
+  "repository_root": "/home/alex/Dev/lupine/lupine-science",
+  "source_revision_observed": "ba75f0b736673264215f490c9917e100ed880bb0",
+  "generated_for_task": "t_5fa3bdbd",
+  "upstream_tasks": [
+    "t_3106cbca",
+    "t_05d32964"
+  ],
+  "policy": {
+    "allowed_claims": "Only claims present in parent task t_2c7a1366 and verified against repository sources.",
+    "source_line_semantics": "One-indexed lines in the exact SHA-256-pinned source file.",
+    "owner_decision_fields": [
+      "round_size",
+      "instrument_or_terms",
+      "runway",
+      "allocation",
+      "valuation",
+      "dilution"
+    ],
+    "mandatory_disclosures": [
+      "one 30-path panel",
+      "one chemistry family",
+      "not peer-reviewed"
+    ],
+    "frozen_public_economics": [
+      "72.4% fewer DFT evaluations",
+      "$14.65 per 129 anchors"
+    ],
+    "funding_ask_amount": "[OWNER DECISION]",
+    "funding_ask_rule": "The funding ask amount and all financing terms MUST NOT be fabricated or inferred.",
+    "asset_rule": "Only assets listed in certified_assets are permitted in the deck; all are deterministic Wave-4 outputs certified by the hash-pinned aggregate manifest."
+  },
+  "sources": {
+    "S-ORDER": {
+      "path": "articles/the-order-is-right-the-size-is-wrong.md",
+      "public_route": "/articles/the-order-is-right-the-size-is-wrong/",
+      "sha256": "af557ed30afbdba08247d8ffc07bf5f482526be7fa7c1959a9d917033e5c3b2f",
+      "git_blob": "196de0ce7e706b05b34b44ead435b35f6b2e3853",
+      "status_in_source": "Live evidence"
+    },
+    "S-SYNTHESIS": {
+      "path": "articles/the-02-percent-synthesis-problem.md",
+      "public_route": "/articles/the-02-percent-synthesis-problem/",
+      "sha256": "15c4a94541a1db725761b9d3fea03ec5983e41a0339ce94292c6f0a12f900c1b",
+      "git_blob": "a54194f7fa468257ec5b49fe3e8396621b2ce6d4",
+      "status_in_source": "Draft"
+    },
+    "S-FIVE": {
+      "path": "articles/five-materials-for-5-to-12-gtco2-year.md",
+      "public_route": "/articles/five-materials-for-5-to-12-gtco2-year/",
+      "sha256": "b2def2ada8dff4aa5a2505b22d923f64744fc41437edb6492b3df390cf495d51",
+      "git_blob": "fbc07beef64a5bc39a822c9c4e1ccbd48f1b4c28",
+      "status_in_source": "Draft"
+    },
+    "S-INVEST": {
+      "path": "articles/investing-in-the-trust-layer.md",
+      "public_route": "/articles/investing-in-the-trust-layer/",
+      "sha256": "6b87baaf611f435674d5121cc5cb4e26995434b306731845b195a3dbf4c4d94a",
+      "git_blob": "2e14e9dcc907c99d32f4bde76b782de7fd30b489",
+      "status_in_source": "Draft"
+    },
+    "S-HURT": {
+      "path": "articles/the-correction-that-hurt-and-the-theorem-that-stopped-it.md",
+      "public_route": "/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/",
+      "sha256": "5fd3da6975a201274875fdfce6d4200f91993da7d979c62827c77855840ba1ae",
+      "git_blob": "08455524a2638d477efdda79ba8edc831c684a3c",
+      "status_in_source": "Draft for discussion"
+    },
+    "S-Z1": {
+      "path": "articles/z1-union-debrief.md",
+      "public_route": "/articles/z1-union-debrief/",
+      "sha256": "adf0063524545a821b69b7eba513e50a511b4ff2bbbda1596e56fafd6d094e2d",
+      "git_blob": "106355cff30042731eba00b7998046de9c452d45",
+      "status_in_source": "FOR EDITOR REVIEW — not for citation"
+    },
+    "S-PANEL": {
+      "path": "articles/the-materials-we-test-against.md",
+      "public_route": "/articles/the-materials-we-test-against/",
+      "sha256": "51d0ea98ee0879f8f662d8b13fa38e02b32ac0d1b33bc7b9cb9d9e84c24a4c34",
+      "git_blob": "7c8f46f5853e9dd7a33702430b1f07e1dde653e7",
+      "status_in_source": "Final"
+    },
+    "S-SAVINGS": {
+      "path": "articles/the-savings-stack.md",
+      "public_route": "/articles/the-savings-stack/",
+      "sha256": "0250469aa961a896ce9fedb960e822b760b702dd4d269d4848595c9b06ddb402",
+      "git_blob": "4677cd2763a8b034e55aa373ca60bbf1800c5b8f",
+      "status_in_source": "Final"
+    },
+    "S-EFFORT": {
+      "path": "articles/an-order-of-effort.md",
+      "public_route": "/articles/an-order-of-effort/",
+      "sha256": "81ee995867823514f80688461311edf611893da86558fd42bc0996563f1e77c1",
+      "git_blob": "00e9995b747582395d4e493974ff213533749ed4",
+      "status_in_source": "Final"
+    },
+    "S-TRUST": {
+      "path": "articles/the-trust-layer.md",
+      "public_route": "/articles/the-trust-layer/",
+      "sha256": "75f5496bded9e47f74c1e6b10123c9db47111fd374c3abb8c6eeb69d2f1873d6",
+      "git_blob": "ce4ac34fcb695775d18af4be0db09df497a7211e",
+      "status_in_source": "Published"
+    },
+    "S-WAVE4-RECON": {
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/reconciliation-report.md",
+      "sha256": "9e5500fa7e0a7aab4b78a04762bfe0f1ebc90dfdfac0f82d64b1194a49c1af48",
+      "git_blob": "5c83229bab43cdc12d46584deed06e067a609197",
+      "status_in_source": "verifier output"
+    },
+    "S-STILL-BASELINE": {
+      "path": "media/brand-campaign-2026-07-27/final-acceptance-manifest.json",
+      "sha256": "5d4710653c791c02129eaa98777b6e13cdcdc96836b9a41539a4acbc2b9b23f3",
+      "status_in_source": "independent baseline acceptance; 33 accepted stills and five separately accepted films"
+    },
+    "S-WAVE4-AGGREGATE": {
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/aggregate-manifest.json",
+      "sha256": "ca6805dfb4324f0c0f6ebb5504503eb13bc7a3e7de70cd08f0623436b70e9245",
+      "closure_gate_sha256": "59fae8812a4aa53ee51a9bc331ed9be10c89cae551464dbbededda9ed97f5d10",
+      "status_in_source": "67-slot independently certified Wave-4 aggregate; closure arithmetic independently audited by t_c2a1f8e3"
+    }
+  },
+  "claims": {
+    "C-CLIMATE-01": {
+      "claim": "Five material classes have a contingent combined climate potential of 5–12 GtCO2/year.",
+      "slides": [
+        1
+      ],
+      "evidence": [
+        {
+          "source": "S-FIVE",
+          "lines": "2-16"
+        }
+      ],
+      "qualification": "Portfolio estimate contingent on solving target material problems and deployment; not achieved abatement.",
+      "visible_source_footer_by_slide": {
+        "1": "Lupine Science, “Five Materials That Could Unlock 5–12 GtCO₂/Year,” lines 2–16."
+      }
+    },
+    "C-SYNTHESIS-01": {
+      "claim": "Of 380,000 computationally stable GNoME structures, 736 had been independently synthesized by late 2023, reported as a 0.2% validation rate.",
+      "slides": [
+        2
+      ],
+      "evidence": [
+        {
+          "source": "S-SYNTHESIS",
+          "lines": "7-16",
+          "reference": "footnote 1, DOI 10.1038/s41586-023-06735-9"
+        }
+      ],
+      "recalculation": "736 / 380000 * 100 = 0.1936842105%, rounded to 0.2%",
+      "qualification": "Validation-rate indicator; not a universal synthesizability probability.",
+      "visible_source_footer_by_slide": {
+        "2": "Lupine Science, “The 0.2% Synthesis Problem,” lines 7–16; Merchant et al., Nature 624 (2023), DOI 10.1038/s41586-023-06735-9."
+      }
+    },
+    "C-ACCURACY-01": {
+      "claim": "The benchmark measured foundation MLIPs across 21 materials and up to 9 properties against 228 published reference values.",
+      "slides": [
+        3
+      ],
+      "evidence": [
+        {
+          "source": "S-ORDER",
+          "lines": "3-7"
+        }
+      ],
+      "visible_source_footer_by_slide": {
+        "3": "Lupine Science, “The Order Is Right, the Size Is Wrong,” lines 5–18 and 41–63."
+      }
+    },
+    "C-ACCURACY-02": {
+      "claim": "Bulk predictions can be close while decision-relevant defect-family properties miss by tens of percent; ranking can survive when magnitude does not.",
+      "slides": [
+        3
+      ],
+      "evidence": [
+        {
+          "source": "S-ORDER",
+          "lines": "11-21"
+        },
+        {
+          "source": "S-ORDER",
+          "lines": "41-63"
+        }
+      ],
+      "qualification": "Bounded to the measured benchmark domain.",
+      "visible_source_footer_by_slide": {
+        "3": "Lupine Science, “The Order Is Right, the Size Is Wrong,” lines 5–18 and 41–63."
+      }
+    },
+    "C-PRODUCT-01": {
+      "claim": "The measured error-field correction is applied at runtime with analytic forces beside an existing MLIP, without retraining or fine-tuning the underlying model.",
+      "slides": [
+        4
+      ],
+      "evidence": [
+        {
+          "source": "S-INVEST",
+          "lines": "51-63"
+        },
+        {
+          "source": "S-ORDER",
+          "lines": "67-81"
+        }
+      ],
+      "qualification": "No universal-transfer claim; correction requires a supported field and family.",
+      "visible_source_footer_by_slide": {
+        "4": "Lupine Science, “Investing in the Trust Layer,” lines 51–63; “The Order Is Right, the Size Is Wrong,” lines 67–81."
+      }
+    },
+    "C-PRODUCT-02": {
+      "claim": "Certified inference routes supported cases through correction and bounds, and unsupported cases through abstention.",
+      "slides": [
+        5
+      ],
+      "evidence": [
+        {
+          "source": "S-HURT",
+          "lines": "27-35"
+        },
+        {
+          "source": "S-EFFORT",
+          "lines": "39-55"
+        }
+      ],
+      "visible_source_footer_by_slide": {
+        "5": "Lupine Science, “The Correction That Hurt, and the Theorem That Stopped It,” lines 19–35 and 49–55."
+      }
+    },
+    "C-HONESTY-01": {
+      "claim": "A first correction worsened alloy bulk-modulus error from 9.1% to 16.9%; the resulting wrong-direction theorem licenses correction only with supporting evidence and otherwise abstains.",
+      "slides": [
+        5
+      ],
+      "evidence": [
+        {
+          "source": "S-HURT",
+          "lines": "19-35"
+        }
+      ],
+      "qualification": "The later Round-2 rule was exploratory; the source records its limitations.",
+      "visible_source_footer_by_slide": {
+        "5": "Lupine Science, “The Correction That Hurt, and the Theorem That Stopped It,” lines 19–35 and 49–55."
+      }
+    },
+    "C-Z1-EXEC-01": {
+      "claim": "The source-locked execution record cost $14.65 per 129 anchors.",
+      "slides": [
+        6,
+        10
+      ],
+      "evidence": [
+        {
+          "source": "S-Z1",
+          "lines": "17-35"
+        }
+      ],
+      "qualification": "Source is marked FOR EDITOR REVIEW and not for citation; not peer-reviewed.",
+      "visible_source_footer_by_slide": {
+        "6": "Lupine Science, “The Union Verdict,” lines 17–35 (FOR EDITOR REVIEW; not peer-reviewed); “The Z1 Barrier Panel,” lines 1–17 and 23–66.",
+        "10": "Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “The Union Verdict,” lines 17–35 and 75–82 (FOR EDITOR REVIEW — not for citation); “The Savings Stack,” lines 26–56."
+      }
+    },
+    "C-Z1-PANEL-01": {
+      "claim": "The evidence program uses 42 published Li-ion electrolyte chemistries: 30 frozen test paths and 12 disjoint training chemistries.",
+      "slides": [
+        6,
+        10
+      ],
+      "evidence": [
+        {
+          "source": "S-PANEL",
+          "lines": "1-17"
+        },
+        {
+          "source": "S-PANEL",
+          "lines": "23-66",
+          "reference": "DOI 10.1038/s41524-025-01571-z"
+        }
+      ],
+      "qualification": "The executed union campaign uses the test-panel campaign record; do not imply all 42 were execution anchors in the same run.",
+      "visible_source_footer_by_slide": {
+        "6": "Lupine Science, “The Union Verdict,” lines 17–35 (FOR EDITOR REVIEW; not peer-reviewed); “The Z1 Barrier Panel,” lines 1–17 and 23–66.",
+        "10": "Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “The Union Verdict,” lines 17–35 and 75–82 (FOR EDITOR REVIEW — not for citation); “The Savings Stack,” lines 26–56."
+      }
+    },
+    "C-Z1-MODELS-01": {
+      "claim": "Four foundation MLIPs supplied guidance in the Z1 union campaign.",
+      "slides": [
+        6,
+        7,
+        10
+      ],
+      "evidence": [
+        {
+          "source": "S-Z1",
+          "lines": "13-26"
+        },
+        {
+          "source": "S-SAVINGS",
+          "lines": "30-40"
+        }
+      ],
+      "visible_source_footer_by_slide": {
+        "6": "Lupine Science, “The Union Verdict,” lines 17–35 (FOR EDITOR REVIEW; not peer-reviewed); “The Z1 Barrier Panel,” lines 1–17 and 23–66.",
+        "7": "Lupine Science, “The Savings Stack,” lines 26–40; “The Union Verdict,” lines 32–35.",
+        "10": "Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “The Union Verdict,” lines 17–35 and 75–82 (FOR EDITOR REVIEW — not for citation); “The Savings Stack,” lines 26–56."
+      }
+    },
+    "C-Z1-SPLIT-01": {
+      "claim": "Two guidance models found true extrema on every guided path, while two recorded a 6.8 meV undercoverage deficit.",
+      "slides": [
+        6
+      ],
+      "evidence": [
+        {
+          "source": "S-Z1",
+          "lines": "17-30"
+        }
+      ],
+      "qualification": "Same-engine result; short paths weaken the sparsity stress test.",
+      "visible_source_footer_by_slide": {
+        "6": "Lupine Science, “The Union Verdict,” lines 17–35 (FOR EDITOR REVIEW; not peer-reviewed); “The Z1 Barrier Panel,” lines 1–17 and 23–66."
+      }
+    },
+    "C-ECON-01": {
+      "claim": "Across the locked evidence record, shared anchors required 72.4% fewer DFT evaluations.",
+      "slides": [
+        7,
+        10
+      ],
+      "evidence": [
+        {
+          "source": "S-SAVINGS",
+          "lines": "26-32"
+        }
+      ],
+      "qualification": "Bounded to the locked evidence record; no rounding, extrapolation, annualization, or substitute economics are authorized.",
+      "visible_source_footer_by_slide": {
+        "7": "Lupine Science, “The Savings Stack,” lines 26–40; “The Union Verdict,” lines 32–35.",
+        "10": "Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “The Union Verdict,” lines 17–35 and 75–82 (FOR EDITOR REVIEW — not for citation); “The Savings Stack,” lines 26–56."
+      }
+    },
+    "C-MOAT-01": {
+      "claim": "The theorem commons is non-rival: partners can contribute formally verified physical-law theorems so shared gates sharpen without disclosing chemistry.",
+      "slides": [
+        8
+      ],
+      "evidence": [
+        {
+          "source": "S-SAVINGS",
+          "lines": "38-40"
+        }
+      ],
+      "visible_source_footer_by_slide": {
+        "8": "Lupine Science, “The Savings Stack,” lines 38–46; “The Order Is Right, the Size Is Wrong,” lines 88–120."
+      }
+    },
+    "C-MOAT-02": {
+      "claim": "Quantitative claims are tied to provenance-hashed data and machine-checked Lean theorems; failures and impossibility results remain in the record.",
+      "slides": [
+        8,
+        10
+      ],
+      "evidence": [
+        {
+          "source": "S-ORDER",
+          "lines": "88-120"
+        },
+        {
+          "source": "S-TRUST",
+          "lines": "35-60"
+        }
+      ],
+      "visible_source_footer_by_slide": {
+        "8": "Lupine Science, “The Savings Stack,” lines 38–46; “The Order Is Right, the Size Is Wrong,” lines 88–120.",
+        "10": "Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “The Union Verdict,” lines 17–35 and 75–82 (FOR EDITOR REVIEW — not for citation); “The Savings Stack,” lines 26–56."
+      }
+    },
+    "C-STILL-CLOSURE-01": {
+      "claim": "33 certified baseline stills + 67 independently certified Wave-4 replacements = 100/100 unique still slots.",
+      "slides": [
+        8
+      ],
+      "evidence": [
+        {
+          "source": "S-STILL-BASELINE",
+          "json_pointer": "/images/accepted"
+        },
+        {
+          "source": "S-WAVE4-AGGREGATE",
+          "json_pointer": "/asset_count"
+        }
+      ],
+      "recalculation": "33 + 67 = 100 unique still slots",
+      "closure_gate_task": "t_c2a1f8e3",
+      "films_outside_denominator": 5,
+      "qualification": "Still slots only. The five certified films are a separate class and do not enter the 100-still denominator. Do not imply 100/100 models, campaigns, films, or generic certification.",
+      "visible_citation_by_slide": {
+        "8": "Closure gate t_c2a1f8e3 · five certified films excluded from the denominator"
+      }
+    },
+    "C-MARKET-01": {
+      "claim": "The trust layer sits between model builders and laboratories, complementing generation and synthesis rather than replacing them.",
+      "slides": [
+        9
+      ],
+      "evidence": [
+        {
+          "source": "S-TRUST",
+          "lines": "64-78"
+        },
+        {
+          "source": "S-INVEST",
+          "lines": "23-43"
+        }
+      ],
+      "visible_source_footer_by_slide": {
+        "9": "Lupine Science, “The Trust Layer,” lines 64–78; “Investing in the Trust Layer,” lines 23–43."
+      }
+    },
+    "C-TRACTION-01": {
+      "claim": "The public evidence infrastructure includes a frozen panel, guided-model evidence, a completed execution record, and a reproducible savings analysis.",
+      "slides": [
+        10
+      ],
+      "evidence": [
+        {
+          "source": "S-PANEL",
+          "lines": "40-66"
+        },
+        {
+          "source": "S-Z1",
+          "lines": "17-35"
+        },
+        {
+          "source": "S-SAVINGS",
+          "lines": "30-56"
+        }
+      ],
+      "qualification": "Scientific/evidence traction only; no customer, revenue, or peer-review claim. The Z1 execution source is FOR EDITOR REVIEW and not for citation.",
+      "visible_source_footer_by_slide": {
+        "10": "Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “The Union Verdict,” lines 17–35 and 75–82 (FOR EDITOR REVIEW — not for citation); “The Savings Stack,” lines 26–56."
+      }
+    },
+    "C-ROADMAP-01": {
+      "claim": "The research ladder orders effort across statics, elastic response, surfaces, defects, transition states, interfaces, and magnetic/excited-state abstention domains.",
+      "slides": [
+        11
+      ],
+      "evidence": [
+        {
+          "source": "S-EFFORT",
+          "lines": "19-37"
+        }
+      ],
+      "visible_source_footer_by_slide": {
+        "11": "Lupine Science, “An Order of Effort,” lines 19–55."
+      }
+    },
+    "C-ROADMAP-02": {
+      "claim": "The roadmap instruments proven runtime lanes, expands only behind gates, uses sparse DFT where correction laws cannot act, and abstains where unsupported.",
+      "slides": [
+        11
+      ],
+      "evidence": [
+        {
+          "source": "S-EFFORT",
+          "lines": "39-55"
+        }
+      ],
+      "visible_source_footer_by_slide": {
+        "11": "Lupine Science, “An Order of Effort,” lines 19–55."
+      }
+    },
+    "C-RISK-01": {
+      "claim": "The savings evidence is bounded to one 30-path panel, one chemistry family, and is not peer-reviewed.",
+      "slides": [
+        12
+      ],
+      "evidence": [
+        {
+          "source": "S-SAVINGS",
+          "lines": "38-42"
+        }
+      ],
+      "visible_source_footer_by_slide": {
+        "12": "Lupine Science, “The Savings Stack,” lines 38–42; “The Union Verdict,” lines 47–57."
+      }
+    },
+    "C-RISK-02": {
+      "claim": "Executed Z1 limits include one engine and functional, short-path sparsity limitations, seven deferred large paths, two guidance misses, and no GPAW-VASP equivalence claim.",
+      "slides": [
+        12
+      ],
+      "evidence": [
+        {
+          "source": "S-Z1",
+          "lines": "47-57"
+        }
+      ],
+      "visible_source_footer_by_slide": {
+        "12": "Lupine Science, “The Savings Stack,” lines 38–42; “The Union Verdict,” lines 47–57."
+      }
+    }
+  },
+  "discrepancies_and_exclusions": {
+    "D-COST": {
+      "repository_evidence": "$14.65 per 129 anchors",
+      "decision": "Use only the frozen $14.65 per 129 anchors public cost claim; no alternate cost or basis is authorized.",
+      "evidence": [
+        {
+          "source": "S-Z1",
+          "lines": "5-6"
+        },
+        {
+          "source": "S-Z1",
+          "lines": "32-35"
+        },
+        {
+          "source": "S-Z1",
+          "lines": "75-79"
+        }
+      ]
+    },
+    "D-100-CHAIN": {
+      "superseded_requirement": "Earlier campaign-level certification-chain wording is not used; only the independently reconciled still-slot closure is allowed.",
+      "repository_evidence": "Closure gate t_c2a1f8e3 independently reconciled 33 certified baseline stills with 67 independently certified Wave-4 replacement stills as 100/100 unique still slots. Five certified films are separate and outside that denominator.",
+      "decision": "Use only the precisely scoped 100/100 unique still slots closure claim; do not imply models, campaigns, films, or generic certification.",
+      "evidence": [
+        {
+          "source": "S-STILL-BASELINE",
+          "json_pointer": "/images/accepted"
+        },
+        {
+          "source": "S-WAVE4-AGGREGATE",
+          "json_pointer": "/asset_count"
+        }
+      ],
+      "closure_gate_task": "t_c2a1f8e3"
+    }
+  },
+  "checks": [
+    {
+      "check": "Exact-string repository search for all card numbers and technical phrases",
+      "result": "completed"
+    },
+    {
+      "check": "SHA-256 and git blob hash recorded for every cited source",
+      "result": "completed"
+    },
+    {
+      "check": "Frozen economics allowlist",
+      "result": "completed; public economics limited to 72.4% fewer DFT evaluations and $14.65 per 129 anchors"
+    },
+    {
+      "check": "Source status review",
+      "result": "completed; draft/editor-review and non-peer-reviewed qualifications preserved"
+    },
+
+    {
+      "check": "Round/terms fabrication check",
+      "result": "completed; all financing fields remain [OWNER DECISION]"
+    },
+    {
+      "check": "Exact visible source footer attached to every allowed claim on every slide where it appears",
+      "result": "completed; slide 13 has no quantitative claim and its source-text slot must remain empty"
+    },
+    {
+      "check": "Funding ask fabrication gate",
+      "result": "completed; amount and terms remain [OWNER DECISION] and MUST NOT be fabricated"
+    },
+    {
+      "check": "Art-direction palette equality",
+      "result": "completed; paper #faf9f6, ink #16171d, indigo #3d4db3, ochre #8a5e1f"
+    },
+    {
+      "check": "Deterministic asset certification",
+      "result": "completed; 13/13 selected assets match the SHA-256-pinned Wave-4 aggregate manifest and pass mechanical/composition review"
+    },
+    {
+      "check": "Selected asset file hash verification",
+      "result": "completed; 13/13 on-disk SHA-256 hashes match"
+    }
+  ],
+  "generated_for_tasks": [
+    "t_3106cbca",
+    "t_05d32964",
+    "t_5fa3bdbd"
+  ],
+  "brand_palette": {
+    "source": "media/projects/venture-deck/art-direction.md",
+    "values": {
+      "paper": "#faf9f6",
+      "ink": "#16171d",
+      "indigo": "#3d4db3",
+      "ochre": "#8a5e1f"
+    },
+    "usage": {
+      "paper": "every slide background",
+      "ink": "primary type, chart marks, and rules",
+      "indigo": "functional route, selected datum, or active gate only",
+      "ochre": "warnings and unresolved owner-decision fields only"
+    },
+    "constraint": "Use only these four solid colors; no white, black, gray, gradients, shadows, glows, opacity, blend modes, or dark fields."
+  },
+  "slide_source_footers": {
+    "1": "Lupine Science, “Five Materials That Could Unlock 5–12 GtCO₂/Year,” lines 2–16.",
+    "2": "Lupine Science, “The 0.2% Synthesis Problem,” lines 7–16; Merchant et al., Nature 624 (2023), DOI 10.1038/s41586-023-06735-9.",
+    "3": "Lupine Science, “The Order Is Right, the Size Is Wrong,” lines 5–18 and 41–63.",
+    "4": "Lupine Science, “Investing in the Trust Layer,” lines 51–63; “The Order Is Right, the Size Is Wrong,” lines 67–81.",
+    "5": "Lupine Science, “The Correction That Hurt, and the Theorem That Stopped It,” lines 19–35 and 49–55.",
+    "6": "Lupine Science, “The Union Verdict,” lines 17–35 (FOR EDITOR REVIEW; not peer-reviewed); “The Z1 Barrier Panel,” lines 1–17 and 23–66.",
+    "7": "Lupine Science, “The Savings Stack,” lines 26–40; “The Union Verdict,” lines 32–35.",
+    "8": "Lupine Science, “The Savings Stack,” lines 38–46; “The Order Is Right, the Size Is Wrong,” lines 88–120.",
+    "9": "Lupine Science, “The Trust Layer,” lines 64–78; “Investing in the Trust Layer,” lines 23–43.",
+    "10": "Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “The Union Verdict,” lines 17–35 and 75–82 (FOR EDITOR REVIEW — not for citation); “The Savings Stack,” lines 26–56.",
+    "11": "Lupine Science, “An Order of Effort,” lines 19–55.",
+    "12": "Lupine Science, “The Savings Stack,” lines 38–42; “The Union Verdict,” lines 47–57.",
+    "13": null
+  },
+  "slide_claim_ids": {
+    "1": [
+      "C-CLIMATE-01"
+    ],
+    "2": [
+      "C-SYNTHESIS-01"
+    ],
+    "3": [
+      "C-ACCURACY-01",
+      "C-ACCURACY-02"
+    ],
+    "4": [
+      "C-PRODUCT-01"
+    ],
+    "5": [
+      "C-HONESTY-01",
+      "C-PRODUCT-02"
+    ],
+    "6": [
+      "C-Z1-EXEC-01",
+      "C-Z1-MODELS-01",
+      "C-Z1-PANEL-01",
+      "C-Z1-SPLIT-01"
+    ],
+    "7": [
+      "C-ECON-01"
+    ],
+    "8": [
+      "C-MOAT-01",
+      "C-MOAT-02",
+      "C-STILL-CLOSURE-01"
+    ],
+    "9": [
+      "C-MARKET-01"
+    ],
+    "10": [
+      "C-TRACTION-01"
+    ],
+    "11": [
+      "C-ROADMAP-01",
+      "C-ROADMAP-02"
+    ],
+    "12": [
+      "C-RISK-01",
+      "C-RISK-02"
+    ],
+    "13": []
+  },
+  "asset_certification": {
+    "source_manifest": "public/brand-assets/campaign-2026-07-27/wave-4/aggregate-manifest.json",
+    "source_manifest_sha256": "ca6805dfb4324f0c0f6ebb5504503eb13bc7a3e7de70cd08f0623436b70e9245",
+    "source_manifest_asset_count": 67,
+    "source_manifest_mechanical_status": "pass",
+    "source_manifest_composition_status": "pass",
+    "selection_count": 13,
+    "selection_rule": "Every selected asset must be present in the deterministic Wave-4 aggregate manifest with matching path, output SHA-256, dimensions, and pass/pass review status."
+  },
+  "certified_assets": [
+    {
+      "slide": 1,
+      "asset_id": "SW1-B6-A02-01",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A02-01--specialized-test-bay-sequence.png",
+      "sha256": "999d7c20e337d5dacf6ebd2d98d159ca89eb748e525fa2d05556014543e98ccc",
+      "width": 1536,
+      "height": 864,
+      "deterministic": true,
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b6_a02_01.py",
+      "generator_sha256": "83d06a940e2847c5a45850f4f74cf6ded65e731e2a84545549eca9e209e281e7",
+      "source_spec_hash": "sha256:fd27cd2ec4da911fa5056ac5d3b586506fd338a472bbf02b60d885eb0925caa9",
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "certified_by_manifest": "public/brand-assets/campaign-2026-07-27/wave-4/aggregate-manifest.json",
+      "certified_by_manifest_sha256": "ca6805dfb4324f0c0f6ebb5504503eb13bc7a3e7de70cd08f0623436b70e9245"
+    },
+    {
+      "slide": 2,
+      "asset_id": "SW1-B1-A02-01",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A02-01--laboratory-apparatus.png",
+      "sha256": "3ac616f9a19cbd14d7299b7ac1644543c2dbba9f13df0a98e3b30273d0cfbcf3",
+      "width": 1536,
+      "height": 864,
+      "deterministic": true,
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b1_a02_01.py",
+      "generator_sha256": "3d32ac7696dd8e522726126ac8a9fd10269f33193892f6dbd05a879a54307809",
+      "source_spec_hash": "sha256:31fdd2a21d7cf106aeb651d255e96996355cac0851e14f5ff67ebb33ffbe61c5",
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "certified_by_manifest": "public/brand-assets/campaign-2026-07-27/wave-4/aggregate-manifest.json",
+      "certified_by_manifest_sha256": "ca6805dfb4324f0c0f6ebb5504503eb13bc7a3e7de70cd08f0623436b70e9245"
+    },
+    {
+      "slide": 3,
+      "asset_id": "SW1-B5-A02-02",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A02-02--rank-agreement-pedestal-rows.png",
+      "sha256": "ac6b54be64233ddb7cb8cc7477631a663f736e7f98b87246e498740aa06e97be",
+      "width": 1536,
+      "height": 1024,
+      "deterministic": true,
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b5_a02_02.py",
+      "generator_sha256": "9143378fd7bb94986cc6eb2c93d12e6e490f448c853160984a24c8333dd8865a",
+      "source_spec_hash": "sha256:d15fe6e29575b7013227f504c90b5ef4d506f423cdd3935492d66c2919d63b0b",
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "certified_by_manifest": "public/brand-assets/campaign-2026-07-27/wave-4/aggregate-manifest.json",
+      "certified_by_manifest_sha256": "ca6805dfb4324f0c0f6ebb5504503eb13bc7a3e7de70cd08f0623436b70e9245"
+    },
+    {
+      "slide": 4,
+      "asset_id": "SW1-B5-A01-02",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A01-02--interface-probe-correction-band.png",
+      "sha256": "044233bb5fd8b017b57abeb5fea47b95e67b1674523f0cf3109f11b84b1bfd7c",
+      "width": 1536,
+      "height": 1024,
+      "deterministic": true,
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b5_a01_02.py",
+      "generator_sha256": "0f2896221be32641f691db430511ba9a22171bbea8207e0ad405187ee4ebab9f",
+      "source_spec_hash": "sha256:26e0f85f3b0c7954ce04aabc0ba51aa137422ef68118a4764acc4c92752f339a",
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "certified_by_manifest": "public/brand-assets/campaign-2026-07-27/wave-4/aggregate-manifest.json",
+      "certified_by_manifest_sha256": "ca6805dfb4324f0c0f6ebb5504503eb13bc7a3e7de70cd08f0623436b70e9245"
+    },
+    {
+      "slide": 5,
+      "asset_id": "SW1-B4-A04-04",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A04-04--evidence-gate-routing-bench.png",
+      "sha256": "c2e032115c877d19d031796c7e7e491afa1d53e8f9f1b627cc334d00b8131878",
+      "width": 1536,
+      "height": 1024,
+      "deterministic": true,
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a04_04.py",
+      "generator_sha256": "a7115c228b7a19524c1fb685047dca8593904d559385a01c66f5439d338cec4a",
+      "source_spec_hash": "sha256:37af62e9e7f13c9f213978adfd1eb48bfd7781eb265e32fd07abe40d4e77a95f",
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "certified_by_manifest": "public/brand-assets/campaign-2026-07-27/wave-4/aggregate-manifest.json",
+      "certified_by_manifest_sha256": "ca6805dfb4324f0c0f6ebb5504503eb13bc7a3e7de70cd08f0623436b70e9245"
+    },
+    {
+      "slide": 6,
+      "asset_id": "SW1-B6-A01-01",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A01-01--shared-reference-diffusion-rigs.png",
+      "sha256": "0bc23a01a5ded7390468c36d83af8af9e8da9925d9688f8a3829169b3c8b5ca7",
+      "width": 1536,
+      "height": 864,
+      "deterministic": true,
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b6_a01_01.py",
+      "generator_sha256": "6b71f558589c3a3ab8863cef8eadafbccc6220a5c9737ec8034dbab668a613f6",
+      "source_spec_hash": "sha256:f7cb2e2c05e1da220d1c2abe7740c303442706cb05c86276366771a4326488a2",
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "certified_by_manifest": "public/brand-assets/campaign-2026-07-27/wave-4/aggregate-manifest.json",
+      "certified_by_manifest_sha256": "ca6805dfb4324f0c0f6ebb5504503eb13bc7a3e7de70cd08f0623436b70e9245"
+    },
+    {
+      "slide": 7,
+      "asset_id": "SW1-B6-A01-02",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A01-02--union-route-shared-stations.png",
+      "sha256": "524c1a38324b32c213a25f1078143c180f4af99e4f8560ac1034706d82d35a1f",
+      "width": 1536,
+      "height": 1024,
+      "deterministic": true,
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b6_a01_02.py",
+      "generator_sha256": "513124b6894cfcddad90e1d65a789ea2df848691a1461633868130f894138be3",
+      "source_spec_hash": "sha256:50fde59c118e6b137b5537f05780f3e3ed530fb2520c7e98ac3fce97bc2e9280",
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "certified_by_manifest": "public/brand-assets/campaign-2026-07-27/wave-4/aggregate-manifest.json",
+      "certified_by_manifest_sha256": "ca6805dfb4324f0c0f6ebb5504503eb13bc7a3e7de70cd08f0623436b70e9245"
+    },
+    {
+      "slide": 8,
+      "asset_id": "SW1-B4-A04-02",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A04-02--calibration-traceability-chain.png",
+      "sha256": "e51ee4fe1704c2961afea9672a70e067c14f5e4b9641016aaa8d86983363b3dd",
+      "width": 1536,
+      "height": 1024,
+      "deterministic": true,
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a04_02.py",
+      "generator_sha256": "74a6927f3915b6142b6b436f30de3dbecc2e65058da1a82272d7ead3df64afa4",
+      "source_spec_hash": "sha256:0b0f9764ffde7936af25059eed7817dcff88827606f71657feab6c93491f4a5e",
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "certified_by_manifest": "public/brand-assets/campaign-2026-07-27/wave-4/aggregate-manifest.json",
+      "certified_by_manifest_sha256": "ca6805dfb4324f0c0f6ebb5504503eb13bc7a3e7de70cd08f0623436b70e9245"
+    },
+    {
+      "slide": 9,
+      "asset_id": "SW1-B3-A01-04",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B3-A01-04--calibrated-holder-filtration-skid.png",
+      "sha256": "0026849a0e0e2c801a86105de52120c81237fddf66641fa031f0b52b2f96dea8",
+      "width": 1536,
+      "height": 1024,
+      "deterministic": true,
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b3_a01_04.py",
+      "generator_sha256": "783cfa693ae4c0025e94b85690354ce6f1376055555cafd54a5959d6ed2f7889",
+      "source_spec_hash": "sha256:b79c02e1660c6edc3754e9b3e6a93e7f3cd86d61dc84395ee3595f1ba694e94b",
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "certified_by_manifest": "public/brand-assets/campaign-2026-07-27/wave-4/aggregate-manifest.json",
+      "certified_by_manifest_sha256": "ca6805dfb4324f0c0f6ebb5504503eb13bc7a3e7de70cd08f0623436b70e9245"
+    },
+    {
+      "slide": 10,
+      "asset_id": "SW1-B4-A01-03",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A01-03--sealed-evidence-table.png",
+      "sha256": "9794f6d4bbd6883b2448a50e7e22aca6aaf21a64dde9b4bb43023bc94931c972",
+      "width": 1536,
+      "height": 1024,
+      "deterministic": true,
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a01_03.py",
+      "generator_sha256": "5b27c1ffb08c2a78bb3cbcf1adaa435f035d5341af2c08bf31678a19657a2b92",
+      "source_spec_hash": "sha256:1a9482f7119e37420966fa0c57253a49f0d9f2122422dbc6168079fbb84340d2",
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "certified_by_manifest": "public/brand-assets/campaign-2026-07-27/wave-4/aggregate-manifest.json",
+      "certified_by_manifest_sha256": "ca6805dfb4324f0c0f6ebb5504503eb13bc7a3e7de70cd08f0623436b70e9245"
+    },
+    {
+      "slide": 11,
+      "asset_id": "SW1-B6-A02-04",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A02-04--phased-evidence-test-hall.png",
+      "sha256": "1dfe1d7bd2e5b5c75b941791c54b41bea7c250712be1a1e1d2dc50ede819364f",
+      "width": 1536,
+      "height": 1024,
+      "deterministic": true,
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b6_a02_04.py",
+      "generator_sha256": "ca1c3e6581883fb4257b8f8e4ce574480a135b47b8631233bf5c152c73848d52",
+      "source_spec_hash": "sha256:57753822decb9dddca9abccdffcbd8173374f2802e757c94319492d1ff61bddb",
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "certified_by_manifest": "public/brand-assets/campaign-2026-07-27/wave-4/aggregate-manifest.json",
+      "certified_by_manifest_sha256": "ca6805dfb4324f0c0f6ebb5504503eb13bc7a3e7de70cd08f0623436b70e9245"
+    },
+    {
+      "slide": 12,
+      "asset_id": "SW1-B5-A04-04",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A04-04--magnetic-specimen-abstention-tray.png",
+      "sha256": "4b53989ed5655f8c9895fe910212267a2160c203ecce03628574a9fd84e71217",
+      "width": 1536,
+      "height": 1024,
+      "deterministic": true,
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b5_a04_04.py",
+      "generator_sha256": "52f3fad81d3e4bbf370883480f3c99f5f542451eaefea83d410a8c2ac77474a6",
+      "source_spec_hash": "sha256:4a93cd1835470be67944ff89943524b5091f0cf1f735e10f1bf0df4f39fe8758",
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "certified_by_manifest": "public/brand-assets/campaign-2026-07-27/wave-4/aggregate-manifest.json",
+      "certified_by_manifest_sha256": "ca6805dfb4324f0c0f6ebb5504503eb13bc7a3e7de70cd08f0623436b70e9245"
+    },
+    {
+      "slide": 13,
+      "asset_id": "SW1-B4-A04-01",
+      "path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A04-01--gated-pilot-pipeline.png",
+      "sha256": "f505cc0182c1c943a90d213288d1224c545ed2d70606f75895f600112d95c5b4",
+      "width": 1536,
+      "height": 864,
+      "deterministic": true,
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a04_01.py",
+      "generator_sha256": "825fc959e04af89303003e1a8636ada64f7585fa1bef73416f743bac02d8044e",
+      "source_spec_hash": "sha256:eabf753a8ff9a81c4deb3db08ec2af22f84c4345129427d25bcc96a69fe06f2d",
+      "mechanical_status": "pass",
+      "composition_status": "pass",
+      "certified_by_manifest": "public/brand-assets/campaign-2026-07-27/wave-4/aggregate-manifest.json",
+      "certified_by_manifest_sha256": "ca6805dfb4324f0c0f6ebb5504503eb13bc7a3e7de70cd08f0623436b70e9245"
+    }
+  ]
+}

@@ -12,8 +12,179 @@ permissions:
   contents: read
 
 jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint source
+        run: npm run lint
+
+      - name: Report lint failure
+        if: failure()
+        run: echo '### Lint failed — run `npm run lint` locally.' >> "$GITHUB_STEP_SUMMARY"
+
+  typecheck:
+    name: Type check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Report type-check failure
+        if: failure()
+        run: echo '### Type check failed — run `npm run typecheck` locally.' >> "$GITHUB_STEP_SUMMARY"
+
+  unit-tests:
+    name: Unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install system PDF/QA tools
+        run: sudo apt-get update && sudo apt-get install --yes poppler-utils
+
+      - name: Install Playwright browser
+        # Pin to the playwright-core version in package.json: an unpinned
+        # `npx playwright` fetches the latest release, whose browser build
+        # drifts out of sync with what playwright-core expects at runtime.
+        run: npx --yes playwright@1.61.1 install chromium
+
+      - name: Build site
+        run: npm run build
+
+      - name: Run unit tests
+        run: npm test
+
+      - name: Report unit-test failure
+        if: failure()
+        run: echo '### Unit tests failed — run `npm test` locally.' >> "$GITHUB_STEP_SUMMARY"
+
+  publication-visual-checks:
+    name: Publication visual checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: release/visual-checks/package-lock.json
+
+      - name: Install visual-check harness
+        working-directory: release/visual-checks
+        run: npm ci
+
+      - name: Install pinned Playwright browser
+        working-directory: release/visual-checks
+        run: npx playwright install --with-deps chromium
+
+      - name: Run deterministic component, R3F, and video-frame checks
+        working-directory: release/visual-checks
+        run: npm run visual:selftest
+
+      - name: Upload visual gate decision and evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: publication-visual-gate-${{ github.sha }}
+          path: release/visual-checks/visual-results/
+          if-no-files-found: error
+          retention-days: 90
+
+  publication-smoke-checks:
+    name: Publication route, media, PDF, and OG smoke checks
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies and PDF validator
+        run: |
+          npm ci
+          sudo apt-get update
+          sudo apt-get install --yes poppler-utils
+
+      - name: Download exact built site
+        uses: actions/download-artifact@v4
+        with:
+          name: lupine-science-public-${{ github.event.pull_request.head.sha || github.sha }}
+          path: public/
+
+      - name: Run full smoke suite against release artifact
+        env:
+          SMOKE_BASE_URL: http://127.0.0.1:4174
+          SMOKE_REPORT_PATH: ${{ runner.temp }}/publication-smoke-gate.json
+          SMOKE_ATTEMPTS: '1'
+          SMOKE_DELAY_MS: '0'
+        run: |
+          python3 -m http.server 4174 --directory public >"$RUNNER_TEMP/publication-smoke-server.log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for attempt in 1 2 3 4 5; do
+            curl --fail --silent http://127.0.0.1:4174/health >/dev/null && break
+            sleep 1
+          done
+          curl --fail --silent http://127.0.0.1:4174/health >/dev/null
+          npm run smoke
+
+      - name: Upload smoke gate decision and evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: publication-smoke-gate-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/publication-smoke-gate.json
+            ${{ runner.temp }}/publication-smoke-server.log
+          if-no-files-found: error
+          retention-days: 90
+
   build:
     name: Build site
+    needs: [lint, typecheck, unit-tests]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -30,30 +201,36 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install chrome-headless-shell for HyperFrames checks
+        run: |
+          npx @puppeteer/browsers install chrome-headless-shell | tee /tmp/chrome-install.log
+          CHROME_PATH="$(grep -o '/[^ ]*/chrome-headless-shell[^ ]*' /tmp/chrome-install.log | head -1)"
+          echo "HYPERFRAMES_BROWSER_PATH=${CHROME_PATH}" >> "$GITHUB_ENV"
+
       - name: Check article-video compositions
-        working-directory: media/projects/article-videos
-        run: npm run check
-
-      - name: Lint source
-        run: npm run lint
-
-      - name: Type check (or verify no TypeScript sources)
-        run: npm run typecheck
+        env:
+          HYPERFRAMES_BROWSER_PATH: ${{ env.HYPERFRAMES_BROWSER_PATH }}
+        timeout-minutes: 8
+        run: |
+          if [ -d media/projects/article-videos ]; then
+            cd media/projects/article-videos
+            npm run check
+          else
+            echo "media/projects/article-videos is archived on the wip branch; skipping composition check on main."
+          fi
 
       - name: Install system PDF/QA tools before tests
         run: sudo apt-get update && sudo apt-get install --yes poppler-utils
 
       - name: Install Playwright browsers for proof-pack tests and PDF rendering
-        run: npx playwright install chromium
-
-      - name: Run unit tests
-        run: npm test
+        # Pinned for the same reason as the unit-tests job above.
+        run: npx --yes playwright@1.61.1 install chromium
 
       - name: Build site
         run: npm run build
 
-      - name: Verify static files and links
-        run: node scripts/check-static.mjs
+      - name: Verify static files, article images, and performance budget
+        run: npm run verify
 
       - name: Generate proof pack
         run: npm run proofpack
@@ -64,9 +241,87 @@ jobs:
       - name: Upload built site artifact
         uses: actions/upload-artifact@v4
         with:
-          name: lupine-science-public-${{ github.sha }}
+          # pull_request runs build a synthetic merge SHA, but workflow_run
+          # exposes the reviewed head SHA to the credentialed deploy workflow.
+          name: lupine-science-public-${{ github.event.pull_request.head.sha || github.sha }}
           path: public/
           if-no-files-found: error
+          retention-days: 14
+
+  video-review:
+    name: Smart video review
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install ffmpeg for technical/frame checks
+        run: sudo apt-get update && sudo apt-get install --yes ffmpeg
+
+      - name: Download built site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: lupine-science-public-${{ github.event.pull_request.head.sha || github.sha }}
+          path: public/
+
+      - name: Run smart video reviewer
+        run: npm run review:videos -- --min-score 85
+
+      - name: Upload video review report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-review-report-${{ github.sha }}
+          path: media/projects/video-review/reports/
+          if-no-files-found: ignore
+          retention-days: 14
+
+  image-review:
+    name: Adversarial image-text audit
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install tesseract for OCR
+        run: sudo apt-get update && sudo apt-get install --yes tesseract-ocr
+
+      - name: Download built site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: lupine-science-public-${{ github.event.pull_request.head.sha || github.sha }}
+          path: public/
+
+      - name: Run adversarial image-text audit
+        run: npm run review:images
+
+      - name: Upload image audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: image-audit-report-${{ github.sha }}
+          path: media/projects/image-review/reports/
+          if-no-files-found: ignore
           retention-days: 14
 
   visual-regression:
@@ -95,8 +350,12 @@ jobs:
         env:
           HYPERFRAMES_BROWSER_PATH: ${{ env.HYPERFRAMES_BROWSER_PATH }}
         run: |
-          cd media/projects/article-videos
-          npm run vreg
+          if [ -d media/projects/article-videos ]; then
+            cd media/projects/article-videos
+            npm run vreg
+          else
+            echo "media/projects/article-videos is archived on the wip branch; skipping visual regression on main."
+          fi
 
       - name: Upload visual regression diffs
         if: failure()

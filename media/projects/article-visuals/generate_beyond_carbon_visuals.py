@@ -35,7 +35,8 @@ SOFT_ROSE = '#f2d6d6'
 COLORS = [INDIGO, AMBER, SAGE, SLATE, ROSE]
 
 SLUG = 'beyond-carbon-the-error-geometry-of-environmental-materials'
-OUT_DIR = Path(f'/home/alex/Dev/lupine/lupine-science/public/articles/{SLUG}/images')
+REPO_ROOT = Path(__file__).resolve().parents[3]
+OUT_DIR = REPO_ROOT / 'public/articles' / SLUG / 'images'
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 DPI = 150
@@ -480,7 +481,7 @@ def make_08():
 # -----------------------------------------------------------------------------
 def make_09():
     fig = plt.figure(figsize=FIGSIZE)
-    gs = fig.add_gridspec(1, 2, left=0.08, right=0.92, top=0.82, bottom=0.18,
+    gs = fig.add_gridspec(1, 2, left=0.08, right=0.92, top=0.82, bottom=0.24,
                           wspace=0.25, width_ratios=[1.2, 1])
 
     # Left: log-scale cost/candidate ladder
@@ -525,14 +526,14 @@ def make_09():
                               boxstyle='round,pad=0.02', facecolor=color,
                               edgecolor='none', alpha=0.15)
         ax2.add_patch(rect)
-        ax2.text(0.10, y - 0.04, label, ha='left', va='top', fontsize=11,
-                fontweight='bold', color=INK)
-        ax2.text(0.92, y - 0.04, size, ha='right', va='top', fontsize=11,
+        ax2.text(0.09, y - 0.07, label, ha='left', va='center', fontsize=9.5,
+                fontweight='bold', color=INK, linespacing=1.15)
+        ax2.text(0.91, y - 0.07, size, ha='right', va='center', fontsize=9.5,
                 fontweight='bold', color=color)
         y -= 0.28
 
-    ax2.text(0.5, 0.12, 'DFT cannot afford to screen these spaces exhaustively',
-             ha='center', fontsize=10, color=SECONDARY)
+    fig.text(0.74, 0.13, 'DFT cannot afford to screen these spaces exhaustively',
+             ha='center', va='center', fontsize=10, color=SECONDARY)
 
     add_title(fig, 'Speed That Scales Where DFT Cannot')
     add_source(fig, 'Source: Lupine Science Strategic Discovery Plan')
@@ -540,23 +541,51 @@ def make_09():
 
 
 # -----------------------------------------------------------------------------
-# 10 — Platform roadmap (MiniMax scene illustration)
+# 10 — Platform roadmap (concept diagram)
 # -----------------------------------------------------------------------------
 def make_10():
-    output = OUT_DIR / f'{SLUG}-10-platform-roadmap.jpg'
-    prompt = (
-        "An editorial scientific roadmap scene: a clean ascending path or staircase "
-        "moving from left to right through three stages. Stage 1 (left, amber #e8a838) "
-        "shows measurement of an atomic coordination error field. Stage 2 (center, sage #5a8a6e) "
-        "shows analytic force corrections being added to a neural potential. Stage 3 (right, indigo #3d4db3) "
-        "shows a machine-checked proof badge and verified predictions. Warm paper background (#faf9f6), "
-        "minimal text, clean infographic style, 16:9 landscape."
-    )
-    subprocess.run([
-        sys.executable, '/home/alex/.hermes/skills/lupine-media-director/scripts/minimax_client.py',
-        'image', '--prompt', prompt, '--aspect', '16:9', '--output', str(output)
-    ], check=True)
-    return output
+    fig = plt.figure(figsize=FIGSIZE)
+    ax = fig.add_axes([0.02, 0.15, 0.96, 0.67])
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1)
+    ax.axis('off')
+    ax.set_facecolor(BG)
+
+    stages = [
+        ('1 · MEASURE', 'Atomic coordination\nerror field',
+         '3 anchor observables\ncubic spline + bulk constraint P(12) = 0', AMBER),
+        ('2 · CORRECT', 'Analytic forces\nat runtime',
+         'r = 0.906 blind prediction\nzero adjustable parameters\n15.6% → <1% compiled overhead', SAGE),
+        ('3 · PROVE', 'Machine-checked\ntrust',
+         'Machine-generated Lean 4 theorem inventory\nzero sorry\nimpossibility proofs where unsupported', INDIGO),
+    ]
+
+    box_w, box_h = 0.28, 0.34
+    centers = [0.17, 0.50, 0.83]
+    y_mid = 0.62
+    for (kicker, title, detail, color), cx in zip(stages, centers):
+        rect = FancyBboxPatch((cx - box_w / 2, y_mid - box_h / 2), box_w, box_h,
+                              boxstyle='round,pad=0.01,rounding_size=0.03',
+                              facecolor=color, edgecolor='none', alpha=0.9)
+        ax.add_patch(rect)
+        ax.text(cx, y_mid + 0.10, kicker, ha='center', va='center',
+                fontsize=13, color='white', fontweight='bold')
+        ax.text(cx, y_mid - 0.03, title, ha='center', va='center',
+                fontsize=11, color='white', fontweight='bold', linespacing=1.15)
+        ax.text(cx, y_mid - box_h / 2 - 0.07, detail, ha='center', va='top',
+                fontsize=8.5, color=INK, linespacing=1.35)
+
+    for cx1, cx2 in [(centers[0], centers[1]), (centers[1], centers[2])]:
+        ax.annotate('', xy=(cx2 - box_w / 2 - 0.01, y_mid),
+                    xytext=(cx1 + box_w / 2 + 0.01, y_mid),
+                    arrowprops=dict(arrowstyle='->', color=SECONDARY, lw=2.5))
+
+    ax.text(0.5, 0.10, 'Each installment follows the same arc: measure, correct, prove.',
+            ha='center', va='center', fontsize=11, color=SECONDARY)
+
+    add_title(fig, 'The Path From Measured Error to Trust')
+    add_source(fig, 'Source: Lupine Science, Strategic Discovery Plan')
+    return save_jpg(fig, f'{SLUG}-10-platform-roadmap.jpg')
 
 
 # -----------------------------------------------------------------------------
@@ -585,7 +614,7 @@ MANIFEST = [
         'filename': f'{SLUG}-04-blind-prediction-panel.jpg',
         'title': 'Measured Correction, Machine-Checked Proof',
         'type': 'evidence-panel',
-        'caption': 'Across 36 blind model–material pairs the error field predicts corrections with r = 0.906, while a build-locked library of 77 Lean 4 theorems bounds what can be believed.'
+        'caption': 'Across 36 blind model–material pairs the error field predicts corrections with r = 0.906, while the machine-generated Lean 4 theorem inventory bounds what can be believed.'
     },
     {
         'filename': f'{SLUG}-05-correction-verification-layer.jpg',
@@ -620,7 +649,7 @@ MANIFEST = [
     {
         'filename': f'{SLUG}-10-platform-roadmap.jpg',
         'title': 'The Path From Measured Error to Trust',
-        'type': 'scene-illustration',
+        'type': 'concept-diagram',
         'caption': 'Every article in the series will follow the same arc: measure the shape of the error, correct it with analytic forces, and prove which predictions can be believed.'
     },
 ]

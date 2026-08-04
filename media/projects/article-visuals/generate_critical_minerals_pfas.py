@@ -31,7 +31,8 @@ SOFT_INDIGO = '#d9d8ff'
 MUTED = '#aaaaaa'
 
 SLUG = 'critical-minerals-pfas-and-the-remediation-imperative'
-OUT_DIR = Path(f'/home/alex/Dev/lupine/lupine-science/public/articles/{SLUG}/images')
+REPO_ROOT = Path(__file__).resolve().parents[3]
+OUT_DIR = REPO_ROOT / 'public/articles' / SLUG / 'images'
 MINIMAX_CLIENT = Path('/home/alex/.hermes/skills/lupine-media-director/scripts/minimax_client.py')
 
 DPI = 150
@@ -94,13 +95,26 @@ def style_spines(ax):
     ax.spines['right'].set_visible(False)
 
 
+BASE_CACHE = REPO_ROOT / 'media/projects/article-visuals/base-cache'
+BASE_CACHE.mkdir(parents=True, exist_ok=True)
+
+
 def minimax_image(prompt, output_name):
-    """Generate a scene illustration with MiniMax and resize/composite it to 1280x720."""
-    tmp = OUT_DIR / f'_tmp_{output_name}'
-    cmd = [sys.executable, str(MINIMAX_CLIENT), 'image', '--prompt', prompt, '--aspect', '16:9', '--output', str(tmp)]
-    subprocess.run(cmd, check=True, timeout=180)
-    base = Image.open(tmp).convert('RGB').resize((W, H), Image.Resampling.LANCZOS)
-    tmp.unlink(missing_ok=True)
+    """Generate a scene illustration with MiniMax and resize/composite it to 1280x720.
+
+    The raw base is cached under media/projects/article-visuals/base-cache/ so
+    re-runs re-composite deterministically instead of re-rolling the model.
+    Delete the cache file to force a fresh generation.
+    """
+    cache = BASE_CACHE / output_name
+    if not cache.exists():
+        cmd = [str(MINIMAX_CLIENT), 'image', '--prompt', prompt, '--aspect', '16:9', '--output', str(cache)]
+        try:
+            subprocess.run([sys.executable, *cmd], check=True, timeout=180)
+        except subprocess.CalledProcessError:
+            # The chart venvs lack `requests`; fall back to the system interpreter.
+            subprocess.run(['/usr/bin/python3', *cmd], check=True, timeout=180)
+    base = Image.open(cache).convert('RGB').resize((W, H), Image.Resampling.LANCZOS)
     return base
 
 
@@ -139,12 +153,16 @@ def make_01():
 # -----------------------------------------------------------------------------
 def make_02():
     prompt = (
-        "A clean, minimalist infographic illustration of a United States map showing PFAS contamination. "
+        "An unlabeled abstract data-visualization map of the United States, flat vector style, solid color fills. "
         "Soft indigo wash background (#d9d8ff), many small rose-red alert markers scattered across the map "
-        "with higher density in the eastern and midwestern states, subtle graduated marker legend, "
-        "scientific editorial style, no text or labels, warm paper color palette, 16:9 aspect ratio."
+        "with higher density in the eastern and midwestern states, thin state boundary lines only, "
+        "scientific editorial style, warm paper color palette, 16:9 aspect ratio. "
+        "Absolutely no words, no letters, no typography anywhere in the artwork — no state names, no city names, "
+        "no text, no labels, no legend, no scale bar, no color key, no compass, no watermark, no border, no frame."
     )
     base = minimax_image(prompt, '02_minimax.jpg')
+    # Crop the right 6% (model watermark/edge-artifact zone) and re-stretch to 16:9.
+    base = base.crop((0, 0, 1204, 720)).resize((W, H), Image.Resampling.LANCZOS)
 
     fig = base_figure()
     ax = fig.add_axes([0, 0, 1, 1])
@@ -152,22 +170,31 @@ def make_02():
     ax.axis('off')
 
     # Top title banner (tall enough to cover any model-generated artifacts near the top)
-    ax.add_patch(Rectangle((0, 0.82), 1, 0.18, transform=ax.transAxes, facecolor=BG, alpha=0.97, edgecolor='none', zorder=2))
+    ax.add_patch(Rectangle((0, 0.82), 1, 0.18, transform=ax.transAxes, facecolor=BG, alpha=1.0, edgecolor='none', zorder=2))
     fig.text(0.5, 0.955, 'PFAS in the Environment: Eighty Thousand Sites and Counting', ha='center', va='top',
              fontsize=20, fontweight='bold', color=TEXT, zorder=3)
 
-    # Bottom fact banner
-    ax.add_patch(Rectangle((0.05, 0.06), 0.90, 0.14, transform=ax.transAxes, facecolor=PRIMARY, alpha=0.90,
+    # Horizontal legend chip with a readable label
+    ax.add_patch(FancyBboxPatch((0.055, 0.682), 0.28, 0.076, transform=ax.transAxes,
+                                boxstyle='round,pad=0.01', facecolor=BG, edgecolor=MUTED,
+                                lw=1, alpha=0.95, zorder=3))
+    ax.scatter(0.093, 0.72, s=90, c=ROSE, edgecolor='white', linewidth=1.2,
+               transform=ax.transAxes, zorder=4)
+    fig.text(0.113, 0.72, 'Known contaminated sites', ha='left', va='center',
+             fontsize=11, color=TEXT, zorder=4)
+
+    # Bottom fact banner (fully opaque so base-image artifacts cannot ghost through)
+    ax.add_patch(Rectangle((0.05, 0.05), 0.90, 0.155, transform=ax.transAxes, facecolor=PRIMARY, alpha=1.0,
                            edgecolor='none', zorder=2, joinstyle='round'))
-    fig.text(0.5, 0.155, 'EPA drinking-water limit: 4 ng L⁻¹  •  >80,000 U.S. sites',
+    fig.text(0.5, 0.165, 'EPA drinking-water limit: 4 ng L⁻¹  •  >80,000 U.S. sites',
              ha='center', va='center', fontsize=11, color='white', fontweight='bold', zorder=3)
-    fig.text(0.5, 0.105, 'Remediation: $1–5M/site/year\nGlobal market: $5–10B by 2030',
-             ha='center', va='center', fontsize=9, color='white', zorder=3, linespacing=1.2)
-    fig.text(0.5, 0.075, 'Sources: Environmental Working Group / U.S. EPA; industry analyst estimates',
-             ha='center', va='center', fontsize=8, color='white', alpha=0.9, zorder=3)
+    fig.text(0.5, 0.112, 'Remediation: $1–5M/site/year\nGlobal market: $5–10B by 2030',
+             ha='center', va='center', fontsize=9, color='white', zorder=3, linespacing=1.5)
     # Strip to hide any model-generated artifacts at the very bottom
     ax.add_patch(Rectangle((0, 0), 1, 0.06, transform=ax.transAxes, facecolor=BG, alpha=1.0,
                            edgecolor='none', zorder=4))
+    fig.text(0.5, 0.028, 'Sources: Environmental Working Group / U.S. EPA; industry analyst estimates',
+             ha='center', va='center', fontsize=8, color=SECONDARY, zorder=5)
     return save_jpg(fig, f'{SLUG}-02-pfas-contamination-map.jpg'), prompt
 
 
@@ -270,12 +297,12 @@ def make_04():
     ax1.set_xlabel('Reference energy (eV)', fontsize=11)
     ax1.set_ylabel('uMLIP energy (eV)', fontsize=11)
     ax1.set_title('Predicted vs. reference energy', fontsize=13, fontweight='bold', pad=10)
-    ax1.legend(loc='upper left', frameon=False)
+    ax1.legend(loc='lower right', frameon=False)
     cbar = plt.colorbar(scatter, ax=ax1, fraction=0.046, pad=0.04)
-    cbar.set_label('Coordination number', fontsize=10, color=SECONDARY)
     cbar.ax.tick_params(labelsize=9)
-    ax1.text(0.05, 0.95, 'Softening bias\nat low CN', transform=ax1.transAxes, fontsize=10, color=ROSE,
-             fontweight='bold', va='top')
+    ax1.annotate('Softening bias\nat low CN', xy=(-2.9, -1.3), xytext=(-3.4, -0.55),
+                 fontsize=10, color=ROSE, fontweight='bold', ha='center', va='center',
+                 arrowprops=dict(arrowstyle='->', color=ROSE, lw=1.5))
     style_spines(ax1)
 
     # Right: error magnitude vs CN
@@ -289,7 +316,7 @@ def make_04():
     ax2.plot(bin_centers, medians, color=AMBER, lw=3, marker='o', markersize=6, zorder=5)
     ax2.axvspan(4, 8, color=ROSE, alpha=0.10)
     ax2.axvline(12, color=SAGE, lw=2, linestyle='--')
-    ax2.text(12, 55, 'bulk\nCN=12', ha='center', fontsize=9, color=SAGE, fontweight='bold')
+    ax2.text(11.8, 55, 'bulk\nCN=12', ha='right', fontsize=9, color=SAGE, fontweight='bold')
     ax2.text(6, 52, 'Danger zone\nCN = 4–8', ha='center', fontsize=10, color=ROSE, fontweight='bold')
     ax2.set_xlabel('Coordination number', fontsize=11)
     ax2.set_ylabel('Energy error (%)', fontsize=11)
@@ -333,11 +360,11 @@ def make_05():
                     arrowprops=dict(arrowstyle='->', color=SECONDARY, lw=2.5))
 
     # Verification gate below
-    gate = FancyBboxPatch((3.8, 2.0), 2.4, 1.2, boxstyle='round,pad=0.03,rounding_size=0.15',
+    gate = FancyBboxPatch((3.5, 2.0), 3.0, 1.2, boxstyle='round,pad=0.03,rounding_size=0.15',
                           facecolor=SLATE, edgecolor='none', alpha=0.9)
     ax.add_patch(gate)
     ax.text(5.0, 2.6, 'Verification gate', ha='center', va='center', fontsize=12, color='white', fontweight='bold')
-    ax.text(5.0, 2.25, '77 Lean 4 theorems  •  0 sorry proofs', ha='center', va='center', fontsize=9, color='white')
+    ax.text(5.0, 2.25, 'Machine-generated Lean inventory  ·  0 sorry', ha='center', va='center', fontsize=9, color='white')
     ax.annotate('', xy=(5.0, 3.2), xytext=(6.4, 5.5),
                 arrowprops=dict(arrowstyle='->', color=SLATE, lw=2, connectionstyle='arc3,rad=0.2'))
     ax.annotate('', xy=(5.0, 3.2), xytext=(8.3, 5.5),
@@ -348,13 +375,13 @@ def make_05():
         ('Bulk CN = 12', 'error = 0'),
         ('3 anchor\nobservables', ''),
         ('Blind r = 0.906', 'p = 10⁻⁴'),
-        ('~5 orders of\nmagnitude', 'faster than DFT'),
+        ('~5 orders of magnitude', 'faster than DFT'),
     ]
     xs = [0.8, 2.7, 5.1, 7.4]
     for (line1, line2), x in zip(stats, xs):
-        ax.text(x, 7.8, line1, ha='center', va='center', fontsize=10, color=TEXT, fontweight='bold')
+        ax.text(x, 8.35, line1, ha='center', va='center', fontsize=10, color=TEXT, fontweight='bold')
         if line2:
-            ax.text(x, 7.35, line2, ha='center', va='center', fontsize=9, color=SECONDARY)
+            ax.text(x, 7.9, line2, ha='center', va='center', fontsize=9, color=SECONDARY)
 
     # Inset scatter r=0.906
     inset = fig.add_axes([0.72, 0.18, 0.22, 0.24])
@@ -465,7 +492,7 @@ def make_06():
 # -----------------------------------------------------------------------------
 def make_07():
     fig = base_figure()
-    gs = fig.add_gridspec(2, 2, left=0.08, right=0.92, top=0.84, bottom=0.16, wspace=0.35, hspace=0.45)
+    gs = fig.add_gridspec(2, 2, left=0.08, right=0.92, top=0.84, bottom=0.16, wspace=0.35, hspace=0.62)
 
     # Cobalt supply concentration
     ax1 = fig.add_subplot(gs[0, 0])
@@ -473,7 +500,7 @@ def make_07():
     vals1 = [70, 30]
     colors1 = [ROSE, SLATE]
     bars1 = ax1.barh(labels1, vals1, color=colors1, edgecolor='none', height=0.5)
-    ax1.set_xlim(0, 85)
+    ax1.set_xlim(0, 100)
     ax1.set_xlabel('Share of mined cobalt (%)', fontsize=10)
     ax1.set_title('Cobalt supply concentration', fontsize=12, fontweight='bold', pad=8)
     for bar, val in zip(bars1, vals1):
@@ -493,7 +520,7 @@ def make_07():
         ax2.text(hi + 2, i, f'{lo}–{hi}%', va='center', ha='left', fontsize=10, color=TEXT)
     ax2.set_yticks(y2)
     ax2.set_yticklabels(labels2, fontsize=10)
-    ax2.set_xlim(0, 110)
+    ax2.set_xlim(0, 125)
     ax2.set_xlabel('Lithium recovery (%)', fontsize=10)
     ax2.set_title('Brine lithium recovery', fontsize=12, fontweight='bold', pad=8)
     ax2.invert_yaxis()
@@ -502,7 +529,7 @@ def make_07():
     # Battery recycling market
     ax3 = fig.add_subplot(gs[1, 0])
     ax3.barh(['Battery recycling\nmarket (2030)'], [42.5], color=AMBER, edgecolor='none', height=0.45)
-    ax3.set_xlim(0, 60)
+    ax3.set_xlim(0, 72)
     ax3.set_xlabel('Market size (billion USD)', fontsize=10)
     ax3.set_title('Global battery recycling market', fontsize=12, fontweight='bold', pad=8)
     ax3.text(42.5 + 1, 0, '$35–50B', va='center', fontsize=11, color=TEXT)
@@ -511,7 +538,7 @@ def make_07():
     # Direct-recycling energy savings
     ax4 = fig.add_subplot(gs[1, 1])
     ax4.barh(['Direct recycling\nvs. conventional'], [65], color=SAGE, edgecolor='none', height=0.45)
-    ax4.set_xlim(0, 100)
+    ax4.set_xlim(0, 115)
     ax4.set_xlabel('Energy savings (%)', fontsize=10)
     ax4.set_title('Direct-recycling energy savings', fontsize=12, fontweight='bold', pad=8)
     ax4.text(65 + 1, 0, '50–80%', va='center', fontsize=11, color=TEXT)

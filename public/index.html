@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lupine Science — Unlocking the materials that build the future</title>
-  <meta name="description" content="Intelligence became abundant; verified knowledge did not. Lupine Science makes AI's predictions of new materials provable — mathematics a computer checks, evidence anyone can audit — so discovery stops waiting on guesswork.">
+  <meta name="description" content="Verified predictions for new materials: machine-checked claims, provenance-locked data, and a public ledger of evidence.">
   <meta name="robots" content="index,follow">
   <meta property="og:title" content="Lupine Science — Unlocking the materials that build the future">
-  <meta property="og:description" content="Intelligence became abundant; verified knowledge did not. We make AI's predictions of new materials provable, so discovery stops waiting on guesswork.">
+  <meta property="og:description" content="Verified predictions for new materials: machine-checked claims, provenance-locked data, and a public ledger of evidence.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lupine.science/">
   <meta property="og:image" content="https://lupine.science/og-lupine-science.jpg">
@@ -15,11 +15,11 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Lupine Science — Unlocking the materials that build the future">
-  <meta name="twitter:description" content="Intelligence became abundant; verified knowledge did not. We make AI's predictions of new materials provable, so discovery stops waiting on guesswork.">
+  <meta name="twitter:description" content="Verified predictions for new materials: machine-checked claims, provenance-locked data, and a public ledger of evidence.">
   <meta name="twitter:image" content="https://lupine.science/og-lupine-science.jpg">
   <meta name="theme-color" content="#faf9f6">
   <link rel="canonical" href="https://lupine.science/">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://lupine.science/#org","name":"Lupine Science","url":"https://lupine.science/","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png"},"founder":{"@type":"Person","name":"Alex Welcing","email":"alex@lupinesci.com"},"description":"Lupine Science accelerates materials discovery by making AI's predictions of matter trustworthy.","sameAs":["https://github.com/alexwelcing/lupine","https://library.lupine.science","https://lupi.live"]},{"@type":"WebSite","@id":"https://lupine.science/#site","url":"https://lupine.science/","name":"Lupine Science","publisher":{"@id":"https://lupine.science/#org"}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://lupine.science/#org","name":"Lupine Science","url":"https://lupine.science/","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png"},"founder":{"@type":"Person","name":"Alex Welcing","email":"alex@lupinesci.com"},"description":"Verified predictions for new materials: machine-checked claims, provenance-locked data, and a public ledger of evidence.","sameAs":["https://github.com/alexwelcing/lupine","https://library.lupine.science","https://lupi.live"]},{"@type":"WebSite","@id":"https://lupine.science/#site","url":"https://lupine.science/","name":"Lupine Science","publisher":{"@id":"https://lupine.science/#org"}}]}</script>
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
   <link rel="icon" type="image/png" href="/lupine-science-icon.png">
   <link rel="apple-touch-icon" href="/lupine-science-icon.png">
@@ -382,6 +382,22 @@
     .b-all { margin: 28px 0 0; font-family: var(--mono); font-size: 13px; }
     .b-all a { color: var(--indigo); }
 
+    /* ════════ FEATURED SERIES — climate partnerships ════════ */
+    .feature-series { margin-top: clamp(64px, 9vh, 110px); }
+    .feature-series .series-head { max-width: 780px; margin-bottom: clamp(28px, 4vh, 44px); }
+    .feature-series .series-head h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 500; line-height: 1.18; margin: 0 0 12px; }
+    .feature-series .series-head p { font-size: 1.05rem; line-height: 1.58; color: var(--ink-soft); margin: 0; }
+    .series-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 2.6vw, 40px); }
+    .series-cards a { display: block; border-top: 1px solid var(--rule); padding: 0 0 18px; transition: background 240ms var(--ease), border-color 240ms var(--ease); }
+    .series-cards a:hover { background: var(--indigo-wash); border-color: var(--indigo-line); }
+    .series-cards img { width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover; display: block; border: 1px solid var(--rule); margin-bottom: 14px; }
+    .series-cards .d8 { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); display: block; padding: 14px 6px 0; }
+    .series-cards h3 { font-size: 1.22rem; font-weight: 500; line-height: 1.26; margin: 9px 0 8px; padding: 0 6px; }
+    .series-cards p { font-size: 0.94rem; line-height: 1.56; color: var(--ink-soft); margin: 0; padding: 0 6px; }
+    .series-cta { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 28px; }
+    .series-cta a { font-family: var(--mono); font-size: 13px; color: var(--indigo); }
+    @media (max-width: 860px) { .series-cards { grid-template-columns: 1fr; } }
+
     /* ════════ FOOT — colophon ════════ */
     .foot {
       display: flex; justify-content: space-between; gap: 14px 32px; flex-wrap: wrap; align-items: baseline;
@@ -391,8 +407,6 @@
     }
     .foot .offer { flex-basis: 100%; font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--ink-soft); }
     .foot .offer a { color: var(--indigo); border-bottom-color: var(--indigo-line); }
-    .receipts { flex-basis: 100%; font-size: 12px; letter-spacing: 0.02em; color: var(--ink-faint); }
-    .receipts b { color: var(--ochre); font-weight: 600; }
     .foot .creed { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--ink-soft); }
     .foot a { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 2px; border-bottom: 1px solid transparent; transition: all 180ms; }
     .foot a:hover { color: var(--indigo); border-color: var(--indigo); }
@@ -433,8 +447,22 @@
       .horizon { padding-top: 38vh; background: none; }
       /* comfortable touch targets for the term legend */
       .legend button { padding: 8px 0; }
-      .equation { font-size: clamp(26px, 8vw, 44px); }
+      /* keep the equation on one readable line; horizontal scroll if the viewport
+         is too narrow, rather than letting + Ω(Ξ) wrap orphaned below the integral */
+      .horizon { overflow-x: hidden; }
+      .equation {
+        font-size: clamp(20px, 6.4vw, 38px);
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .equation::-webkit-scrollbar { display: none; }
       .legend { margin: 16px 0 30px; }
+      /* the mobile hero band is smaller, so the ribbon needs a little more punch
+         to read against the paper; the data is still the same */
+      #ribbon { filter: contrast(1.18) saturate(1.12); }
       .reading { max-width: none; margin-bottom: 40px; }
       .panel { position: relative !important; opacity: 1 !important; transform: none !important; filter: none !important; pointer-events: auto !important; }
       .panel:not([data-active]) { display: none; }
@@ -496,32 +524,31 @@
 
     <!-- ════ EQUATION HORIZON (the navigation) ════ -->
     <header class="horizon">
-      <p class="label">Our method, in one equation — click a term to open its evidence</p>
       <div class="equation" role="group" aria-label="L of theta equals the integral over the manifold of the squared error-vector norm, plus the ledger term">
         <button type="button" class="term" data-focus="objective" aria-pressed="true"
-          data-tip="<b>L(θ)</b> — what we minimize to make a prediction trustworthy: the <em>structured</em> error of a potential θ over all the evidence. The first step to discovering real materials. Click any term to isolate it.">
+          data-tip="<b>L(θ)</b> — structured prediction error for a potential θ over the evidence corpus.">
           L<span class="n">(</span>θ<span class="n">)</span></button>
         <span class="eq-static">=</span>
         <button type="button" class="term" data-focus="manifold"
-          data-tip="<b>∫<sub>M</sub> … dμ(γ)</b> — integrate over the error manifold M. The errors live on a thin ribbon (participation ratio <em>1.1–2.0</em>) — structure that makes failure correctable.">
+          data-tip="<b>∫<sub>M</sub> … dμ(γ)</b> — integrate over the error manifold M. Errors concentrate on a thin ribbon (participation ratio <em>1.1–2.0</em>).">
           <span class="intg">∫</span><span class="sub">M</span></button>
         <button type="button" class="term" data-focus="errorvectors"
-          data-tip="<b>∇<sub>γ</sub>E(x,θ)</b> — the error-vector field along geodesics γ. Across every MLIP these point the <em>same direction</em> (cos θ &gt; 0.8) — so one correction scales across the materials space.">
+          data-tip="<b>∇<sub>γ</sub>E(x,θ)</b> — error-vector field along geodesics γ. Dominant error directions overlap across reference potentials (mean cos θ ≈ 0.69, computed in your browser from the committed data).">
           <span class="n">‖</span>∇<span class="sub">γ</span>E<span class="n">(</span>x,θ<span class="n">)</span><span class="n">‖</span><span class="sup">2</span></button>
         <span class="term eq-measure"
-          data-tip="<b>dμ(γ)</b> — the measure over geodesics γ. How error is weighted across the ribbon.">
+          data-tip="<b>dμ(γ)</b> — measure over geodesics γ. Weights error by local environment.">
           dμ<span class="n">(</span>γ<span class="n">)</span></span>
         <span class="eq-static">+</span>
         <button type="button" class="term" data-focus="ledger"
-          data-tip="<b>Ω(Ξ)</b> — the public record Ξ. Every claim, refutation, and machine-checked theorem, committed and inspectable.">
+          data-tip="<b>Ω(Ξ)</b> — public record Ξ of claims, refutations, and machine-checked theorems.">
           Ω<span class="n">(</span>Ξ<span class="n">)</span></button>
       </div>
       <!-- legend / secondary nav for the terms — grouped with the equation -->
       <nav class="legend" aria-label="Equation terms">
-        <button type="button" data-focus="objective" aria-pressed="true"><span class="k">L(θ)</span> the mission</button>
-        <button type="button" data-focus="manifold"><span class="k">∫ₘ</span> why you can trust it</button>
-        <button type="button" data-focus="errorvectors"><span class="k">∇ᵧE</span> why it scales</button>
-        <button type="button" data-focus="ledger"><span class="k">Ω(Ξ)</span> trust in the open</button>
+        <button type="button" data-focus="objective" aria-pressed="true"><span class="k">L(θ)</span> objective</button>
+        <button type="button" data-focus="manifold"><span class="k">∫ₘ</span> error manifold</button>
+        <button type="button" data-focus="errorvectors"><span class="k">∇ᵧE</span> error vectors</button>
+        <button type="button" data-focus="ledger"><span class="k">Ω(Ξ)</span> public ledger</button>
       </nav>
     </header>
 
@@ -529,74 +556,75 @@
     <section class="reading" id="evidence" aria-label="Evidence" aria-live="polite">
       <div class="evidence">
         <article class="panel" data-panel="objective" data-active>
-          <p class="tag"><span class="dot"></span>L(θ) · the mission</p>
-          <h1>Intelligence became abundant. <em>Verified knowledge did not.</em></h1>
-          <p>The industry is betting that the smartest model wins. The winning asset is different: a prediction you can <em>check</em> before you commit. AI is learning to design matter, and it already proposes new batteries, catalysts, and chips faster than any lab can test them. A model can be confident and wrong, and finding out which costs years. Lupine builds the check.</p>
-          <p class="why">The mathematics is <em>how.</em> The materials are <em>why.</em></p>
-          <p class="prov"><span class="live-dot2" aria-hidden="true"></span><span id="prov-objective">computing the manifold live from the committed benchmark…</span></p>
+          <p class="tag"><span class="dot"></span>L(θ) · objective</p>
+          <h1>Before a lab spends a year on a material, <em>know whether to trust the prediction.</em></h1>
+          <p>Machine-learned potentials now screen batteries, catalysts, and frameworks faster than any lab can test them. The gap is not speed. It is <em>verification</em>: a model can be confident and wrong, and the cost of finding out is measured in years and missed targets.</p>
+          <p class="why">Characterize prediction error as a physical field, correct it at runtime, and machine-check every claim.</p>
+          <p class="prov"><span class="live-dot2" aria-hidden="true"></span><span id="prov-objective">figures on this page are recomputed in-browser from the committed benchmark — <a href="/data/benchmark_manifold.json">see the data ↗</a></span></p>
           <div class="routes">
-            <a href="https://lupi.live">See it live <span class="ar">→</span></a>
-            <a href="https://library.lupine.science">Read the research <span class="ar">→</span></a>
-            <a href="https://github.com/alexwelcing/lupine">Audit the code <span class="ar">→</span></a>
+            <a href="https://lupi.live">Live instrument <span class="ar">→</span></a>
+            <a href="https://library.lupine.science">Research library <span class="ar">→</span></a>
+            <a href="https://github.com/alexwelcing/lupine">Source code <span class="ar">→</span></a>
           </div>
         </article>
 
         <article class="panel" data-panel="manifold">
-          <p class="tag"><span class="dot"></span>∫<sub>M</sub> · why you can trust it</p>
-          <h2>Predictable failure is <em>correctable</em> failure.</h2>
-          <div class="stat"><strong>1.1–2.0</strong><span class="su">the errors move in only ~1–2 directions out of five</span></div>
-          <p class="prov"><span class="live-dot2" aria-hidden="true"></span><span id="prov-manifold">…</span></p>
-          <p>Across the benchmark potentials we test — classic and AI-driven — the mistakes don't scatter. They line up. And a pattern we can predict is a pattern we can <em>correct</em>: we can flag which predictions to trust before a lab spends a year chasing a dead end.</p>
+          <p class="tag"><span class="dot"></span>∫<sub>M</sub> · error manifold</p>
+          <h2>Prediction errors collapse onto a <em>low-dimensional ribbon.</em></h2>
+          <div class="stat"><strong>1.1–2.0</strong><span class="su">participation ratio: errors move in only ~1–2 directions out of five</span></div>
+          <p class="prov"><span class="live-dot2" aria-hidden="true"></span><span id="prov-manifold">range recomputed in-browser from the committed benchmark — <a href="/data/benchmark_manifold.json">see the data ↗</a></span></p>
+          <p>Across classic and machine-learned potentials, atomic-force errors do not scatter randomly. They line up. That geometry makes failure predictable, and predictable failure is correctable failure.</p>
         </article>
 
         <article class="panel" data-panel="errorvectors">
-          <p class="tag"><span class="dot"></span>∇<sub>γ</sub>E · why it scales</p>
-          <h2>Correct it once — <em>accelerate everywhere.</em></h2>
-          <div class="stat"><strong>~70%</strong><span class="su">the dominant error directions are shared, so one correction transfers across potentials</span></div>
-          <p class="prov"><span class="live-dot2" aria-hidden="true"></span><span id="prov-errorvectors">…</span></p>
-          <p>Every model we test leans in a structured way. In most cases, the dominant error direction is similar enough that a single correction scales. Like a room of clocks all running fast: find the offset once, and you can set every one right. One correction, applied across materials.</p>
+          <p class="tag"><span class="dot"></span>∇<sub>γ</sub>E · error vectors</p>
+          <h2>Shared error directions make failure <em>predictable across models.</em></h2>
+          <div class="stat"><strong>~70%</strong><span class="su">of dominant error directions are shared across potentials</span></div>
+          <p class="prov"><span class="live-dot2" aria-hidden="true"></span><span id="prov-errorvectors">overlap recomputed in-browser from the committed benchmark — <a href="/data/benchmark_manifold.json">see the data ↗</a></span></p>
+          <p>The same local environments — surfaces, vacancies, under-coordinated sites — bias different potentials in similar directions. Where raw alignment can flatter (coupling-aware nulls reach 0.98), what survives blind tests is stronger: rankings hold (r&nbsp;=&nbsp;0.906 across 36 model–material cells) and the error follows a smooth, coordination-keyed field. <a href="/articles/the-order-is-right-the-size-is-wrong/">Read the live evidence <span class="ar">→</span></a></p>
         </article>
 
         <article class="panel" data-panel="ledger">
-          <p class="tag"><span class="dot"></span>Ω(Ξ) · trust in the open</p>
-          <h2>Trust you can <em>check yourself.</em></h2>
-          <div class="stat"><strong>0 gaps</strong><span class="su">the core math, checked end to end by computer — not opinion</span></div>
-          <p class="prov"><span class="live-dot2" aria-hidden="true"></span><span id="prov-ledger">…</span></p>
-          <p>We don't ask anyone to take our word for it. A computer checks our core math the way a spell-checker reads a sentence — every step, nothing skipped. We work in the open, and when one of our own ideas turns out to be wrong, we say so and publish it — <span class="num">3</span> times so far.</p>
+          <p class="tag"><span class="dot"></span>Ω(Ξ) · public ledger</p>
+          <h2>Claims are checked <em>by machine, in public.</em></h2>
+          <!-- Theorem count comes from /data/lean_count.json (generated by
+               scripts/generate-lean-count.mjs from lupine-rhizo/lean-spec;
+               counting rule documented in both files). Regenerate the JSON to
+               update — the generator writes the static fallback and the JS
+               below rehydrates it from the same committed JSON. Never edit the
+               numeric fallback by hand. -->
+          <div class="stat"><strong id="lean-count">888</strong><span class="su">build-locked theorems in the open Lean library, zero sorry — counted <span id="lean-count-date">from source</span></span></div>
+          <p class="prov"><span class="live-dot2" aria-hidden="true"></span><span id="prov-ledger">ribbon check recomputed in-browser from the committed benchmark — <a href="/data/benchmark_manifold.json">see the data ↗</a></span></p>
+          <p>Core claims are sealed as Lean 4 theorems with hash-locked provenance. The proof layer refuses as readily as it accepts — it once caught a rounded success count and changed 27 improvements to 26. The ledger is the public record of every claim, refutation, and correction.</p>
         </article>
       </div>
     </section>
 
     <!-- ════ LEDGER RAIL (marginalia) ════ -->
     <aside class="rail-ledger" aria-label="Public ledger">
-      <div class="rail-head"><span>Public ledger · Ξ</span><span class="h">height <span id="ledger-height">970</span></span></div>
+      <div class="rail-head"><span>Public ledger · Ξ</span><span class="h">height <span id="ledger-height">1030</span></span></div>
+      <!-- pre-rendered fallback rows (verified via gh api 2026-08-03); the JS
+           re-renders over these with live commits when the API is reachable -->
       <ul class="ledger" id="ledger-list">
-        <li class="loading">loading open record…</li>
+        <li><span class="hash">d3f2837</span> <span class="when">07·30</span><span class="msg">Merge pull request #244 from alexwelcing/fix/wiki-layout-collapse</span></li>
+        <li><span class="hash">b40ecc2</span> <span class="when">07·30</span><span class="msg">lupine-wiki: vendor ontology test fixtures (Codex P1)</span></li>
+        <li><span class="hash">3db8a55</span> <span class="when">07·30</span><span class="msg">lupine-wiki: bound layout integration velocity (anti-collapse) + integration tests</span></li>
+        <li><span class="hash">5a70518</span> <span class="when">07·30</span><span class="msg">Merge pull request #243 from alexwelcing/feat/wiki-research-sphere</span></li>
       </ul>
       <div class="rail-note">
-        <div class="row"><span class="d wp"></span><span>Working paper in preparation — not yet peer-reviewed. The full record lives in the open repository.</span></div>
-        <div class="row"><span class="d mof"></span><span>On the field: MOF-5 · Zn₄O(BDC)₃ — real published crystallography, <a href="/data/mof5_structure.json">drawn from the committed structure</a>.<span class="cite">Li, Eddaoudi, O’Keeffe &amp; Yaghi, Nature 402, 276 (1999) · COD 1516287</span></span></div>
+        <div class="row"><span class="d mof"></span><span>MOF-5 · Zn₄O(BDC)₃ — published crystallography, <a href="/data/mof5_structure.json">drawn from the committed structure</a>.<span class="cite">Li, Eddaoudi, O’Keeffe &amp; Yaghi, Nature 402, 276 (1999) · COD 1516287</span></span></div>
       </div>
     </aside>
 
   </main>
 
   <!-- ════ BENEATH THE INSTRUMENT — the substance, one scroll down ════ -->
-  <section class="beneath manifesto" aria-label="Why now">
-    <p class="b-label">Why now — and why in the open</p>
+  <section class="beneath manifesto" aria-label="The gap">
+    <p class="b-label">The gap</p>
     <div class="m-grid">
-      <p><b>Imagination stopped being the bottleneck.</b> Generative models now propose far more candidate materials than anyone can test.</p>
-      <p><b>Simulation stopped being the bottleneck.</b> Machine-learned simulators now screen candidates at software speed. The open question is <em>when to believe them.</em></p>
-      <p><b>Belief is the bottleneck.</b> A lab bets a year on a shortlist. A fund bets years on the lab. Which predictions deserve that bet is the question that gates this field, and it is the one we work on. We answer it with proof, in public, so a result checked once can be used by anyone.</p>
-    </div>
-    <p class="m-place">Our position is specific. Model builders get external verification. Labs get shortlists they can defend. We are <em>the trust layer between the models and the bench,</em> and we publish everything.</p>
-  </section>
-
-  <section class="beneath diligence" aria-label="A note on diligence">
-    <p class="b-label">A note on diligence</p>
-    <div class="dil-body">
-      <p>Every deck in this field claims a smarter model. Almost none offers a way to tell a true claim from a confident one. Capital placed on confidence does not fail at the term sheet. It fails years later, at the bench.</p>
-      <p>We built this page for diligence. Every figure was computed in your browser after you arrived, from data we commit in public. The core mathematics is machine-checked. Where the record is early, we say so. Do not take our word for any of it. Click a term of the equation above and read the evidence. <em>Checking us takes minutes.</em></p>
+      <p><b>Candidate generation outpaces testing.</b> Generative models now propose far more materials than any lab can synthesize or characterize.</p>
+      <p><b>Simulation outpaces judgment.</b> Machine-learned potentials screen candidates at software speed. The remaining question is <em>when to believe them.</em></p>
+      <p><b>Verification closes the gap.</b> A prediction checked before the bench saves years. A correction shared across potentials saves the same work everywhere the same geometry appears.</p>
     </div>
   </section>
 
@@ -618,28 +646,87 @@
       </article>
       <article>
         <h3>Frameworks designed for jobs no known material can do.</h3>
-        <p>Metal-organic frameworks can be built atom-by-atom for capture, storage and sensing. The crystal drawn above is real, published crystallography. Our prospectus for makeable frameworks is in the notebook below.</p>
+        <p>Metal-organic frameworks can be built atom-by-atom for capture, storage and sensing. The crystal drawn above is real, published crystallography. The makeable-frameworks prospectus (a draft for discussion) is linked here.</p>
         <a href="/articles/from-fantasy-frameworks-to-makeable-materials/">Read the prospectus <span class="ar">→</span></a>
       </article>
     </div>
 
+    <div class="feature-series" aria-label="Environmental series">
+      <p class="b-label">Environmental series</p>
+      <div class="series-head">
+        <h2>Beyond carbon: the error geometry of environmental materials.</h2>
+        <p>Five articles trace the same under-coordination error from CO₂ capture to water, air, methane, refrigerants, critical minerals, PFAS, and cement — and how a single correction layer changes what labs can trust. The series is published as working drafts; each page carries its draft status.</p>
+      </div>
+      <div class="series-cards">
+        <a href="/articles/beyond-carbon-the-error-geometry-of-environmental-materials/">
+          <img src="/articles/beyond-carbon-the-error-geometry-of-environmental-materials/hero.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
+          <span class="d8">July 16, 2026 · Series intro</span>
+          <h3>Beyond Carbon</h3>
+          <p>The one geometry that connects every environmental-materials campaign.</p>
+        </a>
+        <a href="/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/">
+          <img src="/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/hero.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
+          <span class="d8">July 16, 2026</span>
+          <h3>Water and Air</h3>
+          <p>Correcting the molecules we drink and breathe.</p>
+        </a>
+        <a href="/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/">
+          <img src="/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/hero.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
+          <span class="d8">July 16, 2026</span>
+          <h3>Methane and Refrigerants</h3>
+          <p>Cutting the non-CO₂ climate forcers.</p>
+        </a>
+        <a href="/articles/critical-minerals-pfas-and-the-remediation-imperative/">
+          <img src="/articles/critical-minerals-pfas-and-the-remediation-imperative/hero.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
+          <span class="d8">July 16, 2026</span>
+          <h3>Critical Minerals, PFAS</h3>
+          <p>The remediation imperative: critical-mineral recovery and PFAS destruction share one error geometry.</p>
+        </a>
+        <a href="/articles/cement-concrete-and-the-weight-of-the-built-world/">
+          <img src="/articles/cement-concrete-and-the-weight-of-the-built-world/hero.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
+          <span class="d8">July 16, 2026</span>
+          <h3>Cement and Concrete</h3>
+          <p>The weight of the built world, made lighter by correction.</p>
+        </a>
+        <a href="/articles/five-materials-for-5-to-12-gtco2-year/">
+          <img src="/articles/five-materials-for-5-to-12-gtco2-year/hero.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
+          <span class="d8">July 9, 2026</span>
+          <h3>Five Materials for 5–12 GtCO₂/Year</h3>
+          <p>The material bottlenecks that could unlock gigatonne-scale impact.</p>
+        </a>
+      </div>
+      <div class="series-cta">
+        <a href="/proof-pack-climate-series.pdf" download>Download the proof pack <span class="ar">→</span></a>
+        <a href="/videos/">Films <span class="ar">→</span></a>
+        <a href="/articles/">Articles <span class="ar">→</span></a>
+      </div>
+    </div>
+
     <div class="b-notebook">
-      <p class="b-label">From the notebook</p>
+      <p class="b-label">Recent notes</p>
+      <!-- card summaries are each article's own frontmatter Deck/Summary —
+           update them there, not here. Only citable statuses (Final/Live)
+           are featured; drafts and editor-review notes stay off this rail. -->
       <div class="b-cards">
-        <a href="/articles/the-trust-layer/">
-          <span class="d8">2026·07·05</span>
-          <h3>The Trust Layer</h3>
-          <p>The founding thesis: science moves at the speed of what it can trust, and we are building the proof infrastructure for designed matter.</p>
+        <a href="/articles/the-savings-stack/">
+          <span class="d8">2026·07·21</span>
+          <h3>The Savings Stack — Booklet and Data Pack</h3>
+          <p>Seven savings layers from the literature, one recomputed sharing economy — 72.4% fewer DFT evaluations when four models share anchors (558 naive vs 154 union, 29 paths, recomputed from recorded campaign artifacts; no new DFT) — and the theorem commons. A free 16-page booklet with a hashable data pack.</p>
         </a>
-        <a href="/articles/the-order-is-right-the-size-is-wrong/">
-          <span class="d8">2026·07·02</span>
-          <h3>The Order Is Right, the Size Is Wrong</h3>
-          <p>Foundation potentials measured across 21 materials against 228 published reference values — mapping the environment error field.</p>
+        <a href="/articles/an-order-of-effort/">
+          <span class="d8">2026·07·20</span>
+          <h3>An Order of Effort</h3>
+          <p>The measured ladder from proven corrections to proven impossibility — and the order in which our next rounds climb it.</p>
         </a>
-        <a href="/articles/from-fantasy-frameworks-to-makeable-materials/">
-          <span class="d8">2026·06·25</span>
-          <h3>From Fantasy Frameworks to Makeable Materials</h3>
-          <p>A prospectus for formalized MOF discovery: theorem-proved certificates of synthesizability, and the loop that closes with a lab.</p>
+        <a href="/articles/the-materials-we-test-against/">
+          <span class="d8">2026·07·20</span>
+          <h3>The Z1 Barrier Panel: The Materials We Test Against</h3>
+          <p>The locked Li-ion conductor panels behind our barrier campaigns — what they are, why they are the right adversaries, and what a migration barrier actually is.</p>
+        </a>
+        <a href="/articles/four-gates-three-honest-failures-one-live-experiment/">
+          <span class="d8">2026·07·19</span>
+          <h3>Four Gates, Three Honest Failures, One Live Experiment</h3>
+          <p>A plain-language status report on our four preregistered Round-4 campaigns — what we measured, what failed, what is still running, and how you can check every number.</p>
         </a>
       </div>
       <p class="b-all"><a href="/articles/">All articles <span class="ar">→</span></a></p>
@@ -648,11 +735,9 @@
 
   <!-- ════ COLOPHON ════ -->
   <footer class="foot">
-    <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
-    <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" href="mailto:alex@lupinesci.com" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
-    <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="/brand-assets/">Brand assets</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
-    <span class="offer">If you find a claim on this page you cannot check, <a class="mail" href="mailto:alex@lupinesci.com" data-u="alex" data-d="lupinesci.com" data-keep-text>write to us</a> — we treat that as a defect.</span>
-    <span class="receipts" id="receipts"></span>
+    <span class="creed">Evidence before claim.</span>
+    <span><b>Lupine Science</b> · <a class="mail" href="mailto:alex@lupinesci.com" data-u="alex" data-d="lupinesci.com">alex@lupinesci.com</a></span>
+    <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
   </footer>
 
   <div class="tip" id="tip" role="status" aria-live="polite"></div>
@@ -697,6 +782,7 @@
                nRibbon: pots.filter((p) => p.ribbon).length };
     }
     let M = process(FALLBACK);
+    let provReady = false;
 
     function injectProv() {
       const $ = (id) => document.getElementById("prov-" + id);
@@ -709,13 +795,14 @@
         `live · measured here: the models agree on direction about <b>${Math.round(M.cosMean * 100)}%</b> of the time · ${src}`;
       if ($("ledger")) $("ledger").innerHTML =
         `live · the same pattern holds in all <b>${M.nRibbon}/${M.n}</b> reference models, re-checked in your browser · ${src}`;
+      provReady = true;
     }
-    injectProv();
-    // freshen from the served file (same data, proves the wiring is real)
+    // show the live computed provenance as soon as the wired data arrives;
+    // keep fallback values driving the canvas so the hero never goes blank.
     fetch(DATALINK)
       .then((r) => (r.ok ? r.json() : Promise.reject()))
       .then((raw) => { if (Array.isArray(raw) && raw.length) { M = process(raw); injectProv(); } })
-      .catch(() => {});
+      .catch(() => { if (!provReady) injectProv(); });
 
     /* ───────────────────────────────────────────────────────────
        REAL MATTER — one cavity of MOF-5 (Zn₄O(BDC)₃), from the committed
@@ -1045,7 +1132,16 @@
         }
       }
 
+      let lastPaint = 0;
       function frame(ts) {
+        // Keep the ambient canvas below the browser's interaction budget.
+        // The drawing is intentionally slow-moving, so 30 fps is visually
+        // equivalent while leaving alternate frames free for input work.
+        if (lastPaint && ts - lastPaint < 32) {
+          raf = requestAnimationFrame(frame);
+          return;
+        }
+        lastPaint = ts;
         if (!t0) t0 = ts; const time = (ts - t0) / 1000;
         for (const k in cur) cur[k] += (tgt[k] - cur[k]) * 0.045;
         ctx.clearRect(0, 0, w, h);
@@ -1146,10 +1242,11 @@
       resize(); addEventListener("resize", resize, { passive: true });
       // when the structure arrives after the reduced-motion single frame,
       // draw one more so the crystal appears in the still image too
+      const staticCanvas = reduced || mobileMQ.matches;
       onMatterReady = () => {
-        if (reduced) { t0 = 0; requestAnimationFrame((ts) => { frame(ts); cancelAnimationFrame(raf); }); }
+        if (staticCanvas) { t0 = 0; requestAnimationFrame((ts) => { frame(ts); cancelAnimationFrame(raf); }); }
       };
-      if (reduced) { requestAnimationFrame((ts) => { for (const k in cur) cur[k] = tgt[k]; frame(ts); cancelAnimationFrame(raf); }); }
+      if (staticCanvas) { requestAnimationFrame((ts) => { for (const k in cur) cur[k] = tgt[k]; frame(ts); cancelAnimationFrame(raf); }); }
       else {
         raf = requestAnimationFrame(frame);
         document.addEventListener("visibilitychange", () => {
@@ -1158,16 +1255,29 @@
       }
     }
 
+    /* ── theorem count: synced from the committed data file so the figure
+       can never silently drift from the counting rule (see
+       scripts/generate-lean-count.mjs and /data/lean_count.json) ── */
+    fetch("/data/lean_count.json")
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((d) => {
+        const n = document.getElementById("lean-count");
+        const when = document.getElementById("lean-count-date");
+        if (n && Number.isFinite(d.count)) n.textContent = String(d.count);
+        if (when && d.counted_at) when.textContent = d.counted_at;
+      })
+      .catch(() => { /* committed fallback text already correct */ });
+
     /* ── public ledger: live commits from the open repository ── */
     (() => {
       const LEDGER_REPO = "alexwelcing/lupine";
       const list = document.getElementById("ledger-list");
       const heightEl = document.getElementById("ledger-height");
       const fallback = [
-        { sha: "9b37d99", date: "06·19", msg: "Refactor LUPI viewer loading seams" },
-        { sha: "25482ab", date: "06·18", msg: "Retire monorepo LUPI viewer deploy" },
-        { sha: "08fe80c", date: "06·17", msg: "Add social cards for saved views" },
-        { sha: "109c116", date: "06·17", msg: "Add LUPI analytics measurement tools" },
+        { sha: "d3f2837", date: "07·30", msg: "Merge pull request #244 from alexwelcing/fix/wiki-layout-collapse" },
+        { sha: "b40ecc2", date: "07·30", msg: "lupine-wiki: vendor ontology test fixtures (Codex P1)" },
+        { sha: "3db8a55", date: "07·30", msg: "lupine-wiki: bound layout integration velocity (anti-collapse) + integration tests" },
+        { sha: "5a70518", date: "07·30", msg: "Merge pull request #243 from alexwelcing/feat/wiki-research-sphere" },
       ];
       function render(rows) {
         if (!list) return;
@@ -1186,7 +1296,10 @@
       }
       function parseLastPage(link) {
         if (!link) return null;
-        const m = link.match(/page=(\d+)[^>]*>;\s*rel="last"/);
+        // anchor on ?page=/&page= so per_page=N can never match as the page
+        // number (the old /page=(\d+)/ matched inside "per_page=5" and
+        // rendered "height 5")
+        const m = link.match(/[?&]page=(\d+)[^>]*>;\s*rel="last"/);
         return m ? parseInt(m[1], 10) : null;
       }
       // start with the previous hardcoded entries so the rail is never empty
@@ -1200,16 +1313,24 @@
         if (heightEl && memo.total) heightEl.textContent = memo.total;
         render(memo.rows);
       } else {
+        // height: with per_page=1 the rel="last" page number IS the commit
+        // count — exact, not pages×page_size
+        const heightReq = fetch(`https://api.github.com/repos/${LEDGER_REPO}/commits?sha=main&per_page=1`, {
+          headers: { Accept: "application/vnd.github+json" },
+        })
+          .then((r) => (r.ok ? parseLastPage(r.headers.get("link") || "") : null))
+          .catch(() => null);
         fetch(`https://api.github.com/repos/${LEDGER_REPO}/commits?sha=main&per_page=5`, {
           headers: { Accept: "application/vnd.github+json" },
         })
           .then((r) => {
             if (!r.ok) throw new Error(String(r.status));
-            const link = r.headers.get("link") || "";
-            const total = parseLastPage(link);
-            if (heightEl && total) heightEl.textContent = total;
-            return r.json().then((commits) => ({ commits, total }));
+            return r.json();
           })
+          .then((commits) => heightReq.then((total) => {
+            if (heightEl && total) heightEl.textContent = total;
+            return { commits, total };
+          }))
           .then(({ commits, total }) => {
             if (!Array.isArray(commits) || !commits.length) throw new Error("empty");
             const rows = commits.map((c) => ({
@@ -1233,26 +1354,6 @@
       a.href = `mailto:${addr}`;
       if (!("keepText" in a.dataset)) a.textContent = addr;
     });
-
-    /* ── receipts: this page, measured by the visitor's own browser.
-       The same ethos as the benchmark figures above: nothing typed in. ── */
-    (() => {
-      const el = document.getElementById("receipts");
-      if (!el || typeof performance === "undefined" || !performance.getEntriesByType) return;
-      setTimeout(() => {
-        try {
-          const nav = performance.getEntriesByType("navigation")[0];
-          if (!nav) return;
-          let bytes = nav.transferSize || 0;
-          for (const r of performance.getEntriesByType("resource")) bytes += r.transferSize || 0;
-          const paint = performance.getEntriesByType("paint").find((p) => p.name === "first-contentful-paint");
-          const fp = paint ? ` · first paint ${(paint.startTime / 1000).toFixed(2)} s` : "";
-          el.innerHTML = nav.transferSize === 0
-            ? `this visit · served from your cache · <b>0 KB</b> over the wire · measured by your browser, not claimed by ours`
-            : `this visit · <b>${Math.round(bytes / 1024)} KB</b> over the wire · no framework, no tracker${fp} · measured by your browser, not claimed by ours`;
-        } catch { /* the line simply doesn't render */ }
-      }, 1400);
-    })();
 
     setFocus("objective");
 

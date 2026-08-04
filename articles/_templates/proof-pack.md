@@ -12,23 +12,14 @@ as evidence.
 -->
 
 > **Type:** proof-pack
->
 > **Version:** 1.0
->
 > **Document ID:** LS-PP-YYYY-NNN
->
 > **Published:** YYYY-MM-DD
->
 > **Evidence cutoff:** YYYY-MM-DD
->
 > **Author:** [Name]
->
 > **Institution:** Lupine Science
->
 > **Editorial reviewer:** [Name / role — required before release]
->
 > **Canonical article:** https://lupine.science/articles/[slug]/
->
 > **Evidence status:** Draft / Reviewed / Verified / Refuted / Open
 
 <p class="lead">One paragraph stating the question, the decision-relevant result, and why it matters. Preserve uncertainty.</p>

@@ -34,7 +34,8 @@ SOFT_SLATE = '#d8dfe6'
 SOFT_ROSE = '#f0d4d4'
 
 SLUG = 'methane-and-refrigerants-cutting-the-non-co2-climate-forcers'
-OUT_DIR = Path(f'/home/alex/Dev/lupine/lupine-science/public/articles/{SLUG}/images')
+REPO_ROOT = Path(__file__).resolve().parents[3]
+OUT_DIR = REPO_ROOT / 'public/articles' / SLUG / 'images'
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 DPI = 150
@@ -229,25 +230,29 @@ def make_03():
     ax.plot(c_low, p_low, color=PRIMARY, lw=3, linestyle='--', label='Blind prediction')
     ax.fill_between(c_fine, p_fine, alpha=0.12, color=PRIMARY)
 
-    # Anchors
-    for ci, pi, label in zip(anchors_c[:-1], anchors_p[:-1],
-                             ['Anchor 1\n(100)', 'Anchor 2\n(111)', 'Anchor 3\nvacancy']):
+    # Anchors: offset labels with leader arrows so nothing touches the markers
+    for ci, pi, label, tx, ty in zip(anchors_c[:-1], anchors_p[:-1],
+                                     ['Anchor 1\n(100)', 'Anchor 2\n(111)', 'Anchor 3\nvacancy'],
+                                     [8.65, 8.85, 10.85], [0.28, 0.165, 0.062]):
         ax.scatter([ci], [pi], color=PRIMARY, s=120, zorder=5, edgecolor=TEXT)
-        ax.annotate(label, xy=(ci, pi), xytext=(ci - 0.15, pi + 0.045),
-                    fontsize=9, ha='center', fontweight='bold', color=TEXT)
+        ax.annotate(label, xy=(ci, pi), xytext=(tx, ty),
+                    fontsize=9, ha='center', fontweight='bold', color=TEXT,
+                    bbox=dict(boxstyle='round,pad=0.2', facecolor=BG, edgecolor='none'),
+                    arrowprops=dict(arrowstyle='->', color=SECONDARY, lw=1.2))
     ax.scatter([12], [0], color=SAGE, s=140, zorder=5, edgecolor=TEXT, marker='D')
-    ax.annotate('Bulk constraint\nP(12) = 0', xy=(12, 0), xytext=(11.5, -0.06),
-                fontsize=9, ha='center', fontweight='bold', color=SAGE)
+    ax.annotate('Bulk constraint\nP(12) = 0', xy=(12, 0), xytext=(11.6, -0.052),
+                fontsize=9, ha='center', fontweight='bold', color=SAGE,
+                arrowprops=dict(arrowstyle='->', color=SAGE, lw=1.2))
 
     # Blind region highlight
     ax.axvspan(7, 8, color=AMBER, alpha=0.12)
-    ax.text(7.5, 0.28, 'Low-coordination\nblind prediction', ha='center', va='center',
+    ax.text(7.45, 0.13, 'Low-coordination\nblind prediction', ha='center', va='center',
             fontsize=9, color=AMBER, fontweight='bold')
 
     # Inset: lattice fragment with force-correction arrows
-    inset = fig.add_axes([0.62, 0.24, 0.24, 0.24])
+    inset = fig.add_axes([0.51, 0.50, 0.22, 0.24])
     inset.set_xlim(-0.5, 3.5)
-    inset.set_ylim(-0.5, 3.5)
+    inset.set_ylim(-1.5, 3.5)
     inset.set_facecolor(BG)
     inset.axis('off')
     # Lattice grid
@@ -261,9 +266,9 @@ def make_03():
     # Surface atom with correction arrow
     inset.scatter([0, 1, 2, 3], [0, 0, 0, 0], c=SLATE, s=60, zorder=3)
     inset.scatter([0, 1, 2, 3], [1, 1, 2, 2], c=SLATE, s=60, zorder=3)
-    inset.annotate('', xy=(1.5, -0.7), xytext=(1.5, 0),
+    inset.annotate('', xy=(1.5, -0.9), xytext=(1.5, 0),
                    arrowprops=dict(arrowstyle='->', color=PRIMARY, lw=2))
-    inset.text(1.5, -1.0, 'Force correction', ha='center', fontsize=8, color=PRIMARY)
+    inset.text(1.5, -1.25, 'Force correction', ha='center', fontsize=8, color=PRIMARY)
     for spine in inset.spines.values():
         spine.set_color(MUTED)
     inset.set_title('Local force correction', fontsize=9, color=TEXT)
@@ -450,16 +455,25 @@ def make_07():
     ax.axvspan(0.5, 10, 0.6, 1.0, color=SAGE, alpha=0.08)
     ax.axvspan(0.5, 10, 0.0, 0.4, color=ROSE, alpha=0.08)
     ax.text(2, 1.12, 'Preferred zone', fontsize=10, color=SAGE, fontweight='bold')
-    ax.text(2, 0.78, 'COP penalty >10%', fontsize=10, color=ROSE, fontweight='bold')
+    ax.text(1.05, 0.81, 'COP penalty >10%', fontsize=10, color=ROSE, fontweight='bold')
 
-    # Scatter
+    # Scatter: per-point label offsets so no label touches a marker
+    offsets = {
+        'R-410A': (-8, 16, 'right', 'baseline'),
+        'R-32': (0, -16, 'center', 'top'),
+        'R-1234yf': (-8, 8, 'right', 'baseline'),
+        'CO₂': (-8, -10, 'right', 'top'),
+        'Ammonia': (8, 8, 'left', 'baseline'),
+        'Propane': (14, -30, 'right', 'top'),
+        'Target': (-10, 12, 'right', 'baseline'),
+    }
     for i, (name, gwp, cop, cls, color) in enumerate(refrigerants):
         ax.scatter(gwp, cop, s=180, c=color, edgecolor=TEXT, linewidth=1, zorder=3)
-        offset = (8, 8) if name != 'Target' else (8, -18)
+        dx, dy, ha, va = offsets[name]
         weight = 'bold' if name == 'Target' else 'normal'
         ax.annotate(f'{name}\n(GWP {gwp}, {cls})', xy=(gwp, cop),
-                    xytext=offset, textcoords='offset points',
-                    fontsize=9, color=TEXT, fontweight=weight, ha='left')
+                    xytext=(dx, dy), textcoords='offset points',
+                    fontsize=9, color=TEXT, fontweight=weight, ha=ha, va=va)
 
     ax.axhline(0.90, color=MUTED, lw=1.5, linestyle='--', alpha=0.7)
     ax.text(0.6, 0.91, 'COP within 10% of R-410A', fontsize=9, color=SECONDARY, va='bottom')
@@ -478,10 +492,12 @@ def make_07():
     ax.grid(True, linestyle='--', alpha=0.3, color=MUTED)
 
     # Emissions trajectory callout
-    ax.text(0.98, 0.05, 'Uncontrolled HFC emissions: 5–9 GtCO₂e/year by mid-century',
+    ax.text(0.98, 0.02, 'Uncontrolled HFC emissions: 5–9 GtCO₂e/year by mid-century',
             transform=ax.transAxes, ha='right', va='bottom', fontsize=9, color=SECONDARY)
 
-    add_title(fig, 'The Refrigerant Trade-Off: GWP, Performance, and Safety', y=0.96)
+    fig.text(0.5, 0.96, 'The Refrigerant Trade-Off: GWP, Performance, and Safety',
+             ha='center', va='top', fontsize=19, fontweight='bold', color=TEXT,
+             fontfamily='sans-serif')
     add_source(fig, 'Sources: ASHRAE Standard 34; Velders et al., Climatic Change, 2021.')
     return save_jpg(fig, f'{SLUG}-07-refrigerant-gwp-landscape.jpg')
 
@@ -540,7 +556,7 @@ def make_08():
                                boxstyle='round,pad=0.02',
                                facecolor=SOFT_INDIGO, edgecolor=PRIMARY, linewidth=2)
     ax.add_patch(stats_box)
-    ax.text(0.5, 0.20, '20–50% efficiency gain potential  •  77 build-locked Lean 4 theorems',
+    ax.text(0.5, 0.20, '20–50% efficiency gain potential  •  machine-generated Lean theorem inventory',
             ha='center', va='center', fontsize=10, color=TEXT, fontweight='bold')
 
     add_title(fig, 'Caloric Materials: From Correction to Verified Discovery', y=0.96)

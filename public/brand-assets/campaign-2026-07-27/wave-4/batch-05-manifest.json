@@ -1,0 +1,328 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "t_9638eba1",
+  "campaign_id": "brand-campaign-2026-07-27",
+  "wave_id": "wave-4-programmatic-pil",
+  "batch_id": "batch-05",
+  "source_manifest": "public/brand-assets/campaign-2026-07-27/shortfall-wave-1-manifest.json",
+  "source_manifest_sha256": "d8c6a9cb14cc5803453a5eaf68409966457f40e1f169cc34d32da040b635e383",
+  "scene_source": "media/projects/article-visuals/wave4_batch_05_scenes.py",
+  "scene_source_sha256": "1572ef9b719abc803a2df6dc6274a25820327e13b2667bf8a28f0182be853166",
+  "component_source": "media/projects/article-visuals/wave4_scene_components.py",
+  "component_source_sha256": "c66f2efb1dca5bbe8df5499b224afd2f41032cc630bc88fd9e11da6db8b5a629",
+  "palette": [
+    "#faf9f6",
+    "#16171d",
+    "#3d4db3"
+  ],
+  "asset_count": 8,
+  "mechanical_status": "pass",
+  "composition_status": "pending-independent-review",
+  "errors": [],
+  "assets": [
+    {
+      "asset_id": "SW1-B4-A01-02",
+      "original_asset_id": "B4-A01-02",
+      "archetype": "coupon-transfer-rail",
+      "specific_physical_scene": "A sample-coupon transfer rail beginning at a simple pixel-pattern mask, passing through an X-ray instrument, and ending at a physical bend-test frame.",
+      "single_mechanism": "the same coupon is fabricated, measured, and mechanically tested along one traceable rail",
+      "source_spec_hash": "sha256:fd66671a7ac0905d885d14c5b8181688e85e93ef6bfe72ca7a7e2d93ac4747f2",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a01_02.py",
+      "generator_sha256": "8da4b2bdf701af0dac07fbb68fc8ca5bb1baaa1643fcf437e5e4579ea1c15a15",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A01-02--coupon-transfer-rail.png",
+      "output_sha256": "df2e94d28f81018cae44994d05ce68fb43f2913ddbccd92cdb700a6a8d26b5da",
+      "bytes": 9449,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1485853,
+        "#16171d": 77525,
+        "#3d4db3": 9486
+      },
+      "paper_ratio": 0.94468,
+      "ink_ratio": 0.049289,
+      "indigo_ratio": 0.006031,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        72,
+        597,
+        1465,
+        1009
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B4-A01-03",
+      "original_asset_id": "B4-A01-03",
+      "archetype": "sealed-evidence-table",
+      "specific_physical_scene": "A low evidence table holding three unmarked sample blocks in fitted trays, each tray linked by a tamper-evident physical seal to one nearby instrument socket.",
+      "single_mechanism": "the fitted tray and seal preserve sample provenance between storage and measurement",
+      "source_spec_hash": "sha256:1a9482f7119e37420966fa0c57253a49f0d9f2122422dbc6168079fbb84340d2",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a01_03.py",
+      "generator_sha256": "5b27c1ffb08c2a78bb3cbcf1adaa435f035d5341af2c08bf31678a19657a2b92",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A01-03--sealed-evidence-table.png",
+      "output_sha256": "9794f6d4bbd6883b2448a50e7e22aca6aaf21a64dde9b4bb43023bc94931c972",
+      "bytes": 8512,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1510346,
+        "#16171d": 53383,
+        "#3d4db3": 9135
+      },
+      "paper_ratio": 0.960252,
+      "ink_ratio": 0.03394,
+      "indigo_ratio": 0.005808,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        72,
+        621,
+        1465,
+        1006
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B4-A01-04",
+      "original_asset_id": "B4-A01-04",
+      "archetype": "instrumented-beam-load-frame",
+      "specific_physical_scene": "A small bridge beam mounted in a laboratory load frame, with scattered displacement probes along the beam converging on one restrained indigo strain ribbon.",
+      "single_mechanism": "the probes combine into one measured strain profile used to judge the beam",
+      "source_spec_hash": "sha256:eb70eef5440a8962ce47f36735e4f662975fe33241606f870561f0c769360318",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a01_04.py",
+      "generator_sha256": "a35462448c4e2d8071ebab73b94cf64e6e921b084e8ccbd8b5e188aadc2add6d",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A01-04--instrumented-beam-load-frame.png",
+      "output_sha256": "369b6660470b93bd137dee75b078c68429bc7dcee2b050987eab21662de9d3f3",
+      "bytes": 9204,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1475926,
+        "#16171d": 90052,
+        "#3d4db3": 6886
+      },
+      "paper_ratio": 0.938368,
+      "ink_ratio": 0.057254,
+      "indigo_ratio": 0.004378,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        84,
+        572,
+        1453,
+        983
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B4-A02-02",
+      "original_asset_id": "B4-A02-02",
+      "archetype": "paired-plate-scanner",
+      "specific_physical_scene": "Two plain metal field plates mounted side by side beneath the same scanning probe, with their surface mismatch visible as one narrow indigo displacement ribbon.",
+      "single_mechanism": "the probe measures the local difference between predicted and reference plates",
+      "source_spec_hash": "sha256:d464f7b325a01da52a1fe2664163f35ea5a88aa02cfcc1e1d7c61678c241fbbc",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a02_02.py",
+      "generator_sha256": "d986a4aeb3b59a42fffef16ce8f97924c3e8948a936be107eff92afb872b2f37",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A02-02--paired-plate-scanner.png",
+      "output_sha256": "e2163bff60932a274fff267b4aece34ad5570a8802ad173740ee0533f2eac597",
+      "bytes": 8022,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1491573,
+        "#16171d": 73940,
+        "#3d4db3": 7351
+      },
+      "paper_ratio": 0.948317,
+      "ink_ratio": 0.04701,
+      "indigo_ratio": 0.004674,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        93,
+        607,
+        1444,
+        1012
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B4-A03-02",
+      "original_asset_id": "B4-A03-02",
+      "archetype": "four-station-materials-loop",
+      "specific_physical_scene": "A circular materials bench with four connected stations: powder dosing, small furnace, measurement cradle, and an empty return tray.",
+      "single_mechanism": "one specimen circulates through the make-measure-revise loop and returns for adjustment",
+      "source_spec_hash": "sha256:18faed51f092c28b054ea6736200d56cd2a69ef97db5463f75f2909bf9e520bc",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a03_02.py",
+      "generator_sha256": "c218f393f107adfab160721cbc87a04e26f4b545322373af6019a152050b5746",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A03-02--four-station-materials-loop.png",
+      "output_sha256": "7c6cea015da2ee65bbff009486c4cd44e1792fa4b1c9d4e39ef1c8994b9650d6",
+      "bytes": 14310,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1481529,
+        "#16171d": 75583,
+        "#3d4db3": 15752
+      },
+      "paper_ratio": 0.941931,
+      "ink_ratio": 0.048054,
+      "indigo_ratio": 0.010015,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        81,
+        618,
+        1456,
+        992
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B4-A03-04",
+      "original_asset_id": "B4-A03-04",
+      "archetype": "dual-instrument-cartridge-rack",
+      "specific_physical_scene": "A long rack of sealed evidence cartridges connected by identical mechanical couplers to two independent instruments at opposite ends.",
+      "single_mechanism": "the common coupler lets independent instruments inspect the same immutable cartridge chain",
+      "source_spec_hash": "sha256:71ff6c71e5fbaa3b641ff2d0bda041102e10b717833b529f567b928aca519d2c",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a03_04.py",
+      "generator_sha256": "a2a9d9907cb1b503a0f5aee7dceb5756d182289383fdc348945715a14d117d7e",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A03-04--dual-instrument-cartridge-rack.png",
+      "output_sha256": "815ab5a8ddbc87c976f5016b3c7f288119e3d9bf8106370765ec259fbd42236c",
+      "bytes": 8582,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1497271,
+        "#16171d": 65702,
+        "#3d4db3": 9891
+      },
+      "paper_ratio": 0.951939,
+      "ink_ratio": 0.041772,
+      "indigo_ratio": 0.006289,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        72,
+        654,
+        1465,
+        986
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B4-A04-01",
+      "original_asset_id": "B4-A04-01",
+      "archetype": "gated-pilot-pipeline",
+      "specific_physical_scene": "A narrow pilot pipeline from powder hopper through sintering furnace to a pressure-test fixture, with one inspection gate interrupting the route before scale-up equipment.",
+      "single_mechanism": "the inspection gate admits only measured samples to the pilot press",
+      "source_spec_hash": "sha256:eabf753a8ff9a81c4deb3db08ec2af22f84c4345129427d25bcc96a69fe06f2d",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a04_01.py",
+      "generator_sha256": "825fc959e04af89303003e1a8636ada64f7585fa1bef73416f743bac02d8044e",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A04-01--gated-pilot-pipeline.png",
+      "output_sha256": "f505cc0182c1c943a90d213288d1224c545ed2d70606f75895f600112d95c5b4",
+      "bytes": 8658,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 864
+      },
+      "palette_histogram": {
+        "#faf9f6": 1294381,
+        "#16171d": 27932,
+        "#3d4db3": 4791
+      },
+      "paper_ratio": 0.975343,
+      "ink_ratio": 0.021047,
+      "indigo_ratio": 0.00361,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        40,
+        546,
+        993,
+        840
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    },
+    {
+      "asset_id": "SW1-B4-A04-02",
+      "original_asset_id": "B4-A04-02",
+      "archetype": "calibration-traceability-chain",
+      "specific_physical_scene": "A calibration artifact in a sealed cradle connected by an unbroken physical chain of couplers to a specimen archive and a test instrument.",
+      "single_mechanism": "the coupler chain makes every instrument result traceable to the calibration artifact",
+      "source_spec_hash": "sha256:0b0f9764ffde7936af25059eed7817dcff88827606f71657feab6c93491f4a5e",
+      "generator": "media/projects/article-visuals/generate_wave4_sw1_b4_a04_02.py",
+      "generator_sha256": "74a6927f3915b6142b6b436f30de3dbecc2e65058da1a82272d7ead3df64afa4",
+      "output_path": "public/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A04-02--calibration-traceability-chain.png",
+      "output_sha256": "e51ee4fe1704c2961afea9672a70e067c14f5e4b9641016aaa8d86983363b3dd",
+      "bytes": 9256,
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "palette_histogram": {
+        "#faf9f6": 1504990,
+        "#16171d": 58469,
+        "#3d4db3": 9405
+      },
+      "paper_ratio": 0.956847,
+      "ink_ratio": 0.037174,
+      "indigo_ratio": 0.00598,
+      "upper_45_percent_all_paper": true,
+      "nonpaper_bbox": [
+        75,
+        621,
+        1462,
+        986
+      ],
+      "functional_path_count": 1,
+      "glyph_risk_control": "accepted PIL primitives only; no font import, text drawing, labels, glyphs, arrows, chart marks, or generative API",
+      "mechanical_status": "pass",
+      "composition_status": "pending-independent-review"
+    }
+  ]
+}

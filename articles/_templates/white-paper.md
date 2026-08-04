@@ -1,15 +1,9 @@
 # White Paper Title
 
 > **Type:** white-paper
->
 > **Date:** YYYY-MM-DD
->
-> **Scope:** Trustworthy AI for materials discovery
->
-> **Description:** A concise abstract for cards and meta tags.
->
-> **Audience:** Investors, reviewers, and research collaborators
->
+> **Deck:** Trustworthy AI for materials discovery
+> **Summary:** A concise abstract for cards and meta tags.
 > **Status:** Draft
 
 ## Abstract

@@ -1,11 +1,9 @@
 # From Fantasy Frameworks to Makeable Materials: A Prospectus for Formalized MOF Discovery
 
 > **A proposal for a joint research-and-formalization program**
->
 > **Date:** 2026-06-25  
-> **Scope:** Metal–organic frameworks (MOFs), covalent organic frameworks (COFs), and other high-value reticular / complex molecular structures  
-> **Description:** Why the next leap in AI-driven materials science needs theorem-proved certificates of synthesizability, and how a lab partnership can close the generate–test–learn loop.  
-> **Audience:** Investors, materials scientists, and AI-for-science teams  
+> **Deck:** Metal–organic frameworks (MOFs), covalent organic frameworks (COFs), and other high-value reticular / complex molecular structures  
+> **Summary:** Theorem-proved certificates of synthesizability for AI-generated metal–organic frameworks, and a lab partnership to close the generate–test–learn loop.  
 > **Status:** Draft for discussion
 
 ---
@@ -16,7 +14,7 @@ Generative AI can now invent millions of new metal–organic frameworks. What it
 
 In the first half of 2026, that gap has become the central bottleneck in materials AI. A *Chemical Science* perspective published in June calls synthetic likelihood “a fundamental challenge” and argues the field must move from performance-driven screening to **synthesis-informed design**, with free energy as the physically grounded metric.[^1] A January 2026 analysis put the scale of the problem in stark terms: of thousands of computational MOF screenings, only about a dozen had been accompanied by actual synthesis.[^2]
 
-We propose the next phase of the **OpenDistillationFactory** formalization effort: a theorem-proved “makeability layer” for AI-generated materials, built in partnership with a research organization that can both generate structures and test them in a lab.
+The next phase of the **OpenDistillationFactory** formalization effort is proposed: a theorem-proved “makeability layer” for AI-generated materials, built in partnership with a research organization that can both generate structures and test them in a lab.
 
 The goal is a flywheel in which every simulated candidate carries a formal certificate of validity, every experiment updates the certificate rules, and every cycle makes the next cycle faster.
 
@@ -26,12 +24,14 @@ The goal is a flywheel in which every simulated candidate carries a formal certi
 
 For readers who do not spend their days inside reticular chemistry or proof assistants:
 
+![A full-height direct-air-capture panel in cutaway with a porous-framework coating bonded to a plain metal support and sparse airflow crossing it — The bonded porous coating captures gas while remaining mechanically supported inside the contactor](images/from-fantasy-frameworks-to-makeable-materials-inline-01.jpg)
+
 - **MOFs** are crystalline sponge-like materials built from metal “nodes” and organic “linkers.” Their pores can store hydrogen, capture CO₂, separate gases, or host catalysts. Because the building blocks are modular, the design space is astronomical.
 - **Generative AI** (diffusion models, graph neural networks, large language models) can now propose new MOFs at machine speed. Recent systems include MatterGen, GNoME, MOF-LLM, and ChatMOF.
 - **The synthesis gap:** a structure that is stable on a computer screen may be kinetically inaccessible, chemically incompatible with real solvents, or so strained that it collapses the moment it is isolated. Most AI-generated MOFs are, in effect, fantasy frameworks.
-- **Formalization** means encoding the rules of MOF assembly, stability, and synthesis in a proof assistant (we use **Lean 4**) and proving theorems about them. The output is not a prediction; it is a **certificate**: a machine-checkable argument that a candidate satisfies stated assumptions.
+- **Formalization** means encoding the rules of MOF assembly, stability, and synthesis in a proof assistant (the formalization uses **Lean 4**) and proving theorems about them. The output is not a prediction; it is a **certificate**: a machine-checkable argument that a candidate satisfies stated assumptions.
 
-The question this prospectus answers is: what would a formalized materials-discovery pipeline look like, and why should a materials-generation lab partner with us to build it?
+The prospectus addresses two questions: what a formalized materials-discovery pipeline would look like, and why a materials-generation lab should partner to build it.
 
 ---
 
@@ -79,7 +79,7 @@ Generative models for materials face the same correctness challenge as large lan
 
 ## The proposed formalization roadmap
 
-We would build the makeability layer as a series of Lean modules. Each module addresses a distinct gap in the current pipeline.
+The makeability layer would be built as a series of Lean modules. Each module addresses a distinct gap in the current pipeline.
 
 ### 1. `ReticularAssembly.lean` — what is a valid structure?
 
@@ -111,7 +111,7 @@ Thermal, chemical, and mechanical stability thresholds, plus defect tolerance:
 - Defect-density bounds that preserve pore connectivity.
 - Polymorph stability landscapes.
 
-This module directly connects to our existing work on error geometry and smooth projections: a stable framework is one whose geometric neighborhood contains no low-energy collapse mode.
+This module directly connects to existing work on error geometry and smooth projections: a stable framework is one whose geometric neighborhood contains no low-energy collapse mode.
 
 ### 4. `GenerativeValidity.lean` — what can the generator legally propose?
 
@@ -133,9 +133,9 @@ Formal predicates for database integrity:
 
 This addresses the documented “high structural error rates” in computation-ready MOF databases.[^12]
 
-### 6. `MultiObjectiveDiscovery.lean` — can we optimize multiple properties at once?
+### 6. `MultiObjectiveDiscovery.lean` — can multiple properties be optimized at once?
 
-Pareto-front convergence for conflicting objectives such as CO₂ uptake, water stability, and cost. We would formalize active-learning regret bounds adapted to discrete materials spaces.
+Pareto-front convergence for conflicting objectives such as CO₂ uptake, water stability, and cost. Active-learning regret bounds adapted to discrete materials spaces would be formalized.
 
 ### 7. `AutonomousLab.lean` — can the robot be trusted?
 
@@ -150,7 +150,9 @@ A long-term formal model of the closed loop:
 
 ## The partnership flywheel
 
-A formalization effort in isolation is valuable; a formalization effort **tethered to a real lab** is transformative. We are looking for a partner organization with:
+A formalization effort in isolation is valuable; a formalization effort **tethered to a real lab** is transformative. The partnership requires an organization with:
+
+![An unoccupied materials bay with a synthesis vessel, wash filter, stability chamber, and pilot cartridge connected in one straight line — One framework batch advances through synthesis and stability checks before entering the pilot cartridge](images/from-fantasy-frameworks-to-makeable-materials-inline-02.jpg)
 
 1. A high-throughput **materials-generation platform** (generative models, structure databases, or computational screening pipelines).
 2. Access to **automated or semi-automated synthesis and characterization** (robotic synthesis, flow chemistry, PXRD, gas-adsorption, electron microscopy, etc.).
@@ -194,25 +196,25 @@ Each loop does three things:
 
 ---
 
-## Where we start
+## Starting point
 
-We do not propose boiling the ocean. The first 12–18 months would focus on a narrow, high-impact slice:
+The proposal does not attempt to boil the ocean. The first 12–18 months would focus on a narrow, high-impact slice:
 
 1. **ReticularAssembly** for one well-studied MOF family (e.g., Zr-carboxylate MOFs such as UiO-66 / UiO-67).
 2. **Synthesizability** for one synthesis modality (e.g., electric-field-assisted solvothermal synthesis, following the 2026 literature).[^3]
 3. **StabilityBound** for one operational stressor (e.g., solvent-removal / activation stability).
 4. **DataAudit** for one public database (e.g., CoRE MOF or a partner-internal dataset).
-5. A **closed-loop pilot** in which the partner generates candidates, our predicates filter them, the partner synthesizes a prioritized subset, and the results update the predicates.
+5. A **closed-loop pilot** in which the partner generates candidates, the predicates filter them, the partner synthesizes a prioritized subset, and the results update the predicates.
 
 This narrow scope lets each side show measurable value before scaling.
 
 ---
 
-## Why us
+## Track record
 
 The **OpenDistillationFactory** project has already built a machine-checkable theory of error geometry for machine-learning interatomic potentials. The most recent milestone, `ExactTubularUniversality.lean`, closed its last formal gap using a theorem-proved tubular-neighborhood framework and is now fully built by `lake build` with **zero remaining `sorry` axioms**. The project inventory currently stands at **85 formally proven lemmas** and **0 documented epistemic gaps**.[^13]
 
-That track record matters because the next phase is harder: we are moving from geometry to chemistry. But the discipline is the same—state assumptions explicitly, prove theorems under those assumptions, and let experimental data tighten the assumptions.
+That track record matters because the next phase is harder: moving from geometry to chemistry. The discipline is the same—state assumptions explicitly, prove theorems under those assumptions, and let experimental data tighten the assumptions.
 
 ---
 
@@ -224,9 +226,11 @@ If you are:
 - an **AI-for-science team** building generative models for MOFs, COFs, or complex molecular solids, or
 - an **investor** looking for a differentiated way to de-risk materials-AI portfolios,
 
-we would like to talk.
+get in touch.
 
 The next frontier in materials discovery is not generating more structures. It is **proving which ones are worth making**.
+
+![A prospectus-scale air-capture facility under development, foregrounded by a modest set of formally screened framework samples](images/from-fantasy-frameworks-to-makeable-materials-spread--retry-1.jpg)
 
 ---
 

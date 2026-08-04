@@ -148,4 +148,31 @@ For templates and components for articles, white papers, research guides, tutori
 - **Deck content:** `lupine/fundraise/lupine-science-deck.md`
 - **Art direction:** `lupine/fundraise/art-direction.md`
 - **Generated brand stills:** `lupine/fundraise/brand-assets/fal/`
+- **Brand asset manifest:** `lupine-science/data/brand-asset-pack.json`
+- **Procedural brand patterns:** `lupine-science/public/brand-assets/patterns/`
+- **Dark deck design tokens:** `lupine-science/public/brand-assets/deck-dark.css`
+- **Dark deck sample:** `lupine-science/public/brand-assets/deck-dark-sample.html`
 - **This guideline:** `lupine-science/docs/brand-guidelines.md`
+
+## 12. Brand patterns and deck system
+
+### Procedural patterns
+
+`scripts/build-brand-patterns.mjs` generates vector patterns locked to the brand palette:
+
+- `hyper-ribbon.svg` — the central "shape of wrongness" motif on paper.
+- `error-vectors.svg` — scattered vectors converging toward alignment.
+- `lattice-dots.svg` — subtle crystalline texture for backgrounds.
+- `dark-ribbon.svg` — hyper-ribbon on a deep ink ground for dark slides.
+
+Regenerate with `npm run build` or `node scripts/build-brand-patterns.mjs`.
+
+### Dark pitch deck tokens
+
+`public/brand-assets/deck-dark.css` provides a self-contained dark slide system:
+
+- CSS custom properties for the dark palette (`--deck-paper`, `--deck-ink`, `--deck-indigo`).
+- `.slide` class sized to 1280×720 with print-safe page breaks.
+- Type scale, stat rows, callouts, and corner mark placement.
+
+See `public/brand-assets/deck-dark-sample.html` for a two-slide reference.

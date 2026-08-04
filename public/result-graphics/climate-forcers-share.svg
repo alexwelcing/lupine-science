@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" role="img" aria-labelledby="climate-forcers-share-title">
+  <title id="climate-forcers-share-title">Anthropogenic radiative forcing</title>
+  <rect width="800" height="450" fill="#faf9f6"/>
+  <text x="64" y="42" font-family="Newsreader, Georgia, serif" font-size="22" fill="#16171d" font-weight="500">Anthropogenic radiative forcing</text>
+  <text x="64" y="64" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="11" fill="#6e707a" text-transform="uppercase" letter-spacing="0.06em">Share by agent · 1750–2019</text>
+  <g transform="translate(64,80)">
+    <line x1="0" y1="270" x2="696" y2="270" stroke="#e2dfd4" stroke-width="1"/>
+    <rect x="0" y="67.5" width="696" height="135" fill="#f2efe7" rx="4"/>
+    <rect x="0.00" y="67.50" width="452.82" height="135.00" fill="#4c4e58" rx="2"/>
+    <text x="226.41" y="139.00" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" fill="#faf9f6">2.16</text>
+    <text x="226.41" y="288.00" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="10" fill="#4c4e58">CO₂</text>
+    <rect x="452.82" y="67.50" width="113.20" height="135.00" fill="#8a5e1f" rx="2"/>
+    <text x="509.42" y="139.00" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" fill="#faf9f6">0.54</text>
+    <text x="509.42" y="288.00" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="10" fill="#4c4e58">CH₄</text>
+    <rect x="566.02" y="67.50" width="85.95" height="135.00" fill="#3d4db3" rx="2"/>
+    <text x="609.00" y="139.00" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" fill="#faf9f6">0.41</text>
+    <text x="609.00" y="288.00" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="10" fill="#4c4e58">Halocarbons</text>
+    <rect x="651.98" y="67.50" width="44.02" height="135.00" fill="#6e707a" rx="2"/>
+    <text x="673.99" y="139.00" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="12" fill="#faf9f6">0.21</text>
+    <text x="673.99" y="288.00" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="10" fill="#4c4e58">N₂O</text>
+  </g>
+  <text x="64" y="422" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="9" fill="#6e707a">Source: IPCC AR6 WGI Summary for Policymakers, Figure SPM.2</text>
+  <text x="64" y="436" font-family="Newsreader, Georgia, serif" font-size="10" fill="#4c4e58" font-style="italic">Non-CO₂ agents are ~35% of total anthropogenic forcing; cutting them is the fastest lever for near-term warming.</text>
+</svg>

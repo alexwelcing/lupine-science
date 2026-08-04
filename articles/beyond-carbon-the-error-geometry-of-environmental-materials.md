@@ -1,10 +1,7 @@
-> **Type:** article
 > **Date:** 2026-07-16
-> **Scope:** Why the same under-coordination error that corrupts climate-materials predictions also corrupts water, air, methane, refrigerant, mineral, PFAS, and cement discovery.
-> **Description:** The first article in the environmental-expansion series shows that the Lupine correction-and-verification layer is a platform for any material whose function is controlled by under-coordinated environments.
-> **Audience:** sophisticated materials, mechanical, and chemical engineers; climate-tech investors
+> **Deck:** The same under-coordination error that corrupts climate-materials predictions also corrupts water, air, methane, refrigerant, mineral, PFAS, and cement discovery.
+> **Summary:** The environmental-expansion series opens by establishing the correction-and-verification layer as a platform for any material whose function is controlled by under-coordinated environments.
 > **Status:** Draft
-
 
 
 # Beyond Carbon: The Error Geometry of Environmental Materials
@@ -15,7 +12,7 @@ The climate series made a case about predicted materials that do not become made
 ![One Geometry, Seven Planetary Boundaries](images/beyond-carbon-the-error-geometry-of-environmental-materials-01-seven-domains-one-error.jpg)
 *The same coordination error radiates from bulk equilibrium into the under-coordinated environments that control water, air, methane, refrigerants, minerals, PFAS, and cement.*
 
-This article introduces the environmental-expansion series by mapping that geometry onto seven target areas outside direct CO₂ abatement. The goal is not to claim that computational discovery will solve water scarcity or eliminate forever chemicals on its own. It is to show that each target is (a) materials-limited, (b) corrupted by the same structural failure modes, and (c) addressable by the same correction-and-verification layer that Lupine has built for climate-critical materials.
+The environmental-expansion series opens by mapping that geometry onto seven target areas outside direct CO₂ abatement. The goal is not to claim that computational discovery will solve water scarcity or eliminate forever chemicals on its own. It is to show that each target is (a) materials-limited, (b) corrupted by the same structural failure modes, and (c) addressable by the same correction-and-verification layer built for climate-critical materials.
 
 ![From Predicted Structure to Buried Breakthrough](images/beyond-carbon-the-error-geometry-of-environmental-materials-03-four-filters.jpg)
 *Defect/bulk asymmetry, the combinatorial wall, metastability, and ranking inversion turn a small systematic error into wrong experimental priorities.*
@@ -41,9 +38,11 @@ The climate series identified four filters between a predicted structure and a w
 
 **Ranking inversion** is the result. Systematic errors do not merely add noise; they reorder candidates. A membrane with the correct selectivity drops below a softer, less selective pore. A methane-oxidation catalyst with the right barrier is passed over for one whose barrier only looks low because the potential surface is softened. Experiments are sent to false priorities and true breakthroughs are buried[^1].
 
-## Water, air, and the molecules we live next to
+## Water, air, and the molecules of the ambient environment
 
 Water scarcity affects roughly two billion people, and the UN projects a 40% global freshwater deficit by 2030 under business-as-usual[^3]. Seawater desalination already produces around 97 million cubic metres per day, but reverse-osmosis membranes consume 3–4 kWh m⁻³ and are limited by the selectivity–permeability trade-off[^4]. The active layer of a polyamide membrane is a nanoporous network whose pores are lined with under-coordinated functional groups. uMLIPs trained on bulk polymers cannot accurately predict the binding free energy of ions and water in those pores, so screens misrank pore size and charge density.
+
+![A recirculating corrosion-test loop with four metal coupons mounted along one pipe and a single scanning probe moving across their exposed surfaces — The scanning probe measures local surface error against the same flowing environment](images/beyond-carbon-the-error-geometry-of-environmental-materials-inline-02.jpg)
 
 ![Runtime Correction with Proof Boundaries](images/beyond-carbon-the-error-geometry-of-environmental-materials-05-correction-verification-layer.jpg)
 *A coordination-based error field, three anchor observables, and analytic force corrections let molecular dynamics follow the corrected surface, while proof boundaries stop unsupported claims.*
@@ -52,6 +51,8 @@ Water scarcity affects roughly two billion people, and the UN projects a 40% glo
 Atmospheric water harvesting sorbents face a different manifestation of the same error. Metal–organic frameworks such as MOF-808 with LiCl reach useful capacities at low relative humidity, but cycle life is limited by hydrolysis of metal–linker bonds at under-coordinated metal centres[^5]. The transition states have coordination numbers of four to seven, precisely the region where uMLIPs underestimate barrier heights. Corrected barriers predict cycle life before synthesis.
 
 Air quality is similarly bound by under-coordinated active sites. Outdoor air pollution causes an estimated 4–7 million premature deaths annually, with NOx, PM₂.₅, and volatile organic compounds as the leading contributors[^6]. Low-temperature NH₃-SCR catalysts for diesel and gasoline exhaust need high NOx conversion below 150 °C because cold-start emissions, before the catalyst reaches light-off, can account for 50–80% of trip emissions[^7]. Those conversions depend on activation barriers for N–O bond cleavage and C–H activation at exchanged cations and single-atom sites that raw uMLIPs misrank.
+
+![Four environmental boundary stations — water membrane, air catalyst, refrigerant heat exchanger, and remediation sorbent — as physical devices under a shared measurement geometry](images/beyond-carbon-the-error-geometry-of-environmental-materials-inline-01--retry-1.jpg)
 
 ## Methane and refrigerants: the non-CO₂ climate forcers
 
@@ -76,7 +77,7 @@ The energy transition is mineral-intensive. The IEA projects that clean-energy t
 The ion-selectivity problem is the same binding-energy problem that appears in membranes and catalysts. Li⁺, Na⁺, K⁺, Mg²⁺, Co²⁺/³⁺, Ni²⁺, and Fe³⁺ must be separated in complex mixed streams. Guest-host binding energies in flexible, under-coordinated sorbent pores and organic extractant pockets fall outside the bulk training distribution of uMLIPs, so raw models misrank candidates by 15–60%[^2]. Corrected insertion and site-selectivity energies identify high-selectivity frameworks.
 
 ![Measured Correction, Machine-Checked Proof](images/beyond-carbon-the-error-geometry-of-environmental-materials-04-blind-prediction-panel.jpg)
-*Across 36 blind model–material pairs the error field predicts corrections with r = 0.906, while a build-locked library of 77 Lean 4 theorems bounds what can be believed.*
+*Across 36 blind model–material pairs the error field predicts corrections with r = 0.906, while a build-locked library of {{LEAN_THEOREM_COUNT}} Lean 4 theorems bounds what can be believed.*
 
 
 PFAS remediation adds the strongest bond in organic chemistry. The C–F bond dissociation energy is approximately 485 kJ mol⁻¹[^12]. Catalytic defluorination at low temperature requires highly active metal sites that also resist conversion to stable metal fluorides. Predicting C–F activation barriers and metal-fluoride thermodynamics at under-coordinated sites is exactly the correction task. A sorbent that removes PFOA and PFOS at nanogram-per-litre levels, meanwhile, needs fluorophilic pockets of precise size; corrected host-guest binding energies rank MOFs and porous polymers for selectivity over competing ions and natural organic matter.
@@ -85,35 +86,39 @@ PFAS remediation adds the strongest bond in organic chemistry. The C–F bond di
 
 Cement production is responsible for roughly 8% of global CO₂ emissions, about 2.8 GtCO₂ yr⁻¹, and approximately 60% of those emissions are process emissions from calcining limestone that cannot be eliminated by renewable electricity alone[^13]. Alternative binders, alternative clinkers, and CO₂-cured concrete are promising, but many of the best performers are amorphous or metastable. Blast-furnace slag, fly ash, calcined clay, and geopolymers form disordered hydrated networks; standard DFT struggles with disorder, and raw uMLIPs mispredict the energetics of under-coordinated Si–O and Al–O bonds.
 
+![A central instrument bench with one calibrated sample holder connected by a restrained indigo line to a compact water-filtration pilot skid across the room — The calibrated holder transfers a measured material result into one filtration pilot decision](images/beyond-carbon-the-error-geometry-of-environmental-materials-inline-03.jpg)
+
 ![Speed That Scales Where DFT Cannot](images/beyond-carbon-the-error-geometry-of-environmental-materials-09-economics-moat.jpg)
 *At roughly 10⁵× the speed of DFT and only modest runtime overhead, corrected potentials can search spaces that brute-force quantum chemistry cannot afford.*
 
 
 CO₂-cured concrete depends on rapid carbonation of calcium silicates. The reaction fronts involve carbonate formation at under-coordinated surface sites and CO₂ diffusion through increasingly dense product layers. Corrected carbonate formation and diffusion barriers rank candidate calcium-silicate compositions for uptake and strength gain. Here the verification layer matters as much as the correction: provable boundaries separate supported predictions from synthesis-dependent metastable phases, so experiments are not launched on the basis of an equilibrium stability that the material will never reach[^1].
 
-## The Lupine response: a measured field and machine-checked proof
+## The correction layer: a measured field and machine-checked proof
 
-The common thread across all seven areas is that the error is not a model failure to be fixed by more training data. It is a geometrically regular departure that can be measured, parameterized, and corrected at runtime. Lupine's environment error field is defined over local atomic coordination; for a reference bulk environment, such as fcc atoms with coordination number twelve, the error is defined as zero. Three anchor observables fix the field, and a cubic spline with the bulk constraint predicts the error at environments the field was never directly fitted to[^1].
+The common thread across all seven areas is that the error is not a model failure to be fixed by more training data. It is a geometrically regular departure that can be measured, parameterized, and corrected at runtime. The environment error field is defined over local atomic coordination; for a reference bulk environment, such as fcc atoms with coordination number twelve, the error is defined as zero. Three anchor observables fix the field, and a cubic spline with the bulk constraint predicts the error at environments the field was never directly fitted to[^1].
 
 Blind prediction across 36 (model, material) combinations achieves Pearson r = 0.906 (p = 10⁻⁴, 95% CI [0.82, 0.96]) with zero adjustable parameters[^1]. Runtime correction adds analytic forces to the uMLIP gradients, so molecular dynamics and relaxations follow the corrected potential energy surface. The overhead is currently 15.6% in Python and is expected to drop below 1% in a compiled LAMMPS overlay, while corrected uMLIPs remain roughly 10⁵× faster than DFT[^1].
 
 ![The Path From Measured Error to Trust](images/beyond-carbon-the-error-geometry-of-environmental-materials-10-platform-roadmap.jpg)
-*Every article in the series will follow the same arc: measure the shape of the error, correct it with analytic forces, and prove which predictions can be believed.*
+*Each installment follows the same arc: measure the shape of the error, correct it with analytic forces, and prove which predictions can be believed.*
 
 
-Formal verification is what prevents corrected predictions from becoming a new kind of false confidence. Lupine's claims are accompanied by build-locked Lean 4 theorems; the current library contains 77 theorems with zero sorry proofs[^1]. Where the correction cannot be applied — for example, where the local environment falls outside the measured domain, or where a phase is genuinely synthesis-dependent — the system proves impossibility or bounded uncertainty rather than reporting a p-value. That discipline transfers directly to environmental targets: a cement hydrate phase whose stability cannot be separated from curing conditions is flagged as unsupported, not sold as predicted.
+Formal verification is what prevents corrected predictions from becoming a new kind of false confidence. The claims are accompanied by build-locked Lean 4 theorems; the current library contains {{LEAN_THEOREM_COUNT}} build-locked theorems with zero sorry proofs[^1]. Where the correction cannot be applied — for example, where the local environment falls outside the measured domain, or where a phase is genuinely synthesis-dependent — the system proves impossibility or bounded uncertainty rather than reporting a p-value. That discipline transfers directly to environmental targets: a cement hydrate phase whose stability cannot be separated from curing conditions is flagged as unsupported, not sold as predicted.
 
 ## A platform thesis
 
-The seven areas in this document share the same computational pathology and the same response. Corrected binding energies rank desalination membranes, atmospheric-water sorbents, and ion-selective frameworks. Corrected activation barriers filter low-temperature catalysts for NOx, VOCs, methane, and PFAS. Corrected intermolecular potentials and bond-dissociation energies screen refrigerants. Corrected insertion, migration, and site-selectivity energies enable critical-mineral recovery. Corrected amorphous-network and carbonation energetics guide cement decarbonization. In every case the correction is anchored to measured error, and in every case the verification layer distinguishes what is supported from what is not.
+The seven target areas share the same computational pathology and the same response. Corrected binding energies rank desalination membranes, atmospheric-water sorbents, and ion-selective frameworks. Corrected activation barriers filter low-temperature catalysts for NOx, VOCs, methane, and PFAS. Corrected intermolecular potentials and bond-dissociation energies screen refrigerants. Corrected insertion, migration, and site-selectivity energies enable critical-mineral recovery. Corrected amorphous-network and carbonation energetics guide cement decarbonization. In every case the correction is anchored to measured error, and in every case the verification layer distinguishes what is supported from what is not.
 
 The combined addressable impact is comparable to the climate series. Water and air quality affect billions of people. Methane and refrigerants together could avoid 0.5–1 °C of warming. Critical-mineral recycling and PFAS remediation address trillion-dollar supply-chain and public-health risks. Cement decarbonization is a 2.8 GtCO₂ yr⁻¹ problem. A single correction layer that improves discovery reliability across all of them is the platform thesis.
 
-The next articles in this series walk through the targets in detail. They share one premise: the materials bottleneck is, at its root, a prediction-trust bottleneck. Trust comes from measuring the shape of the error, correcting it with analytic forces, and proving which predictions can be believed.
+Subsequent installments examine the targets in detail. The premise is common: the materials bottleneck is, at its root, a prediction-trust bottleneck. Trust comes from measuring the shape of the error, correcting it with analytic forces, and proving which predictions can be believed.
+
+![A calm regional landscape of treatment plants and clean infrastructure, with the material interventions visible but secondary](images/beyond-carbon-the-error-geometry-of-environmental-materials-spread--retry-1.jpg)
 
 ## Footnotes
 
-[^1]: Lupine Science, *Strategic Discovery Plan*, Sections 2–3. The plan documents the 0.2% synthesis problem, the environment error field, the r = 0.906 blind-prediction result, the 15.6% runtime overhead, the 77 build-locked Lean 4 theorems, and the boundary conditions for impossibility proofs.
+[^1]: Lupine Science. The build-locked formalization is published in the [open Lean 4 library](https://library.lupine.science) and [source repository](https://github.com/alexwelcing/lupine-rhizo).
 
 [^2]: B. Deng *et al.*, "Systematic softening in universal machine learning interatomic potentials," *npj Computational Materials* **11**, 9 (2025). https://doi.org/10.1038/s41524-024-01500-6
 

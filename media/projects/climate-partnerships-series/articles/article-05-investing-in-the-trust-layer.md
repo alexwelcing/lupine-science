@@ -26,7 +26,7 @@ Body: The error field is a physical quantity fixed by three anchor observables; 
 
 ## Pillar 2: machine-checked proof
 
-Body: 77 build-locked Lean 4 theorems with zero sorry proofs; the categorical difference between statistical confidence and mechanical certainty; impossibility proofs as a feature, not a failure.
+Body: machine-generated Lean 4 theorem inventory with zero sorry proofs; the categorical difference between statistical confidence and mechanical certainty; impossibility proofs as a feature, not a failure.
 
 ## Pillar 3: runtime compatibility
 

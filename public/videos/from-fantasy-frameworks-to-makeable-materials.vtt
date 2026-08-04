@@ -1,0 +1,25 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:14.804
+Generative AI can now invent millions of metal-organic frameworks at machine speed. What it cannot yet do is promise that any of them can actually be made. In the first half of 2026, that gap has become the central bottleneck in materials AI.
+
+2
+00:00:14.804 --> 00:00:31.749
+A structure that is stable on a computer screen may be kinetically inaccessible, chemically incompatible with real solvents, or so strained that it collapses the moment it is removed from the simulation box. Until that changes, most AI-generated MOFs remain fantasy frameworks.
+
+3
+00:00:31.749 --> 00:00:51.814
+The proposed fix is a makeability layer encoded in the Lean 4 proof assistant. It turns the rules of assembly, stability, and synthesis into formal theorems. The output is not a prediction. It is a certificate: a machine-checkable argument that a candidate satisfies explicitly stated assumptions for a given synthesis protocol.
+
+4
+00:00:51.814 --> 00:01:12.246
+Tethered to a real lab, the method becomes a self-improving flywheel. Formal predicates filter candidate structures. Only certified candidates reach synthesis. Both success and failure are logged formally. Each failed synthesis tightens the certificate and rules out an entire class of future candidates, making the next cycle faster.
+
+5
+00:01:12.246 --> 00:01:32.617
+The starting point is intentionally narrow: over the first twelve to eighteen months, focus on one MOF family, one synthesis modality, one stability stressor, one database, and one closed-loop pilot. That discipline reflects a track record of eighty-five formally proven lemmas and zero remaining sorry axioms in the existing theory.
+
+6
+00:01:32.617 --> 00:01:48.278
+The next frontier in materials discovery is not generating more structures. It is proving which ones are worth making. The verification layer gives materials scientists a reason to trust a candidate before they spend time, money, and reagents on the bench.

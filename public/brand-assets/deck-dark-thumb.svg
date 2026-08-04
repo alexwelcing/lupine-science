@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-labelledby="deck-thumb-title">
+  <title id="deck-thumb-title">Dark deck system thumbnail</title>
+  <rect width="640" height="360" fill="#0b0c10"/>
+  <rect x="48" y="48" width="544" height="264" rx="4" fill="#14161d" stroke="rgba(247,246,242,0.12)" stroke-width="1"/>
+  <text x="80" y="110" font-family="Newsreader, Georgia, serif" font-size="32" fill="#f7f6f2">Dark deck <tspan fill="#6b7ff7" font-style="italic">tokens.</tspan></text>
+  <rect x="80" y="150" width="180" height="10" rx="2" fill="#6b7ff7" opacity="0.8"/>
+  <rect x="80" y="172" width="240" height="6" rx="2" fill="#b8b5ab" opacity="0.5"/>
+  <rect x="80" y="188" width="220" height="6" rx="2" fill="#b8b5ab" opacity="0.5"/>
+  <rect x="80" y="240" width="120" height="40" rx="2" fill="rgba(107,127,247,0.12)" stroke="#6b7ff7" stroke-width="1"/>
+  <text x="320" y="330" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="10" fill="#7e7b72" text-anchor="middle">1280×720 · CSS design tokens · pitch-ready</text>
+</svg>

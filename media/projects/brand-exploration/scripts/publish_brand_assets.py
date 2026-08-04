@@ -70,16 +70,18 @@ def main():
 </figure>'''
         )
 
+    cards_html = "\n".join(cards)
     html = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Lupine Science — Brand Assets</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+    @font-face {{ font-family: "Newsreader"; src: url("/fonts/newsreader-var.woff2") format("woff2"); font-style: normal; font-weight: 300 600; font-display: swap; }}
+    @font-face {{ font-family: "Newsreader"; src: url("/fonts/newsreader-italic-var.woff2") format("woff2"); font-style: italic; font-weight: 300 600; font-display: swap; }}
+    @font-face {{ font-family: "IBM Plex Mono"; src: url("/fonts/plex-mono-400.woff2") format("woff2"); font-style: normal; font-weight: 400; font-display: swap; }}
+    @font-face {{ font-family: "IBM Plex Mono"; src: url("/fonts/plex-mono-600.woff2") format("woff2"); font-style: normal; font-weight: 500 600; font-display: swap; }}
     :root {{
       --paper: #faf9f6; --paper-deep: #f2efe7;
       --ink: #16171d; --ink-soft: #4c4e58; --ink-faint: #6e707a;
@@ -155,7 +157,7 @@ def main():
     <h1>Brand <em>assets.</em></h1>
     <p class="lede">{len(images)} generated stills: research motifs, abstract textures, and standalone iconography. Right-click or long-press any image to save it.</p>
     <div class="grid">
-      {"\n".join(cards)}
+      {cards_html}
     </div>
     <p class="stats">{len(images)} assets · {len(set(img['version'] for img in images))} versions · {len(set(img['motif'] for img in images))} motifs</p>
   </main>

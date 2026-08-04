@@ -121,12 +121,12 @@ Water scarcity and air pollution are global, deadly, and materials-limited. The 
 - **Type:** concept-diagram
 - **Single idea:** Trust comes from a closed loop: measured anchors, formal verification, and bounded claims.
 - **Data points:**
-  - 77 build-locked Lean 4 theorems with zero sorry proofs[^5]
+  - Machine-generated Lean 4 theorem inventory with zero sorry proofs[^5]
   - Anchor observables tied to peer-reviewed sources[^4]
   - Boundary conditions for impossibility proofs documented[^5]
 - **Suggested form:** Circular ecosystem diagram: peer-reviewed data → error-field measurement → runtime correction → formal proof library → impossibility / bounded-uncertainty claims → back to experiment. Centered on a lock icon.
 - **Generation:** matplotlib / SVG
-- **Caption:** The correction layer is backed by peer-reviewed anchors and 77 build-locked Lean 4 theorems, so claims that fall outside the measured domain are flagged as bounded uncertainty rather than sold as prediction.[^4][^5]
+- **Caption:** The correction layer is backed by peer-reviewed anchors and the machine-generated Lean 4 theorem inventory, so claims that fall outside the measured domain are flagged as bounded uncertainty rather than sold as prediction.[^4][^5]
 
 ---
 

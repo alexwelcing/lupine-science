@@ -1,0 +1,29 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:22.021
+Foundation machine-learned interatomic potentials promise density-functional accuracy at classical cost. On bulk crystals they nearly deliver: lattice constants within half a percent, formation enthalpies within a few percent. But on surfaces and vacancies—the properties that decide real materials questions—they miss by ten to forty percent.
+
+2
+00:00:22.021 --> 00:00:38.970
+The obvious hypotheses were tested with coupling-aware nulls. Two died. Cross-property error is not low-dimensional. Raw cosine similarities as high as zero point nine six sit inside a null that reaches zero point nine eight. The kills are preserved in the record.
+
+3
+00:00:38.970 --> 00:00:57.203
+What survived is more useful. Ask any model which metal has the higher surface energy, and it almost never lies. Rank correlations run from zero point eight eight to one point zero zero zero. All twenty-two reference facet hierarchies reproduce. The order is right; the size is wrong.
+
+4
+00:00:57.203 --> 00:01:20.187
+The error has a shape: prediction equals c times T to the alpha. The exponent belongs to the property family; the prefactor belongs to the training data. Beneath both is a smooth error field over coordination. From three observables it predicted a fourth surface blind, with r equals zero point nine oh six across thirty-six cells and zero fitted parameters.
+
+5
+00:01:20.187 --> 00:01:42.208
+The correction is an additive energy term with analytic forces, running beside the live model. Over CHGNet it cut nickel surface error from nine point seven to one point five percent, copper from twenty-eight to thirteen point seven percent, and left bulk untouched. Where order breaks, a theorem proves no monotone fix can recover references.
+
+6
+00:01:42.208 --> 00:01:59.028
+Every quantitative claim is sealed as a Lean theorem over provenance-hashed data. The verification layer once rejected a result when decide refused eight thirteen less than eight thirteen. The correction edits the science toward honesty, not just better numbers.
+
+7
+00:01:59.028 --> 00:02:14.949
+For screening today, rankings are trustworthy where order holds. For certification, a handful of anchor measurements plus the family exponent buys a several-fold error reduction. Where the order is broken, the proof is provided, not a worse number.

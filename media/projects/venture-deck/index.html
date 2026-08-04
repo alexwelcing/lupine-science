@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Lupine Science venture deck: an evidence-locked makeability layer for materials discovery.">
+  <title>Lupine Science — Venture Deck</title>
+  <style>
+    @font-face{font-family:"Newsreader";src:url("/fonts/newsreader-var.woff2") format("woff2");font-weight:200 800;font-style:normal;font-display:block}
+    @font-face{font-family:"IBM Plex Mono";src:url("/fonts/plex-mono-400.woff2") format("woff2");font-weight:400;font-style:normal;font-display:block}
+    @font-face{font-family:"IBM Plex Mono";src:url("/fonts/plex-mono-600.woff2") format("woff2");font-weight:600;font-style:normal;font-display:block}
+    :root{--paper:#faf9f6;--ink:#16171d;--indigo:#3d4db3;--ochre:#8a5e1f;--scale:1}
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;background:var(--ink);color:var(--ink)}
+    body{font-family:"Newsreader",serif;overflow:hidden}
+    .deck-shell{position:fixed;inset:0}
+    .deck-stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform:translate(-50%,-50%) scale(var(--scale));transform-origin:center;background:var(--paper)}
+    .slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;background:var(--paper);display:none}
+    .slide.is-active{display:block}
+    .eyebrow{position:absolute;left:112px;top:72px;height:34px;font:600 22px/32px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase}
+    .headline{position:absolute;left:112px;top:124px;width:1696px;max-height:186px;margin:0;font:520 58px/62px "Newsreader",serif;letter-spacing:-.045em;text-wrap:balance}
+    .headline.wide,.headline.compact{width:1696px;font-size:58px;line-height:62px;max-height:186px}.headline.ultra-tight{width:2200px;letter-spacing:-.02em;text-wrap:wrap;transform:scaleX(.7709);transform-origin:left top}.headline.risk{top:210px;width:1080px;max-height:238px;font-size:76px;line-height:78px}
+    .body{position:absolute;margin:0;font:390 32px/40px "Newsreader",serif;text-wrap:pretty}
+    .mono{font-family:"IBM Plex Mono",monospace}.label{font:600 22px/28px "IBM Plex Mono",monospace;letter-spacing:.05em;text-transform:uppercase}
+    .qualification{position:absolute;left:112px;bottom:132px;width:1480px;margin:0;font:400 20px/27px "IBM Plex Mono",monospace}
+    .footer-rule{position:absolute;left:112px;right:112px;bottom:118px;height:2px;background:var(--ink)}
+    .source{position:absolute;left:112px;bottom:70px;width:1600px;max-height:50px;margin:0;font:400 20px/25px "IBM Plex Mono",monospace;letter-spacing:-.04em}
+    .slide-no{position:absolute;right:112px;bottom:70px;height:30px;font:600 20px/28px "IBM Plex Mono",monospace}
+    .deck-asset{position:absolute;object-fit:contain;object-position:center bottom;image-rendering:auto;background:var(--paper);filter:none}
+    .indigo{color:var(--indigo)}.ink{color:var(--ink)}.ochre{color:var(--ochre)}
+    .rule{height:3px;background:var(--ink)}
+    .route{display:flex;align-items:center;justify-content:center;min-height:78px;border:3px solid var(--ink);font:600 22px/28px "IBM Plex Mono",monospace;text-align:center;text-transform:uppercase;padding:12px}
+    .route.active{border-color:var(--indigo);color:var(--indigo)}
+    .kpi{border-top:3px solid var(--ink);padding-top:18px}
+    .kpi strong{display:block;font:600 62px/64px "Newsreader",serif}
+    .kpi span{display:block;margin-top:10px;font:600 20px/26px "IBM Plex Mono",monospace;text-transform:uppercase}
+    .audit-row{display:grid;grid-template-columns:1fr auto;gap:30px;border-top:2px solid var(--ink);padding:20px 0;font:400 28px/34px "Newsreader",serif}
+    .audit-row:last-child{border-bottom:2px solid var(--ink)}
+    .audit-row b{font:600 20px/28px "IBM Plex Mono",monospace;color:var(--indigo);text-transform:uppercase}
+    .owner-row{height:86px;border:3px solid var(--ochre);display:flex;align-items:center;padding:0 24px;font:600 22px/28px "IBM Plex Mono",monospace;color:var(--ochre)}
+    .owner-row+.owner-row{border-top:0}
+    .controls{position:absolute;right:112px;top:58px;display:flex;align-items:center;gap:16px;z-index:20;color:var(--ink);font:600 14px/20px "IBM Plex Mono",monospace}
+    .controls button,.controls a{appearance:none;border:2px solid var(--paper);background:var(--ink);color:var(--paper);font:inherit;padding:8px 14px;text-decoration:none;cursor:pointer}
+    .controls button:focus-visible,.controls a:focus-visible{outline:3px solid var(--indigo);outline-offset:3px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+    @page{size:13.333333in 7.5in;margin:0}
+    @media print{
+      html,body{width:1920px;height:auto;background:var(--paper);overflow:visible}
+      .deck-shell{position:static;display:block}.deck-stage{position:relative;left:auto;top:auto;width:1920px;height:auto;transform:none}.slide{position:relative;display:block!important;page-break-after:always;break-after:page}.slide:last-of-type{page-break-after:auto;break-after:auto}.controls{display:none!important}
+    }
+  </style>
+</head>
+<body>
+  <main class="deck-shell" aria-label="Lupine Science venture deck">
+    <div class="deck-stage" id="deck-stage">
+      <section class="slide is-active" id="slide-01" data-slide="1" data-claim-id="C-CLIMATE-01" aria-labelledby="title-01">
+        <div class="eyebrow">Lupine Science / Venture · 01</div>
+        <h1 class="headline" id="title-01" data-fit>Five material classes could unlock <span class="indigo">5–12 GtCO₂/year</span> — if the predictions sent to laboratories are corrected and verified first.</h1>
+        <p class="body" data-fit style="left:112px;top:332px;width:850px;height:210px">Cobalt-free cathodes. Halide solid electrolytes. Direct-air-capture sorbents. Ammonia catalysts. Lead-free perovskites. The opportunity is climate-scale; the bottleneck is whether simulation results are reliable enough to spend scarce laboratory time on.</p>
+        <img class="deck-asset" style="left:962px;top:392px;width:846px;height:500px" src="/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A02-01--specialized-test-bay-sequence.png" width="1536" height="864" alt="A sequence of increasingly specialized material test bays.">
+        <div class="footer-rule"></div><p class="source" data-fit>Lupine Science, “Five Materials That Could Unlock 5–12 GtCO₂/Year,” lines 2–16.</p><span class="slide-no">01 / 13</span>
+      </section>
+
+      <section class="slide" id="slide-02" data-slide="2" data-claim-id="C-SYNTHESIS-01" aria-labelledby="title-02">
+        <div class="eyebrow">Lupine Science / Venture · 02</div>
+        <h2 class="headline compact wide" id="title-02" data-fit><span class="indigo">380,000</span> computationally stable structures; <span class="indigo">736</span> independently synthesized by late 2023: a reported <span class="indigo">0.2% validation rate</span>.</h2>
+        <div style="position:absolute;left:112px;top:300px;width:720px">
+          <div style="display:flex;align-items:center;gap:30px"><strong style="font:600 116px/116px 'Newsreader'">380,000</strong><span style="width:90px;height:4px;background:var(--indigo)"></span><strong style="font:600 116px/116px 'Newsreader';color:var(--indigo)">736</strong></div>
+          <p class="label" style="margin:18px 0 0">reported 0.2% validation rate</p>
+          <p class="body" data-fit style="position:static;margin:42px 0 0;width:720px;height:168px">Generation now outruns validation. At climate scale, more candidates do not help if errors survive generation, prediction, synthesis, and validation.</p>
+        </div>
+        <img class="deck-asset" style="left:960px;top:280px;width:848px;height:600px" src="/brand-assets/campaign-2026-07-27/wave-4/SW1-B1-A02-01--laboratory-apparatus.png" width="1536" height="864" alt="Laboratory synthesis apparatus narrowing to one finished pellet.">
+        <p class="qualification" data-fit>Validation-rate indicator; not a universal synthesizability probability.</p>
+        <div class="footer-rule"></div><p class="source" data-fit>Lupine Science, “The 0.2% Synthesis Problem,” lines 7–16; Merchant et al., Nature 624 (2023), DOI 10.1038/s41586-023-06735-9.</p><span class="slide-no">02 / 13</span>
+      </section>
+
+      <section class="slide" id="slide-03" data-slide="3" data-claim-id="C-ACCURACY-01 C-ACCURACY-02" aria-labelledby="title-03">
+        <div class="eyebrow">Lupine Science / Venture · 03</div>
+        <h2 class="headline compact wide" id="title-03" data-fit>Foundation MLIPs were measured across <span class="indigo">21 materials</span>, <span class="indigo">up to 9 properties</span>, and <span class="indigo">228 published reference values</span>.</h2>
+        <div style="position:absolute;left:112px;top:320px;width:650px">
+          <div class="kpi"><strong>21</strong><span>materials</span></div>
+          <div class="kpi" style="margin-top:28px"><strong>up to 9</strong><span>properties</span></div>
+          <div class="kpi" style="margin-top:28px"><strong>228</strong><span>reference values</span></div>
+        </div>
+        <img class="deck-asset" style="left:790px;top:280px;width:1018px;height:620px" src="/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A02-02--rank-agreement-pedestal-rows.png" width="1536" height="1024" alt="Paired material ranks with preserved order and unequal magnitude.">
+        <p class="qualification" data-fit>In the measured benchmark, rankings often survive even when hard-property magnitudes miss by tens of percent. Bounded to the measured benchmark domain.</p>
+        <div class="footer-rule"></div><p class="source" data-fit>Lupine Science, “The Order Is Right, the Size Is Wrong,” lines 5–18 and 41–63.</p><span class="slide-no">03 / 13</span>
+      </section>
+
+      <section class="slide" id="slide-04" data-slide="4" data-claim-id="C-PRODUCT-01" aria-labelledby="title-04">
+        <div class="eyebrow">Lupine Science / Venture · 04</div>
+        <h2 class="headline compact wide" id="title-04" data-fit>A measured physical error field runs beside the live MLIP as an additive energy term with analytic forces. <span class="indigo">No fine-tuning. No retraining.</span></h2>
+        <img class="deck-asset" style="left:112px;top:300px;width:1010px;height:600px" src="/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A01-02--interface-probe-correction-band.png" width="1536" height="1024" alt="Interface probes joining into a measured correction band.">
+        <div style="position:absolute;left:1210px;top:320px;width:598px;display:grid;gap:26px">
+          <div class="route">existing MLIP</div><div class="label" style="text-align:center;color:var(--indigo)">↓ measured route</div><div class="route active">measured error field</div><div class="label" style="text-align:center;color:var(--indigo)">↓ additive term</div><div class="route">corrected energy + analytic forces</div>
+          <p class="label" style="margin:2px 0 0">No fine-tuning / No retraining</p>
+        </div>
+        <div class="footer-rule"></div><p class="source" data-fit>Lupine Science, “Investing in the Trust Layer,” lines 51–63; “The Order Is Right, the Size Is Wrong,” lines 67–81.</p><span class="slide-no">04 / 13</span>
+      </section>
+
+      <section class="slide" id="slide-05" data-slide="5" data-claim-id="C-PRODUCT-02 C-HONESTY-01" aria-labelledby="title-05">
+        <div class="eyebrow">Lupine Science / Venture · 05</div>
+        <h2 class="headline compact wide" id="title-05" data-fit>Every prediction takes one of three routes: <span class="indigo">measured correction, bounded claim, or abstention</span> when evidence is insufficient.</h2>
+        <div style="position:absolute;left:112px;top:300px;width:1696px;display:grid;grid-template-columns:1.08fr 1fr .82fr;gap:28px;z-index:2"><div class="route active">measured correction</div><div class="route">bounded claim</div><div class="route">abstain</div></div>
+        <img class="deck-asset" style="left:770px;top:390px;width:1038px;height:500px" src="/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A04-04--evidence-gate-routing-bench.png" width="1536" height="1024" alt="An evidence gate routes unsupported candidates aside.">
+        <p class="body" data-fit style="left:112px;top:430px;width:650px;height:320px">The proof layer licenses corrections only where evidence supports them. The honesty proof is preserved in public: the first correction made alloy predictions worse; the resulting Lean law now blocks wrong-direction correction, and unsupported cases abstain.</p>
+        <p class="qualification" data-fit>The first correction made predictions worse; the Lean law blocks wrong-direction correction.</p>
+        <div class="footer-rule"></div><p class="source" data-fit>Lupine Science, “The Correction That Hurt, and the Theorem That Stopped It,” lines 19–35 and 49–55.</p><span class="slide-no">05 / 13</span>
+      </section>
+
+      <section class="slide" id="slide-06" data-slide="6" data-claim-id="C-Z1-EXEC-01 C-Z1-PANEL-01 C-Z1-MODELS-01 C-Z1-SPLIT-01" aria-labelledby="title-06">
+        <div class="eyebrow">Lupine Science / Venture · 06</div>
+        <h2 class="headline compact wide" id="title-06" data-fit><span class="indigo">$14.65 per 129 anchors.</span> A completed, source-locked execution record.</h2>
+        <div style="position:absolute;left:112px;top:290px;width:1696px;display:grid;grid-template-columns:repeat(2,1fr);gap:28px">
+          <div class="kpi"><strong>129 anchors</strong><span>approved cost basis</span></div><div class="kpi"><strong>$14.65</strong><span>for the approved basis</span></div>
+        </div>
+        <img class="deck-asset" style="left:112px;top:520px;width:1050px;height:360px" src="/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A01-01--shared-reference-diffusion-rigs.png" width="1536" height="864" alt="Shared reference pins across electrolyte diffusion rigs.">
+        <p class="body" data-fit style="left:1220px;top:520px;width:588px;height:260px">The evidence program spans <strong>42 published Li-ion electrolyte chemistries</strong>: a <strong>30-path frozen test panel</strong> plus <strong>12 disjoint training chemistries</strong>, evaluated with guidance from <strong>4 foundation MLIPs</strong>.</p>
+        <p class="qualification" data-fit>Two guidance models found the true extrema on every guided path; two recorded a 6.8 meV undercoverage deficit. FOR EDITOR REVIEW; not peer-reviewed.</p>
+        <div class="footer-rule"></div><p class="source" data-fit>Lupine Science, “The Union Verdict,” lines 17–35 (FOR EDITOR REVIEW; not peer-reviewed); “The Z1 Barrier Panel,” lines 1–17 and 23–66.</p><span class="slide-no">06 / 13</span>
+      </section>
+
+      <section class="slide" id="slide-07" data-slide="7" data-claim-id="C-ECON-01" aria-labelledby="title-07">
+        <div class="eyebrow">Lupine Science / Venture · 07</div>
+        <h2 class="headline compact wide ultra-tight" id="title-07" data-fit>Across the locked panel, sharing anchors across guided models required <span class="indigo">72.4% fewer DFT evaluations</span>.</h2>
+        <div style="position:absolute;left:112px;top:330px;width:820px">
+          <div class="label">Frozen public economics</div>
+          <div style="height:144px;width:100%;background:var(--indigo);margin-top:18px;color:var(--paper);font:600 72px/144px 'Newsreader';padding-left:24px">72.4% fewer</div>
+          <p class="body" data-fit style="position:static;width:820px;height:164px;margin:38px 0 0">This bounded result applies to the locked evidence record. It is not a universal savings claim, and no additional economics are inferred from it.</p>
+          <div class="label" style="border:3px solid var(--ink);padding:16px;margin-top:28px">Evidence-locked claim · no extrapolation</div>
+        </div>
+        <img class="deck-asset" style="left:990px;top:300px;width:818px;height:590px" src="/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A01-02--union-route-shared-stations.png" width="1536" height="1024" alt="A compact union route reuses shared physical test stations.">
+        <div class="footer-rule"></div><p class="source" data-fit>Lupine Science, “The Savings Stack,” lines 26–40; “The Union Verdict,” lines 32–35.</p><span class="slide-no">07 / 13</span>
+      </section>
+
+      <section class="slide" id="slide-08" data-slide="8" data-claim-id="C-MOAT-01 C-MOAT-02 C-STILL-CLOSURE-01" aria-labelledby="title-08">
+        <div class="eyebrow">Lupine Science / Venture · 08</div>
+        <h2 class="headline compact wide ultra-tight" id="title-08" data-fit>Physical-law theorems are non-rival: partners can contribute verified laws without disclosing proprietary chemistry, and every participant’s gates sharpen.</h2>
+        <p class="body" data-fit style="left:112px;top:330px;width:550px;height:280px;z-index:2">The evidence chain ties quantitative claims to provenance-hashed data and machine-checked Lean theorems. Each failed correction and impossibility result sharpens the boundary rather than disappearing from the record.</p>
+        <img class="deck-asset" style="left:450px;top:300px;width:1358px;height:600px" src="/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A04-02--calibration-traceability-chain.png" width="1536" height="1024" alt="A physical calibration traceability chain.">
+        <div data-fit style="position:absolute;left:112px;top:640px;width:590px;height:232px;border:3px solid var(--indigo);background:var(--paper);padding:18px 20px;z-index:3"><strong style="display:block;font:600 34px/38px 'Newsreader';color:var(--indigo)">100/100 unique still slots</strong><span style="display:block;margin-top:10px;font:600 18px/24px 'IBM Plex Mono',monospace">33 certified baseline stills + 67 independently certified Wave-4 replacements</span><span style="display:block;margin-top:8px;font:400 17px/23px 'IBM Plex Mono',monospace">Closure gate t_c2a1f8e3 · five certified films excluded from the denominator</span></div>
+        <div style="position:absolute;left:720px;top:760px;width:1000px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px"><div class="route">reference anchor</div><div class="route active">provenance hash</div><div class="route">Lean theorem</div><div class="route">licensed gate</div></div>
+        <div class="footer-rule"></div><p class="source" data-fit>Lupine Science, “The Savings Stack,” lines 38–46; “The Order Is Right, the Size Is Wrong,” lines 88–120.</p><span class="slide-no">08 / 13</span>
+      </section>
+
+      <section class="slide" id="slide-09" data-slide="9" data-claim-id="C-MARKET-01" aria-labelledby="title-09">
+        <div class="eyebrow">Lupine Science / Venture · 09</div>
+        <h2 class="headline compact wide ultra-tight" id="title-09" data-fit>Lupine sits between model generation and laboratory validation: model builders get external verification; laboratories get shortlists with characterized failure modes.</h2>
+        <div style="position:absolute;left:112px;top:300px;width:1696px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;z-index:2"><div class="route">model generation</div><div class="route active">Lupine trust layer</div><div class="route">laboratory validation</div></div>
+        <img class="deck-asset" style="left:690px;top:390px;width:1118px;height:490px" src="/brand-assets/campaign-2026-07-27/wave-4/SW1-B3-A01-04--calibrated-holder-filtration-skid.png" width="1536" height="1024" alt="A calibrated material result connects to a pilot decision.">
+        <p class="body" data-fit style="left:112px;top:520px;width:720px;height:250px">The first market wedge is teams already running MLIP simulation in climate-critical materials. The product complements generators, databases, simulators, autonomous labs, and experimental partners rather than replacing them.</p>
+        <div class="footer-rule"></div><p class="source" data-fit>Lupine Science, “The Trust Layer,” lines 64–78; “Investing in the Trust Layer,” lines 23–43.</p><span class="slide-no">09 / 13</span>
+      </section>
+
+      <section class="slide" id="slide-10" data-slide="10" data-claim-id="C-TRACTION-01" aria-labelledby="title-10">
+        <div class="eyebrow">Lupine Science / Venture · 10</div>
+        <h2 class="headline compact wide ultra-tight" id="title-10" data-fit>A frozen public panel, guided-model evidence, a completed execution record, and a reproducible savings analysis are inspectable now.</h2>
+        <div style="position:absolute;left:112px;top:300px;width:730px"><div class="audit-row"><span>frozen public panel</span><b>inspectable now</b></div><div class="audit-row"><span>guided-model evidence</span><b>inspectable now</b></div><div class="audit-row"><span>completed execution record</span><b>inspectable now</b></div><div class="audit-row"><span>reproducible savings analysis</span><b>inspectable now</b></div></div>
+        <img class="deck-asset" style="left:900px;top:280px;width:908px;height:610px" src="/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A01-03--sealed-evidence-table.png" width="1536" height="1024" alt="A sealed evidence table preserves measurement provenance.">
+        <p class="qualification" data-fit>Completed evidence infrastructure — not commercial revenue or peer-reviewed validation. Z1 execution source: FOR EDITOR REVIEW — not for citation.</p>
+        <div class="footer-rule"></div><p class="source" data-fit style="font-size:18px;line-height:23px">Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “The Union Verdict,” lines 17–35 and 75–82 (FOR EDITOR REVIEW — not for citation); “The Savings Stack,” lines 26–56.</p><span class="slide-no">10 / 13</span>
+      </section>
+
+      <section class="slide" id="slide-11" data-slide="11" data-claim-id="C-ROADMAP-01 C-ROADMAP-02" aria-labelledby="title-11">
+        <div class="eyebrow">Lupine Science / Venture · 11</div>
+        <h2 class="headline compact wide" id="title-11" data-fit>Advance by order of effort: <span class="indigo">statics</span> → elastic response → surfaces → defects → transition states → interfaces → abstention-only domains.</h2>
+        <img class="deck-asset" style="left:840px;top:360px;width:968px;height:520px" src="/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A02-04--phased-evidence-test-hall.png" width="1536" height="1024" alt="A phased test hall advances from simple to specialized evidence bays.">
+        <div style="position:absolute;left:112px;top:310px;width:760px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px;z-index:2"><div class="route active">statics</div><div class="route">elastic response</div><div class="route">surfaces</div><div class="route">defects</div><div class="route">transition states</div><div class="route">interfaces</div><div class="route" style="grid-column:1/3">abstention-only domains</div></div>
+        <p class="body" data-fit style="left:112px;top:720px;width:680px;height:200px;z-index:2">Instrument the easiest proven runtime lane; extend structure-family jurisdiction only behind explicit gates; use sparse DFT anchors where correction laws cannot act; abstain where no supported measurement path exists.</p>
+        <div class="footer-rule"></div><p class="source" data-fit>Lupine Science, “An Order of Effort,” lines 19–55.</p><span class="slide-no">11 / 13</span>
+      </section>
+
+      <section class="slide" id="slide-12" data-slide="12" data-claim-id="C-RISK-01 C-RISK-02" aria-labelledby="title-12">
+        <div class="eyebrow">Lupine Science / Venture · 12</div>
+        <h2 class="headline risk" id="title-12" data-fit>One 30-path panel. One chemistry family. Not peer-reviewed.</h2>
+        <div style="position:absolute;left:112px;top:452px;width:970px;height:4px;background:var(--ochre)"></div>
+        <div style="position:absolute;left:112px;top:485px;width:970px;display:grid;gap:13px;font:400 25px/31px 'IBM Plex Mono',monospace">
+          <div data-fit><span class="ochre">—</span> one DFT engine and functional in the executed Z1 record</div><div data-fit><span class="ochre">—</span> short paths make sparsity easier</div><div data-fit><span class="ochre">—</span> seven large paths remain deferred</div><div data-fit><span class="ochre">—</span> two models recorded guidance misses</div><div data-fit><span class="ochre">—</span> no GPAW↔VASP equivalence claim</div>
+        </div>
+        <img class="deck-asset" style="left:1100px;top:340px;width:708px;height:520px" src="/brand-assets/campaign-2026-07-27/wave-4/SW1-B5-A04-04--magnetic-specimen-abstention-tray.png" width="1536" height="1024" alt="An unsupported magnetic specimen remains outside the correction fixture.">
+        <div class="footer-rule"></div><p class="source" data-fit>Lupine Science, “The Savings Stack,” lines 38–42; “The Union Verdict,” lines 47–57.</p><span class="slide-no">12 / 13</span>
+      </section>
+
+      <section class="slide" id="slide-13" data-slide="13" aria-labelledby="title-13">
+        <div class="eyebrow">Lupine Science / Venture · 13</div>
+        <h2 class="headline wide" id="title-13" data-fit>Build correction-as-acceleration into the simulation loop used by every materials lab.</h2>
+        <div style="position:absolute;left:112px;top:320px;width:760px"><div class="owner-row">[OWNER DECISION] Round size</div><div class="owner-row">[OWNER DECISION] Instrument / terms</div><div class="owner-row">[OWNER DECISION] Runway and allocation</div></div>
+        <div style="position:absolute;left:1000px;top:320px;width:808px"><div class="label">Use-of-funds frame</div><ul style="margin:26px 0 0;padding:0;list-style:none;font:390 32px/42px 'Newsreader';display:grid;gap:22px"><li>Runtime instrumentation in the proven lane.</li><li>Gated expansion across harder structure and property families.</li><li>Partner-facing evidence delivery from simulation to synthesis.</li></ul></div>
+        <p data-fit style="position:absolute;left:112px;top:720px;width:650px;height:120px;margin:0;font:520 42px/48px 'Newsreader'">Models guide. Evidence measures. Proof keeps the score.</p>
+        <img class="deck-asset" style="left:760px;top:650px;width:1048px;height:270px" src="/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A04-01--gated-pilot-pipeline.png" width="1536" height="864" alt="A gated pilot pipeline admits measured samples to scale-up equipment.">
+        <div class="footer-rule"></div><p class="source" aria-label="No source citation for this owner-controlled ask"></p><span class="slide-no">13 / 13</span>
+      </section>
+      <nav class="controls" aria-label="Deck controls"><button type="button" id="prev" aria-label="Previous slide">←</button><span id="counter" aria-live="polite">01 / 13</span><button type="button" id="next" aria-label="Next slide">→</button><a href="/venture/lupine-science-venture-deck.pdf" download>PDF</a></nav>
+    </div>
+  </main>
+
+  <p class="sr-only" id="help">Use Left Arrow, Right Arrow, Home, and End to navigate the presentation.</p>
+  <script type="application/json" id="evidence-manifest">__EVIDENCE_MANIFEST__</script>
+  <script>
+    (()=>{"use strict";const slides=[...document.querySelectorAll(".slide")];let current=Math.max(0,Math.min(slides.length-1,Number.parseInt(localStorage.getItem("lupine-venture-slide")||"0",10)||0));const counter=document.getElementById("counter");function fit(){const w=innerWidth/1920,h=innerHeight/1080;document.documentElement.style.setProperty("--scale",String(Math.min(w,h)))}function show(next){current=(next+slides.length)%slides.length;slides.forEach((slide,index)=>slide.classList.toggle("is-active",index===current));counter.textContent=String(current+1).padStart(2,"0")+" / "+String(slides.length).padStart(2,"0");localStorage.setItem("lupine-venture-slide",String(current));history.replaceState(null,"","#slide-"+String(current+1).padStart(2,"0"))}document.getElementById("prev").addEventListener("click",()=>show(current-1));document.getElementById("next").addEventListener("click",()=>show(current+1));addEventListener("keydown",event=>{if(event.key==="ArrowRight"||event.key==="PageDown"||event.key===" "){event.preventDefault();show(current+1)}else if(event.key==="ArrowLeft"||event.key==="PageUp"){event.preventDefault();show(current-1)}else if(event.key==="Home"){event.preventDefault();show(0)}else if(event.key==="End"){event.preventDefault();show(slides.length-1)}});addEventListener("resize",fit);const hash=location.hash.match(/^#slide-(\d{2})$/);if(hash)current=Math.max(0,Math.min(slides.length-1,Number(hash[1])-1));fit();show(current)})();
+  </script>
+</body>
+</html>

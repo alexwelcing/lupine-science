@@ -1,20 +1,18 @@
 # Why LUPI?
 
 > **The vision behind the viewer**
->
 > **Date:** 2026-06-30  
-> **Scope:** A browser-native molecular viewer for makeability  
-> **Description:** Why we built LUPI as a live, install-free window into molecular structures and what it means for research, teaching, and public trust.  
-> **Audience:** Materials scientists, chemists, educators, and the curious public  
+> **Deck:** A browser-native molecular viewer for makeability  
+> **Summary:** LUPI as a live, install-free window into molecular structures and its implications for research, teaching, and public trust.  
 > **Status:** Published
 
 ---
 
 ## The belief
 
-Molecular structures should not live behind a paywall, a download, or a command line. The moment you want to see what a prediction actually looks like, the tool should already be open in your browser.
+Molecular structures should not live behind a paywall, a download, or a command line. The moment someone wants to see what a prediction actually looks like, the tool should already be open in the browser.
 
-That is the idea behind **LUPI** (`lupi.live`): a lightweight, web-native molecular viewer that turns structures into something anyone can rotate, measure, and share. No installation. No account. No friction between the data and your eyes.
+That is the idea behind **LUPI** (`lupi.live`): a lightweight, web-native molecular viewer that turns structures into something anyone can rotate, measure, and share. No installation. No account. No friction between the data and the observer.
 
 ---
 
@@ -22,13 +20,15 @@ That is the idea behind **LUPI** (`lupi.live`): a lightweight, web-native molecu
 
 **Most molecular viewers are either too heavy to share or too simple to trust.**
 
+![Two plain metal field plates mounted side by side beneath the same scanning probe, with their surface mismatch visible as one narrow indigo displacement ribbon — The probe measures the local difference between predicted and reference plates](images/why-lupi-inline-01.jpg)
+
 Desktop tools are powerful, but they trap knowledge on a single machine. Screenshot culture replaces real exploration. Lightweight web viewers, meanwhile, often sacrifice accuracy: they render pretty balls-and-sticks but hide the coordinates, the uncertainty, and the context that make a structure meaningful.
 
 LUPI sits in the middle. It is built for the web first, with enough fidelity to inspect real predictions and enough simplicity to drop into a paper, a slide, or a classroom.
 
 ---
 
-## What we are building
+## The design
 
 LUPI is the public face of Lupine Science. It has three jobs:
 
@@ -38,15 +38,19 @@ LUPI is the public face of Lupine Science. It has three jobs:
 
 3. **Travel with the claim.** Every structure in LUPI can be linked, embedded, and inspected by anyone. Trust comes from shareability.
 
-Under the hood, LUPI connects back to the same formalized makeability record that powers Lupine Science: a growing chain of commitments, simulations, and certificates that say not just *what* a structure is, but *why* we believe it can be made.
+Under the hood, LUPI connects back to the same formalized makeability record that powers Lupine Science: a growing chain of commitments, simulations, and certificates that say not just *what* a structure is, but *why* it can be made.
+
+![An open provenance chain — structure, model, force field, comparison, and decision — rendered as linked specimen holders on a bench](images/why-lupi-inline-03--retry-1.jpg)
 
 ---
 
 ## The launch film
 
-This thirty-second film is LUPI's first public introduction: a sequence of molecular scenes, narrated and scored, that moves from a single structure to the idea of a shared, inspectable world of makeable materials.
+The thirty-second film is the first public introduction to LUPI: a sequence of molecular scenes, narrated and scored, that moves from a single structure to the idea of a shared, inspectable world of makeable materials.
 
-The film is generated with AI tools and composited with open-source software. The same principle applies to the viewer itself: **AI gives us the picture; rigorous process gives us something we can share.**
+![A practical solid-state cell casing in cutaway beneath a scanning probe, revealing a ceramic electrolyte pressed against one electrode interface — The probe inspects the buried electrolyte-to-electrode interface inside the cell](images/why-lupi-inline-02.jpg)
+
+The film is generated with AI tools and composited with open-source software. The same principle applies to the viewer itself: **AI generates the picture; rigorous process produces something shareable.**
 
 ---
 
@@ -58,14 +62,14 @@ Three things make a browser-native viewer the right shape for this moment:
 - **Generative models** are producing more structures than ever, and each one needs a URL, not just a filename.
 - **Open science norms** are pushing data and tools toward public, inspectable interfaces rather than static figures.
 
-LUPI is our bet that the winning interface for molecular discovery will be the one that lets a stranger walk up to a structure and understand it in seconds.
+LUPI is a bet that the winning interface for molecular discovery will be the one that lets a stranger walk up to a structure and understand it in seconds.
 
 ---
 
 ## The invitation
 
-LUPI is live. Try it, break it, and tell us what you need.
+LUPI is live. Try it, break it, and report what is needed.
 
-If you have structures you want to share, students you want to teach, or simulations you want the world to see, we want to hear from you.
+To share structures, teach students, or publish simulations, get in touch.
 
 **Visit [lupi.live](https://lupi.live).**

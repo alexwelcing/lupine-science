@@ -1,15 +1,9 @@
 # Tutorial Title
 
 > **Type:** tutorial
->
 > **Date:** YYYY-MM-DD
->
-> **Scope:** Tool or API name
->
-> **Description:** What the reader will build or learn in this tutorial.
->
-> **Audience:** Scientists, engineers, contributors
->
+> **Deck:** Tool or API name
+> **Summary:** What the reader will build or learn in this tutorial.
 > **Status:** Draft
 
 <p class="lead">A one-paragraph promise: what the reader will have accomplished in 15 minutes.</p>

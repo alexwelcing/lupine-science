@@ -1,0 +1,213 @@
+{
+  "schemaVersion": "1.0.0",
+  "metadata": {
+    "slug": "shared-dft-anchors",
+    "title": "Sharing DFT anchors reduces projected evaluations by 72.4%",
+    "date": "2026-08-03",
+    "status": "published",
+    "license": "CC BY 4.0",
+    "articleUrl": "https://lupine.science/articles/shared-dft-anchors/",
+    "version": "1.0.0",
+    "eyebrow": "Z1 union-anchor analysis",
+    "deck": "A frozen, artifact-backed analysis of 29 analyzable diffusion paths compares four separately evaluated sparse-anchor sets with their shared union.",
+    "documentId": "LS-PP-2026-006",
+    "evidenceStatus": "Verified analysis; independently reviewed and approved for publication 2026-08-03"
+  },
+  "summary": {
+    "claim": "On the locked Z1 panel’s 29 analyzable paths, sharing identical sparse-anchor image indices across four universal interatomic-potential guides reduces the projected DFT evaluation count from 558 to 154: 72.4% fewer DFT evaluations.",
+    "verdict": "supported",
+    "scope": "Prediction-side accounting under the frozen sparse-anchor rule on one locked path panel, using four recorded model artifacts.",
+    "limitations": [
+      "The shared union is a projected evaluation set; this analysis does not claim that the union has been evaluated by DFT.",
+      "The result does not establish accuracy parity or transfer to another panel, chemistry, engine, model set, or anchor rule.",
+      "Projected and realized campaign records remain separate and are not combined in this proof pack.",
+      "No dollar amount, wall-time conversion, annualization, or additional economic multiplier is inferred."
+    ],
+    "lead": "Four model guides nominate sparse images on the same diffusion paths. Deduplicating identical within-path image indices reduces the locked projected reference-evaluation count from 558 to 154.",
+    "findings": [
+      {
+        "label": "Finding",
+        "text": "The frozen separate-model accounting contains 558 projected DFT evaluations; the within-path shared union contains 154."
+      },
+      {
+        "label": "Approved public claim",
+        "text": "The locked comparison is 72.4% fewer DFT evaluations."
+      },
+      {
+        "label": "Exclusion",
+        "text": "One panel path lacks a converged prediction profile in all four artifacts and is excluded rather than imputed."
+      },
+      {
+        "label": "Boundary",
+        "text": "The result is prediction-side accounting, not an executed-DFT, accuracy, cost, or universal-transfer claim."
+      }
+    ],
+    "verdictDetail": "Supported within the preregistered accounting scope.",
+    "verdictBody": "The committed JSON record, input SHA-256 digests, analysis script, and separately locked figure support the 558-to-154 comparison on 29 analyzable paths. Missing model–path profiles remain explicit and no realized campaign denominator is substituted.",
+    "orientation": "The pack presents the locked figure and table first, then the selection rule, exclusions, historical context, independent bibliography, and repository audit trail."
+  },
+  "figures": [
+    {
+      "id": "fig-projected-evaluation-counts",
+      "title": "Projected reference-evaluation count",
+      "path": "images/projected-evaluation-counts.png",
+      "alt": "Horizontal comparison of 558 projected separate-model DFT evaluations and 154 projected shared-union evaluations, labeled 72.4 percent fewer across 29 analyzable paths.",
+      "caption": "Frozen evaluation-count comparison on the 29 analyzable Z1 paths. The bars report the separate-model anchor count and the deduplicated within-path union count.",
+      "sourceIds": [],
+      "sha256": "1db5981ce922739f621eb641dc46315554ab06f730969377ebaf41ce273c8988"
+    }
+  ],
+  "dataTables": [
+    {
+      "id": "table-locked-counts",
+      "title": "Locked union-anchor accounting",
+      "caption": "Projected counts under the frozen sparse-anchor rule; no DFT was run for this analysis.",
+      "headers": [
+        {
+          "key": "basis",
+          "label": "Accounting basis"
+        },
+        {
+          "key": "paths",
+          "label": "Analyzable paths",
+          "numeric": true
+        },
+        {
+          "key": "evaluations",
+          "label": "Projected DFT evaluations",
+          "numeric": true
+        }
+      ],
+      "rows": [
+        {
+          "basis": "Four model-specific anchor sets, counted separately",
+          "paths": 29,
+          "evaluations": 558
+        },
+        {
+          "basis": "Within-path union of identical image indices",
+          "paths": 29,
+          "evaluations": 154
+        }
+      ],
+      "sourceIds": []
+    }
+  ],
+  "methodology": {
+    "description": "Recorded predicted image-energy profiles select sparse anchor indices under a frozen rule. The analysis compares the sum of available model-specific sets with the cardinality of their within-path union and runs no new DFT.",
+    "steps": [
+      "Read the locked 30-path Z1 panel and the four recorded model artifacts identified by SHA-256 in the analysis JSON.",
+      "For each available model–path profile, select endpoints, the predicted minimum, and a clamped neighborhood around the predicted maximum under the frozen rule.",
+      "Count all available model-specific sets for the separate-model basis.",
+      "Deduplicate equal image indices within each path for the shared-union basis.",
+      "Exclude the one path with no converged profile in any model and preserve all other missing profiles without imputation.",
+      "Validate the released data pack and the figure against their SHA-256 manifests."
+    ],
+    "artifacts": [
+      {
+        "label": "Machine-readable union-anchor record",
+        "url": "https://lupine.science/data/savings-stack-v1/z1-union-anchor-economics.json"
+      },
+      {
+        "label": "Record SHA-256 sidecar",
+        "url": "https://lupine.science/data/savings-stack-v1/z1-union-anchor-economics.json.sha256"
+      },
+      {
+        "label": "Analysis note",
+        "url": "https://lupine.science/data/savings-stack-v1/z1-union-anchor-economics.md"
+      },
+      {
+        "label": "Reproduction script",
+        "url": "https://lupine.science/data/savings-stack-v1/union_anchor_economics.py"
+      },
+      {
+        "label": "Data-pack SHA-256 manifest",
+        "url": "https://lupine.science/data/savings-stack-v1/MANIFEST.sha256"
+      }
+    ],
+    "unitOfAnalysis": "Model–path sparse-anchor set and within-path union of image indices",
+    "evidenceCutoff": "2026-07-21",
+    "versioning": "Document LS-PP-2026-006 version 1.0.0; figure input checksum and generated PDF checksum are emitted in the proof-pack manifests.",
+    "limitations": "One locked panel, four recorded universal interatomic-potential guides, one sparse-anchor rule, prediction-side accounting only. No accuracy, realized execution, dollar, wall-time, energy, emissions, or transfer claim is made.",
+    "inputs": [
+      "Locked Z1 path panel with the digest recorded in the analysis JSON",
+      "Four recorded model campaign artifacts with digests recorded in the analysis JSON"
+    ],
+    "transformations": [
+      "Sparse-anchor selection under the frozen extrema rule",
+      "Within-path set union of identical image indices",
+      "No imputation of missing model–path profiles"
+    ],
+    "validation": [
+      "Input SHA-256 digests in the machine-readable record",
+      "Byte-verifiable JSON sidecar and complete data-pack manifest",
+      "Figure SHA-256 lock in this manifest",
+      "Explicit exclusion and failure records"
+    ],
+    "reproduction": [
+      "Run sha256sum -c MANIFEST.sha256 in the released data pack",
+      "Run union_anchor_economics.py against the recorded local artifacts with the pinned recorded-at timestamp",
+      "Compare the output JSON with z1-union-anchor-economics.json.sha256"
+    ]
+  },
+  "credits": {
+    "authors": [
+      {
+        "name": "Alex Welcing",
+        "role": "Author"
+      }
+    ],
+    "institutions": [
+      {
+        "name": "Lupine Science",
+        "role": "Institution"
+      }
+    ],
+    "editorialReview": "Independent editorial and claim review completed; approved for publication 2026-08-03",
+    "provenance": "Locked Z1 panel, recorded four-model campaign artifacts, committed analysis JSON and script, citation identifier audit, and SHA-256 manifests",
+    "contact": "https://lupine.science/contact/"
+  },
+  "bibliography": [
+    {
+      "id": "henkelman-2000-cineb",
+      "title": "A climbing image nudged elastic band method for finding saddle points and minimum energy paths",
+      "type": "peer-reviewed",
+      "url": "https://doi.org/10.1063/1.1329672",
+      "doi": "10.1063/1.1329672",
+      "publisher": "Journal of Chemical Physics",
+      "year": 2000
+    },
+    {
+      "id": "garrido-torres-2019-gpr-neb",
+      "title": "Low-Scaling Algorithm for Nudged Elastic Band Calculations Using a Surrogate Machine Learning Model",
+      "type": "peer-reviewed",
+      "url": "https://doi.org/10.1103/PhysRevLett.122.156001",
+      "doi": "10.1103/PhysRevLett.122.156001",
+      "publisher": "Physical Review Letters",
+      "year": 2019
+    },
+    {
+      "id": "deng-2023-chgnet",
+      "title": "CHGNet as a pretrained universal neural network potential for charge-informed atomistic modelling",
+      "type": "peer-reviewed",
+      "url": "https://doi.org/10.1038/s42256-023-00716-3",
+      "doi": "10.1038/s42256-023-00716-3",
+      "publisher": "Nature Machine Intelligence",
+      "year": 2023
+    }
+  ],
+  "auditLinks": [
+    {
+      "label": "Canonical article",
+      "url": "https://lupine.science/articles/shared-dft-anchors/"
+    },
+    {
+      "label": "Released data and reproduction pack",
+      "url": "https://lupine.science/data/savings-stack-v1/README.md"
+    },
+    {
+      "label": "Citation identifier audit",
+      "url": "https://lupine.science/data/savings-stack-v1/citation-verification-2026-07-21.md"
+    }
+  ]
+}

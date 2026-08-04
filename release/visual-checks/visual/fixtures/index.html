@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Deterministic visual fixture</title>
+  <style>
+    html,body{margin:0;background:#07111d;color:#eff7ff;font-family:Arial,sans-serif}
+    main{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:40px}
+    .card{height:220px;padding:28px;border:1px solid #34718a;border-radius:20px;background:linear-gradient(135deg,#102638,#0a1827)}
+    h1{margin:0 0 12px;font-size:36px}.accent{color:#63e6be}
+    canvas,video{display:block;width:480px;height:270px;background:#02060a}
+  </style>
+</head>
+<body>
+  <main>
+    <section id="hero" class="card"><h1>Publication <span class="accent">visual gate</span></h1><p>Seeded, fixed, and reviewable.</p></section>
+    <canvas id="scene" width="480" height="270"></canvas>
+    <video id="video" width="480" height="270" preload="auto" muted src="/frame.webm"></video>
+  </main>
+  <script>
+    const canvas = document.querySelector('#scene');
+    const context = canvas.getContext('2d');
+    context.fillStyle = '#02060a'; context.fillRect(0, 0, 480, 270);
+    context.fillStyle = '#63e6be'; context.beginPath(); context.arc(240, 135, 72, 0, Math.PI * 2); context.fill();
+    context.strokeStyle = '#eff7ff'; context.lineWidth = 3; context.strokeRect(150, 45, 180, 180);
+    globalThis.__LUPINE_VISUAL_SCENE__ = () => ({
+      objectNames: ['MainCamera', 'Crystal'],
+      objectCount: 2,
+      camera: { type: 'PerspectiveCamera', position: [0, 0, 5] }
+    });
+  </script>
+</body>
+</html>

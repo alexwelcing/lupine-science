@@ -1,0 +1,37 @@
+[
+  {
+    "id": "gwp-comparison",
+    "title": "Refrigerant 100-year GWP",
+    "src": "/result-graphics/gwp-comparison.svg"
+  },
+  {
+    "id": "climate-forcers-share",
+    "title": "Anthropogenic radiative forcing",
+    "src": "/result-graphics/climate-forcers-share.svg"
+  },
+  {
+    "id": "synthesis-funnel",
+    "title": "From predicted crystal to commercial cell",
+    "src": "/result-graphics/synthesis-funnel.svg"
+  },
+  {
+    "id": "lean-theorem-growth",
+    "title": "Build-locked theorem inventory",
+    "src": "/result-graphics/lean-theorem-growth.svg"
+  },
+  {
+    "id": "participation-ratio",
+    "title": "Participation ratio on the joint error manifold",
+    "src": "/result-graphics/participation-ratio.svg"
+  },
+  {
+    "id": "cross-mlip-cosine",
+    "title": "Cross-MLIP error direction alignment",
+    "src": "/result-graphics/cross-mlip-cosine.svg"
+  },
+  {
+    "id": "elements-transfer-geometry",
+    "title": "Error geometry transfers across elements",
+    "src": "/result-graphics/elements-transfer-geometry.svg"
+  }
+]

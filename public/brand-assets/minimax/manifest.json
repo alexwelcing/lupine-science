@@ -1,0 +1,146 @@
+{
+  "model": "minimax/image-01 (api.minimax.io)",
+  "generated_at": "2026-07-28T03:11:53.377Z",
+  "assets": [
+    {
+      "key": "B1-A01-01--from-predicted-crystal-to-commercial-cell-hero",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/B1-A01-01--from-predicted-crystal-to-commercial-cell-hero.png",
+      "bytes": 99595,
+      "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-07-28%2Fd636ed8d-49c7-4bbf-b97a-f8b8f9bd57c2_aigc.jpeg?Expires=1785294371&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=Zb1kAd8W0OVJMH0fIQGwYCAgPSw%3D",
+      "prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A quiet cross-section of a solid-state battery pack progressing from a single candidate crystal at left to an assembled grid-storage cabinet at right, linked by one measured indigo path rather than a magical transformation."
+    },
+    {
+      "key": "B1-A01-02--from-predicted-crystal-to-commercial-cell-inline-01",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/B1-A01-02--from-predicted-crystal-to-commercial-cell-inline-01.png",
+      "bytes": 143225,
+      "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-07-28%2F34bc6622-c7da-436f-b24f-bf58706378a6_aigc.jpeg?Expires=1785294391&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=PQf4Nk4h7VuRXu4Bwih7HA5GQog%3D",
+      "prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A cathode, electrolyte separator, and current collector shown as precise layered architecture inside a practical cell, with the indigo accent tracing the ion-conduction route and large paper negative space."
+    },
+    {
+      "key": "B1-A01-03--from-predicted-crystal-to-commercial-cell-inline-02",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/B1-A01-03--from-predicted-crystal-to-commercial-cell-inline-02.png",
+      "bytes": 164731,
+      "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-07-28%2Ff38865e7-e3b9-40cb-a644-2b090852b0a0_aigc.jpeg?Expires=1785294408&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=jlso%2Fw41HkYbEanD1c8dx11rJQc%3D",
+      "prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. Five restrained deployment silhouettes—battery pack, air-capture contactor, ammonia reactor, solar module, and industrial kiln—arranged around one shared verification gate, without labels or logos."
+    },
+    {
+      "key": "B1-A01-04--from-predicted-crystal-to-commercial-cell-inline-03",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/B1-A01-04--from-predicted-crystal-to-commercial-cell-inline-03.png",
+      "bytes": 124698,
+      "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-07-28%2F76034571-a9a1-44f4-aea9-aa733d9d0520_aigc.jpeg?Expires=1785294426&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=0OcRv%2FlPUb0OJx0INpIa14gu8bc%3D",
+      "prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A sequence of material handoffs represented by physical sample trays, pilot equipment, and a factory module; one broken ink path and one continuous indigo path communicate attrition honestly."
+    },
+    {
+      "key": "B1-A01-05--from-predicted-crystal-to-commercial-cell-spread",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/B1-A01-05--from-predicted-crystal-to-commercial-cell-spread.png",
+      "bytes": 287582,
+      "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-07-28%2F17abe6bb-765e-4d03-bc09-12bc7f4046da_aigc.jpeg?Expires=1785294443&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=9Hi8aeuyLRJTwbmKjJdBn%2FgBMNI%3D",
+      "prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. An expansive energy landscape with solar canopies feeding stationary storage and an electric transit depot, all rendered as fine architectural linework with the enabling material layers picked out in indigo."
+    },
+    {
+      "key": "B1-A02-01--the-02-percent-synthesis-problem-hero",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/B1-A02-01--the-02-percent-synthesis-problem-hero.png",
+      "bytes": 212303,
+      "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-07-28%2Fdc3ec733-02f4-4c92-b1fc-c5a14c8a4af9_aigc.jpeg?Expires=1785294458&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=teMx01JsFMFl997rvxYuf4RTfbg%3D",
+      "prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A vast field of faint candidate tiles narrowing into a very small row of physical sample wafers and then one functioning storage module, making the synthesis bottleneck visible without numbers."
+    },
+    {
+      "key": "B1-A02-02--the-02-percent-synthesis-problem-inline-01",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/B1-A02-02--the-02-percent-synthesis-problem-inline-01.png",
+      "bytes": 247396,
+      "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-07-28%2F742e4bee-ead4-4d8f-aaa4-01f1fd6003ef_aigc.jpeg?Expires=1785294477&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=LAKvGzm0b0uhfEEwlJMDn%2FU1LzU%3D",
+      "prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A clean laboratory-to-pilot corridor of furnaces, sample holders, and test cells where many pale paths end early and one indigo path reaches a durable component."
+    },
+    {
+      "key": "B1-A02-03--the-02-percent-synthesis-problem-inline-02",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/B1-A02-03--the-02-percent-synthesis-problem-inline-02.png",
+      "bytes": 213908,
+      "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-07-28%2Fecab6242-f6fd-42b4-b49c-aac2672fa308_aigc.jpeg?Expires=1785294494&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=a4Ey5GXDs1OyITD3vWrTyCwSCes%3D",
+      "prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A stable-looking crystal form encountering real manufacturing stresses—heat, pressure, interfaces, and disorder—shown as four environmental zones around the same sample, not as a molecule diagram."
+    },
+    {
+      "key": "B1-A02-04--the-02-percent-synthesis-problem-inline-03",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/B1-A02-04--the-02-percent-synthesis-problem-inline-03.png",
+      "bytes": 267198,
+      "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-07-28%2F28e4bb54-3d9b-4700-87f3-ef54fdddc9b6_aigc.jpeg?Expires=1785294513&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=HEqy5ttWeY7f3lkueZtzQKqCO4E%3D",
+      "prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. An unused pilot line and stacked rejected sample trays contrasted with one measured verification route, emphasizing the material and energy cost of failed campaigns without spectacle."
+    },
+    {
+      "key": "B1-A02-05--the-02-percent-synthesis-problem-spread",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/B1-A02-05--the-02-percent-synthesis-problem-spread.png",
+      "bytes": 193192,
+      "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-07-28%2F1094a1c0-f7f1-4256-8a2b-274e23801777_aigc.jpeg?Expires=1785294528&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=7%2FXCgdgquNon5W3N83ZT%2BLL%2FMS4%3D",
+      "prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A careful future scene of modular battery production supplied by a compact verified-material funnel; the composition promises fewer wasted trials, not guaranteed discovery."
+    },
+    {
+      "key": "B1-A03-01--the-savings-stack-hero",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/B1-A03-01--the-savings-stack-hero.png",
+      "bytes": 182534,
+      "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-07-28%2F858a94fb-fe00-400d-a5ee-ce50118eabe0_aigc.jpeg?Expires=1785294544&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=Mpk0235eQpxvk3Q48lMa38m0tuI%3D",
+      "prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A supercomputing hall whose many pale compute lanes converge into a compact shared indigo evaluation backbone feeding several materials programs, visualizing reuse instead of brute force."
+    },
+    {
+      "key": "B1-A03-02--the-savings-stack-inline-01",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/B1-A03-02--the-savings-stack-inline-01.png",
+      "bytes": 291160,
+      "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-07-28%2F000e11f2-9741-4aa4-8203-9cd091aaaedf_aigc.jpeg?Expires=1785294562&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=bhEtOFQeuqupF78I7llf73blOXI%3D",
+      "prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A stack of physical research layers—screening, surrogate, active learning, shared anchors, and abstention—drawn as thin engineering plates that reduce an oversized compute block to a smaller precise one."
+    },
+    {
+      "key": "B1-A03-03--the-savings-stack-inline-02",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/B1-A03-03--the-savings-stack-inline-02.png",
+      "bytes": 211418,
+      "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-07-28%2Fada47093-7478-45e1-b20c-07e3df4adabb_aigc.jpeg?Expires=1785294579&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=WCkCKzi6blBc9FHYZJ9l%2BBBqZJM%3D",
+      "prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. Several branching simulation paths reusing the same sparse set of indigo anchor stations, with untouched paper space representing calculations deliberately not run."
+    },
+    {
+      "key": "B1-A03-04--the-savings-stack-inline-03",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/B1-A03-04--the-savings-stack-inline-03.png",
+      "bytes": 263980,
+      "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-07-28%2F9a70ae4d-8645-4d15-9227-355fb926460a_aigc.jpeg?Expires=1785294596&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=2fjkndbXbMf37Su7EHzoldhJEDg%3D",
+      "prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A shared scientific commons represented by an open rack of standardized sample and data cartridges feeding independent clean-energy instruments, no screens or readable labels."
+    },
+    {
+      "key": "B1-A03-05--the-savings-stack-spread",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/B1-A03-05--the-savings-stack-spread.png",
+      "bytes": 259645,
+      "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-07-28%2F2a5694ab-b9e8-4d8b-9a37-b90298536de6_aigc.jpeg?Expires=1785294613&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=0FD6k3NIx4eYuAaiZyK6HW%2BbmNg%3D",
+      "prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A campus-scale research energy system where a smaller compute footprint supports more battery, catalyst, and infrastructure experiments, expressed through balanced parallel work bays rather than growth hype."
+    },
+    {
+      "key": "B1-A04-01--the-materials-we-test-against-hero",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/B1-A04-01--the-materials-we-test-against-hero.png",
+      "bytes": 197461,
+      "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-07-28%2F00bd53e8-46e1-43a0-a0c9-fae40793d0bf_aigc.jpeg?Expires=1785294629&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=ZdkTmJqAEQqX22IEpiX65FMOZDA%3D",
+      "prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A rigorous test range of varied solid-electrolyte sample cells arranged between a charging station and a grid battery, with a single indigo barrier path crossing each specimen."
+    },
+    {
+      "key": "B1-A04-02--the-materials-we-test-against-inline-01",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/B1-A04-02--the-materials-we-test-against-inline-01.png",
+      "bytes": 204367,
+      "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-07-28%2Ffb734fb6-de15-4882-a4ea-7829d8963636_aigc.jpeg?Expires=1785294647&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=B8%2B1uxRLtWncL6ph0vNM4%2BsnlGo%3D",
+      "prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. An exploded solid-state cell showing the electrolyte as the safety-critical bridge between electrodes, the bridge rendered in indigo while the practical casing remains ink linework."
+    },
+    {
+      "key": "B1-A04-03--the-materials-we-test-against-inline-02",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/B1-A04-03--the-materials-we-test-against-inline-02.png",
+      "bytes": 185728,
+      "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-07-28%2F3797d9ef-0f4d-4cad-a3ad-68461c911406_aigc.jpeg?Expires=1785294665&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=WZcLyWj3n4nMDUQyKi5XJu9iC20%3D",
+      "prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A materials adversary panel represented as varied ceramic pellets, thin films, and pressed cells under identical measurement arches, emphasizing fair comparison rather than molecular glamour."
+    },
+    {
+      "key": "B1-A04-04--the-materials-we-test-against-inline-03",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/B1-A04-04--the-materials-we-test-against-inline-03.png",
+      "bytes": 245450,
+      "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-07-28%2Fdeacce52-a91c-4d37-a662-57d48eb95eed_aigc.jpeg?Expires=1785294683&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=BBj6LKpMSZ777ogRmbixOukM4D4%3D",
+      "prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A migration-barrier test rig with one indigo trajectory climbing and descending a restrained energy ridge while a practical battery module waits downstream."
+    },
+    {
+      "key": "B1-A04-05--the-materials-we-test-against-spread",
+      "file": "/home/alex/Dev/lupine/lupine-science/public/brand-assets/minimax/B1-A04-05--the-materials-we-test-against-spread.png",
+      "bytes": 233955,
+      "url": "http://hailuo-image-algeng-data-us.oss-us-east-1.aliyuncs.com/image_inference_output%2Ftalkie%2Fprod%2Fimg%2F2026-07-28%2Fc44f39aa-aab2-4a40-bcc7-285f48a27870_aigc.jpeg?Expires=1785294712&OSSAccessKeyId=LTAI5tRDTcyEYLLuBEpJRwCi&Signature=Fd4xTyo6olC93F6iRNaVzBruJSM%3D",
+      "prompt": "Editorial scientific illustration for Lupine Science; societal-impact-first; calm premium research-monograph aesthetic; fine architectural and engineering linework; generous negative space; practical systems rather than molecular glamour. A fleet-scale charging depot supplied by solid-state storage modules, with a foreground row of tested electrolyte specimens grounding the societal scene in evaluation evidence."
+    }
+  ]
+}

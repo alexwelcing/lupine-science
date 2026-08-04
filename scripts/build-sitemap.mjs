@@ -29,6 +29,16 @@ for (const entry of fs.readdirSync(path.join(PUBLIC, 'articles'), { withFileType
   if (!fs.existsSync(path.join(PUBLIC, 'articles', slug, 'index.html'))) continue;
   urls.push({ loc: `${SITE}/articles/${slug}/`, lastmod: articleDate(slug) });
 }
+// Presentations (standalone HTML decks).
+const presentationsDir = path.join(PUBLIC, 'presentations');
+if (fs.existsSync(presentationsDir)) {
+  for (const entry of fs.readdirSync(presentationsDir, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    if (!fs.existsSync(path.join(presentationsDir, entry.name, 'index.html'))) continue;
+    urls.push({ loc: `${SITE}/presentations/${entry.name}/`, lastmod: null });
+  }
+}
+
 // Static assets that are not directories but should be discoverable.
 for (const file of ['proof-pack-climate-series.pdf']) {
   if (fs.existsSync(path.join(PUBLIC, file))) urls.push({ loc: `${SITE}/${file}`, lastmod: null });

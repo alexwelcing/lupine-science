@@ -1,0 +1,68 @@
+{
+  "version": "2026-07-14",
+  "slug": "the-02-percent-synthesis-problem",
+  "title": "The 0.2% Synthesis Problem",
+  "description": "Motion-enhanced article video built from deck-level visuals and programmatic camera moves.",
+  "scenes": [
+    {
+      "image": "public/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-01-synthesis-funnel.jpg",
+      "duration": 9.4,
+      "effect": "slow-zoom-in",
+      "text": ["380,000 computationally stable structures", "736 independently synthesized — 0.2% validation"]
+    },
+    {
+      "image": "public/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-02-four-filters.jpg",
+      "duration": 9.4,
+      "effect": "pan-right",
+      "text": ["Four structural filters separate prediction from synthesis"]
+    },
+    {
+      "image": "public/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-03-umlip-softening.jpg",
+      "duration": 9.4,
+      "effect": "drift",
+      "text": ["Universal potentials soften under-coordinated environments"]
+    },
+    {
+      "image": "public/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-04-barrier-error.jpg",
+      "duration": 9.4,
+      "effect": "slow-zoom-out",
+      "text": ["100 meV barrier error changes rates 50×"]
+    },
+    {
+      "image": "public/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-05-error-field.jpg",
+      "duration": 9.4,
+      "effect": "pan-up",
+      "text": ["A local error field corrects the landscape at runtime"]
+    },
+    {
+      "image": "public/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-06-cobalt-climate.jpg",
+      "duration": 9.4,
+      "effect": "pan-left",
+      "text": ["Cobalt-free cathodes and gigatonne-scale abatement"]
+    },
+    {
+      "image": "public/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-07-deployment-window.jpg",
+      "duration": 9.4,
+      "effect": "slow-zoom-in",
+      "text": ["Material discoveries have a use-by date"]
+    },
+    {
+      "image": "public/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-08-commercial-endpoints.jpg",
+      "duration": 9.4,
+      "effect": "drift",
+      "text": ["From predicted crystal to commercial cell"]
+    },
+    {
+      "image": "public/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-09-failure-economics.jpg",
+      "duration": 9.4,
+      "effect": "pan-down",
+      "text": ["Every false positive costs weeks of lab time"]
+    },
+    {
+      "image": "public/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-10-predictions-to-partners.jpg",
+      "duration": 9.4,
+      "effect": "slow-zoom-out",
+      "text": ["Lupine routes synthesizable candidates to experimental partners"]
+    }
+  ]
+}

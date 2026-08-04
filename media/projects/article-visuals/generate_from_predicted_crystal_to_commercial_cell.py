@@ -17,7 +17,8 @@ import numpy as np
 # Brand palette & output
 # -----------------------------------------------------------------------------
 SLUG = 'from-predicted-crystal-to-commercial-cell'
-OUT_DIR = Path('/home/alex/Dev/lupine/lupine-science/public/articles') / SLUG / 'images'
+REPO_ROOT = Path(__file__).resolve().parents[3]
+OUT_DIR = REPO_ROOT / 'public/articles' / SLUG / 'images'
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 BG = '#faf9f6'
@@ -152,7 +153,7 @@ def viz_02():
         ax.text(fx, y + h / 2 + 0.25, '!', ha='center', va='center',
                 fontsize=12, fontweight='bold', color='white')
 
-    ax.text(5, 2.6, 'GNoME synthesis rate: 0.2%  •  A-Lab "novel" discovery rate: near zero after review',
+    ax.text(5, 2.6, 'GNoME synthesis rate: 0.2%  •  A-Lab correction: 36 / 57 eligible confirmed',
             ha='center', va='center', fontsize=11, fontweight='bold', color=ROSE)
     ax.text(5, 1.9, 'Six sequential handoffs; each introduces new error and new reasons for partners to distrust the screen.',
             ha='center', va='center', fontsize=11, color=SECONDARY)
@@ -168,7 +169,7 @@ def viz_02():
 def viz_03():
     fig, ax = plt.subplots(figsize=(FIG_W, FIG_H))
     ax.set_xlim(-1.3, 1.3)
-    ax.set_ylim(-1.2, 1.2)
+    ax.set_ylim(-1.38, 1.2)
     ax.axis('off')
 
     steps = [
@@ -190,14 +191,20 @@ def viz_03():
         ax.add_patch(circle)
         ax.text(x, y + 0.04, title, ha='center', va='center',
                 fontsize=9, fontweight='bold', color='white', linespacing=0.95)
-        # description outside
-        label_r = 1.05
-        lx = label_r * math.cos(theta)
-        ly = label_r * math.sin(theta)
-        ax.text(lx, ly, desc, ha='center', va='center', fontsize=8, color=SECONDARY, linespacing=1.0)
 
         next_i = (i + 1) % n
         theta_next = math.radians(angles[next_i])
+
+        # description at mid-edge, radially clear of both node ellipses
+        mx = math.cos(theta) + math.cos(theta_next)
+        my = math.sin(theta) + math.sin(theta_next)
+        norm = math.hypot(mx, my)
+        label_r = 1.02
+        lx = label_r * mx / norm
+        ly = label_r * my / norm
+        ax.text(lx, ly, desc, ha='center', va='center', fontsize=8, color=SECONDARY, linespacing=1.0,
+                bbox=dict(boxstyle='round,pad=0.25', facecolor=BG, edgecolor='none'))
+
         frac = 0.06
         x1 = radius * math.cos(theta) + frac * (radius * math.cos(theta_next) - radius * math.cos(theta))
         y1 = radius * math.sin(theta) + frac * (radius * math.sin(theta_next) - radius * math.sin(theta))
@@ -409,7 +416,7 @@ def viz_07():
         ax.text(7.0 + card_w / 2, y, outcome, ha='center', va='center',
                 fontsize=11, fontweight='bold', color='white', linespacing=1.0)
 
-    ax.text(5, 0.9, '77 build-locked Lean 4 theorems provide machine-checked guarantees before lab budget is spent.',
+    ax.text(5, 0.9, 'The machine-generated Lean 4 theorem inventory provides guarantees before lab budget is spent.',
             ha='center', va='center', fontsize=12, fontweight='bold', color=PRIMARY)
     ax.set_title('When Correction Says "No" — Impossibility, Not Just Uncertainty', fontsize=19, pad=15)
     add_source(ax, 'Source: Lupine verification layer', x=0.99, y=0.01)

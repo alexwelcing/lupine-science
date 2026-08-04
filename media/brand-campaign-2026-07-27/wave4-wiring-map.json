@@ -1,0 +1,337 @@
+{
+ "SW1-B1-A01-01": {
+  "slug": "from-predicted-crystal-to-commercial-cell",
+  "slot": "hero",
+  "orig": "B1-A01-01"
+ },
+ "SW1-B1-A01-04": {
+  "slug": "from-predicted-crystal-to-commercial-cell",
+  "slot": "inline-03",
+  "orig": "B1-A01-04"
+ },
+ "SW1-B1-A01-05": {
+  "slug": "from-predicted-crystal-to-commercial-cell",
+  "slot": "spread",
+  "orig": "B1-A01-05"
+ },
+ "SW1-B1-A02-01": {
+  "slug": "the-02-percent-synthesis-problem",
+  "slot": "hero",
+  "orig": "B1-A02-01"
+ },
+ "SW1-B1-A02-02": {
+  "slug": "the-02-percent-synthesis-problem",
+  "slot": "inline-01",
+  "orig": "B1-A02-02"
+ },
+ "SW1-B1-A02-03": {
+  "slug": "the-02-percent-synthesis-problem",
+  "slot": "inline-02",
+  "orig": "B1-A02-03"
+ },
+ "SW1-B1-A02-04": {
+  "slug": "the-02-percent-synthesis-problem",
+  "slot": "inline-03",
+  "orig": "B1-A02-04"
+ },
+ "SW1-B1-A02-05": {
+  "slug": "the-02-percent-synthesis-problem",
+  "slot": "spread",
+  "orig": "B1-A02-05"
+ },
+ "SW1-B1-A03-02": {
+  "slug": "the-savings-stack",
+  "slot": "inline-01",
+  "orig": "B1-A03-02"
+ },
+ "SW1-B1-A03-04": {
+  "slug": "the-savings-stack",
+  "slot": "inline-03",
+  "orig": "B1-A03-04"
+ },
+ "SW1-B1-A04-04": {
+  "slug": "the-materials-we-test-against",
+  "slot": "inline-03",
+  "orig": "B1-A04-04"
+ },
+ "SW1-B1-A04-05": {
+  "slug": "the-materials-we-test-against",
+  "slot": "spread",
+  "orig": "B1-A04-05"
+ },
+ "SW1-B2-A01-02": {
+  "slug": "five-materials-for-5-to-12-gtco2-year",
+  "slot": "inline-01",
+  "orig": "B2-A01-02"
+ },
+ "SW1-B2-A01-03": {
+  "slug": "five-materials-for-5-to-12-gtco2-year",
+  "slot": "inline-02",
+  "orig": "B2-A01-03"
+ },
+ "SW1-B2-A01-04": {
+  "slug": "five-materials-for-5-to-12-gtco2-year",
+  "slot": "inline-03",
+  "orig": "B2-A01-04"
+ },
+ "SW1-B2-A02-02": {
+  "slug": "cement-concrete-and-the-weight-of-the-built-world",
+  "slot": "inline-01",
+  "orig": "B2-A02-02"
+ },
+ "SW1-B2-A02-03": {
+  "slug": "cement-concrete-and-the-weight-of-the-built-world",
+  "slot": "inline-02",
+  "orig": "B2-A02-03"
+ },
+ "SW1-B2-A02-04": {
+  "slug": "cement-concrete-and-the-weight-of-the-built-world",
+  "slot": "inline-03",
+  "orig": "B2-A02-04"
+ },
+ "SW1-B2-A02-05": {
+  "slug": "cement-concrete-and-the-weight-of-the-built-world",
+  "slot": "spread",
+  "orig": "B2-A02-05"
+ },
+ "SW1-B2-A03-01": {
+  "slug": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers",
+  "slot": "hero",
+  "orig": "B2-A03-01"
+ },
+ "SW1-B2-A03-03": {
+  "slug": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers",
+  "slot": "inline-02",
+  "orig": "B2-A03-03"
+ },
+ "SW1-B2-A03-04": {
+  "slug": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers",
+  "slot": "inline-03",
+  "orig": "B2-A03-04"
+ },
+ "SW1-B2-A03-05": {
+  "slug": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers",
+  "slot": "spread",
+  "orig": "B2-A03-05"
+ },
+ "SW1-B2-A04-02": {
+  "slug": "water-and-air-correcting-the-molecules-we-drink-and-breathe",
+  "slot": "inline-01",
+  "orig": "B2-A04-02"
+ },
+ "SW1-B2-A04-03": {
+  "slug": "water-and-air-correcting-the-molecules-we-drink-and-breathe",
+  "slot": "inline-02",
+  "orig": "B2-A04-03"
+ },
+ "SW1-B3-A01-03": {
+  "slug": "beyond-carbon-the-error-geometry-of-environmental-materials",
+  "slot": "inline-02",
+  "orig": "B3-A01-03"
+ },
+ "SW1-B3-A01-04": {
+  "slug": "beyond-carbon-the-error-geometry-of-environmental-materials",
+  "slot": "inline-03",
+  "orig": "B3-A01-04"
+ },
+ "SW1-B3-A02-02": {
+  "slug": "critical-minerals-pfas-and-the-remediation-imperative",
+  "slot": "inline-01",
+  "orig": "B3-A02-02"
+ },
+ "SW1-B3-A02-03": {
+  "slug": "critical-minerals-pfas-and-the-remediation-imperative",
+  "slot": "inline-02",
+  "orig": "B3-A02-03"
+ },
+ "SW1-B3-A02-04": {
+  "slug": "critical-minerals-pfas-and-the-remediation-imperative",
+  "slot": "inline-03",
+  "orig": "B3-A02-04"
+ },
+ "SW1-B3-A03-02": {
+  "slug": "lupi-hfc-refrigerant-research-payloads",
+  "slot": "inline-01",
+  "orig": "B3-A03-02"
+ },
+ "SW1-B3-A03-03": {
+  "slug": "lupi-hfc-refrigerant-research-payloads",
+  "slot": "inline-02",
+  "orig": "B3-A03-03"
+ },
+ "SW1-B3-A03-04": {
+  "slug": "lupi-hfc-refrigerant-research-payloads",
+  "slot": "inline-03",
+  "orig": "B3-A03-04"
+ },
+ "SW1-B3-A04-03": {
+  "slug": "rhizo-non-co2-climate-forcers-lean",
+  "slot": "inline-02",
+  "orig": "B3-A04-03"
+ },
+ "SW1-B3-A04-04": {
+  "slug": "rhizo-non-co2-climate-forcers-lean",
+  "slot": "inline-03",
+  "orig": "B3-A04-04"
+ },
+ "SW1-B4-A01-02": {
+  "slug": "why-lupine-science",
+  "slot": "inline-01",
+  "orig": "B4-A01-02"
+ },
+ "SW1-B4-A01-03": {
+  "slug": "why-lupine-science",
+  "slot": "inline-02",
+  "orig": "B4-A01-03"
+ },
+ "SW1-B4-A01-04": {
+  "slug": "why-lupine-science",
+  "slot": "inline-03",
+  "orig": "B4-A01-04"
+ },
+ "SW1-B4-A02-02": {
+  "slug": "why-lupi",
+  "slot": "inline-01",
+  "orig": "B4-A02-02"
+ },
+ "SW1-B4-A02-03": {
+  "slug": "why-lupi",
+  "slot": "inline-02",
+  "orig": "B4-A02-03"
+ },
+ "SW1-B4-A03-02": {
+  "slug": "the-trust-layer",
+  "slot": "inline-01",
+  "orig": "B4-A03-02"
+ },
+ "SW1-B4-A03-04": {
+  "slug": "the-trust-layer",
+  "slot": "inline-03",
+  "orig": "B4-A03-04"
+ },
+ "SW1-B4-A04-01": {
+  "slug": "investing-in-the-trust-layer",
+  "slot": "hero",
+  "orig": "B4-A04-01"
+ },
+ "SW1-B4-A04-02": {
+  "slug": "investing-in-the-trust-layer",
+  "slot": "inline-01",
+  "orig": "B4-A04-02"
+ },
+ "SW1-B4-A04-04": {
+  "slug": "investing-in-the-trust-layer",
+  "slot": "inline-03",
+  "orig": "B4-A04-04"
+ },
+ "SW1-B5-A01-02": {
+  "slug": "a-field-not-a-neural-net",
+  "slot": "inline-01",
+  "orig": "B5-A01-02"
+ },
+ "SW1-B5-A01-03": {
+  "slug": "a-field-not-a-neural-net",
+  "slot": "inline-02",
+  "orig": "B5-A01-03"
+ },
+ "SW1-B5-A01-04": {
+  "slug": "a-field-not-a-neural-net",
+  "slot": "inline-03",
+  "orig": "B5-A01-04"
+ },
+ "SW1-B5-A02-02": {
+  "slug": "a-smooth-environment-resolved-error-field",
+  "slot": "inline-01",
+  "orig": "B5-A02-02"
+ },
+ "SW1-B5-A02-03": {
+  "slug": "a-smooth-environment-resolved-error-field",
+  "slot": "inline-02",
+  "orig": "B5-A02-03"
+ },
+ "SW1-B5-A02-04": {
+  "slug": "a-smooth-environment-resolved-error-field",
+  "slot": "inline-03",
+  "orig": "B5-A02-04"
+ },
+ "SW1-B5-A03-02": {
+  "slug": "the-correction-that-hurt-and-the-theorem-that-stopped-it",
+  "slot": "inline-01",
+  "orig": "B5-A03-02"
+ },
+ "SW1-B5-A03-03": {
+  "slug": "the-correction-that-hurt-and-the-theorem-that-stopped-it",
+  "slot": "inline-02",
+  "orig": "B5-A03-03"
+ },
+ "SW1-B5-A04-02": {
+  "slug": "four-gates-three-honest-failures-one-live-experiment",
+  "slot": "inline-01",
+  "orig": "B5-A04-02"
+ },
+ "SW1-B5-A04-04": {
+  "slug": "four-gates-three-honest-failures-one-live-experiment",
+  "slot": "inline-03",
+  "orig": "B5-A04-04"
+ },
+ "SW1-B6-A01-01": {
+  "slug": "z1-union-debrief",
+  "slot": "hero",
+  "orig": "B6-A01-01"
+ },
+ "SW1-B6-A01-02": {
+  "slug": "z1-union-debrief",
+  "slot": "inline-01",
+  "orig": "B6-A01-02"
+ },
+ "SW1-B6-A01-03": {
+  "slug": "z1-union-debrief",
+  "slot": "inline-02",
+  "orig": "B6-A01-03"
+ },
+ "SW1-B6-A02-01": {
+  "slug": "an-order-of-effort",
+  "slot": "hero",
+  "orig": "B6-A02-01"
+ },
+ "SW1-B6-A02-02": {
+  "slug": "an-order-of-effort",
+  "slot": "inline-01",
+  "orig": "B6-A02-02"
+ },
+ "SW1-B6-A02-03": {
+  "slug": "an-order-of-effort",
+  "slot": "inline-02",
+  "orig": "B6-A02-03"
+ },
+ "SW1-B6-A02-04": {
+  "slug": "an-order-of-effort",
+  "slot": "inline-03",
+  "orig": "B6-A02-04"
+ },
+ "SW1-B6-A03-01": {
+  "slug": "the-order-is-right-the-size-is-wrong",
+  "slot": "hero",
+  "orig": "B6-A03-01"
+ },
+ "SW1-B6-A03-04": {
+  "slug": "the-order-is-right-the-size-is-wrong",
+  "slot": "inline-03",
+  "orig": "B6-A03-04"
+ },
+ "SW1-B6-A04-01": {
+  "slug": "from-fantasy-frameworks-to-makeable-materials",
+  "slot": "hero",
+  "orig": "B6-A04-01"
+ },
+ "SW1-B6-A04-02": {
+  "slug": "from-fantasy-frameworks-to-makeable-materials",
+  "slot": "inline-01",
+  "orig": "B6-A04-02"
+ },
+ "SW1-B6-A04-03": {
+  "slug": "from-fantasy-frameworks-to-makeable-materials",
+  "slot": "inline-02",
+  "orig": "B6-A04-03"
+ }
+}

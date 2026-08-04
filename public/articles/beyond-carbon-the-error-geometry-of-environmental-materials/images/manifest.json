@@ -21,7 +21,7 @@
     "filename": "beyond-carbon-the-error-geometry-of-environmental-materials-04-blind-prediction-panel.jpg",
     "title": "Measured Correction, Machine-Checked Proof",
     "type": "evidence-panel",
-    "caption": "Across 36 blind model\u2013material pairs the error field predicts corrections with r = 0.906, while a build-locked library of 77 Lean 4 theorems bounds what can be believed."
+    "caption": "Across 36 blind model\u2013material pairs the error field predicts corrections with r = 0.906, while the machine-generated Lean 4 theorem inventory bounds what can be believed."
   },
   {
     "filename": "beyond-carbon-the-error-geometry-of-environmental-materials-05-correction-verification-layer.jpg",
@@ -56,7 +56,7 @@
   {
     "filename": "beyond-carbon-the-error-geometry-of-environmental-materials-10-platform-roadmap.jpg",
     "title": "The Path From Measured Error to Trust",
-    "type": "scene-illustration",
+    "type": "concept-diagram",
     "caption": "Every article in the series will follow the same arc: measure the shape of the error, correct it with analytic forces, and prove which predictions can be believed."
   }
 ]

@@ -50,7 +50,6 @@
 }
 
 .share-link,
-.share-btn,
 .share-toggle {
   display: inline-flex;
   align-items: center;
@@ -70,7 +69,6 @@
 }
 
 .share-link svg,
-.share-btn svg,
 .share-toggle svg {
   width: var(--share-icon-size);
   height: var(--share-icon-size);
@@ -79,8 +77,6 @@
 
 .share-link:hover,
 .share-link:focus,
-.share-btn:hover,
-.share-btn:focus,
 .share-toggle:hover,
 .share-toggle:focus {
   background: var(--share-bg-hover);
@@ -89,7 +85,6 @@
 }
 
 .share-link:focus-visible,
-.share-btn:focus-visible,
 .share-toggle:focus-visible {
   outline: 2px solid var(--share-focus);
   outline-offset: 2px;
@@ -136,8 +131,7 @@
     display: none;
   }
 
-  .share-menu .share-link,
-  .share-menu .share-btn {
+  .share-menu .share-link {
     width: 100%;
     justify-content: flex-start;
     min-height: 44px;
@@ -147,9 +141,7 @@
   }
 
   .share-menu .share-link:hover,
-  .share-menu .share-link:focus,
-  .share-menu .share-btn:hover,
-  .share-menu .share-btn:focus {
+  .share-menu .share-link:focus {
     background: var(--share-bg-hover);
   }
 }
@@ -162,11 +154,9 @@
 
 @media (prefers-reduced-motion: reduce) {
   .share-link,
-  .share-btn,
   .share-toggle,
   .share-menu,
   .article .share-link,
-  .article .share-btn,
   .article .share-toggle {
     transition: none !important;
     animation: none !important;

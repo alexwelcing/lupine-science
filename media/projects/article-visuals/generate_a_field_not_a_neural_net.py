@@ -30,7 +30,8 @@ SOFT_SAGE = "#c8dccf"
 
 COLORS = [INDIGO, AMBER, SAGE, SLATE, ROSE]
 
-OUT_DIR = Path("/home/alex/Dev/lupine/lupine-science/public/articles/a-field-not-a-neural-net/images")
+REPO_ROOT = Path(__file__).resolve().parents[3]
+OUT_DIR = REPO_ROOT / "public/articles/a-field-not-a-neural-net/images"
 DPI = 150
 WIDTH, HEIGHT = 1280, 720
 FIGSIZE = (WIDTH / DPI, HEIGHT / DPI)
@@ -86,8 +87,8 @@ def make_01_synthesis_funnel():
     # Funnel as three stacked trapezoids
     stages = [
         ("Predicted structures\n(GNoME)", "2.2 million", 8.0, INDIGO),
-        ("Claimed successes\n(A-Lab headline)", "63%", 5.0, AMBER),
-        ("Validated novel\ndiscoveries", "~0%", 2.5, SAGE),
+        ("Confirmed syntheses\n(A-Lab correction)", "36 / 57 eligible", 5.0, AMBER),
+        ("Novelty review", "separate", 3.2, SAGE),
     ]
     y = 8.5
     for label, value, width, color in stages:
@@ -221,7 +222,7 @@ def make_03_field_anchors_spline():
 # ===========================================================================
 def make_04_blind_prediction_scatter():
     fig = plt.figure(figsize=FIGSIZE)
-    gs = fig.add_gridspec(1, 2, width_ratios=[1.4, 1])
+    gs = fig.add_gridspec(1, 2, width_ratios=[1.4, 1], bottom=0.18, top=0.88)
 
     # Main scatter
     ax1 = fig.add_subplot(gs[0])
@@ -253,23 +254,23 @@ def make_04_blind_prediction_scatter():
         ("CHGNet v0.4.2", 0.86, "< 0.01", AMBER),
         ("MACE-MP-0 medium", 0.47, "= 0.10", SLATE),
     ]
-    y = 0.9
+    y = 0.92
     for name, r, pval, color in models:
         ax2.add_patch(FancyBboxPatch((0.05, y - 0.12), 0.9, 0.16,
                                      boxstyle="round,pad=0.02", facecolor=color, alpha=0.15,
                                      edgecolor=color, transform=ax2.transAxes))
-        ax2.text(0.1, y, name, ha="left", va="top", fontsize=11, fontweight="bold", color=INK)
-        ax2.text(0.88, y - 0.02, f"r = {r}\np {pval}", ha="right", va="top", fontsize=10, color=SECONDARY)
-        y -= 0.22
+        ax2.text(0.08, y - 0.015, name, ha="left", va="center", fontsize=10.5, fontweight="bold", color=INK)
+        ax2.text(0.93, y - 0.08, f"r = {r}\np {pval}", ha="right", va="center", fontsize=9.5, color=SECONDARY)
+        y -= 0.20
 
-    ax2.text(0.5, y - 0.05, "Permutation null mean r = 0.44\n(10,000 structurally aware draws)",
+    ax2.text(0.5, 0.05, "Permutation null mean r = 0.44\n(10,000 structurally aware draws)",
              ha="center", va="top", fontsize=10, color=ROSE, fontweight="bold",
              transform=ax2.transAxes)
 
     fig.suptitle("r = 0.906 blind prediction", fontsize=18, fontweight="bold", color=INK, y=0.98)
-    fig.text(0.5, 0.02, "Across 36 independent combinations, the measured field predicts blind (110) surface-energy errors "
+    fig.text(0.5, 0.02, "Across 36 independent combinations, the measured field predicts blind (110) surface-energy errors\n"
              "with r = 0.906, surviving a structurally aware permutation null.",
-             ha="center", fontsize=10, color=INK)
+             ha="center", va="bottom", fontsize=10, color=INK)
 
     return save_jpg(fig, "a-field-not-a-neural-net-04-blind-prediction-scatter.jpg")
 
@@ -340,8 +341,8 @@ def make_05_runtime_correction():
 # ===========================================================================
 def make_06_discovery_loop():
     fig, ax = plt.subplots(figsize=FIGSIZE)
-    ax.set_xlim(-1.2, 1.2)
-    ax.set_ylim(-1.1, 1.15)
+    ax.set_xlim(-1.35, 1.35)
+    ax.set_ylim(-1.16, 1.15)
     ax.axis("off")
 
     add_title(ax, "The six-step discovery loop")
@@ -364,31 +365,15 @@ def make_06_discovery_loop():
         x = radius * math.cos(theta)
         y = radius * math.sin(theta)
 
-        # Node circle
-        circle = Circle((x, y), 0.24, facecolor=color, edgecolor=INK, linewidth=2, alpha=0.95)
-        ax.add_patch(circle)
-        ax.text(x, y + 0.05, f"{i + 1}", ha="center", va="center",
-                fontsize=16, fontweight="bold", color="white")
-        ax.text(x, y - 0.09, title, ha="center", va="center",
-                fontsize=9, fontweight="bold", color="white")
-
-        # Description outside
-        label_r = 0.96
-        lx = label_r * math.cos(theta)
-        ly = label_r * math.sin(theta)
-        ax.text(lx, ly, desc, ha="center", va="center", fontsize=8, color=SECONDARY)
-
-        # Arrow to next
+        # Arrow to next: start/end at circle edges
         next_i = (i + 1) % n
         theta_next = math.radians(angles[next_i])
-        # Start and end at edge of circles
         arr_r = radius
         x1 = arr_r * math.cos(theta)
         y1 = arr_r * math.sin(theta)
         x2 = arr_r * math.cos(theta_next)
         y2 = arr_r * math.sin(theta_next)
-        # Shorten slightly
-        frac = 0.05
+        frac = 0.36
         x1s = x1 + frac * (x2 - x1)
         y1s = y1 + frac * (y2 - y1)
         x2s = x2 - frac * (x2 - x1)
@@ -396,6 +381,26 @@ def make_06_discovery_loop():
         ax.annotate("", xy=(x2s, y2s), xytext=(x1s, y1s),
                     arrowprops=dict(arrowstyle="->", color=SECONDARY, lw=1.5,
                                     connectionstyle=f"arc3,rad=0.15"))
+
+        # Node circle
+        circle = Circle((x, y), 0.24, facecolor=color, edgecolor=INK, linewidth=2, alpha=0.95, zorder=4)
+        ax.add_patch(circle)
+        ax.text(x, y + 0.05, f"{i + 1}", ha="center", va="center",
+                fontsize=16, fontweight="bold", color="white", zorder=5,
+                bbox=dict(boxstyle="round,pad=0.1", facecolor=color, edgecolor="none"))
+        ax.text(x, y - 0.09, title, ha="center", va="center",
+                fontsize=9, fontweight="bold", color="white", zorder=5,
+                bbox=dict(boxstyle="round,pad=0.1", facecolor=color, edgecolor="none"))
+
+        # Description at mid-edge, radially clear of both node circles
+        mx = math.cos(theta) + math.cos(theta_next)
+        my = math.sin(theta) + math.sin(theta_next)
+        norm = math.hypot(mx, my)
+        label_r = 0.95
+        lx = label_r * mx / norm
+        ly = label_r * my / norm
+        ax.text(lx, ly, desc, ha="center", va="center", fontsize=8, color=SECONDARY,
+                bbox=dict(boxstyle="round,pad=0.25", facecolor=BG, edgecolor="none"))
 
     # Center
     center_circle = Circle((0, 0), 0.18, facecolor=BG, edgecolor=INDIGO, linewidth=2)
@@ -597,7 +602,7 @@ def make_10_field_vs_neural_net():
     proof_box = FancyBboxPatch((3.5, 0.9), 3.0, 0.9, boxstyle="round,pad=0.05",
                                facecolor=BG, edgecolor=SAGE, linewidth=2)
     ax.add_patch(proof_box)
-    ax.text(5.0, 1.35, "8 Lean modules  •  77 theorems  •  ~225 declarations  •  0 sorry",
+    ax.text(5.0, 1.35, "Machine-generated Lean theorem inventory  •  0 sorry",
             ha="center", va="center", fontsize=10, fontweight="bold", color=SAGE)
 
     ax.text(5.0, 0.3, "Lupine replaces the arms race for bigger models with a measured field and formal verification, "

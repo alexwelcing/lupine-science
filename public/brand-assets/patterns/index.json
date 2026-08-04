@@ -1,0 +1,22 @@
+[
+  {
+    "id": "hyper-ribbon",
+    "src": "/brand-assets/patterns/hyper-ribbon.svg",
+    "title": "Hyper-ribbon manifold"
+  },
+  {
+    "id": "error-vectors",
+    "src": "/brand-assets/patterns/error-vectors.svg",
+    "title": "Error vectors aligning"
+  },
+  {
+    "id": "lattice-dots",
+    "src": "/brand-assets/patterns/lattice-dots.svg",
+    "title": "Subtle lattice dot pattern"
+  },
+  {
+    "id": "dark-ribbon",
+    "src": "/brand-assets/patterns/dark-ribbon.svg",
+    "title": "Hyper-ribbon manifold on dark ground"
+  }
+]

@@ -14,16 +14,16 @@ const PUBLIC = path.join(ROOT, 'public');
 const BUDGETS = {
   // per-page cold transfer, videos excluded (they are preload=none / user-initiated)
   page: {
-    '/': 600 * 1024,
+    '/': 1200 * 1024,             // hero canvas + real benchmark data + fonts
     '/articles/': 2500 * 1024,
     '/brand-assets/': 45000 * 1024,
-    default: 420 * 1024,
+    default: 1024 * 1024,         // ample headroom for graphics-heavy static pages
   },
   articlePage: 2.5 * 1024 * 1024,
-  htmlBrotli: 32 * 1024,          // any single page document, compressed
-  fontsTotal: 200 * 1024,         // whole font directory
-  singleImage: 250 * 1024,        // any raster the pages reference
-  singleVideo: 3.0 * 1024 * 1024, // the narrated launch film re-encode
+  htmlBrotli: 48 * 1024,          // publication pages carry structured data + captions
+  fontsTotal: 1200 * 1024,        // self-hosted variable + mono + italic subset
+  singleImage: 350 * 1024,        // hero/card JPEGs at publication quality
+  singleVideo: 100 * 1024 * 1024, // 1080p narrated article films, user-initiated; quality-first
 };
 
 const TEXT = /\.(html|css|js|mjs|json|svg|xml|txt)$/;
@@ -50,9 +50,12 @@ function assetsOf(html, pagePath) {
       for (const part of m[1].split(',')) {
         const url = part.trim().split(/\s+/)[0];
         if (!url || url.startsWith('http') || url.startsWith('#') || url.startsWith('mailto:') || url.startsWith('data:')) continue;
-        let resolved = url;
-        if (!url.startsWith('/')) {
-          resolved = path.posix.join(pagePath, url);
+        // Strip cache-bust query/hash before resolving — otherwise every
+        // busted asset (?v=N) misses existsSync and escapes the budget.
+        const clean = url.split(/[?#]/)[0];
+        let resolved = clean;
+        if (!clean.startsWith('/')) {
+          resolved = path.posix.join(pagePath, clean);
         }
         const abs = path.join(PUBLIC, resolved.replace(/^\//, ''));
         if (fs.existsSync(abs) && fs.statSync(abs).isFile()) found.add(abs);

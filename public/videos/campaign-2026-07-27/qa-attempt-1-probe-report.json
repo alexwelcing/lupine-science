@@ -1,0 +1,490 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "brand-campaign-2026-07-27",
+  "attempt": 1,
+  "replacement_count": 5,
+  "storyboard_sha256": "bf6cadd81b92b6ad2b9f570ba342f220443d23fa15d124380cd1c6fb60266be1",
+  "all_checks_pass": true,
+  "records": [
+    {
+      "film_id": "01-z1-campaign-story",
+      "attempt": 1,
+      "original": "public/videos/campaign-2026-07-27/01-z1-union-verdict.mp4",
+      "original_sha256": "8475ca4dc3e2d0780d4ff24f706251741fcfb2586f52c69d5991549fd0fbf22b",
+      "replacement": "public/videos/campaign-2026-07-27/01-z1-union-verdict-qa-attempt-1.mp4",
+      "replacement_sha256": "5ace393923af277227916ee6bc786b5da63bebd5742ae385f0b3a5b5e5be1b27",
+      "bytes": 1064842,
+      "duration_seconds": 28.0,
+      "probe": {
+        "container": "mov,mp4,m4a,3gp,3g2,mj2",
+        "video_codec": "h264",
+        "width": 1920,
+        "height": 1080,
+        "pixel_format": "yuv420p",
+        "frame_rate": "30/1",
+        "audio_codec": "aac",
+        "audio_sample_rate_hz": 48000,
+        "audio_channels": 1,
+        "integrated_loudness_lufs": -18.1
+      },
+      "representative_frame": "public/videos/campaign-2026-07-27/01-z1-union-verdict-qa-attempt-1-representative.png",
+      "contact_sheet": "public/videos/campaign-2026-07-27/01-z1-union-verdict-qa-attempt-1-contact-sheet.png",
+      "shot_motion_checks": [
+        {
+          "shot": 1,
+          "motion": "Slow camera push; traces draw from separate edges and lock with restrained mechanical snaps.",
+          "sample_frames": [
+            24,
+            95
+          ],
+          "mean_absolute_pixel_delta": 1.2298,
+          "temporally_distinct": true
+        },
+        {
+          "shot": 2,
+          "motion": "Dots step on in rows; the union lane waits until duplication is legible.",
+          "sample_frames": [
+            150,
+            239
+          ],
+          "mean_absolute_pixel_delta": 1.1233,
+          "temporally_distinct": true
+        },
+        {
+          "shot": 3,
+          "motion": "Paths pull into one indigo spine; omitted work fades to untouched paper.",
+          "sample_frames": [
+            300,
+            389
+          ],
+          "mean_absolute_pixel_delta": 1.3598,
+          "temporally_distinct": true
+        },
+        {
+          "shot": 4,
+          "motion": "Rules draw and values type on once; no celebratory badges.",
+          "sample_frames": [
+            456,
+            563
+          ],
+          "mean_absolute_pixel_delta": 3.6417,
+          "temporally_distinct": true
+        },
+        {
+          "shot": 5,
+          "motion": "Matched pairs align; undercovered gauges stop visibly short.",
+          "sample_frames": [
+            630,
+            719
+          ],
+          "mean_absolute_pixel_delta": 4.7151,
+          "temporally_distinct": true
+        },
+        {
+          "shot": 6,
+          "motion": "Camera settles; the next route draws only halfway to signal open work.",
+          "sample_frames": [
+            768,
+            821
+          ],
+          "mean_absolute_pixel_delta": 0.4005,
+          "temporally_distinct": true
+        }
+      ],
+      "checks": {
+        "original_sha256_unchanged": true,
+        "nonzero_bytes": true,
+        "duration_matches_storyboard": true,
+        "video_codec_h264": true,
+        "dimensions_1920x1080": true,
+        "frame_rate_30fps": true,
+        "pixel_format_yuv420p": true,
+        "audio_codec_aac": true,
+        "audio_sample_rate_48000": true,
+        "audio_mono": true,
+        "full_decode_clean": true,
+        "representative_frame_nonzero": true,
+        "contact_sheet_nonzero": true,
+        "all_shots_temporally_distinct": true
+      }
+    },
+    {
+      "film_id": "02-savings-stack",
+      "attempt": 1,
+      "original": "public/videos/campaign-2026-07-27/02-savings-stack.mp4",
+      "original_sha256": "4e12818c7c55eaec2ad90c5fe0026c307b7621036bc409490d8e4e86407ff19b",
+      "replacement": "public/videos/campaign-2026-07-27/02-savings-stack-qa-attempt-1.mp4",
+      "replacement_sha256": "48ed48f919b3e12ec06fcc84d355279921404c1a96c1526b33fea2b00e41996e",
+      "bytes": 1101244,
+      "duration_seconds": 28.0,
+      "probe": {
+        "container": "mov,mp4,m4a,3gp,3g2,mj2",
+        "video_codec": "h264",
+        "width": 1920,
+        "height": 1080,
+        "pixel_format": "yuv420p",
+        "frame_rate": "30/1",
+        "audio_codec": "aac",
+        "audio_sample_rate_hz": 48000,
+        "audio_channels": 1,
+        "integrated_loudness_lufs": -18.1
+      },
+      "representative_frame": "public/videos/campaign-2026-07-27/02-savings-stack-qa-attempt-1-representative.png",
+      "contact_sheet": "public/videos/campaign-2026-07-27/02-savings-stack-qa-attempt-1-contact-sheet.png",
+      "shot_motion_checks": [
+        {
+          "shot": 1,
+          "motion": "One indigo pulse crosses fine ink infrastructure.",
+          "sample_frames": [
+            24,
+            95
+          ],
+          "mean_absolute_pixel_delta": 0.3456,
+          "temporally_distinct": true
+        },
+        {
+          "shot": 2,
+          "motion": "Each plate enters from a distinct edge and locks to a shared spine.",
+          "sample_frames": [
+            186,
+            383
+          ],
+          "mean_absolute_pixel_delta": 2.8279,
+          "temporally_distinct": true
+        },
+        {
+          "shot": 3,
+          "motion": "Plates stop; only the shared void expands.",
+          "sample_frames": [
+            474,
+            545
+          ],
+          "mean_absolute_pixel_delta": 3.8472,
+          "temporally_distinct": true
+        },
+        {
+          "shot": 4,
+          "motion": "Routes merge at existing stations; counts move only after the denominator appears.",
+          "sample_frames": [
+            600,
+            689
+          ],
+          "mean_absolute_pixel_delta": 1.0085,
+          "temporally_distinct": true
+        },
+        {
+          "shot": 5,
+          "motion": "Evidence cartridges slide outward; camera ends on the wider system.",
+          "sample_frames": [
+            744,
+            815
+          ],
+          "mean_absolute_pixel_delta": 4.433,
+          "temporally_distinct": true
+        }
+      ],
+      "checks": {
+        "original_sha256_unchanged": true,
+        "nonzero_bytes": true,
+        "duration_matches_storyboard": true,
+        "video_codec_h264": true,
+        "dimensions_1920x1080": true,
+        "frame_rate_30fps": true,
+        "pixel_format_yuv420p": true,
+        "audio_codec_aac": true,
+        "audio_sample_rate_48000": true,
+        "audio_mono": true,
+        "full_decode_clean": true,
+        "representative_frame_nonzero": true,
+        "contact_sheet_nonzero": true,
+        "all_shots_temporally_distinct": true
+      }
+    },
+    {
+      "film_id": "03-trust-layer",
+      "attempt": 1,
+      "original": "public/videos/campaign-2026-07-27/03-trust-layer.mp4",
+      "original_sha256": "fc637aa13eb138ae714823aa021180376541b156e5b7efa0a9172e12dde549d9",
+      "replacement": "public/videos/campaign-2026-07-27/03-trust-layer-qa-attempt-1.mp4",
+      "replacement_sha256": "b3e3657062ccb36327c1e313923c04f37f7d9c3e89483bb4c6697c227f1b6049",
+      "bytes": 933070,
+      "duration_seconds": 24.0,
+      "probe": {
+        "container": "mov,mp4,m4a,3gp,3g2,mj2",
+        "video_codec": "h264",
+        "width": 1920,
+        "height": 1080,
+        "pixel_format": "yuv420p",
+        "frame_rate": "30/1",
+        "audio_codec": "aac",
+        "audio_sample_rate_hz": 48000,
+        "audio_channels": 1,
+        "integrated_loudness_lufs": -18.1
+      },
+      "representative_frame": "public/videos/campaign-2026-07-27/03-trust-layer-qa-attempt-1-representative.png",
+      "contact_sheet": "public/videos/campaign-2026-07-27/03-trust-layer-qa-attempt-1-contact-sheet.png",
+      "shot_motion_checks": [
+        {
+          "shot": 1,
+          "motion": "Candidates drift quickly; bridge joints remain precise.",
+          "sample_frames": [
+            24,
+            95
+          ],
+          "mean_absolute_pixel_delta": 0.5485,
+          "temporally_distinct": true
+        },
+        {
+          "shot": 2,
+          "motion": "Upstream lanes accelerate; validation advances at constant speed.",
+          "sample_frames": [
+            144,
+            215
+          ],
+          "mean_absolute_pixel_delta": 2.5425,
+          "temporally_distinct": true
+        },
+        {
+          "shot": 3,
+          "motion": "Supported paths pass, anchor paths divert, unsupported paths stop with a small ochre marker.",
+          "sample_frames": [
+            276,
+            383
+          ],
+          "mean_absolute_pixel_delta": 0.9503,
+          "temporally_distinct": true
+        },
+        {
+          "shot": 4,
+          "motion": "Evidence lines lock only after passing a gate.",
+          "sample_frames": [
+            450,
+            539
+          ],
+          "mean_absolute_pixel_delta": 1.2415,
+          "temporally_distinct": true
+        },
+        {
+          "shot": 5,
+          "motion": "The measured return path completes; infrastructure settles onto a thin indigo foundation.",
+          "sample_frames": [
+            600,
+            689
+          ],
+          "mean_absolute_pixel_delta": 1.0865,
+          "temporally_distinct": true
+        }
+      ],
+      "checks": {
+        "original_sha256_unchanged": true,
+        "nonzero_bytes": true,
+        "duration_matches_storyboard": true,
+        "video_codec_h264": true,
+        "dimensions_1920x1080": true,
+        "frame_rate_30fps": true,
+        "pixel_format_yuv420p": true,
+        "audio_codec_aac": true,
+        "audio_sample_rate_48000": true,
+        "audio_mono": true,
+        "full_decode_clean": true,
+        "representative_frame_nonzero": true,
+        "contact_sheet_nonzero": true,
+        "all_shots_temporally_distinct": true
+      }
+    },
+    {
+      "film_id": "04-order-of-effort",
+      "attempt": 1,
+      "original": "public/videos/campaign-2026-07-27/04-order-of-effort.mp4",
+      "original_sha256": "89f84d111fc694e70ef09e8cad55dcc0e1e819e80e08bbeb0ff12d0442790f1c",
+      "replacement": "public/videos/campaign-2026-07-27/04-order-of-effort-qa-attempt-1.mp4",
+      "replacement_sha256": "2d2a796f96506471cfadfdf2e27c81d85d044f290e18bdd8c00207e801fce420",
+      "bytes": 1264498,
+      "duration_seconds": 28.0,
+      "probe": {
+        "container": "mov,mp4,m4a,3gp,3g2,mj2",
+        "video_codec": "h264",
+        "width": 1920,
+        "height": 1080,
+        "pixel_format": "yuv420p",
+        "frame_rate": "30/1",
+        "audio_codec": "aac",
+        "audio_sample_rate_hz": 48000,
+        "audio_channels": 1,
+        "integrated_loudness_lufs": -18.1
+      },
+      "representative_frame": "public/videos/campaign-2026-07-27/04-order-of-effort-qa-attempt-1-representative.png",
+      "contact_sheet": "public/videos/campaign-2026-07-27/04-order-of-effort-qa-attempt-1-contact-sheet.png",
+      "shot_motion_checks": [
+        {
+          "shot": 1,
+          "motion": "Camera tilts upward; lower rungs assemble while upper rungs remain faint.",
+          "sample_frames": [
+            24,
+            95
+          ],
+          "mean_absolute_pixel_delta": 0.6484,
+          "temporally_distinct": true
+        },
+        {
+          "shot": 2,
+          "motion": "Each rung draws, its test geometry assembles, and its route locks or stops.",
+          "sample_frames": [
+            186,
+            383
+          ],
+          "mean_absolute_pixel_delta": 1.1169,
+          "temporally_distinct": true
+        },
+        {
+          "shot": 3,
+          "motion": "Rail snaps into place; mismatched routes stop without failure spectacle.",
+          "sample_frames": [
+            480,
+            569
+          ],
+          "mean_absolute_pixel_delta": 3.6567,
+          "temporally_distinct": true
+        },
+        {
+          "shot": 4,
+          "motion": "Two indigo bays brighten; uncertainty widens toward the hard end; ochre only at abstention.",
+          "sample_frames": [
+            624,
+            695
+          ],
+          "mean_absolute_pixel_delta": 1.311,
+          "temporally_distinct": true
+        },
+        {
+          "shot": 5,
+          "motion": "Portfolio settles without a universal-law or all-green state.",
+          "sample_frames": [
+            744,
+            815
+          ],
+          "mean_absolute_pixel_delta": 0.4098,
+          "temporally_distinct": true
+        }
+      ],
+      "checks": {
+        "original_sha256_unchanged": true,
+        "nonzero_bytes": true,
+        "duration_matches_storyboard": true,
+        "video_codec_h264": true,
+        "dimensions_1920x1080": true,
+        "frame_rate_30fps": true,
+        "pixel_format_yuv420p": true,
+        "audio_codec_aac": true,
+        "audio_sample_rate_48000": true,
+        "audio_mono": true,
+        "full_decode_clean": true,
+        "representative_frame_nonzero": true,
+        "contact_sheet_nonzero": true,
+        "all_shots_temporally_distinct": true
+      }
+    },
+    {
+      "film_id": "05-materials-in-society",
+      "attempt": 1,
+      "original": "public/videos/campaign-2026-07-27/05-materials-for-society.mp4",
+      "original_sha256": "19ea2340cdcc5ad96fff16630c60ade12aa73edc307a1e00c98e74c7c44fc444",
+      "replacement": "public/videos/campaign-2026-07-27/05-materials-for-society-qa-attempt-1.mp4",
+      "replacement_sha256": "3845a7de90db3a6432e489bdf76922b924f18def96a999a5d668f57a7330f69d",
+      "bytes": 1161903,
+      "duration_seconds": 30.0,
+      "probe": {
+        "container": "mov,mp4,m4a,3gp,3g2,mj2",
+        "video_codec": "h264",
+        "width": 1920,
+        "height": 1080,
+        "pixel_format": "yuv420p",
+        "frame_rate": "30/1",
+        "audio_codec": "aac",
+        "audio_sample_rate_hz": 48000,
+        "audio_channels": 1,
+        "integrated_loudness_lufs": -18.1
+      },
+      "representative_frame": "public/videos/campaign-2026-07-27/05-materials-for-society-qa-attempt-1-representative.png",
+      "contact_sheet": "public/videos/campaign-2026-07-27/05-materials-for-society-qa-attempt-1-contact-sheet.png",
+      "shot_motion_checks": [
+        {
+          "shot": 1,
+          "motion": "Wide lateral move; one verification line connects systems without implying deployment.",
+          "sample_frames": [
+            24,
+            95
+          ],
+          "mean_absolute_pixel_delta": 2.0174,
+          "temporally_distinct": true
+        },
+        {
+          "shot": 2,
+          "motion": "An indigo ion route climbs a restrained barrier into a practical cell; no guaranteed transformation.",
+          "sample_frames": [
+            156,
+            263
+          ],
+          "mean_absolute_pixel_delta": 1.0191,
+          "temporally_distinct": true
+        },
+        {
+          "shot": 3,
+          "motion": "Sparse airflow passes through the contactor; a portion continues to a test cartridge.",
+          "sample_frames": [
+            330,
+            419
+          ],
+          "mean_absolute_pixel_delta": 0.4888,
+          "temporally_distinct": true
+        },
+        {
+          "shot": 4,
+          "motion": "Reactor zones assemble; indigo highlights only measured interfaces and a pilot handoff.",
+          "sample_frames": [
+            480,
+            569
+          ],
+          "mean_absolute_pixel_delta": 1.8257,
+          "temporally_distinct": true
+        },
+        {
+          "shot": 5,
+          "motion": "Module remains partly inside the test bay; no completed solar-city transformation.",
+          "sample_frames": [
+            630,
+            719
+          ],
+          "mean_absolute_pixel_delta": 1.832,
+          "temporally_distinct": true
+        },
+        {
+          "shot": 6,
+          "motion": "Only the next experiment enters an active bay; downstream infrastructure remains lightly drawn.",
+          "sample_frames": [
+            780,
+            869
+          ],
+          "mean_absolute_pixel_delta": 1.2361,
+          "temporally_distinct": true
+        }
+      ],
+      "checks": {
+        "original_sha256_unchanged": true,
+        "nonzero_bytes": true,
+        "duration_matches_storyboard": true,
+        "video_codec_h264": true,
+        "dimensions_1920x1080": true,
+        "frame_rate_30fps": true,
+        "pixel_format_yuv420p": true,
+        "audio_codec_aac": true,
+        "audio_sample_rate_48000": true,
+        "audio_mono": true,
+        "full_decode_clean": true,
+        "representative_frame_nonzero": true,
+        "contact_sheet_nonzero": true,
+        "all_shots_temporally_distinct": true
+      }
+    }
+  ]
+}

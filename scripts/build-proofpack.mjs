@@ -643,6 +643,24 @@ async function legacyRenderPdf(browser, { url, html, output }) {
     } else {
       await page.goto(url, { waitUntil: 'networkidle' });
     }
+    await page.addStyleTag({ content: `
+      @font-face {
+        font-family: "Proof Unicode";
+        src: url("${new URL('/fonts/proof-unicode.ttf', url)}") format("truetype");
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: block;
+      }
+      :root { --serif: "Proof Unicode", serif; }
+
+      /* Print/PDF: video players carry no value on paper. Remove the player
+         and its meta chrome entirely (owner decision 2026-07-20); hero
+         figures that are video-only collapse too. */
+      video, .video-player, .video-player-meta, .article-hero:has(video),
+      .article-video-player, .video-player-label, .video-player-frame {
+        display: none !important;
+      }
+    ` });
     await page.evaluate(() => document.fonts.ready).catch(() => {});
     await page.waitForSelector('.katex', { timeout: 5000 }).catch(() => {});
     await page.waitForTimeout(300);
