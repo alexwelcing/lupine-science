@@ -19,6 +19,7 @@
 // then commit the updated public/data/lean_count.json. Never hand-edit the JSON.
 
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -26,10 +27,9 @@ import { fileURLToPath } from 'node:url';
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const LEAN_SPEC = path.resolve(process.argv[2] ?? path.join(REPO_ROOT, '..', 'lupine-rhizo', 'lean-spec'));
 const OUT = path.join(REPO_ROOT, 'public', 'data', 'lean_count.json');
+const HOMEPAGE = path.join(REPO_ROOT, 'public', 'index.html');
 
-const DECL_RE = /^(theorem|lemma)\s/;
-const SORRY_RE = /:=\s*sorry\b|\bby\s+sorry\b|^\s*sorry\s*$/;
-const COMMENT_RE = /^\s*(--|\/-|\*)/; // line comments, block-comment openers/continuations
+const DECL_RE = /^[ \t]*(?:@\[[^\n]*\][ \t]*)*(?:(?:private|protected|noncomputable|unsafe)[ \t]+)*(?:theorem|lemma)\b/gm;
 
 function leanFiles(root) {
   const out = [];
@@ -47,8 +47,49 @@ function leanFiles(root) {
   return out;
 }
 
+function stripLeanTrivia(source) {
+  let out = '';
+  let blockDepth = 0;
+  let inString = false;
+  for (let i = 0; i < source.length; i += 1) {
+    const ch = source[i];
+    const next = source[i + 1];
+    if (blockDepth > 0) {
+      if (ch === '/' && next === '-') { blockDepth += 1; out += '  '; i += 1; }
+      else if (ch === '-' && next === '/') { blockDepth -= 1; out += '  '; i += 1; }
+      else out += ch === '\n' ? '\n' : ' ';
+    } else if (inString) {
+      if (ch === '\\') { out += '  '; i += 1; }
+      else if (ch === '"') { inString = false; out += ' '; }
+      else out += ch === '\n' ? '\n' : ' ';
+    } else if (ch === '-' && next === '-') {
+      const end = source.indexOf('\n', i);
+      if (end === -1) { out += ' '.repeat(source.length - i); break; }
+      out += ' '.repeat(end - i); i = end - 1;
+    } else if (ch === '/' && next === '-') { blockDepth = 1; out += '  '; i += 1; }
+    else if (ch === '"') { inString = true; out += ' '; }
+    else out += ch;
+  }
+  if (blockDepth !== 0 || inString) throw new Error('unterminated Lean comment or string');
+  return out;
+}
+
+const parserProbe = stripLeanTrivia(`
+theorem plain : True := by trivial
+@[simp] theorem attributed : True := by trivial
+private theorem hidden : True := by trivial
+  protected lemma indented : True := by trivial
+-- theorem commented : True := by sorry
+/- lemma blocked : True := by sorry -/
+def quoted := "sorry"
+`);
+if ([...parserProbe.matchAll(DECL_RE)].length !== 4 || /\bsorry\b/.test(parserProbe)) {
+  throw new Error('Lean inventory parser self-check failed');
+}
+
 const target = path.join(LEAN_SPEC, 'OpenDistillationFactory');
 const files = leanFiles(target);
+files.sort();
 if (!files.length) {
   console.error(`generate-lean-count: no .lean files found under ${target} — pass the lean-spec path as argv[2]`);
   process.exit(1);
@@ -56,28 +97,41 @@ if (!files.length) {
 
 let count = 0;
 let sorryHits = 0;
+const sourceHash = createHash('sha256');
 for (const f of files) {
-  for (const line of fs.readFileSync(f, 'utf8').split('\n')) {
-    if (DECL_RE.test(line)) count += 1;
-    if (SORRY_RE.test(line) && !COMMENT_RE.test(line)) sorryHits += 1;
-  }
+  const source = fs.readFileSync(f, 'utf8');
+  const relative = path.relative(LEAN_SPEC, f).split(path.sep).join('/');
+  sourceHash.update(relative).update('\0').update(source).update('\0');
+  const code = stripLeanTrivia(source);
+  count += [...code.matchAll(DECL_RE)].length;
+  sorryHits += [...code.matchAll(/\bsorry\b/g)].length;
 }
 
-let commit = null;
-try {
-  commit = execSync('git rev-parse --short HEAD', { cwd: LEAN_SPEC, encoding: 'utf8' }).trim();
-} catch { /* lean-spec may not be a git checkout on this machine */ }
+const countedAt = execSync(
+  'git log -1 --format=%cs -- OpenDistillationFactory OpenDistillationFactory.lean',
+  { cwd: LEAN_SPEC, encoding: 'utf8' },
+).trim();
+if (!/^\d{4}-\d{2}-\d{2}$/.test(countedAt)) throw new Error('could not derive Lean source as-of date');
 
 const payload = {
   count,
   zero_sorry: sorryHits === 0,
-  counted_at: new Date().toISOString().slice(0, 10),
+  counted_at: countedAt,
   source: 'lupine-rhizo/lean-spec (OpenDistillationFactory tree, vendored packages excluded)',
-  source_commit: commit,
-  rule: "top-level declarations: lines matching /^(theorem|lemma)\\s/ in *.lean under OpenDistillationFactory{,.lean}, excluding /packages/ and /.lake/; regenerate with scripts/generate-lean-count.mjs — never hand-edit",
+  source_sha256: sourceHash.digest('hex'),
+  rule: 'theorem/lemma declarations after stripping nested comments and strings; supports attributes, whitespace, and declaration modifiers; every active sorry token fails; regenerate with scripts/generate-lean-count.mjs — never hand-edit',
 };
 
 fs.writeFileSync(OUT, `${JSON.stringify(payload, null, 2)}\n`);
+const homepage = fs.readFileSync(HOMEPAGE, 'utf8');
+const hydratedHomepage = homepage.replace(
+  /(<strong id="lean-count">)[^<]*(<\/strong>)/,
+  `$1${count}$2`,
+);
+if (hydratedHomepage === homepage && !homepage.includes(`<strong id="lean-count">${count}</strong>`)) {
+  throw new Error('homepage theorem-count fallback marker not found');
+}
+fs.writeFileSync(HOMEPAGE, hydratedHomepage);
 console.log(`generate-lean-count: ${count} declarations (sorry hits in proof code: ${sorryHits}) → ${path.relative(REPO_ROOT, OUT)}`);
 if (sorryHits > 0) {
   console.error('generate-lean-count: WARNING — sorry found in proof code; the homepage zero-sorry claim would be false.');

@@ -28,3 +28,8 @@ test('generated articles hydrate the current theorem count token', () => {
   assert.match(output, new RegExp(`\\b${inventory.count} build-locked theorems\\b`));
   assert.doesNotMatch(output, /\{\{LEAN_THEOREM_COUNT\}\}/);
 });
+
+test('homepage has a generated static theorem-count fallback', () => {
+  const homepage = fs.readFileSync(path.join(ROOT, 'public', 'index.html'), 'utf8');
+  assert.match(homepage, new RegExp(`<strong id="lean-count">${inventory.count}</strong>`));
+});
