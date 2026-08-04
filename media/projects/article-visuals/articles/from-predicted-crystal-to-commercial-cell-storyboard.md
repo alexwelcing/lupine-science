@@ -37,7 +37,7 @@ The article argues that the bottleneck in climate-materials deployment is not a 
 - **Type:** concept-diagram
 - **Single idea:** A predicted crystal must survive synthesis → coating → cell fabrication → characterization → module integration → manufacturing scale-up; each handoff introduces new error and distrust.
 - **Data points to show:**
-  - A-Lab: 63% reported success, but two-thirds of "novel" targets were already-known disordered phases, reducing true novel discovery to near zero[^2]
+  - A-Lab Author Correction: 36 confirmed of 57 eligible targets, 4 inconclusive, one removed; independent critique found many "novel" targets were already-known disordered phases[^2]
   - GNoME synthesis rate: 0.2%[^1]
 - **Suggested form:** Horizontal process diagram with six linked nodes and warning flags at failure points
 - **Generation method:** matplotlib/SVG
@@ -117,7 +117,7 @@ The article argues that the bottleneck in climate-materials deployment is not a 
 - **Type:** evidence-panel
 - **Single idea:** Lupine can prove a candidate lies outside the correction domain or violates a materials constraint, saving synthesis budget.
 - **Data points to show:**
-  - 77 build-locked Lean 4 theorems providing machine-checked guarantees[^chapter The Verification Layer as Partnership Enabler]
+  - Machine-generated Lean 4 theorem inventory providing machine-checked guarantees[^chapter The Verification Layer as Partnership Enabler]
   - Examples to flag:
     - MOF framework outside hydrolysis-correction domain
     - Tin perovskite phase metastable by convex-hull proof
@@ -168,7 +168,7 @@ The article argues that the bottleneck in climate-materials deployment is not a 
 - **Data points to show:**
   - 0.2% GNoME validation rate without trust layer[^1]
   - r = 0.906 blind surface-energy prediction with correction[^chapter The Verification Layer as Partnership Enabler]
-  - 77 Lean 4 theorems[^chapter The Verification Layer as Partnership Enabler]
+  - Machine-generated Lean 4 theorem inventory[^chapter The Verification Layer as Partnership Enabler]
 - **Suggested form:** MiniMax-generated scene: a crystal lattice morphing through a pipeline of lab benches, manufacturing equipment, and a final cell/module, with a shield/badge symbolizing verification
 - **Generation method:** MiniMax image client
 - **Caption:** In a discovery ecosystem that must scale from thousands to millions of validated materials per year, the scarce resource is the trust that turns a predicted crystal into a commercial cell.[^1]

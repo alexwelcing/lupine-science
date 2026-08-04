@@ -19,6 +19,16 @@ const SRC = path.join(ROOT, 'articles');
 const OUT = path.join(ROOT, 'public', 'articles');
 const PUBLIC_ROOT = path.join(ROOT, 'public');
 const SITE = 'https://lupine.science';
+const LEAN_COUNT_PATH = path.join(PUBLIC_ROOT, 'data', 'lean_count.json');
+const LEAN_COUNT = JSON.parse(fs.readFileSync(LEAN_COUNT_PATH, 'utf8')).count;
+
+if (!Number.isSafeInteger(LEAN_COUNT) || LEAN_COUNT < 1) {
+  throw new Error(`Invalid machine-generated theorem count in ${LEAN_COUNT_PATH}`);
+}
+
+function hydrateGeneratedFacts(value) {
+  return value.replaceAll('{{LEAN_THEOREM_COUNT}}', String(LEAN_COUNT));
+}
 
 const KATEX_SRC = path.join(ROOT, 'node_modules', 'katex', 'dist');
 const KATEX_OUT = path.join(PUBLIC_ROOT, 'katex');
@@ -111,7 +121,7 @@ const HERO_CAPTIONS = {
   'the-trust-layer':
     'A load-bearing civic bridge whose hidden indigo layer is made of measurement, evidence, and verification modules: trust as literal infrastructure.',
   'rhizo-non-co2-climate-forcers-lean':
-    'The Lupine Rhizo build status: 289 theorems, zero sorry, with non-CO₂ climate forcers now machine-checked in Lean 4.',
+    'The Lupine Rhizo build status: machine-counted theorems, zero sorry, with non-CO₂ climate forcers now machine-checked in Lean 4.',
   'lupi-hfc-refrigerant-research-payloads':
     'A physical refrigeration loop — compressor, heat exchanger, and sealed refrigerant circuit — with indigo measurement traces and no readable interface text.',
   'the-savings-stack':
@@ -416,6 +426,7 @@ async function proofDownloadCard(meta, slug, title) {
 }
 
 async function buildArticle(raw, slug) {
+  raw = hydrateGeneratedFacts(raw);
   let body = md.render(raw);
   body = wrapInlineFigures(body);
   body = bustInlineImages(body, slug);

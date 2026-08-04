@@ -1,6 +1,6 @@
 > **Date:** 2026-07-12
 > **Deck:** Lupine Rhizo now formally accounts for methane, N₂O, HFCs, and SF₆ inside its Lean 4 climate library.
-> **Summary:** The latest `lupine-rhizo` build adds `ClimateForcers.lean` and a validation module that machine-checks non-CO₂ warming potentials, lifetimes, and substitution savings — 289 theorems, zero `sorry`.
+> **Summary:** The latest `lupine-rhizo` build adds `ClimateForcers.lean` and a validation module that machine-checks non-CO₂ warming potentials, lifetimes, and substitution savings — {{LEAN_THEOREM_COUNT}} theorems, zero `sorry`.
 > **Status:** Live
 
 
@@ -34,7 +34,7 @@ The module does not replace the IPCC tables; it commits to them. The theorems re
 1. **Heat-pump leak repair.** A residential heat pump charged with R-410A loses refrigerant over its lifetime. The theorem bounds the CO₂-equivalent warming from the leaked mass and proves that the repair threshold depends on the GWP horizon chosen for the policy.
 2. **Low-GWP substitution.** Replacing R-134a with a next-generation fluid that has GWP < 1 avoids a quantified amount of warming per kilogram deployed. The theorem expresses the savings in terms of the forcer definitions and shows the result is monotone in the replaced charge size.
 
-Both proofs are checked by `lake build` with no `sorry` axioms. The full library now stands at 289 theorems across 51 modules, with certificate gates for field-domain, ranking-inversion, and barrier-conservatism claims wired into the policy engine.
+Both proofs are checked by `lake build` with no `sorry` axioms. The full library now stands at {{LEAN_THEOREM_COUNT}} theorems, with certificate gates for field-domain, ranking-inversion, and barrier-conservatism claims wired into the policy engine.
 
 ![A formal boundary as interlocking measured blocks around a sealed cooling circuit, with unsupported paths stopping cleanly at the barriers](images/rhizo-non-co2-climate-forcers-lean-inline-01--retry-1.jpg)
 

@@ -334,8 +334,8 @@ The combined addressable impact of the targets in this document is comparable to
 
 [^1]: IEA, *Global EV Outlook* and *World Energy Outlook*; batteries linked to ~20% of required 2030 CO₂ reductions and indirectly to another 40%.
 [^2]: Google DeepMind GNoME: 2.2 million crystals predicted, 380,000 computed stable, 736 independently synthesized by late 2023. See *Lupine Science Strategic Discovery Plan*, Section 2.1.
-[^3]: A-Lab autonomous synthesis: 63% reported success, but subsequent critique found two-thirds of "novel" targets were known disordered phases. See *Lupine Science Strategic Discovery Plan*, Section 2.1.
-[^4]: Lupine environment error field: blind prediction r = 0.906 (p = 10⁻⁴, 95% CI [0.82, 0.96]) across 36 (model, material) combinations; 77 build-locked Lean 4 theorems. See *Lupine Science Strategic Discovery Plan*, Section 3.
+[^3]: A-Lab Author Correction, *Nature* 650:E1 (2026): 36 confirmed of 57 eligible targets, 4 inconclusive, and one compound removed. Independent critique found that many "novel" targets were known disordered phases; the correction and critique are distinct records.
+[^4]: Lupine environment error field: blind prediction r = 0.906 (p = 10⁻⁴, 95% CI [0.82, 0.96]) across 36 (model, material) combinations; machine-generated build-locked Lean 4 theorem inventory. See *Lupine Science Strategic Discovery Plan*, Section 3.
 [^5]: IDA Global Desalination Inventory; UNESCO / UN Water scarcity estimates.
 [^6]: WHO, *State of Global Air*; EPA and EEA NOx inventories.
 [^7]: IPCC AR6 and Global Carbon Project methane budgets; UNEP Global Methane Assessment.

@@ -72,10 +72,10 @@ Concrete is the world’s most-used manufactured material, and its binder — or
 - **Data points to show:**
   - uMLIP speedup vs. DFT: ~10⁵× [^3]
   - Correction runtime overhead: 15.6% (Python), target <1% (compiled LAMMPS overlay) [^3]
-  - Build-locked Lean 4 theorems: 77, zero `sorry` proofs [^3]
+  - Machine-generated Lean 4 theorem inventory, zero `sorry` proofs [^3]
 - **Suggested form:** Circular loop diagram: anchor observables → error field → analytic correction → molecular dynamics/screening → verification theorem → claim boundary.
 - **Generation:** matplotlib/SVG
-- **Caption:** Lupine measures the error field, applies an analytic correction at nearly uMLIP speed, and proves which predictions are supported by 77 build-locked theorems. *Source: Lupine Science, Strategic Discovery Plan.*
+- **Caption:** Lupine measures the error field, applies an analytic correction at nearly uMLIP speed, and proves which predictions are supported by the machine-generated theorem inventory. *Source: Lupine Science, Strategic Discovery Plan.*
 
 ### 06 — Three Routes to Lower-CO₂ Cement
 - **Filename:** `cement-concrete-and-the-weight-of-the-built-world-06-three-routes.jpg`
