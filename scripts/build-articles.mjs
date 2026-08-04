@@ -12,12 +12,23 @@ import { fileURLToPath } from 'node:url';
 import MarkdownIt from 'markdown-it';
 import footnote from 'markdown-it-footnote';
 import katexPlugin from 'markdown-it-katex';
+import { readProofPackMetadata } from './lib/proof-pack-metadata.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = path.join(ROOT, 'articles');
 const OUT = path.join(ROOT, 'public', 'articles');
 const PUBLIC_ROOT = path.join(ROOT, 'public');
 const SITE = 'https://lupine.science';
+const LEAN_COUNT_PATH = path.join(PUBLIC_ROOT, 'data', 'lean_count.json');
+const LEAN_COUNT = JSON.parse(fs.readFileSync(LEAN_COUNT_PATH, 'utf8')).count;
+
+if (!Number.isSafeInteger(LEAN_COUNT) || LEAN_COUNT < 1) {
+  throw new Error(`Invalid machine-generated theorem count in ${LEAN_COUNT_PATH}`);
+}
+
+function hydrateGeneratedFacts(value) {
+  return value.replaceAll('{{LEAN_THEOREM_COUNT}}', String(LEAN_COUNT));
+}
 
 const KATEX_SRC = path.join(ROOT, 'node_modules', 'katex', 'dist');
 const KATEX_OUT = path.join(PUBLIC_ROOT, 'katex');
@@ -26,10 +37,13 @@ const KATEX_OUT = path.join(PUBLIC_ROOT, 'katex');
 // and any edge cache that keyed on the bare URL to fetch a fresh copy.
 // v=3: BRAND-1 campaign replaced heroes on 11 articles + homepage (PR #29).
 const ASSET_CACHE_BUST = '?v=3';
+const ARTICLE_ASSET_CACHE_BUST = new Map([
+  ['shared-dft-anchors', '?v=4'],
+]);
 
-function bust(url) {
+function bust(url, slug) {
   if (!url || url.includes('?') || url.includes('#')) return url;
-  return `${url}${ASSET_CACHE_BUST}`;
+  return `${url}${ARTICLE_ASSET_CACHE_BUST.get(slug) || ASSET_CACHE_BUST}`;
 }
 
 // Append the cache-bust query to local image URLs inside rendered Markdown.
@@ -40,7 +54,7 @@ function bustInlineImages(html, slug) {
     if (!u) return u;
     const trimmed = u.trim();
     if (trimmed.startsWith('images/') || trimmed.startsWith(`/articles/${slug}/`) || trimmed.startsWith(`${SITE}/articles/${slug}/`)) {
-      return bust(trimmed);
+      return bust(trimmed, slug);
     }
     return trimmed;
   };
@@ -110,11 +124,13 @@ const HERO_CAPTIONS = {
   'the-trust-layer':
     'A load-bearing civic bridge whose hidden indigo layer is made of measurement, evidence, and verification modules: trust as literal infrastructure.',
   'rhizo-non-co2-climate-forcers-lean':
-    'The Lupine Rhizo build status: 289 theorems, zero sorry, with non-CO₂ climate forcers now machine-checked in Lean 4.',
+    'The Lupine Rhizo build status: machine-counted theorems, zero sorry, with non-CO₂ climate forcers now machine-checked in Lean 4.',
   'lupi-hfc-refrigerant-research-payloads':
     'A physical refrigeration loop — compressor, heat exchanger, and sealed refrigerant circuit — with indigo measurement traces and no readable interface text.',
   'the-savings-stack':
     'Many pale compute lanes converging into a compact shared evaluation backbone that feeds several materials programs: reuse instead of brute force.',
+  'shared-dft-anchors':
+    'The locked Z1 evaluation-count comparison: 558 projected separate-model anchors and 154 projected shared-union anchors, labeled 72.4% fewer DFT evaluations.',
   'z1-union-debrief':
     'A row of solid-electrolyte coupons mounted in identical diffusion rigs, with a sparse set of shared reference pins anchoring the barrier comparison across the whole panel.',
   'an-order-of-effort':
@@ -177,6 +193,7 @@ function extractMeta(raw) {
     ['ogImage', 'OG Image'],
     ['ogUrl', 'OG URL'],
     ['ogType', 'OG Type'],
+    ['proofPack', 'Proof Pack'],
   ]) {
     const m = raw.match(new RegExp(`^> \\\*\\*${name}:\\\*\\*\\s*(.+?)\\s*$`, 'm'));
     if (m) meta[key] = m[1];
@@ -254,7 +271,7 @@ function heroFigure(slug) {
   const caption = HERO_CAPTIONS[slug] || '';
   if (hasMp4 && hasJpg) {
     return `<figure class="article-hero"${caption ? ' aria-labelledby="hero-caption"' : ''}>
-  <video preload="none" loop muted playsinline poster="${bust(`/articles/${slug}/hero.jpg`)}" width="1280" height="720" data-autoplay aria-label="${esc(caption || 'Article film')}">
+  <video preload="none" loop muted playsinline poster="${bust(`/articles/${slug}/hero.jpg`, slug)}" width="1280" height="720" data-autoplay aria-label="${esc(caption || 'Article film')}">
     <source src="/articles/${slug}/hero.mp4" type="video/mp4">
   </video>
 ${caption ? `  <figcaption id="hero-caption">${caption}</figcaption>\n` : ''}</figure>`;
@@ -288,7 +305,7 @@ function pictureSources(slug, base, { eager = false } = {}) {
   const webp = fs.existsSync(path.join(dir, `${base}.webp`));
   const loading = eager ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"';
   return `<picture>
-${avif ? `    <source srcset="${bust(`/articles/${slug}/${base}.avif`)}" type="image/avif">\n` : ''}${webp ? `    <source srcset="${bust(`/articles/${slug}/${base}.webp`)}" type="image/webp">\n` : ''}    <img src="${bust(`/articles/${slug}/${base}.jpg`)}" alt="" width="1280" height="720" ${loading} decoding="async">
+${avif ? `    <source srcset="${bust(`/articles/${slug}/${base}.avif`, slug)}" type="image/avif">\n` : ''}${webp ? `    <source srcset="${bust(`/articles/${slug}/${base}.webp`, slug)}" type="image/webp">\n` : ''}    <img src="${bust(`/articles/${slug}/${base}.jpg`, slug)}" alt="" width="1280" height="720" ${loading} decoding="async">
   </picture>`;
 }
 
@@ -390,7 +407,31 @@ ${items}
 </div>`;
 }
 
-function buildArticle(raw, slug) {
+async function proofDownloadCard(meta, slug, title) {
+  if (!meta.proofPack) return '';
+  const expectedHref = `/proof-packs/${slug}.proofpack.pdf`;
+  if (meta.proofPack !== expectedHref) {
+    throw new Error(`Proof Pack for ${slug} must be ${expectedHref}`);
+  }
+  const pdfPath = path.join(PUBLIC_ROOT, meta.proofPack.slice(1));
+  if (!fs.existsSync(pdfPath)) throw new Error(`Proof Pack for ${slug} does not exist: ${meta.proofPack}`);
+  const { pageCount, size, updatedDate } = await readProofPackMetadata(pdfPath);
+  const updated = formatDate(updatedDate);
+  const headingId = `proof-download-title-${slug}`;
+  return `<aside class="proof-download" aria-labelledby="${headingId}">
+  <div>
+    <p class="eyebrow">Evidence proof pack</p>
+    <h2 id="${headingId}">Download the evidence behind this article</h2>
+    <p class="description">Locked figure, method, boundaries, bibliography, and audit links in one publication-ready document.</p>
+    <p class="metadata">PDF · ${pageCount} ${pageCount === 1 ? 'page' : 'pages'} · ${size} · updated ${updated}</p>
+  </div>
+  <a class="proof-download__action" href="${esc(meta.proofPack)}" download aria-label="Download PDF for ${esc(title)}">Download PDF</a>
+  <span class="proof-download__print-url">${esc(`${SITE}${meta.proofPack}`)}</span>
+</aside>`;
+}
+
+async function buildArticle(raw, slug) {
+  raw = hydrateGeneratedFacts(raw);
   let body = md.render(raw);
   body = wrapInlineFigures(body);
   body = bustInlineImages(body, slug);
@@ -429,8 +470,9 @@ function buildArticle(raw, slug) {
   }
   const hero = heroFigure(slug);
   const video = inlineVideoPlayer(slug, title);
-  if (headerParts.length || hero || video) {
-    const inserted = [...headerParts, hero, video].filter(Boolean).join('\n');
+  const proofDownload = await proofDownloadCard(meta, slug, title);
+  if (headerParts.length || proofDownload || hero || video) {
+    const inserted = [...headerParts, proofDownload, hero, video].filter(Boolean).join('\n');
     body = body.replace('</h1>', `</h1>\n${inserted}`);
   }
 
@@ -471,7 +513,7 @@ function buildArticle(raw, slug) {
   const socialTitle = meta.ogTitle || `${title} — Lupine Science`;
   const socialDescription = meta.ogDescription || description;
   const socialUrl = absoluteSiteUrl(meta.ogUrl) || url;
-  const socialImage = bust(absoluteSiteUrl(meta.ogImage) || videoPoster || ogImage);
+  const socialImage = bust(absoluteSiteUrl(meta.ogImage) || videoPoster || ogImage, slug);
   const socialType = meta.ogType || (videoUrl ? 'video.other' : 'article');
 
   const articleJsonLd = {
@@ -482,7 +524,7 @@ function buildArticle(raw, slug) {
     datePublished: meta.date || undefined,
     url,
     mainEntityOfPage: url,
-    image: hasJpg ? bust(`${SITE}/articles/${slug}/hero.jpg`) : ogImage,
+    image: hasJpg ? bust(`${SITE}/articles/${slug}/hero.jpg`, slug) : ogImage,
     author: { '@type': 'Organization', name: 'Lupine Science', url: SITE },
     publisher: { '@type': 'Organization', name: 'Lupine Science', url: SITE, logo: { '@type': 'ImageObject', url: bust(`${SITE}/lupine-science-icon.png`) } },
   };
@@ -613,7 +655,7 @@ function writeAtomic(file, contents) {
 for (const file of sources) {
   const slug = file.replace(/\.md$/, '');
   const raw = fs.readFileSync(path.join(SRC, file), 'utf8');
-  const built = buildArticle(raw, slug);
+  const built = await buildArticle(raw, slug);
   fs.mkdirSync(path.join(OUT, slug), { recursive: true });
   writeAtomic(path.join(OUT, slug, 'index.html'), built.page);
   articles.push(built);

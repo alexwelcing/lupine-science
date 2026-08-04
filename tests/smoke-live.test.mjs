@@ -6,6 +6,7 @@ import { resolveBaseUrls, runSmokeSuite } from '../scripts/smoke-live.mjs';
 import { normalizeExtractedText } from '../scripts/lib/live-smoke-suite.mjs';
 
 let baseUrl;
+let externalBaseUrl;
 let server;
 
 const page = ({ path = '/', body = '', links = '' } = {}) => `<!doctype html>
@@ -27,7 +28,8 @@ before(async () => {
       response.end(request.method === 'HEAD' ? '' : body);
     };
 
-    if (request.url === '/share.jpg') return send(200, 'image/jpeg', 'image');
+    if (request.url?.startsWith('/share.jpg')) return send(200, 'image/jpeg', 'image');
+    if (request.url === '/sitemap.xml') return send(200, 'application/xml', '<urlset></urlset>');
     if (request.url === '/film.mp4') return send(200, 'video/mp4', 'video');
     if (request.url === '/paper.pdf') return send(200, 'application/pdf', 'pdf');
     if (request.url === '/missing.mp4') return send(404, 'text/plain', 'missing');
@@ -60,12 +62,61 @@ before(async () => {
         <link rel="canonical" href="${baseUrl}/missing-canonical-page/">
       </head><body></body></html>`);
     }
+    if (request.url === '/canonical-share/') {
+      return send(200, 'text/html', `<!doctype html><html><head>
+        <title>Canonical share</title>
+        <meta name="description" content="Smoke fixture">
+        <meta property="og:title" content="Canonical share">
+        <meta property="og:description" content="Smoke fixture">
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="https://example.test/canonical-share/">
+        <meta property="og:image" content="https://example.test/share.jpg?v=3">
+        <link rel="canonical" href="https://example.test/canonical-share/">
+      </head><body><h1>Canonical share</h1></body></html>`);
+    }
+    if (request.url === '/relative-og-image/') {
+      return send(200, 'text/html', `<!doctype html><html><head>
+        <title>Relative image</title>
+        <meta name="description" content="Smoke fixture">
+        <meta property="og:title" content="Relative image">
+        <meta property="og:description" content="Smoke fixture">
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="${baseUrl}/relative-og-image/">
+        <meta property="og:image" content="/share.jpg">
+        <link rel="canonical" href="${baseUrl}/relative-og-image/">
+      </head><body><h1>Relative image</h1></body></html>`);
+    }
+    if (request.url === '/malformed-og-image/') {
+      return send(200, 'text/html', `<!doctype html><html><head>
+        <title>Malformed image</title>
+        <meta name="description" content="Smoke fixture">
+        <meta property="og:title" content="Malformed image">
+        <meta property="og:description" content="Smoke fixture">
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="${baseUrl}/malformed-og-image/">
+        <meta property="og:image" content="https://[">
+        <link rel="canonical" href="${baseUrl}/malformed-og-image/">
+      </head><body><h1>Malformed image</h1></body></html>`);
+    }
+    if (request.url === '/external-share/') {
+      return send(200, 'text/html', `<!doctype html><html><head>
+        <title>External share</title>
+        <meta name="description" content="Smoke fixture">
+        <meta property="og:title" content="External share">
+        <meta property="og:description" content="Smoke fixture">
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="https://example.test/external-share/">
+        <meta property="og:image" content="${externalBaseUrl}/share.jpg?v=4">
+        <link rel="canonical" href="https://example.test/external-share/">
+      </head><body><h1>External share</h1></body></html>`);
+    }
     return send(404, 'text/plain', 'missing');
   });
 
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   const address = server.address();
   baseUrl = `http://127.0.0.1:${address.port}`;
+  externalBaseUrl = `http://localhost:${address.port}`;
 });
 
 after(async () => {
@@ -185,4 +236,68 @@ test('runSmokeSuite resolves canonical and Open Graph share URLs', async () => {
   assert.ok(checkIds.includes('meta:/broken-share-urls/:canonical'));
   assert.ok(checkIds.includes('meta:/broken-share-urls/:ogUrl'));
   assert.ok(checkIds.includes('asset:http://127.0.0.1:' + new URL(baseUrl).port + '/missing-share.jpg:http'));
+});
+
+test('runSmokeSuite checks canonical-origin OG images on the preview target', async () => {
+  const result = await runSmokeSuite({
+    baseUrl,
+    expectations: {
+      canonicalOrigin: 'https://example.test',
+      routes: [{ path: '/canonical-share/', marker: 'Canonical share', sitemap: false }]
+    },
+    attempts: 1,
+    delayMs: 0,
+    timeoutMs: 1_000
+  });
+
+  assert.equal(result.failures.length, 0, result.failures.map(failure => failure.message).join('\n'));
+  assert.ok(result.assetsChecked.includes(`${baseUrl}/share.jpg?v=3`));
+  assert.equal(result.assetsChecked.includes('https://example.test/share.jpg?v=3'), false);
+});
+
+test('runSmokeSuite reports a relative OG image without aborting the smoke report', async () => {
+  const result = await runSmokeSuite({
+    baseUrl,
+    paths: ['/relative-og-image/'],
+    attempts: 1,
+    delayMs: 0,
+    timeoutMs: 1_000
+  });
+
+  assert.deepEqual(result.failures.map(failure => failure.checkId), [
+    'meta:/relative-og-image/:ogImage'
+  ]);
+  assert.equal(result.outcome, 'content_failure');
+});
+
+test('runSmokeSuite reports a malformed absolute OG image without skipping it', async () => {
+  const result = await runSmokeSuite({
+    baseUrl,
+    paths: ['/malformed-og-image/'],
+    attempts: 1,
+    delayMs: 0,
+    timeoutMs: 1_000
+  });
+
+  assert.deepEqual(result.failures.map(failure => failure.checkId), [
+    'meta:/malformed-og-image/:ogImage'
+  ]);
+  assert.equal(result.outcome, 'content_failure');
+});
+
+test('runSmokeSuite leaves external OG images on their declared origin', async () => {
+  const result = await runSmokeSuite({
+    baseUrl,
+    expectations: {
+      canonicalOrigin: 'https://example.test',
+      routes: [{ path: '/external-share/', marker: 'External share', sitemap: false }]
+    },
+    attempts: 1,
+    delayMs: 0,
+    timeoutMs: 1_000
+  });
+
+  assert.equal(result.failures.length, 0, result.failures.map(failure => failure.message).join('\n'));
+  assert.ok(result.assetsChecked.includes(`${externalBaseUrl}/share.jpg?v=4`));
+  assert.equal(result.assetsChecked.includes(`${baseUrl}/share.jpg?v=4`), false);
 });

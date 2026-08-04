@@ -144,6 +144,25 @@ function expectedAssetType(kind) {
   return MEDIA_TYPES[kind] || '';
 }
 
+function isAbsoluteHttpUrl(rawUrl) {
+  try {
+    return ['http:', 'https:'].includes(new URL(rawUrl).protocol);
+  } catch {
+    return false;
+  }
+}
+
+function assetUrlForTarget(rawUrl, canonicalOrigin, target) {
+  try {
+    const assetUrl = new URL(rawUrl);
+    const canonical = new URL(canonicalOrigin);
+    if (assetUrl.origin !== canonical.origin) return assetUrl.toString();
+    return new URL(`${assetUrl.pathname}${assetUrl.search}${assetUrl.hash}`, `${target}/`).toString();
+  } catch {
+    return null;
+  }
+}
+
 function validateMetadata(checks, { html, pageUrl, route, canonicalOrigin, target }) {
   const title = normalize(html.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '');
   const values = {
@@ -170,7 +189,7 @@ function validateMetadata(checks, { html, pageUrl, route, canonicalOrigin, targe
   for (const [name, expected] of required) {
     let ok = Boolean(values[name]);
     if (name === 'ogUrl' || name === 'canonical') ok = values[name] === expectedCanonical;
-    if (name === 'ogImage') ok = /^https?:\/\//.test(values[name]);
+    if (name === 'ogImage') ok = isAbsoluteHttpUrl(values[name]);
     addCheck(checks, {
       id: `meta:${route.path}:${name}`,
       category: 'metadata', target, url: pageUrl, ok, expected,
@@ -273,7 +292,10 @@ export async function runSmokeSuite({
       message: `expected content marker is missing: ${JSON.stringify(route.marker)}`,
     });
     const metadata = validateMetadata(checks, { html: result.body, pageUrl, route, canonicalOrigin, target });
-    if (metadata.ogImage) assets.set(metadata.ogImage, { kind: 'image', source: pageUrl });
+    if (metadata.ogImage) {
+      const ogImageUrl = assetUrlForTarget(metadata.ogImage, canonicalOrigin, target);
+      if (ogImageUrl) assets.set(ogImageUrl, { kind: 'image', source: pageUrl });
+    }
     for (const resource of extractResources(pageUrl, result.body)) {
       if (!assets.has(resource.url)) assets.set(resource.url, { ...resource, source: pageUrl });
     }

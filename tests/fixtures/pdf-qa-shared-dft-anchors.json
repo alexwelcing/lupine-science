@@ -1,0 +1,21 @@
+{
+  "minimumPages": 5,
+  "pageSize": "612 x 792 pts (letter)",
+  "requiredText": [
+    "72.4% fewer DFT evaluations",
+    "Four model-specific anchor sets, counted",
+    "Within-path union of identical image indices",
+    "Independent editorial and claim review",
+    "CO₂ · CH₄ · GtCO₂/year · en dash – · em dash — · “curly quotes” · α β γ Δ μ σ ∑ ∂ ≈ ≤ ≥ ± × · José García · Zoë Šimůnková · François L’Écuyer"
+  ],
+  "forbiddenText": [
+    "430",
+    "129",
+    "70.0%",
+    "$14.65",
+    "$4.65",
+    "3.62",
+    "624 naive",
+    "79% fewer"
+  ]
+}

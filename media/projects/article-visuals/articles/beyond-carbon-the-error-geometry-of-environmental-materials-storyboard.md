@@ -57,10 +57,10 @@ The article argues that the failure of computational materials discovery in clim
   - Pearson r = 0.906, p = 10⁻⁴, 95% CI [0.82, 0.96], across 36 (model, material) combinations, zero adjustable parameters [^1].
   - Runtime overhead = 15.6% in Python; expected <1% in a compiled LAMMPS overlay [^1].
   - Corrected uMLIPs remain ~10⁵× faster than DFT [^1].
-  - 77 build-locked Lean 4 theorems, zero sorry proofs [^1].
+  - Machine-generated Lean 4 theorem inventory, zero sorry proofs [^1].
 - **Suggested form:** Side-by-side panel: scatter plot of predicted vs observed error, three metric cards, and a proof-badge tile.
 - **Generation:** matplotlib
-- **Caption:** Across 36 blind model–material pairs the error field predicts corrections with r = 0.906, while a build-locked library of 77 Lean 4 theorems bounds what can be believed [^1].
+- **Caption:** Across 36 blind model–material pairs the error field predicts corrections with r = 0.906, while the machine-generated Lean 4 theorem inventory bounds what can be believed [^1].
 
 ### 5. `05-correction-verification-layer`
 - **Title:** Runtime Correction with Proof Boundaries
@@ -131,7 +131,7 @@ The article argues that the failure of computational materials discovery in clim
 - **Data points to show:**
   - Step 1 — Measure: error field defined over local coordination, CN = 12 = 0, spline interpolation [^1].
   - Step 2 — Correct: analytic forces added to uMLIP gradients at runtime [^1].
-  - Step 3 — Prove: 77 build-locked Lean 4 theorems, zero sorry proofs [^1].
+  - Step 3 — Prove: machine-generated Lean 4 theorem inventory, zero sorry proofs [^1].
   - Apply to water, air, methane, refrigerants, critical minerals, PFAS, and cement.
 - **Suggested form:** Narrative roadmap scene: an ascending path or laboratory montage moving from raw error to verified prediction.
 - **Generation:** MiniMax image client

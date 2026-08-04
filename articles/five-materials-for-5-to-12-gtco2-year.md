@@ -106,7 +106,7 @@ The response is not to train a bigger model. It is to measure the systematic err
 ![Blind Prediction of Surface Energies Across 36 Model–Material Pairs](images/five-materials-for-5-to-12-gtco2-year-04-blind-prediction-accuracy.jpg)
 *Across 36 model–material combinations, the environment error field predicts never-fitted surface energies with Pearson r = 0.906 and zero adjustable parameters.*
 
-Runtime correction adds modest overhead in the current Python implementation and will drop below **1%** in a compiled LAMMPS overlay. **190 build-locked Lean 4 theorems with zero sorry proofs** provide guarantees that statistical validation cannot match. Where correction fails, the platform proves impossibility rather than reporting a p-value, preventing experimental resources from being spent on computationally unsupported candidates.
+Runtime correction adds modest overhead in the current Python implementation and will drop below **1%** in a compiled LAMMPS overlay. **{{LEAN_THEOREM_COUNT}} build-locked Lean 4 theorems with zero sorry proofs** provide guarantees that statistical validation cannot match. Where correction fails, the platform proves impossibility rather than reporting a p-value, preventing experimental resources from being spent on computationally unsupported candidates.
 
 ![How a 100 meV Correction Translates to Gigatonne Impact](images/five-materials-for-5-to-12-gtco2-year-06-impact-funnel.jpg)
 *A sub-0.1 eV correction at the atomic scale propagates into orders-of-magnitude device improvements and gigatonne-scale climate impact.*

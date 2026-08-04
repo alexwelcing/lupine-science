@@ -33,7 +33,8 @@ SOFT_SAGE = '#c8dccf'
 MUTED = '#aaaaaa'
 
 SLUG = 'water-and-air-correcting-the-molecules-we-drink-and-breathe'
-OUT_DIR = Path(f'/home/alex/Dev/lupine/lupine-science/public/articles/{SLUG}/images')
+REPO_ROOT = Path(__file__).resolve().parents[3]
+OUT_DIR = REPO_ROOT / 'public/articles' / SLUG / 'images'
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 DPI = 150
@@ -546,7 +547,7 @@ def make_08():
     ax.text(0, 0, 'LOCK', ha='center', va='center', fontsize=8,
             fontweight='bold', color=PRIMARY)
 
-    ax.text(0, -1.05, '77 build-locked Lean 4 theorems • zero sorry proofs',
+    ax.text(0, -1.05, 'Machine-generated Lean 4 theorem inventory • zero sorry proofs',
             ha='center', va='center', fontsize=11, fontweight='bold', color=SAGE)
 
     add_title(fig, 'From Peer-Reviewed Anchors to Machine-Checked Proofs')
@@ -646,7 +647,7 @@ MANIFEST = [
         "filename": f"{SLUG}-08-proof-ecosystem.jpg",
         "title": "From Peer-Reviewed Anchors to Machine-Checked Proofs",
         "type": "concept-diagram",
-        "caption": "The correction layer is backed by peer-reviewed anchors and 77 build-locked Lean 4 theorems, so claims that fall outside the measured domain are flagged as bounded uncertainty rather than sold as prediction."
+        "caption": "The correction layer is backed by peer-reviewed anchors and the machine-generated Lean 4 theorem inventory, so claims that fall outside the measured domain are flagged as bounded uncertainty rather than sold as prediction."
     },
     {
         "filename": f"{SLUG}-09-speed-moat.jpg",

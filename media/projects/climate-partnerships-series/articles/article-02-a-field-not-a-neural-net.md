@@ -34,7 +34,7 @@ Body: Additive correction with analytic forces; LAMMPS overlay compatibility; 15
 
 ## Machine-checked proof
 
-Body: 77 build-locked Lean 4 theorems, zero sorry proofs; the kernel-rejected claim vignette; impossibility proofs as actionable boundary information.
+Body: machine-generated Lean 4 theorem inventory, zero sorry proofs; the kernel-rejected claim vignette; impossibility proofs as actionable boundary information.
 
 ## The six-step loop
 

@@ -11,7 +11,10 @@ dist/
 *.log
 .lighthouseci/
 public/.proofpack-render/
-public/proof-packs/
+public/proof-packs/*
+!public/proof-packs/shared-dft-anchors.proofpack.pdf
+!public/proof-packs/shared-dft-anchors.proofpack.json
+artifacts/
 .keys/
 media/projects/article-videos/
 media/projects/video-motion/renders/

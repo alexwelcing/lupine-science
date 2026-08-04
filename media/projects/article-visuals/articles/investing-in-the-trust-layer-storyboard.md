@@ -20,8 +20,8 @@ Computational materials discovery now generates candidates at machine speed—mi
   - 380,000 computed-stable structures reported by GNoME [^1]
   - 736 independently synthesized by late 2023 [^1]
   - 0.2% validation rate [^1]
-  - A-Lab experimental success rate: 63% [^2]
-  - Estimated true novel-discovery rate for A-Lab: near zero [^2]
+  - A-Lab Author Correction: 36 confirmed of 57 eligible targets, 4 inconclusive, one removed [^2]
+  - Independent novelty critique shown as a separate evidence track [^2]
 - **Suggested form:** Funnel / stacked-bar drop-off (matplotlib).
 - **Generation method:** matplotlib
 - **Caption:** GNoME proposed 2.2 million candidate crystals, but only 736 had been independently synthesized by late 2023—a 0.2% validation rate that exposes the trust bottleneck in computational materials discovery.[^1]
@@ -37,7 +37,7 @@ Computational materials discovery now generates candidates at machine speed—mi
 - **Data points to show:**
   - Generation stage: GNoME 2.2M candidates; MatterGen limited to modest unit cells and excludes disorder / compositional complexity [^1][^4]
   - Prediction stage: uMLIPs run at ~10⁻⁴ seconds per atom-step; defect-family observables (surfaces, vacancies, stacking faults) err 15–60× worse than bulk observables [^5]
-  - Synthesis stage: 0.2%–63% success pattern; queue filtered by intuition and compute rather than by proof
+  - Synthesis stage: 36 of 57 eligible targets confirmed in the 2026 A-Lab Author Correction; queue filtered by intuition and compute rather than by proof
   - Validation stage: low validated throughput; false positives waste weeks, false negatives bury viable candidates
 - **Suggested form:** Sankey or left-to-right process diagram with error annotations (matplotlib/SVG).
 - **Generation method:** matplotlib
