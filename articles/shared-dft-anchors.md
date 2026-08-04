@@ -6,17 +6,13 @@
 > **Summary:** Under the preregistered sparse-anchor rule, the locked Z1 records require 558 projected DFT evaluations when four model-specific anchor sets are counted separately and 154 when duplicate image indices are shared: 72.4% fewer DFT evaluations.
 > **Status:** Published
 > **OG Image:** /articles/shared-dft-anchors/hero.jpg
+> **Proof Pack:** /proof-packs/shared-dft-anchors.proofpack.pdf
 
 <div class="callout claim">
   <strong>Claim.</strong> On the locked Z1 panel’s 29 analyzable paths, sharing identical sparse-anchor image indices across four universal interatomic-potential guides reduces the projected DFT evaluation count from 558 to 154: 72.4% fewer DFT evaluations.
 </div>
 
 <p class="lead">Reference calculations are the scarce part of many atomistic workflows. This proof pack asks a narrow accounting question: if four models nominate sparse images on the same paths, how many distinct reference evaluations remain after identical image indices are evaluated once and shared?</p>
-
-<div class="cta">
-  <p><strong>Evidence proof pack:</strong> publication PDF with the locked figure, method, boundaries, bibliography, and audit links.</p>
-  <a href="/proof-packs/shared-dft-anchors.proofpack.pdf" download>Download the arXiv-ready PDF →</a>
-</div>
 
 ## Abstract
 

@@ -6,10 +6,13 @@ import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
 import { inspectPdf } from '../scripts/check-pdf.mjs';
+import { readProofPackMetadata } from '../scripts/lib/proof-pack-metadata.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SLUG = 'shared-dft-anchors';
 const ARTICLE = path.join(ROOT, 'articles', `${SLUG}.md`);
+const PAGE = path.join(ROOT, 'public', 'articles', SLUG, 'index.html');
+const ARTICLE_STYLES = path.join(ROOT, 'public', 'articles', 'styles.css');
 const MANIFEST = path.join(ROOT, 'public', 'articles', SLUG, `${SLUG}.proofpack.json`);
 const PDF = path.join(ROOT, 'public', 'proof-packs', `${SLUG}.proofpack.pdf`);
 const EXPECTATIONS = path.join(ROOT, 'tests', 'fixtures', 'pdf-qa-shared-dft-anchors.json');
@@ -20,6 +23,8 @@ function sha256(filename) {
 
 test('shared-anchor proof pack locks the approved claim without campaign conflation', async () => {
   const article = fs.readFileSync(ARTICLE, 'utf8');
+  const page = fs.readFileSync(PAGE, 'utf8');
+  const styles = fs.readFileSync(ARTICLE_STYLES, 'utf8');
   const manifest = JSON.parse(fs.readFileSync(MANIFEST, 'utf8'));
   const approvedClaim = '72.4% fewer DFT evaluations';
 
@@ -27,6 +32,13 @@ test('shared-anchor proof pack locks the approved claim without campaign conflat
   assert.equal(manifest.metadata.status, 'published');
   assert.equal(manifest.summary.claim.includes(approvedClaim), true);
   assert.match(manifest.credits.editorialReview, /completed; approved for publication 2026-08-03/i);
+  assert.match(page, /<aside class="proof-download" aria-labelledby="proof-download-title-shared-dft-anchors">/);
+  const pdfMetadata = await readProofPackMetadata(PDF);
+  assert.ok(page.includes(`PDF · ${pdfMetadata.pageCount} pages · ${pdfMetadata.size} · updated August 3, 2026`));
+  assert.match(page, /href="\/proof-packs\/shared-dft-anchors\.proofpack\.pdf" download/);
+  assert.ok(page.indexOf('class="proof-download"') < page.indexOf('class="article-hero"'), 'proof download must precede hero');
+  assert.match(styles, /@media print[\s\S]*\.article \.proof-download__action \{ display: none; \}/);
+  assert.match(styles, /@media print[\s\S]*\.proof-download__print-url \{ display: block;/);
 
   const forbidden = ['430', '129', '70.0%', '$14.65', '$4.65', '3.62', '624 naive', '79% fewer'];
   for (const marker of forbidden) {
