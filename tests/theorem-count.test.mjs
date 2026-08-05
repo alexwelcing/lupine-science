@@ -15,6 +15,10 @@ const NARRATIVE_ROOTS = [
 const NARRATIVE_FILES = [
   path.join(ROOT, 'public', 'articles', 'from-predicted-crystal-to-commercial-cell', 'images', 'manifest.json'),
 ];
+const STATIC_COUNT_SURFACES = [
+  path.join(ROOT, 'public', 'brand-assets', 'deck-dark-sample.html'),
+  path.join(ROOT, 'public', 'presentations', 'climate-investor-value', 'index.html'),
+];
 const inventory = JSON.parse(fs.readFileSync(path.join(ROOT, 'public', 'data', 'lean_count.json'), 'utf8'));
 
 function narrativeFiles(root) {
@@ -28,11 +32,25 @@ function narrativeFiles(root) {
 test('narrative theorem counts come from the generated Lean inventory', () => {
   assert.ok(Number.isSafeInteger(inventory.count) && inventory.count > 0);
   for (const file of [...NARRATIVE_ROOTS.flatMap(narrativeFiles), ...NARRATIVE_FILES]) {
-    const source = fs.readFileSync(file, 'utf8');
+    const source = fs.readFileSync(file, 'utf8').replaceAll(
+      `<strong data-lean-count>${inventory.count}</strong>`,
+      '<strong data-lean-count>generated</strong>',
+    );
     assert.doesNotMatch(
       source,
       /(?<!Lean )\b(?:\d+\+?|(?:seventy[ -]seven))\s+(?:build-locked\s+)?(?:Lean\s+4\s+)?theorems?\b/i,
       `${path.relative(ROOT, file)} contains a hand-typed theorem count`,
+    );
+  }
+});
+
+test('static theorem-count surfaces keep a generated numeric fallback', () => {
+  for (const file of STATIC_COUNT_SURFACES) {
+    const source = fs.readFileSync(file, 'utf8');
+    assert.match(
+      source,
+      new RegExp(`<strong data-lean-count>${inventory.count}</strong>`),
+      `${path.relative(ROOT, file)} does not contain the generated theorem count`,
     );
   }
 });
