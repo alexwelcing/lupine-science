@@ -1,5 +1,5 @@
 // Generates public/data/lean_count.json — the single source of truth for the
-// "build-locked theorems" figure shown on the homepage ledger panel.
+// "build-locked theorems" figure shown on public surfaces.
 //
 // COUNTING RULE (do not change silently — the homepage cites this number):
 //   count = lines matching /^(theorem|lemma)\s/ (top-level declarations only,
@@ -16,18 +16,19 @@
 // REGENERATE with:
 //   node scripts/generate-lean-count.mjs [path-to-lean-spec]
 //   (default path: ../lupine-rhizo/lean-spec relative to this repository)
-// then commit the updated public/data/lean_count.json. Never hand-edit the JSON.
+// then commit the updated inventory and static fallback surfaces. Never hand-edit
+// the generated count in any of those files.
 
 import fs from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { hydrateLeanCount } from './hydrate-lean-count.mjs';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const LEAN_SPEC = path.resolve(process.argv[2] ?? path.join(REPO_ROOT, '..', 'lupine-rhizo', 'lean-spec'));
 const OUT = path.join(REPO_ROOT, 'public', 'data', 'lean_count.json');
-const HOMEPAGE = path.join(REPO_ROOT, 'public', 'index.html');
 
 const DECL_RE = /^[ \t]*(?:@\[[^\n]*\][ \t]*)*(?:(?:private|protected|noncomputable|unsafe)[ \t]+)*(?:theorem|lemma)\b/gm;
 
@@ -163,15 +164,7 @@ const payload = {
 };
 
 fs.writeFileSync(OUT, `${JSON.stringify(payload, null, 2)}\n`);
-const homepage = fs.readFileSync(HOMEPAGE, 'utf8');
-const hydratedHomepage = homepage.replace(
-  /(<strong id="lean-count">)[^<]*(<\/strong>)/,
-  `$1${count}$2`,
-);
-if (hydratedHomepage === homepage && !homepage.includes(`<strong id="lean-count">${count}</strong>`)) {
-  throw new Error('homepage theorem-count fallback marker not found');
-}
-fs.writeFileSync(HOMEPAGE, hydratedHomepage);
+hydrateLeanCount(count);
 console.log(`generate-lean-count: ${count} declarations (sorry hits in proof code: ${sorryHits}) → ${path.relative(REPO_ROOT, OUT)}`);
 if (sorryHits > 0) {
   console.error('generate-lean-count: WARNING — sorry found in proof code; the homepage zero-sorry claim would be false.');
