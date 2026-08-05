@@ -11,7 +11,7 @@
     "build:posters": "node scripts/build-video-posters.mjs",
     "lint": "node scripts/lint.mjs",
     "typecheck": "node scripts/typecheck.mjs",
-    "test": "node --test \"tests/**/*.test.mjs\"",
+    "test": "node --test --test-concurrency=1 \"tests/**/*.test.mjs\"",
     "verify": "node scripts/check-static.mjs && node scripts/verify-article-images.mjs && node scripts/verify-motion-manifests.mjs && node scripts/perf-budget.mjs",
     "smoke": "node scripts/smoke-live.mjs",
     "proofpack": "node scripts/build-proofpack.mjs --consolidated",

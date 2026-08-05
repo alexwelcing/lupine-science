@@ -16,8 +16,10 @@ import { readProofPackMetadata } from './lib/proof-pack-metadata.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = path.join(ROOT, 'articles');
-const OUT = path.join(ROOT, 'public', 'articles');
-const PUBLIC_ROOT = path.join(ROOT, 'public');
+const PUBLIC_ROOT = process.env.LUPINE_BUILD_PUBLIC_ROOT
+  ? path.resolve(process.env.LUPINE_BUILD_PUBLIC_ROOT)
+  : path.join(ROOT, 'public');
+const OUT = path.join(PUBLIC_ROOT, 'articles');
 const SITE = 'https://lupine.science';
 const LEAN_COUNT_PATH = path.join(PUBLIC_ROOT, 'data', 'lean_count.json');
 const LEAN_COUNT = JSON.parse(fs.readFileSync(LEAN_COUNT_PATH, 'utf8')).count;
@@ -229,7 +231,7 @@ const VIDEO_KIND = new Map([
   ['z1-union-debrief', 'Brand film'],
 ]);
 
-function inlineVideoPlayer(slug, title) {
+function inlineVideoPlayer(slug, title, { detailLink = true } = {}) {
   const mp4Path = path.join(PUBLIC_ROOT, 'videos', `${slug}.mp4`);
   if (!fs.existsSync(mp4Path)) return '';
   const posterPath = path.join(PUBLIC_ROOT, 'videos', `${slug}-poster.jpg`);
@@ -249,7 +251,7 @@ function inlineVideoPlayer(slug, title) {
 ${captionsTrack}      <p>Your browser does not support the video tag. <a href="/videos/${slug}.mp4" download>Download the MP4</a>.</p>
     </video>
   </div>
-  <p class="video-player-meta"><a href="/videos/${slug}.mp4" download>Download MP4</a> · ${hasCaptions ? `<a href="/videos/${slug}.vtt">Captions</a>` : 'Captions pending'}</p>
+  <p class="video-player-meta">${detailLink ? `<a href="/videos/${slug}/">Video page</a> · ` : ''}<a href="/videos/${slug}.mp4" download>Download MP4</a> · ${hasCaptions ? `<a href="/videos/${slug}.vtt" download>Download captions</a>` : 'Captions pending'}</p>
 </figure>`;
 }
 
@@ -333,38 +335,39 @@ import { initAllShareWidgets } from "/components/share/share.mjs";
     }
   }
 })();
+initAllShareWidgets();
 </script>`;
 
-function head({ title, description, url, ogTitle = title, ogDescription = description, ogUrl = url, ogImage, ogType, jsonld, preloadImage, math, videoUrl }) {
+export function renderHead({ title, description, url, ogTitle = title, ogDescription = description, ogUrl = url, ogImage, ogType, jsonld, preloadImage, math, videoUrl }) {
   return `<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(description)}">
   <meta name="robots" content="index,follow">
-  <link rel="canonical" href="${url}">
+  <link rel="canonical" href="${esc(url)}">
   <meta property="og:title" content="${esc(ogTitle)}">
   <meta property="og:description" content="${esc(ogDescription)}">
   <meta property="og:type" content="${esc(ogType)}">
-  <meta property="og:url" content="${ogUrl}">
-  <meta property="og:image" content="${ogImage}">
+  <meta property="og:url" content="${esc(ogUrl)}">
+  <meta property="og:image" content="${esc(ogImage)}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${esc(ogTitle)}">
   <meta name="twitter:description" content="${esc(ogDescription)}">
-  <meta name="twitter:image" content="${ogImage}">
+  <meta name="twitter:image" content="${esc(ogImage)}">
   <meta name="theme-color" content="#faf9f6">
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
   <link rel="icon" type="image/png" href="/lupine-science-icon.png">
   <link rel="apple-touch-icon" href="/lupine-science-icon.png">
   <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
-${videoUrl ? `  <link rel="alternate" type="video/mp4" href="${videoUrl}">\n` : ''}${preloadImage ? `  <link rel="preload" href="${preloadImage}" as="image" fetchpriority="high">\n` : ''}${math ? '  <link rel="stylesheet" href="/katex/katex.min.css">\n' : ''}  <link rel="stylesheet" href="/articles/styles.css">
+${videoUrl ? `  <link rel="alternate" type="video/mp4" href="${esc(videoUrl)}">\n` : ''}${preloadImage ? `  <link rel="preload" href="${esc(preloadImage)}" as="image" fetchpriority="high">\n` : ''}${math ? '  <link rel="stylesheet" href="/katex/katex.min.css">\n' : ''}  <link rel="stylesheet" href="/articles/styles.css">
   <link rel="stylesheet" href="/components/share/share.css">
   <script type="application/ld+json">${JSON.stringify(jsonld)}</script>`;
 }
 
-function chrome(inner) {
+function chrome(inner, { current = 'articles' } = {}) {
   return `  <a class="skip" href="#content">Skip to content</a>
   <header class="site-header">
     <a class="mark" href="/" aria-label="Lupine Science">
@@ -373,7 +376,8 @@ function chrome(inner) {
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/">Home</a>
-      <a href="/articles/" aria-current="page">Articles</a>
+      <a href="/articles/"${current === 'articles' ? ' aria-current="page"' : ''}>Articles</a>
+      <a href="/videos/"${current === 'videos' ? ' aria-current="page"' : ''}>Videos</a>
       <a href="https://library.lupine.science">Library</a>
       <a href="https://lupi.live">LUPI</a>
     </nav>
@@ -386,8 +390,8 @@ ${inner}
   </footer>`;
 }
 
-function shareBar(slug, title) {
-  const url = `${SITE}/articles/${slug}/`;
+function shareBar(route, title) {
+  const url = new URL(route, SITE).href;
   const encodedUrl = encodeURIComponent(url).replace(/[!'()*]/g, (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`);
   const encodedTitle = encodeURIComponent(title).replace(/[!'()*]/g, (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`);
   const actions = [
@@ -398,7 +402,7 @@ function shareBar(slug, title) {
   const items = actions.map((a) =>
     `    <li><a class="share-link share-${a.slug}" href="${esc(a.href)}" aria-label="${esc(a.aria)}"${a.slug !== 'email' ? ' target="_blank" rel="noopener noreferrer"' : ''}>${esc(a.label)}</a></li>`
   ).join('\n');
-  return `<div class="share-root" data-url="${esc(url)}" data-title="${esc(title)}" role="group" aria-label="Share">
+  return `<div class="share-root" data-url="${esc(url)}" data-title="${esc(title)}" role="group" aria-label="Share this page">
   <ul class="share-list" role="list" aria-label="Share options">
 ${items}
   </ul>
@@ -487,7 +491,7 @@ async function buildArticle(raw, slug) {
   }
 
   // share bar immediately before the footnotes section / heading, or at the end if there are none
-  const share = shareBar(slug, title);
+  const share = shareBar(`/articles/${slug}/`, title);
   const footnotesHeading = '<h2 class="footnotes-heading">Footnotes</h2>';
   if (body.includes(footnotesHeading)) {
     body = body.replace(footnotesHeading, `${share}\n${footnotesHeading}`);
@@ -540,7 +544,7 @@ async function buildArticle(raw, slug) {
           : articleJsonLd.image,
         uploadDate: meta.date,
         contentUrl: videoUrl,
-        embedUrl: url,
+        embedUrl: `${SITE}/videos/${slug}/`,
         isPartOf: { '@id': `${url}#article` },
       },
     ],
@@ -552,7 +556,7 @@ async function buildArticle(raw, slug) {
   const page = `<!doctype html>
 <html lang="en">
 <head>
-  ${head({
+  ${renderHead({
     title: `${title} — Lupine Science`,
     description,
     url,
@@ -611,7 +615,7 @@ function buildIndex(articles) {
   return `<!doctype html>
 <html lang="en">
 <head>
-  ${head({
+  ${renderHead({
     title: 'Articles — Lupine Science',
     description: 'Articles, prospectuses, and research notes on formalized, machine-checked materials discovery.',
     url: `${SITE}/articles/`,
@@ -633,6 +637,200 @@ ${chrome(`  <main id="content" class="article-index">
 ${cards}
     </ul>
   </main>`)}
+${PAGE_SCRIPT}
+</body>
+</html>
+`;
+}
+
+function videoArticles(articles) {
+  const articleSlugs = new Set(articles.map(({ slug }) => slug));
+  const orphan = fs.readdirSync(path.join(PUBLIC_ROOT, 'videos'))
+    .filter((name) => name.endsWith('.mp4'))
+    .map((name) => name.replace(/\.mp4$/, ''))
+    .find((slug) => !articleSlugs.has(slug));
+  if (orphan) {
+    throw new Error(`refusing to publish orphan video without article: public/videos/${orphan}.mp4`);
+  }
+  return articles.filter((article) => {
+    const { slug } = article;
+    const mp4 = path.join(PUBLIC_ROOT, 'videos', `${slug}.mp4`);
+    if (!fs.existsSync(mp4)) return false;
+    for (const suffix of ['-poster.jpg', '.vtt']) {
+      const required = path.join(PUBLIC_ROOT, 'videos', `${slug}${suffix}`);
+      if (!fs.existsSync(required)) {
+        throw new Error(`refusing to publish incomplete video ${slug}: missing public/videos/${slug}${suffix}`);
+      }
+    }
+    return true;
+  });
+}
+
+function videoDescription(article) {
+  // Prefer the editorial deck on the newly generated video surfaces. Some
+  // article summaries contain detailed economics that require their own
+  // reviewed source contract and must not be republished by implication.
+  return article.meta.deck || article.description;
+}
+
+function videoHead(article, url) {
+  const { slug, title, meta } = article;
+  const description = videoDescription(article);
+  const poster = bust(`${SITE}/videos/${slug}-poster.jpg`);
+  const contentUrl = `${SITE}/videos/${slug}.mp4`;
+  const jsonld = {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: title,
+    description,
+    thumbnailUrl: poster,
+    uploadDate: meta.date,
+    contentUrl,
+    embedUrl: url,
+    isPartOf: {
+      '@type': 'Article',
+      name: title,
+      url: `${SITE}/articles/${slug}/`,
+    },
+  };
+  return renderHead({
+    title: `${title} — Video — Lupine Science`,
+    description,
+    url,
+    ogTitle: `${title} — Video — Lupine Science`,
+    ogDescription: description,
+    ogUrl: url,
+    ogImage: poster,
+    ogType: 'video.other',
+    jsonld,
+    videoUrl: contentUrl,
+  });
+}
+
+function buildVideoPage(article) {
+  const { slug, title } = article;
+  const description = videoDescription(article);
+  const url = `${SITE}/videos/${slug}/`;
+  return `<!doctype html>
+<html lang="en">
+<head>
+  ${videoHead(article, url)}
+</head>
+<body>
+${chrome(`  <main id="content" class="article-shell video-detail" data-generated-video-detail="${slug}">
+    <article class="article">
+      <p class="article-kicker" aria-label="Media type">${VIDEO_KIND.get(slug) ?? 'Narrated summary'}</p>
+      <h1>${esc(title)}</h1>
+      <p class="article-deck">${esc(description)}</p>
+      ${inlineVideoPlayer(slug, title, { detailLink: false })}
+      <p class="video-article-backlink">Read the source article: <a href="/articles/${slug}/">${esc(title)}</a></p>
+      ${shareBar(`/videos/${slug}/`, `${title} — Video — Lupine Science`)}
+    </article>
+  </main>`, { current: 'videos' })}
+${PAGE_SCRIPT}
+</body>
+</html>
+`;
+}
+
+function buildVideoIndex(articles) {
+  const cards = articles.map((article) => {
+    const { slug, title } = article;
+    const description = videoDescription(article);
+    return `<li>
+  <article class="video-card">
+    <a class="video-card-primary" href="/videos/${slug}/">
+      <img src="${bust(`/videos/${slug}-poster.jpg`)}" alt="" loading="lazy" decoding="async">
+      <span class="video-card-meta">
+        <span class="play">▶ Watch</span>
+        <h2>${esc(title)}</h2>
+        <span class="video-card-description">${esc(description)}</span>
+      </span>
+    </a>
+    <p class="video-card-actions"><a href="/articles/${slug}/">Read article</a> · <a href="/videos/${slug}.mp4" download>Download MP4</a> · <a href="/videos/${slug}.vtt" download>Captions</a></p>
+  </article>
+</li>`;
+  }).join('\n');
+  const url = `${SITE}/videos/`;
+  const jsonld = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Videos — Lupine Science',
+    url,
+    hasPart: articles.map(({ slug, title }) => ({
+      '@type': 'VideoObject',
+      name: title,
+      url: `${SITE}/videos/${slug}/`,
+      contentUrl: `${SITE}/videos/${slug}.mp4`,
+    })),
+  };
+  return `<!doctype html>
+<html lang="en">
+<head>
+  ${renderHead({
+    title: 'Videos — Lupine Science',
+    description: 'Narrated motion versions and short films from Lupine Science articles.',
+    url,
+    // The index previews a film from the released two-film slate
+    // (why-lupine-science / why-lupi), never declined inventory. Restored from
+    // main: this branch predates the declined-film-promotion fix and its
+    // hardcoded poster would reintroduce that regression.
+    ogImage: bust(`${SITE}/videos/why-lupine-science-poster.jpg`),
+    ogType: 'website',
+    jsonld,
+  })}
+  <style>
+    .videos-index { max-width: 1100px; margin: 0 auto; padding: clamp(40px, 7vh, 84px) 22px 80px; }
+    .videos-index h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.1; margin: 0 0 .5rem; }
+    .videos-index .lead { color: var(--ink-soft); font-size: 1.15rem; max-width: 680px; margin: 0 0 2.5rem; }
+    .video-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 28px; list-style: none; padding: 0; margin: 0; }
+    .video-card { background: #fff; border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; }
+    .video-card-primary { display: block; text-decoration: none; color: inherit; }
+    .video-card-primary img { display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; border-bottom: 1px solid var(--rule); }
+    .video-card-meta { display: block; padding: 18px 20px 14px; }
+    .video-card .play { display: block; font-family: var(--mono); font-size: .75rem; font-weight: 600; text-transform: uppercase; color: var(--indigo); margin-bottom: .5rem; }
+    .video-card h2 { font-size: 1.35rem; line-height: 1.2; margin: 0 0 .4rem; }
+    .video-card-description { display: block; font-size: .95rem; color: var(--ink-soft); line-height: 1.5; }
+    .video-card-actions { border-top: 1px solid var(--rule); margin: 0; padding: 12px 20px 16px; font-family: var(--mono); font-size: .75rem; }
+  </style>
+</head>
+<body>
+${chrome(`  <main id="content" class="videos-index">
+    <p class="b-label">Narrated motion and short films</p>
+    <h1>Article videos.</h1>
+    <p class="lead">Watch the research in motion, return to the full source article, or download the reviewed video and captions.</p>
+    ${shareBar('/videos/', 'Videos — Lupine Science')}
+    <ul class="video-list">
+${cards}
+    </ul>
+  </main>`, { current: 'videos' })}
+${PAGE_SCRIPT}
+</body>
+</html>
+`;
+}
+
+function buildNotFoundPage() {
+  return `<!doctype html>
+<html lang="en">
+<head>
+  ${renderHead({
+    title: 'Content not found — Lupine Science',
+    description: 'The requested Lupine Science page or download is not available.',
+    url: `${SITE}/404.html`,
+    ogImage: `${SITE}/og-lupine-science.jpg`,
+    ogType: 'website',
+    jsonld: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Content not found' },
+  })}
+</head>
+<body>
+${chrome(`  <main id="content" class="article-shell">
+    <article class="article">
+      <p class="article-kicker">404</p>
+      <h1>That page or download is not available.</h1>
+      <p>Check the address, browse <a href="/videos/">all published videos</a>, or return to <a href="/articles/">the article index</a>.</p>
+    </article>
+  </main>`, { current: null })}
 ${PAGE_SCRIPT}
 </body>
 </html>
@@ -662,3 +860,22 @@ for (const file of sources) {
 articles.sort((a, b) => (b.meta.date || '').localeCompare(a.meta.date || ''));
 writeAtomic(path.join(OUT, 'index.html'), buildIndex(articles));
 console.log('built /articles/index.html');
+
+const videos = videoArticles(articles);
+const videosRoot = path.join(PUBLIC_ROOT, 'videos');
+for (const entry of fs.readdirSync(videosRoot, { withFileTypes: true })) {
+  if (!entry.isDirectory()) continue;
+  const generatedPage = path.join(videosRoot, entry.name, 'index.html');
+  if (!fs.existsSync(generatedPage)) continue;
+  if (!fs.readFileSync(generatedPage, 'utf8').includes('data-generated-video-detail=')) continue;
+  if (!videos.some(({ slug }) => slug === entry.name)) fs.rmSync(path.join(videosRoot, entry.name), { recursive: true });
+}
+for (const article of videos) {
+  const dir = path.join(videosRoot, article.slug);
+  fs.mkdirSync(dir, { recursive: true });
+  writeAtomic(path.join(dir, 'index.html'), buildVideoPage(article));
+  console.log(`built /videos/${article.slug}/`);
+}
+writeAtomic(path.join(videosRoot, 'index.html'), buildVideoIndex(videos));
+writeAtomic(path.join(PUBLIC_ROOT, '404.html'), buildNotFoundPage());
+console.log(`built /videos/index.html (${videos.length} videos)`);

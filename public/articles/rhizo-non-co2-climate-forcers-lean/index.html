@@ -27,7 +27,7 @@
   <link rel="alternate" type="video/mp4" href="https://lupine.science/videos/rhizo-non-co2-climate-forcers-lean.mp4">
   <link rel="stylesheet" href="/articles/styles.css">
   <link rel="stylesheet" href="/components/share/share.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@context":"https://schema.org","@type":"Article","headline":"Non-CO₂ Climate Forcers, Now Formalized in Lean","description":"The latest `lupine-rhizo` build adds `ClimateForcers.lean` and a validation module that machine-checks non-CO₂ warming potentials, lifetimes, and substitution savings — 888 theorems, zero `sorry`.","datePublished":"2026-07-12","url":"https://lupine.science/articles/rhizo-non-co2-climate-forcers-lean/","mainEntityOfPage":"https://lupine.science/articles/rhizo-non-co2-climate-forcers-lean/","image":"https://lupine.science/articles/rhizo-non-co2-climate-forcers-lean/hero.jpg?v=3","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png?v=3"}},"@id":"https://lupine.science/articles/rhizo-non-co2-climate-forcers-lean/#article"},{"@type":"VideoObject","@id":"https://lupine.science/articles/rhizo-non-co2-climate-forcers-lean/#video","name":"Non-CO₂ Climate Forcers, Now Formalized in Lean","description":"The latest `lupine-rhizo` build adds `ClimateForcers.lean` and a validation module that machine-checks non-CO₂ warming potentials, lifetimes, and substitution savings — 888 theorems, zero `sorry`.","thumbnailUrl":"https://lupine.science/videos/rhizo-non-co2-climate-forcers-lean-poster.jpg","uploadDate":"2026-07-12","contentUrl":"https://lupine.science/videos/rhizo-non-co2-climate-forcers-lean.mp4","embedUrl":"https://lupine.science/articles/rhizo-non-co2-climate-forcers-lean/","isPartOf":{"@id":"https://lupine.science/articles/rhizo-non-co2-climate-forcers-lean/#article"}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@context":"https://schema.org","@type":"Article","headline":"Non-CO₂ Climate Forcers, Now Formalized in Lean","description":"The latest `lupine-rhizo` build adds `ClimateForcers.lean` and a validation module that machine-checks non-CO₂ warming potentials, lifetimes, and substitution savings — 888 theorems, zero `sorry`.","datePublished":"2026-07-12","url":"https://lupine.science/articles/rhizo-non-co2-climate-forcers-lean/","mainEntityOfPage":"https://lupine.science/articles/rhizo-non-co2-climate-forcers-lean/","image":"https://lupine.science/articles/rhizo-non-co2-climate-forcers-lean/hero.jpg?v=3","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png?v=3"}},"@id":"https://lupine.science/articles/rhizo-non-co2-climate-forcers-lean/#article"},{"@type":"VideoObject","@id":"https://lupine.science/articles/rhizo-non-co2-climate-forcers-lean/#video","name":"Non-CO₂ Climate Forcers, Now Formalized in Lean","description":"The latest `lupine-rhizo` build adds `ClimateForcers.lean` and a validation module that machine-checks non-CO₂ warming potentials, lifetimes, and substitution savings — 888 theorems, zero `sorry`.","thumbnailUrl":"https://lupine.science/videos/rhizo-non-co2-climate-forcers-lean-poster.jpg","uploadDate":"2026-07-12","contentUrl":"https://lupine.science/videos/rhizo-non-co2-climate-forcers-lean.mp4","embedUrl":"https://lupine.science/videos/rhizo-non-co2-climate-forcers-lean/","isPartOf":{"@id":"https://lupine.science/articles/rhizo-non-co2-climate-forcers-lean/#article"}}]}</script>
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
@@ -66,6 +66,7 @@
     <nav class="site-nav" aria-label="Primary">
       <a href="/">Home</a>
       <a href="/articles/" aria-current="page">Articles</a>
+      <a href="/videos/">Videos</a>
       <a href="https://library.lupine.science">Library</a>
       <a href="https://lupi.live">LUPI</a>
     </nav>
@@ -92,7 +93,7 @@
       <p>Your browser does not support the video tag. <a href="/videos/rhizo-non-co2-climate-forcers-lean.mp4" download>Download the MP4</a>.</p>
     </video>
   </div>
-  <p class="video-player-meta"><a href="/videos/rhizo-non-co2-climate-forcers-lean.mp4" download>Download MP4</a> · <a href="/videos/rhizo-non-co2-climate-forcers-lean.vtt">Captions</a></p>
+  <p class="video-player-meta"><a href="/videos/rhizo-non-co2-climate-forcers-lean/">Video page</a> · <a href="/videos/rhizo-non-co2-climate-forcers-lean.mp4" download>Download MP4</a> · <a href="/videos/rhizo-non-co2-climate-forcers-lean.vtt" download>Download captions</a></p>
 </figure>
 <p>Carbon dioxide gets the headline, but the next decade of climate leverage is increasingly molecular: methane vented from oil fields and landfills, nitrous oxide from agriculture, hydrofluorocarbon refrigerants escaping into the atmosphere, and sulfur hexafluoride from electrical gear. Each has a different lifetime, a different radiative efficiency, and a different replacement chemistry. Getting the accounting right matters for policy, for investment, and for materials discovery.</p>
 <p>The latest commit to <a href="https://github.com/alexwelcing/lupine-rhizo"><code>lupine-rhizo</code></a> adds a <code>ClimateForcers.lean</code> module that formalizes the IPCC AR6 global warming potential tables and lifetime bounds for CO₂, CH₄, N₂O, HFC-134a, HFC-410A, and SF₆ inside Lean 4. A companion validation module proves two concrete claims: the emissions avoided by fixing a heat-pump refrigerant leak, and the savings from substituting a low-GWP refrigerant for a high-GWP one.</p>
@@ -124,7 +125,7 @@
 <p>The <code>lupine-rhizo</code> repository is open at <a href="https://github.com/alexwelcing/lupine-rhizo">github.com/alexwelcing/lupine-rhizo</a>. The compiled library is browsable at <a href="https://library.lupine.science">library.lupine.science</a>.</p>
 <p><img src="images/rhizo-non-co2-climate-forcers-lean-spread--retry-1.jpg?v=3" alt="A regional network of cooling, methane management, and air-treatment equipment grounded by a small proof-kernel device"></p>
 
-<div class="share-root" data-url="https://lupine.science/articles/rhizo-non-co2-climate-forcers-lean/" data-title="Non-CO₂ Climate Forcers, Now Formalized in Lean" role="group" aria-label="Share">
+<div class="share-root" data-url="https://lupine.science/articles/rhizo-non-co2-climate-forcers-lean/" data-title="Non-CO₂ Climate Forcers, Now Formalized in Lean" role="group" aria-label="Share this page">
   <ul class="share-list" role="list" aria-label="Share options">
     <li><a class="share-link share-x" href="https://twitter.com/intent/tweet?text=Non-CO%E2%82%82%20Climate%20Forcers%2C%20Now%20Formalized%20in%20Lean&amp;url=https%3A%2F%2Flupine.science%2Farticles%2Frhizo-non-co2-climate-forcers-lean%2F" aria-label="Share on X" target="_blank" rel="noopener noreferrer">X</a></li>
     <li><a class="share-link share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Flupine.science%2Farticles%2Frhizo-non-co2-climate-forcers-lean%2F" aria-label="Share on LinkedIn" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
@@ -160,6 +161,7 @@ import { initAllShareWidgets } from "/components/share/share.mjs";
     }
   }
 })();
+initAllShareWidgets();
 </script>
 </body>
 </html>

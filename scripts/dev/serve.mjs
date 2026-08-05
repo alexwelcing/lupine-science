@@ -25,6 +25,7 @@ const MIME = {
   '.avif': 'image/avif',
   '.mp4': 'video/mp4',
   '.webm': 'video/webm',
+  '.vtt': 'text/vtt; charset=utf-8',
   '.woff2': 'font/woff2',
   '.txt': 'text/plain; charset=utf-8',
   '.xml': 'application/xml; charset=utf-8',
@@ -83,7 +84,18 @@ const server = http.createServer((req, res) => {
   if (!fs.existsSync(filePath)) {
     // extensionless files like /health
     if (fs.existsSync(filePath.replace(/\/$/, ''))) filePath = filePath.replace(/\/$/, '');
-    else { res.writeHead(404, { 'content-type': 'text/plain' }); res.end('not found'); return; }
+    else {
+      const notFound = path.join(PUBLIC, '404.html');
+      if (fs.existsSync(notFound)) {
+        const body = fs.readFileSync(notFound);
+        res.writeHead(404, { 'content-type': 'text/html; charset=utf-8', 'content-length': body.length });
+        res.end(body);
+      } else {
+        res.writeHead(404, { 'content-type': 'text/plain; charset=utf-8' });
+        res.end('not found');
+      }
+      return;
+    }
   }
   const ext = path.extname(filePath).toLowerCase();
   res.setHeader('content-type', MIME[ext] || 'application/octet-stream');
