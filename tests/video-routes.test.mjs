@@ -97,6 +97,17 @@ describe('article and video publication routes', () => {
         fs.writeFileSync(file, '<!-- stale-output-sentinel -->\n');
       }
 
+      // build-articles.mjs reads real inputs out of the public root it is given:
+      // data/lean_count.json (machine-generated theorem count, read at module
+      // load) and proof-packs/*.pdf (referenced by article metadata). A bare temp
+      // directory is not a usable fixture until those are seeded.
+      for (const subtree of ['data', 'proof-packs']) {
+        const source = path.join(ROOT, 'public', subtree);
+        if (fs.existsSync(source)) {
+          fs.cpSync(source, path.join(publicRoot, subtree), { recursive: true });
+        }
+      }
+
       const result = buildArticles(publicRoot);
       assert.equal(result.status, 0, result.stderr || result.stdout);
 

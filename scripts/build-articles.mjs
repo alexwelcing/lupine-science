@@ -771,7 +771,11 @@ function buildVideoIndex(articles) {
     title: 'Videos — Lupine Science',
     description: 'Narrated motion versions and short films from Lupine Science articles.',
     url,
-    ogImage: bust(`${SITE}/videos/the-02-percent-synthesis-problem-poster.jpg`),
+    // The index previews a film from the released two-film slate
+    // (why-lupine-science / why-lupi), never declined inventory. Restored from
+    // main: this branch predates the declined-film-promotion fix and its
+    // hardcoded poster would reintroduce that regression.
+    ogImage: bust(`${SITE}/videos/why-lupine-science-poster.jpg`),
     ogType: 'website',
     jsonld,
   })}
@@ -814,7 +818,7 @@ function buildNotFoundPage() {
     title: 'Content not found — Lupine Science',
     description: 'The requested Lupine Science page or download is not available.',
     url: `${SITE}/404.html`,
-    ogImage: `${SITE}/og-lupine-science.png`,
+    ogImage: `${SITE}/og-lupine-science.jpg`,
     ogType: 'website',
     jsonld: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Content not found' },
   })}
