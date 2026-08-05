@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
+import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
@@ -12,18 +13,21 @@ const DIRECT_STALE = /(?:41\s+of\s+58|41\/58|58\s+targets)/i;
 const AMBIGUOUS_STALE = /(?:63%|near\s+zero|~0%)/gi;
 const ALAB_CONTEXT = /A-?Lab|autonomous laborator|Berkeley/i;
 
+// Enumerate git-tracked files only. Walking the filesystem swept vendored
+// third-party code in local virtualenvs into a claim gate: scipy's root-finding
+// module contains "near zero", so this test failed on any machine that had run
+// the chart generators while passing in CI, where no venv exists. The assertion
+// is about our published surfaces, so the tracked set is both the correct scope
+// and machine-independent.
 function sourceFiles(relativeRoot) {
-  const root = path.join(ROOT, relativeRoot);
-  const files = [];
-  const visit = (directory) => {
-    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
-      const absolute = path.join(directory, entry.name);
-      if (entry.isDirectory()) visit(absolute);
-      else if (TEXT_EXTENSIONS.has(path.extname(entry.name))) files.push(absolute);
-    }
-  };
-  visit(root);
-  return files;
+  const listed = spawnSync('git', ['ls-files', '-z', '--', relativeRoot], {
+    cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024,
+  });
+  if (listed.status !== 0) throw new Error(`git ls-files failed for ${relativeRoot}: ${listed.stderr}`);
+  return listed.stdout.split('\0')
+    .filter((entry) => entry && TEXT_EXTENSIONS.has(path.extname(entry)))
+    .map((entry) => path.join(ROOT, entry))
+    .filter((absolute) => fs.existsSync(absolute));
 }
 
 function staleAlabClaim(text) {
