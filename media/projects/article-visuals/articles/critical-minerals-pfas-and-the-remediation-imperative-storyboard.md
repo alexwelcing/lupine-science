@@ -82,7 +82,7 @@ The energy transition and the PFAS crisis are two sides of the same atoms proble
   - Number of anchor observables: **3** [^12].
   - Blind prediction Pearson r across 36 (model, material) combinations: **r = 0.906** (p = 10⁻⁴, 95% CI [0.82, 0.96]) [^12].
   - Speed advantage over DFT retained by corrected uMLIPs: **≈5 orders of magnitude** [^12].
-  - Build-locked Lean 4 theorems: **77** with zero sorry proofs [^12].
+  - Machine-generated Lean 4 theorem inventory with zero sorry proofs [^12].
 - **Suggested form:** Funnel / flow diagram showing raw uMLIP → local environment descriptor → error-field lookup → corrected forces/energies → verification gate (Lean theorems); inset scatter of r = 0.906.
 - **Generation:** Programmatic (matplotlib/SVG)
 - **Caption:** Lupine's environment error field corrects uMLIP predictions at runtime, achieving a Pearson correlation of 0.906 in blind tests while retaining a roughly five-order-of-magnitude speed advantage over DFT. *Source: Lupine Science, Strategic Discovery Plan, Sections 2–3.*

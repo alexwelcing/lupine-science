@@ -244,7 +244,7 @@ def make_04():
         ('Pearson r', '0.906', INDIGO),
         ('Runtime overhead', '15.6%\n(<1% target)', AMBER),
         ('Speed vs DFT', '~10⁵× faster', SAGE),
-        ('Lean 4 theorems', '77\nzero sorry proofs', SLATE),
+        ('Proofs', 'generated\nzero sorry', SLATE),
     ]
     y = 0.90
     for label, value, color in cards:

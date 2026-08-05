@@ -124,7 +124,7 @@ The article argues that the bottleneck in climate-materials deployment is not a 
     - Ammonia catalyst requiring higher-level treatment for scaling-relation breaking[^chapter The Verification Layer as Partnership Enabler]
 - **Suggested form:** Side-by-side before/after cards: "uncorrected claim" vs. "verified/ruled-out claim"
 - **Generation method:** matplotlib
-- **Caption:** Seventy-seven Lean 4 theorems let Lupine flag unsupported frameworks or metastable phases before they consume experimental time.[^chapter The Verification Layer as Partnership Enabler]
+- **Caption:** The machine-generated Lean 4 theorem inventory lets Lupine flag unsupported frameworks or metastable phases before they consume experimental time.[^chapter The Verification Layer as Partnership Enabler]
 
 ---
 
