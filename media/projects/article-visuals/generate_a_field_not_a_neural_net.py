@@ -86,7 +86,7 @@ def make_01_synthesis_funnel():
     # Funnel as three stacked trapezoids
     stages = [
         ("Predicted structures\n(GNoME)", "2.2 million", 8.0, INDIGO),
-        ("Claimed successes\n(A-Lab headline)", "63%", 5.0, AMBER),
+        ("A-Lab correction\n(eligible → confirmed)", "57 → 36", 5.0, AMBER),
         ("Validated novel\ndiscoveries", "~0%", 2.5, SAGE),
     ]
     y = 8.5

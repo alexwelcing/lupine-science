@@ -34,7 +34,7 @@ At the prediction stage, uMLIPs supply near-DFT energies for the generated struc
 *For fcc metals, uMLIP error is modeled as a cubic-spline field over first-shell coordination, anchored by three standard observables and constrained to zero at bulk coordination 12.*
 
 
-At the synthesis stage, A-Lab and manual labs attempt to make what upstream recommended. Without a characterization of each candidate's failure modes, the queue is filtered by intuition and compute budget rather than by proof. The result is the 0.2%–63% pattern: high activity, low validated throughput.
+At the synthesis stage, A-Lab and manual labs attempt to make what upstream recommended. Without a characterization of each candidate's failure modes, the queue is filtered by intuition and compute budget rather than by proof. The result is the 0.2% validation bottleneck alongside A-Lab's corrected record of 36 confirmed of 57 eligible targets: high activity, low validated throughput.
 
 The correction-and-verification layer does not compete with any of these layers. It sits between prediction and synthesis: it measures the systematic error of the predictor, corrects it at runtime, and proves which claims can be trusted. The value proposition is partnership, not displacement. MatterGen and GNoME generate more candidates as they improve; the market grows because every additional candidate must be checked.
 

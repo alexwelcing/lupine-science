@@ -16,7 +16,7 @@ Computational materials discovery is generating candidates faster than labs can 
   - 380,000 computationally stable inorganic structures reported by GNoME by late 2023 [^1]
   - 736 independently synthesized and structurally confirmed by late 2023 [^1]
   - Resulting validation rate: 0.2% [^1]
-  - A-Lab: 41 of 58 targets reported synthesized, but independent review found two-thirds were already-known disordered phases [^2]
+  - A-Lab: 41 of 58 targets initially reported synthesized, corrected by the authors (Author Correction, Nature 650:E1, 2026) to 36 confirmed of 57 eligible targets, with 4 inconclusive and one compound removed for training-data leakage; independent review found two-thirds were already-known disordered phases [^2]
 - **Suggested form:** funnel chart or Sankey showing predicted → independently synthesized, with a second branch for A-Lab's reported vs. true novelty
 - **Generation method:** matplotlib
 - **Caption:** Of 380,000 computationally stable structures reported by GNoME, only 736 had been independently synthesized by late 2023 — a 0.2% validation rate.

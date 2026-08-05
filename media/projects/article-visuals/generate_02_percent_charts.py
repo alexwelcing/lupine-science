@@ -85,9 +85,9 @@ def make_01():
     ]
     # A-Lab branch
     alab_stages = [
-        ('A-Lab targets', 58, AMBER),
-        ('Reported synthesized', 41, AMBER),
-        ('True novel phases', 13, ROSE),
+        ('Eligible after correction', 57, AMBER),
+        ('Confirmed after correction', 36, AMBER),
+        ('Inconclusive', 4, ROSE),
     ]
 
     def width(v, vmax):

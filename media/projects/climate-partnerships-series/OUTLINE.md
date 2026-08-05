@@ -11,7 +11,7 @@
 - The IEA projects batteries are directly linked to ~20% of required 2030 CO₂ reductions and indirectly to another 40%.
 - Clean energy investment must grow from $1.8 trillion (2023) to $4.5 trillion annually by the early 2030s; a substantial fraction of that gap is a materials gap.
 - Google DeepMind's GNoME predicted 2.2 million crystals; 380,000 were computed stable; only 736 had been independently synthesized by late 2023 — a 0.2% validation rate.
-- The A-Lab autonomous synthesis facility reported 63% success, but subsequent critique found two-thirds of "novel" targets were known disordered phases, reducing the true novel discovery rate to near zero.
+- The A-Lab autonomous synthesis facility initially reported synthesizing 41 of 58 targets, corrected by the authors (Author Correction, Nature 650:E1, 2026) to 36 confirmed of 57 eligible targets, with 4 inconclusive and one compound removed for training-data leakage; subsequent critique found two-thirds of "novel" targets were known disordered phases, reducing the true novel discovery rate to near zero.
 - These failures stem from four structural barriers: defect/bulk asymmetry, combinatorial wall, metastability, and ranking inversion.
 - The gap between "predicted stable" and "synthesized and functional" is the defining bottleneck in computational materials discovery.
 
@@ -19,7 +19,7 @@
 
 1. **Lead.** Open with the climate investment gap and the counterintuitive claim: we are not short of predictions; we are short of validated predictions.
 2. **The 0.2% number.** Walk through GNoME's 2.2M → 380K → 736 funnel. Explain why this is not a GNoME failure but a structural pipeline failure.
-3. **A-Lab as cautionary tale.** Report the 63% headline, then the critique. Use it to show that faster synthesis without better verification does not solve the bottleneck.
+3. **A-Lab as cautionary tale.** Report the corrected 36-confirmed-of-57-eligible record, preserve the original 41-of-58 figure as historical context, then present the critique. Use it to show that faster synthesis without better verification does not solve the bottleneck.
 4. **Four barriers, briefly named.** One paragraph each: defect/bulk asymmetry, combinatorial wall, metastability, ranking inversion. This sets up Article 2.
 5. **Why it matters for climate.** Connect the narrow deployment window (2025–2035) to the cost of false positives and missed positives.
 6. **Transition.** Introduce Lupine Science as a correction-and-verification layer, not another generator.

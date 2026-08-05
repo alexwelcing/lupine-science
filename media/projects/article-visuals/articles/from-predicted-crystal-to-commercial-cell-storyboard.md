@@ -37,7 +37,7 @@ The article argues that the bottleneck in climate-materials deployment is not a 
 - **Type:** concept-diagram
 - **Single idea:** A predicted crystal must survive synthesis → coating → cell fabrication → characterization → module integration → manufacturing scale-up; each handoff introduces new error and distrust.
 - **Data points to show:**
-  - A-Lab: 63% reported success, but two-thirds of "novel" targets were already-known disordered phases, reducing true novel discovery to near zero[^2]
+  - A-Lab: 41 of 58 targets initially reported synthesized, corrected by the authors (Author Correction, Nature 650:E1, 2026) to 36 confirmed of 57 eligible targets, with 4 inconclusive and one compound removed for training-data leakage; two-thirds of "novel" targets were already-known disordered phases, reducing true novel discovery to near zero[^2]
   - GNoME synthesis rate: 0.2%[^1]
 - **Suggested form:** Horizontal process diagram with six linked nodes and warning flags at failure points
 - **Generation method:** matplotlib/SVG

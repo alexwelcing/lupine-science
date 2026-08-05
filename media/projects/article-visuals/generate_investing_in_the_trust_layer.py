@@ -88,9 +88,9 @@ def make_01():
         ('Independently\nsynthesized', 736, PRIMARY),
     ]
     alab = [
-        ('A-Lab targets', 58, AMBER),
-        ('Reported success\nrate', '63%', AMBER),
-        ('True novel-\ndiscovery rate', '~0%', ROSE),
+        ('Eligible after\ncorrection', 57, AMBER),
+        ('Confirmed after\ncorrection', 36, AMBER),
+        ('Inconclusive', 4, ROSE),
     ]
 
     def w(val, vmax):
@@ -159,7 +159,7 @@ def make_02():
     stages = [
         ('Generation', 'GNoME 2.2M\ncandidates', 'MatterGen limited to\nmodest cells; no disorder', PRIMARY),
         ('Prediction', 'uMLIP ~10⁻⁴ s\nper atom-step', 'Defect observables err\n15–60× worse than bulk', AMBER),
-        ('Synthesis', 'A-Lab 63%\nsuccess rate', 'Queue filtered by\nintuition, not proof', SAGE),
+        ('Synthesis', 'A-Lab 36 confirmed\nof 57 eligible', 'Queue filtered by\nintuition, not proof', SAGE),
         ('Validation', '0.2% validated\nthroughput', 'False positives waste\nweeks; false negatives hide candidates', ROSE),
     ]
 

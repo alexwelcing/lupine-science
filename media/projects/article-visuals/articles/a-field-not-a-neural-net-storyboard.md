@@ -14,7 +14,7 @@ Universal machine-learning interatomic potentials (uMLIPs) are fast but systemat
 - **Single idea:** Vast computational discovery pipelines collapse to a trickle of independently validated materials, exposing the gap between prediction and experiment.
 - **Data points to show:**
   - GNoME predicted 2.2 million crystals; 736 independently synthesized by late 2023 → 0.033% validation rate [^1]
-  - A-Lab reported 63% autonomous synthesis success [^2]
+  - A-Lab initially reported synthesizing 41 of 58 targets, corrected by the authors (Author Correction, Nature 650:E1, 2026) to 36 confirmed of 57 eligible targets, with 4 inconclusive and one compound removed for training-data leakage [^2]
   - Critique: two-thirds of A-Lab "novel" targets were already-known disordered phases → true discovery rate near zero [^2]
 - **Suggested form:** Funnel chart (wide top: predicted structures; narrow middle: claimed successes; narrowest bottom: validated novel discoveries).
 - **Generation:** Programmatic (matplotlib)

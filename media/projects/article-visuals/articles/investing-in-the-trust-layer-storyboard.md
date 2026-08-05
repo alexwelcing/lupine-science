@@ -20,7 +20,7 @@ Computational materials discovery now generates candidates at machine speed—mi
   - 380,000 computed-stable structures reported by GNoME [^1]
   - 736 independently synthesized by late 2023 [^1]
   - 0.2% validation rate [^1]
-  - A-Lab experimental success rate: 63% [^2]
+  - A-Lab corrected synthesis record: 36 confirmed of 57 eligible targets, with 4 inconclusive and one compound removed for training-data leakage (Author Correction, Nature 650:E1, 2026) [^2]
   - Estimated true novel-discovery rate for A-Lab: near zero [^2]
 - **Suggested form:** Funnel / stacked-bar drop-off (matplotlib).
 - **Generation method:** matplotlib
