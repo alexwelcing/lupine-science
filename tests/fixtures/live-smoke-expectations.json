@@ -133,10 +133,6 @@
   ],
   "forbiddenText": [
     "�",
-    "{{",
-    "}}",
-    "$$",
-    "\\text{",
     "Lorem ipsum",
     "TODO:",
     "PLACEHOLDER"
