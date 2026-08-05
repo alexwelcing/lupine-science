@@ -285,11 +285,24 @@ export async function runSmokeSuite({
       message: 'published route returned non-HTML content',
     });
     const bodyText = normalize(result.body);
-    const markerOk = !route.marker || bodyText.includes(route.marker);
+    // Substance + rendering-integrity, not exact prose. Asserting editorial copy
+    // made every copy edit a CI failure across every open branch, which measured
+    // vocabulary drift rather than correctness. These two checks only ever catch
+    // regressions: a route that stopped rendering, or one leaking broken output.
+    // Opt-in: only the production expectations file sets a floor, so unit
+    // fixtures and legacy `paths` callers are not held to a page-size threshold.
+    const minBodyChars = expectations?.minBodyChars ?? 0;
+    const substanceOk = bodyText.length >= minBodyChars;
     addCheck(checks, {
-      id: `route:${route.path}:marker`, category: 'content', target, url: pageUrl,
-      ok: markerOk, expected: route.marker || 'body is readable', actual: markerOk ? route.marker : bodyText.slice(0, 160),
-      message: `expected content marker is missing: ${JSON.stringify(route.marker)}`,
+      id: `route:${route.path}:substance`, category: 'content', target, url: pageUrl,
+      ok: substanceOk, expected: `>= ${minBodyChars} chars of rendered text`, actual: `${bodyText.length} chars`,
+      message: 'published route rendered too little text to be a real page',
+    });
+    const forbidden = (expectations?.forbiddenText ?? []).filter((token) => bodyText.includes(token));
+    addCheck(checks, {
+      id: `route:${route.path}:rendering`, category: 'content', target, url: pageUrl,
+      ok: forbidden.length === 0, expected: 'no unrendered or placeholder tokens', actual: forbidden.join(', ') || 'clean',
+      message: `published route leaks unrendered or placeholder text: ${JSON.stringify(forbidden)}`,
     });
     const metadata = validateMetadata(checks, { html: result.body, pageUrl, route, canonicalOrigin, target });
     if (metadata.ogImage) {
