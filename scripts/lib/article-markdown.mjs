@@ -9,6 +9,7 @@ const ALLOWED_RAW_HTML = new Map([
   ['em', new Set()],
   ['figcaption', new Set(['id'])],
   ['figure', new Set(['aria-labelledby', 'class'])],
+  ['img', new Set(['alt', 'class', 'decoding', 'height', 'loading', 'src', 'width'])],
   ['p', new Set(['class'])],
   ['source', new Set(['src', 'type'])],
   ['span', new Set(['class'])],
@@ -24,11 +25,15 @@ const md = new MarkdownIt({ html: true, typographer: true })
 
 function isAllowedUrl(value) {
   const normalized = value.trim().toLowerCase();
-  return (normalized.startsWith('/') && !normalized.startsWith('//'))
+  if (normalized.startsWith('//')) return false;            // protocol-relative
+  if (normalized.startsWith('https://')) return true;
+  if (/^[a-z][a-z0-9+.-]*:/.test(normalized)) return false;  // any other scheme
+  return normalized.startsWith('/')
     || normalized.startsWith('./')
     || normalized.startsWith('../')
     || normalized.startsWith('#')
-    || normalized.startsWith('https://');
+    // bare relative path, e.g. images/foo.png — same safety as ./images/foo.png
+    || /^[a-z0-9._~%-]+(?:\/[a-z0-9._~%-]+)*$/.test(normalized);
 }
 
 function validateHtmlFragment(fragment) {
