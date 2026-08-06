@@ -240,11 +240,26 @@ export async function runSmokeSuite({
   timeoutMs = 10_000,
 }) {
   const target = new URL(baseUrl).toString().replace(/\/$/, '');
-  const routes = expectations?.routes || (paths || []).map(routePath => ({ path: routePath, marker: '' }));
   const canonicalOrigin = expectations?.canonicalOrigin || target;
   const pdfs = expectations?.pdfs || [];
   const checks = [];
   const assets = new Map();
+
+  // Routes are DERIVED from the published sitemap, not mirrored by hand.
+  //
+  // This file used to carry one entry per published route — 52 of its 54 entries
+  // were a manual duplicate of data the build already generates from articles/.
+  // Every new page then had to be registered here in lockstep or smoke failed,
+  // which is a tax on exactly the work we want to be doing, and it caught nothing
+  // that the per-route checks below don't already catch. New pages are now
+  // covered automatically.
+  //
+  // `expectations.routes` remains for the two things the sitemap cannot tell us:
+  // routes that are deliberately absent from it (marked `sitemap: false`, e.g.
+  // /brand-assets/, /result-graphics/), and per-route overrides keyed by path.
+  const declared = expectations?.routes || (paths || []).map(routePath => ({ path: routePath }));
+  const overrides = new Map(declared.map(route => [route.path, route]));
+  let routes = declared;
 
   if (expectations) {
     const sitemapUrl = new URL('/sitemap.xml', `${target}/`).toString();
@@ -255,19 +270,24 @@ export async function runSmokeSuite({
       message: 'sitemap is unreachable', classification: classifyFailure(sitemap.status, sitemap.error),
     });
     if (sitemap.ok) {
-      const manifestPaths = new Set(routes.filter(route => route.sitemap !== false).map(route => route.path));
       const livePaths = [...sitemap.body.matchAll(/<loc>([^<]+)<\/loc>/g)]
         .map(match => new URL(match[1]).pathname)
         .filter(routePath => !routePath.toLowerCase().endsWith('.pdf'));
-      for (const livePath of livePaths) {
-        addCheck(checks, {
-          id: `sitemap:manifest:${livePath}`, category: 'route', target, url: sitemapUrl,
-          ok: manifestPaths.has(livePath), expected: 'route has committed content expectation', actual: livePath,
-          message: `published sitemap route is missing from smoke expectations: ${livePath}`,
-        });
-      }
+      const derived = livePaths.map(routePath => overrides.get(routePath) ?? { path: routePath });
+      const extras = declared.filter(route => route.sitemap === false);
+      const seen = new Set();
+      routes = [...derived, ...extras].filter(route => !seen.has(route.path) && seen.add(route.path));
     }
   }
+
+  // The one invariant worth asserting about coverage: the suite actually checked
+  // something. A broken build that publishes an empty sitemap and declares no
+  // routes would otherwise pass vacuously.
+  addCheck(checks, {
+    id: 'routes:non-empty', category: 'route', target, url: target,
+    ok: routes.length > 0, expected: '>= 1 route to check', actual: `${routes.length}`,
+    message: 'no routes resolved from the sitemap or expectations — nothing was smoke-tested',
+  });
 
   for (const route of routes) {
     const pageUrl = new URL(route.path, `${target}/`).toString();
