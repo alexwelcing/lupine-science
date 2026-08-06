@@ -154,15 +154,20 @@ for (const file of walkHtml(path.join(PUBLIC, 'articles'))) {
   }
 }
 
-// sitemap must cover exactly what ships: every article page, no phantoms
+// Sitemap discovery follows the fail-closed publication policy: indexable
+// article pages must be listed and noindex editorial routes must not be.
 {
   const slugs = fs.readdirSync(path.join(PUBLIC, 'articles'), { withFileTypes: true })
     .filter((e) => e.isDirectory() && fs.existsSync(path.join(PUBLIC, 'articles', e.name, 'index.html')))
     .map((e) => e.name);
   for (const slug of slugs) {
-    if (!sitemap.includes(`https://lupine.science/articles/${slug}/`)) {
+    const articleHtml = read(`public/articles/${slug}/index.html`);
+    const listed = sitemap.includes(`https://lupine.science/articles/${slug}/`);
+    const indexable = /<meta name="robots" content="index,follow">/.test(articleHtml);
+    if (indexable && !listed) {
       fail(`sitemap.xml missing /articles/${slug}/ — run: node scripts/build-sitemap.mjs`);
     }
+    if (!indexable && listed) fail(`sitemap.xml lists non-public /articles/${slug}/`);
   }
   for (const m of sitemap.matchAll(/<loc>https:\/\/lupine\.science(\/[^<]*)<\/loc>/g)) {
     const p = m[1];

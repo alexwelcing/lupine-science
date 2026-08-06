@@ -37,13 +37,13 @@ describe('article Open Graph metadata', () => {
     assert.match(html, /<meta property="og:type" content="video\.other">/);
   });
 
-  it('uses video poster metadata and video type when an article has a published video', () => {
-    const html = readArticle('the-02-percent-synthesis-problem');
+  it('uses configured social metadata and video type when a released article has a video', () => {
+    const html = readArticle('the-savings-stack');
 
-    assert.match(html, /<meta property="og:title" content="The 0\.2% Synthesis Problem — Lupine Science">/);
-    assert.match(html, /<meta property="og:description" content="A review of the 0\.2% validation rate/);
-    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/videos\/the-02-percent-synthesis-problem-poster\.jpg\?v=\d+">/);
-    assert.match(html, /<meta property="og:url" content="https:\/\/lupine\.science\/articles\/the-02-percent-synthesis-problem\/">/);
+    assert.match(html, /<meta property="og:title" content="The Savings Stack:/);
+    assert.match(html, /<meta property="og:description" content="The Savings Stack v1 release/);
+    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/articles\/the-savings-stack\/hero\.jpg\?v=\d+">/);
+    assert.match(html, /<meta property="og:url" content="https:\/\/lupine\.science\/articles\/the-savings-stack\/">/);
     assert.match(html, /<meta property="og:type" content="video\.other">/);
   });
 });

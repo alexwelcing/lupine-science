@@ -36,12 +36,12 @@ describe('video share integration', () => {
   it('uses a video thumbnail for the video index social preview', () => {
     const html = readPublicPage('videos');
 
-    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/videos\/the-02-percent-synthesis-problem-poster\.jpg\?v=\d+">/);
-    assert.match(html, /<meta name="twitter:image" content="https:\/\/lupine\.science\/videos\/the-02-percent-synthesis-problem-poster\.jpg\?v=\d+">/);
+    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/videos\/the-savings-stack-poster\.jpg\?v=\d+">/);
+    assert.match(html, /<meta name="twitter:image" content="https:\/\/lupine\.science\/videos\/the-savings-stack-poster\.jpg\?v=\d+">/);
   });
 
   it('integrates sharing and the video thumbnail into published video article pages', () => {
-    const slug = 'the-02-percent-synthesis-problem';
+    const slug = 'the-order-is-right-the-size-is-wrong';
     const html = readPublicPage('articles', slug);
 
     assert.match(html, new RegExp(`class="share-root"[^>]*data-url="https://lupine\\.science/articles/${slug}/"`));

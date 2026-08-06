@@ -11,9 +11,9 @@ const PUBLIC = path.join(ROOT, 'public');
 const VIDEOS = path.join(PUBLIC, 'videos');
 
 function videoSlugs() {
-  return fs.readdirSync(VIDEOS)
-    .filter((name) => name.endsWith('.mp4'))
-    .map((name) => name.replace(/\.mp4$/, ''))
+  return fs.readdirSync(VIDEOS, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && fs.existsSync(path.join(VIDEOS, entry.name, 'index.html')))
+    .map((entry) => entry.name)
     .sort();
 }
 
@@ -37,7 +37,7 @@ before(() => {
 });
 
 describe('article and video publication routes', () => {
-  it('lists every top-level article video exactly once', () => {
+  it('lists every released article video exactly once', () => {
     const index = read('videos', 'index.html');
     const cards = [...index.matchAll(/class="video-card-primary" href="\/videos\/([^/]+)\/"/g)]
       .map((match) => match[1])
@@ -94,17 +94,20 @@ describe('article and video publication routes', () => {
       }
       for (const file of files) {
         fs.mkdirSync(path.dirname(file), { recursive: true });
-        fs.writeFileSync(file, '<!-- stale-output-sentinel -->\n');
+        const generatedMarker = file === files[1] ? '<main data-generated-video-detail="stale">' : '';
+        fs.writeFileSync(file, `${generatedMarker}<!-- stale-output-sentinel -->\n`);
       }
 
       const result = buildArticles(publicRoot);
       assert.equal(result.status, 0, result.stderr || result.stdout);
 
-      for (const file of files) {
-        const refreshed = fs.readFileSync(file, 'utf8');
-        assert.doesNotMatch(refreshed, /stale-output-sentinel/, path.relative(ROOT, file));
-        assert.match(refreshed, /Non-CO₂/, `${path.relative(ROOT, file)} must preserve Unicode on rebuild`);
-      }
+      const article = fs.readFileSync(files[0], 'utf8');
+      const index = fs.readFileSync(files[2], 'utf8');
+      assert.doesNotMatch(article, /stale-output-sentinel/);
+      assert.match(article, /Non-CO₂/, 'article rebuild must preserve Unicode');
+      assert.ok(!fs.existsSync(files[1]), 'draft video detail route must be removed');
+      assert.doesNotMatch(index, /stale-output-sentinel/);
+      assert.doesNotMatch(index, new RegExp(`/videos/${slug}/`));
     } finally {
       fs.rmSync(publicRoot, { recursive: true, force: true });
     }

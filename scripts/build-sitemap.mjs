@@ -10,6 +10,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isReleasedStatus } from './publication-policy.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC = path.join(ROOT, 'public');
@@ -22,6 +23,13 @@ function articleDate(slug) {
   return m ? m[1] : null;
 }
 
+function articleIsReleased(slug) {
+  const md = path.join(ROOT, 'articles', `${slug}.md`);
+  if (!fs.existsSync(md)) return false;
+  const match = fs.readFileSync(md, 'utf8').match(/^> \*\*Status:\*\*\s*(.+?)\s*$/m);
+  return isReleasedStatus(match?.[1]);
+}
+
 const urls = [
   { loc: `${SITE}/`, lastmod: null },
   { loc: `${SITE}/articles/`, lastmod: null },
@@ -31,12 +39,14 @@ for (const entry of fs.readdirSync(path.join(PUBLIC, 'articles'), { withFileType
   if (!entry.isDirectory()) continue;
   const slug = entry.name;
   if (!fs.existsSync(path.join(PUBLIC, 'articles', slug, 'index.html'))) continue;
+  if (!articleIsReleased(slug)) continue;
   urls.push({ loc: `${SITE}/articles/${slug}/`, lastmod: articleDate(slug) });
 }
 
 for (const entry of fs.readdirSync(path.join(PUBLIC, 'videos'), { withFileTypes: true })) {
   if (!entry.isDirectory()) continue;
   if (!fs.existsSync(path.join(PUBLIC, 'videos', entry.name, 'index.html'))) continue;
+  if (!articleIsReleased(entry.name)) continue;
   urls.push({ loc: `${SITE}/videos/${entry.name}/`, lastmod: articleDate(entry.name) });
 }
 // Presentations (standalone HTML decks).

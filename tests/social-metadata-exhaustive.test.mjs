@@ -58,13 +58,14 @@ describe('social metadata rendering', () => {
     assert.match(head, /href="https:\/\/lupine\.science\/articles\/evidence\/\?view=public&amp;lang=en"/);
   });
 
-  it('emits complete, canonical metadata and accessible share links for every article', () => {
+  it('emits complete, canonical metadata and accessible share links for every released article', () => {
     let unicodeTitles = 0;
     let unicodeDescriptions = 0;
 
     for (const slug of articleSlugs()) {
       const html = fs.readFileSync(path.join(ARTICLES, slug, 'index.html'), 'utf8');
       const document = new JSDOM(html).window.document;
+      if (document.querySelector('meta[name="robots"]')?.content !== 'index,follow') continue;
       const canonical = `${SITE}/articles/${slug}/`;
       const title = only(document, 'meta[property="og:title"]', slug).content;
       const description = only(document, 'meta[property="og:description"]', slug).content;

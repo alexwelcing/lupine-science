@@ -16,9 +16,9 @@ function readArticle(slug) {
 }
 
 function publishedVideoSlugs() {
-  return fs.readdirSync(VIDEOS)
-    .filter((name) => name.endsWith('.mp4'))
-    .map((name) => name.replace(/\.mp4$/, ''));
+  return fs.readdirSync(VIDEOS, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && fs.existsSync(path.join(VIDEOS, entry.name, 'index.html')))
+    .map((entry) => entry.name);
 }
 
 function jsonLdFrom(html) {
@@ -79,9 +79,10 @@ describe('article top-line metadata', () => {
 });
 
 describe('index metadata line', () => {
-  it('normalizes article status on the index card', () => {
+  it('lists released statuses without exposing draft cards', () => {
     const html = fs.readFileSync(path.join(OUT, 'index.html'), 'utf8');
-    assert.match(html, /class="d8"[^>]*>[^<]*Draft<\/span>/);
+    assert.match(html, /class="d8"[^>]*>[^<]*Published<\/span>/);
+    assert.doesNotMatch(html, /class="d8"[^>]*>[^<]*Draft<\/span>/);
   });
 });
 

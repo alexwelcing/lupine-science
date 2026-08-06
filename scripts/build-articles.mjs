@@ -12,6 +12,7 @@ import { fileURLToPath } from 'node:url';
 import MarkdownIt from 'markdown-it';
 import footnote from 'markdown-it-footnote';
 import katexPlugin from 'markdown-it-katex';
+import { isReleasedStatus } from './publication-policy.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = path.join(ROOT, 'articles');
@@ -321,14 +322,8 @@ import { initAllShareWidgets } from "/components/share/share.mjs";
 initAllShareWidgets();
 </script>`;
 
-export function renderHead({ title, description, url, ogTitle = title, ogDescription = description, ogUrl = url, ogImage, ogType, jsonld, preloadImage, math, videoUrl }) {
-  return `<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${esc(title)}</title>
-  <meta name="description" content="${esc(description)}">
-  <meta name="robots" content="index,follow">
-  <link rel="canonical" href="${esc(url)}">
-  <meta property="og:title" content="${esc(ogTitle)}">
+export function renderHead({ title, description, url, ogTitle = title, ogDescription = description, ogUrl = url, ogImage, ogType, jsonld, preloadImage, math, videoUrl, robots = 'index,follow', social = true }) {
+  const socialMetadata = social ? `  <meta property="og:title" content="${esc(ogTitle)}">
   <meta property="og:description" content="${esc(ogDescription)}">
   <meta property="og:type" content="${esc(ogType)}">
   <meta property="og:url" content="${esc(ogUrl)}">
@@ -339,7 +334,14 @@ export function renderHead({ title, description, url, ogTitle = title, ogDescrip
   <meta name="twitter:title" content="${esc(ogTitle)}">
   <meta name="twitter:description" content="${esc(ogDescription)}">
   <meta name="twitter:image" content="${esc(ogImage)}">
-  <meta name="theme-color" content="#faf9f6">
+` : '';
+  return `<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${esc(title)}</title>
+  <meta name="description" content="${esc(description)}">
+  <meta name="robots" content="${esc(robots)}">
+  <link rel="canonical" href="${esc(url)}">
+${socialMetadata}  <meta name="theme-color" content="#faf9f6">
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
   <link rel="icon" type="image/png" href="/lupine-science-icon.png">
   <link rel="apple-touch-icon" href="/lupine-science-icon.png">
@@ -347,7 +349,7 @@ export function renderHead({ title, description, url, ogTitle = title, ogDescrip
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
 ${videoUrl ? `  <link rel="alternate" type="video/mp4" href="${esc(videoUrl)}">\n` : ''}${preloadImage ? `  <link rel="preload" href="${esc(preloadImage)}" as="image" fetchpriority="high">\n` : ''}${math ? '  <link rel="stylesheet" href="/katex/katex.min.css">\n' : ''}  <link rel="stylesheet" href="/articles/styles.css">
   <link rel="stylesheet" href="/components/share/share.css">
-  <script type="application/ld+json">${JSON.stringify(jsonld)}</script>`;
+${social ? `  <script type="application/ld+json">${JSON.stringify(jsonld)}</script>` : ''}`;
 }
 
 function chrome(inner, { current = 'articles' } = {}) {
@@ -402,6 +404,7 @@ function buildArticle(raw, slug) {
   const hasMath = /class="katex"/.test(body) || /<math\b/.test(body) || /<annotation\b/.test(body);
   // markdown-it-footnote uses <section class="footnotes"> already
   const meta = extractMeta(raw);
+  const released = isReleasedStatus(meta.status);
   const titleMatch = body.match(/<h1>(.*?)<\/h1>/s);
   const title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, '') : slug;
   // Summary/deck priority: new labels first, legacy aliases as fallbacks.
@@ -430,7 +433,7 @@ function buildArticle(raw, slug) {
     headerParts.push(`<ul class="article-byline" aria-label="Publication details">${datePart ? `<li>${datePart}</li>` : ''}${sep ? ` <li aria-hidden="true">${sep}</li>` : ''}${statusPart ? ` <li>${statusPart}</li>` : ''}</ul>`);
   }
   const hero = heroFigure(slug);
-  const video = inlineVideoPlayer(slug, title);
+  const video = released ? inlineVideoPlayer(slug, title) : '';
   if (headerParts.length || hero || video) {
     const inserted = [...headerParts, hero, video].filter(Boolean).join('\n');
     body = body.replace('</h1>', `</h1>\n${inserted}`);
@@ -448,15 +451,17 @@ function buildArticle(raw, slug) {
     });
   }
 
-  // share bar immediately before the footnotes section / heading, or at the end if there are none
-  const share = shareBar(`/articles/${slug}/`, title);
-  const footnotesHeading = '<h2 class="footnotes-heading">Footnotes</h2>';
-  if (body.includes(footnotesHeading)) {
-    body = body.replace(footnotesHeading, `${share}\n${footnotesHeading}`);
-  } else if (body.includes('<section class="footnotes"')) {
-    body = body.replace('<section class="footnotes"', `${share}\n<section class="footnotes"`);
-  } else {
-    body += '\n' + share;
+  // Only reviewed release states receive public sharing controls.
+  if (released) {
+    const share = shareBar(`/articles/${slug}/`, title);
+    const footnotesHeading = '<h2 class="footnotes-heading">Footnotes</h2>';
+    if (body.includes(footnotesHeading)) {
+      body = body.replace(footnotesHeading, `${share}\n${footnotesHeading}`);
+    } else if (body.includes('<section class="footnotes"')) {
+      body = body.replace('<section class="footnotes"', `${share}\n<section class="footnotes"`);
+    } else {
+      body += '\n' + share;
+    }
   }
 
   const hasJpg = fs.existsSync(path.join(OUT, slug, 'hero.jpg'));
@@ -466,7 +471,7 @@ function buildArticle(raw, slug) {
   const ogImageWidth = 1200;
   const ogImageHeight = 630;
   const twitterCard = 'summary_large_image';
-  const videoUrl = publishedVideoUrl(slug);
+  const videoUrl = released ? publishedVideoUrl(slug) : undefined;
   const videoPoster = fs.existsSync(path.join(PUBLIC_ROOT, 'videos', `${slug}-poster.jpg`))
     ? bust(`${SITE}/videos/${slug}-poster.jpg`)
     : undefined;
@@ -527,6 +532,8 @@ function buildArticle(raw, slug) {
     preloadImage,
     math: hasMath,
     videoUrl,
+    robots: released ? 'index,follow' : 'noindex,nofollow,noarchive',
+    social: released,
   })}
 </head>
 <body>
@@ -539,7 +546,7 @@ ${PAGE_SCRIPT}
 </body>
 </html>
 `;
-  return { page, title, description, meta, slug, ogImage, ogImageWidth, ogImageHeight, twitterCard };
+  return { page, title, description, meta, slug, released, ogImage, ogImageWidth, ogImageHeight, twitterCard };
 }
 
 function buildIndex(articles) {
@@ -611,6 +618,7 @@ function videoArticles(articles) {
     throw new Error(`refusing to publish orphan video without article: public/videos/${orphan}.mp4`);
   }
   return articles.filter((article) => {
+    if (!article.released) return false;
     const { slug } = article;
     const mp4 = path.join(PUBLIC_ROOT, 'videos', `${slug}.mp4`);
     if (!fs.existsSync(mp4)) return false;
@@ -692,6 +700,7 @@ ${PAGE_SCRIPT}
 }
 
 function buildVideoIndex(articles) {
+  const previewSlug = articles[0]?.slug;
   const cards = articles.map((article) => {
     const { slug, title } = article;
     const description = videoDescription(article);
@@ -729,7 +738,7 @@ function buildVideoIndex(articles) {
     title: 'Videos — Lupine Science',
     description: 'Narrated motion versions and short films from Lupine Science articles.',
     url,
-    ogImage: bust(`${SITE}/videos/the-02-percent-synthesis-problem-poster.jpg`),
+    ogImage: previewSlug ? bust(`${SITE}/videos/${previewSlug}-poster.jpg`) : `${SITE}/og-lupine-science.png`,
     ogType: 'website',
     jsonld,
   })}
@@ -812,7 +821,8 @@ for (const file of sources) {
   console.log(`built /articles/${slug}/`);
 }
 articles.sort((a, b) => (b.meta.date || '').localeCompare(a.meta.date || ''));
-writeAtomic(path.join(OUT, 'index.html'), buildIndex(articles));
+const releasedArticles = articles.filter(({ released }) => released);
+writeAtomic(path.join(OUT, 'index.html'), buildIndex(releasedArticles));
 console.log('built /articles/index.html');
 
 const videos = videoArticles(articles);
