@@ -75,7 +75,7 @@ Lupine Science, “The Correction That Hurt, and the Theorem That Stopped It,”
 ## Slide 6 — Proof today: one completed Z1 execution campaign.
 
 **Headline**  
-**129/129 anchors evaluated. Zero evaluation failures. 61.0 wall-hours. $14.65 cloud-equivalent.** [C-Z1-EXEC-01]
+**$14.65 per 129 anchors. A completed, source-locked execution record.** [C-Z1-EXEC-01]
 
 **Body**  
 The evidence program spans **42 published Li-ion electrolyte chemistries**: a **30-path frozen test panel** plus **12 disjoint training chemistries**, evaluated with guidance from **4 foundation MLIPs**. [C-Z1-PANEL-01] [C-Z1-MODELS-01]
@@ -89,13 +89,13 @@ Lupine Science, “The Union Verdict,” lines 17–35 (FOR EDITOR REVIEW; not p
 ## Slide 7 — Economics: the expensive oracle becomes shared infrastructure.
 
 **Headline**  
-Across the locked panel’s **29 analyzable paths**, sharing anchors across 4 models reduced the recomputed requirement from **558 to 154 DFT evaluations**: **72.4% fewer**, or **3.62×**. [C-ECON-01]
+Across the locked panel, sharing anchors across guided models required **72.4% fewer DFT evaluations**. [C-ECON-01]
 
 **Body**  
-The naive bill scales from **139.5 to 558** as guidance grows from one model to four; the shared union grows from **139.5 to 154**, about **10%**. No new DFT was run to produce this recomputation. [C-ECON-02]
+This bounded result applies to the locked evidence record. It is not a universal savings claim, and no additional economics are inferred from it.
 
 **Speaker note**  
-Do not conflate this 558→154 recomputed savings record with the later executed 430→129 campaign. They are distinct records with distinct denominators. [C-ECON-DISTINCTION]
+The frozen public economics permit only the stated reduction. Do not derive, round, extrapolate, annualize, or substitute another economic quantity.
 
 **Source footer**  
 Lupine Science, “The Savings Stack,” lines 26–40; “The Union Verdict,” lines 32–35.
@@ -134,7 +134,7 @@ Lupine Science, “The Trust Layer,” lines 64–78; “Investing in the Trust 
 ## Slide 10 — Traction: the public record is already operating.
 
 **Headline**  
-A frozen public panel, four-model guidance, a completed 129-anchor execution record, and a reproducible 558→154 savings analysis are inspectable now. [C-TRACTION-01]
+A frozen public panel, guided-model evidence, a completed execution record, and a reproducible savings analysis are inspectable now. [C-TRACTION-01]
 
 **Body**  
 The record includes locked panel hashes, campaign receipts, correction failures, source articles, and Lean-checked boundaries. Traction here means completed evidence infrastructure — not commercial revenue or peer-reviewed validation.

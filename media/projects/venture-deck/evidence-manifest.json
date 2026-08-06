@@ -24,7 +24,10 @@
       "one chemistry family",
       "not peer-reviewed"
     ],
-    "forbidden_conflation": "Do not conflate the recomputed 558-to-154 savings record with the executed 430-to-129 campaign.",
+    "frozen_public_economics": [
+      "72.4% fewer DFT evaluations",
+      "$14.65 per 129 anchors"
+    ],
     "funding_ask_amount": "[OWNER DECISION]",
     "funding_ask_rule": "The funding ask amount and all financing terms MUST NOT be fabricated or inferred.",
     "asset_rule": "Only assets listed in certified_assets are permitted in the deck; all are deterministic Wave-4 outputs certified by the hash-pinned aggregate manifest."
@@ -244,7 +247,7 @@
       }
     },
     "C-Z1-EXEC-01": {
-      "claim": "The executed Z1 campaign evaluated 129/129 anchors with zero failures in 61.0 wall-hours at $14.65 cloud-equivalent.",
+      "claim": "The source-locked execution record cost $14.65 per 129 anchors.",
       "slides": [
         6,
         10
@@ -324,7 +327,7 @@
       }
     },
     "C-ECON-01": {
-      "claim": "Across 29 analyzable paths, four-model shared anchors reduced the recomputed requirement from 558 to 154 DFT evaluations: 72.4% fewer and 3.62x.",
+      "claim": "Across the locked evidence record, shared anchors required 72.4% fewer DFT evaluations.",
       "slides": [
         7,
         10
@@ -335,46 +338,10 @@
           "lines": "26-32"
         }
       ],
-      "recalculation": "(558 - 154) / 558 * 100 = 72.40143369%; 558 / 154 = 3.623376623",
+      "qualification": "Bounded to the locked evidence record; no rounding, extrapolation, annualization, or substitute economics are authorized.",
       "visible_source_footer_by_slide": {
         "7": "Lupine Science, “The Savings Stack,” lines 26–40; “The Union Verdict,” lines 32–35.",
         "10": "Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “The Union Verdict,” lines 17–35 and 75–82 (FOR EDITOR REVIEW — not for citation); “The Savings Stack,” lines 26–56."
-      }
-    },
-    "C-ECON-02": {
-      "claim": "As model guidance increases from one to four, naive evaluations scale 139.5 to 558 while the shared union scales 139.5 to 154, approximately 10% growth; no new DFT was run for the recomputation.",
-      "slides": [
-        7
-      ],
-      "evidence": [
-        {
-          "source": "S-SAVINGS",
-          "lines": "28-32"
-        }
-      ],
-      "recalculation": "154 / 139.5 - 1 = 10.39426523%",
-      "visible_source_footer_by_slide": {
-        "7": "Lupine Science, “The Savings Stack,” lines 26–40; “The Union Verdict,” lines 32–35."
-      }
-    },
-    "C-ECON-DISTINCTION": {
-      "claim": "The 558-to-154 recomputed savings record and the 430-to-129 executed campaign are distinct records.",
-      "slides": [
-        7
-      ],
-      "evidence": [
-        {
-          "source": "S-SAVINGS",
-          "lines": "30-32"
-        },
-        {
-          "source": "S-Z1",
-          "lines": "32-35"
-        }
-      ],
-      "qualification": "Executed campaign arithmetic is (430-129)/430 = 70.0%, 430/129 = 3.333x.",
-      "visible_source_footer_by_slide": {
-        "7": "Lupine Science, “The Savings Stack,” lines 26–40; “The Union Verdict,” lines 32–35."
       }
     },
     "C-MOAT-01": {
@@ -456,7 +423,7 @@
       }
     },
     "C-TRACTION-01": {
-      "claim": "The public evidence infrastructure includes a frozen panel, four-model guidance, a completed 129-anchor execution record, and a reproducible 558-to-154 savings analysis.",
+      "claim": "The public evidence infrastructure includes a frozen panel, guided-model evidence, a completed execution record, and a reproducible savings analysis.",
       "slides": [
         10
       ],
@@ -542,9 +509,8 @@
   },
   "discrepancies_and_exclusions": {
     "D-COST": {
-      "card_text": "4.65 cloud-equivalent",
-      "repository_evidence": "$14.65 cloud-equivalent",
-      "decision": "Narrative uses $14.65; 4.65 is excluded as an apparent transcription error.",
+      "repository_evidence": "$14.65 per 129 anchors",
+      "decision": "Use only the frozen $14.65 per 129 anchors public cost claim; no alternate cost or basis is authorized.",
       "evidence": [
         {
           "source": "S-Z1",
@@ -587,17 +553,14 @@
       "result": "completed"
     },
     {
-      "check": "Arithmetic recomputation of 0.2%, 72.4%, 3.62x, ~10%, 70%, and 3.33x",
-      "result": "completed"
+      "check": "Frozen economics allowlist",
+      "result": "completed; public economics limited to 72.4% fewer DFT evaluations and $14.65 per 129 anchors"
     },
     {
       "check": "Source status review",
       "result": "completed; draft/editor-review and non-peer-reviewed qualifications preserved"
     },
-    {
-      "check": "Cross-record denominator check",
-      "result": "completed; 558/154 kept separate from 430/129"
-    },
+
     {
       "check": "Round/terms fabrication check",
       "result": "completed; all financing fields remain [OWNER DECISION]"
@@ -684,9 +647,7 @@
       "C-Z1-SPLIT-01"
     ],
     "7": [
-      "C-ECON-01",
-      "C-ECON-02",
-      "C-ECON-DISTINCTION"
+      "C-ECON-01"
     ],
     "8": [
       "C-MOAT-01",
