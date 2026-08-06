@@ -26,8 +26,34 @@ if (!Number.isSafeInteger(LEAN_COUNT) || LEAN_COUNT < 1) {
   throw new Error(`Invalid machine-generated theorem count in ${LEAN_COUNT_PATH}`);
 }
 
+// Declaration inventory for the theory-artifacts tree (the eight sharp-license
+// modules). Regenerate with scripts/generate-theory-artifacts-count.mjs; never
+// hand-type these numbers into prose — that is what gate 5 forbids.
+const THEORY_ARTIFACTS_PATH = path.join(PUBLIC_ROOT, 'data', 'theory_artifacts_count.json');
+const THEORY_ARTIFACTS = JSON.parse(fs.readFileSync(THEORY_ARTIFACTS_PATH, 'utf8'));
+
+for (const key of ['modules', 'theorem', 'lemma', 'named', 'example', 'family_named']) {
+  if (!Number.isSafeInteger(THEORY_ARTIFACTS[key]) || THEORY_ARTIFACTS[key] < 1) {
+    throw new Error(`Invalid generated ${key} in ${THEORY_ARTIFACTS_PATH}`);
+  }
+}
+
+const GENERATED_FACTS = {
+  '{{LEAN_THEOREM_COUNT}}': String(LEAN_COUNT),
+  '{{TA_MODULES}}': String(THEORY_ARTIFACTS.modules),
+  '{{TA_THEOREMS}}': String(THEORY_ARTIFACTS.theorem),
+  '{{TA_LEMMAS}}': String(THEORY_ARTIFACTS.lemma),
+  '{{TA_NAMED}}': String(THEORY_ARTIFACTS.named),
+  '{{TA_EXAMPLES}}': String(THEORY_ARTIFACTS.example),
+  '{{TA_FAMILY_NAMED}}': String(THEORY_ARTIFACTS.family_named),
+};
+
 function hydrateGeneratedFacts(value) {
-  return value.replaceAll('{{LEAN_THEOREM_COUNT}}', String(LEAN_COUNT));
+  let out = value;
+  for (const [token, replacement] of Object.entries(GENERATED_FACTS)) {
+    out = out.replaceAll(token, replacement);
+  }
+  return out;
 }
 
 const KATEX_SRC = path.join(ROOT, 'node_modules', 'katex', 'dist');
@@ -124,6 +150,8 @@ const HERO_CAPTIONS = {
     'A physical refrigeration loop — compressor, heat exchanger, and sealed refrigerant circuit — with indigo measurement traces and no readable interface text.',
   'the-savings-stack':
     'Many pale compute lanes converging into a compact shared evaluation backbone that feeds several materials programs: reuse instead of brute force.',
+  'what-the-cap-was-hiding':
+    'A dense field of refused cases banked against a single indigo gate, and the three that were let through continuing across open paper.',
   'shared-dft-anchors':
     'The locked Z1 evaluation-count comparison: 558 projected separate-model anchors and 154 projected shared-union anchors, labeled 72.4% fewer DFT evaluations.',
   'z1-union-debrief':

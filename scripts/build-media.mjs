@@ -49,12 +49,21 @@ for (const v of VIDEOS) {
 }
 
 // ── images ──────────────────────────────────────────────────────────
-// content images get AVIF/WebP siblings + recompressed original
-const PICTURES = [
-  'articles/why-lupine-science/hero.jpg',
-  'articles/from-fantasy-frameworks-to-makeable-materials/hero.jpg',
-  'ribbon-still.jpg',
-];
+// content images get AVIF/WebP siblings + recompressed original.
+//
+// Article heroes are DISCOVERED, not listed. This was a hand-maintained mirror of
+// public/articles/*/hero.jpg: adding a hero meant remembering to register it here
+// or silently shipping without webp/avif siblings — a lockstep tax with a failure
+// mode that is invisible rather than loud. Every hero on disk is now processed.
+const articleHeroes = fs.existsSync(path.join(PUBLIC, 'articles'))
+  ? fs.readdirSync(path.join(PUBLIC, 'articles'), { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => `articles/${entry.name}/hero.jpg`)
+    .filter((rel) => fs.existsSync(path.join(PUBLIC, rel)))
+    .sort()
+  : [];
+
+const PICTURES = [...articleHeroes, 'ribbon-still.jpg'];
 
 for (const rel of PICTURES) {
   const src = path.join(PUBLIC, rel);
