@@ -131,6 +131,8 @@ const HERO_CAPTIONS = {
     'A physical refrigeration loop — compressor, heat exchanger, and sealed refrigerant circuit — with indigo measurement traces and no readable interface text.',
   'the-savings-stack':
     'Many pale compute lanes converging into a compact shared evaluation backbone that feeds several materials programs: reuse instead of brute force.',
+  'what-the-cap-was-hiding':
+    'A dense field of refused cases banked against a single indigo gate, and the three that were let through continuing across open paper.',
   'shared-dft-anchors':
     'The locked Z1 evaluation-count comparison: 558 projected separate-model anchors and 154 projected shared-union anchors, labeled 72.4% fewer DFT evaluations.',
   'z1-union-debrief':

@@ -53,6 +53,7 @@ for (const v of VIDEOS) {
 const PICTURES = [
   'articles/why-lupine-science/hero.jpg',
   'articles/from-fantasy-frameworks-to-makeable-materials/hero.jpg',
+  'articles/what-the-cap-was-hiding/hero.jpg',
   'ribbon-still.jpg',
 ];
 
