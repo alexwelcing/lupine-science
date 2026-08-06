@@ -22,12 +22,22 @@ function articleDate(slug) {
   return m ? m[1] : null;
 }
 
-const urls = [{ loc: `${SITE}/`, lastmod: null }, { loc: `${SITE}/articles/`, lastmod: null }];
+const urls = [
+  { loc: `${SITE}/`, lastmod: null },
+  { loc: `${SITE}/articles/`, lastmod: null },
+  { loc: `${SITE}/videos/`, lastmod: null },
+];
 for (const entry of fs.readdirSync(path.join(PUBLIC, 'articles'), { withFileTypes: true })) {
   if (!entry.isDirectory()) continue;
   const slug = entry.name;
   if (!fs.existsSync(path.join(PUBLIC, 'articles', slug, 'index.html'))) continue;
   urls.push({ loc: `${SITE}/articles/${slug}/`, lastmod: articleDate(slug) });
+}
+
+for (const entry of fs.readdirSync(path.join(PUBLIC, 'videos'), { withFileTypes: true })) {
+  if (!entry.isDirectory()) continue;
+  if (!fs.existsSync(path.join(PUBLIC, 'videos', entry.name, 'index.html'))) continue;
+  urls.push({ loc: `${SITE}/videos/${entry.name}/`, lastmod: articleDate(entry.name) });
 }
 // Presentations (standalone HTML decks).
 const presentationsDir = path.join(PUBLIC, 'presentations');

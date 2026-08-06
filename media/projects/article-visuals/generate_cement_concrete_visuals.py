@@ -379,7 +379,7 @@ def make_05():
     stats = [
         ('uMLIP speedup vs. DFT', '~10⁵×'),
         ('Correction overhead', '15.6% → <1%'),
-        ('Build-locked theorems', '77, zero sorry'),
+        ('Lean proof inventory', 'machine-generated\nzero sorry'),
     ]
     for sx, (label, val) in zip((-0.88, 0.0, 0.88), stats):
         ax.text(sx, -1.14, label, ha='center', va='center', fontsize=9, color=SECONDARY)

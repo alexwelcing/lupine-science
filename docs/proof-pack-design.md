@@ -96,6 +96,12 @@ A proof pack is now produced per eligible article from a sibling manifest file:
   - `npm run proofpack:all` — one PDF + JSON manifest per eligible article.
   - `npm run proofpack:slug -- <slug>` — one article only.
   - `npm run proofpack:validate -- <manifest.json>` — validate a manifest.
+- Programmatic consumers import from the single public module `lib/proof-pack-generator.mjs`:
+  - `listEligibleArticles()` returns the stable, slug-sorted set of articles with reviewed sibling input manifests.
+  - `generateProofPack(article, { outDir })` accepts a slug string or `{ slug }`, removes stale outputs for that slug, validates the finished output, and resolves to `{ slug, pdfPath, manifestPath, validated: true }`. It refuses malformed or ineligible slugs and never starts a network-dependent renderer.
+  - `validateProofPack(manifest)` validates the complete input schema and scientific source policy; `validateProofPackFiles(manifest, manifestPath)` verifies local figure existence, containment, and any declared SHA-256 digest.
+  - `validateProofPackOutput(manifestPath, { rootDir })` returns actionable integrity issues for the source manifest, article HTML, complete figure set, deterministic date/slug binding, and PDF digest/size. `assertValidProofPackOutput(...)` throws one aggregated error instead.
+- All strings and JSON are read and written as UTF-8. Rendering blocks non-loopback requests, uses repository-local fonts/assets, and the representative regression round-trips scientific symbols and multilingual names through the PDF text layer.
 - Per-article outputs land in `public/proof-packs/<slug>.proofpack.pdf` with a sibling `<slug>.proofpack.json` manifest containing content-addressed input checksums and the output PDF checksum.
 - The builder renders `public/proof-pack-template/index.html` populated from the manifest, serves `public/` locally, prints to Letter with Playwright, waits for fonts and images, normalizes PDF metadata/timestamps to the manifest date, and removes stale outputs on `--all`.
-- Byte-identical reproducibility is not guaranteed across Chromium runs, so determinism is verified by semantic comparison: repeated builds produce identical `pdftotext -layout` output and identical input/output checksums in the manifest.
+- Output manifests use the article publication date rather than wall-clock time. Byte-identical reproducibility is not guaranteed across Chromium versions, so determinism is verified by semantic comparison: repeated builds produce identical `pdftotext -layout` output and identical content-addressed input/output metadata with a fixed renderer.
