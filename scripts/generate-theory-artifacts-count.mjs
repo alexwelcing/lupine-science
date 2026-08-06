@@ -50,9 +50,14 @@ function stripNonCode(src) {
   return out;
 }
 
+// The sibling checkout is a maintenance input, not a build input: the inventory
+// it produces is committed. CI checks out only this repository, so a missing tree
+// must not break the build — the committed JSON is already what hydration reads,
+// and build-articles.mjs fails loudly if that file is absent or invalid.
+// Run this script locally (where the sibling exists) to refresh the inventory.
 if (!fs.existsSync(TREE)) {
-  console.error(`theory-artifacts checkout not found at ${TREE}`);
-  process.exit(1);
+  console.log(`theory-artifacts checkout absent at ${TREE} — keeping the committed inventory`);
+  process.exit(0);
 }
 
 const files = fs.readdirSync(TREE, { withFileTypes: true })
