@@ -9,9 +9,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import MarkdownIt from 'markdown-it';
-import footnote from 'markdown-it-footnote';
-import katexPlugin from 'markdown-it-katex';
+import { renderArticleMarkdown } from './lib/article-markdown.mjs';
 import { readProofPackMetadata } from './lib/proof-pack-metadata.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -88,11 +86,6 @@ function ensureKatexAssets() {
   }
   return true;
 }
-
-// typographer: real quotes and apostrophes in prose (code blocks untouched)
-const md = new MarkdownIt({ html: true, typographer: true })
-  .use(footnote)
-  .use(katexPlugin, { throwOnError: false, trust: false });
 
 // Per-article hero captions. A hero figure is emitted only when the media
 // files actually exist next to the article.
@@ -434,7 +427,7 @@ async function proofDownloadCard(meta, slug, title) {
 
 async function buildArticle(raw, slug) {
   raw = hydrateGeneratedFacts(raw);
-  let body = md.render(raw);
+  let body = renderArticleMarkdown(raw);
   body = wrapInlineFigures(body);
   body = bustInlineImages(body, slug);
   body = body.replace('<div class="footnote">', '<div class="footnotes">');
