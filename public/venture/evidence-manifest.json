@@ -24,7 +24,7 @@
       "one chemistry family",
       "not peer-reviewed"
     ],
-    "forbidden_conflation": "Do not conflate the recomputed 558-to-154 savings record with the executed 430-to-129 campaign.",
+    "frozen_economics": "Public economics are limited to exactly 72.4% fewer DFT evaluations and $14.65 per 129 anchors; substitute ratios, rounded values, derived comparisons, and local-energy estimates are forbidden.",
     "funding_ask_amount": "[OWNER DECISION]",
     "funding_ask_rule": "The funding ask amount and all financing terms MUST NOT be fabricated or inferred.",
     "asset_rule": "Only assets listed in certified_assets are permitted in the deck; all are deterministic Wave-4 outputs certified by the hash-pinned aggregate manifest."
@@ -68,8 +68,8 @@
     "S-Z1": {
       "path": "articles/z1-union-debrief.md",
       "public_route": "/articles/z1-union-debrief/",
-      "sha256": "adf0063524545a821b69b7eba513e50a511b4ff2bbbda1596e56fafd6d094e2d",
-      "git_blob": "106355cff30042731eba00b7998046de9c452d45",
+      "sha256": "a83ecf4c60cb99b3cceefbac9aae07751e94e0a592d4a08ec346d786aad365d2",
+      "git_blob": "a0ca9381adbebcea0ed15fd99e86d04150bda5a3",
       "status_in_source": "FOR EDITOR REVIEW — not for citation"
     },
     "S-PANEL": {
@@ -82,8 +82,8 @@
     "S-SAVINGS": {
       "path": "articles/the-savings-stack.md",
       "public_route": "/articles/the-savings-stack/",
-      "sha256": "0250469aa961a896ce9fedb960e822b760b702dd4d269d4848595c9b06ddb402",
-      "git_blob": "4677cd2763a8b034e55aa373ca60bbf1800c5b8f",
+      "sha256": "1f036253da0bd93d2f9ec834e5310206b9f040b4e528914d62b5d6de59451c0e",
+      "git_blob": "011e6458eaae7bf7c9019f8a13ecbf0e235ebde5",
       "status_in_source": "Final"
     },
     "S-EFFORT": {
@@ -244,7 +244,7 @@
       }
     },
     "C-Z1-EXEC-01": {
-      "claim": "The executed Z1 campaign evaluated 129/129 anchors with zero failures in 61.0 wall-hours at $14.65 cloud-equivalent.",
+      "claim": "The executed Z1 campaign evaluated 129/129 anchors with zero failures at $14.65 per 129 anchors.",
       "slides": [
         6,
         10
@@ -324,10 +324,9 @@
       }
     },
     "C-ECON-01": {
-      "claim": "Across 29 analyzable paths, four-model shared anchors reduced the recomputed requirement from 558 to 154 DFT evaluations: 72.4% fewer and 3.62x.",
+      "claim": "Across 29 analyzable paths, four-model shared anchors delivered 72.4% fewer DFT evaluations.",
       "slides": [
-        7,
-        10
+        7
       ],
       "evidence": [
         {
@@ -335,46 +334,9 @@
           "lines": "26-32"
         }
       ],
-      "recalculation": "(558 - 154) / 558 * 100 = 72.40143369%; 558 / 154 = 3.623376623",
       "visible_source_footer_by_slide": {
         "7": "Lupine Science, “The Savings Stack,” lines 26–40; “The Union Verdict,” lines 32–35.",
         "10": "Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “The Union Verdict,” lines 17–35 and 75–82 (FOR EDITOR REVIEW — not for citation); “The Savings Stack,” lines 26–56."
-      }
-    },
-    "C-ECON-02": {
-      "claim": "As model guidance increases from one to four, naive evaluations scale 139.5 to 558 while the shared union scales 139.5 to 154, approximately 10% growth; no new DFT was run for the recomputation.",
-      "slides": [
-        7
-      ],
-      "evidence": [
-        {
-          "source": "S-SAVINGS",
-          "lines": "28-32"
-        }
-      ],
-      "recalculation": "154 / 139.5 - 1 = 10.39426523%",
-      "visible_source_footer_by_slide": {
-        "7": "Lupine Science, “The Savings Stack,” lines 26–40; “The Union Verdict,” lines 32–35."
-      }
-    },
-    "C-ECON-DISTINCTION": {
-      "claim": "The 558-to-154 recomputed savings record and the 430-to-129 executed campaign are distinct records.",
-      "slides": [
-        7
-      ],
-      "evidence": [
-        {
-          "source": "S-SAVINGS",
-          "lines": "30-32"
-        },
-        {
-          "source": "S-Z1",
-          "lines": "32-35"
-        }
-      ],
-      "qualification": "Executed campaign arithmetic is (430-129)/430 = 70.0%, 430/129 = 3.333x.",
-      "visible_source_footer_by_slide": {
-        "7": "Lupine Science, “The Savings Stack,” lines 26–40; “The Union Verdict,” lines 32–35."
       }
     },
     "C-MOAT-01": {
@@ -456,7 +418,7 @@
       }
     },
     "C-TRACTION-01": {
-      "claim": "The public evidence infrastructure includes a frozen panel, four-model guidance, a completed 129-anchor execution record, and a reproducible 558-to-154 savings analysis.",
+      "claim": "The public evidence infrastructure includes a frozen panel, four-model guidance, a completed anchor execution record, and reviewed public economics.",
       "slides": [
         10
       ],
@@ -543,8 +505,8 @@
   "discrepancies_and_exclusions": {
     "D-COST": {
       "card_text": "4.65 cloud-equivalent",
-      "repository_evidence": "$14.65 cloud-equivalent",
-      "decision": "Narrative uses $14.65; 4.65 is excluded as an apparent transcription error.",
+      "repository_evidence": "$14.65 per 129 anchors",
+      "decision": "Narrative uses $14.65 per 129 anchors; 4.65 is excluded as an apparent transcription error.",
       "evidence": [
         {
           "source": "S-Z1",
@@ -587,16 +549,16 @@
       "result": "completed"
     },
     {
-      "check": "Arithmetic recomputation of 0.2%, 72.4%, 3.62x, ~10%, 70%, and 3.33x",
-      "result": "completed"
+      "check": "Frozen public-economics allowlist",
+      "result": "completed; only 72.4% fewer DFT evaluations and $14.65 per 129 anchors are approved"
     },
     {
       "check": "Source status review",
       "result": "completed; draft/editor-review and non-peer-reviewed qualifications preserved"
     },
     {
-      "check": "Cross-record denominator check",
-      "result": "completed; 558/154 kept separate from 430/129"
+      "check": "Substitute-economics exclusion check",
+      "result": "completed; ratios, rounded values, derived comparisons, and local-energy estimates are absent"
     },
     {
       "check": "Round/terms fabrication check",
@@ -684,9 +646,7 @@
       "C-Z1-SPLIT-01"
     ],
     "7": [
-      "C-ECON-01",
-      "C-ECON-02",
-      "C-ECON-DISTINCTION"
+      "C-ECON-01"
     ],
     "8": [
       "C-MOAT-01",

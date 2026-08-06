@@ -87,7 +87,7 @@ Slides 1 and 13 may omit the top eyebrow only if the Lupine Science wordmark is 
 - Do not add chart values, tick values, dates, TAM, revenue, customers, partners, valuation, round size, runway, allocation percentages, hiring counts, or milestones.
 - Preserve `$14.65`; never use the rejected `4.65` transcription.
 - Display the closure result only as `100/100 unique still slots`, supported by closure gate `t_c2a1f8e3`: 33 certified baseline stills + 67 independently certified Wave-4 replacements. Keep the five certified films explicitly outside the 100-still denominator. Never imply 100/100 models, campaigns, films, or generic certification.
-- Keep the recomputed `558 → 154` record visually and verbally distinct from the executed campaign record. Do not place `430 → 129`, `70.0%`, or `3.33×` on slide 7.
+- Public economics are frozen to exactly `72.4% fewer DFT evaluations` and `$14.65 per 129 anchors`. Do not place substitute ratios, rounded values, derived comparisons, or local-energy estimates on any slide.
 - Slide 12 is mandatory and must say exactly: `One 30-path panel. One chemistry family. Not peer-reviewed.`
 - Slide 13 financing fields remain visibly unresolved `[OWNER DECISION]` slots.
 
@@ -157,7 +157,7 @@ Never recolor, mask with a gradient, add a shadow, place on a dark panel, or cro
 ### 06 — Proof today: one completed Z1 execution campaign.
 
 - **Narrative copy:** render slide 6 headline and body verbatim; claim metadata `C-Z1-EXEC-01`, `C-Z1-PANEL-01`, `C-Z1-MODELS-01`, `C-Z1-SPLIT-01`.
-- **Layout:** four KPI cells across `x=112–1808, y=280–460`: `129/129`, `zero failures`, `61.0 wall-hours`, `$14.65 cloud-equivalent`. Below, asset occupies `x=112, y=500, w=1050, h=400`; panel description occupies `x=1220, y=520, w=588`.
+- **Layout:** four KPI cells across `x=112–1808, y=280–460`: `129/129`, `zero failures`, `$14.65 per 129 anchors`, `reviewed public economics`. Below, asset occupies `x=112, y=500, w=1050, h=400`; panel description occupies `x=1220, y=520, w=588`.
 - **Chart/form:** KPI strip plus shared-anchor apparatus; no progress rings.
 - **Locked asset:** `SW1-B6-A01-01`, shared-reference diffusion rigs.
 - **Qualification:** if the two/two model split is shown, render the complete sentence from the speaker note including `6.8 meV undercoverage deficit`; never show only the successful half. Keep `FOR EDITOR REVIEW; not peer-reviewed` in the source/qualification zone.
@@ -165,11 +165,11 @@ Never recolor, mask with a gradient, add a shadow, place on a dark panel, or cro
 
 ### 07 — Economics: the expensive oracle becomes shared infrastructure.
 
-- **Narrative copy:** render slide 7 headline and body verbatim; claim metadata `C-ECON-01`, `C-ECON-02`, `C-ECON-DISTINCTION`.
-- **Layout:** headline top. Central comparison at `x=112, y=320, w=820`: ink bar `558` above indigo bar `154`; labels `RECOMPUTED / 29 ANALYZABLE PATHS` and `72.4% FEWER / 3.62×` in live mono. Asset at `x=990, y=300, w=818, h=590`.
-- **Chart/form:** two horizontal bars sharing zero. Bar lengths may encode 558 and 154 because both are locked. The secondary `139.5 → 558` and `139.5 → 154` comparison may appear as two thin slope lines only when all four values and `no new DFT` are present.
+- **Narrative copy:** render slide 7 headline and body verbatim; claim metadata `C-ECON-01`.
+- **Layout:** headline top. Central comparison at `x=112, y=320, w=820`: qualitative duplicated-work and shared-anchor bars; label the exact reviewed result `72.4% fewer DFT evaluations` in live mono. Asset at `x=990, y=300, w=818, h=590`.
+- **Chart/form:** two qualitative horizontal bars. Do not encode or restate unapproved arithmetic in bar labels, widths, annotations, or speaker notes.
 - **Locked asset:** `SW1-B6-A01-02`, union route shared stations.
-- **Mandatory distinction rail:** boxed with ink, never ochre: `RECOMPUTED 558→154 ≠ EXECUTED CAMPAIGN RECORD`. Do not add the other campaign’s numbers.
+- **Mandatory boundary rail:** boxed with ink, never ochre: `ONE REVIEWED CLAIM · ONE FROZEN WORDING`.
 - **Footer:** exact slide 7 source footer.
 
 ### 08 — Moat: a theorem commons with a hash-locked evidence chain.
@@ -264,7 +264,7 @@ for (const img of document.images) {
 - [ ] Only Newsreader and IBM Plex Mono are used.
 - [ ] All 13 asset paths and SHA-256 values pass the lock file.
 - [ ] No people, stock 3D, neon, dark fields, gradients, shadows, or baked text.
-- [ ] `558→154` recomputation is not conflated with the executed campaign.
+- [ ] No substitute ratios, rounded values, derived comparisons, or local-energy estimates are published.
 - [ ] `$14.65` is correct; `4.65` does not appear; the only visible `100/100` phrase is `100/100 unique still slots`, with five films outside the denominator.
 - [ ] Slide 12 risk language is exact and visually unavoidable.
 - [ ] Slide 13 retains all three `[OWNER DECISION]` fields with no inserted financing values.

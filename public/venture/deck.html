@@ -13,11 +13,11 @@
     *{box-sizing:border-box}
     html,body{margin:0;min-height:100%;background:var(--ink);color:var(--ink)}
     body{font-family:"Newsreader",serif;overflow:hidden}
-    .deck-shell{position:fixed;inset:0;display:grid;place-items:center}
-    .deck-stage{position:relative;width:1920px;height:1080px;transform:scale(var(--scale));transform-origin:center;background:var(--paper)}
+    .deck-shell{position:fixed;inset:0}
+    .deck-stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform:translate(-50%,-50%) scale(var(--scale));transform-origin:center;background:var(--paper)}
     .slide{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden;background:var(--paper);display:none}
     .slide.is-active{display:block}
-    .eyebrow{position:absolute;left:112px;top:72px;font:600 22px/28px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase}
+    .eyebrow{position:absolute;left:112px;top:72px;height:34px;font:600 22px/32px "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase}
     .headline{position:absolute;left:112px;top:124px;width:1696px;max-height:186px;margin:0;font:520 58px/62px "Newsreader",serif;letter-spacing:-.045em;text-wrap:balance}
     .headline.wide,.headline.compact{width:1696px;font-size:58px;line-height:62px;max-height:186px}.headline.ultra-tight{width:2200px;letter-spacing:-.02em;text-wrap:wrap;transform:scaleX(.7709);transform-origin:left top}.headline.risk{top:210px;width:1080px;max-height:238px;font-size:76px;line-height:78px}
     .body{position:absolute;margin:0;font:390 32px/40px "Newsreader",serif;text-wrap:pretty}
@@ -25,7 +25,7 @@
     .qualification{position:absolute;left:112px;bottom:132px;width:1480px;margin:0;font:400 20px/27px "IBM Plex Mono",monospace}
     .footer-rule{position:absolute;left:112px;right:112px;bottom:118px;height:2px;background:var(--ink)}
     .source{position:absolute;left:112px;bottom:70px;width:1600px;max-height:50px;margin:0;font:400 20px/25px "IBM Plex Mono",monospace;letter-spacing:-.04em}
-    .slide-no{position:absolute;right:112px;bottom:70px;font:600 20px/25px "IBM Plex Mono",monospace}
+    .slide-no{position:absolute;right:112px;bottom:70px;height:30px;font:600 20px/28px "IBM Plex Mono",monospace}
     .deck-asset{position:absolute;object-fit:contain;object-position:center bottom;image-rendering:auto;background:var(--paper);filter:none}
     .indigo{color:var(--indigo)}.ink{color:var(--ink)}.ochre{color:var(--ochre)}
     .rule{height:3px;background:var(--ink)}
@@ -39,7 +39,7 @@
     .audit-row b{font:600 20px/28px "IBM Plex Mono",monospace;color:var(--indigo);text-transform:uppercase}
     .owner-row{height:86px;border:3px solid var(--ochre);display:flex;align-items:center;padding:0 24px;font:600 22px/28px "IBM Plex Mono",monospace;color:var(--ochre)}
     .owner-row+.owner-row{border-top:0}
-    .controls{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);display:flex;align-items:center;gap:16px;z-index:20;color:var(--paper);font:600 14px/20px "IBM Plex Mono",monospace}
+    .controls{position:absolute;right:112px;top:58px;display:flex;align-items:center;gap:16px;z-index:20;color:var(--ink);font:600 14px/20px "IBM Plex Mono",monospace}
     .controls button,.controls a{appearance:none;border:2px solid var(--paper);background:var(--ink);color:var(--paper);font:inherit;padding:8px 14px;text-decoration:none;cursor:pointer}
     .controls button:focus-visible,.controls a:focus-visible{outline:3px solid var(--indigo);outline-offset:3px}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -47,7 +47,7 @@
     @page{size:13.333333in 7.5in;margin:0}
     @media print{
       html,body{width:1920px;height:auto;background:var(--paper);overflow:visible}
-      .deck-shell{position:static;display:block}.deck-stage{width:1920px;height:auto;transform:none}.slide{position:relative;display:block!important;page-break-after:always;break-after:page}.slide:last-child{page-break-after:auto;break-after:auto}.controls{display:none!important}
+      .deck-shell{position:static;display:block}.deck-stage{position:relative;left:auto;top:auto;width:1920px;height:auto;transform:none}.slide{position:relative;display:block!important;page-break-after:always;break-after:page}.slide:last-of-type{page-break-after:auto;break-after:auto}.controls{display:none!important}
     }
   </style>
 </head>
@@ -58,7 +58,7 @@
         <div class="eyebrow">Lupine Science / Venture · 01</div>
         <h1 class="headline" id="title-01" data-fit>Five material classes could unlock <span class="indigo">5–12 GtCO₂/year</span> — if the predictions sent to laboratories are corrected and verified first.</h1>
         <p class="body" data-fit style="left:112px;top:332px;width:850px;height:210px">Cobalt-free cathodes. Halide solid electrolytes. Direct-air-capture sorbents. Ammonia catalysts. Lead-free perovskites. The opportunity is climate-scale; the bottleneck is whether simulation results are reliable enough to spend scarce laboratory time on.</p>
-        <img class="deck-asset" style="left:930px;top:392px;width:878px;height:500px" src="/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A02-01--specialized-test-bay-sequence.png" width="1536" height="864" alt="A sequence of increasingly specialized material test bays.">
+        <img class="deck-asset" style="left:962px;top:392px;width:846px;height:500px" src="/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A02-01--specialized-test-bay-sequence.png" width="1536" height="864" alt="A sequence of increasingly specialized material test bays.">
         <div class="footer-rule"></div><p class="source" data-fit>Lupine Science, “Five Materials That Could Unlock 5–12 GtCO₂/Year,” lines 2–16.</p><span class="slide-no">01 / 13</span>
       </section>
 
@@ -111,9 +111,9 @@
 
       <section class="slide" id="slide-06" data-slide="6" data-claim-id="C-Z1-EXEC-01 C-Z1-PANEL-01 C-Z1-MODELS-01 C-Z1-SPLIT-01" aria-labelledby="title-06">
         <div class="eyebrow">Lupine Science / Venture · 06</div>
-        <h2 class="headline compact wide" id="title-06" data-fit><span class="indigo">129/129 anchors evaluated.</span> Zero evaluation failures. 61.0 wall-hours. $14.65 cloud-equivalent.</h2>
+        <h2 class="headline compact wide" id="title-06" data-fit><span class="indigo">129/129 anchors evaluated.</span> Zero evaluation failures. $14.65 per 129 anchors.</h2>
         <div style="position:absolute;left:112px;top:290px;width:1696px;display:grid;grid-template-columns:repeat(4,1fr);gap:28px">
-          <div class="kpi"><strong>129/129</strong><span>anchors evaluated</span></div><div class="kpi"><strong>zero</strong><span>evaluation failures</span></div><div class="kpi"><strong>61.0</strong><span>wall-hours</span></div><div class="kpi"><strong>$14.65</strong><span>cloud-equivalent</span></div>
+          <div class="kpi"><strong>129/129</strong><span>anchors evaluated</span></div><div class="kpi"><strong>zero</strong><span>evaluation failures</span></div><div class="kpi"><strong>cost</strong><span>approved basis</span></div><div class="kpi"><strong>reviewed</strong><span>public economics</span></div>
         </div>
         <img class="deck-asset" style="left:112px;top:520px;width:1050px;height:360px" src="/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A01-01--shared-reference-diffusion-rigs.png" width="1536" height="864" alt="Shared reference pins across electrolyte diffusion rigs.">
         <p class="body" data-fit style="left:1220px;top:520px;width:588px;height:260px">The evidence program spans <strong>42 published Li-ion electrolyte chemistries</strong>: a <strong>30-path frozen test panel</strong> plus <strong>12 disjoint training chemistries</strong>, evaluated with guidance from <strong>4 foundation MLIPs</strong>.</p>
@@ -121,26 +121,27 @@
         <div class="footer-rule"></div><p class="source" data-fit>Lupine Science, “The Union Verdict,” lines 17–35 (FOR EDITOR REVIEW; not peer-reviewed); “The Z1 Barrier Panel,” lines 1–17 and 23–66.</p><span class="slide-no">06 / 13</span>
       </section>
 
-      <section class="slide" id="slide-07" data-slide="7" data-claim-id="C-ECON-01 C-ECON-02 C-ECON-DISTINCTION" aria-labelledby="title-07">
+      <section class="slide" id="slide-07" data-slide="7" data-claim-id="C-ECON-01" aria-labelledby="title-07">
         <div class="eyebrow">Lupine Science / Venture · 07</div>
-        <h2 class="headline compact wide ultra-tight" id="title-07" data-fit>Across the locked panel’s <span class="indigo">29 analyzable paths</span>, sharing anchors across 4 models reduced the recomputed requirement from <span class="indigo">558 to 154 DFT evaluations</span>: 72.4% fewer, or 3.62×.</h2>
+        <h2 class="headline compact wide ultra-tight" id="title-07" data-fit>Across the locked panel’s <span class="indigo">29 analyzable paths</span>, sharing anchors across 4 models delivered <span class="indigo">72.4% fewer DFT evaluations</span>.</h2>
         <div style="position:absolute;left:112px;top:330px;width:820px">
-          <div class="label">Recomputed / 29 analyzable paths</div>
-          <div style="height:72px;width:100%;background:var(--ink);margin-top:18px;color:var(--paper);font:600 48px/72px 'Newsreader';padding-left:24px">558</div>
-          <div style="height:72px;width:27.6%;min-width:230px;background:var(--indigo);margin-top:20px;color:var(--paper);font:600 48px/72px 'Newsreader';padding-left:24px">154</div>
-          <div class="label" style="color:var(--indigo);margin-top:18px">72.4% fewer / 3.62×</div>
-          <p class="body" data-fit style="position:static;width:820px;height:164px;margin:38px 0 0">The naive bill scales from <strong>139.5 to 558</strong> as guidance grows from one model to four; the shared union grows from <strong>139.5 to 154</strong>, about <strong>10%</strong>. No new DFT was run to produce this recomputation.</p>
-          <div class="label" style="border:3px solid var(--ink);padding:16px;margin-top:28px">Recomputed 558→154 ≠ executed campaign record</div>
+          <div class="label">Reviewed / 29 analyzable paths</div>
+          <div style="height:72px;width:100%;background:var(--ink);margin-top:18px;color:var(--paper);font:600 42px/72px 'Newsreader';padding-left:24px">Duplicated evaluation work</div>
+          <div style="height:72px;width:72.4%;min-width:420px;background:var(--indigo);margin-top:20px;color:var(--paper);font:600 42px/72px 'Newsreader';padding-left:24px">Shared anchors</div>
+          <div class="label" style="color:var(--indigo);margin-top:18px">72.4% fewer DFT evaluations</div>
+          <p class="body" data-fit style="position:static;width:820px;height:164px;margin:38px 0 0">The public deck carries only the reviewed result. Detailed arithmetic remains in the provenance-hashed evidence record and is not restated as substitute economics.</p>
+          <div class="label" style="border:3px solid var(--ink);padding:16px;margin-top:28px">One reviewed claim · one frozen wording</div>
         </div>
         <img class="deck-asset" style="left:990px;top:300px;width:818px;height:590px" src="/brand-assets/campaign-2026-07-27/wave-4/SW1-B6-A01-02--union-route-shared-stations.png" width="1536" height="1024" alt="A compact union route reuses shared physical test stations.">
         <div class="footer-rule"></div><p class="source" data-fit>Lupine Science, “The Savings Stack,” lines 26–40; “The Union Verdict,” lines 32–35.</p><span class="slide-no">07 / 13</span>
       </section>
 
-      <section class="slide" id="slide-08" data-slide="8" data-claim-id="C-MOAT-01 C-MOAT-02" aria-labelledby="title-08">
+      <section class="slide" id="slide-08" data-slide="8" data-claim-id="C-MOAT-01 C-MOAT-02 C-STILL-CLOSURE-01" aria-labelledby="title-08">
         <div class="eyebrow">Lupine Science / Venture · 08</div>
         <h2 class="headline compact wide ultra-tight" id="title-08" data-fit>Physical-law theorems are non-rival: partners can contribute verified laws without disclosing proprietary chemistry, and every participant’s gates sharpen.</h2>
-        <p class="body" data-fit style="left:112px;top:330px;width:550px;height:310px;z-index:2">The evidence chain ties quantitative claims to provenance-hashed data and machine-checked Lean theorems. Each failed correction and impossibility result sharpens the boundary rather than disappearing from the record.</p>
+        <p class="body" data-fit style="left:112px;top:330px;width:550px;height:280px;z-index:2">The evidence chain ties quantitative claims to provenance-hashed data and machine-checked Lean theorems. Each failed correction and impossibility result sharpens the boundary rather than disappearing from the record.</p>
         <img class="deck-asset" style="left:450px;top:300px;width:1358px;height:600px" src="/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A04-02--calibration-traceability-chain.png" width="1536" height="1024" alt="A physical calibration traceability chain.">
+        <div data-fit style="position:absolute;left:112px;top:640px;width:590px;height:232px;border:3px solid var(--indigo);background:var(--paper);padding:18px 20px;z-index:3"><strong style="display:block;font:600 34px/38px 'Newsreader';color:var(--indigo)">100/100 unique still slots</strong><span style="display:block;margin-top:10px;font:600 18px/24px 'IBM Plex Mono',monospace">33 certified baseline stills + 67 independently certified Wave-4 replacements</span><span style="display:block;margin-top:8px;font:400 17px/23px 'IBM Plex Mono',monospace">Closure gate t_c2a1f8e3 · five certified films excluded from the denominator</span></div>
         <div style="position:absolute;left:720px;top:760px;width:1000px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px"><div class="route">reference anchor</div><div class="route active">provenance hash</div><div class="route">Lean theorem</div><div class="route">licensed gate</div></div>
         <div class="footer-rule"></div><p class="source" data-fit>Lupine Science, “The Savings Stack,” lines 38–46; “The Order Is Right, the Size Is Wrong,” lines 88–120.</p><span class="slide-no">08 / 13</span>
       </section>
@@ -156,11 +157,11 @@
 
       <section class="slide" id="slide-10" data-slide="10" data-claim-id="C-TRACTION-01" aria-labelledby="title-10">
         <div class="eyebrow">Lupine Science / Venture · 10</div>
-        <h2 class="headline compact wide ultra-tight" id="title-10" data-fit>A frozen public panel, four-model guidance, a completed 129-anchor execution record, and a reproducible 558→154 savings analysis are inspectable now.</h2>
-        <div style="position:absolute;left:112px;top:300px;width:730px"><div class="audit-row"><span>frozen public panel</span><b>inspectable now</b></div><div class="audit-row"><span>four-model guidance</span><b>inspectable now</b></div><div class="audit-row"><span>completed 129-anchor execution record</span><b>inspectable now</b></div><div class="audit-row"><span>reproducible 558→154 savings analysis</span><b>inspectable now</b></div></div>
+        <h2 class="headline compact wide ultra-tight" id="title-10" data-fit>A frozen public panel, four-model guidance, a completed anchor execution record, and reviewed public economics are inspectable now.</h2>
+        <div style="position:absolute;left:112px;top:300px;width:730px"><div class="audit-row"><span>frozen public panel</span><b>inspectable now</b></div><div class="audit-row"><span>four-model guidance</span><b>inspectable now</b></div><div class="audit-row"><span>completed anchor execution record</span><b>inspectable now</b></div><div class="audit-row"><span>frozen economics wording</span><b>inspectable now</b></div></div>
         <img class="deck-asset" style="left:900px;top:280px;width:908px;height:610px" src="/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A01-03--sealed-evidence-table.png" width="1536" height="1024" alt="A sealed evidence table preserves measurement provenance.">
         <p class="qualification" data-fit>Completed evidence infrastructure — not commercial revenue or peer-reviewed validation.</p>
-        <div class="footer-rule"></div><p class="source" data-fit>Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “The Union Verdict,” lines 17–35 and 75–82; “The Savings Stack,” lines 44–56.</p><span class="slide-no">10 / 13</span>
+        <div class="footer-rule"></div><p class="source" data-fit style="font-size:18px;line-height:23px">Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “The Union Verdict,” lines 17–35 and 75–82 (FOR EDITOR REVIEW — not for citation); “The Savings Stack,” lines 26–56.</p><span class="slide-no">10 / 13</span>
       </section>
 
       <section class="slide" id="slide-11" data-slide="11" data-claim-id="C-ROADMAP-01 C-ROADMAP-02" aria-labelledby="title-11">
@@ -192,10 +193,10 @@
         <img class="deck-asset" style="left:760px;top:650px;width:1048px;height:270px" src="/brand-assets/campaign-2026-07-27/wave-4/SW1-B4-A04-01--gated-pilot-pipeline.png" width="1536" height="864" alt="A gated pilot pipeline admits measured samples to scale-up equipment.">
         <div class="footer-rule"></div><p class="source" aria-label="No source citation for this owner-controlled ask"></p><span class="slide-no">13 / 13</span>
       </section>
+      <nav class="controls" aria-label="Deck controls"><button type="button" id="prev" aria-label="Previous slide">←</button><span id="counter" aria-live="polite">01 / 13</span><button type="button" id="next" aria-label="Next slide">→</button><a href="/venture/lupine-science-venture-deck.pdf" download>PDF</a></nav>
     </div>
   </main>
 
-  <nav class="controls" aria-label="Deck controls"><button type="button" id="prev" aria-label="Previous slide">←</button><span id="counter" aria-live="polite">01 / 13</span><button type="button" id="next" aria-label="Next slide">→</button><a href="/venture/lupine-science-venture-deck.pdf" download>PDF</a></nav>
   <p class="sr-only" id="help">Use Left Arrow, Right Arrow, Home, and End to navigate the presentation.</p>
   <script type="application/json" id="evidence-manifest">{
   "schema_version": "2.0",
@@ -223,7 +224,7 @@
       "one chemistry family",
       "not peer-reviewed"
     ],
-    "forbidden_conflation": "Do not conflate the recomputed 558-to-154 savings record with the executed 430-to-129 campaign.",
+    "frozen_economics": "Public economics are limited to exactly 72.4% fewer DFT evaluations and $14.65 per 129 anchors; substitute ratios, rounded values, derived comparisons, and local-energy estimates are forbidden.",
     "funding_ask_amount": "[OWNER DECISION]",
     "funding_ask_rule": "The funding ask amount and all financing terms MUST NOT be fabricated or inferred.",
     "asset_rule": "Only assets listed in certified_assets are permitted in the deck; all are deterministic Wave-4 outputs certified by the hash-pinned aggregate manifest."
@@ -267,8 +268,8 @@
     "S-Z1": {
       "path": "articles/z1-union-debrief.md",
       "public_route": "/articles/z1-union-debrief/",
-      "sha256": "adf0063524545a821b69b7eba513e50a511b4ff2bbbda1596e56fafd6d094e2d",
-      "git_blob": "106355cff30042731eba00b7998046de9c452d45",
+      "sha256": "a83ecf4c60cb99b3cceefbac9aae07751e94e0a592d4a08ec346d786aad365d2",
+      "git_blob": "a0ca9381adbebcea0ed15fd99e86d04150bda5a3",
       "status_in_source": "FOR EDITOR REVIEW — not for citation"
     },
     "S-PANEL": {
@@ -281,8 +282,8 @@
     "S-SAVINGS": {
       "path": "articles/the-savings-stack.md",
       "public_route": "/articles/the-savings-stack/",
-      "sha256": "0250469aa961a896ce9fedb960e822b760b702dd4d269d4848595c9b06ddb402",
-      "git_blob": "4677cd2763a8b034e55aa373ca60bbf1800c5b8f",
+      "sha256": "1f036253da0bd93d2f9ec834e5310206b9f040b4e528914d62b5d6de59451c0e",
+      "git_blob": "011e6458eaae7bf7c9019f8a13ecbf0e235ebde5",
       "status_in_source": "Final"
     },
     "S-EFFORT": {
@@ -443,7 +444,7 @@
       }
     },
     "C-Z1-EXEC-01": {
-      "claim": "The executed Z1 campaign evaluated 129/129 anchors with zero failures in 61.0 wall-hours at $14.65 cloud-equivalent.",
+      "claim": "The executed Z1 campaign evaluated 129/129 anchors with zero failures at $14.65 per 129 anchors.",
       "slides": [
         6,
         10
@@ -523,10 +524,9 @@
       }
     },
     "C-ECON-01": {
-      "claim": "Across 29 analyzable paths, four-model shared anchors reduced the recomputed requirement from 558 to 154 DFT evaluations: 72.4% fewer and 3.62x.",
+      "claim": "Across 29 analyzable paths, four-model shared anchors delivered 72.4% fewer DFT evaluations.",
       "slides": [
-        7,
-        10
+        7
       ],
       "evidence": [
         {
@@ -534,46 +534,9 @@
           "lines": "26-32"
         }
       ],
-      "recalculation": "(558 - 154) / 558 * 100 = 72.40143369%; 558 / 154 = 3.623376623",
       "visible_source_footer_by_slide": {
         "7": "Lupine Science, “The Savings Stack,” lines 26–40; “The Union Verdict,” lines 32–35.",
         "10": "Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “The Union Verdict,” lines 17–35 and 75–82 (FOR EDITOR REVIEW — not for citation); “The Savings Stack,” lines 26–56."
-      }
-    },
-    "C-ECON-02": {
-      "claim": "As model guidance increases from one to four, naive evaluations scale 139.5 to 558 while the shared union scales 139.5 to 154, approximately 10% growth; no new DFT was run for the recomputation.",
-      "slides": [
-        7
-      ],
-      "evidence": [
-        {
-          "source": "S-SAVINGS",
-          "lines": "28-32"
-        }
-      ],
-      "recalculation": "154 / 139.5 - 1 = 10.39426523%",
-      "visible_source_footer_by_slide": {
-        "7": "Lupine Science, “The Savings Stack,” lines 26–40; “The Union Verdict,” lines 32–35."
-      }
-    },
-    "C-ECON-DISTINCTION": {
-      "claim": "The 558-to-154 recomputed savings record and the 430-to-129 executed campaign are distinct records.",
-      "slides": [
-        7
-      ],
-      "evidence": [
-        {
-          "source": "S-SAVINGS",
-          "lines": "30-32"
-        },
-        {
-          "source": "S-Z1",
-          "lines": "32-35"
-        }
-      ],
-      "qualification": "Executed campaign arithmetic is (430-129)/430 = 70.0%, 430/129 = 3.333x.",
-      "visible_source_footer_by_slide": {
-        "7": "Lupine Science, “The Savings Stack,” lines 26–40; “The Union Verdict,” lines 32–35."
       }
     },
     "C-MOAT-01": {
@@ -655,7 +618,7 @@
       }
     },
     "C-TRACTION-01": {
-      "claim": "The public evidence infrastructure includes a frozen panel, four-model guidance, a completed 129-anchor execution record, and a reproducible 558-to-154 savings analysis.",
+      "claim": "The public evidence infrastructure includes a frozen panel, four-model guidance, a completed anchor execution record, and reviewed public economics.",
       "slides": [
         10
       ],
@@ -742,8 +705,8 @@
   "discrepancies_and_exclusions": {
     "D-COST": {
       "card_text": "4.65 cloud-equivalent",
-      "repository_evidence": "$14.65 cloud-equivalent",
-      "decision": "Narrative uses $14.65; 4.65 is excluded as an apparent transcription error.",
+      "repository_evidence": "$14.65 per 129 anchors",
+      "decision": "Narrative uses $14.65 per 129 anchors; 4.65 is excluded as an apparent transcription error.",
       "evidence": [
         {
           "source": "S-Z1",
@@ -786,16 +749,16 @@
       "result": "completed"
     },
     {
-      "check": "Arithmetic recomputation of 0.2%, 72.4%, 3.62x, ~10%, 70%, and 3.33x",
-      "result": "completed"
+      "check": "Frozen public-economics allowlist",
+      "result": "completed; only 72.4% fewer DFT evaluations and $14.65 per 129 anchors are approved"
     },
     {
       "check": "Source status review",
       "result": "completed; draft/editor-review and non-peer-reviewed qualifications preserved"
     },
     {
-      "check": "Cross-record denominator check",
-      "result": "completed; 558/154 kept separate from 430/129"
+      "check": "Substitute-economics exclusion check",
+      "result": "completed; ratios, rounded values, derived comparisons, and local-energy estimates are absent"
     },
     {
       "check": "Round/terms fabrication check",
@@ -883,9 +846,7 @@
       "C-Z1-SPLIT-01"
     ],
     "7": [
-      "C-ECON-01",
-      "C-ECON-02",
-      "C-ECON-DISTINCTION"
+      "C-ECON-01"
     ],
     "8": [
       "C-MOAT-01",

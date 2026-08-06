@@ -3,7 +3,7 @@
 > **Field note from the live lab**
 > **Date:** 2026-07-24  
 > **Deck:** The full account you asked for before we talk — the verdict, the economics, the failures, the catches, and where I'd push back  
-> **Summary:** All four models scored strong-win on the same-engine gate, at a measured $14.65. The interesting parts are not the wins — they're the guidance split, the cost collapse, and what broke along the way.  
+> **Summary:** All four models scored strong-win on the same-engine gate, with a measured cost of $14.65 per 129 anchors. The interesting parts are not the wins — they're the guidance split, the bounded public economics, and what broke along the way.
 > **Status:** FOR EDITOR REVIEW — draft for the lead, pre-conversation; not for citation
 
 ---
@@ -31,9 +31,9 @@ Two honest notes before the headline goes further. First, the split inside that 
 
 ## The economics, measured
 
-- Naive per-model execution: **430 anchors.** Union executed: **129.** That is **70% fewer DFT evaluations (3.33×)** — the prediction said 72.4%, and we landed inside it.
-- **129 anchors, 61.0 wall-hours, $14.65** cloud-equivalent — the full measured ledger is in the [cost record](https://library.lupine.science/#/read/z1-union-cost-ledger). Local electricity: sixty cents.
-- The scaling law held: four models of guidance cost ~10% more DFT than one. Cross-model validation is nearly free at the oracle.
+- Approved public sharing result: **72.4% fewer DFT evaluations.** The reviewed basis and scope are preserved in the [union-anchor record](https://library.lupine.science/#/read/z1-union-anchor-economics).
+- Measured execution cost: **$14.65 per 129 anchors.** The full ledger is in the [cost record](https://library.lupine.science/#/read/z1-union-cost-ledger).
+- Other campaign-specific ratios, comparisons, and local-energy estimates remain outside approved public copy pending review.
 - The best illustration: path-16 consumed **62 CPU-hours** at the old frozen settings and never produced a receipt. At the adopted settings it ran at **about five minutes an anchor.**
 
 ## The journey, honestly
@@ -75,8 +75,8 @@ The [BarrierTransfer theorem family](https://library.lupine.science/#/read/z1-un
 ## Resources
 
 - [Verdict of record](https://library.lupine.science/#/read/z1-union-campaign-verdict) — per-model and per-path tables
-- [Measured cost ledger](https://library.lupine.science/#/read/z1-union-cost-ledger) — $14.65, per-path wall-hours
-- [Union-anchor economics](https://library.lupine.science/#/read/z1-union-anchor-economics) — the 558/154 record and scaling curve
+- [Measured cost ledger](https://library.lupine.science/#/read/z1-union-cost-ledger) — $14.65 per 129 anchors
+- [Union-anchor economics](https://library.lupine.science/#/read/z1-union-anchor-economics) — 72.4% fewer DFT evaluations
 - [T1 wander mechanism](https://library.lupine.science/#/read/t1-wander-mechanism) — metallic saddles, SCF fragility
 - [Niggli audit](https://library.lupine.science/#/read/t1-niggli-audit) — the skewed-cell validity check
 - Campaign machine record: `data/candidates/z1-union-campaign.json` (sha256-pinned) in the [open repository](https://github.com/alexwelcing/lupine-rhizo)

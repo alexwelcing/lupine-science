@@ -123,8 +123,8 @@ async function staticChecks() {
   if (closureClaim?.claim !== '33 certified baseline stills + 67 independently certified Wave-4 replacements = 100/100 unique still slots.' || closureClaim?.closure_gate_task !== 't_c2a1f8e3' || closureClaim?.films_outside_denominator !== 5) fail('evidence manifest closure claim is missing or incorrectly scoped');
   if (closureDecision?.decision !== 'Use only the precisely scoped 100/100 unique still slots closure claim; do not imply models, campaigns, films, or generic certification.') fail('D-100-CHAIN does not preserve the precise closure scope');
   if (!failures.some((item) => /baseline|aggregate|child certification|per-asset|certified outputs|closure arithmetic|closure source|closure claim|D-100-CHAIN/.test(item))) pass('closure evidence proves 33 + 67 = 100 still slots with all certifications passing and five films separate');
-  if (!visibleHtml.includes('$14.65 cloud-equivalent')) fail('source-backed $14.65 is missing');
-  else pass('source-backed $14.65 is present');
+  if (!visibleHtml.includes('$14.65 per 129 anchors')) fail('approved $14.65 per 129 anchors claim is missing');
+  else pass('approved $14.65 per 129 anchors claim is present');
 
   const imageSources = [...html.matchAll(/<img class="deck-asset"[^>]+src="([^"]+)"/g)].map((match) => match[1].replace(/^\//, 'public/'));
   const lockedSources = lock.assets.map((asset) => asset.path);
