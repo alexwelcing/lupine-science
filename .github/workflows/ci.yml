@@ -183,6 +183,49 @@ jobs:
           if-no-files-found: error
           retention-days: 90
 
+  publication-audio-checks:
+    name: Publication audio gate
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install pinned audio inspection tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes ffmpeg
+
+      - name: Download exact built site
+        uses: actions/download-artifact@v4
+        with:
+          name: lupine-science-public-${{ github.event.pull_request.head.sha || github.sha }}
+          path: public/
+
+      - name: Fail closed on every published film
+        env:
+          AUDIO_GATE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          node scripts/audio-release-gate.mjs \
+            --directory public/videos \
+            --sha "$AUDIO_GATE_SHA" \
+            --output "$RUNNER_TEMP/audio-gate/audio-gate.json" \
+            --summary "$RUNNER_TEMP/audio-gate/audio-gate.md"
+
+      - name: Upload audio gate decision and evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: publication-audio-gate-${{ github.event.pull_request.head.sha || github.sha }}
+          path: ${{ runner.temp }}/audio-gate/
+          if-no-files-found: error
+          retention-days: 90
+
   build:
     name: Build site
     needs: [lint, typecheck, unit-tests]

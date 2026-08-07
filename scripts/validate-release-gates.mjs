@@ -20,7 +20,7 @@ function readJson(file, label) {
   return parsed;
 }
 
-export function certifyRelease({ visual, smoke, commitSha, ciRunUrl, visualArtifactUrl, smokeArtifactUrl }) {
+export function certifyRelease({ visual, smoke, audio, commitSha, ciRunUrl, visualArtifactUrl, smokeArtifactUrl, audioArtifactUrl }) {
   const failures = [];
   if (visual.passed !== true || visual.summary?.failed !== 0 || !Array.isArray(visual.checks) || visual.checks.length === 0) {
     failures.push('visual-check suite did not pass');
@@ -28,8 +28,23 @@ export function certifyRelease({ visual, smoke, commitSha, ciRunUrl, visualArtif
   if (smoke.outcome !== 'pass' || !Array.isArray(smoke.targets) || smoke.targets.length === 0) {
     failures.push('smoke suite did not pass');
   }
+  const audioFiles = Array.isArray(audio.files) ? audio.files : [];
+  const audioSummaryConsistent = audioFiles.length > 0
+    && audio.summary?.total === audioFiles.length
+    && audio.summary?.passed === audioFiles.length
+    && audio.summary?.failed === 0;
+  const audioFilesPassed = audioFiles.every((file) => (
+    file.verdict === 'pass'
+    && Array.isArray(file.checks)
+    && file.checks.length > 0
+    && file.checks.every((check) => check.status === 'pass')
+  ));
+  if (audio.decision !== 'pass' || !audioSummaryConsistent || !audioFilesPassed) {
+    failures.push('audio suite did not pass');
+  }
+  if (audio.commitSha !== commitSha) failures.push('audio artifact commit SHA does not match release');
   if (!commitSha || !/^[0-9a-f]{40}$/i.test(commitSha)) failures.push('release commit SHA is invalid');
-  for (const [label, url] of [['CI run', ciRunUrl], ['visual artifact', visualArtifactUrl], ['smoke artifact', smokeArtifactUrl]]) {
+  for (const [label, url] of [['CI run', ciRunUrl], ['visual artifact', visualArtifactUrl], ['smoke artifact', smokeArtifactUrl], ['audio artifact', audioArtifactUrl]]) {
     if (!url || !/^https:\/\//.test(url)) failures.push(`${label} link is invalid`);
   }
 
@@ -49,6 +64,12 @@ export function certifyRelease({ visual, smoke, commitSha, ciRunUrl, visualArtif
         artifactUrl: smokeArtifactUrl,
         targets: smoke.targets?.length ?? 0,
         failed: smoke.targets?.reduce((sum, target) => sum + (target.summary?.failed ?? 0), 0) ?? null,
+      },
+      audio: {
+        passed: failures.includes('audio suite did not pass') === false && failures.includes('audio artifact commit SHA does not match release') === false,
+        artifactUrl: audioArtifactUrl,
+        files: audio.summary?.total ?? null,
+        failed: audio.summary?.failed ?? null,
       },
     },
     failures,
@@ -75,10 +96,12 @@ function main(argv = process.argv.slice(2)) {
   const receipt = certifyRelease({
     visual: readJson(visualPath, 'visual'),
     smoke: readJson(smokePath, 'smoke'),
+    audio: readJson(valueAfter('--audio', argv), 'audio'),
     commitSha: valueAfter('--sha', argv),
     ciRunUrl: valueAfter('--ci-run-url', argv),
     visualArtifactUrl: valueAfter('--visual-artifact-url', argv),
     smokeArtifactUrl: valueAfter('--smoke-artifact-url', argv),
+    audioArtifactUrl: valueAfter('--audio-artifact-url', argv),
   });
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
   fs.writeFileSync(outputPath, `${JSON.stringify(receipt, null, 2)}\n`);

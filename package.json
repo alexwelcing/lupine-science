@@ -28,6 +28,7 @@
     "perf": "node scripts/dev/perf-report.mjs",
     "a11y:audit": "node scripts/accessibility-audit.mjs",
     "review:videos": "node scripts/video-quality-reviewer.mjs",
+    "audit:audio": "node scripts/audio-release-gate.mjs",
     "review:images": "node scripts/review-images.mjs",
     "video:motion:generate": "node scripts/generate-video-motion-manifests.mjs",
     "video:motion:render": "node scripts/build-article-motion-video.mjs --slug ${SLUG}",
