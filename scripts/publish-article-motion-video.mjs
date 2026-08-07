@@ -191,6 +191,20 @@ async function main() {
     outPoster,
   ]);
   console.log(`[${slug}] Wrote ${outPoster}`);
+
+  // A rendered file is not releasable until the exact MP4 and narration
+  // timeline pass the same fail-closed audio policy used by CI certification.
+  const audioGateDir = path.join(ROOT, 'media', 'projects', 'article-videos', slug, 'audio-gate');
+  const audioGateJson = path.join(audioGateDir, 'audio-gate.json');
+  const audioGateSummary = path.join(audioGateDir, 'audio-gate.md');
+  run('node', [
+    'scripts/audio-release-gate.mjs',
+    '--file', outVideo,
+    '--vtt', outVtt,
+    '--output', audioGateJson,
+    '--summary', audioGateSummary,
+  ]);
+  console.log(`[${slug}] Audio release gate PASS: ${audioGateJson}`);
 }
 
 main().catch((e) => {
