@@ -40,3 +40,27 @@ test('Slack notification is conditional and uses only the repository secret', as
   assert.match(source, /if \[ -n "\$SLACK_DEPLOY_WEBHOOK_URL" \]/);
   assert.doesNotMatch(source, /hooks\.slack\.com\/services\//);
 });
+
+test('every release gate decision creates an assigned GitHub notification and retains its record', async () => {
+  const source = await workflow();
+
+  assert.match(source, /name: Build release gate notification\n\s+if: always\(\)/);
+  assert.match(source, /node scripts\/build-release-notification\.mjs/);
+  assert.match(source, /name: Send loud release gate notification\n\s+if: always\(\)/);
+  assert.match(source, /repos\/\$GITHUB_REPOSITORY\/issues/);
+  assert.match(source, /assignees: \["alexwelcing"\]/);
+  assert.match(source, /name: Retain release decision and notification/);
+  assert.match(source, /release-gate-records-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
+  assert.match(source, /retention-days: 90/);
+});
+
+test('production live verification creates an assigned GitHub notification and retains it', async () => {
+  const source = await workflow();
+
+  assert.match(source, /Notify team of live verification result[\s\S]*GH_TOKEN: \$\{\{ github\.token \}\}/);
+  assert.match(source, /Notify team of live verification result[\s\S]*repos\/\$GITHUB_REPOSITORY\/issues/);
+  assert.match(source, /Artifact: \$RUN_URL#artifacts/);
+  assert.match(source, /name: Retain live verification notification/);
+  assert.match(source, /production-live-notification-\$\{\{ github\.run_id \}\}/);
+  assert.match(source, /production-live-verification-\$\{\{ github\.run_id \}\}[\s\S]*retention-days: 90/);
+});
