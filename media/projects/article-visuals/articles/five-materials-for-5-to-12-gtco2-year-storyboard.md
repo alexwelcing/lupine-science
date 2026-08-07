@@ -55,7 +55,7 @@ Five computationally intractable material classes—cobalt-free cathodes, halide
 - **Data points:**
   - Error field anchored to measurable observables across local atomic environments.
   - Runtime correction adds modest overhead now; target overhead **<1%** in compiled LAMMPS overlay.
-  - **77 build-locked Lean 4 theorems with zero sorry proofs** provide machine-checked guarantees.
+  - The **machine-generated Lean 4 theorem inventory with zero sorry proofs** provides machine-checked guarantees.
 - **Form:** Circular workflow: measured observables → error-field fit → runtime correction → formal verification/impossibility proof → experimental validation → field update.
 - **Generation:** matplotlib
 - **Caption:** Systematic error is measured as a physical field over local environments, corrected at runtime, and verified through machine-checked proof rather than p-values.

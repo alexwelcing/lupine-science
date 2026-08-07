@@ -51,7 +51,7 @@
       "sourceIds": [
         "deng-2025"
       ],
-      "sha256": "04d82456ce991d7c275dee5e42a4bd43617532e851d5ebf6d5e3b0655d25be96"
+      "sha256": "0105b1d29076cd1bfb9efa65e9c4cdbfd5ae1b72607904a7c195e2ec6ed95f30"
     },
     {
       "id": "fig-blind-test",
@@ -60,7 +60,7 @@
       "alt": "Article chart of an environment error field and its reported held-out surface-energy prediction.",
       "caption": "Article Figure 4, preserved as published. The reported blind-test result remains needs-verification in this pack.",
       "sourceIds": [],
-      "sha256": "0fe0d72a740bf81cea19c3b3a2979310fd4ea32c26096cd9de08f42e37d89333"
+      "sha256": "6c6506e128b2fe9999152c817a944546f67b2fee7158b0c1d0742bb9104fd8e8"
     },
     {
       "id": "fig-runtime-correction",
@@ -69,7 +69,7 @@
       "alt": "Article chart of fitted observables and the reported run-time correction on a held-out facet.",
       "caption": "Article Figure 5, preserved as published. The correction and overhead results remain needs-verification in this pack.",
       "sourceIds": [],
-      "sha256": "7de29d1280e37111781d96959192eacc6e3da7d5a0e76ba783622411a56eacc3"
+      "sha256": "0961c4753120433db59c64ddd1e9201ade3452277e032c6ae1eb00247c4bc0a8"
     }
   ],
   "dataTables": [],

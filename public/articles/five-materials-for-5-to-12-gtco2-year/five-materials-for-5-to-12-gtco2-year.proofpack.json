@@ -40,7 +40,7 @@
       "alt": "Horizontal comparison of five material classes and their estimated annual climate impact ranges.",
       "caption": "Draft article scenario figure, preserved byte-for-byte. Its aggregate range remains needs-verification in this pack.",
       "sourceIds": [],
-      "sha256": "bfad6fff9d980c8aeae78b57f6e7da89a4d9bbc3a8b650e81aa1e2e399a8ad91"
+      "sha256": "79f211704fe346db1070d7b960fe673e1d2f911b1a93bfd35101149f4ce8f3de"
     },
     {
       "id": "fig-blind-prediction",
@@ -49,7 +49,7 @@
       "alt": "Scatter plot comparing measured and predicted surface-energy errors across 36 model-material pairs.",
       "caption": "Draft article result figure, preserved byte-for-byte. Its internal blind-prediction result remains needs-verification in this pack.",
       "sourceIds": [],
-      "sha256": "648b1a92086125ea54285626534a86d426bb2ab60bf0eab54c96d8765fb8d73b"
+      "sha256": "0ed613dc0b3315bfee564ae2ca41f09196e314596b0db7b84e59da38a1de4140"
     }
   ],
   "dataTables": [

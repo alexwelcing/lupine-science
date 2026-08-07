@@ -9,6 +9,16 @@ import { fileURLToPath } from 'node:url';
 import { verifyArtifactIntegrity, verifyFigureIntegrity } from '../scripts/build-proofpack.mjs';
 import { validateProofPack } from '../scripts/validate-proofpack.mjs';
 import { inspectPdf } from '../scripts/check-pdf.mjs';
+import {
+  generateProofPack,
+  listEligibleArticles,
+  validateProofPackOutput,
+} from '../lib/proof-pack-generator.mjs';
+import {
+  assertNoOutputCollisions,
+  isLoopbackRequestUrl,
+  resolvePublicRequestPath,
+} from '../scripts/build-proofpack.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SCRIPT = path.join(ROOT, 'scripts', 'build-proofpack.mjs');
@@ -36,6 +46,18 @@ function sha256(filePath) {
 }
 
 describe('proof-pack builder CLI', () => {
+  it('refuses local-server paths that escape into a prefix-matching sibling', () => {
+    assert.equal(resolvePublicRequestPath('/../publicity/secret'), null);
+    assert.equal(resolvePublicRequestPath('/articles/index.html'), path.join(ROOT, 'public', 'articles', 'index.html'));
+  });
+
+  it('allows only parsed loopback renderer URLs without userinfo bypasses', () => {
+    assert.equal(isLoopbackRequestUrl('http://127.0.0.1:4123/figure.svg'), true);
+    assert.equal(isLoopbackRequestUrl('http://localhost:4123/font.woff2'), true);
+    assert.equal(isLoopbackRequestUrl('http://127.0.0.1:4123@evil.example/secret'), false);
+    assert.equal(isLoopbackRequestUrl('https://evil.example/'), false);
+  });
+
   it('shows usage when no mode is selected', () => {
     const result = run([]);
     assert.notEqual(result.status, 0);
@@ -48,6 +70,27 @@ describe('proof-pack builder CLI', () => {
     assert.match(result.stdout, /--consolidated/);
     assert.match(result.stdout, /--all/);
     assert.match(result.stdout, /--slug/);
+  });
+
+  it('cleans stale slug artifacts when browser startup fails', () => {
+    const outDir = fs.mkdtempSync(path.join(os.tmpdir(), 'proofpack-browser-failure-'));
+    const names = [`${SLUG}.proofpack.pdf`, `${SLUG}.proofpack.json`];
+    try {
+      for (const name of names) fs.writeFileSync(path.join(outDir, name), 'stale');
+      const result = spawnSync(
+        process.execPath,
+        [SCRIPT, '--slug', SLUG, '--out-dir', outDir],
+        {
+          cwd: ROOT,
+          encoding: 'utf8',
+          env: { ...process.env, PLAYWRIGHT_BROWSERS_PATH: path.join(outDir, 'missing-browsers') },
+        }
+      );
+      assert.notEqual(result.status, 0);
+      assert.deepEqual(fs.readdirSync(outDir), []);
+    } finally {
+      fs.rmSync(outDir, { recursive: true, force: true });
+    }
   });
 
   it('builds a per-article pack with PDF and manifest', () => {
@@ -65,7 +108,109 @@ describe('proof-pack builder CLI', () => {
       assert.ok(fs.existsSync(path.join(OUT_DIR, `${slug}.proofpack.json`)), `${slug} output manifest should exist`);
     }
     const built = fs.readdirSync(OUT_DIR).filter((name) => name.endsWith('.proofpack.pdf')).sort();
-    assert.deepEqual(built, REPRESENTATIVE_SLUGS.map((slug) => `${slug}.proofpack.pdf`).sort());
+    const eligible = listEligibleArticles().map(({ slug }) => `${slug}.proofpack.pdf`).sort();
+    assert.deepEqual(built, eligible);
+  });
+});
+
+describe('proof-pack generator API', () => {
+  it('lists eligible articles in stable slug order', () => {
+    const articles = listEligibleArticles();
+    assert.ok(articles.length > 0);
+    assert.deepEqual(
+      articles.map(({ slug }) => slug),
+      articles.map(({ slug }) => slug).toSorted()
+    );
+    assert.ok(articles.some(({ slug }) => slug === SLUG));
+  });
+
+  it('removes stale outputs when a requested article is no longer eligible', async () => {
+    const outDir = path.join(ROOT, '.proofpack-stale-test');
+    const staleSlug = 'removed-article';
+    fs.mkdirSync(outDir, { recursive: true });
+    fs.writeFileSync(path.join(outDir, `${staleSlug}.proofpack.pdf`), 'stale PDF');
+    fs.writeFileSync(path.join(outDir, `${staleSlug}.proofpack.json`), '{}');
+    try {
+      await assert.rejects(
+        generateProofPack(staleSlug, { outDir }),
+        /article is not eligible for a proof pack/
+      );
+      assert.deepEqual(fs.readdirSync(outDir), []);
+    } finally {
+      fs.rmSync(outDir, { recursive: true, force: true });
+    }
+  });
+
+  it('refuses an output directory that would overwrite the reviewed source manifest', async () => {
+    const articleDir = path.join(ROOT, 'public', 'articles', SLUG);
+    const sourceManifest = path.join(articleDir, `${SLUG}.proofpack.json`);
+    const before = sha256(sourceManifest);
+    await assert.rejects(
+      generateProofPack(SLUG, { outDir: articleDir }),
+      /would overwrite an authoritative proof-pack input/
+    );
+    assert.equal(sha256(sourceManifest), before);
+  });
+
+  it('refuses outputs that collide with any authoritative figure input', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'proofpack-collision-'));
+    try {
+      const slug = 'collision-article';
+      const articleDir = path.join(root, slug);
+      const outDir = path.join(articleDir, 'figures');
+      fs.mkdirSync(outDir, { recursive: true });
+      const sourceManifest = path.join(articleDir, `${slug}.proofpack.json`);
+      fs.writeFileSync(sourceManifest, JSON.stringify({
+        figures: [{ path: `figures/${slug}.proofpack.pdf` }],
+      }));
+      fs.writeFileSync(path.join(outDir, `${slug}.proofpack.pdf`), 'reviewed figure');
+
+      assert.throws(
+        () => assertNoOutputCollisions(slug, outDir, sourceManifest),
+        /would overwrite an authoritative proof-pack input/
+      );
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('generates and validates exactly one pack for a real Unicode article', async () => {
+    const outDir = fs.mkdtempSync(path.join(os.tmpdir(), 'proofpack-api-test-'));
+    try {
+      const result = await generateProofPack({ slug: SLUG }, { outDir });
+      assert.equal(result.slug, SLUG);
+      assert.equal(result.validated, true);
+      assert.deepEqual(
+        fs.readdirSync(outDir).toSorted(),
+        [`${SLUG}.proofpack.json`, `${SLUG}.proofpack.pdf`]
+      );
+      assert.deepEqual(validateProofPackOutput(result.manifestPath), []);
+      const manifest = JSON.parse(fs.readFileSync(result.manifestPath, 'utf8'));
+      assert.equal(manifest.generatedAt, '2026-07-09T00:00:00.000Z');
+      assert.equal(Object.hasOwn(manifest.inputs, 'renderedHtml'), false);
+      assert.equal(manifest.output.pdf.path, `${SLUG}.proofpack.pdf`);
+    } finally {
+      fs.rmSync(outDir, { recursive: true, force: true });
+    }
+  });
+
+  it('replaces stale proof-pack artifacts and revalidates them end to end offline', async () => {
+    const outDir = fs.mkdtempSync(path.join(os.tmpdir(), 'proofpack-stale-refresh-'));
+    try {
+      const first = await generateProofPack(SLUG, { outDir });
+      fs.writeFileSync(first.pdfPath, 'stale PDF');
+      fs.writeFileSync(first.manifestPath, '{"stale":true}\n');
+
+      const refreshed = await generateProofPack(SLUG, { outDir });
+      const manifest = JSON.parse(fs.readFileSync(refreshed.manifestPath, 'utf8'));
+      assert.equal(refreshed.validated, true);
+      assert.equal(manifest.build.slug, SLUG);
+      assert.equal(manifest.inputs.articleHtml.path, `public/articles/${SLUG}/index.html`);
+      assert.deepEqual(validateProofPackOutput(refreshed.manifestPath), []);
+      assert.notEqual(fs.readFileSync(refreshed.pdfPath, 'utf8'), 'stale PDF');
+    } finally {
+      fs.rmSync(outDir, { recursive: true, force: true });
+    }
   });
 });
 

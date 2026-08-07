@@ -34,7 +34,8 @@ SOFT_SLATE = '#d8dfe6'
 SOFT_ROSE = '#f0d4d4'
 
 SLUG = 'methane-and-refrigerants-cutting-the-non-co2-climate-forcers'
-OUT_DIR = Path(f'/home/alex/Dev/lupine/lupine-science/public/articles/{SLUG}/images')
+REPO_ROOT = Path(__file__).resolve().parents[3]
+OUT_DIR = REPO_ROOT / 'public/articles' / SLUG / 'images'
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 DPI = 150
@@ -555,7 +556,7 @@ def make_08():
                                boxstyle='round,pad=0.02',
                                facecolor=SOFT_INDIGO, edgecolor=PRIMARY, linewidth=2)
     ax.add_patch(stats_box)
-    ax.text(0.5, 0.20, '20–50% efficiency gain potential  •  77 build-locked Lean 4 theorems',
+    ax.text(0.5, 0.20, '20–50% efficiency gain potential  •  machine-generated Lean theorem inventory',
             ha='center', va='center', fontsize=10, color=TEXT, fontweight='bold')
 
     add_title(fig, 'Caloric Materials: From Correction to Verified Discovery', y=0.96)

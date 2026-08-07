@@ -31,7 +31,7 @@ Implementation references:
 
 ## Typography and Unicode release gate
 
-- Use repository-local `proof-unicode.ttf` (Noto Serif) for reading text and `IBM Plex Mono` for labels, numbers, metadata, and source lines. Chromium converts the variable Newsreader webfont to Type 3 PDF fonts, which are not reliable across print engines; it must not be used in generated PDFs. `font-display: block` prevents a PDF being captured with fallback metrics.
+- Use repository-local `proof-unicode.ttf` (Noto Serif) for reading text, `proof-math.ttf` (Noto Sans Math) for mathematical extraction-test glyphs, and `IBM Plex Mono` for labels, numbers, metadata, and source lines. Chromium converts the variable Newsreader webfont to Type 3 PDF fonts, which are not reliable across print engines; it must not be used in generated PDFs. `font-display: block` prevents a PDF being captured with fallback metrics.
 - Production is offline and deterministic: no Google Fonts, CDN CSS, remote images, analytics, or post-load substitutions. Await `document.fonts.ready` before printing.
 - Every released PDF must report all fonts as embedded and Unicode mapped via `pdffonts`, with no Type 3 fonts (the proof-pack regression test checks all three conditions).
 - Every preview and production pack must contain and successfully round-trip this exact coverage string through `pdftotext`:
@@ -96,9 +96,15 @@ A proof pack is now produced per eligible article from a sibling manifest file:
   - `npm run proofpack:all` — one PDF + JSON manifest per eligible article.
   - `npm run proofpack:slug -- <slug>` — one article only.
   - `npm run proofpack:validate -- <manifest.json>` — validate a manifest.
+- Programmatic consumers import from the single public module `lib/proof-pack-generator.mjs`:
+  - `listEligibleArticles()` returns the stable, slug-sorted set of articles with reviewed sibling input manifests.
+  - `generateProofPack(article, { outDir })` accepts a slug string or `{ slug }`, removes stale outputs for that slug, validates the finished output, and resolves to `{ slug, pdfPath, manifestPath, validated: true }`. It refuses malformed or ineligible slugs and never starts a network-dependent renderer.
+  - `validateProofPack(manifest)` validates the complete input schema and scientific source policy; `validateProofPackFiles(manifest, manifestPath)` verifies local figure existence, containment, and any declared SHA-256 digest.
+  - `validateProofPackOutput(manifestPath, { rootDir })` returns actionable integrity issues for the source manifest, article HTML, complete figure set, deterministic date/slug binding, and PDF digest/size. `assertValidProofPackOutput(...)` throws one aggregated error instead.
+- All strings and JSON are read and written as UTF-8. Rendering blocks non-loopback requests, uses repository-local fonts/assets, and the representative regression round-trips scientific symbols and multilingual names through the PDF text layer.
 - Per-article outputs land in `public/proof-packs/<slug>.proofpack.pdf` with a sibling `<slug>.proofpack.json` manifest containing content-addressed input checksums and the output PDF checksum.
 - The builder renders `public/proof-pack-template/index.html` populated from the manifest, serves `public/` locally, prints to Letter with Playwright, waits for fonts and images, normalizes PDF metadata/timestamps to the manifest date, and removes stale outputs on `--all`.
-- Byte-identical reproducibility is not guaranteed across Chromium runs, so determinism is verified by semantic comparison: repeated builds produce identical `pdftotext -layout` output and identical input/output checksums in the manifest.
+- Output manifests use the article publication date rather than wall-clock time. Byte-identical reproducibility is not guaranteed across Chromium versions, so determinism is verified by semantic comparison: repeated builds produce identical `pdftotext -layout` output and identical content-addressed input/output metadata with a fixed renderer.
 
 ### Validated representative coverage
 

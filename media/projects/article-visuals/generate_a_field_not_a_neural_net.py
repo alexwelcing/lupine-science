@@ -30,7 +30,8 @@ SOFT_SAGE = "#c8dccf"
 
 COLORS = [INDIGO, AMBER, SAGE, SLATE, ROSE]
 
-OUT_DIR = Path("/home/alex/Dev/lupine/lupine-science/public/articles/a-field-not-a-neural-net/images")
+REPO_ROOT = Path(__file__).resolve().parents[3]
+OUT_DIR = REPO_ROOT / "public/articles/a-field-not-a-neural-net/images"
 DPI = 150
 WIDTH, HEIGHT = 1280, 720
 FIGSIZE = (WIDTH / DPI, HEIGHT / DPI)
@@ -86,8 +87,8 @@ def make_01_synthesis_funnel():
     # Funnel as three stacked trapezoids
     stages = [
         ("Predicted structures\n(GNoME)", "2.2 million", 8.0, INDIGO),
-        ("Claimed successes\n(A-Lab headline)", "63%", 5.0, AMBER),
-        ("Validated novel\ndiscoveries", "~0%", 2.5, SAGE),
+        ("Confirmed syntheses\n(A-Lab correction)", "36 / 57 eligible", 5.0, AMBER),
+        ("Novelty review", "separate", 3.2, SAGE),
     ]
     y = 8.5
     for label, value, width, color in stages:
@@ -601,7 +602,7 @@ def make_10_field_vs_neural_net():
     proof_box = FancyBboxPatch((3.5, 0.9), 3.0, 0.9, boxstyle="round,pad=0.05",
                                facecolor=BG, edgecolor=SAGE, linewidth=2)
     ax.add_patch(proof_box)
-    ax.text(5.0, 1.35, "8 Lean modules  •  77 theorems  •  ~225 declarations  •  0 sorry",
+    ax.text(5.0, 1.35, "Machine-generated Lean theorem inventory  •  0 sorry",
             ha="center", va="center", fontsize=10, fontweight="bold", color=SAGE)
 
     ax.text(5.0, 0.3, "Lupine replaces the arms race for bigger models with a measured field and formal verification, "

@@ -533,7 +533,7 @@
           data-tip="<b>∫<sub>M</sub> … dμ(γ)</b> — integrate over the error manifold M. Errors concentrate on a thin ribbon (participation ratio <em>1.1–2.0</em>).">
           <span class="intg">∫</span><span class="sub">M</span></button>
         <button type="button" class="term" data-focus="errorvectors"
-          data-tip="<b>∇<sub>γ</sub>E(x,θ)</b> — error-vector field along geodesics γ. Dominant directions are shared across MLIPs (cos θ &gt; 0.8), so corrections transfer.">
+          data-tip="<b>∇<sub>γ</sub>E(x,θ)</b> — error-vector field along geodesics γ. Dominant error directions overlap across reference potentials (mean cos θ ≈ 0.69, computed in your browser from the committed data).">
           <span class="n">‖</span>∇<span class="sub">γ</span>E<span class="n">(</span>x,θ<span class="n">)</span><span class="n">‖</span><span class="sup">2</span></button>
         <span class="term eq-measure"
           data-tip="<b>dμ(γ)</b> — measure over geodesics γ. Weights error by local environment.">
@@ -560,7 +560,7 @@
           <h1>Before a lab spends a year on a material, <em>know whether to trust the prediction.</em></h1>
           <p>Machine-learned potentials now screen batteries, catalysts, and frameworks faster than any lab can test them. The gap is not speed. It is <em>verification</em>: a model can be confident and wrong, and the cost of finding out is measured in years and missed targets.</p>
           <p class="why">Characterize prediction error as a physical field, correct it at runtime, and machine-check every claim.</p>
-          <p class="prov"><span class="live-dot2" aria-hidden="true"></span><span id="prov-objective">computing the manifold live from the committed benchmark…</span></p>
+          <p class="prov"><span class="live-dot2" aria-hidden="true"></span><span id="prov-objective">figures on this page are recomputed in-browser from the committed benchmark — <a href="/data/benchmark_manifold.json">see the data ↗</a></span></p>
           <div class="routes">
             <a href="https://lupi.live">Live instrument <span class="ar">→</span></a>
             <a href="https://library.lupine.science">Research library <span class="ar">→</span></a>
@@ -572,23 +572,29 @@
           <p class="tag"><span class="dot"></span>∫<sub>M</sub> · error manifold</p>
           <h2>Prediction errors collapse onto a <em>low-dimensional ribbon.</em></h2>
           <div class="stat"><strong>1.1–2.0</strong><span class="su">participation ratio: errors move in only ~1–2 directions out of five</span></div>
-          <p class="prov"><span class="live-dot2" aria-hidden="true"></span><span id="prov-manifold">…</span></p>
+          <p class="prov"><span class="live-dot2" aria-hidden="true"></span><span id="prov-manifold">range recomputed in-browser from the committed benchmark — <a href="/data/benchmark_manifold.json">see the data ↗</a></span></p>
           <p>Across classic and machine-learned potentials, atomic-force errors do not scatter randomly. They line up. That geometry makes failure predictable, and predictable failure is correctable failure.</p>
         </article>
 
         <article class="panel" data-panel="errorvectors">
           <p class="tag"><span class="dot"></span>∇<sub>γ</sub>E · error vectors</p>
-          <h2>Shared error directions make a <em>single correction transfer.</em></h2>
+          <h2>Shared error directions make failure <em>predictable across models.</em></h2>
           <div class="stat"><strong>~70%</strong><span class="su">of dominant error directions are shared across potentials</span></div>
-          <p class="prov"><span class="live-dot2" aria-hidden="true"></span><span id="prov-errorvectors">…</span></p>
-          <p>The same local environments — surfaces, vacancies, dislocations, under-coordinated sites — bias different potentials in the same direction. A correction calibrated on one model transfers to others because the geometry is shared, not because the weights are.</p>
+          <p class="prov"><span class="live-dot2" aria-hidden="true"></span><span id="prov-errorvectors">overlap recomputed in-browser from the committed benchmark — <a href="/data/benchmark_manifold.json">see the data ↗</a></span></p>
+          <p>The same local environments — surfaces, vacancies, under-coordinated sites — bias different potentials in similar directions. Where raw alignment can flatter (coupling-aware nulls reach 0.98), what survives blind tests is stronger: rankings hold (r&nbsp;=&nbsp;0.906 across 36 model–material cells) and the error follows a smooth, coordination-keyed field. <a href="/articles/the-order-is-right-the-size-is-wrong/">Read the live evidence <span class="ar">→</span></a></p>
         </article>
 
         <article class="panel" data-panel="ledger">
           <p class="tag"><span class="dot"></span>Ω(Ξ) · public ledger</p>
           <h2>Claims are checked <em>by machine, in public.</em></h2>
-          <div class="stat"><strong>271</strong><span class="su">build-locked theorems in the open Lean library, zero sorry</span></div>
-          <p class="prov"><span class="live-dot2" aria-hidden="true"></span><span id="prov-ledger">…</span></p>
+          <!-- Theorem count comes from /data/lean_count.json (generated by
+               scripts/generate-lean-count.mjs from lupine-rhizo/lean-spec;
+               counting rule documented in both files). Regenerate the JSON to
+               update — the generator writes the static fallback and the JS
+               below rehydrates it from the same committed JSON. Never edit the
+               numeric fallback by hand. -->
+          <div class="stat"><strong id="lean-count">888</strong><span class="su">build-locked theorems in the open Lean library, zero sorry — counted <span id="lean-count-date">from source</span></span></div>
+          <p class="prov"><span class="live-dot2" aria-hidden="true"></span><span id="prov-ledger">ribbon check recomputed in-browser from the committed benchmark — <a href="/data/benchmark_manifold.json">see the data ↗</a></span></p>
           <p>Core claims are sealed as Lean 4 theorems with hash-locked provenance. The proof layer refuses as readily as it accepts — it once caught a rounded success count and changed 27 improvements to 26. The ledger is the public record of every claim, refutation, and correction.</p>
         </article>
       </div>
@@ -596,9 +602,14 @@
 
     <!-- ════ LEDGER RAIL (marginalia) ════ -->
     <aside class="rail-ledger" aria-label="Public ledger">
-      <div class="rail-head"><span>Public ledger · Ξ</span><span class="h">height <span id="ledger-height">970</span></span></div>
+      <div class="rail-head"><span>Public ledger · Ξ</span><span class="h">height <span id="ledger-height">1030</span></span></div>
+      <!-- pre-rendered fallback rows (verified via gh api 2026-08-03); the JS
+           re-renders over these with live commits when the API is reachable -->
       <ul class="ledger" id="ledger-list">
-        <li class="loading">loading open record…</li>
+        <li><span class="hash">d3f2837</span> <span class="when">07·30</span><span class="msg">Merge pull request #244 from alexwelcing/fix/wiki-layout-collapse</span></li>
+        <li><span class="hash">b40ecc2</span> <span class="when">07·30</span><span class="msg">lupine-wiki: vendor ontology test fixtures (Codex P1)</span></li>
+        <li><span class="hash">3db8a55</span> <span class="when">07·30</span><span class="msg">lupine-wiki: bound layout integration velocity (anti-collapse) + integration tests</span></li>
+        <li><span class="hash">5a70518</span> <span class="when">07·30</span><span class="msg">Merge pull request #243 from alexwelcing/feat/wiki-research-sphere</span></li>
       </ul>
       <div class="rail-note">
         <div class="row"><span class="d mof"></span><span>MOF-5 · Zn₄O(BDC)₃ — published crystallography, <a href="/data/mof5_structure.json">drawn from the committed structure</a>.<span class="cite">Li, Eddaoudi, O’Keeffe &amp; Yaghi, Nature 402, 276 (1999) · COD 1516287</span></span></div>
@@ -635,7 +646,7 @@
       </article>
       <article>
         <h3>Frameworks designed for jobs no known material can do.</h3>
-        <p>Metal-organic frameworks can be built atom-by-atom for capture, storage and sensing. The crystal drawn above is real, published crystallography. The makeable-frameworks prospectus is in the notes below.</p>
+        <p>Metal-organic frameworks can be built atom-by-atom for capture, storage and sensing. The crystal drawn above is real, published crystallography. The makeable-frameworks prospectus (a draft for discussion) is linked here.</p>
         <a href="/articles/from-fantasy-frameworks-to-makeable-materials/">Read the prospectus <span class="ar">→</span></a>
       </article>
     </div>
@@ -644,7 +655,7 @@
       <p class="b-label">Environmental series</p>
       <div class="series-head">
         <h2>Beyond carbon: the error geometry of environmental materials.</h2>
-        <p>Five articles trace the same under-coordination error from CO₂ capture to water, air, methane, refrigerants, critical minerals, PFAS, and cement — and how a single correction layer changes what labs can trust.</p>
+        <p>Five articles trace the same under-coordination error from CO₂ capture to water, air, methane, refrigerants, critical minerals, PFAS, and cement — and how a single correction layer changes what labs can trust. The series is published as working drafts; each page carries its draft status.</p>
       </div>
       <div class="series-cards">
         <a href="/articles/beyond-carbon-the-error-geometry-of-environmental-materials/">
@@ -667,9 +678,9 @@
         </a>
         <a href="/articles/critical-minerals-pfas-and-the-remediation-imperative/">
           <img src="/articles/critical-minerals-pfas-and-the-remediation-imperative/hero.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
-          <span class="d8">July 16, 2026 · Narrated film</span>
+          <span class="d8">July 16, 2026</span>
           <h3>Critical Minerals, PFAS</h3>
-          <p>The remediation imperative, now with a narrated film and shareable clips.</p>
+          <p>The remediation imperative: critical-mineral recovery and PFAS destruction share one error geometry.</p>
         </a>
         <a href="/articles/cement-concrete-and-the-weight-of-the-built-world/">
           <img src="/articles/cement-concrete-and-the-weight-of-the-built-world/hero.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
@@ -679,7 +690,7 @@
         </a>
         <a href="/articles/five-materials-for-5-to-12-gtco2-year/">
           <img src="/articles/five-materials-for-5-to-12-gtco2-year/hero.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
-          <span class="d8">July 16, 2026</span>
+          <span class="d8">July 9, 2026</span>
           <h3>Five Materials for 5–12 GtCO₂/Year</h3>
           <p>The material bottlenecks that could unlock gigatonne-scale impact.</p>
         </a>
@@ -693,26 +704,29 @@
 
     <div class="b-notebook">
       <p class="b-label">Recent notes</p>
+      <!-- card summaries are each article's own frontmatter Deck/Summary —
+           update them there, not here. Only citable statuses (Final/Live)
+           are featured; drafts and editor-review notes stay off this rail. -->
       <div class="b-cards">
         <a href="/articles/the-savings-stack/">
           <span class="d8">2026·07·21</span>
           <h3>The Savings Stack — Booklet and Data Pack</h3>
-          <p>Seven savings layers from the literature, one measured sharing economy — 72.4% fewer DFT evaluations when four models share anchors — and the theorem commons. A free 16-page booklet with a hashable data pack.</p>
+          <p>Seven savings layers from the literature, one recomputed sharing economy — 72.4% fewer DFT evaluations when four models share anchors (558 naive vs 154 union, 29 paths, recomputed from recorded campaign artifacts; no new DFT) — and the theorem commons. A free 16-page booklet with a hashable data pack.</p>
         </a>
-        <a href="https://github.com/alexwelcing/lupine-rhizo">
-          <span class="d8">2026·07·13</span>
-          <h3>Discovery Gates, with Licenses</h3>
-          <p>New Lean certificates separate Born-stable candidates from refused ones in Li-S exploration, and a license layer says when cross-model agreement actually means lower error.</p>
+        <a href="/articles/an-order-of-effort/">
+          <span class="d8">2026·07·20</span>
+          <h3>An Order of Effort</h3>
+          <p>The measured ladder from proven corrections to proven impossibility — and the order in which our next rounds climb it.</p>
         </a>
-        <a href="/articles/rhizo-non-co2-climate-forcers-lean/">
-          <span class="d8">2026·07·13</span>
-          <h3>Non-CO₂ Climate Concerns, Build-Locked in Lean</h3>
-          <p>Lupine Rhizo now maps methane, HFCs, water, air, critical-mineral, and cement concerns to existing theory modules — 271 build-locked theorems, zero sorry.</p>
+        <a href="/articles/the-materials-we-test-against/">
+          <span class="d8">2026·07·20</span>
+          <h3>The Z1 Barrier Panel: The Materials We Test Against</h3>
+          <p>The locked Li-ion conductor panels behind our barrier campaigns — what they are, why they are the right adversaries, and what a migration barrier actually is.</p>
         </a>
-        <a href="/articles/lupi-hfc-refrigerant-research-payloads/">
-          <span class="d8">2026·07·12</span>
-          <h3>Lupi Gains HFC Refrigerant Research Payloads</h3>
-          <p>Real R32 and R125 refrigerant trajectories with full per-atom payloads, thermo, and temperature profiles.</p>
+        <a href="/articles/four-gates-three-honest-failures-one-live-experiment/">
+          <span class="d8">2026·07·19</span>
+          <h3>Four Gates, Three Honest Failures, One Live Experiment</h3>
+          <p>A plain-language status report on our four preregistered Round-4 campaigns — what we measured, what failed, what is still running, and how you can check every number.</p>
         </a>
       </div>
       <p class="b-all"><a href="/articles/">All articles <span class="ar">→</span></a></p>
@@ -1241,16 +1255,29 @@
       }
     }
 
+    /* ── theorem count: synced from the committed data file so the figure
+       can never silently drift from the counting rule (see
+       scripts/generate-lean-count.mjs and /data/lean_count.json) ── */
+    fetch("/data/lean_count.json")
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((d) => {
+        const n = document.getElementById("lean-count");
+        const when = document.getElementById("lean-count-date");
+        if (n && Number.isFinite(d.count)) n.textContent = String(d.count);
+        if (when && d.counted_at) when.textContent = d.counted_at;
+      })
+      .catch(() => { /* committed fallback text already correct */ });
+
     /* ── public ledger: live commits from the open repository ── */
     (() => {
       const LEDGER_REPO = "alexwelcing/lupine";
       const list = document.getElementById("ledger-list");
       const heightEl = document.getElementById("ledger-height");
       const fallback = [
-        { sha: "9b37d99", date: "06·19", msg: "Refactor LUPI viewer loading seams" },
-        { sha: "25482ab", date: "06·18", msg: "Retire monorepo LUPI viewer deploy" },
-        { sha: "08fe80c", date: "06·17", msg: "Add social cards for saved views" },
-        { sha: "109c116", date: "06·17", msg: "Add LUPI analytics measurement tools" },
+        { sha: "d3f2837", date: "07·30", msg: "Merge pull request #244 from alexwelcing/fix/wiki-layout-collapse" },
+        { sha: "b40ecc2", date: "07·30", msg: "lupine-wiki: vendor ontology test fixtures (Codex P1)" },
+        { sha: "3db8a55", date: "07·30", msg: "lupine-wiki: bound layout integration velocity (anti-collapse) + integration tests" },
+        { sha: "5a70518", date: "07·30", msg: "Merge pull request #243 from alexwelcing/feat/wiki-research-sphere" },
       ];
       function render(rows) {
         if (!list) return;
@@ -1269,7 +1296,10 @@
       }
       function parseLastPage(link) {
         if (!link) return null;
-        const m = link.match(/page=(\d+)[^>]*>;\s*rel="last"/);
+        // anchor on ?page=/&page= so per_page=N can never match as the page
+        // number (the old /page=(\d+)/ matched inside "per_page=5" and
+        // rendered "height 5")
+        const m = link.match(/[?&]page=(\d+)[^>]*>;\s*rel="last"/);
         return m ? parseInt(m[1], 10) : null;
       }
       // start with the previous hardcoded entries so the rail is never empty
@@ -1283,16 +1313,24 @@
         if (heightEl && memo.total) heightEl.textContent = memo.total;
         render(memo.rows);
       } else {
+        // height: with per_page=1 the rel="last" page number IS the commit
+        // count — exact, not pages×page_size
+        const heightReq = fetch(`https://api.github.com/repos/${LEDGER_REPO}/commits?sha=main&per_page=1`, {
+          headers: { Accept: "application/vnd.github+json" },
+        })
+          .then((r) => (r.ok ? parseLastPage(r.headers.get("link") || "") : null))
+          .catch(() => null);
         fetch(`https://api.github.com/repos/${LEDGER_REPO}/commits?sha=main&per_page=5`, {
           headers: { Accept: "application/vnd.github+json" },
         })
           .then((r) => {
             if (!r.ok) throw new Error(String(r.status));
-            const link = r.headers.get("link") || "";
-            const total = parseLastPage(link);
-            if (heightEl && total) heightEl.textContent = total;
-            return r.json().then((commits) => ({ commits, total }));
+            return r.json();
           })
+          .then((commits) => heightReq.then((total) => {
+            if (heightEl && total) heightEl.textContent = total;
+            return { commits, total };
+          }))
           .then(({ commits, total }) => {
             if (!Array.isArray(commits) || !commits.length) throw new Error("empty");
             const rows = commits.map((c) => ({

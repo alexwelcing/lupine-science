@@ -183,6 +183,52 @@ main, header.site-header, footer.foot { position: relative; z-index: 4; }
 }
 .article-hero { margin: 0 0 2em; }
 
+.proof-download {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 22px;
+  margin: 0 0 28px;
+  padding: 19px 20px;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--indigo);
+  border-radius: 6px;
+}
+.proof-download .eyebrow,
+.proof-download .metadata { margin: 0; font-family: var(--mono); font-size: 11px; }
+.proof-download .eyebrow { color: var(--indigo-deep); letter-spacing: 0.08em; text-transform: uppercase; }
+.proof-download h2 { margin: 4px 0 6px; font-size: 24px; }
+.proof-download .description { margin: 0 0 8px; color: var(--ink-soft); }
+.proof-download .metadata { color: var(--ink-faint); }
+.article .proof-download__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 128px;
+  min-height: 44px;
+  padding: 10px 16px;
+  color: var(--paper);
+  background: var(--indigo);
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.article .proof-download__action:hover { color: var(--paper); background: var(--indigo-deep); }
+.article .proof-download__action:focus-visible { outline: 3px solid var(--indigo); outline-offset: 3px; }
+.proof-download__print-url { display: none; }
+
+@media (max-width: 600px) {
+  .proof-download { grid-template-columns: 1fr; gap: 16px; }
+  .proof-download__action { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .proof-download__action { transition: none; }
+}
+
 /* code, tables, footnotes */
 .article code { font-family: var(--mono); font-size: 0.86em; background: var(--paper-deep); padding: 0.12em 0.36em; border-radius: 3px; }
 .article pre { max-width: 100%; background: var(--paper-deep); border: 1px solid var(--rule-soft); padding: 16px 18px; overflow-x: auto; }
@@ -422,6 +468,9 @@ body.format-tutorial h2::before {
 /* Print additions */
 @media print {
   .callout, .cta, .pullquote { break-inside: avoid; }
+  .proof-download { display: block; break-inside: avoid; }
+  .article .proof-download__action { display: none; }
+  .proof-download__print-url { display: block; margin-top: 8px; font-family: var(--mono); font-size: 10px; overflow-wrap: anywhere; }
   .stat-row { page-break-inside: avoid; }
 }
 

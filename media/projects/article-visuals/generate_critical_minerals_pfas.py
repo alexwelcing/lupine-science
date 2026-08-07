@@ -31,7 +31,8 @@ SOFT_INDIGO = '#d9d8ff'
 MUTED = '#aaaaaa'
 
 SLUG = 'critical-minerals-pfas-and-the-remediation-imperative'
-OUT_DIR = Path(f'/home/alex/Dev/lupine/lupine-science/public/articles/{SLUG}/images')
+REPO_ROOT = Path(__file__).resolve().parents[3]
+OUT_DIR = REPO_ROOT / 'public/articles' / SLUG / 'images'
 MINIMAX_CLIENT = Path('/home/alex/.hermes/skills/lupine-media-director/scripts/minimax_client.py')
 
 DPI = 150
@@ -94,7 +95,7 @@ def style_spines(ax):
     ax.spines['right'].set_visible(False)
 
 
-BASE_CACHE = Path('/home/alex/Dev/lupine/lupine-science/media/projects/article-visuals/base-cache')
+BASE_CACHE = REPO_ROOT / 'media/projects/article-visuals/base-cache'
 BASE_CACHE.mkdir(parents=True, exist_ok=True)
 
 
@@ -363,7 +364,7 @@ def make_05():
                           facecolor=SLATE, edgecolor='none', alpha=0.9)
     ax.add_patch(gate)
     ax.text(5.0, 2.6, 'Verification gate', ha='center', va='center', fontsize=12, color='white', fontweight='bold')
-    ax.text(5.0, 2.25, '77 Lean 4 theorems  ·  0 sorry', ha='center', va='center', fontsize=9, color='white')
+    ax.text(5.0, 2.25, 'Machine-generated Lean inventory  ·  0 sorry', ha='center', va='center', fontsize=9, color='white')
     ax.annotate('', xy=(5.0, 3.2), xytext=(6.4, 5.5),
                 arrowprops=dict(arrowstyle='->', color=SLATE, lw=2, connectionstyle='arc3,rad=0.2'))
     ax.annotate('', xy=(5.0, 3.2), xytext=(8.3, 5.5),

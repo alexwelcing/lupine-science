@@ -91,7 +91,7 @@ The design problem is soot oxidation on catalysed channel walls. The reaction in
 Volatile organic compounds from building materials, furnishings, and industrial processes contribute to both indoor air quality and outdoor ozone formation. Formaldehyde and benzene are particularly important because they are common, hazardous, and difficult to oxidise at room temperature. Supported Pt and Pd catalysts can achieve high conversion, but many require temperatures above 150 °C[^11]. A catalyst that oxidised formaldehyde and benzene below 100 °C would open markets in building materials, consumer purifiers, and industrial abatement.
 
 ![From Peer-Reviewed Anchors to Machine-Checked Proofs](images/water-and-air-correcting-the-molecules-we-drink-and-breathe-08-proof-ecosystem.jpg)
-*The correction layer is backed by peer-reviewed anchors and 190 build-locked Lean 4 theorems, so claims that fall outside the measured domain are flagged as bounded uncertainty rather than sold as prediction.*
+*The correction layer is backed by peer-reviewed anchors and {{LEAN_THEOREM_COUNT}} build-locked Lean 4 theorems, so claims that fall outside the measured domain are flagged as bounded uncertainty rather than sold as prediction.*
 
 
 The limiting steps are C–H and O=O activation at single-atom or small-cluster sites on oxide supports. These are the same under-coordinated active sites that dominate low-temperature SCR and soot oxidation. Single-atom catalysts are especially sensitive: if the metal binds the support too weakly it sinters; too strongly it becomes inactive. Corrected metal-support binding energies prevent both failures, and corrected C–H/O₂ activation barriers filter formulations that only appear active because their barriers have been artificially lowered.
@@ -108,7 +108,7 @@ The environment error field is constructed from three anchor observables and a c
 
 Runtime correction adds analytic forces to the uMLIP gradients. Molecular dynamics, nudged-elastic-band calculations, and high-throughput relaxations therefore follow the corrected potential energy surface, not the raw one. Blind prediction across 36 (model, material) combinations achieved Pearson r = 0.906 (p = 10⁻⁴, 95% CI [0.82, 0.96]) with zero adjustable parameters[^5]. Corrected uMLIPs remain roughly 10⁵× faster than DFT, which is what makes 10⁵–10⁶ candidate screens economically feasible.
 
-Formal verification matters because correction without proof can become a new kind of false confidence. Supported claims are accompanied by build-locked Lean 4 theorems; the current library contains 190 build-locked theorems with zero sorry proofs[^5]. In the water and air context, this discipline means that a membrane pore ranking is supported only when the relevant local environments fall inside the measured domain; a metastable hydrate or an amorphous sorbent phase is flagged as synthesis-dependent rather than sold as predicted. The system proves impossibility or bounded uncertainty where it cannot prove a number.
+Formal verification matters because correction without proof can become a new kind of false confidence. Supported claims are accompanied by build-locked Lean 4 theorems; the current library contains {{LEAN_THEOREM_COUNT}} build-locked theorems with zero sorry proofs[^5]. In the water and air context, this discipline means that a membrane pore ranking is supported only when the relevant local environments fall inside the measured domain; a metastable hydrate or an amorphous sorbent phase is flagged as synthesis-dependent rather than sold as predicted. The system proves impossibility or bounded uncertainty where it cannot prove a number.
 
 ## From point fixes to a platform
 
@@ -132,7 +132,7 @@ The correction-and-verification method was built for climate-critical materials,
 
 [^4]: B. Deng *et al.*, "Systematic softening in universal machine learning interatomic potentials," *npj Computational Materials* **11**, 9 (2025). https://doi.org/10.1038/s41524-024-01500-6
 
-[^5]: Lupine Science. The build-locked formalization is published in the [open Lean 4 library](https://library.lupine.science) and [source repository](https://github.com/alexwelcing/lupine-rhizo).906 blind-prediction result, the 15.6% runtime overhead, the 190 build-locked Lean 4 theorems, and the boundary conditions for impossibility proofs.
+[^5]: Lupine Science. The build-locked formalization is published in the [open Lean 4 library](https://library.lupine.science) and [source repository](https://github.com/alexwelcing/lupine-rhizo). The r=0.906 blind-prediction result, the 15.6% runtime overhead, the {{LEAN_THEOREM_COUNT}} build-locked Lean 4 theorems, and the boundary conditions for impossibility proofs.
 
 [^6]: N. Hanikel *et al.*, "Evolution of water-harvesting systems in metal-organic frameworks," *ACS Central Science* review literature on MOF hydrolysis and cycling stability (2019–2024).
 

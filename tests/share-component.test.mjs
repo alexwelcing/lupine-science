@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
+import axe from 'axe-core';
 import { JSDOM } from 'jsdom';
 import {
   encodeQuery,
@@ -74,6 +75,38 @@ describe('buildShareActions', () => {
 });
 
 describe('initShare accessibility', () => {
+  it('has no automated WCAG A or AA violations in the rendered share UI', async () => {
+    const dom = new JSDOM(
+      '<!doctype html><html lang="en"><head><title>Share test</title></head><body><main><div class="share-root" aria-label="Share"></div></main></body></html>',
+      { runScripts: 'outside-only' },
+    );
+    const previousWindow = globalThis.window;
+    const previousDocument = globalThis.document;
+    globalThis.window = dom.window;
+    globalThis.document = dom.window.document;
+    dom.window.matchMedia = () => ({ matches: false });
+
+    try {
+      const root = dom.window.document.querySelector('.share-root');
+      initShare(root, { url: 'https://lupine.science/articles/why-lupi/', title: 'Why LUPI?' });
+      dom.window.eval(axe.source);
+      const result = await dom.window.axe.run(root, {
+        runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'] },
+        rules: { 'color-contrast': { enabled: false } },
+      });
+
+      assert.equal(
+        result.violations.length,
+        0,
+        JSON.stringify(result.violations.map(({ id, nodes }) => ({ id, targets: nodes.map((node) => node.target) }))),
+      );
+    } finally {
+      globalThis.window = previousWindow;
+      globalThis.document = previousDocument;
+      dom.window.close();
+    }
+  });
+
   it('renders labelled native controls with a polite live region on desktop', () => {
     const dom = new JSDOM('<div class="share-root" aria-label="Share"></div>');
     const previousWindow = globalThis.window;

@@ -134,7 +134,7 @@ Methane and hydrofluorocarbon refrigerants are the two largest non-CO₂ climate
 - **Data points to show:**
   - Solid-state refrigeration can exceed vapor-compression efficiency by **20–50%** [^15].
   - Hysteresis losses come from nucleation, twin boundaries, and metastable intermediate phases.
-  - **77** build-locked Lean 4 theorems prove correction bounds and impossibility conditions [^11].
+  - The machine-generated Lean 4 theorem inventory proves correction bounds and impossibility conditions [^11].
 - **Suggested form:** Workflow diagram showing the pipeline: uMLIP screen → error-field correction → candidate ranking by entropy change and hysteresis → Lean 4 verification of supported claims → synthesis/operating-condition boundary check.
 - **Generation:** matplotlib
 - **Caption:** Caloric materials promise 20–50% efficiency gains, but only a verified correction pipeline can separate genuine thermodynamic predictions from microstructure assumptions. *Sources: Gutfleisch et al., Adv. Mater., 2011; DOE / ARPA-E; Lupine Science, Strategic Discovery Plan, Sections 2–3.*

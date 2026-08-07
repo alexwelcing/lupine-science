@@ -18,7 +18,7 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
 import { PDFDocument, PDFName } from 'pdf-lib';
-import { validateProofPack, formatIssues } from './validate-proofpack.mjs';
+import { validateProofPack, validateProofPackFiles, formatIssues } from './validate-proofpack.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC = path.join(ROOT, 'public');
@@ -55,25 +55,56 @@ const MIME = {
   '.pdf': 'application/pdf',
 };
 
-function sha256(filePath) {
-  return crypto.createHash('sha256').update(fs.readFileSync(filePath)).digest('hex');
+export function resolvePublicRequestPath(urlPath) {
+  const candidate = path.resolve(PUBLIC, urlPath.replace(/^\/+/, ''));
+  const relative = path.relative(PUBLIC, candidate);
+  if (relative.startsWith('..') || path.isAbsolute(relative)) return null;
+  if (fs.existsSync(candidate)) {
+    const realPublic = fs.realpathSync(PUBLIC);
+    const realCandidate = fs.realpathSync(candidate);
+    const realRelative = path.relative(realPublic, realCandidate);
+    if (realRelative.startsWith('..') || path.isAbsolute(realRelative)) return null;
+  }
+  return candidate;
 }
 
-function sha256String(text) {
-  return crypto.createHash('sha256').update(text, 'utf8').digest('hex');
+export function isLoopbackRequestUrl(value) {
+  try {
+    const url = new URL(value);
+    return ['http:', 'https:'].includes(url.protocol)
+      && !url.username
+      && !url.password
+      && ['127.0.0.1', 'localhost'].includes(url.hostname);
+  } catch {
+    return false;
+  }
+}
+
+function sha256(filePath) {
+  return crypto.createHash('sha256').update(fs.readFileSync(filePath)).digest('hex');
 }
 
 function startServer() {
   return new Promise((resolve) => {
     const server = http.createServer((req, res) => {
-      const urlPath = decodeURIComponent(new URL(req.url, 'http://x').pathname);
-      let filePath = path.normalize(path.join(PUBLIC, urlPath));
-      if (!filePath.startsWith(PUBLIC)) {
+      let urlPath;
+      try {
+        urlPath = decodeURIComponent(new URL(req.url, 'http://x').pathname);
+      } catch {
+        res.writeHead(400, { 'content-type': 'text/plain' }).end('bad request');
+        return;
+      }
+      let filePath = resolvePublicRequestPath(urlPath);
+      if (!filePath) {
         res.writeHead(403, { 'content-type': 'text/plain' }).end('forbidden');
         return;
       }
       if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
-        filePath = path.join(filePath, 'index.html');
+        filePath = resolvePublicRequestPath(path.join(urlPath, 'index.html'));
+        if (!filePath) {
+          res.writeHead(403, { 'content-type': 'text/plain' }).end('forbidden');
+          return;
+        }
       }
       if (!fs.existsSync(filePath)) {
         res.writeHead(404, { 'content-type': 'text/plain' }).end('not found');
@@ -295,11 +326,29 @@ function findEligibleSlugs() {
   return slugs.sort();
 }
 
+/** List articles that have a repository-reviewed proof-pack input manifest. */
+export function listEligibleArticles() {
+  return findEligibleSlugs().map((slug) => {
+    const articlePath = path.join(PUBLIC, 'articles', slug, 'index.html');
+    const { manifest } = loadManifest(slug);
+    const articleMeta = extractArticleMeta(fs.readFileSync(articlePath, 'utf8'), slug);
+    return {
+      slug,
+      title: manifest.metadata.title || articleMeta.title,
+      date: manifest.metadata.date || articleMeta.date,
+      articlePath,
+    };
+  });
+}
+
 function loadManifest(slug) {
   const manifestPath = path.join(PUBLIC, 'articles', slug, `${slug}.proofpack.json`);
   const raw = fs.readFileSync(manifestPath, 'utf8');
   const manifest = JSON.parse(raw);
-  const issues = validateProofPack(manifest);
+  const issues = [
+    ...validateProofPack(manifest),
+    ...validateProofPackFiles(manifest, manifestPath),
+  ];
   const errors = issues.filter((issue) => issue.severity === 'error');
   if (errors.length) {
     throw new Error(`manifest validation failed for ${slug}:\n${formatIssues(errors)}`);
@@ -538,7 +587,7 @@ async function renderPdf(browser, { url, output, title, deterministicDate }) {
   try {
     await page.route('**/*', (route) => {
       const requestUrl = route.request().url();
-      if (/^(?:https?:\/\/)?(?:127\.0\.0\.1|localhost)(?::|\/|$)/i.test(requestUrl)) {
+      if (isLoopbackRequestUrl(requestUrl)) {
         route.continue();
       } else {
         route.abort('internetdisconnected');
@@ -624,7 +673,7 @@ async function buildPerArticle(browser, slug, outDir, baseUrl) {
 
   const outputManifest = {
     schemaVersion: '1.0.0',
-    generatedAt: new Date().toISOString(),
+    generatedAt: new Date(`${manifest.metadata.date}T00:00:00Z`).toISOString(),
     build: {
       script: 'scripts/build-proofpack.mjs',
       mode: 'per-article',
@@ -640,21 +689,25 @@ async function buildPerArticle(browser, slug, outDir, baseUrl) {
         sha256: sha256(articlePath),
       },
       figures: figureChecksums,
-      renderedHtml: {
-        path: path.relative(ROOT, htmlPath),
-        sha256: sha256String(html),
-      },
     },
     output: {
       pdf: {
-        path: path.relative(ROOT, pdfPath),
+        path: pdfName,
         sha256: sha256(pdfPath),
         bytes: fs.statSync(pdfPath).size,
       },
     },
   };
   fs.writeFileSync(outputManifestPath, `${JSON.stringify(outputManifest, null, 2)}\n`);
-  return { slug, pdfPath, manifestPath: outputManifestPath };
+  try {
+    const { assertValidProofPackOutput } = await import('../lib/proof-pack-generator.mjs');
+    assertValidProofPackOutput(outputManifestPath, { rootDir: ROOT });
+  } catch (error) {
+    fs.rmSync(pdfPath, { force: true });
+    fs.rmSync(outputManifestPath, { force: true });
+    throw error;
+  }
+  return { slug, pdfPath, manifestPath: outputManifestPath, validated: true };
 }
 
 function cleanStaleOutputs(outDir, eligibleSlugs) {
@@ -670,6 +723,49 @@ function cleanStaleOutputs(outDir, eligibleSlugs) {
         console.log(`cleaned stale output: ${entry.name}`);
       }
     }
+  }
+}
+
+function cleanupArticleOutputs(slug, outDir) {
+  for (const extension of ['pdf', 'json']) {
+    fs.rmSync(path.join(outDir, `${slug}.proofpack.${extension}`), { force: true });
+  }
+}
+
+function canonicalFilePaths(filePath) {
+  const paths = new Set([path.resolve(filePath)]);
+  if (fs.existsSync(filePath)) paths.add(fs.realpathSync(filePath));
+  return paths;
+}
+
+export function assertNoOutputCollisions(slug, outDir, sourceManifestPath) {
+  const articleDir = path.dirname(sourceManifestPath);
+  const sourceManifest = JSON.parse(fs.readFileSync(sourceManifestPath, 'utf8'));
+  const protectedPaths = [
+    sourceManifestPath,
+    path.join(articleDir, 'index.html'),
+    ...(sourceManifest.figures || []).map((figure) => path.resolve(articleDir, figure.path)),
+  ].flatMap((filePath) => [...canonicalFilePaths(filePath)]);
+  const outputPaths = ['pdf', 'json']
+    .map((extension) => path.join(fs.realpathSync(outDir), `${slug}.proofpack.${extension}`))
+    .flatMap((filePath) => [...canonicalFilePaths(filePath)]);
+
+  const collision = outputPaths.find((outputPath) => protectedPaths.includes(outputPath));
+  if (collision) {
+    throw new Error(`output directory would overwrite an authoritative proof-pack input: ${collision}`);
+  }
+}
+
+function prepareArticleOutput(slug, outDir) {
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
+    throw new Error(`invalid article slug: ${slug}`);
+  }
+  fs.mkdirSync(outDir, { recursive: true });
+  const sourceManifestPath = path.join(PUBLIC, 'articles', slug, `${slug}.proofpack.json`);
+  if (fs.existsSync(sourceManifestPath)) assertNoOutputCollisions(slug, outDir, sourceManifestPath);
+  cleanupArticleOutputs(slug, outDir);
+  if (!findEligibleSlugs().includes(slug)) {
+    throw new Error(`article is not eligible for a proof pack: ${slug}`);
   }
 }
 
@@ -867,6 +963,38 @@ async function buildConsolidated(browser, baseUrl) {
   }
 }
 
+/**
+ * Build one eligible article's proof pack entirely from repository-local inputs.
+ *
+ * @param {string | {slug: string}} article article slug or descriptor
+ * @param {{outDir?: string}} options output location (defaults to public/proof-packs)
+ * @returns {Promise<{slug: string, pdfPath: string, manifestPath: string, validated: true}>}
+ */
+export async function generateProofPack(article, { outDir = DEFAULT_OUT_DIR } = {}) {
+  const slug = typeof article === 'string' ? article : article?.slug;
+  if (typeof slug !== 'string' || !slug) {
+    throw new TypeError('article must be a slug string or an object with a slug');
+  }
+
+  const resolvedOutDir = path.resolve(outDir);
+  prepareArticleOutput(slug, resolvedOutDir);
+  const { server, baseUrl } = await startServer();
+  let browser;
+  try {
+    browser = await chromium.launch({ headless: true });
+    return await buildPerArticle(browser, slug, resolvedOutDir, baseUrl);
+  } catch (error) {
+    cleanupArticleOutputs(slug, resolvedOutDir);
+    throw error;
+  } finally {
+    if (browser) await browser.close();
+    await new Promise((resolve, reject) => {
+      server.close((error) => error ? reject(error) : resolve());
+    });
+    fs.rmSync(path.join(PUBLIC, '.proofpack-render'), { recursive: true, force: true });
+  }
+}
+
 // --------------------------------------------------------------------------
 // CLI
 // --------------------------------------------------------------------------
@@ -917,6 +1045,14 @@ async function main() {
   if (fs.existsSync(TMP)) fs.rmSync(TMP, { recursive: true, force: true });
   fs.mkdirSync(TMP, { recursive: true });
 
+  let eligible = null;
+  if (options.mode !== 'consolidated') {
+    fs.mkdirSync(options.outDir, { recursive: true });
+    eligible = options.mode === 'all' ? findEligibleSlugs() : [options.slug];
+    if (options.mode === 'all') cleanStaleOutputs(options.outDir, eligible);
+    for (const slug of eligible) prepareArticleOutput(slug, options.outDir);
+  }
+
   const { server, baseUrl } = await startServer();
   let browser;
   try {
@@ -925,13 +1061,15 @@ async function main() {
     if (options.mode === 'consolidated') {
       await buildConsolidated(browser, baseUrl);
     } else {
-      fs.mkdirSync(options.outDir, { recursive: true });
-      const eligible = options.mode === 'all' ? findEligibleSlugs() : [options.slug];
-      if (options.mode === 'all') cleanStaleOutputs(options.outDir, eligible);
-
       for (const slug of eligible) {
         console.log(`building proof pack: ${slug}`);
-        const result = await buildPerArticle(browser, slug, options.outDir, baseUrl);
+        let result;
+        try {
+          result = await buildPerArticle(browser, slug, options.outDir, baseUrl);
+        } catch (error) {
+          cleanupArticleOutputs(slug, options.outDir);
+          throw error;
+        }
         console.log(`  PDF: ${result.pdfPath}`);
         console.log(`  manifest: ${result.manifestPath}`);
       }

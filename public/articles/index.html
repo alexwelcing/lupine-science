@@ -65,6 +65,7 @@
     <nav class="site-nav" aria-label="Primary">
       <a href="/">Home</a>
       <a href="/articles/" aria-current="page">Articles</a>
+      <a href="/videos/">Videos</a>
       <a href="https://library.lupine.science">Library</a>
       <a href="https://lupi.live">LUPI</a>
     </nav>
@@ -79,11 +80,31 @@
     </div>
     <ul class="article-list">
 <li>
+  <a class="article-card" href="/articles/what-the-cap-was-hiding/">
+    <picture>
+    <img src="/articles/what-the-cap-was-hiding/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="eager" fetchpriority="high" decoding="async">
+  </picture>
+    <span class="d8">August 4, 2026 · Draft</span>
+    <h2>What the Cap Was Hiding</h2>
+    <p>A correction gate that refused seven in ten of the cases it could act on turned out to be measuring its own estimator, not the physics — and the failure that exposed it was preserved rather than discarded.</p>
+  </a>
+</li>
+<li>
+  <a class="article-card" href="/articles/shared-dft-anchors/">
+    <picture>
+    <img src="/articles/shared-dft-anchors/hero.jpg?v=4" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
+  </picture>
+    <span class="d8">August 3, 2026 · Published</span>
+    <h2>Sharing DFT anchors reduces projected evaluations by 72.4%</h2>
+    <p>A frozen, artifact-backed analysis of 29 analyzable diffusion paths compares four separately evaluated sparse-anchor sets with their shared union.</p>
+  </a>
+</li>
+<li>
   <a class="article-card" href="/articles/z1-union-debrief/">
     <picture>
     <source srcset="/articles/z1-union-debrief/hero.avif?v=3" type="image/avif">
     <source srcset="/articles/z1-union-debrief/hero.webp?v=3" type="image/webp">
-    <img src="/articles/z1-union-debrief/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="eager" fetchpriority="high" decoding="async">
+    <img src="/articles/z1-union-debrief/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
   </picture>
     <span class="d8">July 24, 2026 · Draft</span>
     <h2>The Union Verdict: A De-brief on the Z1 Campaign</h2>
@@ -373,6 +394,7 @@ import { initAllShareWidgets } from "/components/share/share.mjs";
     }
   }
 })();
+initAllShareWidgets();
 </script>
 </body>
 </html>

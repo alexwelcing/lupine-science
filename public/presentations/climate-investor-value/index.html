@@ -68,7 +68,7 @@
       <p class="lead">AI is designing the matter the energy transition runs on. Every prediction rests on interatomic potentials that are wrong in structured ways. Lupine measures, proves, and corrects that wrongness — so climate capital funds validated materials, not guesses.</p>
       <div class="stat-row">
         <div class="mono-stat">Addressable climate impact<strong>5–12 GtCO₂/yr</strong></div>
-        <div class="mono-stat">Build-locked theorems<strong>271</strong></div>
+        <div class="mono-stat">Build-locked theorems<strong data-lean-count>888</strong></div>
         <div class="mono-stat">Validation rate today<strong>0.2%</strong></div>
       </div>
     </div>
@@ -101,7 +101,7 @@
       <h2>Generation is solved. <em>Validation is the 0.2% problem.</em></h2>
       <div class="two-col">
         <div>
-          <p class="small">GNoME predicted 2.2 million crystals; 380,000 were computed stable; only 736 had been independently synthesized by late 2023 — a 0.2% validation rate. The A-Lab autonomous synthesis facility reported 63% success, but subsequent review found many “novel” targets were already-known disordered phases. Faster synthesis without better verification does not close the gap.</p>
+          <p class="small">GNoME predicted 2.2 million crystals; 380,000 were computed stable; only 736 had been independently synthesized by late 2023 — a 0.2% validation rate. A-Lab's Author Correction records 36 confirmed of 57 eligible targets, 4 inconclusive, and one compound removed; independent review separately found many “novel” targets were already-known disordered phases. Faster synthesis without better verification does not close the gap.</p>
           <div class="callout">
             <strong>Investor read</strong>
             <p class="small">We are not short of predictions. We are short of validated predictions. Every false positive burns synthesis budget and calendar time the climate window does not have.</p>
@@ -157,7 +157,7 @@
         </div>
         <div class="panel">
           <h3>Prove</h3>
-          <p>271 build-locked Lean 4 theorems with zero sorry proofs state what is supported. Where correction cannot apply, the system proves impossibility or bounded uncertainty instead of reporting a p-value.</p>
+          <p>The machine-generated Lean 4 theorem inventory, with zero sorry proofs, states what is supported. Where correction cannot apply, the system proves impossibility or bounded uncertainty instead of reporting a p-value.</p>
         </div>
       </div>
     </div>
@@ -312,5 +312,14 @@
     <div class="source">Confidential · July 2026 · Lupine Science</div>
   </section>
 
+  <script>
+    fetch('/data/lean_count.json')
+      .then((response) => response.ok ? response.json() : Promise.reject(new Error('Lean inventory unavailable')))
+      .then((inventory) => {
+        if (!Number.isSafeInteger(inventory.count) || inventory.count < 1) throw new Error('Invalid Lean inventory');
+        document.querySelectorAll('[data-lean-count]').forEach((node) => { node.textContent = inventory.count; });
+      })
+      .catch(() => {});
+  </script>
 </body>
 </html>

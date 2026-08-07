@@ -92,11 +92,15 @@ test('preview deploy runs the machine-readable smoke gate without deployment cre
   assert.match(source, /retention-days: 90/);
 });
 
-test('push and pull-request CI completions cannot cancel each other’s deploy gate', async () => {
+test('CI avoids same-SHA branch-push and pull-request duplicate runs', async () => {
+  const source = await ciWorkflow();
+
+  assert.match(source, /push:\n\s+branches: \[main\]\n\s+pull_request:/);
+});
+
+test('preview deployment excludes fork and bot pull requests', async () => {
   const source = await workflow();
 
-  assert.match(
-    source,
-    /group: lupine-science-deploy-\$\{\{ github\.event_name == 'workflow_run' && github\.event\.workflow_run\.head_sha \|\| github\.sha \}\}-\$\{\{ github\.event_name == 'workflow_run' && github\.event\.workflow_run\.event \|\| github\.event_name \}\}/,
-  );
+  assert.match(source, /deploy-preview:[\s\S]*github\.event\.workflow_run\.head_repository\.full_name == github\.repository/);
+  assert.match(source, /deploy-preview:[\s\S]*github\.event\.workflow_run\.actor\.type != 'Bot'/);
 });
