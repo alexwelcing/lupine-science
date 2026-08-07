@@ -1,0 +1,206 @@
+{
+  "schemaVersion": "1.0.0",
+  "metadata": {
+    "slug": "the-materials-we-test-against",
+    "title": "The Z1 Barrier Panel: Evaluating Foundation MLIPs on 42 Solid-State Electrolyte Chemistries",
+    "date": "2026-07-20",
+    "status": "review",
+    "license": "CC BY 4.0",
+    "version": "1.0",
+    "articleUrl": "https://lupine.science/articles/the-materials-we-test-against/",
+    "eyebrow": "Campaign field note",
+    "deck": "A digest-pinned record of the 30-path test panel, the 12-path disjoint training panel, and their published benchmark source.",
+    "documentId": "LS-PP-2026-Z1P",
+    "evidenceStatus": "Source reviewed; campaign-result claims need verification"
+  },
+  "summary": {
+    "claim": "The Z1 campaign uses a deterministic 30-chemistry test panel and a chemistry-disjoint 12-chemistry correction-training panel derived from the published LiTraj nebDFT2k benchmark.",
+    "verdict": "mixed",
+    "scope": "Panel composition and provenance only; this pack does not certify campaign accuracy or economics.",
+    "limitations": [
+      "LiTraj provides DFT-NEB reference paths, not experimental migration barriers.",
+      "The panel locks are repository artifacts whose bytes are pinned here; independent review of campaign results remains needs-verification.",
+      "No accuracy, win-rate, cost, or deployment claim is carried into this pack."
+    ],
+    "lead": "The published benchmark source and two immutable repository locks define what was tested and what was reserved for correction fitting.",
+    "findings": [
+      {
+        "label": "Test panel",
+        "text": "The frozen test lock contains 30 chemistry-held-out paths selected deterministically from the official test split."
+      },
+      {
+        "label": "Training panel",
+        "text": "The correction-training lock contains 12 paths and records the full digest of the test lock from which it is chemistry-disjoint."
+      },
+      {
+        "label": "Refusal",
+        "text": "Campaign-result claims are outside this pack and remain needs-verification."
+      }
+    ],
+    "verdictDetail": "Supported for panel identity; open for campaign results.",
+    "verdictBody": "The two panel files are content-addressed against an exact reviewed repository revision. This establishes panel identity and provenance, not model performance.",
+    "orientation": "The chart and table summarize the article's panel description. The methodology section carries exact lock URLs and SHA-256 digests."
+  },
+  "figures": [
+    {
+      "id": "fig-panel-barriers",
+      "title": "The 30-path Z1 test panel",
+      "path": "images/panel-barriers-by-class.jpg",
+      "alt": "Barrier heights for thirty test paths grouped by solid-electrolyte chemistry class.",
+      "caption": "Article chart of the frozen 30-path test panel grouped by chemistry class; values derive from the cited LiTraj benchmark and the digest-pinned test lock.",
+      "sourceIds": [
+        "litraj-2025"
+      ],
+      "sha256": "68fcf7b0549e143a8aaa1a17525e2b0d3baa4cddacafefa413d5dced15aaac39"
+    },
+    {
+      "id": "fig-electrolyte-classes",
+      "title": "Electrolyte chemistry classes",
+      "path": "images/electrolyte-class-gallery.png",
+      "alt": "Specimen-style gallery representing the solid-electrolyte chemistry classes in the panels.",
+      "caption": "Article illustration of representative electrolyte classes; it is contextual and does not encode an additional quantitative claim.",
+      "sourceIds": [
+        "litraj-2025"
+      ],
+      "sha256": "b5691dff119a4ea80f376ed4c8b2ae4edee4aaba278f7a5f429eff9447a47f17"
+    }
+  ],
+  "dataTables": [
+    {
+      "id": "table-panel-composition",
+      "title": "Locked panel composition",
+      "caption": "Counts recorded by the two digest-pinned panel locks. Campaign outcomes are intentionally excluded.",
+      "headers": [
+        {
+          "key": "panel",
+          "label": "Panel"
+        },
+        {
+          "key": "role",
+          "label": "Role"
+        },
+        {
+          "key": "paths",
+          "label": "Paths",
+          "numeric": true
+        },
+        {
+          "key": "selection",
+          "label": "Selection"
+        }
+      ],
+      "rows": [
+        {
+          "panel": "Z1 test",
+          "role": "Chemistry-held-out evaluation",
+          "paths": 30,
+          "selection": "One deterministic path from each of 30 chemical systems"
+        },
+        {
+          "panel": "Round-5 training",
+          "role": "Correction fitting only",
+          "paths": 12,
+          "selection": "Chemistry- and material-disjoint from the Z1 test lock"
+        }
+      ],
+      "sourceIds": [
+        "litraj-2025"
+      ]
+    }
+  ],
+  "methodology": {
+    "description": "Bind the article's panel description to the independent benchmark paper and to exact repository lock bytes at a reviewed source revision.",
+    "steps": [
+      "Use the published LiTraj nebDFT2k benchmark as the independent source.",
+      "Read the test and correction-training lock files from lupine-rhizo revision 8e6abb4d728ea4ea42dab96aa96f693421e90127.",
+      "Compute SHA-256 over each complete lock file without rewriting it.",
+      "Carry only panel identity and composition; exclude campaign performance and economics."
+    ],
+    "artifacts": [
+      {
+        "id": "z1-test-panel",
+        "label": "Z1 test-panel lock at reviewed revision",
+        "url": "https://github.com/alexwelcing/lupine-rhizo/blob/8e6abb4d728ea4ea42dab96aa96f693421e90127/data/candidates/z1_nebdft2k_barriers.lock.json",
+        "path": "evidence/z1_nebdft2k_barriers.lock.json",
+        "sha256": "192fe54a5579cc421f6644d5d76fb442c6dfb985f014dc4741549e29052efb68",
+        "jsonChecks": {
+          "pathCount": 30,
+          "uniqueChemicalSystemCount": 30,
+          "uniqueMaterialIdCount": 30,
+          "pathSplit": "test",
+          "holdoutSourceSplit": "test"
+        }
+      },
+      {
+        "id": "round5-training-panel",
+        "label": "Round-5 training-panel lock at reviewed revision",
+        "url": "https://github.com/alexwelcing/lupine-rhizo/blob/8e6abb4d728ea4ea42dab96aa96f693421e90127/data/candidates/z1r5_correction_train.lock.json",
+        "path": "evidence/z1r5_correction_train.lock.json",
+        "sha256": "4099f4fcee6418988a250c2a9892d3bc16015f53e21eb47a6bf70bb62e05cc2f",
+        "jsonChecks": {
+          "pathCount": 12,
+          "uniqueChemicalSystemCount": 12,
+          "uniqueMaterialIdCount": 12,
+          "pathSplit": "train",
+          "disjointFrom": "z1-test-panel"
+        }
+      }
+    ],
+    "unitOfAnalysis": "One migration path per selected chemical system",
+    "evidenceCutoff": "2026-07-20",
+    "versioning": "Exact lupine-rhizo revision plus SHA-256 lock and figure digests",
+    "limitations": "Panel locks establish selection and provenance; they do not independently verify model outputs.",
+    "inputs": [
+      "LiTraj nebDFT2k peer-reviewed benchmark",
+      "Z1 test-panel lock",
+      "Round-5 correction-training lock",
+      "Repository-local article figures"
+    ],
+    "transformations": [
+      "Panel counts are copied from the lock contracts and article; no performance metric is derived."
+    ],
+    "validation": [
+      "Schema and source-policy validation",
+      "Builder-enforced figure digest verification",
+      "Exact lock digest comparison at the cited revision",
+      "Offline PDF output-integrity checks"
+    ],
+    "reproduction": [
+      "npm run proofpack:slug -- the-materials-we-test-against"
+    ]
+  },
+  "credits": {
+    "authors": [
+      {
+        "name": "Alex Welcing",
+        "role": "Author"
+      }
+    ],
+    "institutions": [
+      {
+        "name": "Lupine Science",
+        "role": "Institution"
+      }
+    ],
+    "editorialReview": "Article status: Final; campaign-result claims remain needs verification",
+    "provenance": "LiTraj benchmark plus exact-revision, SHA-256-pinned panel locks and figures",
+    "contact": "https://lupine.science/contact/"
+  },
+  "bibliography": [
+    {
+      "id": "litraj-2025",
+      "title": "LiTraj: a dataset for lithium-ion migration in solid-state materials",
+      "type": "peer-reviewed",
+      "url": "https://doi.org/10.1038/s41524-025-01571-z",
+      "doi": "10.1038/s41524-025-01571-z",
+      "publisher": "npj Computational Materials",
+      "year": 2025
+    }
+  ],
+  "auditLinks": [
+    {
+      "label": "Canonical article",
+      "url": "https://lupine.science/articles/the-materials-we-test-against/"
+    }
+  ]
+}

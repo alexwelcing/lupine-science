@@ -11,24 +11,25 @@
     "eyebrow": "Climate materials portfolio",
     "deck": "A compact, auditable record of the article’s claims, source figures, data, methods, and institutional responsibility.",
     "documentId": "LS-PP-2026-005",
-    "evidenceStatus": "Reviewed"
+    "evidenceStatus": "Needs verification"
   },
   "summary": {
-    "claim": "Five material classes share a defect-mediated prediction problem. Correcting systematic model error at under-coordinated environments may improve which candidates reach synthesis.",
-    "verdict": "supported",
-    "scope": "Portfolio-level evidence record for five climate-relevant material targets.",
+    "claim": "The draft article proposes that five climate-relevant material classes share a defect-mediated prediction problem and may benefit from correction of systematic model error.",
+    "verdict": "open",
+    "scope": "Draft portfolio thesis; this pack does not independently verify the aggregate impact range, target thresholds, or internal blind-prediction result.",
     "limitations": [
       "Impact ranges are conditional scenarios, not deployment forecasts.",
-      "Commercial outcomes depend on scale-up, policy, and partner validation beyond this evidence record."
+      "Commercial outcomes depend on scale-up, policy, and partner validation beyond this evidence record.",
+      "The aggregate impact range, target thresholds, and internal blind-prediction result remain needs-verification."
     ],
-    "lead": "Five material classes share a defect-mediated prediction problem. Correcting systematic model error at under-coordinated environments may improve which candidates reach synthesis.",
+    "lead": "This pack preserves a draft portfolio thesis and its selected figures without upgrading article-level scenarios or internal results into verified facts.",
     "findings": [
-      { "label": "Claim", "text": "The portfolio’s combined climate opportunity is estimated at 5–12 GtCO₂/year, conditional on successful development and deployment." },
-      { "label": "Mechanism", "text": "Ranking errors arise where universal potentials soften transition states, surfaces, and defects." },
-      { "label": "Boundary", "text": "This pack records evidence and assumptions; it does not represent experimental validation of every candidate." }
+      { "label": "Scenario", "text": "The draft article reports a combined climate opportunity range; this pack retains it as needs-verification, not as a forecast." },
+      { "label": "Prior art", "text": "Peer-reviewed literature supports systematic softening of universal potentials away from equilibrium." },
+      { "label": "Boundary", "text": "The portfolio values and internal result are not independently reproduced by this pack." }
     ],
-    "verdictDetail": "Supported as a portfolio thesis.",
-    "verdictBody": "The aggregate range is an independently sourced opportunity estimate, not a forecast. Each pathway retains technical, policy, and scale-up uncertainty.",
+    "verdictDetail": "Open pending independent review and reproduction.",
+    "verdictBody": "The cited sources provide background context but do not independently establish every aggregate, threshold, or internal result carried by the draft article.",
     "orientation": "The following pages preserve representative article figures with captions, a compact data table, the methodology note, credits, and a bibliography. Figure numbering and source lines remain stable between builds."
   },
   "figures": [
@@ -37,16 +38,18 @@
       "title": "Five Material Classes Could Unlock 5–12 GtCO₂/Year",
       "path": "images/five-materials-for-5-to-12-gtco2-year-01-climate-impact.jpg",
       "alt": "Horizontal comparison of five material classes and their estimated annual climate impact ranges.",
-      "caption": "Five independently sized material targets sum to an aggregate climate potential of 5–12 GtCO₂/year.",
-      "sourceIds": ["iea-batteries-2024", "ipcc-ar6-2022"]
+      "caption": "Draft article scenario figure, preserved byte-for-byte. Its aggregate range remains needs-verification in this pack.",
+      "sourceIds": [],
+      "sha256": "bfad6fff9d980c8aeae78b57f6e7da89a4d9bbc3a8b650e81aa1e2e399a8ad91"
     },
     {
       "id": "fig-blind-prediction",
       "title": "Blind Prediction of Surface Energies Across 36 Model–Material Pairs",
       "path": "images/five-materials-for-5-to-12-gtco2-year-04-blind-prediction-accuracy.jpg",
       "alt": "Scatter plot comparing measured and predicted surface-energy errors across 36 model-material pairs.",
-      "caption": "Across 36 model–material combinations, the environment error field predicts never-fitted surface energies with Pearson r = 0.906 and zero adjustable parameters.",
-      "sourceIds": ["deng-2025"]
+      "caption": "Draft article result figure, preserved byte-for-byte. Its internal blind-prediction result remains needs-verification in this pack.",
+      "sourceIds": [],
+      "sha256": "648b1a92086125ea54285626534a86d426bb2ab60bf0eab54c96d8765fb8d73b"
     }
   ],
   "dataTables": [
@@ -66,16 +69,16 @@
         { "pathway": "Ammonia catalyst", "metric": "Energy efficiency", "target": ">60%" },
         { "pathway": "Lead-free perovskite", "metric": "Certified conversion efficiency", "target": ">20%" }
       ],
-      "sourceIds": ["arpa-e-refuel-2020", "deng-2025"]
+      "sourceIds": []
     }
   ],
   "methodology": {
-    "description": "Claims are selected from the article’s explicit quantitative statements. Each retained chart must have a descriptive alternative text, visible caption, source line, and corresponding bibliography entry.",
+    "description": "Claims are selected from the draft article's explicit statements, byte-pinned, and kept separate from background bibliography when the cited sources do not independently establish them.",
     "steps": [
       "Identify decision-relevant quantitative claims in the article.",
       "Select figures that preserve complete axes, labels, legends, and annotations.",
       "Copy values without reinterpretation; state transformations and exclusions.",
-      "Map every figure and table to independent bibliography entries."
+      "Map an artifact to a bibliography entry only when that source independently establishes the artifact's claim; otherwise retain an empty source list and needs-verification label."
     ],
     "artifacts": [],
     "unitOfAnalysis": "Material class and defect-mediated performance metric",
@@ -83,8 +86,8 @@
     "versioning": "Deterministic HTML/CSS build; source URL and document ID printed on cover",
     "limitations": "Impact ranges are conditional scenarios; commercial outcomes are not guaranteed.",
     "inputs": ["Article source notes", "Cited peer-reviewed and official sources"],
-    "transformations": ["None; values are copied as stated."],
-    "validation": ["Bibliography cross-check", "Source-domain policy validation"],
+    "transformations": ["None; values are copied as stated and are not independently inferred."],
+    "validation": ["Bibliography cross-check", "Source-domain policy validation", "Builder-enforced figure digest verification"],
     "reproduction": ["Repository-local build scripts", "Article HTML and image assets"]
   },
   "credits": {
@@ -94,7 +97,7 @@
     "institutions": [
       { "name": "Lupine Science", "role": "Institution" }
     ],
-    "editorialReview": "[Reviewer name / role — required before release]",
+    "editorialReview": "Independent editorial and scientific review status: needs verification",
     "provenance": "Article source notes and bibliography",
     "contact": "https://lupine.science/contact/"
   },

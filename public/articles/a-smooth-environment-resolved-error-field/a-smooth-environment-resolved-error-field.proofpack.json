@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "1.0.0",
+  "metadata": {
+    "slug": "a-smooth-environment-resolved-error-field",
+    "title": "A smooth, environment-resolved error field",
+    "date": "2026-07-02",
+    "status": "published",
+    "license": "CC BY 4.0",
+    "version": "1.0",
+    "articleUrl": "https://lupine.science/articles/a-smooth-environment-resolved-error-field/",
+    "eyebrow": "Scientific proof pack",
+    "deck": "A fail-closed record of the article figures, cited prior art, and the limits of the current review state.",
+    "documentId": "LS-PP-2026-EEF",
+    "evidenceStatus": "Needs independent verification"
+  },
+  "summary": {
+    "claim": "The article reports that a coordination-resolved error field predicts a held-out surface-energy observable for fcc metals and can be applied as a run-time correction.",
+    "verdict": "open",
+    "scope": "Article-level record for the reported fcc-metal study; this pack does not independently reproduce the internal calculations or Lean proofs.",
+    "limitations": [
+      "The reported correlations, confidence interval, permutation result, correction accuracy, and run-time overhead remain needs-verification in this pack.",
+      "The cited peer-reviewed source supports systematic uMLIP softening, not the article's internal blind-prediction or correction results.",
+      "The stated boundary is limited to the article's fcc first-shell environments."
+    ],
+    "lead": "This pack preserves the published article's three scientific figures without upgrading internally reported results into independently verified facts.",
+    "findings": [
+      {
+        "label": "Prior art",
+        "text": "Peer-reviewed literature documents systematic softening in universal machine-learning interatomic potentials away from equilibrium."
+      },
+      {
+        "label": "Article report",
+        "text": "The blind-prediction and run-time-correction values are carried as reported results and remain needs-verification here."
+      },
+      {
+        "label": "Boundary",
+        "text": "No claim is made beyond the fcc first-shell scope described by the article."
+      }
+    ],
+    "verdictDetail": "Open pending independent reproduction.",
+    "verdictBody": "Repository-local figures are byte-pinned below. Their integrity does not by itself verify the scientific claims encoded in them.",
+    "orientation": "Figures with independent prior-art support cite that source. Figures containing Lupine's own results deliberately carry no external source ID and remain explicitly needs-verification."
+  },
+  "figures": [
+    {
+      "id": "fig-error-landscape",
+      "title": "The error landscape",
+      "path": "fig1.png",
+      "alt": "Comparison of bulk and defect-family property errors across universal machine-learning interatomic potentials.",
+      "caption": "Article Figure 1, preserved as published. The qualitative softening context is independently sourced; the plotted article values remain needs-verification in this pack.",
+      "sourceIds": [
+        "deng-2025"
+      ],
+      "sha256": "04d82456ce991d7c275dee5e42a4bd43617532e851d5ebf6d5e3b0655d25be96"
+    },
+    {
+      "id": "fig-blind-test",
+      "title": "Environment error field and blind test",
+      "path": "fig4.png",
+      "alt": "Article chart of an environment error field and its reported held-out surface-energy prediction.",
+      "caption": "Article Figure 4, preserved as published. The reported blind-test result remains needs-verification in this pack.",
+      "sourceIds": [],
+      "sha256": "0fe0d72a740bf81cea19c3b3a2979310fd4ea32c26096cd9de08f42e37d89333"
+    },
+    {
+      "id": "fig-runtime-correction",
+      "title": "From field to run time",
+      "path": "fig5.png",
+      "alt": "Article chart of fitted observables and the reported run-time correction on a held-out facet.",
+      "caption": "Article Figure 5, preserved as published. The correction and overhead results remain needs-verification in this pack.",
+      "sourceIds": [],
+      "sha256": "7de29d1280e37111781d96959192eacc6e3da7d5a0e76ba783622411a56eacc3"
+    }
+  ],
+  "dataTables": [],
+  "methodology": {
+    "description": "Carry the article's selected figures into an offline dossier, pin their repository bytes, distinguish external prior art from internal results, and retain explicit uncertainty labels.",
+    "steps": [
+      "Select the three scientific figures named in the published article.",
+      "Compute SHA-256 over each repository-local figure byte stream.",
+      "Map only independently supported context to the peer-reviewed bibliography.",
+      "Leave internal result figures without external source IDs and label their claims needs-verification."
+    ],
+    "artifacts": [],
+    "unitOfAnalysis": "Reported model-material result and fcc local environment",
+    "evidenceCutoff": "2026-07-02",
+    "versioning": "Repository-local manifest and figure SHA-256 digests",
+    "limitations": "This pack performs integrity and provenance checks, not an independent scientific reproduction.",
+    "inputs": [
+      "Published article HTML",
+      "Three repository-local article figures",
+      "Cited peer-reviewed prior art"
+    ],
+    "transformations": [
+      "No scientific values are recalculated or inferred."
+    ],
+    "validation": [
+      "Schema and source-policy validation",
+      "Builder-enforced figure digest verification",
+      "Offline PDF output-integrity checks"
+    ],
+    "reproduction": [
+      "npm run proofpack:slug -- a-smooth-environment-resolved-error-field"
+    ]
+  },
+  "credits": {
+    "authors": [
+      {
+        "name": "Alex Welcing",
+        "role": "Author"
+      }
+    ],
+    "institutions": [
+      {
+        "name": "Lupine Science",
+        "role": "Institution"
+      }
+    ],
+    "editorialReview": "Independent scientific review status: needs verification",
+    "provenance": "Published article and byte-pinned repository-local figures",
+    "contact": "https://lupine.science/contact/"
+  },
+  "bibliography": [
+    {
+      "id": "deng-2025",
+      "title": "Systematic softening in universal machine learning interatomic potentials",
+      "type": "peer-reviewed",
+      "url": "https://doi.org/10.1038/s41524-024-01500-6",
+      "doi": "10.1038/s41524-024-01500-6",
+      "publisher": "npj Computational Materials",
+      "year": 2025
+    }
+  ],
+  "auditLinks": [
+    {
+      "label": "Canonical article",
+      "url": "https://lupine.science/articles/a-smooth-environment-resolved-error-field/"
+    }
+  ]
+}

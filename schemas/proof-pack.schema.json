@@ -106,9 +106,24 @@
       "additionalProperties": false,
       "required": ["label", "url"],
       "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
         "label": { "type": "string", "minLength": 1 },
         "url": { "type": "string", "format": "uri" },
-        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "jsonChecks": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["pathCount", "uniqueChemicalSystemCount", "uniqueMaterialIdCount"],
+          "properties": {
+            "pathCount": { "type": "integer", "minimum": 1 },
+            "uniqueChemicalSystemCount": { "type": "integer", "minimum": 1 },
+            "uniqueMaterialIdCount": { "type": "integer", "minimum": 1 },
+            "pathSplit": { "type": "string", "minLength": 1 },
+            "holdoutSourceSplit": { "type": "string", "minLength": 1 },
+            "disjointFrom": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" }
+          }
+        }
       }
     },
     "figure": {
