@@ -105,3 +105,15 @@ A proof pack is now produced per eligible article from a sibling manifest file:
 - Per-article outputs land in `public/proof-packs/<slug>.proofpack.pdf` with a sibling `<slug>.proofpack.json` manifest containing content-addressed input checksums and the output PDF checksum.
 - The builder renders `public/proof-pack-template/index.html` populated from the manifest, serves `public/` locally, prints to Letter with Playwright, waits for fonts and images, normalizes PDF metadata/timestamps to the manifest date, and removes stale outputs on `--all`.
 - Output manifests use the article publication date rather than wall-clock time. Byte-identical reproducibility is not guaranteed across Chromium versions, so determinism is verified by semantic comparison: repeated builds produce identical `pdftotext -layout` output and identical content-addressed input/output metadata with a fixed renderer.
+
+### Validated representative coverage
+
+`proofpack:all` covers three deliberately different article classes:
+
+| Article | Content class | Evidence posture |
+|---|---|---|
+| `a-smooth-environment-resolved-error-field` | Published scientific proof pack | Internal blind-test and correction results remain explicitly `needs-verification`; peer-reviewed prior art is separated from those results. |
+| `five-materials-for-5-to-12-gtco2-year` | Draft climate-materials portfolio | Aggregate scenarios, target thresholds, and internal results remain explicitly `needs-verification`; background sources are not used to launder those values. |
+| `the-materials-we-test-against` | Campaign field note | Panel identity is pinned to exact lock-file digests; campaign-result and economics claims are excluded and remain `needs-verification`. |
+
+Every selected figure carries a SHA-256 digest in its authoritative sibling manifest. The builder fails closed before rendering when a digest is absent, an asset is missing, a path escapes the article directory, or the current bytes do not match the manifest. Output manifests independently record the article HTML, input-manifest, figure, and PDF digests.

@@ -6,6 +6,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { verifyArtifactIntegrity, verifyFigureIntegrity } from '../scripts/build-proofpack.mjs';
 import { validateProofPack } from '../scripts/validate-proofpack.mjs';
 import { inspectPdf } from '../scripts/check-pdf.mjs';
 import {
@@ -25,6 +26,11 @@ const OUT_DIR = path.join(ROOT, 'public', 'proof-packs');
 const SLUG = 'five-materials-for-5-to-12-gtco2-year';
 const PDF_PATH = path.join(OUT_DIR, `${SLUG}.proofpack.pdf`);
 const MANIFEST_PATH = path.join(OUT_DIR, `${SLUG}.proofpack.json`);
+const REPRESENTATIVE_SLUGS = [
+  'a-smooth-environment-resolved-error-field',
+  'five-materials-for-5-to-12-gtco2-year',
+  'the-materials-we-test-against',
+];
 
 const UNICODE_COVERAGE_STRING =
   'CO₂ · CH₄ · GtCO₂/year · en dash – · em dash — · “curly quotes” · α β γ Δ μ σ ∑ ∂ ≈ ≤ ≥ ± × · José García · Zoë Šimůnková · François L’Écuyer';
@@ -92,6 +98,18 @@ describe('proof-pack builder CLI', () => {
     assert.equal(result.status, 0, result.stderr);
     assert.ok(fs.existsSync(PDF_PATH), 'PDF should exist');
     assert.ok(fs.existsSync(MANIFEST_PATH), 'manifest should exist');
+  });
+
+  it('builds all representative content classes offline', () => {
+    const result = run(['--all', '--out-dir', OUT_DIR]);
+    assert.equal(result.status, 0, result.stderr);
+    for (const slug of REPRESENTATIVE_SLUGS) {
+      assert.ok(fs.existsSync(path.join(OUT_DIR, `${slug}.proofpack.pdf`)), `${slug} PDF should exist`);
+      assert.ok(fs.existsSync(path.join(OUT_DIR, `${slug}.proofpack.json`)), `${slug} output manifest should exist`);
+    }
+    const built = fs.readdirSync(OUT_DIR).filter((name) => name.endsWith('.proofpack.pdf')).sort();
+    const eligible = listEligibleArticles().map(({ slug }) => `${slug}.proofpack.pdf`).sort();
+    assert.deepEqual(built, eligible);
   });
 });
 
@@ -209,6 +227,227 @@ describe('proof-pack output validation', () => {
     const issues = validateProofPack(manifest);
     const errors = issues.filter((issue) => issue.severity === 'error');
     assert.equal(errors.length, 0, errors.map((i) => i.message).join('\n'));
+  });
+
+  it('all representative manifests validate and pin every figure byte-for-byte', () => {
+    for (const slug of REPRESENTATIVE_SLUGS) {
+      const articleDir = path.join(ROOT, 'public', 'articles', slug);
+      const manifest = JSON.parse(
+        fs.readFileSync(path.join(articleDir, `${slug}.proofpack.json`), 'utf8')
+      );
+      const errors = validateProofPack(manifest).filter((issue) => issue.severity === 'error');
+      assert.equal(errors.length, 0, `${slug}: ${errors.map((issue) => issue.message).join('\n')}`);
+      assert.equal(manifest.metadata.slug, slug);
+      for (const figure of manifest.figures) {
+        assert.match(figure.sha256, /^[a-f0-9]{64}$/, `${slug}/${figure.id} digest missing`);
+        assert.equal(
+          figure.sha256,
+          sha256(path.join(articleDir, figure.path)),
+          `${slug}/${figure.id} digest mismatch`
+        );
+      }
+    }
+  });
+
+  it('fails closed for missing, external, escaping, absent, or digest-mismatched figures', () => {
+    const publicRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'proofpack-integrity-'));
+    const slug = 'integrity-fixture';
+    const articleDir = path.join(publicRoot, 'articles', slug);
+    const outsideDir = path.join(publicRoot, 'outside');
+    fs.mkdirSync(articleDir, { recursive: true });
+    fs.mkdirSync(outsideDir, { recursive: true });
+    fs.writeFileSync(path.join(articleDir, 'figure.png'), 'reviewed figure bytes');
+    fs.writeFileSync(path.join(outsideDir, 'outside.png'), 'outside figure bytes');
+    fs.symlinkSync(path.join(outsideDir, 'outside.png'), path.join(articleDir, 'linked.png'));
+    fs.symlinkSync(outsideDir, path.join(articleDir, 'linked-dir'));
+    fs.symlinkSync(outsideDir, path.join(publicRoot, 'articles', 'linked-article'));
+    const digest = sha256(path.join(articleDir, 'figure.png'));
+    const outsideDigest = sha256(path.join(outsideDir, 'outside.png'));
+    const manifestFor = (figure) => ({ figures: [{ id: 'fig-1', ...figure }] });
+
+    try {
+      assert.doesNotThrow(() =>
+        verifyFigureIntegrity(slug, manifestFor({ path: 'figure.png', sha256: digest }), publicRoot)
+      );
+      assert.throws(
+        () => verifyFigureIntegrity(slug, manifestFor({ path: 'figure.png' }), publicRoot),
+        /figure digest missing/
+      );
+      assert.throws(
+        () => verifyFigureIntegrity(slug, manifestFor({ path: 'https:\/\/example.com\/figure.png', sha256: digest }), publicRoot),
+        /repository-local/
+      );
+      assert.throws(
+        () => verifyFigureIntegrity(slug, manifestFor({ path: '../figure.png', sha256: digest }), publicRoot),
+        /escapes article directory/
+      );
+      assert.throws(
+        () => verifyFigureIntegrity(slug, manifestFor({ path: 'linked.png', sha256: outsideDigest }), publicRoot),
+        /resolves outside article directory/
+      );
+      assert.throws(
+        () => verifyFigureIntegrity(slug, manifestFor({ path: 'linked-dir/outside.png', sha256: outsideDigest }), publicRoot),
+        /resolves outside article directory/
+      );
+      assert.throws(
+        () => verifyFigureIntegrity('linked-article', manifestFor({ path: 'outside.png', sha256: outsideDigest }), publicRoot),
+        /article directory resolves outside public articles root/
+      );
+      assert.throws(
+        () => verifyFigureIntegrity(slug, manifestFor({ path: 'missing.png', sha256: digest }), publicRoot),
+        /figure file missing/
+      );
+      assert.throws(
+        () => verifyFigureIntegrity(slug, manifestFor({ path: 'figure.png', sha256: '0'.repeat(64) }), publicRoot),
+        /figure digest mismatch/
+      );
+    } finally {
+      fs.rmSync(publicRoot, { recursive: true, force: true });
+    }
+  });
+
+  it('verifies local JSON artifact cardinality, split, digest binding, and panel disjointness', () => {
+    const publicRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'proofpack-artifacts-'));
+    const slug = 'artifact-fixture';
+    const articleDir = path.join(publicRoot, 'articles', slug);
+    const evidenceDir = path.join(articleDir, 'evidence');
+    const outsideDir = path.join(publicRoot, 'outside');
+    fs.mkdirSync(evidenceDir, { recursive: true });
+    fs.mkdirSync(outsideDir, { recursive: true });
+
+    const reference = {
+      holdout: { source_split: 'test' },
+      paths: [
+        { path_id: 'P1', chemical_system: 'A', material_id: 'M1', split: 'test' },
+        { path_id: 'P2', chemical_system: 'B', material_id: 'M2', split: 'test' },
+      ],
+    };
+    const referencePath = path.join(evidenceDir, 'reference.json');
+    fs.writeFileSync(referencePath, JSON.stringify(reference));
+    const referenceDigest = sha256(referencePath);
+
+    const writeTraining = (paths, disjointDigest = referenceDigest) => {
+      const trainingPath = path.join(evidenceDir, 'training.json');
+      fs.writeFileSync(trainingPath, JSON.stringify({
+        holdout: { disjoint_from_sha256: `sha256:${disjointDigest}` },
+        paths,
+      }));
+      return { trainingPath, trainingDigest: sha256(trainingPath) };
+    };
+    const manifestFor = (trainingDigest, trainingChecks = {}) => ({
+      figures: [],
+      methodology: {
+        artifacts: [
+          {
+            id: 'reference', label: 'Reference', url: 'https://example.com/reference',
+            path: 'evidence/reference.json', sha256: referenceDigest,
+            jsonChecks: {
+              pathCount: 2, uniquePathIdCount: 2,
+              uniqueChemicalSystemCount: 2, uniqueMaterialIdCount: 2,
+              pathSplit: 'test', holdoutSourceSplit: 'test',
+            },
+          },
+          {
+            id: 'training', label: 'Training', url: 'https://example.com/training',
+            path: 'evidence/training.json', sha256: trainingDigest,
+            jsonChecks: {
+              pathCount: 1, uniquePathIdCount: 1,
+              uniqueChemicalSystemCount: 1, uniqueMaterialIdCount: 1,
+              pathSplit: 'train', disjointFrom: 'reference', ...trainingChecks,
+            },
+          },
+        ],
+      },
+    });
+    const assertReferenceMutation = (mutatedReference, expected) => {
+      fs.writeFileSync(referencePath, JSON.stringify(mutatedReference));
+      const mutatedDigest = sha256(referencePath);
+      const training = writeTraining(
+        [{ path_id: 'P3', chemical_system: 'C', material_id: 'M3', split: 'train' }],
+        mutatedDigest
+      );
+      const manifest = manifestFor(training.trainingDigest);
+      manifest.methodology.artifacts[0].sha256 = mutatedDigest;
+      try {
+        assert.throws(() => verifyArtifactIntegrity(slug, manifest, publicRoot), expected);
+      } finally {
+        fs.writeFileSync(referencePath, JSON.stringify(reference));
+      }
+    };
+
+    try {
+      let training = writeTraining([
+        { path_id: 'P3', chemical_system: 'C', material_id: 'M3', split: 'train' },
+      ]);
+      assert.doesNotThrow(() => verifyArtifactIntegrity(slug, manifestFor(training.trainingDigest), publicRoot));
+      assert.throws(
+        () => verifyArtifactIntegrity(slug, manifestFor(training.trainingDigest, { pathCount: 2 }), publicRoot),
+        /artifact path count mismatch/
+      );
+
+      assertReferenceMutation(
+        { ...reference, paths: [reference.paths[0], { ...reference.paths[1], path_id: 'P1' }] },
+        /artifact path-id cardinality mismatch/
+      );
+      assertReferenceMutation(
+        { ...reference, paths: [reference.paths[0], { ...reference.paths[1], chemical_system: 'A' }] },
+        /artifact chemical-system cardinality mismatch/
+      );
+      assertReferenceMutation(
+        { ...reference, paths: [reference.paths[0], { ...reference.paths[1], material_id: 'M1' }] },
+        /artifact material-id cardinality mismatch/
+      );
+      assertReferenceMutation(
+        { ...reference, holdout: { source_split: 'train' } },
+        /artifact holdout source split mismatch/
+      );
+
+      training = writeTraining([
+        { path_id: 'P3', chemical_system: 'A', material_id: 'M3', split: 'train' },
+      ]);
+      assert.throws(
+        () => verifyArtifactIntegrity(slug, manifestFor(training.trainingDigest), publicRoot),
+        /artifact chemical systems overlap/
+      );
+
+      training = writeTraining([
+        { path_id: 'P3', chemical_system: 'C', material_id: 'M1', split: 'train' },
+      ]);
+      assert.throws(
+        () => verifyArtifactIntegrity(slug, manifestFor(training.trainingDigest), publicRoot),
+        /artifact material ids overlap/
+      );
+
+      training = writeTraining([
+        { path_id: 'P3', chemical_system: 'C', material_id: 'M3', split: 'test' },
+      ]);
+      assert.throws(
+        () => verifyArtifactIntegrity(slug, manifestFor(training.trainingDigest), publicRoot),
+        /artifact path split mismatch/
+      );
+
+      training = writeTraining(
+        [{ path_id: 'P3', chemical_system: 'C', material_id: 'M3', split: 'train' }],
+        '0'.repeat(64)
+      );
+      assert.throws(
+        () => verifyArtifactIntegrity(slug, manifestFor(training.trainingDigest), publicRoot),
+        /artifact disjoint digest mismatch/
+      );
+
+      const outsidePath = path.join(outsideDir, 'outside.json');
+      fs.writeFileSync(outsidePath, JSON.stringify(reference));
+      fs.symlinkSync(outsidePath, path.join(evidenceDir, 'linked.json'));
+      const linkedManifest = manifestFor(training.trainingDigest);
+      linkedManifest.methodology.artifacts[0].path = 'evidence/linked.json';
+      linkedManifest.methodology.artifacts[0].sha256 = sha256(outsidePath);
+      assert.throws(
+        () => verifyArtifactIntegrity(slug, linkedManifest, publicRoot),
+        /artifact path resolves outside article directory/
+      );
+    } finally {
+      fs.rmSync(publicRoot, { recursive: true, force: true });
+    }
   });
 
   it('manifest contains content-addressed input and output checksums', () => {

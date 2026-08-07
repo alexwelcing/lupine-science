@@ -353,7 +353,167 @@ function loadManifest(slug) {
   if (errors.length) {
     throw new Error(`manifest validation failed for ${slug}:\n${formatIssues(errors)}`);
   }
+  verifyFigureIntegrity(slug, manifest);
+  verifyArtifactIntegrity(slug, manifest);
   return { manifest, manifestPath };
+}
+
+export function verifyFigureIntegrity(slug, manifest, publicRoot = PUBLIC) {
+  const articlesRoot = path.resolve(publicRoot, 'articles');
+  const articleDir = path.resolve(articlesRoot, slug);
+  const articleRelativePath = path.relative(articlesRoot, articleDir);
+  if (
+    articleRelativePath === '..' ||
+    articleRelativePath.startsWith(`..${path.sep}`) ||
+    path.isAbsolute(articleRelativePath)
+  ) {
+    throw new Error(`article directory escapes public articles root for ${slug}`);
+  }
+  const realArticlesRoot = fs.realpathSync(articlesRoot);
+  const realArticleDir = fs.realpathSync(articleDir);
+  const realArticleRelativePath = path.relative(realArticlesRoot, realArticleDir);
+  if (
+    realArticleRelativePath === '..' ||
+    realArticleRelativePath.startsWith(`..${path.sep}`) ||
+    path.isAbsolute(realArticleRelativePath)
+  ) {
+    throw new Error(`article directory resolves outside public articles root for ${slug}`);
+  }
+  for (const figure of manifest.figures) {
+    if (!figure.sha256) {
+      throw new Error(`figure digest missing for ${slug}/${figure.id}`);
+    }
+    if (/^[a-z]+:/i.test(figure.path) || path.isAbsolute(figure.path)) {
+      throw new Error(`figure path must be repository-local for ${slug}/${figure.id}: ${figure.path}`);
+    }
+    const figurePath = path.resolve(articleDir, figure.path);
+    if (figurePath !== articleDir && !figurePath.startsWith(`${articleDir}${path.sep}`)) {
+      throw new Error(`figure path escapes article directory for ${slug}/${figure.id}: ${figure.path}`);
+    }
+    if (!fs.existsSync(figurePath) || !fs.statSync(figurePath).isFile()) {
+      throw new Error(`figure file missing for ${slug}/${figure.id}: ${figure.path}`);
+    }
+    const realFigurePath = fs.realpathSync(figurePath);
+    const realRelativePath = path.relative(realArticleDir, realFigurePath);
+    if (
+      realRelativePath === '..' ||
+      realRelativePath.startsWith(`..${path.sep}`) ||
+      path.isAbsolute(realRelativePath)
+    ) {
+      throw new Error(
+        `figure path resolves outside article directory for ${slug}/${figure.id}: ${figure.path}`
+      );
+    }
+    const actual = sha256(figurePath);
+    if (actual !== figure.sha256) {
+      throw new Error(
+        `figure digest mismatch for ${slug}/${figure.id}: expected ${figure.sha256}, got ${actual}`
+      );
+    }
+  }
+}
+
+export function verifyArtifactIntegrity(slug, manifest, publicRoot = PUBLIC) {
+  const artifacts = (manifest.methodology?.artifacts || []).filter((artifact) => artifact.path);
+  if (artifacts.length === 0) return;
+
+  // Reuse the figure guard to validate both lexical and real article-directory confinement.
+  verifyFigureIntegrity(slug, { figures: [] }, publicRoot);
+  const articleDir = path.resolve(publicRoot, 'articles', slug);
+  const realArticleDir = fs.realpathSync(articleDir);
+  const loaded = new Map();
+
+  for (const artifact of artifacts) {
+    if (!artifact.id || !artifact.sha256) {
+      throw new Error(`local artifact id and digest required for ${slug}/${artifact.label}`);
+    }
+    if (/^[a-z]+:/i.test(artifact.path) || path.isAbsolute(artifact.path)) {
+      throw new Error(`artifact path must be repository-local for ${slug}/${artifact.id}`);
+    }
+    const artifactPath = path.resolve(articleDir, artifact.path);
+    if (artifactPath !== articleDir && !artifactPath.startsWith(`${articleDir}${path.sep}`)) {
+      throw new Error(`artifact path escapes article directory for ${slug}/${artifact.id}`);
+    }
+    if (!fs.existsSync(artifactPath) || !fs.statSync(artifactPath).isFile()) {
+      throw new Error(`artifact file missing for ${slug}/${artifact.id}`);
+    }
+    const realArtifactPath = fs.realpathSync(artifactPath);
+    const realRelativePath = path.relative(realArticleDir, realArtifactPath);
+    if (
+      realRelativePath === '..' ||
+      realRelativePath.startsWith(`..${path.sep}`) ||
+      path.isAbsolute(realRelativePath)
+    ) {
+      throw new Error(`artifact path resolves outside article directory for ${slug}/${artifact.id}`);
+    }
+    const actual = sha256(artifactPath);
+    if (actual !== artifact.sha256) {
+      throw new Error(
+        `artifact digest mismatch for ${slug}/${artifact.id}: expected ${artifact.sha256}, got ${actual}`
+      );
+    }
+    let parsed = null;
+    if (artifact.jsonChecks) {
+      try {
+        parsed = JSON.parse(fs.readFileSync(artifactPath, 'utf8'));
+      } catch (error) {
+        throw new Error(`artifact JSON invalid for ${slug}/${artifact.id}: ${error.message}`);
+      }
+    }
+    loaded.set(artifact.id, { artifact, parsed });
+  }
+
+  for (const { artifact, parsed } of loaded.values()) {
+    const checks = artifact.jsonChecks;
+    if (!checks) continue;
+    if (!Array.isArray(parsed.paths) || parsed.paths.length !== checks.pathCount) {
+      throw new Error(`artifact path count mismatch for ${slug}/${artifact.id}`);
+    }
+    const pathIds = parsed.paths.map((entry) => entry.path_id);
+    const chemicalSystems = parsed.paths.map((entry) => entry.chemical_system);
+    const materialIds = parsed.paths.map((entry) => entry.material_id);
+    if (pathIds.some((value) => typeof value !== 'string' || !value)) {
+      throw new Error(`artifact path id missing for ${slug}/${artifact.id}`);
+    }
+    if (chemicalSystems.some((value) => typeof value !== 'string' || !value)) {
+      throw new Error(`artifact chemical system missing for ${slug}/${artifact.id}`);
+    }
+    if (materialIds.some((value) => typeof value !== 'string' || !value)) {
+      throw new Error(`artifact material id missing for ${slug}/${artifact.id}`);
+    }
+    if (new Set(pathIds).size !== checks.uniquePathIdCount) {
+      throw new Error(`artifact path-id cardinality mismatch for ${slug}/${artifact.id}`);
+    }
+    if (new Set(chemicalSystems).size !== checks.uniqueChemicalSystemCount) {
+      throw new Error(`artifact chemical-system cardinality mismatch for ${slug}/${artifact.id}`);
+    }
+    if (new Set(materialIds).size !== checks.uniqueMaterialIdCount) {
+      throw new Error(`artifact material-id cardinality mismatch for ${slug}/${artifact.id}`);
+    }
+    if (checks.pathSplit && parsed.paths.some((entry) => entry.split !== checks.pathSplit)) {
+      throw new Error(`artifact path split mismatch for ${slug}/${artifact.id}`);
+    }
+    if (checks.holdoutSourceSplit && parsed.holdout?.source_split !== checks.holdoutSourceSplit) {
+      throw new Error(`artifact holdout source split mismatch for ${slug}/${artifact.id}`);
+    }
+    if (checks.disjointFrom) {
+      const reference = loaded.get(checks.disjointFrom);
+      if (!reference?.parsed) {
+        throw new Error(`artifact disjoint reference missing for ${slug}/${artifact.id}`);
+      }
+      const referenceSystems = new Set(reference.parsed.paths.map((entry) => entry.chemical_system));
+      const referenceMaterials = new Set(reference.parsed.paths.map((entry) => entry.material_id));
+      if (chemicalSystems.some((value) => referenceSystems.has(value))) {
+        throw new Error(`artifact chemical systems overlap for ${slug}/${artifact.id}`);
+      }
+      if (materialIds.some((value) => referenceMaterials.has(value))) {
+        throw new Error(`artifact material ids overlap for ${slug}/${artifact.id}`);
+      }
+      if (parsed.holdout?.disjoint_from_sha256 !== `sha256:${reference.artifact.sha256}`) {
+        throw new Error(`artifact disjoint digest mismatch for ${slug}/${artifact.id}`);
+      }
+    }
+  }
 }
 
 function buildView(slug, manifest, articleMeta) {
@@ -515,9 +675,7 @@ async function buildPerArticle(browser, slug, outDir, baseUrl) {
   const figureChecksums = {};
   for (const figure of manifest.figures) {
     const figurePath = path.join(articleDir, figure.path);
-    if (fs.existsSync(figurePath)) {
-      figureChecksums[figure.path] = sha256(figurePath);
-    }
+    figureChecksums[figure.path] = sha256(figurePath);
   }
 
   const outputManifest = {
