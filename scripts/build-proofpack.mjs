@@ -469,13 +469,20 @@ export function verifyArtifactIntegrity(slug, manifest, publicRoot = PUBLIC) {
     if (!Array.isArray(parsed.paths) || parsed.paths.length !== checks.pathCount) {
       throw new Error(`artifact path count mismatch for ${slug}/${artifact.id}`);
     }
+    const pathIds = parsed.paths.map((entry) => entry.path_id);
     const chemicalSystems = parsed.paths.map((entry) => entry.chemical_system);
     const materialIds = parsed.paths.map((entry) => entry.material_id);
+    if (pathIds.some((value) => typeof value !== 'string' || !value)) {
+      throw new Error(`artifact path id missing for ${slug}/${artifact.id}`);
+    }
     if (chemicalSystems.some((value) => typeof value !== 'string' || !value)) {
       throw new Error(`artifact chemical system missing for ${slug}/${artifact.id}`);
     }
     if (materialIds.some((value) => typeof value !== 'string' || !value)) {
       throw new Error(`artifact material id missing for ${slug}/${artifact.id}`);
+    }
+    if (new Set(pathIds).size !== checks.uniquePathIdCount) {
+      throw new Error(`artifact path-id cardinality mismatch for ${slug}/${artifact.id}`);
     }
     if (new Set(chemicalSystems).size !== checks.uniqueChemicalSystemCount) {
       throw new Error(`artifact chemical-system cardinality mismatch for ${slug}/${artifact.id}`);

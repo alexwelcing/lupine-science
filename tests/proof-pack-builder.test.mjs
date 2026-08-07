@@ -318,8 +318,8 @@ describe('proof-pack output validation', () => {
     const reference = {
       holdout: { source_split: 'test' },
       paths: [
-        { chemical_system: 'A', material_id: 'M1', split: 'test' },
-        { chemical_system: 'B', material_id: 'M2', split: 'test' },
+        { path_id: 'P1', chemical_system: 'A', material_id: 'M1', split: 'test' },
+        { path_id: 'P2', chemical_system: 'B', material_id: 'M2', split: 'test' },
       ],
     };
     const referencePath = path.join(evidenceDir, 'reference.json');
@@ -342,7 +342,8 @@ describe('proof-pack output validation', () => {
             id: 'reference', label: 'Reference', url: 'https://example.com/reference',
             path: 'evidence/reference.json', sha256: referenceDigest,
             jsonChecks: {
-              pathCount: 2, uniqueChemicalSystemCount: 2, uniqueMaterialIdCount: 2,
+              pathCount: 2, uniquePathIdCount: 2,
+              uniqueChemicalSystemCount: 2, uniqueMaterialIdCount: 2,
               pathSplit: 'test', holdoutSourceSplit: 'test',
             },
           },
@@ -350,29 +351,85 @@ describe('proof-pack output validation', () => {
             id: 'training', label: 'Training', url: 'https://example.com/training',
             path: 'evidence/training.json', sha256: trainingDigest,
             jsonChecks: {
-              pathCount: 1, uniqueChemicalSystemCount: 1, uniqueMaterialIdCount: 1,
+              pathCount: 1, uniquePathIdCount: 1,
+              uniqueChemicalSystemCount: 1, uniqueMaterialIdCount: 1,
               pathSplit: 'train', disjointFrom: 'reference', ...trainingChecks,
             },
           },
         ],
       },
     });
+    const assertReferenceMutation = (mutatedReference, expected) => {
+      fs.writeFileSync(referencePath, JSON.stringify(mutatedReference));
+      const mutatedDigest = sha256(referencePath);
+      const training = writeTraining(
+        [{ path_id: 'P3', chemical_system: 'C', material_id: 'M3', split: 'train' }],
+        mutatedDigest
+      );
+      const manifest = manifestFor(training.trainingDigest);
+      manifest.methodology.artifacts[0].sha256 = mutatedDigest;
+      try {
+        assert.throws(() => verifyArtifactIntegrity(slug, manifest, publicRoot), expected);
+      } finally {
+        fs.writeFileSync(referencePath, JSON.stringify(reference));
+      }
+    };
 
     try {
-      let training = writeTraining([{ chemical_system: 'C', material_id: 'M3', split: 'train' }]);
+      let training = writeTraining([
+        { path_id: 'P3', chemical_system: 'C', material_id: 'M3', split: 'train' },
+      ]);
       assert.doesNotThrow(() => verifyArtifactIntegrity(slug, manifestFor(training.trainingDigest), publicRoot));
       assert.throws(
         () => verifyArtifactIntegrity(slug, manifestFor(training.trainingDigest, { pathCount: 2 }), publicRoot),
         /artifact path count mismatch/
       );
 
-      training = writeTraining([{ chemical_system: 'A', material_id: 'M3', split: 'train' }]);
+      assertReferenceMutation(
+        { ...reference, paths: [reference.paths[0], { ...reference.paths[1], path_id: 'P1' }] },
+        /artifact path-id cardinality mismatch/
+      );
+      assertReferenceMutation(
+        { ...reference, paths: [reference.paths[0], { ...reference.paths[1], chemical_system: 'A' }] },
+        /artifact chemical-system cardinality mismatch/
+      );
+      assertReferenceMutation(
+        { ...reference, paths: [reference.paths[0], { ...reference.paths[1], material_id: 'M1' }] },
+        /artifact material-id cardinality mismatch/
+      );
+      assertReferenceMutation(
+        { ...reference, holdout: { source_split: 'train' } },
+        /artifact holdout source split mismatch/
+      );
+
+      training = writeTraining([
+        { path_id: 'P3', chemical_system: 'A', material_id: 'M3', split: 'train' },
+      ]);
       assert.throws(
         () => verifyArtifactIntegrity(slug, manifestFor(training.trainingDigest), publicRoot),
         /artifact chemical systems overlap/
       );
 
-      training = writeTraining([{ chemical_system: 'C', material_id: 'M3', split: 'train' }], '0'.repeat(64));
+      training = writeTraining([
+        { path_id: 'P3', chemical_system: 'C', material_id: 'M1', split: 'train' },
+      ]);
+      assert.throws(
+        () => verifyArtifactIntegrity(slug, manifestFor(training.trainingDigest), publicRoot),
+        /artifact material ids overlap/
+      );
+
+      training = writeTraining([
+        { path_id: 'P3', chemical_system: 'C', material_id: 'M3', split: 'test' },
+      ]);
+      assert.throws(
+        () => verifyArtifactIntegrity(slug, manifestFor(training.trainingDigest), publicRoot),
+        /artifact path split mismatch/
+      );
+
+      training = writeTraining(
+        [{ path_id: 'P3', chemical_system: 'C', material_id: 'M3', split: 'train' }],
+        '0'.repeat(64)
+      );
       assert.throws(
         () => verifyArtifactIntegrity(slug, manifestFor(training.trainingDigest), publicRoot),
         /artifact disjoint digest mismatch/

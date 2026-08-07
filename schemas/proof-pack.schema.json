@@ -114,9 +114,10 @@
         "jsonChecks": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["pathCount", "uniqueChemicalSystemCount", "uniqueMaterialIdCount"],
+          "required": ["pathCount", "uniquePathIdCount", "uniqueChemicalSystemCount", "uniqueMaterialIdCount"],
           "properties": {
             "pathCount": { "type": "integer", "minimum": 1 },
+            "uniquePathIdCount": { "type": "integer", "minimum": 1 },
             "uniqueChemicalSystemCount": { "type": "integer", "minimum": 1 },
             "uniqueMaterialIdCount": { "type": "integer", "minimum": 1 },
             "pathSplit": { "type": "string", "minLength": 1 },

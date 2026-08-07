@@ -125,6 +125,7 @@
         "sha256": "192fe54a5579cc421f6644d5d76fb442c6dfb985f014dc4741549e29052efb68",
         "jsonChecks": {
           "pathCount": 30,
+          "uniquePathIdCount": 30,
           "uniqueChemicalSystemCount": 30,
           "uniqueMaterialIdCount": 30,
           "pathSplit": "test",
@@ -139,6 +140,7 @@
         "sha256": "4099f4fcee6418988a250c2a9892d3bc16015f53e21eb47a6bf70bb62e05cc2f",
         "jsonChecks": {
           "pathCount": 12,
+          "uniquePathIdCount": 12,
           "uniqueChemicalSystemCount": 12,
           "uniqueMaterialIdCount": 12,
           "pathSplit": "train",
