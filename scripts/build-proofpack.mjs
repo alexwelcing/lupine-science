@@ -17,7 +17,7 @@ import crypto from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
-import { PDFDocument, PDFName } from 'pdf-lib';
+import { PDFDocument, PDFName, PDFString } from 'pdf-lib';
 import { validateProofPack, validateProofPackFiles, formatIssues } from './validate-proofpack.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -468,6 +468,22 @@ async function renderPdf(browser, { url, output, title, deterministicDate }) {
 async function normalizePdf(output, { title, deterministicDate }) {
   const bytes = fs.readFileSync(output);
   const doc = await PDFDocument.load(bytes, { updateMetadata: false });
+  for (const page of doc.getPages()) {
+    const annotations = page.node.Annots();
+    if (!annotations) continue;
+    for (let index = 0; index < annotations.size(); index++) {
+      const annotation = doc.context.lookup(annotations.get(index));
+      const action = annotation?.lookup?.(PDFName.of('A'));
+      const uri = action?.get?.(PDFName.of('URI'));
+      const value = uri?.decodeText?.();
+      if (!isLoopbackRequestUrl(value)) continue;
+      const parsed = new URL(value);
+      action.set(
+        PDFName.of('URI'),
+        PDFString.of(`https://lupine.science${parsed.pathname}${parsed.search}${parsed.hash}`)
+      );
+    }
+  }
   doc.setTitle(title);
   doc.setAuthor('Lupine Science');
   doc.setSubject('Evidence proof pack');
@@ -783,11 +799,18 @@ async function mergePdfs(paths, output) {
 
 async function buildConsolidated(browser, baseUrl) {
   const perArticlePaths = [];
+  let generatedAt = null;
   for (const slug of CLIMATE_SLUGS) {
     const articlePath = path.join(PUBLIC, 'articles', slug, 'index.html');
     if (!fs.existsSync(articlePath)) throw new Error(`missing ${articlePath}`);
     const html = fs.readFileSync(articlePath, 'utf8');
     const meta = extractArticleMeta(html, slug);
+    // Reproducibility law for certified evidence: derive generated_at from
+    // the canonical source metadata, never from the wall clock. The first
+    // article is canonical because CLIMATE_SLUGS is a reviewed fixed order.
+    if (generatedAt === null && /^\d{4}-\d{2}-\d{2}$/.test(meta.date)) {
+      generatedAt = new Date(`${meta.date}T00:00:00Z`);
+    }
     console.log(`rendering: ${meta.title}`);
 
     const coverFile = path.join(TMP, `${slug}-cover.pdf`);
@@ -805,6 +828,10 @@ async function buildConsolidated(browser, baseUrl) {
   }
 
   await mergePdfs(perArticlePaths, CONSOLIDATED_OUT);
+  await normalizePdf(CONSOLIDATED_OUT, {
+    title: 'Lupine Science Climate Partnerships Proof Pack',
+    deterministicDate: generatedAt ?? new Date('1970-01-01T00:00:00Z'),
+  });
   const sizeMB = fs.statSync(CONSOLIDATED_OUT).size / (1024 * 1024);
   console.log(`consolidated proof pack written: ${CONSOLIDATED_OUT} (${sizeMB.toFixed(2)} MB)`);
   if (sizeMB >= 20) {
