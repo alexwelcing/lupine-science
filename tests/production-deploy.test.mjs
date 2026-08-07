@@ -49,6 +49,18 @@ test('production deploy records a durable receipt and invokes live verification'
   assert.match(source, /name: Security headers are live/);
 });
 
+test('production deploy captures and verifies an exact rollback target', async () => {
+  const source = await workflow();
+
+  assert.match(source, /name: Capture previous production deployment/);
+  assert.match(source, /pages\/projects\/\$CF_PAGES_PROJECT\/deployments\?env=production/);
+  assert.match(source, /name: Prove previous deployment remains restorable/);
+  assert.match(source, /node scripts\/build-rollback-evidence\.mjs/);
+  assert.match(source, /name: Retain rollback evidence/);
+  assert.match(source, /rollback-evidence-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
+  assert.match(source, /retention-days: 90/);
+});
+
 test('release certification consumes both required CI artifacts and fails closed', async () => {
   const source = await workflow();
 
