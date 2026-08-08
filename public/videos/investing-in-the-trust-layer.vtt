@@ -1,41 +1,41 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:09.910
+00:00:00.000 --> 00:00:04.930
 From millions of predictions to a handful of validated materials
 
 2
-00:00:09.910 --> 00:00:19.820
+00:00:04.930 --> 00:00:09.860
 The layered pipeline, and where it leaks
 
 3
-00:00:19.820 --> 00:00:29.730
+00:00:09.860 --> 00:00:14.790
 Measured error field, not learned
 
 4
-00:00:29.730 --> 00:00:39.640
+00:00:14.790 --> 00:00:19.720
 Predicting the error on a never-fitted observable
 
 5
-00:00:39.640 --> 00:00:49.550
+00:00:19.720 --> 00:00:24.650
 Runtime compatibility: correct without retraining
 
 6
-00:00:49.550 --> 00:00:59.460
+00:00:24.650 --> 00:00:29.580
 Partnership architecture that deepens the moat
 
 7
-00:00:59.460 --> 00:01:09.370
+00:00:29.580 --> 00:00:34.510
 Why accuracy matters in gigatonnes
 
 8
-00:01:09.370 --> 00:01:19.280
+00:00:34.510 --> 00:00:39.440
 What is proven, what is on the critical path
 
 9
-00:01:19.280 --> 00:01:29.190
+00:00:39.440 --> 00:00:44.370
 Infrastructure leverage against a trillion-dollar prize
 
 10
-00:01:29.190 --> 00:01:39.700
+00:00:44.370 --> 00:00:49.918
 The trust layer for a real-world Replicator
