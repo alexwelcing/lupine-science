@@ -136,6 +136,18 @@ function validateAgainstSchema(value, schema, location, issues) {
     for (const key of schema.required || []) {
       if (!Object.hasOwn(value, key)) schemaIssue(issues, location ? `${location}.${key}` : key, 'is required');
     }
+    // draft 2020-12 dependentRequired. Needed so the schema itself can state that
+    // `jsonChecks` and `sha256` are meaningless without a `path` to check against;
+    // without it a manifest typo produced a valid-looking artifact whose advertised
+    // checks were silently skipped by the builder.
+    for (const [trigger, dependents] of Object.entries(schema.dependentRequired || {})) {
+      if (!Object.hasOwn(value, trigger)) continue;
+      for (const key of dependents) {
+        if (!Object.hasOwn(value, key)) {
+          schemaIssue(issues, location ? `${location}.${key}` : key, `is required when ${trigger} is present`);
+        }
+      }
+    }
     if (schema.additionalProperties === false) {
       for (const key of Object.keys(value)) {
         if (!Object.hasOwn(schema.properties || {}, key)) {

@@ -6,7 +6,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { verifyArtifactIntegrity, verifyFigureIntegrity } from '../scripts/build-proofpack.mjs';
+import { renderPackHtml, verifyArtifactIntegrity, verifyFigureIntegrity } from '../scripts/build-proofpack.mjs';
 import { validateProofPack } from '../scripts/validate-proofpack.mjs';
 import { inspectPdf } from '../scripts/check-pdf.mjs';
 import {
@@ -534,5 +534,56 @@ describe('proof-pack consolidated mode', () => {
     if (!before) {
       // Leave the file in the expected production location.
     }
+  });
+});
+
+describe('proof-pack promises reach the rendered page', () => {
+  // A pack whose orientation advertises "exact lock URLs and SHA-256 digests" shipped
+  // a PDF containing neither: the template rendered four methodology scalars plus the
+  // description, and the audit section iterated only auditLinks. Readers could not
+  // follow the audit trail behind the panel-identity verdict. Assert the rendered HTML
+  // actually carries every locked artifact, so the promise cannot drift from the output.
+  const SLUG = 'the-materials-we-test-against';
+
+  it('renders url, repository path and digest for every methodology artifact', () => {
+    const manifestPath = path.join(ROOT, 'public', 'articles', SLUG, `${SLUG}.proofpack.json`);
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    const artifacts = manifest.methodology?.artifacts || [];
+    assert.ok(artifacts.length > 0, 'fixture must declare methodology artifacts');
+
+    const html = renderPackHtml(SLUG, manifest, {
+      title: manifest.title || SLUG,
+      description: '',
+      canonicalUrl: `https://lupine.science/articles/${SLUG}/`,
+    });
+
+    for (const artifact of artifacts) {
+      assert.ok(html.includes(artifact.url), `${artifact.id}: url missing from rendered pack`);
+      assert.ok(html.includes(artifact.sha256), `${artifact.id}: sha256 missing from rendered pack`);
+      assert.ok(html.includes(artifact.path), `${artifact.id}: repository path missing from rendered pack`);
+    }
+  });
+
+  it('rejects an artifact that advertises checks but omits a local path', () => {
+    // The builder used to filter these out silently, so a manifest typo produced a
+    // green build that ran none of its advertised digest or cardinality checks.
+    const checks = {
+      pathCount: 1, uniquePathIdCount: 1, uniqueChemicalSystemCount: 1, uniqueMaterialIdCount: 1,
+    };
+    for (const partial of [{ jsonChecks: checks }, { sha256: 'a'.repeat(64) }]) {
+      assert.throws(
+        () => verifyArtifactIntegrity(SLUG, {
+          methodology: { artifacts: [{ id: 'panel', label: 'Panel', url: 'https://example.org/p', ...partial }] },
+        }),
+        /no local path/,
+        `expected rejection for ${Object.keys(partial)[0]} without path`
+      );
+    }
+  });
+
+  it('still accepts a reference link that advertises no checks', () => {
+    assert.doesNotThrow(() => verifyArtifactIntegrity(SLUG, {
+      methodology: { artifacts: [{ id: 'ref', label: 'Reference', url: 'https://example.org/r' }] },
+    }));
   });
 });

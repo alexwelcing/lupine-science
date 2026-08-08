@@ -94,6 +94,19 @@
         <p>Builds run entirely from repository assets. No runtime network requests, remote fonts, analytics, animation, or hidden interactive state are permitted in the PDF path.</p>
       </div>
     </div>
+    {{#if methodology.artifacts}}
+    <div class="lock-artifacts">
+      <span class="meta-label">Lock artifacts — exact URLs and SHA-256 digests</span>
+      {{#each methodology.artifacts}}
+      <p class="lock-artifact">
+        <strong>{{this.label}}</strong><br>
+        <a href="{{this.url}}">{{this.url}}</a><br>
+        <code>{{this.path}}</code><br>
+        <code class="digest">SHA-256 {{this.sha256}}</code>
+      </p>
+      {{/each}}
+    </div>
+    {{/if}}
     <div class="credits" aria-labelledby="credits-title">
       <span class="meta-label" id="credits-title">Author and institution credits</span>
       <div class="credits-list">

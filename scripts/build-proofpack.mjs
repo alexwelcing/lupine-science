@@ -414,7 +414,26 @@ export function verifyFigureIntegrity(slug, manifest, publicRoot = PUBLIC) {
 }
 
 export function verifyArtifactIntegrity(slug, manifest, publicRoot = PUBLIC) {
-  const artifacts = (manifest.methodology?.artifacts || []).filter((artifact) => artifact.path);
+  const declared = manifest.methodology?.artifacts || [];
+
+  // Fail closed on the plausible typo. This filter used to drop path-less artifacts
+  // silently, so a manifest that advertised jsonChecks or a digest but omitted
+  // `path` built successfully having run NONE of its promised digest, cardinality,
+  // split or disjointness checks — a gate that passes by doing nothing. The schema
+  // now encodes the same dependency (dependentRequired), but this guard stays:
+  // build-time verification must not rely on the manifest having been validated.
+  for (const artifact of declared) {
+    if (artifact.path) continue;
+    const advertised = [artifact.jsonChecks && 'jsonChecks', artifact.sha256 && 'sha256'].filter(Boolean);
+    if (advertised.length > 0) {
+      throw new Error(
+        `artifact ${slug}/${artifact.id || artifact.label} declares ${advertised.join(' and ')} ` +
+        'but no local path, so those checks cannot run; add path or remove the checks'
+      );
+    }
+  }
+
+  const artifacts = declared.filter((artifact) => artifact.path);
   if (artifacts.length === 0) return;
 
   // Reuse the figure guard to validate both lexical and real article-directory confinement.
@@ -583,7 +602,10 @@ function buildView(slug, manifest, articleMeta) {
   };
 }
 
-function renderPackHtml(slug, manifest, articleMeta) {
+// Exported so tests can assert that what a pack PROMISES actually reaches the
+// rendered page. The lock URLs and digests were absent from the PDF for exactly as
+// long as nothing could inspect the HTML without launching a browser.
+export function renderPackHtml(slug, manifest, articleMeta) {
   const template = fs.readFileSync(TEMPLATE_PATH, 'utf8');
   const view = buildView(slug, manifest, articleMeta);
   return renderTemplate(template, view);
