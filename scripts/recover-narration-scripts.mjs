@@ -30,7 +30,12 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SCRIPT_DIR = path.join(ROOT, 'data', 'narration-scripts');
 const VOICE_DIR = path.join(ROOT, 'media', 'projects', 'voice-tracks');
 
-export const SCRIPT_SOURCE_COMMIT = '4641d96';
+// Full SHA, not the abbreviation: `git fetch origin <short-sha>` is rejected with
+// "couldn't find remote ref", so a shallow CI clone can only obtain this commit by
+// its full object name. The short form is kept for the human-readable provenance
+// string recorded in each script file.
+export const SCRIPT_SOURCE_COMMIT = '4641d96269617a365346b4ff7feead54f026c6a9';
+export const SCRIPT_SOURCE_COMMIT_SHORT = '4641d96';
 
 /** Parse a VTT into cue payloads (the narration paragraphs). */
 export function parseVttCues(text) {
@@ -131,14 +136,14 @@ function main() {
     // words. Refuse anything that looks like the placeholder rather than
     // narrating headlines at 40 wpm.
     if (cues.length === 0 || total < 120) {
-      console.error(`[${slug}] REFUSED: ${cues.length} cues / ${total} words at ${SCRIPT_SOURCE_COMMIT} — that is scene-title placeholder, not a narration script.`);
+      console.error(`[${slug}] REFUSED: ${cues.length} cues / ${total} words at ${SCRIPT_SOURCE_COMMIT_SHORT} — that is scene-title placeholder, not a narration script.`);
       failed++;
       continue;
     }
 
     const payload = {
       slug,
-      source: `public/videos/${slug}.vtt at commit ${SCRIPT_SOURCE_COMMIT} (pre-overwrite narration prose)`,
+      source: `public/videos/${slug}.vtt at commit ${SCRIPT_SOURCE_COMMIT_SHORT} (pre-overwrite narration prose)`,
       recoveredAt: new Date().toISOString().slice(0, 10),
       words: total,
       chars: cues.join(' ').length,

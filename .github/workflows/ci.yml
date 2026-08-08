@@ -81,8 +81,9 @@ jobs:
         # drifted. That prose exists nowhere else — a later commit overwrote the
         # working-tree copies with scene titles — so the check needs that one
         # commit. Fetched at depth 1 rather than with fetch-depth: 0, because full
-        # history here is a 1.28 GiB pack.
-        run: git fetch --depth=1 origin 4641d96
+        # history here is a 1.28 GiB pack. The full SHA is required: fetching an
+        # abbreviated one fails with "couldn't find remote ref".
+        run: git fetch --depth=1 origin 4641d96269617a365346b4ff7feead54f026c6a9
 
       - name: Install system PDF/QA and audio tools
         # ffmpeg/ffprobe are required, not optional: tests/narration-verification.test.mjs
