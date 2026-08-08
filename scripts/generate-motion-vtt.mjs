@@ -1,8 +1,26 @@
 #!/usr/bin/env node
 // Build a WebVTT caption track from a motion-video manifest.
-// Each scene becomes one cue timed to its visual slot. This is a pragmatic
-// first-pass caption; for final publication it should be aligned to the
-// actual narration, either by speech-to-text or by hand.
+// Each scene becomes one cue containing that scene's TITLE.
+//
+// ⚠ THIS IS NOT A NARRATION TRANSCRIPT, AND IT IS NOT PUBLISHABLE ON ITS OWN.
+//
+// build-articles.mjs emits `<track ... default>`, so whatever this writes goes
+// on screen automatically. Scene titles are not what the narrator says: a whole
+// film's worth of them is 35-74 words against 270-320 words of actual script, so
+// publishing them showed viewers headlines while they heard different prose, and
+// made the audio gate's speech-rate check divide real narration time by
+// placeholder word counts (reporting 43-98 wpm for narration measured at
+// 118-149 wpm).
+//
+// Worse, this script's output path was also the publisher's INPUT path, so every
+// run destroyed the narration script it was captioning. The prose survives only
+// in git history at commit 4641d96.
+//
+// The publishing path is now scripts/publish-article-motion-video.mjs, which
+// writes captions from the verified narration itself (exact spoken text, timed by
+// each synthesized paragraph's measured duration). Use this script only for
+// scratch/preview manifests with no narration. It refuses to overwrite a
+// narration-transcript VTT unless you pass --force.
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -57,6 +75,22 @@ function main() {
   if (!fs.existsSync(videoPath)) {
     console.error(`Video not found: ${videoPath}`);
     process.exit(1);
+  }
+
+  // Refuse to replace real captions with scene titles. This is the exact
+  // regression that overwrote ten narration scripts and put placeholder text
+  // on screen under a `default` track.
+  if (fs.existsSync(vttPath) && !args.includes('--force')) {
+    const existing = fs.readFileSync(vttPath, 'utf8');
+    if (/^NOTE Narration transcript\./m.test(existing)) {
+      console.error(
+        `REFUSED: ${path.relative(ROOT, vttPath)} is a narration transcript.\n`
+        + 'Overwriting it with scene titles would put text on screen that does not match the audio,\n'
+        + 'and captions display by default. Re-run scripts/publish-article-motion-video.mjs to\n'
+        + 'regenerate captions from the narration, or pass --force if you really mean to.',
+      );
+      process.exit(1);
+    }
   }
 
   const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));

@@ -16,13 +16,6 @@
     "public/videos/why-lupi.mp4": [
       "true-peak-ceiling"
     ],
-    "public/videos/a-field-not-a-neural-net.mp4": [
-      "no-dead-air-during-narration",
-      "speech-rate-in-band"
-    ],
-    "public/videos/beyond-carbon-the-error-geometry-of-environmental-materials.mp4": [
-      "speech-rate-in-band"
-    ],
     "public/videos/campaign-2026-07-27/01-z1-union-verdict-qa-attempt-1.mp4": [
       "integrated-loudness-band",
       "narration-timeline-present",
@@ -83,32 +76,6 @@
       "no-dead-air-during-narration",
       "speech-rate-in-band"
     ],
-    "public/videos/cement-concrete-and-the-weight-of-the-built-world.mp4": [
-      "speech-rate-in-band"
-    ],
-    "public/videos/critical-minerals-pfas-and-the-remediation-imperative.mp4": [
-      "speech-rate-in-band"
-    ],
-    "public/videos/five-materials-for-5-to-12-gtco2-year.mp4": [
-      "no-dead-air-during-narration",
-      "speech-rate-in-band"
-    ],
-    "public/videos/from-predicted-crystal-to-commercial-cell.mp4": [
-      "speech-rate-in-band"
-    ],
-    "public/videos/investing-in-the-trust-layer.mp4": [
-      "speech-rate-in-band"
-    ],
-    "public/videos/methane-and-refrigerants-cutting-the-non-co2-climate-forcers.mp4": [
-      "speech-rate-in-band"
-    ],
-    "public/videos/the-02-percent-synthesis-problem.mp4": [
-      "no-dead-air-during-narration",
-      "speech-rate-in-band"
-    ],
-    "public/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe.mp4": [
-      "speech-rate-in-band"
-    ],
     "public/videos/an-order-of-effort.mp4": [
       "integrated-loudness-band"
     ],
@@ -124,5 +91,12 @@
     "public/videos/z1-union-debrief.mp4": [
       "integrated-loudness-band"
     ]
-  }
+  },
+  "revisions": [
+    {
+      "date": "2026-08-08",
+      "change": "Narration rebuild: all 10 article films were re-narrated from the intended scripts (recovered from the pre-overwrite VTTs at commit 4641d96 into data/narration-scripts/) using MiniMax speech-2.8-hd instead of the locked FAL Orpheus account, and each .vtt was regenerated from the verified narration itself. Every track is now length-verified against its word count before it is accepted: the films deliver 104-117% of expected length at 124-140 wpm, against 29-67% before. Normalization is two-pass (linear) and the narration stays PCM until the muxer's single AAC encode, which is what makes true-peak reproducible. Removed 13 entries across 10 films, all of which now pass every check: films 29 -> 19.",
+      "whySpeechRateEntriesAreGone": "The published .vtt for these films is no longer the scene-title placeholder written by scripts/generate-motion-vtt.mjs. Each cue is now one sentence of the actual script, synthesized as its own audio file and timed by that file's measured duration, so speech-rate-in-band divides real narration time by the real spoken word count instead of by 35-74 placeholder words. The check measures what it was built to measure, and passes on its own terms."
+    }
+  ]
 }

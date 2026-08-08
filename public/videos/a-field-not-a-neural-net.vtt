@@ -1,41 +1,107 @@
 WEBVTT
 
+NOTE Narration transcript. Text is the script synthesized by minimax (speech-2.8-hd, voice English_expressive_narrator); each cue was synthesized as its own audio file and is timed by that file's measured duration. Verified at 115.7% of expected length, 125.3 wpm (median cue 131.3 wpm). Script source: public/videos/a-field-not-a-neural-net.vtt at commit 4641d96 (pre-overwrite narration prose)
+
 1
-00:00:00.000 --> 00:00:05.940
-The synthesis validation bottleneck
+00:00:00.000 --> 00:00:05.150
+Okay, so Google DeepMind predicted 2.2 million crystals.
 
 2
-00:00:05.940 --> 00:00:11.880
-Errors are not noise — they have a shape
+00:00:05.450 --> 00:00:06.380
+Huge.
 
 3
-00:00:11.880 --> 00:00:17.820
-Three anchors fix the field
+00:00:06.680 --> 00:00:13.920
+But by late 2023, only 736 had been independently synthesized.
 
 4
-00:00:17.820 --> 00:00:23.760
-r = 0.906 blind prediction
+00:00:14.220 --> 00:00:17.710
+The usual response is: build a bigger neural net.
 
 5
-00:00:23.760 --> 00:00:29.700
-Additive correction, analytic forces
+00:00:18.010 --> 00:00:20.440
+What if that is solving the wrong problem?
 
 6
-00:00:29.700 --> 00:00:35.640
-Accuracy without the DFT price tag
+00:00:20.740 --> 00:00:27.040
+Universal machine-learning potentials are already fast and pretty accurate for tidy bulk crystals.
 
 7
-00:00:35.640 --> 00:00:41.580
-Where correction cannot work, the framework proves it
+00:00:27.340 --> 00:00:33.860
+But real materials work at vacancies, surfaces, and transition states—places where atoms have fewer neighbors.
 
 8
-00:00:41.580 --> 00:00:47.520
-The six-step discovery loop
+00:00:34.160 --> 00:00:40.130
+There, errors jump, and ion-migration barriers can be underestimated by more than 60 percent.
 
 9
-00:00:47.520 --> 00:00:53.460
-From geometry to gigatonnes
+00:00:40.430 --> 00:00:44.480
+Here is the twist: that wrongness is not random.
 
 10
-00:00:53.460 --> 00:01:00.009
-A field, not a neural net
+00:00:44.780 --> 00:00:45.760
+It has a shape.
+
+11
+00:00:46.060 --> 00:00:54.120
+The correction measures an environment error field based on coordination number—basically, how many neighboring atoms each atom has.
+
+12
+00:00:54.420 --> 00:00:56.250
+No second neural net.
+
+13
+00:00:56.550 --> 00:00:58.640
+No per-system retraining.
+
+14
+00:00:58.940 --> 00:01:04.860
+Three standard measurements anchor the curve: two surface energies and one vacancy energy.
+
+15
+00:01:05.160 --> 00:01:08.530
+Bulk coordination is fixed at zero error.
+
+16
+00:01:08.830 --> 00:01:13.520
+Then the field predicts a fourth surface—the one-ten facet—blind.
+
+17
+00:01:13.820 --> 00:01:21.160
+Across 36 model-and-material combinations, predicted and measured errors correlate at zero point nine oh six.
+
+18
+00:01:21.460 --> 00:01:29.050
+Flip that field, add it beside the existing model, and under-coordinated structures move back toward reference energies.
+
+19
+00:01:29.350 --> 00:01:34.120
+The forces are analytic, so simulations stay physically consistent.
+
+20
+00:01:34.420 --> 00:01:43.420
+In tests, nickel surface error dropped from 9.7 to 1.5 percent, while bulk lattice constants stayed unchanged.
+
+21
+00:01:43.720 --> 00:01:49.130
+And this layer does something most AI pipelines cannot: it can say no.
+
+22
+00:01:49.430 --> 00:01:58.640
+Lean four proofs check every quantitative claim and flag ranking inversions, already-converged cases, or physics outside the field’s domain.
+
+23
+00:01:58.940 --> 00:02:04.830
+One proof even caught a rounding tie and corrected “27 improvements” to 26.
+
+24
+00:02:05.130 --> 00:02:15.230
+That matters for battery ion hops, carbon-capture frameworks, ammonia catalysts, and perovskite stability—all controlled by under-coordinated defects.
+
+25
+00:02:15.530 --> 00:02:18.770
+So the goal is not more confident predictions.
+
+26
+00:02:19.070 --> 00:02:25.370
+It is fast predictions with measured corrections, certified boundaries, and a provable reason to stop.
