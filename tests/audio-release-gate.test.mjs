@@ -11,6 +11,7 @@ import {
   filesFromArgs,
   narrationDeadAir,
   parseVtt,
+  speechRate,
 } from '../scripts/audio-release-gate.mjs';
 
 function run(command, args) {
@@ -42,7 +43,7 @@ const vtt = { cues: [{ start: 0.2, end: 1.8 }], errors: [] };
 test('VTT parser accepts narration cues and rejects overlaps', () => {
   const parsed = parseVtt('WEBVTT\n\n00:00:00.200 --> 00:00:01.800\nNarration\n');
   assert.deepEqual(parsed.errors, []);
-  assert.deepEqual(parsed.cues, [{ start: 0.2, end: 1.8 }]);
+  assert.deepEqual(parsed.cues, [{ start: 0.2, end: 1.8, text: 'Narration' }]);
 
   const overlapping = parseVtt('WEBVTT\n\n00:00.000 --> 00:01.000\nA\n\n00:00.900 --> 00:02.000\nB\n');
   assert.match(overlapping.errors.join('\n'), /overlaps/);
@@ -94,7 +95,7 @@ test('VTT parser respects block structure and rejects unsupported cue settings',
     'Narration',
   ].join('\n'));
   assert.match(note.errors.join('\n'), /timing found inside NOTE/);
-  assert.deepEqual(note.cues, [{ start: 0.2, end: 1.8 }]);
+  assert.deepEqual(note.cues, [{ start: 0.2, end: 1.8, text: 'Narration' }]);
 
   const settings = parseVtt('WEBVTT\n\n00:00:00.200 --> 00:00:01.800 position:bogus\nNarration\n');
   assert.match(settings.errors.join('\n'), /unsupported cue settings/);
@@ -215,4 +216,37 @@ test('real ffmpeg measurement passes a compliant film and rejects one without au
   const deadAirResult = auditAudioFile(deadAir, { vttPath: goodVtt });
   assert.equal(deadAirResult.verdict, 'fail');
   assert.equal(deadAirResult.checks.find((entry) => entry.id === 'no-dead-air-during-narration')?.status, 'fail');
+});
+
+test('speech-rate check catches pitch-preserved time stretching', () => {
+  // Regression for the atempo=0.5 defect: ten published films shipped at 21-66
+  // wpm. Every other gate check read clean on them — pitch preserved, durations
+  // aligned within 0.03s, loudness in band because loudnorm ran after the
+  // stretch, and no dead air under a continuous music bed. Speech rate is the
+  // only signal that exposes it.
+  const stretched = parseVtt([
+    'WEBVTT', '',
+    '00:00:00.000 --> 00:01:00.000',
+    'sixty seconds of narration carrying only these twelve words total here',
+  ].join('\n'));
+  assert.equal(stretched.errors.length, 0);
+  const slow = speechRate(stretched.cues);
+  assert.equal(slow.words, 11);
+  assert.ok(slow.wpm < 100, `expected sub-100 wpm, got ${slow.wpm}`);
+
+  // Healthy narration: ~150 wpm over the same minute.
+  const words = Array.from({ length: 150 }, (_, i) => `word${i}`).join(' ');
+  const healthy = parseVtt(['WEBVTT', '', '00:00:00.000 --> 00:01:00.000', words].join('\n'));
+  const fast = speechRate(healthy.cues);
+  assert.equal(fast.words, 150);
+  assert.ok(fast.wpm >= 100 && fast.wpm <= 190, `expected in-band, got ${fast.wpm}`);
+});
+
+test('parseVtt retains cue text so speech rate is measurable', () => {
+  // The parser previously discarded the payload it had already computed, which
+  // silently made speech rate unmeasurable: every file reported 0 words and the
+  // short-script exemption passed everything.
+  const vtt = parseVtt(['WEBVTT', '', '00:00:00.000 --> 00:00:10.000', 'hello <b>tagged</b> world'].join('\n'));
+  assert.equal(vtt.errors.length, 0);
+  assert.equal(vtt.cues[0].text, 'hello tagged world');
 });
