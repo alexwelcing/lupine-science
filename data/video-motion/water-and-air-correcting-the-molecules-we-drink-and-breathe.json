@@ -6,7 +6,7 @@
   "scenes": [
     {
       "image": "public/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-01-global-stakes.jpg",
-      "duration": 10.8,
+      "duration": 5.67,
       "effect": "slow-zoom-in",
       "text": [
         "The Human Scale of Water and Air Failure"
@@ -14,7 +14,7 @@
     },
     {
       "image": "public/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-02-coordination-error-field.jpg",
-      "duration": 10.8,
+      "duration": 5.67,
       "effect": "slow-zoom-out",
       "text": [
         "The Error Is Coordination, Not Chemistry"
@@ -22,7 +22,7 @@
     },
     {
       "image": "public/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-05-water-rankings.jpg",
-      "duration": 10.8,
+      "duration": 5.67,
       "effect": "pan-right",
       "text": [
         "What Corrected Screening Changes in Water"
@@ -30,7 +30,7 @@
     },
     {
       "image": "public/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-03-correction-layer.jpg",
-      "duration": 10.8,
+      "duration": 5.67,
       "effect": "pan-left",
       "text": [
         "The Correction Layer, Applied at Runtime"
@@ -38,7 +38,7 @@
     },
     {
       "image": "public/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-06-market-scale.jpg",
-      "duration": 10.8,
+      "duration": 5.67,
       "effect": "pan-up",
       "text": [
         "The Markets Touched by Corrected Discovery"
@@ -46,7 +46,7 @@
     },
     {
       "image": "public/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-07-hidden-risks.jpg",
-      "duration": 10.8,
+      "duration": 5.67,
       "effect": "pan-down",
       "text": [
         "Hidden Risks: When Soft Barriers Become Real Failures"
@@ -54,7 +54,7 @@
     },
     {
       "image": "public/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-04-blind-prediction.jpg",
-      "duration": 10.8,
+      "duration": 5.67,
       "effect": "drift",
       "text": [
         "Blind Prediction Accuracy Across Models and Materials"
@@ -62,7 +62,7 @@
     },
     {
       "image": "public/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-08-proof-ecosystem.jpg",
-      "duration": 10.8,
+      "duration": 5.67,
       "effect": "slow-zoom-in",
       "text": [
         "From Peer-Reviewed Anchors to Machine-Checked Proofs"
@@ -70,7 +70,7 @@
     },
     {
       "image": "public/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-09-speed-moat.jpg",
-      "duration": 10.8,
+      "duration": 5.67,
       "effect": "slow-zoom-out",
       "text": [
         "Accuracy at Screening Speed"
@@ -78,7 +78,7 @@
     },
     {
       "image": "public/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-10-platform-thesis.jpg",
-      "duration": 10.8,
+      "duration": 5.67,
       "effect": "pan-right",
       "text": [
         "One Correction Layer for Every Pore and Every Breath"
