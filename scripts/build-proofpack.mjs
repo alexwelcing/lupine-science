@@ -297,7 +297,12 @@ function renderTemplate(template, data) {
           }
         } else if (tag.kind === 'if') {
           const value = getValue(ctx, tag.path);
-          if (value) result += renderChunk(body, ctx);
+          // An empty array is falsy here, matching Handlebars. Plain JS truthiness
+          // rendered `{{#if methodology.artifacts}}` for a pack with zero artifacts,
+          // emitting a bare section heading with nothing under it — which silently
+          // pushed shared-dft-anchors from 5 pages to 6.
+          const truthy = Array.isArray(value) ? value.length > 0 : Boolean(value);
+          if (truthy) result += renderChunk(body, ctx);
         }
         lastIndex = tags[closeIndex].end;
         i = closeIndex;
@@ -584,7 +589,17 @@ function buildView(slug, manifest, articleMeta) {
     summary: manifest.summary,
     figures,
     dataTables,
-    methodology: manifest.methodology,
+    methodology: {
+      ...manifest.methodology,
+      // Only artifacts that are actually LOCKED belong in the lock block. The same
+      // `artifacts` array also carries URL-only reference links (shared-dft-anchors
+      // has five with no id, path or digest); rendering those under "exact URLs and
+      // SHA-256 digests" printed a page of blank code elements and pushed that pack
+      // from 5 pages to 6. Derived here so the template needs no per-field guards.
+      lockArtifacts: (manifest.methodology?.artifacts || []).filter(
+        (artifact) => artifact.path && artifact.sha256
+      ),
+    },
     credits: {
       ...manifest.credits,
       authorName,

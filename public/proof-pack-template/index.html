@@ -94,10 +94,10 @@
         <p>Builds run entirely from repository assets. No runtime network requests, remote fonts, analytics, animation, or hidden interactive state are permitted in the PDF path.</p>
       </div>
     </div>
-    {{#if methodology.artifacts}}
+    {{#if methodology.lockArtifacts}}
     <div class="lock-artifacts">
       <span class="meta-label">Lock artifacts — exact URLs and SHA-256 digests</span>
-      {{#each methodology.artifacts}}
+      {{#each methodology.lockArtifacts}}
       <p class="lock-artifact">
         <strong>{{this.label}}</strong><br>
         <a href="{{this.url}}">{{this.url}}</a><br>

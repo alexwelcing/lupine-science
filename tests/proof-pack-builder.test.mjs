@@ -557,11 +557,28 @@ describe('proof-pack promises reach the rendered page', () => {
       canonicalUrl: `https://lupine.science/articles/${SLUG}/`,
     });
 
-    for (const artifact of artifacts) {
+    const locked = artifacts.filter((artifact) => artifact.path && artifact.sha256);
+    assert.ok(locked.length > 0, 'fixture must declare at least one locked artifact');
+    for (const artifact of locked) {
       assert.ok(html.includes(artifact.url), `${artifact.id}: url missing from rendered pack`);
       assert.ok(html.includes(artifact.sha256), `${artifact.id}: sha256 missing from rendered pack`);
       assert.ok(html.includes(artifact.path), `${artifact.id}: repository path missing from rendered pack`);
     }
+  });
+
+  it('omits the lock section for a pack whose artifacts are url-only references', () => {
+    // shared-dft-anchors declares five artifacts with no id, path or digest. Rendering
+    // those under "exact URLs and SHA-256 digests" printed blank code elements and
+    // silently added a sixth page, which the page-count test caught only by luck.
+    const manifestPath = path.join(ROOT, 'public', 'articles', 'shared-dft-anchors', 'shared-dft-anchors.proofpack.json');
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    assert.ok((manifest.methodology?.artifacts || []).length > 0, 'fixture must declare url-only artifacts');
+    const html = renderPackHtml('shared-dft-anchors', manifest, {
+      title: manifest.title || 'shared-dft-anchors',
+      description: '',
+      canonicalUrl: 'https://lupine.science/articles/shared-dft-anchors/',
+    });
+    assert.ok(!html.includes('Lock artifacts'), 'lock section must not render without locked artifacts');
   });
 
   it('rejects an artifact that advertises checks but omits a local path', () => {
