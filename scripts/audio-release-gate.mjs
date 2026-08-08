@@ -129,7 +129,11 @@ export function parseVtt(text) {
     if (payload.join(' ').replace(/<[^>]*>/g, '').trim() === '') {
       errors.push(`blank cue payload on VTT line ${timing.number}`);
     }
-    cues.push({ start, end });
+    // Retain the cue text: the parser already computed `payload` and discarded
+    // it, which made speech-rate measurement impossible. Tags are stripped so
+    // word counts reflect spoken words, not markup.
+    const spoken = payload.join(' ').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+    cues.push({ start, end, text: spoken });
     seenCue = true;
   }
   if (cues.length === 0) errors.push('no VTT cues parsed');
@@ -361,10 +365,52 @@ export function evaluateAudio({ probe, measurements, vtt }) {
       'dead-air',
       { defects: deadAir },
     ));
+    const rate = speechRate(vtt.cues);
+    const rateOk = rate.wpm !== null
+      && (rate.words < SPEECH_RATE_MIN_WORDS
+        || (rate.wpm >= SPEECH_RATE_MIN_WPM && rate.wpm <= SPEECH_RATE_MAX_WPM));
+    checks.push(check(
+      'speech-rate-in-band',
+      rateOk,
+      rate.wpm === null
+        ? 'speech rate unmeasurable: narration timeline has no duration'
+        : `${rate.wpm.toFixed(0)} wpm over ${rate.narratedSeconds.toFixed(0)} s of narration (${rate.words} words); required ${SPEECH_RATE_MIN_WPM}-${SPEECH_RATE_MAX_WPM} wpm`,
+      'speech-rate',
+      { wpm: rate.wpm, words: rate.words, narratedSeconds: rate.narratedSeconds },
+    ));
   } else {
     checks.push(check('no-dead-air-during-narration', false, 'dead-air check refused without a valid narration timeline', 'dead-air'));
+    checks.push(check('speech-rate-in-band', false, 'speech-rate check refused without a valid narration timeline', 'speech-rate'));
   }
   return checks;
+}
+
+// Speech rate from the narration timeline. This is the ONLY check that catches
+// pitch-preserved time-stretching (e.g. a stray `atempo=0.5`): such audio keeps
+// its pitch, keeps audio/video duration aligned, stays inside the loudness band
+// because loudnorm runs after the stretch, and shows no dead air under a
+// continuous music bed. Every other check in this gate reads clean on it.
+//
+// Ten published films measured 21-66 wpm before this existed; the worst was
+// 63 words spread over 176 s. Normal narration is 140-160 wpm.
+//
+// The floor is CALIBRATED to the observed corpus, not picked. Measured rates fall
+// into two populations with a clean gap: the stretched films span 21-66 wpm, and
+// legitimate content starts at 105 (short brand films with deliberate pauses for
+// visual beats: an-order-of-effort 105, the-savings-stack 107, the-trust-layer
+// 110) rising to 155 for full narration. A floor of 100 sits inside that gap with
+// margin on both sides. A floor of 110 was tried first and failed the two 105-107
+// brand films — a gate that fails legitimate content gets disabled, so it must
+// separate the populations rather than clip the tail of the healthy one.
+const SPEECH_RATE_MIN_WPM = 100;
+const SPEECH_RATE_MAX_WPM = 190;
+const SPEECH_RATE_MIN_WORDS = 25;
+
+export function speechRate(cues) {
+  const narrated = cues.reduce((total, cue) => total + Math.max(0, cue.end - cue.start), 0);
+  const words = cues.reduce((total, cue) => total + String(cue.text || '').split(/\s+/).filter(Boolean).length, 0);
+  if (narrated <= 0) return { words, narratedSeconds: 0, wpm: null };
+  return { words, narratedSeconds: narrated, wpm: (60 * words) / narrated };
 }
 
 function resolveVtt(file, explicitVtt) {
@@ -412,7 +458,7 @@ export function auditAudioFile(file, { vttPath = null, displayPath = null } = {}
   return result;
 }
 
-const SEVERITY_RANK = Object.freeze({ silent: 0, clipping: 1, 'dead-air': 2, duration: 3, loudness: 4, timeline: 5, analysis: 6 });
+const SEVERITY_RANK = Object.freeze({ silent: 0, clipping: 1, 'speech-rate': 2, 'dead-air': 3, duration: 4, loudness: 5, timeline: 6, analysis: 7 });
 
 function defectRank(file) {
   if (file.verdict === 'pass') return 99;
@@ -427,7 +473,7 @@ function markdownReport(report) {
     `Files: ${report.summary.total}; pass: ${report.summary.passed}; fail: ${report.summary.failed}`,
     `Commit: ${report.commitSha || 'not supplied (local audit)'}`,
     '',
-    'Policy: integrated loudness -18 to -14 LUFS (target -16 LUFS); effective-silence floor -50 LUFS; mean-volume floor -45 dB; true peak at or below -1 dBTP; audio/video duration delta at most 100 ms; and no silence of at least 0.75 s overlapping a narrated VTT cue by at least 0.5 s or half a short cue.',
+    'Policy: integrated loudness -18 to -14 LUFS (target -16 LUFS); effective-silence floor -50 LUFS; mean-volume floor -45 dB; true peak at or below -1 dBTP; audio/video duration delta at most 100 ms; no silence of at least 0.75 s overlapping a narrated VTT cue by at least 0.5 s or half a short cue; and narration speech rate within 100-190 wpm (films under 25 narrated words are exempt).',
     '',
     '## Ranked verdicts',
     '',

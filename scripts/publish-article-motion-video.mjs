@@ -133,11 +133,28 @@ async function main() {
   const wavRes = await fetch(url);
   fs.writeFileSync(wavPath, Buffer.from(await wavRes.arrayBuffer()));
 
-  // Orpheus reads faster than the old narration; slow it 0.5x to land in the
-  // 60-120 s target window, then normalize loudness to broadcast spec.
+  // Normalize loudness to broadcast spec. Do NOT time-stretch here.
+  //
+  // This previously carried `atempo=0.5` with the note "Orpheus reads faster
+  // than the old narration; slow it 0.5x to land in the 60-120 s target
+  // window". That solved a DURATION problem with a SPEED control, applied
+  // unconditionally to every film. Films with short scripts were stretched
+  // until narration crawled: methane-and-refrigerants ended up at 21 wpm
+  // (63 words over 176 s) against a normal 140-160 wpm, and ten published
+  // films measured 21-66 wpm.
+  //
+  // It was invisible to every release check because atempo preserves pitch,
+  // the stretch happens before muxing so audio/video durations still match
+  // within 0.03 s, loudnorm runs immediately after so loudness is in band,
+  // and a continuous music bed means silencedetect never fires. Only speech
+  // RATE exposes it — now enforced by scripts/audio-release-gate.mjs.
+  //
+  // Duration is reconciled the correct way round a few lines below, where
+  // scene durations are updated to match the narration length. That is the
+  // right direction and makes any stretch here redundant.
   run('ffmpeg', [
     '-y', '-i', wavPath,
-    '-af', 'atempo=0.5,loudnorm=I=-16:TP=-1.5:LRA=7',
+    '-af', 'loudnorm=I=-16:TP=-1.5:LRA=7',
     '-c:a', 'aac', '-ar', '44100', '-ac', '1', '-b:a', '128k',
     normPath,
   ]);
