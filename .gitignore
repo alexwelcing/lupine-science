@@ -27,3 +27,6 @@ media/projects/image-review/reports/
 .worktrees/
 eng.traineddata
 __pycache__/
+
+# gate run artifacts (regenerated)
+release/audio-gate/

@@ -276,7 +276,15 @@ jobs:
           github-token: ${{ github.token }}
           run-id: ${{ github.event.workflow_run.id }}
 
-      - name: Fail closed unless both required suites passed
+      - name: Download audio gate artifact from source CI
+        uses: actions/download-artifact@v4
+        with:
+          name: publication-audio-gate-${{ github.event.workflow_run.head_sha }}
+          path: gate-inputs/audio
+          github-token: ${{ github.token }}
+          run-id: ${{ github.event.workflow_run.id }}
+
+      - name: Fail closed unless all required suites passed
         env:
           RELEASE_SHA: ${{ github.event.workflow_run.head_sha }}
           CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
@@ -284,11 +292,13 @@ jobs:
           node scripts/validate-release-gates.mjs \
             --visual gate-inputs/visual/visual-gate.json \
             --smoke gate-inputs/smoke/publication-smoke-gate.json \
+            --audio gate-inputs/audio/audio-gate.json \
             --output "$RUNNER_TEMP/release-certification.json" \
             --sha "$RELEASE_SHA" \
             --ci-run-url "$CI_RUN_URL" \
             --visual-artifact-url "$CI_RUN_URL#artifacts" \
-            --smoke-artifact-url "$CI_RUN_URL#artifacts"
+            --smoke-artifact-url "$CI_RUN_URL#artifacts" \
+            --audio-artifact-url "$CI_RUN_URL#artifacts"
 
       - name: Log release decision and artifact links
         if: always()
@@ -301,6 +311,7 @@ jobs:
             echo "- Commit: \`${{ github.event.workflow_run.head_sha }}\`"
             echo "- Visual-check artifact: $CI_RUN_URL#artifacts"
             echo "- Smoke-suite artifact: $CI_RUN_URL#artifacts"
+            echo "- Audio-gate artifact: $CI_RUN_URL#artifacts"
             echo "- Owner sign-off: required next through protected \`publication\` environment"
             echo "- Production approval: required separately through protected \`production\` environment"
           } >> "$GITHUB_STEP_SUMMARY"
