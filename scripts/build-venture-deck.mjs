@@ -111,8 +111,41 @@ async function main() {
     await page.pdf({ path: PROJECT_PDF, printBackground: true, preferCSSPageSize: true, tagged: false });
     await page.close();
   } finally {
-    if (browser) await browser.close();
-    await new Promise((resolve) => server.close(resolve));
+    // Hardening, not a bug fix: both teardown steps were unbounded waits.
+    //
+    // A run under heavy load was reported as hanging forever here. It did NOT
+    // reproduce — tests/venture-deck-tooling.test.mjs passes 16/16 in ~21s, three
+    // times consecutively on unmodified main, and `npm test` never excluded it. So
+    // treat the report as unconfirmed. What IS true is that `browser.close()` never
+    // returns if Chromium wedges (it does wedge on this headless install — the
+    // proof-pack builder hits `page.pdf: Protocol error`), and an unbounded wait
+    // turns that into a silent stall with no diagnostic. Bounding it costs nothing
+    // and converts a mystery into a message.
+    if (browser) {
+      // The guard timer MUST be cleared, and unref'd besides. A pending 20s timer
+      // holds the event loop open even after browser.close() wins the race, which
+      // took this script from 21s to 80s across the suite's three invocations —
+      // a watchdog that made the thing it guards four times slower.
+      let guard;
+      const closed = await Promise.race([
+        browser.close().then(() => true, () => true),
+        new Promise((resolve) => { guard = setTimeout(() => resolve(false), 20_000); guard.unref?.(); }),
+      ]);
+      clearTimeout(guard);
+      if (!closed) {
+        console.error('build-venture-deck: browser.close() timed out after 20s, killing it');
+        try { browser.process()?.kill('SIGKILL'); } catch { /* already gone */ }
+      }
+    }
+    // `server.close()` only fires its callback once every connection has ended, so a
+    // single lingering Chromium keep-alive socket wedges it permanently. Drop the
+    // sockets first; without this the await below is an indefinite wait by design.
+    server.closeAllConnections?.();
+    await new Promise((resolve) => {
+      const done = setTimeout(resolve, 10_000);
+      done.unref?.();
+      server.close(() => { clearTimeout(done); resolve(); });
+    });
   }
 
   await normalizePdf(PROJECT_PDF);

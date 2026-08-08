@@ -56,18 +56,40 @@ async function onePagePdf(file) {
   fs.writeFileSync(file, await document.save());
 }
 
+// A hang must become a reported failure, not an indefinite wait. Both helpers called
+// spawnSync with no timeout, so a wedged build-venture-deck.mjs would stall the whole
+// test process with no diagnostic. This file is NOT excluded from `npm test` and does
+// pass (16/16 in ~21s), so this is hardening against an unbounded wait rather than a
+// fix for a reproducing failure. spawnSync sets `error` (ETIMEDOUT) and `signal` when
+// it kills a child, so an assertion has something to report.
+const CHILD_TIMEOUT_MS = 300_000;
+
+function assertNotTimedOut(label, result) {
+  if (result.error?.code === 'ETIMEDOUT' || result.signal === 'SIGKILL') {
+    assert.fail(
+      `${label} did not finish within ${CHILD_TIMEOUT_MS / 1000}s (killed). `
+      + `stdout: ${(result.stdout || '').slice(-600)} stderr: ${(result.stderr || '').slice(-600)}`
+    );
+  }
+  return result;
+}
+
 function runScript(script, args) {
-  return spawnSync(process.execPath, [script, ...args], {
+  return assertNotTimedOut(script, spawnSync(process.execPath, [script, ...args], {
     cwd: ROOT,
     encoding: 'utf8',
-  });
+    timeout: CHILD_TIMEOUT_MS,
+    killSignal: 'SIGKILL',
+  }));
 }
 
 function runCommand(command, args) {
-  return spawnSync(command, args, {
+  return assertNotTimedOut(command, spawnSync(command, args, {
     cwd: ROOT,
     encoding: 'utf8',
-  });
+    timeout: CHILD_TIMEOUT_MS,
+    killSignal: 'SIGKILL',
+  }));
 }
 
 function sha256(file) {
