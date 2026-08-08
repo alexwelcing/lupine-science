@@ -49,12 +49,18 @@ test('production deploy records a durable receipt and invokes live verification'
   assert.match(source, /name: Security headers are live/);
 });
 
-test('release certification consumes both required CI artifacts and fails closed', async () => {
+test('release certification consumes all required CI artifacts and fails closed', async () => {
   const source = await workflow();
+  const ciSource = await ciWorkflow();
 
+  assert.match(ciSource, /publication-audio-checks:[\s\S]*node scripts\/audio-release-gate\.mjs/);
+  assert.match(ciSource, /publication-audio-checks:[\s\S]*name: publication-audio-gate-\$\{\{ github\.event\.pull_request\.head\.sha \|\| github\.sha \}\}/);
+  assert.match(ciSource, /publication-audio-checks:[\s\S]*if-no-files-found: error/);
   assert.match(source, /release-certification:[\s\S]*name: publication-visual-gate-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
   assert.match(source, /release-certification:[\s\S]*name: publication-smoke-gate-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
+  assert.match(source, /release-certification:[\s\S]*name: publication-audio-gate-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
   assert.match(source, /release-certification:[\s\S]*node scripts\/validate-release-gates\.mjs/);
+  assert.match(source, /release-certification:[\s\S]*--audio gate-inputs\/audio\/audio-gate\.json/);
   assert.match(source, /release-certification:[\s\S]*if-no-files-found: error/);
 });
 
