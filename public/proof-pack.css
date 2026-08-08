@@ -185,6 +185,16 @@ td.numeric { font-family: var(--mono); font-size: 8.5pt; text-align: right; whit
 .methodology dl { margin: 0; }
 .methodology dt { margin-top: 0.1in; color: var(--ink-faint); font-family: var(--mono); font-size: 7pt; text-transform: uppercase; }
 .methodology dd { margin: 2px 0 0; }
+/* Lock artifacts: the pack's orientation promises exact URLs and SHA-256 digests in
+   the methodology section, so they are rendered there. A 64-char digest and a full
+   GitHub blob URL both exceed the column, hence overflow-wrap; break-inside keeps a
+   digest from splitting across a page where it could be mis-transcribed. */
+.lock-artifacts { margin-top: 0.2in; padding-top: 0.14in; border-top: 0.75pt solid var(--rule); }
+.lock-artifact { margin: 0.1in 0 0; font-size: 8pt; line-height: 1.3; break-inside: avoid; }
+.lock-artifact a, .lock-artifact code { overflow-wrap: anywhere; }
+.lock-artifact code { font-family: var(--mono); font-size: 7.5pt; color: var(--ink-faint); }
+.lock-artifact code.digest { color: var(--ink); }
+
 .credits { margin-top: 0.24in; padding-top: 0.16in; border-top: 0.75pt solid var(--rule); }
 .credits-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.12in 0.25in; }
 .credits-list p { margin: 0; }
