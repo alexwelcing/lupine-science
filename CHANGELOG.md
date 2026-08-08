@@ -23,8 +23,11 @@
 ### Known limitation
 - Duration verification confirms a track is the right *size* to contain its script, not that it contains the right *words*. A small drop inside a single sentence is indistinguishable from brisk delivery. Closing that would need an ASR pass; no speech-to-text model is installed on this host.
 
+### Also fixed
+- **The audio gate's only real-measurement test had been silently skipping in CI.** `tests/audio-release-gate.test.mjs` guards its real-ffmpeg case with `t.skip('ffmpeg and ffprobe are required')`, and the `Unit tests` job never installed ffmpeg — so CI reported `ok ... # SKIP` and the gate's actual measurement path went unexercised on every run. ffmpeg is now installed in that job. The new narration tests deliberately do NOT carry a skip guard: if ffmpeg is missing they fail, because a duration check that quietly stops running is how this class of bug survives.
+
 ### Verified
-- `npm test`: **204/204 pass**. `npm run build` and `npm run verify` pass.
+- `npm test`: **204/204 pass** locally. `npm run build` and `npm run verify` pass.
 - Audio release gate over `public/videos` with the baseline: `decision: pass`, **`blockingFiles: 0`**, 13/32 files passing outright (up from 3), 19 baselined.
 - The two failures expected to be pre-existing on `origin/main` did not reproduce: `venture-deck-tooling.test.mjs` passes in ~29 s, and `proof-pack consolidated mode` passes. As documented, the proof-pack tests do rewrite tracked files under `public/proof-packs/` and `public/proof-pack-climate-series.pdf`; those were restored, not committed.
 
