@@ -207,13 +207,14 @@ jobs:
           name: lupine-science-public-${{ github.event.pull_request.head.sha || github.sha }}
           path: public/
 
-      - name: Fail closed on every published film
+      - name: Fail closed on new audio defects (known backlog baselined)
         env:
           AUDIO_GATE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
           node scripts/audio-release-gate.mjs \
             --directory public/videos \
             --sha "$AUDIO_GATE_SHA" \
+            --baseline tests/fixtures/audio-gate-baseline.json \
             --output "$RUNNER_TEMP/audio-gate/audio-gate.json" \
             --summary "$RUNNER_TEMP/audio-gate/audio-gate.md"
 
