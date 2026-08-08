@@ -6,7 +6,7 @@
   "scenes": [
     {
       "image": "public/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-01-atoms-problem.jpg",
-      "duration": 11.62,
+      "duration": 6.08,
       "effect": "slow-zoom-in",
       "text": [
         "The Atoms Problem Behind the Energy Transition"
@@ -14,7 +14,7 @@
     },
     {
       "image": "public/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-07-supply-risk-landscape.jpg",
-      "duration": 11.62,
+      "duration": 6.08,
       "effect": "slow-zoom-out",
       "text": [
         "The Geopolitical and Technical Risks of Mineral Supply"
@@ -22,7 +22,7 @@
     },
     {
       "image": "public/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-02-pfas-contamination-map.jpg",
-      "duration": 11.62,
+      "duration": 6.08,
       "effect": "pan-right",
       "text": [
         "PFAS in the Environment: Eighty Thousand Sites and Counting"
@@ -30,7 +30,7 @@
     },
     {
       "image": "public/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-03-carbon-fluorine-backbone.jpg",
-      "duration": 11.62,
+      "duration": 6.08,
       "effect": "pan-left",
       "text": [
         "The Bond That Makes PFAS Forever"
@@ -38,7 +38,7 @@
     },
     {
       "image": "public/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-04-umlip-softening-error.jpg",
-      "duration": 11.62,
+      "duration": 6.08,
       "effect": "pan-up",
       "text": [
         "Why Raw uMLIPs Misrank Candidates in Under-Coordinated Environments"
@@ -46,7 +46,7 @@
     },
     {
       "image": "public/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-05-correction-layer.jpg",
-      "duration": 11.62,
+      "duration": 6.08,
       "effect": "pan-down",
       "text": [
         "The Lupine Correction Layer"
@@ -54,7 +54,7 @@
     },
     {
       "image": "public/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-06-unified-campaign.jpg",
-      "duration": 11.62,
+      "duration": 6.08,
       "effect": "drift",
       "text": [
         "One Discovery Campaign for Two Imperatives"
@@ -62,7 +62,7 @@
     },
     {
       "image": "public/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-08-recovery-ecosystem.jpg",
-      "duration": 11.62,
+      "duration": 6.08,
       "effect": "slow-zoom-in",
       "text": [
         "The Critical-Mineral Recovery Ecosystem"
@@ -70,7 +70,7 @@
     },
     {
       "image": "public/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-09-market-opportunity.jpg",
-      "duration": 11.62,
+      "duration": 6.08,
       "effect": "slow-zoom-out",
       "text": [
         "The Economics of Trustworthy Prediction"
@@ -78,7 +78,7 @@
     },
     {
       "image": "public/articles/critical-minerals-pfas-and-the-remediation-imperative/images/critical-minerals-pfas-and-the-remediation-imperative-10-one-geometry-two-imperatives.jpg",
-      "duration": 11.62,
+      "duration": 6.08,
       "effect": "pan-right",
       "text": [
         "One Geometry, Two Imperatives"
