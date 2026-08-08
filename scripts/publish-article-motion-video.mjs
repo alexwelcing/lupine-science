@@ -152,9 +152,21 @@ async function main() {
   // Duration is reconciled the correct way round a few lines below, where
   // scene durations are updated to match the narration length. That is the
   // right direction and makes any stretch here redundant.
+  //
+  // The true-peak target is -2.0 dBTP, not the -1.5 used previously, because
+  // this track is AAC-encoded TWICE: once here, and again when
+  // build-article-motion-video.mjs muxes it (`-c:a aac`). Each lossy pass
+  // reconstructs a waveform that overshoots the peak it was normalized to, so
+  // a -1.5 dBTP target lands somewhere in -1.5..-0.8 dBTP in the finished MP4
+  // — straddling the gate's -1.0 dBTP ceiling. Measured on the repaired
+  // library: at TP=-1.5 the ten films landed -1.45..-0.82 dBTP and
+  // critical-minerals-pfas FAILED the ceiling at -0.82 while
+  // cement-concrete cleared it by only 0.09 dB. At TP=-2.0 every film clears
+  // by at least 0.5 dB and integrated loudness is unchanged at about -16 LUFS,
+  // so the headroom costs nothing that the loudness band cares about.
   run('ffmpeg', [
     '-y', '-i', wavPath,
-    '-af', 'loudnorm=I=-16:TP=-1.5:LRA=7',
+    '-af', 'loudnorm=I=-16:TP=-2.0:LRA=7',
     '-c:a', 'aac', '-ar', '44100', '-ac', '1', '-b:a', '128k',
     normPath,
   ]);

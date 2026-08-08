@@ -3,6 +3,13 @@
   "adoptedAt": "2026-08-08",
   "trackedBy": "Hermes t_1f48ad62 (narration shortfall) and t_22034221 (audio gate)",
   "policy": "Known failing checks per film are reported, not blocking. Any NEW failing check, or any film not listed, fails the gate closed. Remove entries as films are fixed; never add entries to make CI pass.",
+  "revisions": [
+    {
+      "date": "2026-08-08",
+      "change": "Half-speed repair: the 10 article films were re-rendered from their original un-stretched narration wavs, undoing the published `atempo=0.5` artifact. Measured speech rate doubled on every one of the 10 (21-66 wpm -> 43-131 wpm) and every film's duration halved with audio/video still matched. Removed 5 entries: a-field-not-a-neural-net and five-materials-for-5-to-12-gtco2-year now pass every check and are delisted; the-02-percent-synthesis-problem lost no-dead-air-during-narration. Films: 29 -> 27.",
+      "whySpeechRateEntriesRemain": "The 8 article films still listed for speech-rate-in-band are NO LONGER half-speed. Their published .vtt is the scene-title placeholder written by scripts/generate-motion-vtt.mjs, which that script itself flags as needing alignment to the actual narration. It carries only 35-74 words across the whole film, so the gate divides real narration time by placeholder word counts and reports 43-98 wpm. Measured against the audio itself (faster-whisper small.en and medium.en) the repaired narration runs 118-144 wpm on all 10 films - inside the band. Clearing these entries requires narration-transcript captions, which requires re-narration: the cached Orpheus wavs deliver only 30-45% of the intended script and contain hallucinated passages, so transcribing them would publish gibberish into a <track ... default> caption that the site shows by default. Do not remove these entries by swapping in transcripts of the corrupted audio."
+    }
+  ],
   "films": {
     "public/videos/a-smooth-environment-resolved-error-field.mp4": [
       "true-peak-ceiling"
@@ -15,10 +22,6 @@
     ],
     "public/videos/why-lupi.mp4": [
       "true-peak-ceiling"
-    ],
-    "public/videos/a-field-not-a-neural-net.mp4": [
-      "no-dead-air-during-narration",
-      "speech-rate-in-band"
     ],
     "public/videos/beyond-carbon-the-error-geometry-of-environmental-materials.mp4": [
       "speech-rate-in-band"
@@ -89,10 +92,6 @@
     "public/videos/critical-minerals-pfas-and-the-remediation-imperative.mp4": [
       "speech-rate-in-band"
     ],
-    "public/videos/five-materials-for-5-to-12-gtco2-year.mp4": [
-      "no-dead-air-during-narration",
-      "speech-rate-in-band"
-    ],
     "public/videos/from-predicted-crystal-to-commercial-cell.mp4": [
       "speech-rate-in-band"
     ],
@@ -103,7 +102,6 @@
       "speech-rate-in-band"
     ],
     "public/videos/the-02-percent-synthesis-problem.mp4": [
-      "no-dead-air-during-narration",
       "speech-rate-in-band"
     ],
     "public/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe.mp4": [
