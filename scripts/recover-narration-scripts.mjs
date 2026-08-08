@@ -78,6 +78,24 @@ export function affectedSlugs() {
     .sort();
 }
 
+/**
+ * Assert the provenance commit is present, with an actionable message if not.
+ *
+ * A shallow clone (CI's default) does not contain it, and this must not degrade
+ * into a skip: the whole value of the check is that nobody can quietly redefine
+ * "the intended script". Fail, and say how to get the commit.
+ */
+function requireSourceCommit() {
+  const present = spawnSync('git', ['cat-file', '-e', `${SCRIPT_SOURCE_COMMIT}^{commit}`], { cwd: ROOT });
+  if (present.status === 0) return;
+  throw new Error(
+    `Commit ${SCRIPT_SOURCE_COMMIT} is not in this clone, so narration-script provenance cannot be `
+    + `verified. This is a shallow clone; fetch the one commit with:\n`
+    + `  git fetch --depth=1 origin ${SCRIPT_SOURCE_COMMIT}\n`
+    + `Do not skip this check — it is what stops the recovered scripts drifting from their source.`,
+  );
+}
+
 function gitShow(ref) {
   const r = spawnSync('git', ['show', ref], { encoding: 'utf8', cwd: ROOT });
   if (r.status !== 0) throw new Error(`git show ${ref} failed: ${r.stderr}`);
@@ -100,6 +118,7 @@ function main() {
     process.exit(1);
   }
 
+  requireSourceCommit();
   fs.mkdirSync(SCRIPT_DIR, { recursive: true });
   let failed = 0;
 
