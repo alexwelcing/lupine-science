@@ -158,6 +158,8 @@ const HERO_CAPTIONS = {
     'A row of solid-electrolyte coupons mounted in identical diffusion rigs, with a sparse set of shared reference pins anchoring the barrier comparison across the whole panel.',
   'an-order-of-effort':
     'A row of four increasingly specialized test bays — bulk compression, defect scanning, reaction vessel, interface microscopy — each material environment routed to the equipment its complexity requires.',
+  'the-small-cell-held-mlip-elastic-benchmark':
+    'A compact crystal cell and a larger repeated supercell feed the same elastic gauge, while a separate brass correction path turns away from the matched result.',
 };
 
 const MARK_SVG = `<svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
@@ -883,6 +885,33 @@ writeAtomic(path.join(OUT, 'index.html'), buildIndex(articles));
 console.log('built /articles/index.html');
 
 const videos = videoArticles(articles);
+// Retire the generated page for any article that no longer has a source file.
+// Video detail routes were already pruned this way (below) but article routes
+// were not, so moving an article to articles/_drafts/ left its published page and
+// its sitemap entry live — un-publishing did not actually unpublish. Only the
+// generated index.html is removed; hero/thumb assets stay so the article can be
+// republished without regenerating media.
+{
+  const articlesRoot = path.join(PUBLIC_ROOT, 'articles');
+  const sourceSlugs = new Set(sources.map((name) => name.replace(/\.md$/, '')));
+  for (const entry of fs.readdirSync(articlesRoot, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    if (sourceSlugs.has(entry.name)) continue;
+    // No index.html guard: a directory here with assets but no page is exactly
+    // the broken state this prune exists to clear, and guarding on the page's
+    // presence would skip it forever. The invariant is simply that a directory
+    // under public/articles/ must have a source in articles/.
+    // Remove the whole directory, not just index.html. Leaving a directory that
+    // holds assets but no page breaks every consumer that treats a directory
+    // under public/articles/ as a published article — tests/article-metadata
+    // enumerates those directories and reads index.html unconditionally.
+    // A retired article's hero is preserved outside the published tree, under
+    // media/projects/article-visuals/articles/assets/<slug>/.
+    fs.rmSync(path.join(articlesRoot, entry.name), { recursive: true });
+    console.log(`retired /articles/${entry.name}/ (no source in articles/)`);
+  }
+}
+
 const videosRoot = path.join(PUBLIC_ROOT, 'videos');
 for (const entry of fs.readdirSync(videosRoot, { withFileTypes: true })) {
   if (!entry.isDirectory()) continue;
