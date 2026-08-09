@@ -322,6 +322,24 @@ function wrapInlineFigures(html) {
   );
 }
 
+// /videos/ renders EVERY poster, so this one <img> is multiplied by the library size
+// and is what the page perf budget measures. pictureSources() above cannot be reused:
+// it is hardcoded to /articles/<slug>/<base>.*, while posters live at
+// /videos/<slug>-poster.*. Falls back to the plain JPEG when no sibling exists, so a
+// poster generated before build-media.mjs has run still renders.
+function posterPicture(slug) {
+  const dir = path.join(PUBLIC_ROOT, 'videos');
+  const avif = fs.existsSync(path.join(dir, `${slug}-poster.avif`));
+  const webp = fs.existsSync(path.join(dir, `${slug}-poster.webp`));
+  const img = `<img src="${bust(`/videos/${slug}-poster.jpg`)}" alt="" loading="lazy" decoding="async">`;
+  if (!avif && !webp) return img;
+  return `<picture>${
+    avif ? `<source srcset="${bust(`/videos/${slug}-poster.avif`)}" type="image/avif">` : ''
+  }${
+    webp ? `<source srcset="${bust(`/videos/${slug}-poster.webp`)}" type="image/webp">` : ''
+  }${img}</picture>`;
+}
+
 function pictureSources(slug, base, { eager = false } = {}) {
   const dir = path.join(OUT, slug);
   const avif = fs.existsSync(path.join(dir, `${base}.avif`));
@@ -763,7 +781,7 @@ function buildVideoIndex(articles) {
     return `<li>
   <article class="video-card">
     <a class="video-card-primary" href="/videos/${slug}/">
-      <img src="${bust(`/videos/${slug}-poster.jpg`)}" alt="" loading="lazy" decoding="async">
+      ${posterPicture(slug)}
       <span class="video-card-meta">
         <span class="play">▶ Watch</span>
         <h2>${esc(title)}</h2>
