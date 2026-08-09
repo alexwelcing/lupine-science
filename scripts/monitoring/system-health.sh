@@ -46,17 +46,20 @@ ps -eo pid,pcpu,pmem,comm --sort=-pmem | head -10
 
 echo "--- zombie/high cpu guard ---"
 # Flag any single process >80% CPU or >4 GiB RSS for more than a glance.
-# Exclude the sampler processes (ps, awk, bash, sh) — this pipeline is itself a burst
-# of short-lived CPU, so without the filter the guard periodically alerts on its own
-# `ps`/`awk` and trains the reader to ignore it.
 #
-# Both sides of this conflict were real: main captured the output into
-# high_consumers for the exit-status check below, and this branch added the sampler
-# exclusion. Taking the branch alone would have left high_consumers unset, so the
-# `if [[ -n "${high_consumers}" ]]` below could never fire and the alert would be
-# silently dead. Combined deliberately.
-high_consumers=$(ps -eo pid,pcpu,pmem,rss,comm --sort=-pcpu \
-  | awk 'NR>1 && $5 !~ /^(ps|awk|bash|sh)$/ && ($2>80.0 || $4>4194304) {print "ALERT high consumer:", $0}')
+# Exclude the sampler by PID LINEAGE, not by command name. Filtering on
+# comm ~ /^(ps|awk|bash|sh)$/ also suppressed every real runaway shell: a CPU-bound
+# bash loop has comm "bash", so the guard went silent for exactly the kind of process
+# it exists to catch. Only this script's own direct children are the sampler, so match
+# on ppid == $$ instead, which no unrelated runaway can satisfy.
+#
+# Both sides of an earlier merge conflict were real and are combined here: main
+# captured the output into high_consumers for the check below, and the branch added
+# the sampler exclusion. Dropping the capture would leave the `if` below unable to
+# fire at all.
+high_consumers=$(ps -eo pid,ppid,pcpu,pmem,rss,comm --sort=-pcpu \
+  | awk -v self="$$" 'NR>1 && !($2 == self && $6 ~ /^(ps|awk|sh|bash)$/) \
+      && ($3>80.0 || $5>4194304) {print "ALERT high consumer:", $0}')
 echo "${high_consumers}"
 
 echo ""
