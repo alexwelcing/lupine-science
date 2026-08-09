@@ -61,6 +61,14 @@ const TEXT_SURFACES = [
   'public/venture/deck.html',
   'public/venture/evidence-manifest.json',
   'public/videos/index.html',
+  // The campaign videos BURN the cost into their frames, so scanning
+  // public/videos/index.html (links and descriptions) misses it entirely. These two
+  // are the composition source that render_campaign_videos.py draws from — checking
+  // them catches a regression before it is baked into an mp4 nobody can grep.
+  // Dropped by mistake when this guard was narrowed; they only ever failed the
+  // over-broad "70%" rule that is gone.
+  'media/brand-campaign-2026-07-27/render_campaign_videos.py',
+  'media/brand-campaign-2026-07-27/campaign-video-storyboards.json',
 ];
 
 const PDF_SURFACES = [
