@@ -96,20 +96,36 @@ const videoPosters = fs.existsSync(path.join(PUBLIC, 'videos'))
     .sort()
   : [];
 
-const PICTURES = [...articleHeroes, ...videoPosters, 'ribbon-still.jpg'];
+// `rewriteJpeg: false` means "emit siblings, do not re-encode the original".
+//
+// Posters are already a single deliberate encode from build-motion-poster.mjs
+// (1280x720, q78, 4:2:0). Sending them through the JPEG rewrite below would stack a
+// SECOND lossy encode on top, and the poster JPEG is not only a <picture> fallback:
+// <video poster> uses it directly, and it is the OG/structured-data thumbnailUrl for
+// crawlers. Neither path can select the AVIF. So anyone without AVIF — and every
+// social preview — would get a visibly degraded image in exchange for bytes.
+// Article heroes and ribbon-still keep the rewrite; they are source-quality inputs.
+const PICTURES = [
+  ...articleHeroes.map((rel) => ({ rel, rewriteJpeg: true })),
+  ...videoPosters.map((rel) => ({ rel, rewriteJpeg: false })),
+  { rel: 'ribbon-still.jpg', rewriteJpeg: true },
+];
 
-for (const rel of PICTURES) {
+for (const { rel, rewriteJpeg } of PICTURES) {
   const src = path.join(PUBLIC, rel);
   if (!fs.existsSync(src)) { console.log(`skip (missing): ${rel}`); continue; }
   const base = src.replace(/\.(jpe?g|png)$/i, '');
   const img = sharp(src).resize({ width: 1600, withoutEnlargement: true });
   await img.clone().avif({ quality: 55 }).toFile(`${base}.avif`);
   await img.clone().webp({ quality: 78 }).toFile(`${base}.webp`);
-  const tmp = `${src}.tmp.jpg`;
-  await img.clone().jpeg({ quality: 80, mozjpeg: true }).toFile(tmp);
-  if (fs.statSync(tmp).size < fs.statSync(src).size) fs.renameSync(tmp, src);
-  else fs.unlinkSync(tmp);
-  console.log(`${rel}: jpg ${kb(src)} · webp ${kb(`${base}.webp`)} · avif ${kb(`${base}.avif`)}`);
+  if (rewriteJpeg) {
+    const tmp = `${src}.tmp.jpg`;
+    await img.clone().jpeg({ quality: 80, mozjpeg: true }).toFile(tmp);
+    if (fs.statSync(tmp).size < fs.statSync(src).size) fs.renameSync(tmp, src);
+    else fs.unlinkSync(tmp);
+  }
+  console.log(`${rel}: jpg ${kb(src)}${rewriteJpeg ? '' : ' (original kept)'} `
+    + `· webp ${kb(`${base}.webp`)} · avif ${kb(`${base}.avif`)}`);
 }
 
 // OG / icon images: keep format, recompress
