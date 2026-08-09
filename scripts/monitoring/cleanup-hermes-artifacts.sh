@@ -75,6 +75,34 @@ for f in "$LOG_DIR"/*.log; do
   fi
 done
 
+# Terminate ABANDONED headless Chrome shells left behind by HyperFrames / Playwright.
+# Never kill a user's interactive Chrome browser, and never kill a running job.
+#
+# Age alone is not abandonment. A legitimate HyperFrames render or a long Playwright
+# session can exceed six hours, and killing it mid-run corrupts the output — the
+# cleanup would have caused exactly the class of failure it exists to prevent.
+#
+# Orphaning IS provable: when the driver that launched a browser dies, the browser is
+# reparented to PID 1. A browser still owned by a live node/playwright parent is by
+# definition an active job. So require BOTH conditions — orphaned AND old — which no
+# in-flight render can satisfy.
+STALE_CHROME_MINUTES=360
+stale_chrome_pids=$(ps -eo pid,ppid,etimes,comm \
+  | awk -v min="$STALE_CHROME_MINUTES" '$4 == "chrome-headless" && $2 == 1 && $3 > min*60 {print $1}')
+if [ -n "$stale_chrome_pids" ]; then
+  stale_count=$(echo "$stale_chrome_pids" | wc -l)
+  for pid in $stale_chrome_pids; do
+    kill -TERM "$pid" 2>/dev/null || true
+  done
+  sleep 2
+  for pid in $stale_chrome_pids; do
+    if kill -0 "$pid" 2>/dev/null; then
+      kill -9 "$pid" 2>/dev/null || true
+    fi
+  done
+  log "terminated ${stale_count} stale chrome-headless process(es) older than ${STALE_CHROME_MINUTES}m"
+fi
+
 # Trim npm/pip caches if disk pressure > 90%.
 home_usage=$(df -h "$HOME" | awk 'NR==2 {gsub(/%/,""); print $5}')
 if [ "$home_usage" -gt 90 ] 2>/dev/null; then
