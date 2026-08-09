@@ -96,8 +96,15 @@ async function main() {
 
   const { server, origin } = await startServer();
   let browser;
+  let browserServer;
   try {
-    browser = await chromium.launch({ headless: true });
+    // launchServer + connect rather than launch(), so teardown holds a real
+    // BrowserServer. A Playwright `Browser` has NO process() method — that lives on
+    // BrowserServer — so the earlier `browser.process()?.kill()` fallback threw a
+    // TypeError straight into an empty catch and killed nothing. Verified:
+    // typeof browser.process === 'undefined', typeof browserServer.kill === 'function'.
+    browserServer = await chromium.launchServer({ headless: true });
+    browser = await chromium.connect(browserServer.wsEndpoint());
     const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
     await page.route('**/*', (route) => {
       const url = new URL(route.request().url());
@@ -133,9 +140,18 @@ async function main() {
       ]);
       clearTimeout(guard);
       if (!closed) {
-        console.error('build-venture-deck: browser.close() timed out after 20s, killing it');
-        try { browser.process()?.kill('SIGKILL'); } catch { /* already gone */ }
+        console.error('build-venture-deck: browser.close() timed out after 20s, killing the browser process');
+        browserServer?.kill();
       }
+    }
+    if (browserServer) {
+      let guard;
+      const stopped = await Promise.race([
+        browserServer.close().then(() => true, () => true),
+        new Promise((resolve) => { guard = setTimeout(() => resolve(false), 10_000); guard.unref?.(); }),
+      ]);
+      clearTimeout(guard);
+      if (!stopped) browserServer.kill();
     }
     // `server.close()` only fires its callback once every connection has ended, so a
     // single lingering Chromium keep-alive socket wedges it permanently. Drop the
