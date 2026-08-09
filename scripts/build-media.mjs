@@ -7,7 +7,7 @@
 //
 // ffmpeg comes from imageio-ffmpeg (pip) because the npm static binary is
 // blocked by this environment's proxy. Requires: pip install imageio-ffmpeg
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -16,7 +16,25 @@ import sharp from 'sharp';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC = path.join(ROOT, 'public');
 
-const FFMPEG = process.env.FFMPEG || execFileSync('python3', ['-c', 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())']).toString().trim();
+// Resolve ffmpeg from whatever is actually present, in order of specificity:
+// $FFMPEG, then PATH, then imageio-ffmpeg (pip). This used to call imageio_ffmpeg
+// unconditionally at module load, so on any machine without that pip package the
+// whole script died with ModuleNotFoundError before reaching the image section —
+// which is why media/projects/article-visuals/*-storyboard.md records this script as
+// "currently crashes in this environment" and heroes shipped without webp/avif
+// siblings. ffmpeg on PATH is the common case and was never tried.
+function resolveFfmpeg() {
+  if (process.env.FFMPEG) return process.env.FFMPEG;
+  const onPath = spawnSync('sh', ['-c', 'command -v ffmpeg'], { encoding: 'utf8' });
+  if (onPath.status === 0 && onPath.stdout.trim()) return onPath.stdout.trim();
+  const pip = spawnSync('python3', ['-c', 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())'], { encoding: 'utf8' });
+  if (pip.status === 0 && pip.stdout.trim()) return pip.stdout.trim();
+  throw new Error(
+    'ffmpeg not found. Set FFMPEG=/path/to/ffmpeg, install ffmpeg on PATH, '
+    + 'or `pip install imageio-ffmpeg`.',
+  );
+}
+const FFMPEG = resolveFfmpeg();
 
 const kb = (p) => `${(fs.statSync(p).size / 1024).toFixed(0)} KB`;
 
@@ -63,20 +81,51 @@ const articleHeroes = fs.existsSync(path.join(PUBLIC, 'articles'))
     .sort()
   : [];
 
-const PICTURES = [...articleHeroes, 'ribbon-still.jpg'];
+// Video posters, also DISCOVERED rather than listed. /videos/ renders every poster
+// on one page, so their combined weight is what the page budget actually measures:
+// after the narration rebuild the index sat at 964.9 KB against a 1024 KB budget,
+// leaving 59 KB — the next film published there would have failed `npm run verify`.
+// The posters are already 1280x720 q78 4:2:0 (build-motion-poster.mjs documents an
+// earlier incident from rendering them larger), so quality is not the lever left;
+// format is. AVIF and WebP siblings let build-articles.mjs serve <picture> and drop
+// the transfer without touching a single pixel of the JPEG fallback.
+const videoPosters = fs.existsSync(path.join(PUBLIC, 'videos'))
+  ? fs.readdirSync(path.join(PUBLIC, 'videos'))
+    .filter((name) => name.endsWith('-poster.jpg'))
+    .map((name) => `videos/${name}`)
+    .sort()
+  : [];
 
-for (const rel of PICTURES) {
+// `rewriteJpeg: false` means "emit siblings, do not re-encode the original".
+//
+// Posters are already a single deliberate encode from build-motion-poster.mjs
+// (1280x720, q78, 4:2:0). Sending them through the JPEG rewrite below would stack a
+// SECOND lossy encode on top, and the poster JPEG is not only a <picture> fallback:
+// <video poster> uses it directly, and it is the OG/structured-data thumbnailUrl for
+// crawlers. Neither path can select the AVIF. So anyone without AVIF — and every
+// social preview — would get a visibly degraded image in exchange for bytes.
+// Article heroes and ribbon-still keep the rewrite; they are source-quality inputs.
+const PICTURES = [
+  ...articleHeroes.map((rel) => ({ rel, rewriteJpeg: true })),
+  ...videoPosters.map((rel) => ({ rel, rewriteJpeg: false })),
+  { rel: 'ribbon-still.jpg', rewriteJpeg: true },
+];
+
+for (const { rel, rewriteJpeg } of PICTURES) {
   const src = path.join(PUBLIC, rel);
   if (!fs.existsSync(src)) { console.log(`skip (missing): ${rel}`); continue; }
   const base = src.replace(/\.(jpe?g|png)$/i, '');
   const img = sharp(src).resize({ width: 1600, withoutEnlargement: true });
   await img.clone().avif({ quality: 55 }).toFile(`${base}.avif`);
   await img.clone().webp({ quality: 78 }).toFile(`${base}.webp`);
-  const tmp = `${src}.tmp.jpg`;
-  await img.clone().jpeg({ quality: 80, mozjpeg: true }).toFile(tmp);
-  if (fs.statSync(tmp).size < fs.statSync(src).size) fs.renameSync(tmp, src);
-  else fs.unlinkSync(tmp);
-  console.log(`${rel}: jpg ${kb(src)} · webp ${kb(`${base}.webp`)} · avif ${kb(`${base}.avif`)}`);
+  if (rewriteJpeg) {
+    const tmp = `${src}.tmp.jpg`;
+    await img.clone().jpeg({ quality: 80, mozjpeg: true }).toFile(tmp);
+    if (fs.statSync(tmp).size < fs.statSync(src).size) fs.renameSync(tmp, src);
+    else fs.unlinkSync(tmp);
+  }
+  console.log(`${rel}: jpg ${kb(src)}${rewriteJpeg ? '' : ' (original kept)'} `
+    + `· webp ${kb(`${base}.webp`)} · avif ${kb(`${base}.avif`)}`);
 }
 
 // OG / icon images: keep format, recompress

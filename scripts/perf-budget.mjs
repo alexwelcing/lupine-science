@@ -37,6 +37,36 @@ const size = (abs) => {
 };
 const kb = (n) => `${(n / 1024).toFixed(1)} KB`;
 
+// A <picture> transfers exactly ONE of its candidates — the browser picks a single
+// source. Summing avif + webp + jpg overstated every <picture> on the site by ~2.5x,
+// which silently inflated the article pages (they have used pictureSources() for
+// heroes all along) and turned adding poster derivatives into a 964.9 -> 1688.4 KB
+// "regression" that no user would ever have experienced.
+//
+// This counts one candidate per <picture>, and deliberately the LARGEST one, not the
+// smallest: the point is a conservative upper bound on real transfer, not a number
+// that flatters the page. A browser choosing avif does better than this reports.
+function pictureAdjustment(html, resolveAsset) {
+  const chosen = new Set();
+  const suppressed = new Set();
+  for (const block of html.matchAll(/<picture\b[^>]*>([\s\S]*?)<\/picture>/g)) {
+    const candidates = new Set();
+    for (const re of [/(?:src)="([^"]+)"/g, /srcset="([^"]+)"/g]) {
+      for (const m of block[1].matchAll(re)) {
+        for (const part of m[1].split(',')) {
+          const abs = resolveAsset(part.trim().split(/\s+/)[0]);
+          if (abs) candidates.add(abs);
+        }
+      }
+    }
+    if (candidates.size === 0) continue;
+    const largest = [...candidates].reduce((a, b) => (fs.statSync(a).size >= fs.statSync(b).size ? a : b));
+    chosen.add(largest);
+    for (const c of candidates) if (c !== largest) suppressed.add(c);
+  }
+  return { chosen, suppressed };
+}
+
 function assetsOf(html, pagePath) {
   const found = new Set();
   const patterns = [
@@ -62,6 +92,16 @@ function assetsOf(html, pagePath) {
       }
     }
   }
+  // Collapse each <picture> to its single largest candidate — see pictureAdjustment.
+  const { chosen, suppressed } = pictureAdjustment(html, (url) => {
+    if (!url || url.startsWith('http') || url.startsWith('#') || url.startsWith('mailto:') || url.startsWith('data:')) return null;
+    const clean = url.split(/[?#]/)[0];
+    const resolved = clean.startsWith('/') ? clean : path.posix.join(pagePath, clean);
+    const abs = path.join(PUBLIC, resolved.replace(/^\//, ''));
+    return fs.existsSync(abs) && fs.statSync(abs).isFile() ? abs : null;
+  });
+  for (const s of suppressed) found.delete(s);
+  for (const c of chosen) found.add(c);
   return [...found];
 }
 
