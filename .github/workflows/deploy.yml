@@ -308,6 +308,11 @@ jobs:
         env:
           RELEASE_SHA: ${{ github.event.workflow_run.head_sha }}
           GATE_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          # The SOURCE ci run, distinct from this gate run. Needed so the notification
+          # can name the visual/smoke artifacts even when no receipt was written —
+          # without it the new --source-*-url flags expand empty and the links are
+          # silently dropped by the https:// filter, which is the failure this fixes.
+          CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
         run: |
           mkdir -p "$RUNNER_TEMP/release-gate-records"
           node scripts/build-release-notification.mjs \
@@ -315,6 +320,8 @@ jobs:
             --release-name "lupine-science@${RELEASE_SHA:0:12}" \
             --gate-run-url "$GATE_RUN_URL" \
             --records-artifact-url "$GATE_RUN_URL#artifacts" \
+            --source-run-url "$CI_RUN_URL" \
+            --source-artifacts-url "$CI_RUN_URL#artifacts" \
             --markdown-output "$RUNNER_TEMP/release-gate-records/release-notification.md" \
             --json-output "$RUNNER_TEMP/release-gate-records/release-notification.json"
           cat "$RUNNER_TEMP/release-gate-records/release-notification.md" >> "$GITHUB_STEP_SUMMARY"
@@ -734,14 +741,25 @@ jobs:
 
           cat "$notification_file" >> "$GITHUB_STEP_SUMMARY"
 
+          # The assigned issue is the PRIMARY notification channel, so its failure must
+          # NOT abort the step: Actions runs this shell fail-fast, and an unguarded
+          # `gh api` non-zero (issues disabled, auth, unavailable assignee, body over
+          # the API limit) stopped execution before the Slack and /ops/report fallbacks
+          # below — killing every notification at exactly the moment the primary one
+          # broke. Failure is now reported into the summary and execution continues.
           issue_title="$icon PRODUCTION LIVE VERIFICATION ${status^^}: lupine-science@${COMMIT_SHA:0:12}"
-          jq -n \
+          issue_payload="$(jq -n \
             --arg title "$issue_title" \
             --arg body "$(cat "$notification_file")" \
-            '{title: $title, body: $body, assignees: ["alexwelcing"]}' \
-            | gh api --method POST "repos/$GITHUB_REPOSITORY/issues" --input - \
-              --jq '"Assigned notification: " + .html_url' \
-            | tee -a "$GITHUB_STEP_SUMMARY"
+            '{title: $title, body: $body, assignees: ["alexwelcing"]}')"
+          if issue_result="$(printf '%s' "$issue_payload" \
+              | gh api --method POST "repos/$GITHUB_REPOSITORY/issues" --input - \
+                --jq '.html_url' 2>&1)"; then
+            echo "Assigned notification: $issue_result" | tee -a "$GITHUB_STEP_SUMMARY"
+          else
+            echo "WARNING: assigned-issue notification FAILED; falling through to Slack and /ops/report. Detail: $issue_result" \
+              | tee -a "$GITHUB_STEP_SUMMARY"
+          fi
 
           if [ -n "$SLACK_DEPLOY_WEBHOOK_URL" ]; then
             slack_text="$title | ${DEPLOY_URL:-https://lupine.science} | $COMMIT_SHA | category: $failure_category | failing URL: $failing_url | $RUN_URL"

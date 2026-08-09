@@ -9,17 +9,27 @@ function valueAfter(flag, argv) {
   return argv[index + 1];
 }
 
-function artifactLinks(receipt, recordsArtifactUrl) {
+function optionalValueAfter(flag, argv) {
+  const index = argv.indexOf(flag);
+  return index === -1 ? undefined : argv[index + 1];
+}
+
+// Links must survive a MISSING receipt, which is the case that matters most: when
+// artifact download or gate validation fails, no receipt is written, so reading every
+// URL off the receipt filtered all of them out and the assigned failure notification
+// could not point the owner at the visual or smoke artifacts that failed. Those URLs
+// are known from workflow_run regardless, so they are passed in and used as fallbacks.
+function artifactLinks(receipt, recordsArtifactUrl, sourceRunUrl, sourceArtifactsUrl) {
   const links = [
-    ['Visual checks', receipt?.checks?.visual?.artifactUrl],
-    ['Smoke checks', receipt?.checks?.smoke?.artifactUrl],
-    ['Source CI run', receipt?.ciRunUrl],
+    ['Visual checks', receipt?.checks?.visual?.artifactUrl ?? sourceArtifactsUrl],
+    ['Smoke checks', receipt?.checks?.smoke?.artifactUrl ?? sourceArtifactsUrl],
+    ['Source CI run', receipt?.ciRunUrl ?? sourceRunUrl],
     ['Release-certification records', recordsArtifactUrl],
   ];
   return links.filter(([, url]) => typeof url === 'string' && /^https:\/\//.test(url));
 }
 
-export function buildReleaseNotification({ receipt, releaseName, gateRunUrl, recordsArtifactUrl }) {
+export function buildReleaseNotification({ receipt, releaseName, gateRunUrl, recordsArtifactUrl, sourceRunUrl, sourceArtifactsUrl }) {
   const hasReceipt = receipt && typeof receipt === 'object';
   const decision = hasReceipt && receipt.decision === 'pass' ? 'pass' : 'fail';
   const failures = hasReceipt
@@ -27,7 +37,7 @@ export function buildReleaseNotification({ receipt, releaseName, gateRunUrl, rec
     : ['release certification receipt was not produced; artifact download or validation failed before a receipt could be written'];
   const icon = decision === 'pass' ? '✅' : '🚨';
   const title = `${icon} RELEASE GATE ${decision.toUpperCase()}: ${releaseName}`;
-  const links = artifactLinks(receipt, recordsArtifactUrl);
+  const links = artifactLinks(receipt, recordsArtifactUrl, sourceRunUrl, sourceArtifactsUrl);
   const markdown = [
     `# ${title}`,
     '',
@@ -79,6 +89,8 @@ function main(argv = process.argv.slice(2)) {
     releaseName: valueAfter('--release-name', argv),
     gateRunUrl: valueAfter('--gate-run-url', argv),
     recordsArtifactUrl: valueAfter('--records-artifact-url', argv),
+    sourceRunUrl: optionalValueAfter('--source-run-url', argv),
+    sourceArtifactsUrl: optionalValueAfter('--source-artifacts-url', argv),
   });
   writeOutput(valueAfter('--markdown-output', argv), notification.markdown);
   writeOutput(valueAfter('--json-output', argv), `${JSON.stringify(notification, null, 2)}\n`);
