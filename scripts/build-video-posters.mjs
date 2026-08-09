@@ -5,6 +5,14 @@
 // then composites a controlled SVG title/source overlay with Sharp.
 // Output: public/videos/{slug}-poster.jpg
 //
+// Scope note: this is IMAGE generation, not narration. It shares a vendor with
+// the old TTS path but nothing else — narration provider selection lives in
+// scripts/lib/tts-provider.mjs and does not route through here. The article-film
+// pipeline (publish-article-motion-video.mjs) does NOT call this script; it draws
+// its poster locally with ImageMagick, so a locked FAL account cannot block a
+// film release. This script is for the hand-art posters only, and it is still
+// FAL-only: the account lock ("Exhausted balance") will surface as a 403 below.
+//
 // Usage:
 //   FAL_API_KEY=... node scripts/build-video-posters.mjs
 //   FAL_API_KEY=... node scripts/build-video-posters.mjs --slug why-lupi

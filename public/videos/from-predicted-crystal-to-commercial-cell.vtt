@@ -1,41 +1,91 @@
 WEBVTT
 
+NOTE Narration transcript. Text is the script synthesized by minimax (speech-2.8-hd, voice English_expressive_narrator); each cue was synthesized as its own audio file and is timed by that file's measured duration. Verified at 106.4% of expected length, 136.3 wpm (median cue 140.9 wpm). Script source: public/videos/from-predicted-crystal-to-commercial-cell.vtt at commit 4641d96 (pre-overwrite narration prose)
+
 1
-00:00:00.000 --> 00:00:04.490
-From 2.2 million predicted crystals to 736 synthesized
+00:00:00.000 --> 00:00:03.150
+A predicted crystal is not a material.
 
 2
-00:00:04.490 --> 00:00:08.980
-Six handoffs, six places for a prediction to fail
+00:00:03.450 --> 00:00:06.130
+A synthesized powder is not a cell.
 
 3
-00:00:08.980 --> 00:00:13.470
-From predicted LMR cathode to GM/LG prismatic cell
+00:00:06.430 --> 00:00:12.060
+A cell is not a fleet, a filter, a fertilizer plant, or a solar farm.
 
 4
-00:00:13.470 --> 00:00:17.960
-How Lupine makes a uMLIP trustworthy at runtime
+00:00:12.360 --> 00:00:19.350
+Between a computational screen and a commercial product stands a chain of handoffs — and most predictions never survive it.
 
 5
-00:00:17.960 --> 00:00:22.450
-Cumulative climate opportunity by target
+00:00:19.650 --> 00:00:24.850
+Millions of predicted crystals shrink to a few hundred independently synthesized.
 
 6
-00:00:22.450 --> 00:00:26.940
-When correction says "no" — impossibility, not just uncertainty
+00:00:25.150 --> 00:00:27.960
+The conventional answer is a bigger generator.
 
 7
-00:00:26.940 --> 00:00:31.430
-Zero-parameter blind prediction of surface energies
+00:00:28.260 --> 00:00:32.600
+But volume without trust only amplifies the same handoff failure.
 
 8
-00:00:31.430 --> 00:00:35.920
-NREL, UC Berkeley, and ARPA-E create economies of scope
+00:00:32.900 --> 00:00:39.080
+What is missing is a correction and verification layer that makes predictions trustworthy before they reach the lab.
 
 9
-00:00:35.920 --> 00:00:40.410
-The economic case for a verification layer
+00:00:39.380 --> 00:00:42.920
+Consider cobalt-free lithium-manganese-rich cathodes.
 
 10
-00:00:40.410 --> 00:00:45.505
-The scarce resource is trust
+00:00:43.220 --> 00:00:56.400
+A corrected ranking sifts more than a million compositions, then passes the best candidates through synthesis, atomic-layer coating, pouch-cell fabrication, and finally into an automaker's prismatic cell line.
+
+11
+00:00:56.700 --> 00:01:00.880
+Each handoff carries a bounded error budget, or it breaks.
+
+12
+00:01:01.180 --> 00:01:08.390
+The correction measures error as a field over local coordination, anchored to measured observables and pinned to zero in bulk.
+
+13
+00:01:08.690 --> 00:01:12.820
+Analytic forces apply it at runtime, so simulations stay fast.
+
+14
+00:01:13.120 --> 00:01:22.840
+Across 36 blind model-material pairs, corrected surface energies correlate at zero point nine zero six, with zero fitted parameters.
+
+15
+00:01:23.140 --> 00:01:29.150
+The verification layer separates supported predictions from unsupported ones with machine-checked proofs.
+
+16
+00:01:29.450 --> 00:01:34.830
+It can flag impossibility, not just uncertainty, before synthesis starts.
+
+17
+00:01:35.130 --> 00:01:39.900
+Experimental budgets are finite; false positives are expensive.
+
+18
+00:01:40.200 --> 00:01:44.160
+The layer makes sure the work goes to candidates that actually deserve it.
+
+19
+00:01:44.460 --> 00:01:53.030
+The same logic reaches solid-state electrolytes, direct-air-capture frameworks, ammonia catalysts, and lead-free perovskites.
+
+20
+00:01:53.330 --> 00:01:57.720
+Different markets, different partners, same geometry of wrongness.
+
+21
+00:01:58.020 --> 00:02:01.900
+In every chain, the scarce resource is not prediction volume.
+
+22
+00:02:02.200 --> 00:02:06.453
+It is the trust that turns a predicted crystal into a commercial cell.

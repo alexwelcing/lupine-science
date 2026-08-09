@@ -1,41 +1,107 @@
 WEBVTT
 
+NOTE Narration transcript. Text is the script synthesized by minimax (speech-2.8-hd, voice English_expressive_narrator); each cue was synthesized as its own audio file and is timed by that file's measured duration. Verified at 103.9% of expected length, 139.6 wpm (median cue 142.2 wpm). Script source: public/videos/the-02-percent-synthesis-problem.vtt at commit 4641d96 (pre-overwrite narration prose)
+
 1
-00:00:00.000 --> 00:00:04.370
-380,000 computationally stable structures 736 independently synthesized — 0.2% validation
+00:00:00.000 --> 00:00:05.380
+Okay, so AI predicted three hundred eighty thousand stable new materials.
 
 2
-00:00:04.370 --> 00:00:08.740
-Four structural filters separate prediction from synthesis
+00:00:05.680 --> 00:00:07.290
+Huge, right?
 
 3
-00:00:08.740 --> 00:00:13.110
-Universal potentials soften under-coordinated environments
+00:00:07.590 --> 00:00:13.510
+But by late 2023, only seven hundred thirty-six had actually been synthesized.
 
 4
-00:00:13.110 --> 00:00:17.480
-100 meV barrier error changes rates 50×
+00:00:13.810 --> 00:00:16.030
+That’s zero point two percent.
 
 5
-00:00:17.480 --> 00:00:21.850
-A local error field corrects the landscape at runtime
+00:00:16.330 --> 00:00:19.400
+And no, this isn’t just labs moving slowly.
 
 6
-00:00:21.850 --> 00:00:26.220
-Cobalt-free cathodes and gigatonne-scale abatement
+00:00:19.700 --> 00:00:25.800
+A crystal can look perfect on a computer and still have no practical chemical path into existence.
 
 7
-00:00:26.220 --> 00:00:30.590
-Material discoveries have a use-by date
+00:00:26.100 --> 00:00:28.060
+Prediction is scaling.
 
 8
-00:00:30.590 --> 00:00:34.960
-From predicted crystal to commercial cell
+00:00:28.360 --> 00:00:30.660
+Synthesizability isn’t.
 
 9
-00:00:34.960 --> 00:00:39.330
-Every false positive costs weeks of lab time
+00:00:30.960 --> 00:00:33.430
+Most screens skip four brutal filters.
 
 10
-00:00:39.330 --> 00:00:44.315
-Lupine routes synthesizable candidates to experimental partners
+00:00:33.730 --> 00:00:38.630
+One: can real precursors reach the target instead of some competing phase?
+
+11
+00:00:38.930 --> 00:00:44.050
+Two: are the forces accurate away from a tidy, equilibrium crystal?
+
+12
+00:00:44.350 --> 00:00:51.690
+Three: what happens when the material has vacancies, disorder, or stacking faults—like real materials do?
+
+13
+00:00:51.990 --> 00:00:54.850
+And four: what does failure cost?
+
+14
+00:00:55.150 --> 00:00:58.300
+Usually weeks of lab time and thousands of dollars.
+
+15
+00:00:58.600 --> 00:01:00.950
+This is not a tiny accuracy problem.
+
+16
+00:01:01.250 --> 00:01:09.230
+Miss an ion-migration barrier by one hundred milli-electronvolts, and the predicted hopping rate changes about fifty-fold at room temperature.
+
+17
+00:01:09.530 --> 00:01:12.420
+You can literally call a conductor an insulator.
+
+18
+00:01:12.720 --> 00:01:15.150
+The answer isn’t a bigger generator.
+
+19
+00:01:15.450 --> 00:01:25.770
+It’s a correction and verification layer: an environment error field that measures where universal potentials go wrong, then corrects them at runtime with proper forces.
+
+20
+00:01:26.070 --> 00:01:27.940
+Better candidates rise.
+
+21
+00:01:28.240 --> 00:01:31.220
+Bad ones get flagged before the furnace turns on.
+
+22
+00:01:31.520 --> 00:01:38.350
+That matters because batteries are tied directly to roughly twenty percent of the emissions cuts needed by 2030.
+
+23
+00:01:38.650 --> 00:01:47.140
+Cobalt-free cathodes could also break a supply chokepoint: about seventy percent of cobalt comes from the Democratic Republic of Congo.
+
+24
+00:01:47.440 --> 00:01:51.400
+And every decade of delay locks in emissions we cannot recover later.
+
+25
+00:01:51.700 --> 00:01:59.200
+The goal is simple: predictions that flow to synthesis, characterization, and scale—not another generation cycle.
+
+26
+00:01:59.500 --> 00:02:04.413
+Read the full article to see how the zero-point-two-percent gap closes.

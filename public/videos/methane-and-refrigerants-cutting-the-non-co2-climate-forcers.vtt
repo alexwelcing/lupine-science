@@ -1,41 +1,83 @@
 WEBVTT
 
+NOTE Narration transcript. Text is the script synthesized by minimax (speech-2.8-hd, voice English_expressive_narrator); each cue was synthesized as its own audio file and is timed by that file's measured duration. Verified at 106.0% of expected length, 136.9 wpm (median cue 137 wpm). Script source: public/videos/methane-and-refrigerants-cutting-the-non-co2-climate-forcers.vtt at commit 4641d96 (pre-overwrite narration prose)
+
 1
-00:00:00.000 --> 00:00:08.730
-The Non-CO₂ Warming Lever
+00:00:00.000 --> 00:00:02.350
+Carbon dioxide gets the headlines.
 
 2
-00:00:08.730 --> 00:00:17.460
-Where uMLIPs Fail: Systematic Softening in Under-Coordinated Environments
+00:00:02.650 --> 00:00:10.530
+But cutting methane thirty percent by 2030 could avoid about zero point three degrees of warming by 2040.
 
 3
-00:00:17.460 --> 00:00:26.190
-Breaking the Scaling Relation in Direct Methane-to-Methanol
+00:00:10.830 --> 00:00:17.520
+Phasing down HFC refrigerants could avoid up to another zero point five degrees by 2100.
 
 4
-00:00:26.190 --> 00:00:34.920
-The Measured Environment Error Field
+00:00:17.820 --> 00:00:20.330
+That is huge near-term leverage.
 
 5
-00:00:34.920 --> 00:00:43.650
-Methane Pyrolysis: Lower Temperature, Useful Carbon
+00:00:20.630 --> 00:00:25.150
+Here is the twist: both targets depend on materials we do not have yet.
 
 6
-00:00:43.650 --> 00:00:52.380
-The Refrigerant Trade-Off: GWP, Performance, and Safety
+00:00:25.450 --> 00:00:34.830
+We need catalysts that convert stranded methane without burning the product, and refrigerants that are efficient, safe, and low-warming, all at once.
 
 7
-00:00:52.380 --> 00:01:01.110
-Caloric Materials: From Correction to Verified Discovery
+00:00:35.130 --> 00:00:38.370
+Fast atomistic AI should help search the options.
 
 8
-00:01:01.110 --> 00:01:09.840
-Blind Prediction Accuracy Across 36 (Model, Material) Combinations
+00:00:38.670 --> 00:00:48.430
+Except its biggest errors happen exactly where these materials work: surfaces, transition states, radical fragments, and phase boundaries.
 
 9
-00:01:09.840 --> 00:01:18.570
-One Correction Geometry, Many Climate Targets
+00:00:48.730 --> 00:00:58.370
+In those under-coordinated environments, universal models can soften the energy landscape by fifteen to sixty percent, and rank the wrong candidate first.
 
 10
-00:01:18.570 --> 00:01:27.917
-Policy Timelines and Addressable Markets
+00:00:58.670 --> 00:01:02.210
+Methane's carbon-hydrogen bond is brutally strong.
+
+11
+00:01:02.510 --> 00:01:09.880
+A catalyst active enough to crack it often holds the methanol product too tightly and over-oxidizes it into carbon dioxide.
+
+12
+00:01:10.180 --> 00:01:17.520
+Corrected barriers can expose rare sites that break this trap, and open lower-temperature methanol or cleaner hydrogen routes.
+
+13
+00:01:17.820 --> 00:01:21.060
+Refrigerants face a different-looking version of the same problem.
+
+14
+00:01:21.360 --> 00:01:29.630
+Millions of molecules must be screened for vapor pressure, efficiency, flammability, toxicity, and atmospheric lifetime.
+
+15
+00:01:29.930 --> 00:01:37.520
+The safety-critical steps involve radicals and breaking bonds, the same low-coordination physics that raw models misread.
+
+16
+00:01:37.820 --> 00:01:46.610
+The correction measures the error versus atomic coordination, anchors a correction field, and applies it at runtime, without retraining the base model.
+
+17
+00:01:46.910 --> 00:01:51.550
+Then machine-checked proofs mark which predictions stay inside the measured domain.
+
+18
+00:01:51.850 --> 00:02:02.760
+Across thirty-six blind model-and-material combinations, corrected predictions reached a correlation of zero point nine zero six, with zero adjustable parameters.
+
+19
+00:02:03.060 --> 00:02:07.880
+Methane catalysts and next-generation cooling are not separate discovery stories.
+
+20
+00:02:08.180 --> 00:02:16.789
+They share one hidden error geometry, and one chance to turn fast screening into evidence we can actually trust, before the policy clock runs out.

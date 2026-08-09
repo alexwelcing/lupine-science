@@ -1,0 +1,15 @@
+{
+  "slug": "from-predicted-crystal-to-commercial-cell",
+  "source": "public/videos/from-predicted-crystal-to-commercial-cell.vtt at commit 4641d96 (pre-overwrite narration prose)",
+  "recoveredAt": "2026-08-08",
+  "words": 273,
+  "chars": 1871,
+  "paragraphs": [
+    "A predicted crystal is not a material. A synthesized powder is not a cell. A cell is not a fleet, a filter, a fertilizer plant, or a solar farm. Between a computational screen and a commercial product stands a chain of handoffs — and most predictions never survive it.",
+    "Millions of predicted crystals shrink to a few hundred independently synthesized. The conventional answer is a bigger generator. But volume without trust only amplifies the same handoff failure. What is missing is a correction and verification layer that makes predictions trustworthy before they reach the lab.",
+    "Consider cobalt-free lithium-manganese-rich cathodes. A corrected ranking sifts more than a million compositions, then passes the best candidates through synthesis, atomic-layer coating, pouch-cell fabrication, and finally into an automaker's prismatic cell line. Each handoff carries a bounded error budget, or it breaks.",
+    "The correction measures error as a field over local coordination, anchored to measured observables and pinned to zero in bulk. Analytic forces apply it at runtime, so simulations stay fast. Across 36 blind model-material pairs, corrected surface energies correlate at zero point nine zero six, with zero fitted parameters.",
+    "The verification layer separates supported predictions from unsupported ones with machine-checked proofs. It can flag impossibility, not just uncertainty, before synthesis starts. Experimental budgets are finite; false positives are expensive. The layer makes sure the work goes to candidates that actually deserve it.",
+    "The same logic reaches solid-state electrolytes, direct-air-capture frameworks, ammonia catalysts, and lead-free perovskites. Different markets, different partners, same geometry of wrongness. In every chain, the scarce resource is not prediction volume. It is the trust that turns a predicted crystal into a commercial cell."
+  ]
+}

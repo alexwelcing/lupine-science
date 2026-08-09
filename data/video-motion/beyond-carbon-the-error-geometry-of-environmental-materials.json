@@ -6,7 +6,7 @@
   "scenes": [
     {
       "image": "public/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-01-seven-domains-one-error.jpg",
-      "duration": 5.85,
+      "duration": 15.546,
       "effect": "slow-zoom-in",
       "text": [
         "One Geometry, Seven Planetary Boundaries"
@@ -14,7 +14,7 @@
     },
     {
       "image": "public/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-03-four-filters.jpg",
-      "duration": 5.85,
+      "duration": 15.546,
       "effect": "slow-zoom-out",
       "text": [
         "From Predicted Structure to Buried Breakthrough"
@@ -22,7 +22,7 @@
     },
     {
       "image": "public/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-02-coordination-error-curve.jpg",
-      "duration": 5.85,
+      "duration": 15.546,
       "effect": "pan-right",
       "text": [
         "Error Grows as Coordination Drops"
@@ -30,7 +30,7 @@
     },
     {
       "image": "public/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-07-ranking-inversion.jpg",
-      "duration": 5.85,
+      "duration": 15.546,
       "effect": "pan-left",
       "text": [
         "Raw Rankings Hide True Breakthroughs"
@@ -38,7 +38,7 @@
     },
     {
       "image": "public/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-05-correction-verification-layer.jpg",
-      "duration": 5.85,
+      "duration": 15.546,
       "effect": "pan-up",
       "text": [
         "Runtime Correction with Proof Boundaries"
@@ -46,7 +46,7 @@
     },
     {
       "image": "public/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-06-addressable-impact-sankey.jpg",
-      "duration": 5.85,
+      "duration": 15.546,
       "effect": "pan-down",
       "text": [
         "The Combined Addressable Impact"
@@ -54,7 +54,7 @@
     },
     {
       "image": "public/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-08-platform-ecosystem.jpg",
-      "duration": 5.85,
+      "duration": 15.546,
       "effect": "drift",
       "text": [
         "One Layer, Many Industrial Workflows"
@@ -62,7 +62,7 @@
     },
     {
       "image": "public/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-04-blind-prediction-panel.jpg",
-      "duration": 5.85,
+      "duration": 15.546,
       "effect": "slow-zoom-in",
       "text": [
         "Measured Correction, Machine-Checked Proof"
@@ -70,7 +70,7 @@
     },
     {
       "image": "public/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-09-economics-moat.jpg",
-      "duration": 5.85,
+      "duration": 15.546,
       "effect": "slow-zoom-out",
       "text": [
         "Speed That Scales Where DFT Cannot"
@@ -78,7 +78,7 @@
     },
     {
       "image": "public/articles/beyond-carbon-the-error-geometry-of-environmental-materials/images/beyond-carbon-the-error-geometry-of-environmental-materials-10-platform-roadmap.jpg",
-      "duration": 5.85,
+      "duration": 15.546,
       "effect": "pan-right",
       "text": [
         "The Path From Measured Error to Trust"

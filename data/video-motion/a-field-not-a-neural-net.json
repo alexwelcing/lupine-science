@@ -6,7 +6,7 @@
   "scenes": [
     {
       "image": "public/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-01-synthesis-funnel.jpg",
-      "duration": 3.25,
+      "duration": 15.078,
       "effect": "slow-zoom-in",
       "text": [
         "The synthesis validation bottleneck"
@@ -14,7 +14,7 @@
     },
     {
       "image": "public/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-02-coordination-error-curve.jpg",
-      "duration": 3.25,
+      "duration": 15.078,
       "effect": "slow-zoom-out",
       "text": [
         "Errors are not noise — they have a shape"
@@ -22,7 +22,7 @@
     },
     {
       "image": "public/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-03-field-anchors-spline.jpg",
-      "duration": 3.25,
+      "duration": 15.078,
       "effect": "pan-right",
       "text": [
         "Three anchors fix the field"
@@ -30,7 +30,7 @@
     },
     {
       "image": "public/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-04-blind-prediction-scatter.jpg",
-      "duration": 3.25,
+      "duration": 15.078,
       "effect": "pan-left",
       "text": [
         "r = 0.906 blind prediction"
@@ -38,7 +38,7 @@
     },
     {
       "image": "public/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-05-runtime-correction.jpg",
-      "duration": 3.25,
+      "duration": 15.078,
       "effect": "pan-up",
       "text": [
         "Additive correction, analytic forces"
@@ -46,7 +46,7 @@
     },
     {
       "image": "public/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-09-speed-accuracy-panel.jpg",
-      "duration": 3.25,
+      "duration": 15.078,
       "effect": "pan-down",
       "text": [
         "Accuracy without the DFT price tag"
@@ -54,7 +54,7 @@
     },
     {
       "image": "public/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-07-impossibility-boundaries.jpg",
-      "duration": 3.25,
+      "duration": 15.078,
       "effect": "drift",
       "text": [
         "Where correction cannot work, the framework proves it"
@@ -62,7 +62,7 @@
     },
     {
       "image": "public/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-06-discovery-loop.jpg",
-      "duration": 3.25,
+      "duration": 15.078,
       "effect": "slow-zoom-in",
       "text": [
         "The six-step discovery loop"
@@ -70,7 +70,7 @@
     },
     {
       "image": "public/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-08-climate-targets-map.jpg",
-      "duration": 3.25,
+      "duration": 15.078,
       "effect": "slow-zoom-out",
       "text": [
         "From geometry to gigatonnes"
@@ -78,7 +78,7 @@
     },
     {
       "image": "public/articles/a-field-not-a-neural-net/images/a-field-not-a-neural-net-10-field-vs-neural-net.jpg",
-      "duration": 3.25,
+      "duration": 15.078,
       "effect": "pan-right",
       "text": [
         "A field, not a neural net"

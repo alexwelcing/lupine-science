@@ -6,7 +6,7 @@
   "scenes": [
     {
       "image": "public/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-01-generation-funnel.jpg",
-      "duration": 5.53,
+      "duration": 16.122,
       "effect": "slow-zoom-in",
       "text": [
         "From millions of predictions to a handful of validated materials"
@@ -14,7 +14,7 @@
     },
     {
       "image": "public/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-02-pipeline-leaks.jpg",
-      "duration": 5.53,
+      "duration": 16.122,
       "effect": "slow-zoom-out",
       "text": [
         "The layered pipeline, and where it leaks"
@@ -22,7 +22,7 @@
     },
     {
       "image": "public/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-03-error-field.jpg",
-      "duration": 5.53,
+      "duration": 16.122,
       "effect": "pan-right",
       "text": [
         "Measured error field, not learned"
@@ -30,7 +30,7 @@
     },
     {
       "image": "public/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-04-blind-test-correlation.jpg",
-      "duration": 5.53,
+      "duration": 16.122,
       "effect": "pan-left",
       "text": [
         "Predicting the error on a never-fitted observable"
@@ -38,7 +38,7 @@
     },
     {
       "image": "public/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-05-runtime-overlay.jpg",
-      "duration": 5.53,
+      "duration": 16.122,
       "effect": "pan-up",
       "text": [
         "Runtime compatibility: correct without retraining"
@@ -46,7 +46,7 @@
     },
     {
       "image": "public/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-08-partner-flywheel.jpg",
-      "duration": 5.53,
+      "duration": 16.122,
       "effect": "pan-down",
       "text": [
         "Partnership architecture that deepens the moat"
@@ -54,7 +54,7 @@
     },
     {
       "image": "public/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-06-climate-scale.jpg",
-      "duration": 5.53,
+      "duration": 16.122,
       "effect": "drift",
       "text": [
         "Why accuracy matters in gigatonnes"
@@ -62,7 +62,7 @@
     },
     {
       "image": "public/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-07-phase-zero-risk.jpg",
-      "duration": 5.53,
+      "duration": 16.122,
       "effect": "slow-zoom-in",
       "text": [
         "What is proven, what is on the critical path"
@@ -70,7 +70,7 @@
     },
     {
       "image": "public/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-09-economics-leverage.jpg",
-      "duration": 5.53,
+      "duration": 16.122,
       "effect": "slow-zoom-out",
       "text": [
         "Infrastructure leverage against a trillion-dollar prize"
@@ -78,7 +78,7 @@
     },
     {
       "image": "public/articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-10-trust-loop-cta.jpg",
-      "duration": 5.53,
+      "duration": 16.122,
       "effect": "pan-right",
       "text": [
         "The trust layer for a real-world Replicator"

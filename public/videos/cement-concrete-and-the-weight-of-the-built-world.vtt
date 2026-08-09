@@ -1,41 +1,91 @@
 WEBVTT
 
+NOTE Narration transcript. Text is the script synthesized by minimax (speech-2.8-hd, voice English_expressive_narrator); each cue was synthesized as its own audio file and is timed by that file's measured duration. Verified at 113.7% of expected length, 127.6 wpm (median cue 135.7 wpm). Script source: public/videos/cement-concrete-and-the-weight-of-the-built-world.vtt at commit 4641d96 (pre-overwrite narration prose)
+
 1
-00:00:00.000 --> 00:00:04.130
-The 2.8-Gigaton Footprint
+00:00:00.000 --> 00:00:04.340
+Concrete is the most widely used manufactured material on Earth.
 
 2
-00:00:04.130 --> 00:00:08.260
-The Process-Emissions Trap
+00:00:04.640 --> 00:00:13.560
+The cement that binds it emits about 2.8 gigatonnes of CO₂ every year, roughly 8% of global anthropogenic emissions.
 
 3
-00:00:08.260 --> 00:00:12.390
-Three Discovery Fronts
+00:00:13.860 --> 00:00:18.680
+And about 60% of that comes from limestone calcination, not fuel.
 
 4
-00:00:12.390 --> 00:00:16.520
-Where Universal Potentials Lose Trust
+00:00:18.980 --> 00:00:22.910
+Clean kilns help, but they cannot change the chemistry.
 
 5
-00:00:16.520 --> 00:00:20.650
-The Metastability Problem
+00:00:23.210 --> 00:00:29.990
+As long as limestone is the main calcium feedstock, calcination releases CO₂ regardless of heat source.
 
 6
-00:00:20.650 --> 00:00:24.780
-Measure, Correct, Prove
+00:00:30.290 --> 00:00:39.500
+Real decarbonization needs new chemistries: alternative binders, alternative clinkers, and CO₂-cured concrete.
 
 7
-00:00:24.780 --> 00:00:28.910
-Correction Restores Rank Order
+00:00:39.800 --> 00:00:45.900
+All three routes depend on amorphous gels, metastable hydrates, and multi-component oxides.
 
 8
-00:00:28.910 --> 00:00:33.040
-The Partnership Chain
+00:00:46.200 --> 00:00:53.410
+These are the exact environments where universal machine-learning potentials soften the energy surface by 15 to 60 percent.
 
 9
-00:00:33.040 --> 00:00:37.170
-The Computational Moat
+00:00:53.710 --> 00:00:59.890
+A dissolution energy off by 15 percent can invert the ranking of two binder formulations.
 
 10
-00:00:37.170 --> 00:00:41.913
-From Candidates to Deployed Binders
+00:01:00.190 --> 00:01:06.080
+Alternative binders like slag and geopolymers are glasses and gels, not unit cells.
+
+11
+00:01:06.380 --> 00:01:12.520
+Alternative clinkers span multi-component oxide spaces with metastable essential phases.
+
+12
+00:01:12.820 --> 00:01:19.770
+CO₂-cured concrete is limited by carbonate diffusion barriers at under-coordinated surface sites.
+
+13
+00:01:20.070 --> 00:01:22.880
+Each front needs trustworthy rankings.
+
+14
+00:01:23.180 --> 00:01:31.320
+The correction measures error as a field over local coordination, anchored to three observables and pinned to zero in bulk.
+
+15
+00:01:31.620 --> 00:01:37.800
+It applies analytic corrections at runtime, keeping molecular dynamics nearly as fast as the base model.
+
+16
+00:01:38.100 --> 00:01:46.970
+Across 36 blind model-material pairs, corrected predictions correlate at 0.906 with zero fitted parameters.
+
+17
+00:01:47.270 --> 00:01:55.370
+The verification layer uses build-locked Lean 4 theorems to separate supported predictions from synthesis-dependent ones.
+
+18
+00:01:55.670 --> 00:02:02.960
+For cement, that matters because the most useful phases are metastable and cannot be judged by convex-hull stability alone.
+
+19
+00:02:03.260 --> 00:02:06.120
+Cement is not a special case.
+
+20
+00:02:06.420 --> 00:02:14.010
+It is one instance of a geometry of wrongness that extends across batteries, catalysts, sorbents, and refrigerants.
+
+21
+00:02:14.310 --> 00:02:17.290
+The bottleneck is not a shortage of candidates.
+
+22
+00:02:17.590 --> 00:02:20.815
+It is a shortage of predictions laboratories can trust.
