@@ -516,6 +516,17 @@ describe('proof-pack determinism', () => {
 });
 
 describe('proof-pack consolidated mode', () => {
+  it('produces a byte-identical legacy climate-series PDF on repeated builds', () => {
+    const consolidatedPath = path.join(ROOT, 'public', 'proof-pack-climate-series.pdf');
+    const run1 = run(['--consolidated']);
+    assert.equal(run1.status, 0, run1.stderr);
+    const hash1 = sha256(consolidatedPath);
+
+    const run2 = run(['--consolidated']);
+    assert.equal(run2.status, 0, run2.stderr);
+    assert.equal(sha256(consolidatedPath), hash1, 'PDF bytes differ between builds');
+  });
+
   it('produces the legacy climate-series PDF without Type 3 fonts', async () => {
     const consolidatedPath = path.join(ROOT, 'public', 'proof-pack-climate-series.pdf');
     const before = fs.existsSync(consolidatedPath);
@@ -531,6 +542,7 @@ describe('proof-pack consolidated mode', () => {
       [],
       `Type 3 fonts can render incorrectly in print engines: ${report.fonts.type3.join(', ')}`
     );
+    assert.equal(report.annotations.localUris.length, 0, 'found localhost link annotations');
     if (!before) {
       // Leave the file in the expected production location.
     }
