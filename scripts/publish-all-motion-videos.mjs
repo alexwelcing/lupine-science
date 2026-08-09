@@ -10,6 +10,7 @@
 // are publishable; the rest are reported as skipped rather than narrated from
 // whatever text happened to be lying around.
 
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -51,18 +52,43 @@ function main() {
       continue;
     }
 
-    // Skip only on positive evidence that this film is already published from a
-    // verified narration: a caption track that is a real transcript.
+    // Skip only on positive evidence that this film PASSED its release checks. The
+    // marker is written by the publisher only after the poster and the audio release
+    // gate have both succeeded, and it records the MP4's sha256.
     //
-    // The previous test was `mp4 larger than 4 MB`, on the theory that new renders
-    // are bigger than old ones. File size says nothing about whether the audio
-    // contains the script — every one of the corrupted films was comfortably over
-    // 4 MB and would have been skipped as "already published".
-    if (!force && fs.existsSync(outVideo) && fs.existsSync(outVtt)
-        && /^NOTE Narration transcript\./m.test(fs.readFileSync(outVtt, 'utf8'))) {
-      console.log(`${slug}: skipped (already published from a verified narration)`);
-      skipped++;
-      continue;
+    // Two earlier versions of this test both failed open:
+    //   1. `mp4 larger than 4 MB`, on the theory that new renders are bigger. File
+    //      size says nothing about whether the audio contains the script — every
+    //      corrupted film was comfortably over 4 MB and was skipped as "published".
+    //   2. `mp4 + vtt exist and the vtt carries the NOTE`. The publisher writes that
+    //      NOTE before buildPoster and before the gate, so a film that FAILED the
+    //      gate still satisfied it: the next run skipped it and exited 0, leaving a
+    //      rejected artifact live.
+    //
+    // Evidence of intent is not evidence of success — only a post-gate record is.
+    //
+    // The previous test was "mp4 and vtt exist and the vtt carries the NOTE". That
+    // fails open: the publisher writes the NOTE before buildPoster and before the
+    // gate, so a film that FAILED the gate still satisfied it. The next batch run
+    // skipped that film as "already published from a verified narration" and exited
+    // 0, leaving a rejected artifact live. Evidence of intent is not evidence of
+    // success — only a post-gate record is.
+    //
+    // Hashing the MP4 also means a re-render invalidates the marker automatically
+    // rather than inheriting the previous run's pass.
+    if (!force && fs.existsSync(outVideo) && fs.existsSync(outVtt)) {
+      const marker = path.join(ROOT, 'data', 'video-motion', 'published', `${slug}.json`);
+      if (fs.existsSync(marker)) {
+        let record;
+        try { record = JSON.parse(fs.readFileSync(marker, 'utf8')); } catch { record = null; }
+        const actual = crypto.createHash('sha256').update(fs.readFileSync(outVideo)).digest('hex');
+        if (record?.mp4_sha256 === actual) {
+          console.log(`${slug}: skipped (gate passed for this exact mp4, ${record.narration_wpm} wpm)`);
+          skipped++;
+          continue;
+        }
+        console.log(`${slug}: republishing — marker does not match the mp4 on disk`);
+      }
     }
 
     console.log(`\n=== ${slug} ===`);

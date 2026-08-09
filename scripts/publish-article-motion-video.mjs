@@ -29,6 +29,7 @@
 //      is exactly what was missing while ten films published with 29-67% of
 //      their script and one with ~25 s of hallucinated speech.
 
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -275,6 +276,30 @@ async function main() {
     '--summary', audioGateSummary,
   ]);
   console.log(`[${slug}] Audio release gate PASS: ${audioGateJson}`);
+
+  // Completion marker, written ONLY here — after the poster and the gate have both
+  // succeeded. Nothing before this line may be treated as evidence of publication.
+  //
+  // The batch runner used to infer "already published" from artifacts on disk plus
+  // the NOTE inside the VTT. But the NOTE is written ~15 lines above, before
+  // buildPoster and before the gate, so a film that FAILED the gate still looked
+  // verified on the next run: the batch skipped it and exited 0, leaving a rejected
+  // artifact live. Evidence of intent is not evidence of success.
+  //
+  // Keyed to the MP4's sha256 so the marker cannot outlive the file it describes —
+  // a re-render invalidates it automatically instead of inheriting a stale pass.
+  const markerDir = path.join(ROOT, 'data', 'video-motion', 'published');
+  fs.mkdirSync(markerDir, { recursive: true });
+  fs.writeFileSync(path.join(markerDir, `${slug}.json`), `${JSON.stringify({
+    slug,
+    mp4: path.relative(ROOT, outVideo),
+    mp4_sha256: crypto.createHash('sha256').update(fs.readFileSync(outVideo)).digest('hex'),
+    vtt: path.relative(ROOT, outVtt),
+    narration_wpm: narration.measuredWpm,
+    length_ratio: narration.lengthRatio,
+    audio_gate: path.relative(ROOT, audioGateJson),
+    tts_provider: narration.provider,
+  }, null, 2)}\n`);
 }
 
 main().catch((e) => {
