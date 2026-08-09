@@ -54,7 +54,7 @@
       "example": 25
     }
   },
-  "counted_at": "2026-08-06",
+  "counted_at": "2026-08-08",
   "source": "theory-artifacts (sharp-correction-license Lean tree, sibling checkout)",
   "source_sha256": "05fc882cb046810aff3d28650f57128fccc26bfd2f34e3d1a872c1100d20730c",
   "rule": "theorem/lemma/example declarations after stripping nested comments and strings; supports attributes and declaration modifiers; an active sorry token fails the run; regenerate with scripts/generate-theory-artifacts-count.mjs — never hand-edit"

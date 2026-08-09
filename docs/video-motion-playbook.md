@@ -121,44 +121,121 @@ Output: `media/projects/video-motion/renders/the-02-percent-synthesis-problem-mo
 
 ## Voiceover pipeline
 
-To replace the old narrated summary with a professional deep-calm voice:
+### One command, start to finish
 
 ```bash
-FAL_KEY=... node scripts/generate-article-voiceover.mjs --slug the-02-percent-synthesis-problem --voice dan
+node scripts/publish-article-motion-video.mjs --slug the-02-percent-synthesis-problem
 ```
 
-This downloads the Orpheus TTS WAV, converts it to a normalized AAC track in
-`media/projects/voice-tracks/`, and prints the duration. Use that duration to
-set scene durations in the manifest so the motion cut matches the narration.
+That synthesizes the narration, verifies it, renders the video, writes the
+poster, writes the caption track, and runs the audio release gate. The
+hand-assembled sequence that used to live in this section is gone — see
+"Why the manual sequence was removed" below.
 
-For a tighter loudness target, normalize the generated track before muxing:
+### Narration scripts are inputs, captions are outputs
+
+The narration script lives in `data/narration-scripts/<slug>.json` as an array
+of paragraphs. Nothing in the pipeline writes to it.
+
+It used to be read from `public/videos/<slug>.vtt` — which is also where the
+caption step *writes*. That loop destroyed all ten narration scripts: every
+`generate-motion-vtt.mjs` run replaced the prose with scene titles, and the next
+publish run then narrated the titles. The prose survives only in git history:
 
 ```bash
-ffmpeg -i media/projects/voice-tracks/<slug>-voice-dan.m4a \
-  -af "loudnorm=I=-16:TP=-1.5:LRA=7" \
-  -c:a aac -ar 44100 -ac 1 -b:a 128k \
-  media/projects/voice-tracks/<slug>-voice-dan-norm.m4a
+node scripts/recover-narration-scripts.mjs            # all films
+node scripts/recover-narration-scripts.mjs --check    # verify against 4641d96
 ```
 
-Then render the final public video:
+### Choosing a TTS provider
 
 ```bash
-node scripts/build-article-motion-video.mjs \
-  --slug the-02-percent-synthesis-problem \
-  --audio media/projects/voice-tracks/<slug>-voice-dan-norm.m4a \
-  --out public/videos/<slug>.mp4
+LUPINE_TTS_PROVIDER=minimax  # default: MiniMax speech-2.8-hd
+LUPINE_TTS_PROVIDER=fal      # FAL Orpheus; also --tts-provider on the CLI
 ```
 
-Finally regenerate the poster and VTT:
+Check what is usable right now, and see the numbers a track is judged on:
 
 ```bash
-node scripts/generate-motion-vtt.mjs --slug the-02-percent-synthesis-problem
-ffmpeg -ss 00:00:10 -i public/videos/<slug>.mp4 -update 1 -frames:v 1 -q:v 2 public/videos/<slug>-poster.jpg
+node scripts/dev/test-tts.mjs                    # default provider, short sample
+node scripts/dev/test-tts.mjs --tts-provider fal
 ```
+
+MiniMax is the default because the FAL account is locked
+(`403 User is locked. Reason: Exhausted balance.`). The FAL path is kept working,
+not deleted — set `LUPINE_TTS_PROVIDER=fal` once the balance is restored. Adding
+a third provider means adding one object to `PROVIDERS` in
+`scripts/lib/tts-provider.mjs`; nothing else changes.
+
+Credentials, first match wins:
+
+| Provider | Sources |
+| --- | --- |
+| `minimax` | `MINIMAX_API_KEY`, `.keys/minimax-key`, `~/.hermes/auth.json` (`minimax-oauth`) |
+| `fal` | `FAL_KEY`, `.keys/fal-key` |
+
+### Every track is verified, never trusted
+
+Ten films published with 33-71% of their intended script and one carried ~25 s of
+hallucinated speech, because nothing compared the returned audio against the text
+that was sent. A short track is a perfectly valid audio file: it normalizes to
+spec, muxes cleanly, and matches the video duration — because scene durations were
+derived *from* it. Only duration-versus-word-count exposes it.
+
+So `scripts/lib/verify-narration.mjs` measures every paragraph and the assembled
+track, and refuses anything that:
+
+- delivers **under 85%** of the duration its word count predicts at 145 wpm (truncation);
+- runs longer than **1.9x expected + 4 s** (hallucinated padding);
+- reads **more than 1.6x the film's median chunk rate** — a paragraph racing past
+  the rest of the film means words were counted that were never spoken.
+
+Failures print words, expected seconds, actual seconds, ratio and measured wpm, so
+the log line alone is diagnosable. The ceiling is deliberately loose because
+Lupine narration is dense with figures: "2.2 million" is one word and many
+syllables, so real audio routinely exceeds a naive word-count prediction.
+
+Per-film evidence is written to
+`media/projects/article-videos/<slug>/narration.json`.
+
+### Captions come from the verified narration
+
+`build-articles.mjs` emits `<track ... default>`, so a VTT is **on screen
+automatically**. Never write a transcript of audio you have not verified.
+
+The publisher synthesizes one file per paragraph, so each paragraph's real
+duration is known and cue boundaries are exact — no speech-to-text, no drift. Cue
+text is the script that was spoken; cue times come from the audio that was
+produced.
+
+`scripts/generate-motion-vtt.mjs` writes scene *titles*, not narration, and is for
+scratch manifests only. It now refuses to overwrite a narration transcript unless
+forced.
+
+### Why the manual sequence was removed
+
+The old instructions said to normalize at `TP=-1.5`, mux, then generate a VTT from
+scene titles. Two defects were baked in:
+
+- **`TP=-1.5` fails the release gate.** The track is AAC-encoded twice (once on
+  normalize, once on mux) and each lossy pass overshoots its target, landing
+  -1.5..-0.8 dBTP against the gate's -1.0 dBTP ceiling. The publisher uses
+  `TP=-2.0`, which clears with headroom at unchanged loudness.
+- **Scene-title VTTs mislead viewers and blind the gate.** A film's worth of
+  titles is 35-74 words against 270-320 words of script, so `speech-rate-in-band`
+  divided real narration time by placeholder word counts and reported 43-98 wpm
+  for narration actually running 118-149 wpm.
 
 ## Next steps for richer motion
 
-1. **Scene-aware durations**: read the narration VTT and set `duration` per scene to match cue boundaries.
-2. **Layered graphics**: add lightweight SVG overlays (progress bar, chapter titles) as additional inputs in the filter graph.
-3. **Beat-synced cuts**: parse audio transients and align transition frames to them.
-4. **Motion review gate**: extend `scripts/video-quality-reviewer.mjs` to sample motion renders for blank frames and unreadable text.
+1. **Scene-aware durations**: scene durations are currently uniform. The narration
+   now exposes exact per-paragraph cue boundaries in
+   `media/projects/article-videos/<slug>/narration.json`, so scenes could be cut
+   to paragraph boundaries instead of divided evenly.
+2. **Independent transcript audit**: cue text is the script that was *sent*, and
+   the length checks confirm the audio is the right size to contain it. An ASR
+   pass would confirm it is the right *words*. No ASR model is installed on the
+   build host; `faster-whisper` would close this gap.
+3. **Layered graphics**: add lightweight SVG overlays (progress bar, chapter titles) as additional inputs in the filter graph.
+4. **Beat-synced cuts**: parse audio transients and align transition frames to them.
+5. **Motion review gate**: extend `scripts/video-quality-reviewer.mjs` to sample motion renders for blank frames and unreadable text.

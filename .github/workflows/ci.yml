@@ -75,8 +75,23 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install system PDF/QA tools
-        run: sudo apt-get update && sudo apt-get install --yes poppler-utils
+      - name: Fetch the narration-script provenance commit
+        # tests/narration-verification.test.mjs re-derives data/narration-scripts/
+        # from public/videos/*.vtt as they stood at 4641d96 and fails if they have
+        # drifted. That prose exists nowhere else — a later commit overwrote the
+        # working-tree copies with scene titles — so the check needs that one
+        # commit. Fetched at depth 1 rather than with fetch-depth: 0, because full
+        # history here is a 1.28 GiB pack. The full SHA is required: fetching an
+        # abbreviated one fails with "couldn't find remote ref".
+        run: git fetch --depth=1 origin 4641d96269617a365346b4ff7feead54f026c6a9
+
+      - name: Install system PDF/QA and audio tools
+        # ffmpeg/ffprobe are required, not optional: tests/narration-verification.test.mjs
+        # measures real decoded audio durations, which is the check that was missing
+        # while ten films published with 29-67% of their narration script. Without
+        # ffmpeg those tests fail loudly rather than skipping, so the gate cannot
+        # quietly stop being enforced.
+        run: sudo apt-get update && sudo apt-get install --yes poppler-utils ffmpeg
 
       - name: Install Playwright browser
         # Pin to the playwright-core version in package.json: an unpinned
@@ -180,6 +195,50 @@ jobs:
           path: |
             ${{ runner.temp }}/publication-smoke-gate.json
             ${{ runner.temp }}/publication-smoke-server.log
+          if-no-files-found: error
+          retention-days: 90
+
+  publication-audio-checks:
+    name: Publication audio gate
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install pinned audio inspection tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes ffmpeg
+
+      - name: Download exact built site
+        uses: actions/download-artifact@v4
+        with:
+          name: lupine-science-public-${{ github.event.pull_request.head.sha || github.sha }}
+          path: public/
+
+      - name: Fail closed on new audio defects (known backlog baselined)
+        env:
+          AUDIO_GATE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          node scripts/audio-release-gate.mjs \
+            --directory public/videos \
+            --sha "$AUDIO_GATE_SHA" \
+            --baseline tests/fixtures/audio-gate-baseline.json \
+            --output "$RUNNER_TEMP/audio-gate/audio-gate.json" \
+            --summary "$RUNNER_TEMP/audio-gate/audio-gate.md"
+
+      - name: Upload audio gate decision and evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: publication-audio-gate-${{ github.event.pull_request.head.sha || github.sha }}
+          path: ${{ runner.temp }}/audio-gate/
           if-no-files-found: error
           retention-days: 90
 

@@ -1,41 +1,111 @@
 WEBVTT
 
+NOTE Narration transcript. Text is the script synthesized by minimax (speech-2.8-hd, voice English_expressive_narrator); each cue was synthesized as its own audio file and is timed by that file's measured duration. Verified at 117.3% of expected length, 123.6 wpm (median cue 134.2 wpm). Script source: public/videos/beyond-carbon-the-error-geometry-of-environmental-materials.vtt at commit 4641d96 (pre-overwrite narration prose)
+
 1
-00:00:00.000 --> 00:00:10.560
-One Geometry, Seven Planetary Boundaries
+00:00:00.000 --> 00:00:12.590
+What do desalination membranes, methane catalysts, safer refrigerants, lithium recovery, PFAS cleanup, clean-air catalysts, and low-carbon cement have in common?
 
 2
-00:00:10.560 --> 00:00:21.120
-From Predicted Structure to Buried Breakthrough
+00:00:12.890 --> 00:00:15.650
+Weirdly, the same atomic blind spot.
 
 3
-00:00:21.120 --> 00:00:31.680
-Error Grows as Coordination Drops
+00:00:15.950 --> 00:00:18.840
+The materials bottleneck is not climate-specific.
 
 4
-00:00:31.680 --> 00:00:42.240
-Raw Rankings Hide True Breakthroughs
+00:00:19.140 --> 00:00:21.490
+It is coordination-specific.
 
 5
-00:00:42.240 --> 00:00:52.800
-Runtime Correction with Proof Boundaries
+00:00:21.790 --> 00:00:27.460
+Universal machine-learning potentials learn tidy bulk crystals, where atoms have lots of regular neighbors.
 
 6
-00:00:52.800 --> 00:01:03.360
-The Combined Addressable Impact
+00:00:27.760 --> 00:00:35.990
+But useful chemistry happens at pores, surfaces, vacancies, and transition states—where atoms have fewer neighbors.
 
 7
-00:01:03.360 --> 00:01:13.920
-One Layer, Many Industrial Workflows
+00:00:36.290 --> 00:00:41.750
+Right there, these models can soften the energy landscape by 15 to 60 percent.
 
 8
-00:01:13.920 --> 00:01:24.480
-Measured Correction, Machine-Checked Proof
+00:00:42.050 --> 00:00:44.140
+That is not harmless noise.
 
 9
-00:01:24.480 --> 00:01:35.040
-Speed That Scales Where DFT Cannot
+00:00:44.440 --> 00:00:52.630
+A softened barrier can make the wrong membrane look selective, the wrong catalyst look fast, or an unmakeable cement phase look stable.
 
 10
-00:01:35.040 --> 00:01:46.212
-The Path From Measured Error to Trust
+00:00:52.930 --> 00:00:58.900
+Across millions of candidates, tiny systematic errors flip rankings—and experiments chase false winners.
+
+11
+00:00:59.200 --> 00:01:04.960
+The stakes are huge: water scarcity affects roughly two billion people.
+
+12
+00:01:05.260 --> 00:01:07.810
+Air pollution kills millions every year.
+
+13
+00:01:08.110 --> 00:01:11.600
+Methane drives about 30 percent of current warming.
+
+14
+00:01:11.900 --> 00:01:18.170
+Clean-energy mineral demand could rise four- to six-fold by 2040.
+
+15
+00:01:18.470 --> 00:01:24.010
+And cement alone produces roughly 2.8 gigatonnes of carbon dioxide annually.
+
+16
+00:01:24.310 --> 00:01:28.750
+The correction's response starts with the useful part: the error has a shape.
+
+17
+00:01:29.050 --> 00:01:32.630
+Three measured observables anchor an environment error field.
+
+18
+00:01:32.930 --> 00:01:42.520
+Bulk coordination is fixed at zero error, and a constrained curve predicts corrections for under-coordinated environments the field never directly saw.
+
+19
+00:01:42.820 --> 00:01:52.460
+Add that field at runtime, and simulations follow corrected energies and analytic forces—still about one hundred thousand times faster than quantum chemistry.
+
+20
+00:01:52.760 --> 00:02:00.900
+In blind tests across 36 model-material pairs, predicted corrections correlated at 0.906.
+
+21
+00:02:01.200 --> 00:02:08.700
+Then 77 build-locked Lean 4 theorems mark what is supported, out of domain, or synthesis-dependent.
+
+22
+00:02:09.000 --> 00:02:10.710
+So this is bigger than carbon.
+
+23
+00:02:11.010 --> 00:02:21.840
+One correction-and-verification layer can improve discovery across water, air, methane, refrigerants, minerals, PFAS, and cement.
+
+24
+00:02:22.140 --> 00:02:23.200
+Measure the error.
+
+25
+00:02:23.500 --> 00:02:24.810
+Correct the physics.
+
+26
+00:02:25.110 --> 00:02:26.340
+Prove the boundary.
+
+27
+00:02:26.640 --> 00:02:30.058
+Then send experiments the candidates actually worth making.

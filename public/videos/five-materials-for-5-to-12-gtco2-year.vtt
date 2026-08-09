@@ -1,41 +1,79 @@
 WEBVTT
 
+NOTE Narration transcript. Text is the script synthesized by minimax (speech-2.8-hd, voice English_expressive_narrator); each cue was synthesized as its own audio file and is timed by that file's measured duration. Verified at 103.7% of expected length, 139.9 wpm (median cue 135.5 wpm). Script source: public/videos/five-materials-for-5-to-12-gtco2-year.vtt at commit 4641d96 (pre-overwrite narration prose)
+
 1
-00:00:00.000 --> 00:00:06.600
-Five Material Classes Could Unlock 5–12 GtCO₂/Year
+00:00:00.000 --> 00:00:05.200
+The gap between a climate target and an actual climate solution is usually a material.
 
 2
-00:00:06.600 --> 00:00:13.200
-Why Promising Candidates Fail in the Synthesis Vessel
+00:00:05.500 --> 00:00:13.220
+And 5 missing materials could unlock between 5 and 12 gigatons of carbon dioxide reductions every year.
 
 3
-00:00:13.200 --> 00:00:19.800
-Measuring Error as a Physical Field, Then Correcting It
+00:00:13.520 --> 00:00:15.350
+So, what are they?
 
 4
-00:00:19.800 --> 00:00:26.400
-The Same Defect-Mediated Failure, Five Different Materials
+00:00:15.650 --> 00:00:21.620
+First, cobalt-free cathodes that push past a thousand charge cycles without voltage fade.
 
 5
-00:00:26.400 --> 00:00:33.000
-Raw Rankings Discard the Best Candidates
+00:00:21.920 --> 00:00:34.510
+Second, solid electrolytes made from abundant elements, so lithium metal batteries can pass 400 Wh per kilogram without flammable liquid or critical material pricing.
 
 6
-00:00:33.000 --> 00:00:39.600
-Blind Prediction of Surface Energies Across 36 Model–Material Pairs
+00:00:34.810 --> 00:00:38.740
+Third, metal organic frameworks for direct air capture.
 
 7
-00:00:39.600 --> 00:00:46.200
-How a 100 meV Correction Translates to Gigatonne Impact
+00:00:39.040 --> 00:00:49.410
+They need to grab carbon dioxide at just 400 PPM, ignore all that competing water, survive humidity, and stay cheap enough to manufacture by the ton.
 
 8
-00:00:46.200 --> 00:00:52.800
-Every Screen Deepens the Moat
+00:00:49.710 --> 00:00:57.180
+Fourth, an ammonia catalyst that works near room conditions instead of inside the energy-hungry Haber-Bosch process.
 
 9
-00:00:52.800 --> 00:00:59.400
-From Corrected Predictions to Named Experimental Partners
+00:00:57.480 --> 00:01:06.780
+And fifth, a lead-free perovskite solar absorber that can clear 20% efficiency and last 25 years without tin oxidizing in minutes.
 
 10
-00:00:59.400 --> 00:01:06.610
-From Correction Layer to Deployable Materials
+00:01:07.080 --> 00:01:10.020
+Different industries, one shared failure.
+
+11
+00:01:10.320 --> 00:01:17.560
+Performance depends on defects, surfaces, and atomic transition states where atoms have fewer neighbors.
+
+12
+00:01:17.860 --> 00:01:23.530
+That is exactly where fast universal models soften the energy landscape and get the ranking wrong.
+
+13
+00:01:23.830 --> 00:01:31.420
+Brute force quantum calculations can recover the answer, but they are far too slow for millions or trillions of candidates.
+
+14
+00:01:31.720 --> 00:01:36.620
+A 100 millielectron volt error can change a predicted hopping rate 50-fold.
+
+15
+00:01:36.920 --> 00:01:45.450
+The correction measures that systematic error as a physical field corrects it while the model runs and checks the result with machine-verified proofs.
+
+16
+00:01:45.750 --> 00:01:47.240
+Good candidates move up.
+
+17
+00:01:47.540 --> 00:01:49.030
+Bad ones fall away.
+
+18
+00:01:49.330 --> 00:01:54.400
+And when a prediction leaves the field's measured domain, the system can refuse to pretend.
+
+19
+00:01:54.700 --> 00:02:03.382
+Five materials, one correction layer, and a path from plausible crystals to climate hardware that can actually scale.
