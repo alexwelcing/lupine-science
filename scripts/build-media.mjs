@@ -7,7 +7,7 @@
 //
 // ffmpeg comes from imageio-ffmpeg (pip) because the npm static binary is
 // blocked by this environment's proxy. Requires: pip install imageio-ffmpeg
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -16,7 +16,25 @@ import sharp from 'sharp';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC = path.join(ROOT, 'public');
 
-const FFMPEG = process.env.FFMPEG || execFileSync('python3', ['-c', 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())']).toString().trim();
+// Resolve ffmpeg from whatever is actually present, in order of specificity:
+// $FFMPEG, then PATH, then imageio-ffmpeg (pip). This used to call imageio_ffmpeg
+// unconditionally at module load, so on any machine without that pip package the
+// whole script died with ModuleNotFoundError before reaching the image section —
+// which is why media/projects/article-visuals/*-storyboard.md records this script as
+// "currently crashes in this environment" and heroes shipped without webp/avif
+// siblings. ffmpeg on PATH is the common case and was never tried.
+function resolveFfmpeg() {
+  if (process.env.FFMPEG) return process.env.FFMPEG;
+  const onPath = spawnSync('sh', ['-c', 'command -v ffmpeg'], { encoding: 'utf8' });
+  if (onPath.status === 0 && onPath.stdout.trim()) return onPath.stdout.trim();
+  const pip = spawnSync('python3', ['-c', 'import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())'], { encoding: 'utf8' });
+  if (pip.status === 0 && pip.stdout.trim()) return pip.stdout.trim();
+  throw new Error(
+    'ffmpeg not found. Set FFMPEG=/path/to/ffmpeg, install ffmpeg on PATH, '
+    + 'or `pip install imageio-ffmpeg`.',
+  );
+}
+const FFMPEG = resolveFfmpeg();
 
 const kb = (p) => `${(fs.statSync(p).size / 1024).toFixed(0)} KB`;
 
@@ -63,7 +81,22 @@ const articleHeroes = fs.existsSync(path.join(PUBLIC, 'articles'))
     .sort()
   : [];
 
-const PICTURES = [...articleHeroes, 'ribbon-still.jpg'];
+// Video posters, also DISCOVERED rather than listed. /videos/ renders every poster
+// on one page, so their combined weight is what the page budget actually measures:
+// after the narration rebuild the index sat at 964.9 KB against a 1024 KB budget,
+// leaving 59 KB — the next film published there would have failed `npm run verify`.
+// The posters are already 1280x720 q78 4:2:0 (build-motion-poster.mjs documents an
+// earlier incident from rendering them larger), so quality is not the lever left;
+// format is. AVIF and WebP siblings let build-articles.mjs serve <picture> and drop
+// the transfer without touching a single pixel of the JPEG fallback.
+const videoPosters = fs.existsSync(path.join(PUBLIC, 'videos'))
+  ? fs.readdirSync(path.join(PUBLIC, 'videos'))
+    .filter((name) => name.endsWith('-poster.jpg'))
+    .map((name) => `videos/${name}`)
+    .sort()
+  : [];
+
+const PICTURES = [...articleHeroes, ...videoPosters, 'ribbon-still.jpg'];
 
 for (const rel of PICTURES) {
   const src = path.join(PUBLIC, rel);
