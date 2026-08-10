@@ -7,6 +7,7 @@
 > **Status:** Published
 > **OG Image:** /articles/shared-dft-anchors/hero.jpg
 > **Proof Pack:** /proof-packs/shared-dft-anchors.proofpack.pdf
+> **Ontology:** T6, E4, MC4
 
 <div class="callout claim">
   <strong>Claim.</strong> On the locked Z1 panel’s 29 analyzable paths, sharing identical sparse-anchor image indices across four universal interatomic-potential guides reduces the projected DFT evaluation count from 558 to 154: 72.4% fewer DFT evaluations.

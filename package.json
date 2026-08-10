@@ -6,7 +6,7 @@
   "license": "AGPL-3.0-or-later",
   "description": "Static public front door for lupine.science",
   "scripts": {
-    "build": "node scripts/generate-theory-artifacts-count.mjs && node scripts/hydrate-lean-count.mjs && npm run venture:build && npm run venture:validate && node scripts/build-atlas-nodes.mjs && node scripts/build-atlas-page.mjs && node scripts/build-articles.mjs && node scripts/build-sitemap.mjs && node scripts/build-headers.mjs && node scripts/build-result-graphics.mjs && node scripts/build-brand-patterns.mjs",
+    "build": "node scripts/generate-theory-artifacts-count.mjs && node scripts/hydrate-lean-count.mjs && npm run venture:build && npm run venture:validate && node scripts/build-atlas-nodes.mjs && node scripts/build-atlas-page.mjs && node scripts/build-ontology-crosslinks.mjs && node scripts/build-articles.mjs && node scripts/build-sitemap.mjs && node scripts/build-headers.mjs && node scripts/build-result-graphics.mjs && node scripts/build-brand-patterns.mjs",
     "build:graphics": "node scripts/build-result-graphics.mjs",
     "build:posters": "node scripts/build-video-posters.mjs",
     "lint": "node scripts/lint.mjs",

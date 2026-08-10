@@ -5,6 +5,7 @@
 > **Deck:** The full account you asked for before we talk — the verdict, the economics, the failures, the catches, and where I'd push back  
 > **Summary:** All four models scored strong-win on the same-engine gate, at a measured $14.65. The interesting parts are not the wins — they're the guidance split, the cost collapse, and what broke along the way.  
 > **Status:** FOR EDITOR REVIEW — draft for the lead, pre-conversation; not for citation
+> **Ontology:** T6, E4, MC4
 
 ---
 

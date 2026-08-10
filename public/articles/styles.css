@@ -615,3 +615,42 @@ body.format-tutorial h2::before {
 @media (max-width: 600px) {
   .atlas-list { grid-template-columns: 1fr; }
 }
+
+/* ── article ontology footer (built from public/data/article_ontology.json) ── */
+.article-ontology {
+  margin: 56px auto 0;
+  padding: 22px 22px 24px;
+  border: 1px solid var(--rule);
+  background: var(--paper-deep);
+}
+.article-ontology-kicker {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--indigo); margin: 0 0 12px;
+}
+.article-ontology-list {
+  list-style: none; margin: 0 0 14px; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.article-ontology-link {
+  display: inline-block;
+  font-family: var(--mono); font-size: 13px; line-height: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--indigo-line);
+  background: var(--paper);
+  color: var(--indigo);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 180ms var(--ease), color 180ms var(--ease);
+}
+.article-ontology-link:hover { background: var(--indigo); color: var(--paper); }
+.article-ontology-link[data-kind="error_type"] { border-color: #b94e4e; color: #8a3535; }
+.article-ontology-link[data-kind="error_type"]:hover { background: #b94e4e; color: var(--paper); }
+.article-ontology-link[data-kind="emblem"] { border-color: #4e7bb9; color: #2d4f7e; }
+.article-ontology-link[data-kind="emblem"]:hover { background: #4e7bb9; color: var(--paper); }
+.article-ontology-link[data-kind="material_class"] { border-color: #4e9a6c; color: #2f6a4a; }
+.article-ontology-link[data-kind="material_class"]:hover { background: #4e9a6c; color: var(--paper); }
+.article-ontology-source {
+  font-family: var(--mono); font-size: 12px; color: var(--ink-faint);
+  margin: 0;
+}
+.article-ontology-source a { color: var(--ink-soft); }

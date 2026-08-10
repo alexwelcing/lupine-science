@@ -5,6 +5,7 @@
 > **Deck:** Universal machine-learned interatomic potentials (uMLIPs) err systematically away from equilibrium; the test is whether those errors share a single, measurable shape.
 > **Summary:** For fcc metals, uMLIP errors project onto a smooth field over local atomic environments. The field predicts a never-fitted property with r = 0.906, converts into a run-time correction, and carries machine-checked applicability boundaries.
 > **Status:** Published
+> **Ontology:** T2, E1, E5
 
 <div class="callout claim">
   <strong>Claim.</strong> The systematic errors of universal machine-learned interatomic potentials on fcc metals are projections of a single smooth error field over local atomic environments, with coordination deficit as the leading coordinate.

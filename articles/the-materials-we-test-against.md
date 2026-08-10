@@ -5,6 +5,7 @@
 > **Deck:** One step in the trust-layer program: the locked Li-ion conductor panels behind our barrier campaigns — what they are, why they are the right adversaries, and what a migration barrier actually is  
 > **Summary:** Our barrier campaigns run on 42 published Li-ion electrolyte materials: 30 frozen test chemistries and 12 disjoint training chemistries. Here is what is in the panels and why these materials decide whether solid-state batteries ever ship.  
 > **Status:** Final
+> **Ontology:** T2, E4, MC4
 
 ---
 

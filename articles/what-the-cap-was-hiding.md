@@ -5,6 +5,7 @@
 > **Deck:** A correction gate that refused seven in ten of the cases it could act on turned out to be measuring its own estimator, not the physics — and the failure that exposed it was preserved rather than discarded.
 > **Summary:** A preregistered correction trial failed. Reopening the mathematics rather than the conclusion showed the gate was mis-tuned, the confirmatory test could not have passed even in principle, an escape statistic proposed as an input to the next round had no physical content, and the replacement gate carries a rounding hazard of its own. The license results are theorems in Lean 4; the rest is arithmetic replayed from the hash-locked records.
 > **Status:** Draft for discussion — every number below was re-derived from the primary records before publication, and five claims in the first draft did not survive that check (see *Corrections to this piece*).
+> **Ontology:** T2, T6, E9
 
 On 19 July 2026 a preregistered trial asked whether a theorem-licensed correction to universal machine-learning interatomic potentials would transfer to held-out materials. It failed. Both confirmatory groups missed their gates — ionics-rocksalt 0 of 4 properties, perovskites 0 of 1 — and the broad empirical claim that licensed corrections never worsen a prediction was false: of the 28 cases where the rule fired, 10 got worse.
 

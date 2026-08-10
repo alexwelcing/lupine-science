@@ -34,6 +34,10 @@ for (const relativePath of [
   // must ship together; otherwise /atlas/ renders an empty page.
   'public/data/atlas_nodes.json',
   'public/atlas/index.html',
+  // Article-ontology cross-links are built from the same atlas plus article
+  // frontmatter `> **Ontology:** ...` lines. Required by build-articles.mjs
+  // and shipped with the site so /articles/<slug>/ pages render the footer.
+  'public/data/article_ontology.json',
   'public/lupine-science-icon.png',
   'public/lupine-science-mark.svg',
   'public/og-lupine-science.jpg',

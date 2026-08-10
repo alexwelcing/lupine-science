@@ -7,6 +7,7 @@
 > **Status:** Final
 > **OG Image:** /articles/the-savings-stack/hero.jpg
 > **Artifacts:** [the booklet (PDF)](/booklets/the-savings-stack.pdf), [the v1 data pack](/data/savings-stack-v1/README.md) with sha256 manifest, and full scientific detail in the [Library](https://library.lupine.science) (group “savings-stack”)
+> **Ontology:** T6, MC4
 
 <p class="lead">Today we are releasing <em>The Savings Stack</em> — a sixteen-page booklet on how atomistic simulation learned to do less, what that savings stack is still missing, and the measured economics of sharing the expensive part. It is a free download, built to be read: the literature digests, the union-anchor measurement, and the citation audit are all in the pack behind it, hashed and reproducible.</p>
 
