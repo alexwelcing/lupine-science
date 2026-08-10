@@ -5,6 +5,7 @@
 > **Deck:** Metal–organic frameworks (MOFs), covalent organic frameworks (COFs), and other high-value reticular / complex molecular structures  
 > **Summary:** Theorem-proved certificates of synthesizability for AI-generated metal–organic frameworks, and a lab partnership to close the generate–test–learn loop.  
 > **Status:** Draft for discussion
+> **Ontology:** T7, E7, MC8
 
 ---
 

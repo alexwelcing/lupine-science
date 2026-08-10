@@ -5,6 +5,7 @@
 > **Deck:** The measured ladder from proven corrections to proven impossibility — and the order in which our next rounds climb it  
 > **Summary:** We mapped the hard end first on purpose. Now the ladder is drawn: where our correction layer already wins, where only boundary theorems can speak, and the order of effort for the rounds ahead — each with its price list.  
 > **Status:** Final
+> **Ontology:** T2, E4, E8
 
 ---
 

@@ -1,0 +1,125 @@
+{
+  "generated_at_build": true,
+  "by_article": {
+    "a-smooth-environment-resolved-error-field": [
+      "lupine-research://error_type/T2",
+      "lupine-research://emblem/E1",
+      "lupine-research://emblem/E5"
+    ],
+    "an-order-of-effort": [
+      "lupine-research://error_type/T2",
+      "lupine-research://emblem/E4",
+      "lupine-research://emblem/E8"
+    ],
+    "four-gates-three-honest-failures-one-live-experiment": [
+      "lupine-research://error_type/T2",
+      "lupine-research://error_type/T6",
+      "lupine-research://emblem/E4"
+    ],
+    "from-fantasy-frameworks-to-makeable-materials": [
+      "lupine-research://error_type/T7",
+      "lupine-research://emblem/E7",
+      "lupine-research://material_class/MC8"
+    ],
+    "shared-dft-anchors": [
+      "lupine-research://error_type/T6",
+      "lupine-research://emblem/E4",
+      "lupine-research://material_class/MC4"
+    ],
+    "the-correction-that-hurt-and-the-theorem-that-stopped-it": [
+      "lupine-research://error_type/T2",
+      "lupine-research://error_type/T6"
+    ],
+    "the-materials-we-test-against": [
+      "lupine-research://error_type/T2",
+      "lupine-research://emblem/E4",
+      "lupine-research://material_class/MC4"
+    ],
+    "the-savings-stack": [
+      "lupine-research://error_type/T6",
+      "lupine-research://material_class/MC4"
+    ],
+    "the-small-cell-held-mlip-elastic-benchmark": [
+      "lupine-research://error_type/T4",
+      "lupine-research://emblem/E5",
+      "lupine-research://material_class/MC9"
+    ],
+    "the-trust-layer": [
+      "lupine-research://error_type/T6",
+      "lupine-research://emblem/E9"
+    ],
+    "what-the-cap-was-hiding": [
+      "lupine-research://error_type/T2",
+      "lupine-research://error_type/T6",
+      "lupine-research://emblem/E9"
+    ],
+    "z1-union-debrief": [
+      "lupine-research://error_type/T6",
+      "lupine-research://emblem/E4",
+      "lupine-research://material_class/MC4"
+    ]
+  },
+  "by_node": {
+    "lupine-research://emblem/E1": [
+      "a-smooth-environment-resolved-error-field"
+    ],
+    "lupine-research://emblem/E4": [
+      "an-order-of-effort",
+      "four-gates-three-honest-failures-one-live-experiment",
+      "shared-dft-anchors",
+      "the-materials-we-test-against",
+      "z1-union-debrief"
+    ],
+    "lupine-research://emblem/E5": [
+      "a-smooth-environment-resolved-error-field",
+      "the-small-cell-held-mlip-elastic-benchmark"
+    ],
+    "lupine-research://emblem/E7": [
+      "from-fantasy-frameworks-to-makeable-materials"
+    ],
+    "lupine-research://emblem/E8": [
+      "an-order-of-effort"
+    ],
+    "lupine-research://emblem/E9": [
+      "the-trust-layer",
+      "what-the-cap-was-hiding"
+    ],
+    "lupine-research://error_type/T2": [
+      "a-smooth-environment-resolved-error-field",
+      "an-order-of-effort",
+      "four-gates-three-honest-failures-one-live-experiment",
+      "the-correction-that-hurt-and-the-theorem-that-stopped-it",
+      "the-materials-we-test-against",
+      "what-the-cap-was-hiding"
+    ],
+    "lupine-research://error_type/T4": [
+      "the-small-cell-held-mlip-elastic-benchmark"
+    ],
+    "lupine-research://error_type/T6": [
+      "four-gates-three-honest-failures-one-live-experiment",
+      "shared-dft-anchors",
+      "the-correction-that-hurt-and-the-theorem-that-stopped-it",
+      "the-savings-stack",
+      "the-trust-layer",
+      "what-the-cap-was-hiding",
+      "z1-union-debrief"
+    ],
+    "lupine-research://error_type/T7": [
+      "from-fantasy-frameworks-to-makeable-materials"
+    ],
+    "lupine-research://material_class/MC4": [
+      "shared-dft-anchors",
+      "the-materials-we-test-against",
+      "the-savings-stack",
+      "z1-union-debrief"
+    ],
+    "lupine-research://material_class/MC8": [
+      "from-fantasy-frameworks-to-makeable-materials"
+    ],
+    "lupine-research://material_class/MC9": [
+      "the-small-cell-held-mlip-elastic-benchmark"
+    ]
+  },
+  "total_articles_with_links": 12,
+  "total_links": 33
+}
