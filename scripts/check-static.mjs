@@ -29,6 +29,11 @@ for (const relativePath of [
   'public/sitemap.xml',
   'public/llms.txt',
   'public/data/benchmark_manifold.json',
+  // Atlas page is built from public/data/atlas_nodes.json by
+  // scripts/build-atlas-nodes.mjs + scripts/build-atlas-page.mjs. Both
+  // must ship together; otherwise /atlas/ renders an empty page.
+  'public/data/atlas_nodes.json',
+  'public/atlas/index.html',
   'public/lupine-science-icon.png',
   'public/lupine-science-mark.svg',
   'public/og-lupine-science.jpg',
