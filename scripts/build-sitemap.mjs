@@ -26,6 +26,9 @@ const urls = [
   { loc: `${SITE}/`, lastmod: null },
   { loc: `${SITE}/articles/`, lastmod: null },
   { loc: `${SITE}/videos/`, lastmod: null },
+  // /atlas/ is the wiki-driven ontology page (see scripts/build-atlas-nodes.mjs).
+  // No intrinsic date — the page is generated from the wiki DB at build time.
+  { loc: `${SITE}/atlas/`, lastmod: null },
 ];
 for (const entry of fs.readdirSync(path.join(PUBLIC, 'articles'), { withFileTypes: true })) {
   if (!entry.isDirectory()) continue;

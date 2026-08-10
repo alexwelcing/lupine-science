@@ -1,0 +1,142 @@
+{
+  "source": "lupine-research sphere of ~/.hermes/lupine-wiki.db",
+  "generated_at_build": true,
+  "kinds": {
+    "error_type": [
+      {
+        "id": "lupine-research://error_type/T1",
+        "name": "Reference-method bias",
+        "uri": "T1"
+      },
+      {
+        "id": "lupine-research://error_type/T2",
+        "name": "Emulator / model-form error",
+        "uri": "T2"
+      },
+      {
+        "id": "lupine-research://error_type/T3",
+        "name": "Domain shift / coverage failure",
+        "uri": "T3"
+      },
+      {
+        "id": "lupine-research://error_type/T4",
+        "name": "Numerical / sampling error",
+        "uri": "T4"
+      },
+      {
+        "id": "lupine-research://error_type/T5",
+        "name": "Multiscale closure gap",
+        "uri": "T5"
+      },
+      {
+        "id": "lupine-research://error_type/T6",
+        "name": "Validation-data gap",
+        "uri": "T6"
+      },
+      {
+        "id": "lupine-research://error_type/T7",
+        "name": "Observability / experimental-reference uncertainty",
+        "uri": "T7"
+      }
+    ],
+    "emblem": [
+      {
+        "id": "lupine-research://emblem/E1",
+        "name": "Strong correlation & self-interaction",
+        "uri": "E1"
+      },
+      {
+        "id": "lupine-research://emblem/E2",
+        "name": "Excited states & band gaps",
+        "uri": "E2"
+      },
+      {
+        "id": "lupine-research://emblem/E3",
+        "name": "Magnetism",
+        "uri": "E3"
+      },
+      {
+        "id": "lupine-research://emblem/E4",
+        "name": "Barrier & transition-state error",
+        "uri": "E4"
+      },
+      {
+        "id": "lupine-research://emblem/E5",
+        "name": "PES softening & finite-T error",
+        "uri": "E5"
+      },
+      {
+        "id": "lupine-research://emblem/E6",
+        "name": "Dispersion",
+        "uri": "E6"
+      },
+      {
+        "id": "lupine-research://emblem/E7",
+        "name": "Composition & framework coverage",
+        "uri": "E7"
+      },
+      {
+        "id": "lupine-research://emblem/E8",
+        "name": "Multiscale closure",
+        "uri": "E8"
+      },
+      {
+        "id": "lupine-research://emblem/E9",
+        "name": "Validation-data scarcity",
+        "uri": "E9"
+      }
+    ],
+    "material_class": [
+      {
+        "id": "lupine-research://material_class/MC1",
+        "name": "Superconductors (cuprates, nickelates, high-pressure hydrides)",
+        "uri": "MC1"
+      },
+      {
+        "id": "lupine-research://material_class/MC2",
+        "name": "Correlated oxides & quantum materials",
+        "uri": "MC2"
+      },
+      {
+        "id": "lupine-research://material_class/MC3",
+        "name": "High-entropy alloys & disorder",
+        "uri": "MC3"
+      },
+      {
+        "id": "lupine-research://material_class/MC4",
+        "name": "Battery materials",
+        "uri": "MC4"
+      },
+      {
+        "id": "lupine-research://material_class/MC5",
+        "name": "Catalysts",
+        "uri": "MC5"
+      },
+      {
+        "id": "lupine-research://material_class/MC6",
+        "name": "Magnets & the REE-free problem",
+        "uri": "MC6"
+      },
+      {
+        "id": "lupine-research://material_class/MC7",
+        "name": "Fusion & nuclear materials",
+        "uri": "MC7"
+      },
+      {
+        "id": "lupine-research://material_class/MC8",
+        "name": "Porous frameworks & 2D materials",
+        "uri": "MC8"
+      },
+      {
+        "id": "lupine-research://material_class/MC9",
+        "name": "WBG semiconductors, perovskites, thermoelectrics",
+        "uri": "MC9"
+      }
+    ]
+  },
+  "counts": {
+    "error_type": 7,
+    "emblem": 9,
+    "material_class": 9
+  }
+}

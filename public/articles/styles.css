@@ -559,3 +559,59 @@ body.format-tutorial h2::before {
     aspect-ratio: 16 / 9;
   }
 }
+
+/* ── ontology atlas (built from public/data/atlas_nodes.json) ── */
+.atlas-index { max-width: 1120px; margin: 0 auto; padding: clamp(48px, 8vh, 96px) 22px 40px; }
+.atlas-index h1 {
+  font-size: clamp(1.7rem, 3.2vw, 2.5rem); font-weight: 400; line-height: 1.16;
+  letter-spacing: -0.012em; margin: 0 0 22px; max-width: 32ch; text-wrap: balance;
+}
+.atlas-lede {
+  font-family: var(--mono); font-size: 13px; line-height: 1.7; color: var(--ink-soft);
+  max-width: 70ch; margin: 0 0 44px;
+}
+.atlas-lede code { background: var(--paper-deep); padding: 1px 5px; border-radius: 3px; font-size: 12px; }
+.atlas-asof {
+  font-family: var(--mono); font-size: 12px; color: var(--ink-faint);
+  margin: 36px 0 0; padding-top: 20px; border-top: 1px solid var(--rule);
+}
+.atlas-section { margin: 0 0 56px; }
+.atlas-kicker {
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--indigo); margin: 0 0 8px;
+}
+.atlas-section h2 {
+  font-size: clamp(1.25rem, 2.1vw, 1.55rem); font-weight: 500;
+  letter-spacing: -0.008em; margin: 0 0 22px;
+}
+.atlas-list {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+  border-top: 1px solid var(--rule);
+}
+.atlas-list li { border-bottom: 1px solid var(--rule); }
+.atlas-card {
+  display: grid; grid-template-rows: auto auto auto; gap: 6px;
+  padding: 16px 14px 18px; height: 100%;
+  transition: background 240ms var(--ease);
+  text-decoration: none; color: inherit;
+}
+.atlas-card:hover { background: var(--indigo-wash); }
+.atlas-id {
+  font-family: var(--mono); font-size: 12px; color: var(--ink-faint);
+  letter-spacing: 0.04em;
+}
+.atlas-name {
+  font-family: var(--serif); font-size: 1.02rem; line-height: 1.34;
+  color: var(--ink); font-weight: 500;
+}
+.atlas-uri {
+  font-family: var(--mono); font-size: 11px; color: var(--indigo);
+  word-break: break-all; line-height: 1.4;
+}
+@media (max-width: 920px) {
+  .atlas-list { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .atlas-list { grid-template-columns: 1fr; }
+}
