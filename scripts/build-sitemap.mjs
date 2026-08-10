@@ -52,6 +52,20 @@ if (fs.existsSync(presentationsDir)) {
   }
 }
 
+// Per-node detail pages under /atlas/<id>/. The id matches one of T*, E*,
+// MC* (built by scripts/build-atlas-detail-pages.mjs). Anything else under
+// /atlas/ (e.g. claims/ or gallery/) is left for a future sitemap pass with
+// its own intrinsic date source.
+const atlasDir = path.join(PUBLIC, 'atlas');
+if (fs.existsSync(atlasDir)) {
+  for (const entry of fs.readdirSync(atlasDir, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    if (!/^(T\d+|E\d+|MC\d+)$/.test(entry.name)) continue;
+    if (!fs.existsSync(path.join(atlasDir, entry.name, 'index.html'))) continue;
+    urls.push({ loc: `${SITE}/atlas/${entry.name}/`, lastmod: null });
+  }
+}
+
 // Static assets that are not directories but should be discoverable.
 for (const file of ['proof-pack-climate-series.pdf']) {
   if (fs.existsSync(path.join(PUBLIC, file))) urls.push({ loc: `${SITE}/${file}`, lastmod: null });
