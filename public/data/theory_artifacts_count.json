@@ -1,8 +1,8 @@
 {
-  "modules": 8,
-  "theorem": 513,
+  "modules": 9,
+  "theorem": 517,
   "lemma": 2,
-  "named": 515,
+  "named": 519,
   "example": 116,
   "zero_sorry": true,
   "families": [
@@ -11,15 +11,20 @@
     "OracleProblem",
     "RobustMinimaxFamily"
   ],
-  "family_named": 325,
+  "family_named": 328,
   "per_module": {
     "ConformalDelta": {
-      "theorem": 106,
+      "theorem": 108,
+      "lemma": 0,
+      "example": 0
+    },
+    "DeltaFamilyRelation": {
+      "theorem": 1,
       "lemma": 0,
       "example": 0
     },
     "EscapeRate": {
-      "theorem": 47,
+      "theorem": 48,
       "lemma": 0,
       "example": 0
     },
@@ -54,8 +59,8 @@
       "example": 25
     }
   },
-  "counted_at": "2026-08-08",
+  "counted_at": "2026-08-10",
   "source": "theory-artifacts (sharp-correction-license Lean tree, sibling checkout)",
-  "source_sha256": "05fc882cb046810aff3d28650f57128fccc26bfd2f34e3d1a872c1100d20730c",
+  "source_sha256": "a1747086d80298648345bd1bae727d9c491ee1b3fa45802d3208f6117bcfa875",
   "rule": "theorem/lemma/example declarations after stripping nested comments and strings; supports attributes and declaration modifiers; an active sorry token fails the run; regenerate with scripts/generate-theory-artifacts-count.mjs — never hand-edit"
 }

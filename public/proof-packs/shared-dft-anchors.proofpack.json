@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-04T03:22:55.975Z",
+  "generatedAt": "2026-08-03T00:00:00.000Z",
   "build": {
     "script": "scripts/build-proofpack.mjs",
     "mode": "per-article",
@@ -13,19 +13,15 @@
     },
     "articleHtml": {
       "path": "public/articles/shared-dft-anchors/index.html",
-      "sha256": "3910cf0dc18eb6bec098b857c33fbaabf782f789bebf854de51e2b975d6683bb"
+      "sha256": "e5cea9f4b5d940791e2f0d9f64aee12e489ffaea15160d7f6b39508c7fa6a82f"
     },
     "figures": {
       "images/projected-evaluation-counts.png": "1db5981ce922739f621eb641dc46315554ab06f730969377ebaf41ce273c8988"
-    },
-    "renderedHtml": {
-      "path": "public/.proofpack-render/shared-dft-anchors.html",
-      "sha256": "ea85e8a7ddc727b99d116576737b6e5b1ce317d020ad2edaa3720aa2518e2cc2"
     }
   },
   "output": {
     "pdf": {
-      "path": "public/proof-packs/shared-dft-anchors.proofpack.pdf",
+      "path": "shared-dft-anchors.proofpack.pdf",
       "sha256": "6ccec7dd9d5eced808c65427c0a28f48cef392ad22c2f51ef8e01d0b7377fbcf",
       "bytes": 186066
     }
