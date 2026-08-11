@@ -17,6 +17,7 @@ import crypto from 'node:crypto';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
+import { chromiumExecutablePath } from './lib/chromium-executable.mjs';
 import { PDFDocument, PDFName, PDFString } from 'pdf-lib';
 import { validateProofPack, validateProofPackFiles, formatIssues } from './validate-proofpack.mjs';
 
@@ -1052,7 +1053,7 @@ export async function generateProofPack(article, { outDir = DEFAULT_OUT_DIR } = 
   const { server, baseUrl } = await startServer();
   let browser;
   try {
-    browser = await chromium.launch({ headless: true });
+    browser = await chromium.launch({ headless: true, executablePath: chromiumExecutablePath() });
     return await buildPerArticle(browser, slug, resolvedOutDir, baseUrl);
   } catch (error) {
     cleanupArticleOutputs(slug, resolvedOutDir);
@@ -1127,7 +1128,7 @@ async function main() {
   const { server, baseUrl } = await startServer();
   let browser;
   try {
-    browser = await chromium.launch({ headless: true });
+    browser = await chromium.launch({ headless: true, executablePath: chromiumExecutablePath() });
 
     if (options.mode === 'consolidated') {
       await buildConsolidated(browser, baseUrl);
