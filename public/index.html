@@ -142,6 +142,12 @@
 
     /* the manifold IS the background — fills the whole field */
     #ribbon { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; }
+    /* WebGPU tier: composites the volumetric ribbon field over the 2D canvas.
+       Enters invisible; the module fades it in only after a real frame. */
+    #ribbon-gpu {
+      position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; display: block;
+      opacity: 0; transition: opacity 900ms var(--ease); pointer-events: none;
+    }
     .ribbon-fallback {
       position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
       opacity: 0; z-index: 0; mix-blend-mode: multiply;
@@ -433,7 +439,7 @@
          relatively-positioned .field), not fixed. A fixed background stays
          pinned over the top of the viewport and bleeds across the reading
          content as you scroll, obscuring roughly half the page. */
-      #ribbon, .ribbon-fallback { position: absolute; height: 46vh; top: 0; }
+      #ribbon, #ribbon-gpu, .ribbon-fallback { position: absolute; height: 46vh; top: 0; }
       .field::before { position: absolute; width: 100%; height: 46vh; top: 0; bottom: auto;
         background: linear-gradient(180deg, rgba(250,249,246,0) 50%, var(--paper) 100%); }
       /* block layout drops grid stacking: re-establish positioning so text
@@ -486,6 +492,7 @@
 
   <main class="field">
     <canvas id="ribbon" aria-hidden="true"></canvas>
+    <canvas id="ribbon-gpu" aria-hidden="true"></canvas>
     <img class="ribbon-fallback" data-src="/ribbon-still.jpg" alt="The hyper-ribbon manifold: scattered prediction-error vectors collapsing onto a single low-dimensional indigo ribbon.">
     <noscript><style>.ribbon-fallback{opacity:0.85}</style><img class="ribbon-fallback" src="/ribbon-still.jpg" alt="" style="opacity:0.85"></noscript>
 
@@ -1134,6 +1141,10 @@
       }
 
       let lastPaint = 0;
+      // true while the WebGPU tier is compositing the ribbon field; the 2D
+      // renderer then skips its own ribbon so the two never double-expose.
+      // Flips back the instant the GPU device is lost — no dark frames.
+      let gpuOwnsRibbon = false;
       function frame(ts) {
         // Keep the ambient canvas below the browser's interaction budget.
         // The drawing is intentionally slow-moving, so 30 fps is visually
@@ -1153,6 +1164,8 @@
         const breath = 0.88 + 0.12 * Math.sin(time * 0.55);
 
         // ── the hyper-ribbon: the luminous hero motif ──
+        // (skipped while the WebGPU tier renders the same field volumetrically)
+        if (!gpuOwnsRibbon) {
         // (a) focal bloom — the single indigo light source, seated in the clear window
         {
           const fx = STAGE.cx, fy = spineY(clamp01(STAGE.cx / w), time, amp);
@@ -1188,6 +1201,7 @@
         ctx.strokeStyle = cg; ctx.lineWidth = 1.4; ctx.lineCap = "round"; ctx.beginPath();
         for (let s = 0; s <= 110; s++) { const u = s / 110, x = u * w, y = spineY(u, time, amp); s === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); }
         ctx.stroke(); ctx.restore();
+        }
 
         drawMatter(time);
 
@@ -1253,6 +1267,29 @@
         document.addEventListener("visibilitychange", () => {
           if (document.hidden) cancelAnimationFrame(raf); else { t0 = 0; raf = requestAnimationFrame(frame); }
         });
+      }
+
+      /* ── WebGPU tier: the same instrument, volumetrically lit. Loaded lazily,
+         long after first paint, and only where the ambient loop already runs.
+         Pure bonus — any failure at any step leaves the 2D renderer exactly
+         as it is, so the user never sees anything change. ── */
+      const gpuCanvas = document.getElementById("ribbon-gpu");
+      const saveData = navigator.connection && navigator.connection.saveData;
+      if (gpuCanvas && navigator.gpu && !staticCanvas && !saveData) {
+        const bridge = {
+          canvas: gpuCanvas,
+          getData: () => M,
+          getTargets: () => tgt,
+          getZones: () => zones,
+          getStage: () => STAGE,
+          claim: () => { gpuOwnsRibbon = true; },
+          onLost: () => { gpuOwnsRibbon = false; gpuCanvas.style.opacity = "0"; },
+        };
+        const boot = () => import("/assets/ribbon-gpu.js?v=1")
+          .then((m) => m.start(bridge))
+          .catch(() => {});
+        if ("requestIdleCallback" in window) requestIdleCallback(boot, { timeout: 4000 });
+        else setTimeout(boot, 2500);
       }
     }
 
