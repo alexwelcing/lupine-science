@@ -710,3 +710,96 @@ body.format-tutorial h2::before {
   margin: 0; padding-top: 18px; border-top: 1px solid var(--rule);
 }
 .atlas-detail-asof code { background: var(--paper-deep); padding: 1px 5px; border-radius: 3px; }
+
+/* ── curated claim facets (built from scripts/build-claim-facets.mjs) ── */
+.atlas-claims-index { max-width: 1120px; margin: 0 auto; padding: clamp(48px, 8vh, 96px) 22px 40px; }
+.atlas-claims-facet { max-width: 940px; margin: 0 auto; padding: clamp(48px, 8vh, 96px) 22px 40px; }
+.atlas-claims-index .b-label,
+.atlas-claims-facet .b-label { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); margin: 0 0 24px; }
+.atlas-claims-index .b-label a,
+.atlas-claims-facet .b-label a { color: var(--ink-soft); text-decoration: none; }
+.atlas-claims-index .b-label a:hover,
+.atlas-claims-facet .b-label a:hover { color: var(--indigo); text-decoration: underline; }
+.atlas-claims-kicker {
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--indigo); margin: 0 0 8px;
+}
+.atlas-claims-index h1,
+.atlas-claims-facet h1 {
+  font-size: clamp(1.7rem, 3.4vw, 2.6rem); font-weight: 400; line-height: 1.14;
+  letter-spacing: -0.014em; margin: 0 0 22px; text-wrap: balance;
+}
+.atlas-claims-blurb {
+  font-family: var(--serif); font-size: 1.06rem; line-height: 1.62;
+  color: var(--ink-soft); margin: 0 0 36px; max-width: 70ch;
+}
+.atlas-claims-grid {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 0;
+  border-top: 1px solid var(--rule);
+}
+.atlas-claims-grid li { border-bottom: 1px solid var(--rule); border-right: 1px solid var(--rule); }
+.atlas-claims-grid li:nth-child(2n) { border-right: 0; }
+.atlas-claims-card {
+  display: grid; grid-template-rows: auto auto 1fr; gap: 8px;
+  padding: 22px 22px 24px; height: 100%;
+  text-decoration: none; color: inherit;
+  transition: background 240ms var(--ease);
+}
+.atlas-claims-card:hover { background: var(--indigo-wash); }
+.atlas-claims-card-title {
+  font-family: var(--serif); font-size: 1.18rem; font-weight: 500; line-height: 1.22;
+  color: var(--ink);
+}
+.atlas-claims-card-count {
+  font-family: var(--mono); font-size: 11px; color: var(--ink-faint);
+  letter-spacing: 0.04em;
+}
+.atlas-claims-card-blurb {
+  font-family: var(--serif); font-size: 0.94rem; line-height: 1.55;
+  color: var(--ink-soft);
+}
+.atlas-claims-count {
+  font-family: var(--mono); font-size: 12px; color: var(--ink-faint);
+  margin: 0 0 14px;
+}
+.atlas-claims-list {
+  list-style: none; margin: 0 0 36px; padding: 0;
+  border-top: 1px solid var(--rule);
+}
+.atlas-claim-row {
+  display: grid;
+  grid-template-columns: minmax(80px, auto) 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 18px;
+  padding: 14px 0 14px;
+  border-bottom: 1px solid var(--rule);
+}
+.atlas-claim-id {
+  grid-row: 1 / 3;
+  font-family: var(--mono); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.04em; color: var(--indigo);
+  align-self: start;
+  padding-top: 1px;
+}
+.atlas-claim-name {
+  font-family: var(--serif); font-size: 1.04rem; line-height: 1.42; color: var(--ink);
+}
+.atlas-claim-uri {
+  grid-column: 2;
+  font-family: var(--mono); font-size: 11px; color: var(--ink-faint);
+  word-break: break-all; line-height: 1.45; margin-top: 2px;
+}
+.atlas-claim-uri code { background: transparent; }
+.atlas-claim-meta {
+  font-family: var(--serif); font-style: italic; color: var(--ink-faint);
+}
+.atlas-claims-asof {
+  font-family: var(--mono); font-size: 12px; color: var(--ink-faint);
+  margin: 0; padding-top: 18px; border-top: 1px solid var(--rule);
+}
+.atlas-claims-asof code { background: var(--paper-deep); padding: 1px 5px; border-radius: 3px; }
+@media (max-width: 720px) {
+  .atlas-claims-grid { grid-template-columns: 1fr; }
+  .atlas-claims-grid li { border-right: 0; }
+}
