@@ -24,9 +24,11 @@ const BUDGETS = {
   fontsTotal: 1200 * 1024,        // self-hosted variable + mono + italic subset
   singleImage: 350 * 1024,        // hero/card JPEGs at publication quality
   singleVideo: 100 * 1024 * 1024, // 1080p narrated article films, user-initiated; quality-first
+  singleScript: 15 * 1024,        // hand-written enhancement modules (brotli) — no bundles
 };
 
 const TEXT = /\.(html|css|js|mjs|json|svg|xml|txt)$/;
+const SCRIPT = /\.(js|mjs)$/;
 const VIDEO = /\.(mp4|webm)$/;
 const IMAGE = /\.(png|jpe?g|webp|avif|gif|ico)$/;
 const DOWNLOAD = /\.(pdf|zip|gz|tar)$/;
@@ -73,6 +75,7 @@ function assetsOf(html, pagePath) {
     /(?:src|href|poster)="([^"]+)"/g,
     /srcset="([^"]+)"/g,
     /fetch\("([^"]+)"\)/g,
+    /import\("([^"]+)"\)/g,
     /"(\/data\/[a-z0-9_]+\.json)"/g,
   ];
   for (const re of patterns) {
@@ -134,6 +137,9 @@ for (const page of pages) {
     }
     if (IMAGE.test(asset) && s > BUDGETS.singleImage) {
       failures.push(`${rel2}: image ${kb(s)} > ${kb(BUDGETS.singleImage)}`);
+    }
+    if (SCRIPT.test(asset) && s > BUDGETS.singleScript) {
+      failures.push(`${rel2}: script ${kb(s)} > ${kb(BUDGETS.singleScript)} (brotli)`);
     }
     if (DOWNLOAD.test(asset)) continue; // user-initiated downloads are not cold-transfer render bytes
     total += s;

@@ -44,7 +44,7 @@ function lintFile(file) {
   }
 }
 
-for (const dir of ['scripts', 'tests']) {
+for (const dir of ['scripts', 'tests', 'public/assets']) {
   for (const file of walk(path.join(ROOT, dir), ['.mjs', '.js', '.cjs'])) {
     lintFile(file);
   }
