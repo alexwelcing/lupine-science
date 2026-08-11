@@ -20,6 +20,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { renderSiteHeader } from './lib/brand-header.mjs';
+import { headMetaTitleSegments, renderHeadMetaTags, escapeHtml } from './lib/head-meta.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ATLAS_NODES_PATH = path.join(ROOT, 'public', 'data', 'atlas_nodes.json');
@@ -87,14 +89,6 @@ const KIND_BLURB = {
   material_class: 'A family of materials whose discovery and verification problem shapes share enough structure that the correction layer is designed to address all of them together.',
 };
 
-function escapeHtml(s) {
-  return String(s)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
-}
 
 // escapeAttrContent escapes for use inside an HTML attribute value but does
 // NOT encode & -> &amp;. This is intentional: the publication smoke gate
@@ -129,11 +123,10 @@ ${referencedBy.map((slug) => `          <li><a class="atlas-detail-ref-link" hre
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${escapeHtml(uri)} — ${escapeHtml(name)} — Lupine Science</title>
+${renderHeadMetaTags(headMetaTitleSegments({ prefix: uri, primary: name, suffix: 'Lupine Science' }))}
   <meta name="description" content="${escapeHtml(name)} (${escapeHtml(uri)}) — Lupine research ontology, ${kindTitle.toLowerCase()}.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="${SITE}/atlas/${escapeHtml(uri)}/">
-  <meta property="og:title" content="${escapeHtml(uri)} — ${escapeAttrContent(name)} — Lupine Science">
   <meta property="og:description" content="${escapeHtml(name)} (${escapeHtml(uri)}).">
   <meta property="og:type" content="article">
   <meta property="og:url" content="${SITE}/atlas/${escapeHtml(uri)}/">
@@ -141,7 +134,6 @@ ${referencedBy.map((slug) => `          <li><a class="atlas-detail-ref-link" hre
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="${escapeHtml(uri)} — ${escapeAttrContent(name)} — Lupine Science">
   <meta name="twitter:description" content="${escapeHtml(name)} (${escapeHtml(uri)}).">
   <meta name="twitter:image" content="${SITE}/og-lupine-science.jpg">
   <meta name="theme-color" content="#faf9f6">
@@ -156,47 +148,7 @@ ${referencedBy.map((slug) => `          <li><a class="atlas-detail-ref-link" hre
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
-  <header class="site-header">
-    <a class="mark" href="/" aria-label="Lupine Science">
-      <svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
-        <defs>
-          <linearGradient id="bb" x1="190" y1="74" x2="324" y2="356" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stop-color="#88a7d8"/><stop offset=".35" stop-color="#475b9c"/><stop offset=".78" stop-color="#102f47"/><stop offset="1" stop-color="#071a2a"/>
-          </linearGradient>
-          <linearGradient id="bl" x1="150" y1="330" x2="360" y2="470" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stop-color="#7f907c"/><stop offset="1" stop-color="#4c653d"/>
-          </linearGradient>
-          <radialGradient id="bc" cx="48%" cy="30%" r="68%">
-            <stop offset="0" stop-color="#fffdf3"/><stop offset=".7" stop-color="#f1e8c9"/><stop offset="1" stop-color="#d4c58f"/>
-          </radialGradient>
-        </defs>
-        <g fill="none" stroke="#4c653d" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M256 148 C252 224 258 312 254 448"/><path d="M252 402 C222 372 178 354 124 348"/><path d="M260 402 C290 372 334 354 388 348"/>
-        </g>
-        <g fill="url(#bl)" opacity=".96">
-          <ellipse cx="139" cy="348" rx="18" ry="62" transform="rotate(-78 139 348)"/><ellipse cx="167" cy="384" rx="18" ry="62" transform="rotate(-48 167 384)"/><ellipse cx="214" cy="410" rx="17" ry="58" transform="rotate(-20 214 410)"/><ellipse cx="373" cy="348" rx="18" ry="62" transform="rotate(78 373 348)"/><ellipse cx="345" cy="384" rx="18" ry="62" transform="rotate(48 345 384)"/><ellipse cx="298" cy="410" rx="17" ry="58" transform="rotate(20 298 410)"/>
-        </g>
-        <g fill="none" stroke="#fef8f5" stroke-width="5" stroke-linecap="round" opacity=".66">
-          <path d="M132 348 C170 356 205 373 236 405"/><path d="M380 348 C342 356 307 373 276 405"/>
-        </g>
-        <g fill="url(#bb)" stroke="#fef8f5" stroke-width="5" stroke-linejoin="round">
-          <ellipse cx="256" cy="86" rx="22" ry="34"/><ellipse cx="232" cy="122" rx="23" ry="35" transform="rotate(-24 232 122)"/><ellipse cx="280" cy="122" rx="23" ry="35" transform="rotate(24 280 122)"/><ellipse cx="256" cy="150" rx="30" ry="40"/><ellipse cx="211" cy="182" rx="26" ry="38" transform="rotate(-34 211 182)"/><ellipse cx="301" cy="182" rx="26" ry="38" transform="rotate(34 301 182)"/><ellipse cx="256" cy="216" rx="37" ry="48"/><ellipse cx="204" cy="256" rx="30" ry="43" transform="rotate(-42 204 256)"/><ellipse cx="308" cy="256" rx="30" ry="43" transform="rotate(42 308 256)"/><ellipse cx="256" cy="306" rx="40" ry="52"/>
-        </g>
-        <g fill="url(#bc)">
-          <path d="M244 142 C251 124 261 124 268 142 C262 136 250 136 244 142Z"/><path d="M244 207 C252 186 263 186 271 207 C263 199 252 199 244 207Z"/><path d="M242 296 C252 272 265 272 274 296 C264 286 252 286 242 296Z"/>
-        </g>
-      </svg>
-      <span><b>Lupine Science</b> <span class="tld">accelerating materials discovery</span></span>
-    </a>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="/">Home</a>
-      <a href="/articles/">Articles</a>
-      <a href="/videos/">Videos</a>
-      <a href="/atlas/" aria-current="page">Atlas</a>
-      <a href="https://library.lupine.science">Library</a>
-      <a href="https://lupi.live">LUPI</a>
-    </nav>
-  </header>
+  ${renderSiteHeader({ ariaCurrentPath: `/atlas/${uri}/` })}
   <main id="content" class="atlas-detail" data-kind="${escapeHtml(kind)}">
     <p class="b-label"><a href="/atlas/">&larr; Atlas</a></p>
     <p class="atlas-detail-kind">${escapeHtml(kindTitle)}</p>
@@ -230,9 +182,17 @@ for (const node of nodes) {
 // node in atlas_nodes.json. Same convention as build-articles.mjs uses for
 // retired articles: a directory under public/atlas/<id>/ must have a node
 // in the committed JSON, otherwise the page is stale.
+//
+// CRITICAL: only retire directories whose names match the node-id pattern
+// (T*, E*, MC*). Other directories under public/atlas/ (e.g. claims/,
+// gallery/) are owned by other builders; deleting them here is a
+// cross-builder coordination bug. This bug fired once during the ATX
+// cleanup work, so the regex restriction is now load-bearing, not cosmetic.
+const NODE_DIR_RE = /^(T\d+|E\d+|MC\d+)$/;
 const stale = [];
 for (const entry of fs.readdirSync(OUT_ROOT, { withFileTypes: true })) {
   if (!entry.isDirectory()) continue;
+  if (!NODE_DIR_RE.test(entry.name)) continue;
   if (!seen.has(entry.name)) stale.push(entry.name);
 }
 for (const slug of stale) {
