@@ -490,7 +490,7 @@ function articleOntology(slug) {
     // uri looks like lupine-research://error_type/T6 -> short id "T6", kind "error_type"
     const shortId = uri.split('/').pop();
     const kind = uri.split('/').slice(-2, -1)[0];
-    const href = `/atlas/#${encodeURIComponent(shortId)}`;
+    const href = `/atlas/${encodeURIComponent(shortId)}/`;
     return `      <li><a class="article-ontology-link" href="${esc(href)}" title="${esc(uri)}" data-kind="${esc(kind)}">${esc(shortId)}</a></li>`;
   }).join('\n');
   return `<aside class="article-ontology" aria-label="Ontology references">
