@@ -201,6 +201,14 @@
     .term .sup { font-style: normal; font-size: 0.56em; vertical-align: 0.62em; line-height: 0; }
     .term .intg { font-style: normal; font-size: 1.4em; position: relative; top: 0.07em; margin-right: -0.05em; line-height: 0; }
     .term:hover { color: var(--indigo); background: var(--indigo-wash); }
+    /* a hairline that draws itself under the term on hover — an annotation
+       being made, not a link decoration; the pressed state keeps its bar */
+    .term::after {
+      content: ""; position: absolute; left: 0.1em; right: 0.1em; bottom: -0.02em; height: 2px;
+      background: var(--indigo); transform: scaleX(0); transform-origin: left center;
+      transition: transform 360ms var(--ease);
+    }
+    .term:hover:not([aria-pressed="true"])::after { transform: scaleX(1); }
     .term:focus-visible { outline: 2px solid var(--indigo); outline-offset: 3px; }
     .term[aria-pressed="true"] { color: var(--indigo); background: var(--indigo-wash); box-shadow: inset 0 -3px 0 0 var(--indigo); }
     body[data-focus]:not([data-focus="objective"]) .term:not([aria-pressed="true"]) { opacity: 0.34; }
@@ -243,7 +251,7 @@
     .panel h1 em, .panel h2 em { font-style: italic; color: var(--indigo); }
     /* balanced rag on display headings: no orphaned last words */
     .panel h1, .panel h2, .b-head h2 { text-wrap: balance; }
-    .panel p { margin: 0 0 16px; color: var(--ink-soft); font-size: clamp(1rem, 1.4vw, 1.12rem); line-height: 1.64; }
+    .panel p { margin: 0 0 16px; color: var(--ink-soft); font-size: clamp(1rem, 1.4vw, 1.12rem); line-height: 1.64; text-wrap: pretty; }
     .panel p:last-child { margin-bottom: 0; }
     .panel .why { font-style: italic; color: var(--ink); font-size: clamp(1.02rem, 1.4vw, 1.16rem); margin: 8px 0 22px; }
     .panel .why em { font-style: italic; color: var(--indigo); }
@@ -484,6 +492,7 @@
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .panel { transition: opacity 1ms; filter: none; transform: none; }
+      .term::after { transition: none; }
     }
   </style>
 </head>
