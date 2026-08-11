@@ -4,6 +4,12 @@
 // page errors, and failed requests (catches CSP violations locally).
 //
 // Usage: node scripts/dev/screenshot.mjs [outDir] [--only name-prefix]
+//
+// WEBGPU=1 additionally launches with SwiftShader WebGPU flags and waits for
+// the GPU ribbon tier to go live on the homepage. Best-effort evidence only:
+// sandboxed SwiftShader crashes on canvas present, so "tier fell back" is an
+// expected note here, not a failure — the fallback chain is the tested path
+// (tests/hero-fallback-chain.test.mjs). On real GPUs it verifies activation.
 import fs from 'node:fs';
 import path from 'node:path';
 import { chromium } from 'playwright-core';
@@ -59,6 +65,21 @@ async function capture(browser, vp) {
   // Homepage: settle the canvas, then each focus state.
   await page.goto(`${BASE}/`, { waitUntil: 'networkidle' });
   await page.waitForTimeout(1800);
+  if (process.env.WEBGPU && vp.name === 'desktop') {
+    const live = await page.waitForSelector('#ribbon-gpu[data-live]', { timeout: 20000 })
+      .then(() => true).catch(() => false);
+    note(live ? 'webgpu' : 'webgpu-fallback', page.url(),
+      live ? 'GPU ribbon tier went live' : 'GPU tier fell back to 2D (expected under sandboxed SwiftShader)');
+    if (live) await page.waitForTimeout(1200); // let the fade-in finish
+  }
+  if (vp.name === 'mobile') {
+    // the tier gate must never load the GPU module on mobile
+    const gpuActive = await page.evaluate(() => {
+      const c = document.getElementById('ribbon-gpu');
+      return !!c && 'live' in c.dataset;
+    });
+    if (gpuActive) note('webgpu-leak', page.url(), 'GPU tier activated on mobile — gate broken');
+  }
   await shot('home');
   await shot('home-full', true);
   for (const state of FOCUS_STATES) {
@@ -99,12 +120,19 @@ async function captureReducedMotion(browser) {
   const page = await context.newPage();
   await page.goto(`${BASE}/`, { waitUntil: 'networkidle' });
   await page.waitForTimeout(800);
+  // reduced motion must keep the GPU tier off entirely — static 2D frame only
+  const gpuActive = await page.evaluate(() => 'live' in document.getElementById('ribbon-gpu').dataset);
+  if (gpuActive) note('webgpu-leak', page.url(), 'GPU tier activated under reduced motion — gate broken');
   await page.screenshot({ path: path.join(OUT, 'reduced-motion--home.png') });
   console.log('  ✓ reduced-motion--home');
   await context.close();
 }
 
-const browser = await chromium.launch({ executablePath: EXECUTABLE, args: ['--no-sandbox'] });
+const launchArgs = ['--no-sandbox'];
+if (process.env.WEBGPU) {
+  launchArgs.push('--enable-unsafe-webgpu', '--use-webgpu-adapter=swiftshader', '--enable-features=Vulkan');
+}
+const browser = await chromium.launch({ executablePath: EXECUTABLE, args: launchArgs });
 for (const vp of VIEWPORTS) {
   console.log(`\n${vp.name} (${vp.width}×${vp.height})`);
   await capture(browser, vp);
