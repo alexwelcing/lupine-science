@@ -137,7 +137,7 @@ const html = `<!doctype html>
   <main id="content" class="atlas-index">
     <p class="b-label">Ontology atlas</p>
     <h1>Error types, emblems, and material classes that anchor the Lupine research frame.</h1>
-    <p class="atlas-lede">${totalCount} nodes, pulled from the project's knowledge wiki at build time. Each card carries the canonical <code>lupine-research://</code> URI — copy it, search for it, cite it. Source: <a href="/data/atlas_nodes.json"><code>/data/atlas_nodes.json</code></a>.</p>
+    <p class="atlas-lede">${totalCount} nodes, pulled from the project's knowledge wiki at build time. Each card carries the canonical <code>lupine-research://</code> URI — copy it, search for it, cite it. Source: <a href="/data/atlas_nodes.json"><code>/data/atlas_nodes.json</code></a>. For the curated claim inventory (the 146 claim/S* nodes, organized into 8 narrative facets), see <a href="/atlas/claims/">/atlas/claims/</a>.</p>
 ${sectionHtml}
     <p class="atlas-asof">Generated from <code>${escapeHtml(data.source)}</code>; counts: error_type=${data.counts.error_type}, emblem=${data.counts.emblem}, material_class=${data.counts.material_class}.</p>
   </main>

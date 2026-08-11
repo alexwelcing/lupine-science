@@ -66,6 +66,20 @@ if (fs.existsSync(atlasDir)) {
   }
 }
 
+// Curated claim facets under /atlas/claims/<facet>/. Built by
+// scripts/build-claim-facets.mjs. The facets index lives at /atlas/claims/.
+const claimsDir = path.join(atlasDir, 'claims');
+if (fs.existsSync(claimsDir)) {
+  if (fs.existsSync(path.join(claimsDir, 'index.html'))) {
+    urls.push({ loc: `${SITE}/atlas/claims/`, lastmod: null });
+  }
+  for (const entry of fs.readdirSync(claimsDir, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    if (!fs.existsSync(path.join(claimsDir, entry.name, 'index.html'))) continue;
+    urls.push({ loc: `${SITE}/atlas/claims/${entry.name}/`, lastmod: null });
+  }
+}
+
 // Static assets that are not directories but should be discoverable.
 for (const file of ['proof-pack-climate-series.pdf']) {
   if (fs.existsSync(path.join(PUBLIC, file))) urls.push({ loc: `${SITE}/${file}`, lastmod: null });
