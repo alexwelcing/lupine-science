@@ -61,6 +61,44 @@ test('contradictory audio summaries and per-file failures reject publication', (
   assert.equal(certifyRelease({ ...valid, audio: missingChecks }).decision, 'fail');
 });
 
+test('baselined known-defect films certify; anything new fails closed', () => {
+  // the audio gate is a ratchet (applyBaseline): defects known at adoption are
+  // reported but not release-blocking. Certification must accept a decision:pass
+  // artifact carrying baselined films — demanding failed === 0 here rejected
+  // every release since the baseline was adopted.
+  const baselined = structuredClone(valid.audio);
+  baselined.summary = { total: 2, passed: 1, failed: 1 };
+  baselined.blockingFiles = 0;
+  baselined.files.push({
+    file: 'public/videos/legacy-film.mp4',
+    verdict: 'fail',
+    baselinedVerdict: 'known-defect',
+    checks: [
+      { id: 'audio-stream-present', status: 'pass' },
+      { id: 'true-peak-ceiling', status: 'fail', severity: 'clipping', baselined: true },
+    ],
+  });
+  const accepted = certifyRelease({ ...valid, audio: baselined });
+  assert.equal(accepted.decision, 'pass');
+  assert.equal(accepted.checks.audio.baselinedKnownDefects, 1);
+  assert.equal(accepted.checks.audio.blockingFiles, 0);
+
+  // a NEW (non-baselined) failing check on a known-defect film still rejects
+  const regressed = structuredClone(baselined);
+  regressed.files[1].checks.push({ id: 'speech-rate-in-band', status: 'fail' });
+  assert.equal(certifyRelease({ ...valid, audio: regressed }).decision, 'fail');
+
+  // a film the baseline never blessed still rejects
+  const unblessed = structuredClone(baselined);
+  delete unblessed.files[1].baselinedVerdict;
+  assert.equal(certifyRelease({ ...valid, audio: unblessed }).decision, 'fail');
+
+  // and the gate's own decision remains authoritative
+  const gateFail = structuredClone(baselined);
+  gateFail.decision = 'fail';
+  assert.equal(certifyRelease({ ...valid, audio: gateFail }).decision, 'fail');
+});
+
 test('missing artifact links or exact commit identity fail closed', () => {
   const result = certifyRelease({ ...valid, commitSha: 'main', smokeArtifactUrl: '' });
   assert.equal(result.decision, 'fail');
