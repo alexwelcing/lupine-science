@@ -81,7 +81,14 @@ describe('article top-line metadata', () => {
 describe('index metadata line', () => {
   it('normalizes article status on the index card', () => {
     const html = fs.readFileSync(path.join(OUT, 'index.html'), 'utf8');
-    assert.match(html, /class="d8"[^>]*>[^<]*Draft<\/span>/);
+    // status lives in its own span inside .d8: drafts stay quiet ink...
+    assert.match(html, /class="card-status">Draft<\/span>/);
+    // ...settled work carries the verified green
+    assert.match(html, /class="card-status is-published">(Published|Live|Final)/);
+    // long editorial statuses never leak whole sentences onto a card label
+    for (const m of html.matchAll(/class="card-status[^"]*">([^<]*)</g)) {
+      assert.ok(m[1].length <= 32, `card status too long for a label: "${m[1]}"`);
+    }
   });
 });
 

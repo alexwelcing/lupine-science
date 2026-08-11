@@ -703,7 +703,14 @@ function buildIndex(articles) {
       ? pictureSources(a.slug, base, { eager: index === 0 })
           .replace('width="1280" height="720"', 'class="card-thumb" width="640" height="360"')
       : '<span class="card-thumb card-thumb-empty" aria-hidden="true"><i></i><i></i><i></i></span>';
-    const metaLine = [a.meta.date ? formatDate(a.meta.date) : '', a.meta.status ? esc(formatStatus(a.meta.status)) : ''].filter(Boolean).join(' · ');
+    // status renders as its own span so settled work (Published/Live/Final)
+    // can carry the verified green while drafts stay quiet; long editorial
+    // statuses keep only their leading clause — the card is a label, not a memo
+    const statusLabel = (a.meta.status ? formatStatus(a.meta.status) : '').split(/[—;]/)[0].trim();
+    const statusHtml = statusLabel
+      ? `<span class="card-status${/^(published|live|final)/i.test(statusLabel) ? ' is-published' : ''}">${esc(statusLabel)}</span>`
+      : '';
+    const metaLine = [a.meta.date ? esc(formatDate(a.meta.date)) : '', statusHtml].filter(Boolean).join(' · ');
     return `<li>
   <a class="article-card" href="/articles/${a.slug}/">
     ${thumb}
@@ -935,6 +942,11 @@ function buildNotFoundPage() {
 </head>
 <body>
 ${chrome(`  <main id="content" class="article-shell">
+    <picture class="lost-ribbon" aria-hidden="true">
+      <source srcset="/ribbon-still.avif" type="image/avif">
+      <source srcset="/ribbon-still.webp" type="image/webp">
+      <img src="/ribbon-still.jpg" alt="" loading="lazy" decoding="async" width="1440" height="900">
+    </picture>
     <article class="article">
       <p class="article-kicker">404</p>
       <h1>That page or download is not available.</h1>

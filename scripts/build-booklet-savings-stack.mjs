@@ -21,6 +21,7 @@ import http from 'node:http';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
+import { chromiumExecutablePath } from './lib/chromium-executable.mjs';
 import { inspectPdf } from './check-pdf.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -89,7 +90,7 @@ async function main() {
 
   let browser;
   try {
-    browser = await chromium.launch({ headless: true });
+    browser = await chromium.launch({ headless: true, executablePath: chromiumExecutablePath() });
     const page = await browser.newPage();
     // Deterministic, offline render: anything not on the loopback server dies.
     await page.route('**/*', (route) => {

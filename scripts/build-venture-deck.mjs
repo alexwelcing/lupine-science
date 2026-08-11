@@ -5,6 +5,7 @@ import http from 'node:http';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
+import { chromiumExecutablePath } from './lib/chromium-executable.mjs';
 import { PDFDocument, PDFName } from 'pdf-lib';
 import { assertSupportedSlideCount, validateDeckHtml } from './venture-deck-tools.mjs';
 
@@ -103,7 +104,10 @@ async function main() {
     // BrowserServer — so the earlier `browser.process()?.kill()` fallback threw a
     // TypeError straight into an empty catch and killed nothing. Verified:
     // typeof browser.process === 'undefined', typeof browserServer.kill === 'function'.
-    browserServer = await chromium.launchServer({ headless: true });
+    browserServer = await chromium.launchServer({
+      headless: true,
+      executablePath: chromiumExecutablePath(),
+    });
     browser = await chromium.connect(browserServer.wsEndpoint());
     const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
     await page.route('**/*', (route) => {
