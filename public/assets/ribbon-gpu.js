@@ -135,7 +135,8 @@ fn fs(@builtin(position) frag: vec4f) -> @location(0) vec4f {
       // simulations" texture, now living on a curved surface
       let stria = 0.60 + 0.40 * cos(f / halfW * 12.566);
       let body = (1.0 - af) * (1.0 - af) * stria;
-      let core = smoothstep(0.14, 0.0, af) * 0.5;
+      // ordered smoothstep edges only: low >= high is undefined in WGSL
+      let core = (1.0 - smoothstep(0.0, 0.14, af)) * 0.5;
       // luminance earned by fit quality (r2) and the ribbon focus
       let lum = (0.18 + 0.72 * p.z) * (0.35 + 0.65 * ribbon) * breath * depthFade;
       // per-step optical density: airy, paper-calm — never a solid band
@@ -157,7 +158,7 @@ fn fs(@builtin(position) frag: vec4f) -> @location(0) vec4f {
     let vec_ = u.focusA.z;
     if (vec_ > 0.02) {
       let n = noise2(vec2f(sx * 0.012 + t * 24.0, syp * 0.012 + z * 4.0));
-      let band = smoothstep(0.20, 0.02, abs(syn));
+      let band = 1.0 - smoothstep(0.02, 0.20, abs(syn));
       let fog = smoothstep(0.58, 1.0, n) * band * vec_ * 0.006 * breath;
       acc += IND * fog * (1.0 - alpha);
       alpha += fog * 1.2 * (1.0 - alpha);
@@ -239,12 +240,14 @@ export async function start(bridge) {
     entries: [{ binding: 0, resource: { buffer: ubuf } }],
   });
 
-  // fixed 5D -> 3D projection of each potential's first eigenvector; rows are
-  // orthonormal, so real angular structure survives the projection
+  // fixed 5D -> 3D projection of each potential's first eigenvector. The rows
+  // are Gram-Schmidt orthonormalized (pairwise dot products ~4e-9), so the
+  // projection preserves angular structure instead of shearing it; a test
+  // pins the invariant (tests/ribbon-gpu.test.mjs).
   const P3 = [
-    [0.6325, 0.4472, 0.4472, 0.3162, 0.3162],
-    [-0.5, 0.7246, -0.1863, -0.3727, 0.2236],
-    [0.3162, -0.2236, -0.7454, 0.2236, 0.4472],
+    [0.63250101, 0.44720071, 0.44720071, 0.31620050, 0.31620050],
+    [-0.42591777, 0.78592533, -0.13253360, -0.33668327, 0.26456501],
+    [0.26782698, -0.08477354, -0.78765947, 0.18028574, 0.51785303],
   ];
   const proj3 = (v) => {
     const o = [0, 0, 0];

@@ -73,6 +73,40 @@ test('the GPU canvas is decorative and ordered inside the fallback chain', () =>
   assert.ok(still < noscript, 'noscript tier closes the chain');
 });
 
+test('the 5D->3D projection is orthonormal and identical everywhere', () => {
+  // a non-orthonormal projection shears the eigenvectors and silently changes
+  // the inter-sheet angles the scene claims to encode (codex review, PR #69)
+  const extractP3 = (src, file) => {
+    const m = src.match(/const P3 = \[\s*((?:\[[^\]]*\],?\s*){3})\];/);
+    assert.ok(m, `P3 literal found in ${file}`);
+    return m[1].trim().split(/\],\s*/).filter(Boolean)
+      .map((row) => row.replace(/[[\]]/g, '').split(',').map(Number));
+  };
+  const p3 = extractP3(moduleSrc, 'ribbon-gpu.js');
+  const harnessSrc = fs.readFileSync(path.join(ROOT, 'scripts/dev/render-ribbon-gpu.mjs'), 'utf8');
+  assert.deepEqual(extractP3(harnessSrc, 'render-ribbon-gpu.mjs'), p3,
+    'module and render harness must share the exact same projection');
+  const dot = (a, b) => a.reduce((s, x, i) => s + x * b[i], 0);
+  for (let i = 0; i < 3; i++) {
+    assert.equal(p3[i].length, 5, `row ${i} spans the 5 eigenvector components`);
+    assert.ok(Math.abs(dot(p3[i], p3[i]) - 1) < 1e-6, `row ${i} has unit norm`);
+    for (let j = i + 1; j < 3; j++) {
+      assert.ok(Math.abs(dot(p3[i], p3[j])) < 1e-6, `rows ${i},${j} are orthogonal`);
+    }
+  }
+});
+
+test('WGSL smoothstep edges are always ordered', () => {
+  // smoothstep(low, high, x) with low >= high is undefined behavior in WGSL;
+  // on strict implementations it can blank the sheet core while the queue
+  // still completes — suppressing the working 2D ribbon (codex review, PR #69)
+  const wgsl = moduleSrc.match(/const WGSL = \/\* wgsl \*\/ `([\s\S]*?)`;\n/)[1];
+  for (const m of wgsl.matchAll(/smoothstep\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,/g)) {
+    assert.ok(Number(m[1]) < Number(m[2]),
+      `smoothstep edges must satisfy low < high: ${m[0]}...)`);
+  }
+});
+
 test('focus vocabulary stays in sync between page and module', () => {
   // the bridge hands FOCUS targets straight to the module's interpolator;
   // both sides must speak the same keys
