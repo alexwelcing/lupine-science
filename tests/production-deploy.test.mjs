@@ -49,6 +49,22 @@ test('production deploy records a durable receipt and invokes live verification'
   assert.match(source, /name: Security headers are live/);
 });
 
+test('production deploy captures and verifies an exact rollback target', async () => {
+  const source = await workflow();
+
+  assert.match(source, /name: Capture previous production deployment/);
+  assert.match(source, /pages\/projects\/\$CF_PAGES_PROJECT\/deployments\?env=production/);
+  assert.match(source, /name: Prove previous deployment remains restorable/);
+  assert.match(source, /node scripts\/build-rollback-evidence\.mjs/);
+  assert.match(source, /name: Retain rollback evidence/);
+  assert.match(source, /rollback-evidence-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
+  assert.match(source, /retention-days: 90/);
+});
+
+// Both tests survive the rebase: the rollback-target test is this branch's addition,
+// and the certification test is main's. Kept main's "all required" wording rather than
+// this branch's "both required" — the shared body below asserts THREE gates (visual,
+// smoke and the newer audio one), so "both" was already stale when it was written.
 test('release certification consumes all required CI artifacts and fails closed', async () => {
   const source = await workflow();
   const ciSource = await ciWorkflow();
