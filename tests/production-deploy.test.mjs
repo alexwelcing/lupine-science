@@ -61,6 +61,8 @@ test('release certification consumes all required CI artifacts and fails closed'
   assert.match(source, /release-certification:[\s\S]*name: publication-audio-gate-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
   assert.match(source, /release-certification:[\s\S]*node scripts\/validate-release-gates\.mjs/);
   assert.match(source, /release-certification:[\s\S]*--audio gate-inputs\/audio\/audio-gate\.json/);
+  assert.match(source, /release-certification:[\s\S]*--audio-baseline tests\/fixtures\/audio-gate-baseline\.json/);
+  assert.match(source, /release-certification:[\s\S]*--audio-directory public\/videos/);
   assert.match(source, /release-certification:[\s\S]*if-no-files-found: error/);
 });
 
