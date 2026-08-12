@@ -36,6 +36,7 @@ const VOICE_DIR = path.join(ROOT, 'media', 'projects', 'voice-tracks');
 // string recorded in each script file.
 export const SCRIPT_SOURCE_COMMIT = '4641d96269617a365346b4ff7feead54f026c6a9';
 export const SCRIPT_SOURCE_COMMIT_SHORT = '4641d96';
+export const SCRIPT_RECOVERED_AT = '2026-08-08';
 
 /** Parse a VTT into cue payloads (the narration paragraphs). */
 export function parseVttCues(text) {
@@ -109,6 +110,33 @@ function gitShow(ref) {
 
 const words = (s) => s.trim().split(/\s+/).filter(Boolean).length;
 
+// Reviewed editorial exclusions applied after recovering the immutable historical
+// narration source. This preserves provenance while preventing a routine rebuild
+// from restoring claims that have since failed evidence reconciliation.
+const EDITORIAL_EXCLUSIONS = new Map([
+  ['water-and-air-correcting-the-molecules-we-drink-and-breathe', new Map([
+    [
+      'One hundred ninety build-locked Lean 4 theorems mark which claims are supported, bounded, or synthesis-dependent. A membrane ranking is supported only when its local environments fall inside the measured domain, and a metastable sorbent phase is flagged honestly rather than sold as predicted.',
+      'A membrane ranking is supported only when its local environments fall inside the measured domain, and a metastable sorbent phase is flagged honestly rather than sold as predicted.',
+    ],
+  ])],
+]);
+
+export function applyEditorialExclusions(slug, cues) {
+  const replacements = EDITORIAL_EXCLUSIONS.get(slug);
+  if (!replacements) return cues;
+  return cues.map((cue) => replacements.get(cue) ?? cue);
+}
+
+export function recoveredPayloadMatches(have, expected) {
+  return have.slug === expected.slug
+    && have.source === expected.source
+    && have.recoveredAt === expected.recoveredAt
+    && have.words === expected.words
+    && have.chars === expected.chars
+    && JSON.stringify(have.paragraphs) === JSON.stringify(expected.paragraphs);
+}
+
 function main() {
   const argv = process.argv.slice(2);
   const slugIdx = argv.indexOf('--slug');
@@ -128,8 +156,12 @@ function main() {
   let failed = 0;
 
   for (const slug of slugs) {
-    const cues = parseVttCues(gitShow(`${SCRIPT_SOURCE_COMMIT}:public/videos/${slug}.vtt`));
+    const recoveredCues = parseVttCues(gitShow(`${SCRIPT_SOURCE_COMMIT}:public/videos/${slug}.vtt`));
+    const cues = applyEditorialExclusions(slug, recoveredCues);
     const total = cues.reduce((n, c) => n + words(c), 0);
+    const editorialNote = EDITORIAL_EXCLUSIONS.has(slug)
+      ? '; reviewed editorial exclusions applied'
+      : '';
 
     // A recovered "script" of scene titles is not a script. The placeholder VTTs
     // carry 35-74 words per film across ~7 cues; the real prose carries 250-450
@@ -143,8 +175,8 @@ function main() {
 
     const payload = {
       slug,
-      source: `public/videos/${slug}.vtt at commit ${SCRIPT_SOURCE_COMMIT_SHORT} (pre-overwrite narration prose)`,
-      recoveredAt: new Date().toISOString().slice(0, 10),
+      source: `public/videos/${slug}.vtt at commit ${SCRIPT_SOURCE_COMMIT_SHORT} (pre-overwrite narration prose${editorialNote})`,
+      recoveredAt: SCRIPT_RECOVERED_AT,
       words: total,
       chars: cues.join(' ').length,
       paragraphs: cues,
@@ -159,7 +191,7 @@ function main() {
         continue;
       }
       const have = JSON.parse(fs.readFileSync(outPath, 'utf8'));
-      const same = JSON.stringify(have.paragraphs) === JSON.stringify(cues);
+      const same = recoveredPayloadMatches(have, payload);
       console.log(`[${slug}] ${same ? 'OK' : 'DRIFTED'} ${total} words / ${cues.length} paragraphs`);
       if (!same) failed++;
       continue;
