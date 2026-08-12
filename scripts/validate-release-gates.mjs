@@ -29,17 +29,52 @@ export function certifyRelease({ visual, smoke, audio, commitSha, ciRunUrl, visu
     failures.push('smoke suite did not pass');
   }
   const audioFiles = Array.isArray(audio.files) ? audio.files : [];
+  const cleanFiles = audioFiles.filter((file) => file.verdict === 'pass');
+  const failedFiles = audioFiles.filter((file) => file.verdict === 'fail');
+  const adoptedAt = audio.baseline?.adoptedAt;
+  const adoptedAtTimestamp = typeof adoptedAt === 'string'
+    ? Date.parse(`${adoptedAt}T00:00:00Z`)
+    : Number.NaN;
+  const tracker = typeof audio.baseline?.trackedBy === 'string'
+    ? audio.baseline.trackedBy.trim()
+    : '';
   const audioSummaryConsistent = audioFiles.length > 0
     && audio.summary?.total === audioFiles.length
-    && audio.summary?.passed === audioFiles.length
-    && audio.summary?.failed === 0;
-  const audioFilesPassed = audioFiles.every((file) => (
-    file.verdict === 'pass'
-    && Array.isArray(file.checks)
-    && file.checks.length > 0
-    && file.checks.every((check) => check.status === 'pass')
-  ));
-  if (audio.decision !== 'pass' || !audioSummaryConsistent || !audioFilesPassed) {
+    && audio.summary?.passed === cleanFiles.length
+    && audio.summary?.failed === failedFiles.length;
+  const hasDeclaredBaseline = audio.baseline
+    && typeof audio.baseline.source === 'string'
+    && audio.baseline.source.trim().length > 0
+    && !['unknown', 'n/a'].includes(audio.baseline.source.trim().toLowerCase())
+    && typeof adoptedAt === 'string'
+    && /^[1-9]\d{3}-\d{2}-\d{2}$/.test(adoptedAt)
+    && Number.isFinite(adoptedAtTimestamp)
+    && new Date(adoptedAtTimestamp).toISOString().slice(0, 10) === adoptedAt
+    && tracker.length > 0
+    && !['unknown', 'n/a'].includes(tracker.toLowerCase())
+    && Number.isInteger(audio.baseline.filmsWithKnownDefects)
+    && audio.baseline.filmsWithKnownDefects > 0;
+  const fileStateValid = (file) => {
+    if (!Array.isArray(file.checks) || file.checks.length === 0) return false;
+    if (!file.checks.every((check) => check.status === 'pass' || check.status === 'fail')) return false;
+    if (file.verdict === 'pass') {
+      return file.baselinedVerdict == null && file.checks.every((check) => check.status === 'pass');
+    }
+    if (file.verdict !== 'fail' || file.baselinedVerdict !== 'known-defect' || !hasDeclaredBaseline) return false;
+    const failingChecks = file.checks.filter((check) => check.status === 'fail');
+    return failingChecks.length > 0 && failingChecks.every((check) => check.baselined === true);
+  };
+  const blockingFiles = audioFiles.filter((file) => (
+    file.verdict !== 'pass' && file.baselinedVerdict !== 'known-defect'
+  )).length;
+  const knownDefects = audioFiles.filter((file) => file.baselinedVerdict === 'known-defect').length;
+  const baselineCountConsistent = knownDefects === 0
+    || (hasDeclaredBaseline && audio.baseline.filmsWithKnownDefects >= knownDefects);
+  const audioFilesValid = audioFiles.every(fileStateValid);
+  const blockingCountConsistent = audio.blockingFiles == null
+    ? failedFiles.length === 0
+    : audio.blockingFiles === blockingFiles;
+  if (audio.decision !== 'pass' || !audioSummaryConsistent || !audioFilesValid || !baselineCountConsistent || !blockingCountConsistent || blockingFiles !== 0) {
     failures.push('audio suite did not pass');
   }
   if (audio.commitSha !== commitSha) failures.push('audio artifact commit SHA does not match release');
@@ -70,6 +105,8 @@ export function certifyRelease({ visual, smoke, audio, commitSha, ciRunUrl, visu
         artifactUrl: audioArtifactUrl,
         files: audio.summary?.total ?? null,
         failed: audio.summary?.failed ?? null,
+        knownDefects,
+        blockingFiles,
       },
     },
     failures,
