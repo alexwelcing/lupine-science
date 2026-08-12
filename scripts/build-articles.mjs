@@ -93,10 +93,18 @@ const ASSET_CACHE_BUST = '?v=3';
 const ARTICLE_ASSET_CACHE_BUST = new Map([
   ['shared-dft-anchors', '?v=4'],
 ]);
+const VIDEO_POSTER_CACHE_BUST = new Map([
+  ['water-and-air-correcting-the-molecules-we-drink-and-breathe', '?v=4'],
+]);
 
 function bust(url, slug) {
   if (!url || url.includes('?') || url.includes('#')) return url;
   return `${url}${ARTICLE_ASSET_CACHE_BUST.get(slug) || ASSET_CACHE_BUST}`;
+}
+
+function bustVideoPoster(url, slug) {
+  if (!url || url.includes('?') || url.includes('#')) return url;
+  return `${url}${VIDEO_POSTER_CACHE_BUST.get(slug) || ASSET_CACHE_BUST}`;
 }
 
 // Append the cache-bust query to local image URLs inside rendered Markdown.
@@ -288,7 +296,7 @@ function inlineVideoPlayer(slug, title, { detailLink = true } = {}) {
   const vttPath = path.join(PUBLIC_ROOT, 'videos', `${slug}.vtt`);
   const hasPoster = fs.existsSync(posterPath);
   const hasCaptions = fs.existsSync(vttPath);
-  const posterAttr = hasPoster ? ` poster="${bust(`/videos/${slug}-poster.jpg`)}"` : '';
+  const posterAttr = hasPoster ? ` poster="${bustVideoPoster(`/videos/${slug}-poster.jpg`, slug)}"` : '';
   const captionsTrack = hasCaptions
     ? `    <track kind="captions" src="/videos/${slug}.vtt" srclang="en" label="English" default>\n`
     : '';
@@ -358,12 +366,12 @@ function posterPicture(slug) {
   const dir = path.join(PUBLIC_ROOT, 'videos');
   const avif = fs.existsSync(path.join(dir, `${slug}-poster.avif`));
   const webp = fs.existsSync(path.join(dir, `${slug}-poster.webp`));
-  const img = `<img src="${bust(`/videos/${slug}-poster.jpg`)}" alt="" loading="lazy" decoding="async">`;
+  const img = `<img src="${bustVideoPoster(`/videos/${slug}-poster.jpg`, slug)}" alt="" loading="lazy" decoding="async">`;
   if (!avif && !webp) return img;
   return `<picture>${
-    avif ? `<source srcset="${bust(`/videos/${slug}-poster.avif`)}" type="image/avif">` : ''
+    avif ? `<source srcset="${bustVideoPoster(`/videos/${slug}-poster.avif`, slug)}" type="image/avif">` : ''
   }${
-    webp ? `<source srcset="${bust(`/videos/${slug}-poster.webp`)}" type="image/webp">` : ''
+    webp ? `<source srcset="${bustVideoPoster(`/videos/${slug}-poster.webp`, slug)}" type="image/webp">` : ''
   }${img}</picture>`;
 }
 
@@ -620,7 +628,7 @@ async function buildArticle(raw, slug) {
   const twitterCard = 'summary_large_image';
   const videoUrl = publishedVideoUrl(slug);
   const videoPoster = fs.existsSync(path.join(PUBLIC_ROOT, 'videos', `${slug}-poster.jpg`))
-    ? bust(`${SITE}/videos/${slug}-poster.jpg`)
+    ? bustVideoPoster(`${SITE}/videos/${slug}-poster.jpg`, slug)
     : undefined;
   const socialTitle = meta.ogTitle || `${title} — Lupine Science`;
   const socialDescription = meta.ogDescription || description;
@@ -650,7 +658,9 @@ async function buildArticle(raw, slug) {
         name: title,
         description,
         thumbnailUrl: fs.existsSync(path.join(PUBLIC_ROOT, 'videos', `${slug}-poster.jpg`))
-          ? `${SITE}/videos/${slug}-poster.jpg`
+          ? VIDEO_POSTER_CACHE_BUST.has(slug)
+            ? bustVideoPoster(`${SITE}/videos/${slug}-poster.jpg`, slug)
+            : `${SITE}/videos/${slug}-poster.jpg`
           : articleJsonLd.image,
         uploadDate: meta.date,
         contentUrl: videoUrl,
@@ -793,7 +803,7 @@ function videoDescription(article) {
 function videoHead(article, url) {
   const { slug, title, meta } = article;
   const description = videoDescription(article);
-  const poster = bust(`${SITE}/videos/${slug}-poster.jpg`);
+  const poster = bustVideoPoster(`${SITE}/videos/${slug}-poster.jpg`, slug);
   const contentUrl = `${SITE}/videos/${slug}.mp4`;
   const jsonld = {
     '@context': 'https://schema.org',

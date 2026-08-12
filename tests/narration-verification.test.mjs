@@ -32,6 +32,7 @@ import {
   TRUE_PEAK_TARGET_DBTP, LOUDNESS_TARGET_LUFS,
 } from '../scripts/lib/audio-normalize.mjs';
 import { parseVtt, narrationDeadAir } from '../scripts/audio-release-gate.mjs';
+import { recoveredPayloadMatches } from '../scripts/recover-narration-scripts.mjs';
 
 const FFMPEG = process.env.FFMPEG || 'ffmpeg';
 
@@ -494,6 +495,40 @@ test('recovered narration scripts still match commit 4641d96', () => {
   // All ten affected films, each a real script rather than a title placeholder.
   const lines = r.stdout.trim().split('\n').filter((l) => l.includes(' OK '));
   assert.equal(lines.length, 10, r.stdout);
+});
+
+test('water-and-air recovery preserves the reviewed theorem-count exclusion', () => {
+  const root = path.resolve(import.meta.dirname, '..');
+  const script = JSON.parse(fs.readFileSync(path.join(
+    root,
+    'data/narration-scripts/water-and-air-correcting-the-molecules-we-drink-and-breathe.json',
+  ), 'utf8'));
+  const text = script.paragraphs.join(' ');
+  assert.doesNotMatch(text, /one hundred ninety build-locked Lean 4 theorems/i);
+  assert.match(text, /A membrane ranking is supported only when/);
+  assert.match(script.source, /reviewed editorial exclusions applied/);
+});
+
+test('recovery payload validation fails closed on every provenance field', () => {
+  const expected = {
+    slug: 'film',
+    source: 'source',
+    recoveredAt: '2026-08-08',
+    words: 2,
+    chars: 11,
+    paragraphs: ['hello world'],
+  };
+  assert.equal(recoveredPayloadMatches(expected, expected), true);
+  for (const [field, value] of [
+    ['slug', 'other'],
+    ['source', 'other'],
+    ['recoveredAt', '1900-01-01'],
+    ['words', 3],
+    ['chars', 10],
+    ['paragraphs', ['other']],
+  ]) {
+    assert.equal(recoveredPayloadMatches({ ...expected, [field]: value }, expected), false, field);
+  }
 });
 
 test('every narration script is prose, not the scene-title placeholder', () => {
