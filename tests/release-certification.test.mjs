@@ -1,12 +1,13 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
+import { applyBaseline } from '../scripts/audio-release-gate.mjs';
 import { certifyRelease } from '../scripts/validate-release-gates.mjs';
 
 const sha = 'a'.repeat(40);
 const url = 'https://github.com/alexwelcing/lupine-science/actions/runs/1';
 const valid = {
-  visual: { schemaVersion: 1, passed: true, summary: { total: 3, failed: 0 }, checks: [{ id: 'component', status: 'passed' }] },
+  visual: { schemaVersion: 1, passed: true, summary: { total: 1, failed: 0 }, checks: [{ id: 'component', status: 'passed' }] },
   smoke: { schemaVersion: 1, outcome: 'pass', targets: [{ summary: { failed: 0 } }] },
   audio: { schemaVersion: 1, decision: 'pass', commitSha: sha, summary: { total: 1, passed: 1, failed: 0 }, files: [{ file: 'public/videos/film.mp4', verdict: 'pass', checks: [{ id: 'audio-stream-present', status: 'pass' }] }] },
   commitSha: sha,
@@ -25,15 +26,35 @@ test('certification passes only with green visual and smoke artifacts', () => {
 });
 
 test('a failing visual artifact rejects publication', () => {
-  const result = certifyRelease({ ...valid, visual: { ...valid.visual, passed: false, summary: { total: 3, failed: 1 } } });
+  const result = certifyRelease({ ...valid, visual: { ...valid.visual, passed: false, summary: { total: 1, failed: 1 } } });
   assert.equal(result.decision, 'fail');
   assert.match(result.failures.join('\n'), /visual-check suite did not pass/);
+
+  const contradictoryCheck = structuredClone(valid.visual);
+  contradictoryCheck.checks[0].status = 'failed';
+  const contradictoryResult = certifyRelease({ ...valid, visual: contradictoryCheck });
+  assert.equal(contradictoryResult.decision, 'fail');
+  assert.equal(contradictoryResult.checks.visual.failed, 1);
+
+  const contradictoryTotal = structuredClone(valid.visual);
+  contradictoryTotal.summary.total = 99;
+  assert.equal(certifyRelease({ ...valid, visual: contradictoryTotal }).decision, 'fail');
 });
 
 test('a failing smoke artifact rejects publication', () => {
   const result = certifyRelease({ ...valid, smoke: { ...valid.smoke, outcome: 'content_failure' } });
   assert.equal(result.decision, 'fail');
   assert.match(result.failures.join('\n'), /smoke suite did not pass/);
+
+  const failedTarget = structuredClone(valid.smoke);
+  failedTarget.targets[0].summary.failed = 1;
+  const failedTargetResult = certifyRelease({ ...valid, smoke: failedTarget });
+  assert.equal(failedTargetResult.decision, 'fail');
+  assert.equal(failedTargetResult.checks.smoke.failed, 1);
+
+  const missingSummary = structuredClone(valid.smoke);
+  delete missingSummary.targets[0].summary;
+  assert.equal(certifyRelease({ ...valid, smoke: missingSummary }).decision, 'fail');
 });
 
 test('a failing or SHA-mismatched audio artifact rejects publication', () => {
@@ -54,11 +75,21 @@ test('contradictory audio summaries and per-file failures reject publication', (
   const failedFile = structuredClone(valid.audio);
   failedFile.files[0].verdict = 'fail';
   failedFile.files[0].checks[0].status = 'fail';
-  assert.equal(certifyRelease({ ...valid, audio: failedFile }).decision, 'fail');
+  const failedFileResult = certifyRelease({ ...valid, audio: failedFile });
+  assert.equal(failedFileResult.decision, 'fail');
+  assert.equal(failedFileResult.checks.audio.blockingFiles, 1);
 
   const missingChecks = structuredClone(valid.audio);
   delete missingChecks.files[0].checks;
-  assert.equal(certifyRelease({ ...valid, audio: missingChecks }).decision, 'fail');
+  const missingChecksResult = certifyRelease({ ...valid, audio: missingChecks });
+  assert.equal(missingChecksResult.decision, 'fail');
+  assert.equal(missingChecksResult.checks.audio.blockingFiles, 1);
+
+  const unknownVerdict = structuredClone(valid.audio);
+  unknownVerdict.files[0].verdict = 'unknown';
+  const unknownVerdictResult = certifyRelease({ ...valid, audio: unknownVerdict });
+  assert.equal(unknownVerdictResult.decision, 'fail');
+  assert.equal(unknownVerdictResult.checks.audio.blockingFiles, 1);
 });
 
 test('an explicitly baselined known defect is non-blocking but remains reported', () => {
@@ -81,6 +112,23 @@ test('an explicitly baselined known defect is non-blocking but remains reported'
   assert.equal(result.checks.audio.blockingFiles, 0);
 });
 
+test('a remediated passing file may retain the producer baseline marker', () => {
+  const baseline = {
+    source: 'release/audio-gate/known-defects.json',
+    adoptedAt: '2026-07-01',
+    trackedBy: 'audio-remediation-board',
+    films: { 'public/videos/film.mp4': ['integrated-loudness'] },
+  };
+  const audio = applyBaseline(structuredClone(valid.audio), baseline);
+  assert.equal(audio.files[0].baselinedVerdict, 'known-defect');
+  assert.equal(audio.blockingFiles, 0);
+
+  const result = certifyRelease({ ...valid, audio });
+  assert.equal(result.decision, 'pass');
+  assert.equal(result.checks.audio.knownDefects, 0);
+  assert.equal(result.checks.audio.blockingFiles, 0);
+});
+
 test('audio certification rejects incomplete or unbaselined failures', () => {
   const unbaselined = structuredClone(valid.audio);
   unbaselined.summary = { total: 1, passed: 0, failed: 1 };
@@ -93,7 +141,15 @@ test('audio certification rejects incomplete or unbaselined failures', () => {
   const falseKnownDefect = structuredClone(unbaselined);
   falseKnownDefect.files[0].baselinedVerdict = 'known-defect';
   falseKnownDefect.blockingFiles = 0;
-  assert.equal(certifyRelease({ ...valid, audio: falseKnownDefect }).decision, 'fail');
+  const falseKnownDefectResult = certifyRelease({ ...valid, audio: falseKnownDefect });
+  assert.equal(falseKnownDefectResult.decision, 'fail');
+  assert.equal(falseKnownDefectResult.checks.audio.blockingFiles, 1);
+
+  const unknownFailedCheck = structuredClone(falseKnownDefect);
+  unknownFailedCheck.files[0].checks[0].status = 'skipped';
+  const unknownFailedCheckResult = certifyRelease({ ...valid, audio: unknownFailedCheck });
+  assert.equal(unknownFailedCheckResult.decision, 'fail');
+  assert.equal(unknownFailedCheckResult.checks.audio.blockingFiles, 1);
 
   const contradictoryBlockingCount = structuredClone(falseKnownDefect);
   contradictoryBlockingCount.files[0].checks[0].baselined = true;

@@ -22,10 +22,23 @@ function readJson(file, label) {
 
 export function certifyRelease({ visual, smoke, audio, commitSha, ciRunUrl, visualArtifactUrl, smokeArtifactUrl, audioArtifactUrl }) {
   const failures = [];
-  if (visual.passed !== true || visual.summary?.failed !== 0 || !Array.isArray(visual.checks) || visual.checks.length === 0) {
+  const visualChecks = Array.isArray(visual.checks) ? visual.checks : [];
+  const visualFailed = visualChecks.filter((check) => check.status === 'failed').length;
+  const visualStatusesValid = visualChecks.length > 0
+    && visualChecks.every((check) => check.status === 'passed' || check.status === 'failed');
+  const visualValid = visualStatusesValid
+    && visual.summary?.total === visualChecks.length
+    && visual.summary?.failed === visualFailed;
+  if (visual.passed !== true || !visualValid || visualFailed !== 0) {
     failures.push('visual-check suite did not pass');
   }
-  if (smoke.outcome !== 'pass' || !Array.isArray(smoke.targets) || smoke.targets.length === 0) {
+  const smokeTargets = Array.isArray(smoke.targets) ? smoke.targets : [];
+  const smokeTargetsValid = smokeTargets.length > 0
+    && smokeTargets.every((target) => Number.isInteger(target.summary?.failed) && target.summary.failed >= 0);
+  const smokeFailed = smokeTargetsValid
+    ? smokeTargets.reduce((sum, target) => sum + target.summary.failed, 0)
+    : null;
+  if (smoke.outcome !== 'pass' || !smokeTargetsValid || smokeFailed !== 0) {
     failures.push('smoke suite did not pass');
   }
   const audioFiles = Array.isArray(audio.files) ? audio.files : [];
@@ -58,16 +71,17 @@ export function certifyRelease({ visual, smoke, audio, commitSha, ciRunUrl, visu
     if (!Array.isArray(file.checks) || file.checks.length === 0) return false;
     if (!file.checks.every((check) => check.status === 'pass' || check.status === 'fail')) return false;
     if (file.verdict === 'pass') {
-      return file.baselinedVerdict == null && file.checks.every((check) => check.status === 'pass');
+      return (file.baselinedVerdict == null || file.baselinedVerdict === 'known-defect')
+        && file.checks.every((check) => check.status === 'pass');
     }
     if (file.verdict !== 'fail' || file.baselinedVerdict !== 'known-defect' || !hasDeclaredBaseline) return false;
     const failingChecks = file.checks.filter((check) => check.status === 'fail');
     return failingChecks.length > 0 && failingChecks.every((check) => check.baselined === true);
   };
-  const blockingFiles = audioFiles.filter((file) => (
-    file.verdict !== 'pass' && file.baselinedVerdict !== 'known-defect'
-  )).length;
-  const knownDefects = audioFiles.filter((file) => file.baselinedVerdict === 'known-defect').length;
+  const validCleanFile = (file) => file.verdict === 'pass' && fileStateValid(file);
+  const validKnownDefect = (file) => file.verdict === 'fail' && fileStateValid(file);
+  const blockingFiles = audioFiles.filter((file) => !validCleanFile(file) && !validKnownDefect(file)).length;
+  const knownDefects = failedFiles.filter(validKnownDefect).length;
   const baselineCountConsistent = knownDefects === 0
     || (hasDeclaredBaseline && audio.baseline.filmsWithKnownDefects >= knownDefects);
   const audioFilesValid = audioFiles.every(fileStateValid);
@@ -92,13 +106,13 @@ export function certifyRelease({ visual, smoke, audio, commitSha, ciRunUrl, visu
         passed: failures.includes('visual-check suite did not pass') === false,
         artifactUrl: visualArtifactUrl,
         total: visual.summary?.total ?? null,
-        failed: visual.summary?.failed ?? null,
+        failed: visualStatusesValid ? visualFailed : null,
       },
       smoke: {
         passed: failures.includes('smoke suite did not pass') === false,
         artifactUrl: smokeArtifactUrl,
-        targets: smoke.targets?.length ?? 0,
-        failed: smoke.targets?.reduce((sum, target) => sum + (target.summary?.failed ?? 0), 0) ?? null,
+        targets: smokeTargets.length,
+        failed: smokeFailed,
       },
       audio: {
         passed: failures.includes('audio suite did not pass') === false && failures.includes('audio artifact commit SHA does not match release') === false,
