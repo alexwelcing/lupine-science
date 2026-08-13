@@ -196,6 +196,9 @@ export function bigramScore(token, model) {
 export function findSuspectWords(words, dictionary, corpus, bigram) {
   const unknown = [];
   for (const { text, confidence } of words) {
+    // Tesseract uses zero confidence for non-text geometry it could not
+    // recognize. Treating those guesses as words turns pipes/icons into P0s.
+    if (Number.isFinite(confidence) && confidence <= 0) continue;
     const raw = String(text).toLowerCase();
     const hyphenated = raw.replace(/[^a-z0-9-]/g, '').replace(/-+/g, '-').replace(/^-|-$/g, '');
     const clean = hyphenated.replace(/-/g, '');

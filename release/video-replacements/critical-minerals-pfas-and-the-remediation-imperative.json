@@ -1,6 +1,7 @@
 {
   "schemaVersion": 1,
   "slug": "critical-minerals-pfas-and-the-remediation-imperative",
+  "releaseState": "replacement-active",
   "purpose": "canonical-public-video-replacement-editorial-update-and-rollback-evidence",
   "sourceMainCommit": "e0cccacca7e8050d6fb6d208cce3248689653532",
   "editorial": {
@@ -168,7 +169,8 @@
     "liveHashAndBrowserVerification": "pending"
   },
   "rollback": {
-    "method": "atomically restore the article source, five canonical media paths, and four generated article/video route files from sourceMainCommit; do not rebuild with the replacement-aware builder; redeploy the restored bytes through protected environments",
-    "command": "git restore --source e0cccacca7e8050d6fb6d208cce3248689653532 -- articles/critical-minerals-pfas-and-the-remediation-imperative.md public/videos/critical-minerals-pfas-and-the-remediation-imperative.mp4 public/videos/critical-minerals-pfas-and-the-remediation-imperative.vtt public/videos/critical-minerals-pfas-and-the-remediation-imperative-poster.jpg public/videos/critical-minerals-pfas-and-the-remediation-imperative-poster.avif public/videos/critical-minerals-pfas-and-the-remediation-imperative-poster.webp public/articles/critical-minerals-pfas-and-the-remediation-imperative/index.html public/articles/index.html public/videos/critical-minerals-pfas-and-the-remediation-imperative/index.html public/videos/index.html"
+    "method": "run the repository helper to restore the pinned baseline article and five canonical media assets and set baseline-rollback state; rebuild generated routes; require npm run verify to validate baseline bytes; commit and redeploy only through protected environments",
+    "command": "node scripts/rollback-pfas-replacement.mjs && npm run build && npm run verify",
+    "script": "scripts/rollback-pfas-replacement.mjs"
   }
 }

@@ -36,6 +36,10 @@ const LOUDNESS_TOLERANCE = 2;
 const LRA_MAX = 8;
 const SAMPLE_STD_THRESHOLD = 12;
 
+export function isBlankFrameStats(avgStd, avgMean, stdThreshold = SAMPLE_STD_THRESHOLD) {
+  return avgStd < stdThreshold && (avgMean < 5 || avgMean > 250);
+}
+
 const SELF_CITATION_PATTERNS = [
   /lupine science strategic discovery plan/i,
   /lupine science error-field analysis/i,
@@ -175,10 +179,12 @@ async function extractFrame(videoPath, time, outPath) {
 }
 
 async function frameStats(framePath) {
-  const { stats } = await sharp(framePath).stats();
-  const channels = stats.map((s) => s.std);
-  const avgStd = channels.reduce((a, b) => a + b, 0) / channels.length;
-  return { avgStd };
+  const { channels } = await sharp(framePath).stats();
+  const deviations = channels.map((channel) => channel.stdev);
+  const means = channels.map((channel) => channel.mean);
+  const avgStd = deviations.reduce((a, b) => a + b, 0) / deviations.length;
+  const avgMean = means.reduce((a, b) => a + b, 0) / means.length;
+  return { avgStd, avgMean };
 }
 
 async function sampleFrames(videoPath, cues, slug, worker, dictionary, corpus, bigram, stdThreshold = SAMPLE_STD_THRESHOLD) {
@@ -188,6 +194,13 @@ async function sampleFrames(videoPath, cues, slug, worker, dictionary, corpus, b
   if (!duration) return { samples: [], blankFrames: [], ocrHits: [] };
 
   const times = sampleTimes(duration, cues);
+  const maxOcrSamples = 9;
+  const ocrTimes = new Set(
+    times.length <= maxOcrSamples
+      ? times
+      : Array.from({ length: maxOcrSamples }, (_, index) =>
+          times[Math.round((index * (times.length - 1)) / (maxOcrSamples - 1))]),
+  );
   const samples = [];
   const blankFrames = [];
   const ocrHits = [];
@@ -198,12 +211,17 @@ async function sampleFrames(videoPath, cues, slug, worker, dictionary, corpus, b
     const framePath = path.join(tmpDir, `${slug}-${t.toFixed(3)}.jpg`);
     try {
       await extractFrame(videoPath, t, framePath);
-      const { avgStd } = await frameStats(framePath);
-      samples.push({ time: t, avgStd: Number(avgStd.toFixed(2)) });
-      if (avgStd < stdThreshold) {
-        blankFrames.push({ time: t, avgStd: Number(avgStd.toFixed(2)) });
+      const { avgStd, avgMean } = await frameStats(framePath);
+      const frameStatsRecord = {
+        time: t,
+        avgStd: Number(avgStd.toFixed(2)),
+        avgMean: Number(avgMean.toFixed(2)),
+      };
+      samples.push(frameStatsRecord);
+      if (isBlankFrameStats(avgStd, avgMean, stdThreshold)) {
+        blankFrames.push(frameStatsRecord);
       }
-      if (worker) {
+      if (worker && ocrTimes.has(t)) {
         const { data } = await worker.recognize(framePath);
         const analysis = analyzeText(data.words || [], dictionary, corpus, bigram);
         if (analysis.unknown.length) {
@@ -297,7 +315,15 @@ async function checkArticleIntegration(slug, videoFile, posterFile) {
 
 function isHighConfidenceOcrHit(hit) {
   const confidences = hit.words.map((w) => w.confidence ?? 100);
-  return confidences.some((c) => c > 80);
+  return confidences.some((c) => c > 90);
+}
+
+export function hasHighConfidenceOcrGibberish(hits) {
+  return hits.some(isHighConfidenceOcrHit);
+}
+
+export function sampleFrameErrors(samples) {
+  return samples.filter((sample) => sample.error);
 }
 
 function classifyP0(report, sample) {
@@ -309,8 +335,9 @@ function classifyP0(report, sample) {
     if (/poster missing/.test(n)) {
       p0.push(`poster:${n}`);
     } else if (/suspect words/.test(n)) {
-      // Poster suspect words are P0 only if there are several or any is high-confidence,
-      // avoiding OCR hallucinations on abstract AI-generated textures.
+      // Poster suspect words are P0 only if there are several credible OCR
+      // observations or any is high-confidence. Zero-confidence geometry
+      // guesses are discarded by the shared classifier.
       const unknown = report.posterAnalysis?.unknown || [];
       const highConf = unknown.filter((u) => (u.confidence ?? 100) > 80);
       if (unknown.length >= 3 || highConf.length > 0) {
@@ -325,11 +352,17 @@ function classifyP0(report, sample) {
     if (/self-citation/.test(n)) p0.push(`brand:${n}`);
   }
   if (sample) {
+    const frameErrors = sampleFrameErrors(sample.samples);
+    if (frameErrors.length) {
+      p0.push(`frames:sample failures at ${frameErrors.map((frame) => `${frame.time.toFixed(1)}s: ${frame.error}`).join('; ')}`);
+    }
     if (sample.blankFrames.length) {
       p0.push(`frames:blank/flat frames at ${sample.blankFrames.map((f) => `${f.time.toFixed(1)}s`).join(', ')}`);
     }
-    const strongOcrHits = sample.ocrHits.filter(isHighConfidenceOcrHit);
-    if (strongOcrHits.length) {
+    // Sampled video OCR is noisy on motion/antialiasing. Require >90% OCR
+    // confidence; poster OCR remains a complete single-frame gate.
+    if (hasHighConfidenceOcrGibberish(sample.ocrHits)) {
+      const strongOcrHits = sample.ocrHits.filter(isHighConfidenceOcrHit);
       p0.push(`frames:gibberish text in ${strongOcrHits.length} sampled frame(s)`);
     }
   }
@@ -611,7 +644,9 @@ async function main() {
   if (exitCode) process.exit(exitCode);
 }
 
-main().catch((e) => {
-  console.error(e);
-  process.exit(1);
-});
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });
+}

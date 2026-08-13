@@ -84,6 +84,29 @@ function verifyBaselineAsset(asset, label) {
 require(manifest.schemaVersion === 1, 'schemaVersion must be 1');
 require(manifest.slug === slug, 'slug mismatch');
 require(manifest.sourceMainCommit === 'e0cccacca7e8050d6fb6d208cce3248689653532', 'source main commit drift');
+require(['replacement-active', 'baseline-rollback'].includes(manifest.releaseState), 'unknown release state');
+require(manifest.rollback.script === 'scripts/rollback-pfas-replacement.mjs', 'rollback script path drift');
+require(manifest.rollback.command === 'node scripts/rollback-pfas-replacement.mjs && npm run build && npm run verify', 'rollback command drift');
+if (manifest.releaseState === 'baseline-rollback') {
+  require(manifest.rollback.executedAt != null, 'rollback execution timestamp missing');
+  require(manifest.editorial.articlePath === `articles/${slug}.md`, 'rollback article path drift');
+  require(
+    crypto.createHash('sha256').update(baselineBlob(manifest.editorial.articlePath)).digest('hex') === sha256(manifest.editorial.articlePath),
+    'rollback article does not match pinned baseline',
+  );
+  require(
+    JSON.stringify(Object.keys(manifest.previous).sort()) === JSON.stringify(Object.keys(canonicalMediaPaths).sort()),
+    'rollback baseline asset record set is incomplete or contains unknown labels',
+  );
+  for (const [label, relativePath] of Object.entries(canonicalMediaPaths)) {
+    const asset = manifest.previous[label];
+    require(asset?.path === relativePath, `rollback ${label} canonical path drift`);
+    verifyBaselineAsset(asset, `rollback ${label}`);
+    verifyAsset(asset, `rollback ${label}`);
+  }
+  console.log(`PFAS baseline rollback verified: ${manifest.sourceMainCommit}`);
+  process.exit(0);
+}
 require(manifest.editorial.originalDate === '2026-07-16', 'original date changed');
 require(manifest.editorial.updatedDate === '2026-08-12', 'updated date changed');
 require(manifest.editorial.status === 'published-with-labeled-evidence-gaps', 'editorial disclosure status drift');
