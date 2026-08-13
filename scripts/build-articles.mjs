@@ -676,7 +676,7 @@ async function buildArticle(raw, slug) {
             ? bustVideoPoster(`${SITE}/videos/${slug}-poster.jpg`, slug)
             : `${SITE}/videos/${slug}-poster.jpg`
           : articleJsonLd.image,
-        uploadDate: meta.date,
+        uploadDate: meta.updated || meta.date,
         contentUrl: videoUrl,
         embedUrl: `${SITE}/videos/${slug}/`,
         isPartOf: { '@id': `${url}#article` },
@@ -825,7 +825,7 @@ function videoHead(article, url) {
     name: title,
     description,
     thumbnailUrl: poster,
-    uploadDate: meta.date,
+    uploadDate: meta.updated || meta.date,
     contentUrl,
     embedUrl: url,
     isPartOf: {

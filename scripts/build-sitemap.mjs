@@ -5,7 +5,8 @@
 // lastmod must be DETERMINISTIC: CI rebuilds the sitemap and fails if it
 // differs from the committed one, so dates cannot come from git commit
 // times (the commit containing the sitemap changes them — chicken and
-// egg). Articles therefore use their own declared "> **Date:**" metadata;
+// egg). Articles therefore use their own declared "> **Updated:**" metadata
+// when present, falling back to "> **Date:**" for never-updated content;
 // pages with no intrinsic date omit lastmod, which the sitemap spec allows.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -18,8 +19,10 @@ const SITE = 'https://lupine.science';
 function articleDate(slug) {
   const md = path.join(ROOT, 'articles', `${slug}.md`);
   if (!fs.existsSync(md)) return null;
-  const m = fs.readFileSync(md, 'utf8').match(/^> \*\*Date:\*\*\s*(\d{4}-\d{2}-\d{2})/m);
-  return m ? m[1] : null;
+  const source = fs.readFileSync(md, 'utf8');
+  const updated = source.match(/^> \*\*Updated:\*\*\s*(\d{4}-\d{2}-\d{2})/m);
+  const published = source.match(/^> \*\*Date:\*\*\s*(\d{4}-\d{2}-\d{2})/m);
+  return updated?.[1] || published?.[1] || null;
 }
 
 const urls = [

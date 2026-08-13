@@ -20,7 +20,7 @@ const canonicalEvidence = {
   },
   claimMap: {
     path: 'media/projects/article-video-replacements/critical-minerals-pfas/claim-evidence-map.json',
-    sha256: '8ea71addbc912acc9f2dbeedd6efebdcd50a79454e1e12acc580cd54651eb0f7',
+    sha256: '53362b7d9695bc53d611ec9626bb4200e26abc1e12dcba1c53dbccd171b0d2ef',
   },
 };
 const inventoryPath = path.join(
@@ -155,6 +155,24 @@ require(evidenceMap.publicationEligible === true, 'disclosure policy does not pe
 require(evidenceMap.releaseBlockers.length === 0, 'disclosure policy retains release blockers');
 require(evidenceMap.claims.length === 5, 'quantitative claim inventory drift');
 require(evidenceMap.claims.every((claim) => claim.status === 'source-cited-needs-independent-evidence-review'), 'unreviewed claims were promoted or relabeled');
+require(evidenceMap.pointerMetadata.scope === 'post-render-article-line-pointer-refresh-only', 'evidence pointer refresh scope drift');
+require(evidenceMap.pointerMetadata.renderInputClaimMapSha256 === runtimeProvenance.claimEvidenceMapSha256, 'pointer metadata does not preserve the reproduced render-input claim-map hash');
+const articleLines = fs.readFileSync(path.join(ROOT, manifest.editorial.articlePath), 'utf8').split(/\r?\n/);
+const expectedClaimPointers = {
+  'mineral-demand-2040': [[15, 'four- to six-fold increase'], [20, 'four- to six-fold increase'], [139, '[^1]:']],
+  'epa-pfoa-pfos-mcl': [[17, 'four nanograms per litre'], [141, '[^2]:']],
+  'carbon-fluorine-bond-energy': [[41, '485 kJ mol'], [54, '485 kJ mol'], [151, '[^7]:']],
+  'screen-scale': [[83, 'million-candidate screens'], [161, '[^12]:']],
+  'umlip-softening-range': [[61, 'fifteen to sixty percent'], [66, '15–60%'], [159, '[^11]:']],
+};
+for (const claim of evidenceMap.claims) {
+  const expected = expectedClaimPointers[claim.id];
+  require(expected != null, `unknown claim pointer record: ${claim.id}`);
+  require(JSON.stringify(claim.articleLines) === JSON.stringify(expected.map(([line]) => line)), `article line pointers drifted: ${claim.id}`);
+  for (const [line, needle] of expected) {
+    require(articleLines[line - 1]?.includes(needle), `article line pointer text drifted: ${claim.id}:${line}`);
+  }
+}
 require(manifest.reviewEvidence.editorialPublicationPolicy.unreviewedQuantitativeClaimCount === evidenceMap.claims.length, 'editorial policy claim count drift');
 require(manifest.reviewEvidence.editorialPublicationPolicy.releaseBlockerCount === evidenceMap.releaseBlockers.length, 'editorial policy blocker count drift');
 require(sha256(manifest.reviewEvidence.visualSampling.path) === manifest.reviewEvidence.visualSampling.sha256, 'visual-sampling SHA drift');

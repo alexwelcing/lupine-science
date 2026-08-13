@@ -12,7 +12,7 @@
     "replacementArticleSha256": "714cd516f5c10896066ec979375b9f45875c29d9ba442554ba76a9a93c69019d",
     "evidenceMap": {
       "path": "media/projects/article-video-replacements/critical-minerals-pfas/claim-evidence-map.json",
-      "sha256": "8ea71addbc912acc9f2dbeedd6efebdcd50a79454e1e12acc580cd54651eb0f7"
+      "sha256": "53362b7d9695bc53d611ec9626bb4200e26abc1e12dcba1c53dbccd171b0d2ef"
     },
     "retainedEvidenceGaps": [
       "All five narrated quantitative claims remain source-cited but not independently evidence-reviewed.",
@@ -125,7 +125,7 @@
     },
     "editorialPublicationPolicy": {
       "path": "media/projects/article-video-replacements/critical-minerals-pfas/claim-evidence-map.json",
-      "sha256": "8ea71addbc912acc9f2dbeedd6efebdcd50a79454e1e12acc580cd54651eb0f7",
+      "sha256": "53362b7d9695bc53d611ec9626bb4200e26abc1e12dcba1c53dbccd171b0d2ef",
       "decision": "publication-eligible-with-labeled-evidence-gaps",
       "unreviewedQuantitativeClaimCount": 5,
       "releaseBlockerCount": 0,

@@ -133,8 +133,24 @@ describe('published article video discovery metadata', () => {
       assert.ok(video.description, `expected VideoObject.description for ${slug}`);
       assert.equal(video.contentUrl, `https://lupine.science/videos/${slug}.mp4`);
       assert.equal(video.embedUrl, `https://lupine.science/videos/${slug}/`);
-      assert.equal(video.uploadDate, nodes.find((node) => node['@type'] === 'Article')?.datePublished);
+      const article = nodes.find((node) => node['@type'] === 'Article');
+      assert.equal(video.uploadDate, article?.dateModified || article?.datePublished);
       assert.match(video.thumbnailUrl, /^https:\/\/lupine\.science\//);
+    }
+  });
+
+  it('propagates the PFAS replacement date to article/video discovery records', () => {
+    const slug = 'critical-minerals-pfas-and-the-remediation-imperative';
+    const articleNodes = jsonLdFrom(readArticle(slug)).flatMap((data) => data['@graph'] || [data]);
+    assert.equal(articleNodes.find((node) => node['@type'] === 'VideoObject')?.uploadDate, '2026-08-12');
+
+    const videoHtml = fs.readFileSync(path.join(VIDEOS, slug, 'index.html'), 'utf8');
+    const videoNodes = jsonLdFrom(videoHtml).flatMap((data) => data['@graph'] || [data]);
+    assert.equal(videoNodes.find((node) => node['@type'] === 'VideoObject')?.uploadDate, '2026-08-12');
+
+    const sitemap = fs.readFileSync(path.join(ROOT, 'public', 'sitemap.xml'), 'utf8');
+    for (const route of [`articles/${slug}`, `videos/${slug}`]) {
+      assert.match(sitemap, new RegExp(`<loc>https://lupine\\.science/${route}/</loc>\\s*<lastmod>2026-08-12</lastmod>`));
     }
   });
 
