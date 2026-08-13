@@ -1,0 +1,333 @@
+{
+  "schemaVersion": 1,
+  "renderer": "scripts/render_motion_states.py",
+  "deterministic": true,
+  "font": "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+  "fontSha256": "e1d733afbbfce842a1b43dced0c9885a76a4e67290dc7e690c4e9b76ebfc7d23",
+  "scenes": [
+    {
+      "sceneId": "01-opposite-streams",
+      "sourceComposite": "assets/composites/01-opposite-streams.png",
+      "sourceCompositeSha256": "fbadaef92bd8e049a156506324e0fd3ff85857c248a44aed3489a1c1d19500ec",
+      "stateCount": 3,
+      "semanticProgression": "authored-region-reveal",
+      "states": [
+        {
+          "state": 1,
+          "path": "assets/motion-states/01-opposite-streams-state-1.png",
+          "sha256": "2d56e305e2eb6376f2cf02908d021eb963acce74637ab1cf7fc96b072636b640",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 1,
+          "finalCompositePixelIdentity": false
+        },
+        {
+          "state": 2,
+          "path": "assets/motion-states/01-opposite-streams-state-2.png",
+          "sha256": "0620509ea454c4502c4ef03fd2341858fc10045178912cefe0c08dad8b5d2740",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 2,
+          "finalCompositePixelIdentity": false
+        },
+        {
+          "state": 3,
+          "path": "assets/motion-states/01-opposite-streams-state-3.png",
+          "sha256": "5cfd9f61fd3bca3aff6f78f5dde574afbd095fd127d6b9e4ecd96f52919dafcf",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 3,
+          "finalCompositePixelIdentity": true
+        }
+      ]
+    },
+    {
+      "sceneId": "02-selective-cartridges",
+      "sourceComposite": "assets/composites/02-selective-cartridges.png",
+      "sourceCompositeSha256": "7123b2c94e0be83a525e9c9400000d71a255d4b888d86b6da8202947060d8853",
+      "stateCount": 3,
+      "semanticProgression": "authored-region-reveal",
+      "states": [
+        {
+          "state": 1,
+          "path": "assets/motion-states/02-selective-cartridges-state-1.png",
+          "sha256": "e5c5c05bc4c13061ba9cb9f018f23f7f240c3fa40f5218bfc2238c2f7e9366df",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 1,
+          "finalCompositePixelIdentity": false
+        },
+        {
+          "state": 2,
+          "path": "assets/motion-states/02-selective-cartridges-state-2.png",
+          "sha256": "260cea8b13e88b1bdead7507397d7851735bc7cf84d0cd09ba80a18bcf025dc4",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 2,
+          "finalCompositePixelIdentity": false
+        },
+        {
+          "state": 3,
+          "path": "assets/motion-states/02-selective-cartridges-state-3.png",
+          "sha256": "7123b2c94e0be83a525e9c9400000d71a255d4b888d86b6da8202947060d8853",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 3,
+          "finalCompositePixelIdentity": true
+        }
+      ]
+    },
+    {
+      "sceneId": "03-bind-release-break",
+      "sourceComposite": "assets/composites/03-bind-release-break.png",
+      "sourceCompositeSha256": "563f37f90e82fe4a8736285d4b486824f15e07da71b7aaad34ddb713ca31bd17",
+      "stateCount": 3,
+      "semanticProgression": "authored-region-reveal",
+      "states": [
+        {
+          "state": 1,
+          "path": "assets/motion-states/03-bind-release-break-state-1.png",
+          "sha256": "56dbf24f3d3afbd666561070a5ab50a73e09e579cc03f71179a2a146d3bac98a",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 1,
+          "finalCompositePixelIdentity": false
+        },
+        {
+          "state": 2,
+          "path": "assets/motion-states/03-bind-release-break-state-2.png",
+          "sha256": "fc8c1d8c88a0722d04362fb986b5c220db70933f99f0b40a3ea4fbd616eafec3",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 2,
+          "finalCompositePixelIdentity": false
+        },
+        {
+          "state": 3,
+          "path": "assets/motion-states/03-bind-release-break-state-3.png",
+          "sha256": "563f37f90e82fe4a8736285d4b486824f15e07da71b7aaad34ddb713ca31bd17",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 3,
+          "finalCompositePixelIdentity": true
+        }
+      ]
+    },
+    {
+      "sceneId": "04-softened-landscape",
+      "sourceComposite": "assets/composites/04-softened-landscape.png",
+      "sourceCompositeSha256": "4124dff3454740a57cda08b096af4d48330cf4877019e3e907fa1f858d3d436c",
+      "stateCount": 3,
+      "semanticProgression": "authored-region-reveal",
+      "states": [
+        {
+          "state": 1,
+          "path": "assets/motion-states/04-softened-landscape-state-1.png",
+          "sha256": "d3ff8951952de3e14912e1ab93aefcf4895489c4686f077080f69f5abff46ce2",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 1,
+          "finalCompositePixelIdentity": false
+        },
+        {
+          "state": 2,
+          "path": "assets/motion-states/04-softened-landscape-state-2.png",
+          "sha256": "56c102f77fe71fb6708776d86112b75b31f6b7290d2ddbe60f898c9cb7d5f822",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 2,
+          "finalCompositePixelIdentity": false
+        },
+        {
+          "state": 3,
+          "path": "assets/motion-states/04-softened-landscape-state-3.png",
+          "sha256": "4124dff3454740a57cda08b096af4d48330cf4877019e3e907fa1f858d3d436c",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 3,
+          "finalCompositePixelIdentity": true
+        }
+      ]
+    },
+    {
+      "sceneId": "05-measure-correct-bound",
+      "sourceComposite": "assets/composites/05-measure-correct-bound.png",
+      "sourceCompositeSha256": "a985fe9b8c838f1473ac463b83331425c933135fb51a2c36936556187b97aa44",
+      "stateCount": 3,
+      "semanticProgression": "authored-region-reveal",
+      "states": [
+        {
+          "state": 1,
+          "path": "assets/motion-states/05-measure-correct-bound-state-1.png",
+          "sha256": "eb9d9d464aef415da3b466a46502deefe2e0c0471031c472e8dbd5bd7e6f1693",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 1,
+          "finalCompositePixelIdentity": false
+        },
+        {
+          "state": 2,
+          "path": "assets/motion-states/05-measure-correct-bound-state-2.png",
+          "sha256": "72babddcb888b415fb14f158b6140b2bc3094442fd590744b73ed8065fc0bb17",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 2,
+          "finalCompositePixelIdentity": false
+        },
+        {
+          "state": 3,
+          "path": "assets/motion-states/05-measure-correct-bound-state-3.png",
+          "sha256": "a985fe9b8c838f1473ac463b83331425c933135fb51a2c36936556187b97aa44",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 3,
+          "finalCompositePixelIdentity": true
+        }
+      ]
+    },
+    {
+      "sceneId": "06-return-scarce-atoms",
+      "sourceComposite": "assets/composites/06-return-scarce-atoms.png",
+      "sourceCompositeSha256": "5d3b7dbf8db5f40c1611f435595a7c8d111d32b43b98dfd0fa38012c8f00ed46",
+      "stateCount": 3,
+      "semanticProgression": "authored-region-reveal",
+      "states": [
+        {
+          "state": 1,
+          "path": "assets/motion-states/06-return-scarce-atoms-state-1.png",
+          "sha256": "e02b0d899db571501e4323b87e77914f412747609b4ab26a4ea6ee7cb5413544",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 1,
+          "finalCompositePixelIdentity": false
+        },
+        {
+          "state": 2,
+          "path": "assets/motion-states/06-return-scarce-atoms-state-2.png",
+          "sha256": "6d91c8e94b2bd1d7aa1271f071e09ba0f51964803cab5b6613c28169cada9649",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 2,
+          "finalCompositePixelIdentity": false
+        },
+        {
+          "state": 3,
+          "path": "assets/motion-states/06-return-scarce-atoms-state-3.png",
+          "sha256": "5d3b7dbf8db5f40c1611f435595a7c8d111d32b43b98dfd0fa38012c8f00ed46",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 3,
+          "finalCompositePixelIdentity": true
+        }
+      ]
+    },
+    {
+      "sceneId": "07-destroy-dont-relocate",
+      "sourceComposite": "assets/composites/07-destroy-dont-relocate.png",
+      "sourceCompositeSha256": "63c822fe1db0ead872a35d6e8f4f4cc0e427f4c605bbf0b8c1ce95ec8f06dcf7",
+      "stateCount": 3,
+      "semanticProgression": "authored-region-reveal",
+      "states": [
+        {
+          "state": 1,
+          "path": "assets/motion-states/07-destroy-dont-relocate-state-1.png",
+          "sha256": "de67f3d549837e1ee9e1cdbdd70a087941b17a26bc5e21a3a7bec566617ff2be",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 1,
+          "finalCompositePixelIdentity": false
+        },
+        {
+          "state": 2,
+          "path": "assets/motion-states/07-destroy-dont-relocate-state-2.png",
+          "sha256": "41ee41cbaa20456cee99e3b77735efb44daf53667cc01a8c41aaaeeb518ad03f",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 2,
+          "finalCompositePixelIdentity": false
+        },
+        {
+          "state": 3,
+          "path": "assets/motion-states/07-destroy-dont-relocate-state-3.png",
+          "sha256": "63c822fe1db0ead872a35d6e8f4f4cc0e427f4c605bbf0b8c1ce95ec8f06dcf7",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 3,
+          "finalCompositePixelIdentity": true
+        }
+      ]
+    },
+    {
+      "sceneId": "08-common-test-discipline",
+      "sourceComposite": "assets/composites/08-common-test-discipline.png",
+      "sourceCompositeSha256": "e2d47b430f955e1ebf0e77ece18d5adf5feb6fd0269ae913079e399b9b273158",
+      "stateCount": 3,
+      "semanticProgression": "authored-region-reveal",
+      "states": [
+        {
+          "state": 1,
+          "path": "assets/motion-states/08-common-test-discipline-state-1.png",
+          "sha256": "eb63e2f2633f3e74175b3781103e5ff2dee987634274558b042e1397762db3eb",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 1,
+          "finalCompositePixelIdentity": false
+        },
+        {
+          "state": 2,
+          "path": "assets/motion-states/08-common-test-discipline-state-2.png",
+          "sha256": "ab664719a21804a228bc725137c69b6402e0a544bfed53a71a9320bd33152187",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 2,
+          "finalCompositePixelIdentity": false
+        },
+        {
+          "state": 3,
+          "path": "assets/motion-states/08-common-test-discipline-state-3.png",
+          "sha256": "e2d47b430f955e1ebf0e77ece18d5adf5feb6fd0269ae913079e399b9b273158",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 3,
+          "finalCompositePixelIdentity": true
+        }
+      ]
+    },
+    {
+      "sceneId": "09-supported-disposition",
+      "sourceComposite": "assets/composites/09-supported-disposition.png",
+      "sourceCompositeSha256": "210d2e4b604a7aa8cad49ad3f66f85e8239b761aff25a9785abe1e6cf2e8f45e",
+      "stateCount": 3,
+      "semanticProgression": "authored-region-reveal",
+      "states": [
+        {
+          "state": 1,
+          "path": "assets/motion-states/09-supported-disposition-state-1.png",
+          "sha256": "0ba52c3a94ad6016c514ca17a38c2c02b5a887460ae7237dfd67edd9454f816c",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 1,
+          "finalCompositePixelIdentity": false
+        },
+        {
+          "state": 2,
+          "path": "assets/motion-states/09-supported-disposition-state-2.png",
+          "sha256": "7462cac2a8d40bdc30830f9482c10fa2e531e9c14df2c2b805ba289880b59a81",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 2,
+          "finalCompositePixelIdentity": false
+        },
+        {
+          "state": 3,
+          "path": "assets/motion-states/09-supported-disposition-state-3.png",
+          "sha256": "210d2e4b604a7aa8cad49ad3f66f85e8239b761aff25a9785abe1e6cf2e8f45e",
+          "width": 1920,
+          "height": 1080,
+          "revealedRelationshipGroups": 3,
+          "finalCompositePixelIdentity": true
+        }
+      ]
+    }
+  ]
+}
