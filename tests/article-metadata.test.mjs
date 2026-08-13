@@ -42,7 +42,25 @@ describe('article top-line metadata', () => {
     const html = readArticle('from-fantasy-frameworks-to-makeable-materials');
     assert.match(html, /<ul class="article-byline" aria-label="Publication details">/);
     assert.match(html, /<time datetime="2026-06-25">June 25, 2026<\/time>/);
+    assert.doesNotMatch(html, /Originally published <time datetime="2026-06-25"/);
     assert.match(html, /<span class="article-status">Draft<\/span>/);
+  });
+
+  it('preserves the original date and renders a separate update date', () => {
+    const html = readArticle('critical-minerals-pfas-and-the-remediation-imperative');
+    assert.match(html, /Originally published <time datetime="2026-07-16">July 16, 2026<\/time>/);
+    assert.match(html, /Updated <time datetime="2026-08-12">August 12, 2026<\/time>/);
+    const nodes = jsonLdFrom(html).flatMap((data) => data['@graph'] || [data]);
+    const article = nodes.find((node) => node['@type'] === 'Article');
+    assert.equal(article.datePublished, '2026-07-16');
+    assert.equal(article.dateModified, '2026-08-12');
+  });
+
+  it('renders explicit evidence-gap metadata without claiming validation', () => {
+    const html = readArticle('critical-minerals-pfas-and-the-remediation-imperative');
+    assert.match(html, /class="callout warning article-evidence-status"/);
+    assert.match(html, /unresolved verification gaps/i);
+    assert.match(html, /not demonstrated Lupine outcomes/i);
   });
 
   it('normalizes published status to a single public label', () => {

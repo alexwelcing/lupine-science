@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "articleStatus": "published-with-labeled-evidence-gaps",
+  "candidateEvidenceStatus": "source-cited-gaps-publicly-labeled",
+  "publicationEligible": true,
+  "policy": "Source citation and file identity are not evidence approval. Unreviewed quantitative claims may remain as attributed context only when the article visibly labels the gap and proposed applications are explicitly not represented as demonstrated outcomes.",
+  "publicDisclosure": {
+    "originalDate": "2026-07-16",
+    "updatedDate": "2026-08-12",
+    "frontmatterField": "Evidence Status",
+    "requiredPhrases": [
+      "unresolved verification gaps",
+      "not demonstrated Lupine outcomes",
+      "have not received independent Lupine evidence review",
+      "not evidence of a validated catalyst, sorbent, commercial process, deployment, or forecast"
+    ]
+  },
+  "claims": [
+    {
+      "id": "mineral-demand-2040",
+      "narrationText": "Clean-energy mineral demand could grow four to six times by 2040.",
+      "visualText": null,
+      "sourceFootnote": 1,
+      "source": "International Energy Agency, The Role of Critical Minerals in Clean Energy Transitions, 2022",
+      "articleLines": [9, 14, 133],
+      "status": "source-cited-needs-independent-evidence-review"
+    },
+    {
+      "id": "epa-pfoa-pfos-mcl",
+      "narrationText": "four nanograms per liter each",
+      "visualText": null,
+      "sourceFootnote": 2,
+      "source": "U.S. EPA, National Primary Drinking Water Regulations: PFAS, Federal Register, 2024",
+      "articleLines": [11, 135],
+      "status": "source-cited-needs-independent-evidence-review"
+    },
+    {
+      "id": "carbon-fluorine-bond-energy",
+      "narrationText": "about four hundred eighty-five kilojoules per mole",
+      "visualText": "≈ 485 kJ mol⁻¹ · source value · not candidate performance",
+      "sourceFootnote": 7,
+      "source": "B. E. Smart, Organofluorine Chemistry, Kirk-Othmer Encyclopedia of Chemical Technology, 4th ed., 1994",
+      "articleLines": [35, 48, 145],
+      "status": "source-cited-needs-independent-evidence-review"
+    },
+    {
+      "id": "screen-scale",
+      "narrationText": "We could screen millions of recovery materials and catalysts",
+      "visualText": null,
+      "sourceFootnote": 12,
+      "source": "Lupine Science open formalization library and lupine-rhizo source repository",
+      "articleLines": [77, 155],
+      "status": "source-cited-needs-independent-evidence-review"
+    },
+    {
+      "id": "umlip-softening-range",
+      "narrationText": "fifteen to sixty percent",
+      "visualText": "15–60% IN SOURCE-BOUND UNDER-COORDINATED REGIONS",
+      "sourceFootnote": 11,
+      "source": "B. Deng et al., Systematic softening in universal machine learning interatomic potentials, npj Computational Materials 11, 9 (2025), doi:10.1038/s41524-024-01500-6",
+      "articleLines": [55, 60, 153],
+      "status": "source-cited-needs-independent-evidence-review"
+    }
+  ],
+  "releaseBlockers": [],
+  "retainedGaps": [
+    "All five narrated quantitative claims remain source-cited but not independently evidence-reviewed.",
+    "Additional market, demand, site-count, remediation-cost, and performance estimates in the article remain attributed contextual estimates.",
+    "Proposed mineral-recovery and PFAS-destruction applications remain research directions rather than demonstrated outcomes."
+  ]
+}
