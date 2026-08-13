@@ -10,6 +10,10 @@ const slug = 'critical-minerals-pfas-and-the-remediation-imperative';
 const manifestPath = path.join(ROOT, 'release', 'video-replacements', `${slug}.json`);
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 const canonicalEvidence = {
+  runtimeProvenance: {
+    path: 'media/projects/article-video-replacements/critical-minerals-pfas/reports/runtime-provenance.json',
+    sha256: 'e662fe7f2bdc731635b8f38608690bc03a3356cc65826f9437a5927f3ff8d185',
+  },
   independentReview: {
     path: 'media/projects/article-video-replacements/critical-minerals-pfas/reviews/private-candidate-review.json',
     sha256: 'd04c35a5cb1e1f8bc89059364bcd11035ffc8bef80d70123a7367b7895f9888c',
@@ -32,6 +36,9 @@ const independentReview = JSON.parse(
   fs.readFileSync(path.join(ROOT, manifest.reviewEvidence.independentExactShaReview.path), 'utf8'),
 );
 const evidenceMap = JSON.parse(fs.readFileSync(path.join(ROOT, manifest.editorial.evidenceMap.path), 'utf8'));
+const runtimeProvenance = JSON.parse(
+  fs.readFileSync(path.join(ROOT, manifest.reviewEvidence.runtimeProvenance.path), 'utf8'),
+);
 const canonicalMediaPaths = {
   video: `public/videos/${slug}.mp4`,
   captions: `public/videos/${slug}.vtt`,
@@ -82,8 +89,15 @@ require(manifest.editorial.updatedDate === '2026-08-12', 'updated date changed')
 require(manifest.editorial.status === 'published-with-labeled-evidence-gaps', 'editorial disclosure status drift');
 require(manifest.editorial.retainedEvidenceGaps.length >= 3, 'retained evidence gaps are incomplete');
 require(manifest.replacement.cacheRevision === 4, 'cache revision drift');
-for (const [label, asset] of Object.entries(manifest.replacement)) {
-  if (asset && typeof asset === 'object' && typeof asset.path === 'string') verifyAsset(asset, label);
+require(
+  JSON.stringify(Object.keys(manifest.replacement).sort()) ===
+    JSON.stringify([...Object.keys(canonicalMediaPaths), 'cacheRevision'].sort()),
+  'replacement asset record set is incomplete or contains unknown labels',
+);
+for (const [label, relativePath] of Object.entries(canonicalMediaPaths)) {
+  const asset = manifest.replacement[label];
+  require(asset?.path === relativePath, `replacement ${label} canonical path drift`);
+  verifyAsset(asset, `replacement ${label}`);
 }
 require(sha256(manifest.editorial.articlePath) === manifest.editorial.replacementArticleSha256, 'article SHA drift');
 require(
@@ -106,6 +120,11 @@ require(
   'evidence map canonical identity drift',
 );
 require(sha256(manifest.reviewEvidence.runtimeProvenance.path) === manifest.reviewEvidence.runtimeProvenance.sha256, 'runtime-provenance SHA drift');
+require(
+  manifest.reviewEvidence.runtimeProvenance.path === canonicalEvidence.runtimeProvenance.path &&
+    manifest.reviewEvidence.runtimeProvenance.sha256 === canonicalEvidence.runtimeProvenance.sha256,
+  'runtime provenance canonical identity drift',
+);
 require(sha256(manifest.reviewEvidence.independentExactShaReview.path) === manifest.reviewEvidence.independentExactShaReview.sha256, 'independent-review SHA drift');
 require(
   manifest.reviewEvidence.independentExactShaReview.path === canonicalEvidence.independentReview.path &&
@@ -139,9 +158,28 @@ require(evidenceMap.claims.every((claim) => claim.status === 'source-cited-needs
 require(manifest.reviewEvidence.editorialPublicationPolicy.unreviewedQuantitativeClaimCount === evidenceMap.claims.length, 'editorial policy claim count drift');
 require(manifest.reviewEvidence.editorialPublicationPolicy.releaseBlockerCount === evidenceMap.releaseBlockers.length, 'editorial policy blocker count drift');
 require(sha256(manifest.reviewEvidence.visualSampling.path) === manifest.reviewEvidence.visualSampling.sha256, 'visual-sampling SHA drift');
-require(manifest.reviewEvidence.runtimeProvenance.twoCleanCheckoutReproduction === true, 'clean-checkout reproduction not proven');
-require(new Set(manifest.reviewEvidence.runtimeProvenance.candidateSha256ByCheckout).size === 1, 'clean checkouts produced different candidate hashes');
-require(manifest.reviewEvidence.runtimeProvenance.candidateSha256ByCheckout[0] === manifest.replacement.video.sha256, 'clean-checkout hash differs from replacement');
+require(runtimeProvenance.cleanCheckoutReproduction === true, 'bound runtime report does not prove clean-checkout reproduction');
+require(runtimeProvenance.reproduction.checkouts === 2, 'bound runtime report does not contain exactly two checkouts');
+require(runtimeProvenance.reproduction.candidateSha256ByCheckout.length === 2, 'bound runtime report checkout hash count drift');
+require(new Set(runtimeProvenance.reproduction.candidateSha256ByCheckout).size === 1, 'bound runtime report checkouts produced different candidate hashes');
+require(runtimeProvenance.reproduction.candidateSha256ByCheckout[0] === manifest.replacement.video.sha256, 'bound runtime report candidate differs from replacement');
+require(
+  runtimeProvenance.reproduction.validatorDecisionByCheckout.length === 2 &&
+    runtimeProvenance.reproduction.validatorDecisionByCheckout.every((decision) => decision === 'pass-project-publication-integrity'),
+  'bound runtime report contains a non-passing checkout validator decision',
+);
+require(
+  runtimeProvenance.reproduction.cleanAfterBuildByCheckout.length === 2 &&
+    runtimeProvenance.reproduction.cleanAfterBuildByCheckout.every((clean) => clean === true),
+  'bound runtime report contains a dirty checkout build',
+);
+require(manifest.reviewEvidence.runtimeProvenance.twoCleanCheckoutReproduction === runtimeProvenance.cleanCheckoutReproduction, 'manifest/runtime reproduction decision drift');
+require(manifest.reviewEvidence.runtimeProvenance.sourceTreeSha === runtimeProvenance.reproduction.sourceTreeSha, 'manifest/runtime source tree drift');
+require(
+  JSON.stringify(manifest.reviewEvidence.runtimeProvenance.candidateSha256ByCheckout) ===
+    JSON.stringify(runtimeProvenance.reproduction.candidateSha256ByCheckout),
+  'manifest/runtime checkout hashes drift',
+);
 require(manifest.reviewEvidence.independentExactShaReview.candidateSha256 === manifest.replacement.video.sha256, 'reviewed candidate differs from replacement');
 require(manifest.reviewEvidence.independentExactShaReview.p0 === 0, 'independent review contains P0 defects');
 require(manifest.reviewEvidence.posterReview.p0 === 0 && manifest.reviewEvidence.posterReview.p1 === 0, 'poster has P0/P1 findings');
@@ -159,8 +197,15 @@ require(inventory.editorial.originalDate === manifest.editorial.originalDate, 'i
 require(inventory.editorial.updatedDate === manifest.editorial.updatedDate, 'inventory update date drift');
 require(inventory.editorial.status === manifest.editorial.status, 'inventory editorial status drift');
 require(inventory.editorial.publicationEligible === true, 'inventory publication eligibility is not true');
-for (const [label, asset] of Object.entries(inventory.canonicalRelease)) {
-  if (label === 'manifest' || !asset || typeof asset !== 'object') continue;
+require(inventory.canonicalRelease.manifest === path.relative(ROOT, manifestPath), 'inventory manifest canonical path drift');
+require(
+  JSON.stringify(Object.keys(inventory.canonicalRelease).sort()) ===
+    JSON.stringify(['manifest', ...Object.keys(canonicalMediaPaths)].sort()),
+  'inventory release record set is incomplete or contains unknown labels',
+);
+for (const [label, relativePath] of Object.entries(canonicalMediaPaths)) {
+  const asset = inventory.canonicalRelease[label];
+  require(asset?.path === relativePath, `inventory ${label} canonical path drift`);
   verifyAsset(asset, `inventory ${label}`);
   require(manifest.replacement[label]?.sha256 === asset.sha256, `inventory ${label} differs from manifest`);
 }
