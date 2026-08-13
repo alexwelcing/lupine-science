@@ -116,9 +116,20 @@
     "independentExactShaReview": {
       "path": "media/projects/article-video-replacements/critical-minerals-pfas/reviews/private-candidate-review.json",
       "sha256": "d04c35a5cb1e1f8bc89059364bcd11035ffc8bef80d70123a7367b7895f9888c",
-      "decision": "suitable-for-private-owner-visual-review",
+      "role": "exact-sha-private-owner-visual-suitability-review-not-publication-approval",
+      "decision": "suitable-for-private-owner-visual-review-not-publication",
+      "publicationEligibleAtReviewTime": false,
+      "publicationBlockersAtReviewTime": 4,
       "p0": 0,
       "candidateSha256": "49c720aacc5b64cafab3ed9fceb978ebddd148621aa7110392c693d9cf424213"
+    },
+    "editorialPublicationPolicy": {
+      "path": "media/projects/article-video-replacements/critical-minerals-pfas/claim-evidence-map.json",
+      "sha256": "8ea71addbc912acc9f2dbeedd6efebdcd50a79454e1e12acc580cd54651eb0f7",
+      "decision": "publication-eligible-with-labeled-evidence-gaps",
+      "unreviewedQuantitativeClaimCount": 5,
+      "releaseBlockerCount": 0,
+      "note": "This later editorial policy does not supersede or rewrite the private visual review. It permits attributed context only while preserving conspicuous unresolved-evidence labels and proposed-outcome disclaimers."
     },
     "visualSampling": {
       "path": "media/projects/article-video-replacements/critical-minerals-pfas/reviews/stratified-contact-sheet-final.jpg",

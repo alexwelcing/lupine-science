@@ -9,6 +9,16 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const slug = 'critical-minerals-pfas-and-the-remediation-imperative';
 const manifestPath = path.join(ROOT, 'release', 'video-replacements', `${slug}.json`);
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+const canonicalEvidence = {
+  independentReview: {
+    path: 'media/projects/article-video-replacements/critical-minerals-pfas/reviews/private-candidate-review.json',
+    sha256: 'd04c35a5cb1e1f8bc89059364bcd11035ffc8bef80d70123a7367b7895f9888c',
+  },
+  claimMap: {
+    path: 'media/projects/article-video-replacements/critical-minerals-pfas/claim-evidence-map.json',
+    sha256: '8ea71addbc912acc9f2dbeedd6efebdcd50a79454e1e12acc580cd54651eb0f7',
+  },
+};
 const inventoryPath = path.join(
   ROOT,
   'media',
@@ -18,6 +28,10 @@ const inventoryPath = path.join(
   'release-inventory.json',
 );
 const inventory = JSON.parse(fs.readFileSync(inventoryPath, 'utf8'));
+const independentReview = JSON.parse(
+  fs.readFileSync(path.join(ROOT, manifest.reviewEvidence.independentExactShaReview.path), 'utf8'),
+);
+const evidenceMap = JSON.parse(fs.readFileSync(path.join(ROOT, manifest.editorial.evidenceMap.path), 'utf8'));
 const canonicalMediaPaths = {
   video: `public/videos/${slug}.mp4`,
   captions: `public/videos/${slug}.vtt`,
@@ -86,8 +100,44 @@ for (const [label, relativePath] of Object.entries(canonicalMediaPaths)) {
   verifyBaselineAsset(asset, `previous ${label}`);
 }
 require(sha256(manifest.editorial.evidenceMap.path) === manifest.editorial.evidenceMap.sha256, 'evidence-map SHA drift');
+require(
+  manifest.editorial.evidenceMap.path === canonicalEvidence.claimMap.path &&
+    manifest.editorial.evidenceMap.sha256 === canonicalEvidence.claimMap.sha256,
+  'evidence map canonical identity drift',
+);
 require(sha256(manifest.reviewEvidence.runtimeProvenance.path) === manifest.reviewEvidence.runtimeProvenance.sha256, 'runtime-provenance SHA drift');
 require(sha256(manifest.reviewEvidence.independentExactShaReview.path) === manifest.reviewEvidence.independentExactShaReview.sha256, 'independent-review SHA drift');
+require(
+  manifest.reviewEvidence.independentExactShaReview.path === canonicalEvidence.independentReview.path &&
+    manifest.reviewEvidence.independentExactShaReview.sha256 === canonicalEvidence.independentReview.sha256,
+  'independent review canonical identity drift',
+);
+require(
+  manifest.reviewEvidence.independentExactShaReview.role === 'exact-sha-private-owner-visual-suitability-review-not-publication-approval',
+  'independent review role drift',
+);
+require(
+  manifest.reviewEvidence.independentExactShaReview.decision === 'suitable-for-private-owner-visual-review-not-publication',
+  'independent review decision was laundered into publication approval',
+);
+require(manifest.reviewEvidence.independentExactShaReview.publicationEligibleAtReviewTime === false, 'review-time publication ineligibility must be preserved');
+require(manifest.reviewEvidence.independentExactShaReview.publicationBlockersAtReviewTime === independentReview.publication.blockers.length, 'review-time blocker count drift');
+require(independentReview.publication.eligible === false, 'private visual review must retain its publication-ineligible verdict');
+require(independentReview.independentReview.publicationEligible === false, 'independent review publication verdict drift');
+require(independentReview.decision === 'suitable-for-private-owner-visual-review-not-publication', 'bound review decision drift');
+require(independentReview.publication.blockers.length === 4, 'bound review blocker inventory drift');
+require(
+  manifest.reviewEvidence.editorialPublicationPolicy.path === manifest.editorial.evidenceMap.path &&
+    manifest.reviewEvidence.editorialPublicationPolicy.sha256 === manifest.editorial.evidenceMap.sha256,
+  'editorial publication policy is not bound to the evidence map',
+);
+require(manifest.reviewEvidence.editorialPublicationPolicy.decision === 'publication-eligible-with-labeled-evidence-gaps', 'editorial publication policy decision drift');
+require(evidenceMap.publicationEligible === true, 'disclosure policy does not permit publication');
+require(evidenceMap.releaseBlockers.length === 0, 'disclosure policy retains release blockers');
+require(evidenceMap.claims.length === 5, 'quantitative claim inventory drift');
+require(evidenceMap.claims.every((claim) => claim.status === 'source-cited-needs-independent-evidence-review'), 'unreviewed claims were promoted or relabeled');
+require(manifest.reviewEvidence.editorialPublicationPolicy.unreviewedQuantitativeClaimCount === evidenceMap.claims.length, 'editorial policy claim count drift');
+require(manifest.reviewEvidence.editorialPublicationPolicy.releaseBlockerCount === evidenceMap.releaseBlockers.length, 'editorial policy blocker count drift');
 require(sha256(manifest.reviewEvidence.visualSampling.path) === manifest.reviewEvidence.visualSampling.sha256, 'visual-sampling SHA drift');
 require(manifest.reviewEvidence.runtimeProvenance.twoCleanCheckoutReproduction === true, 'clean-checkout reproduction not proven');
 require(new Set(manifest.reviewEvidence.runtimeProvenance.candidateSha256ByCheckout).size === 1, 'clean checkouts produced different candidate hashes');
