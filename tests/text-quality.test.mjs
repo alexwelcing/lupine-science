@@ -1,12 +1,51 @@
 import assert from 'node:assert/strict';
+import { mkdtemp, rm, writeFile } from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
 import { describe, it } from 'node:test';
 
-import { findSuspectWords, trainBigramModel } from '../scripts/lib/text-quality.mjs';
+import { findSuspectWords, loadDictionary, trainBigramModel } from '../scripts/lib/text-quality.mjs';
 import { cueOcrTimes, hasHighConfidenceOcrGibberish, isBlankFrameStats, sampleFrameErrors } from '../scripts/video-quality-reviewer.mjs';
 
 const dictionary = new Set(['recover', 'destroy', 'containment', 'material', 'measurement']);
 const corpus = new Set(dictionary);
 const bigram = trainBigramModel(dictionary);
+
+describe('OCR dictionary integrity', () => {
+  it('loads a dictionary that meets the required cardinality', async () => {
+    const dir = await mkdtemp(path.join(os.tmpdir(), 'ocr-dictionary-'));
+    try {
+      const file = path.join(dir, 'words');
+      const words = Array.from({ length: 10000 }, (_, index) => `word${String(index).padStart(5, '0')}`);
+      await writeFile(file, `${words.join('\n')}\n`);
+      const loaded = await loadDictionary(file);
+      assert.equal(loaded.size, 10000);
+      assert.equal(loaded.has('word00000'), true);
+      assert.equal(loaded.has('word09999'), true);
+    } finally {
+      await rm(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('fails closed when the dictionary is missing', async () => {
+    await assert.rejects(
+      loadDictionary('/definitely/missing/ocr-dictionary'),
+      /Required OCR dictionary unavailable/,
+    );
+  });
+
+  it('fails closed when the dictionary is undersized', async () => {
+    const dir = await mkdtemp(path.join(os.tmpdir(), 'ocr-dictionary-'));
+    try {
+      const file = path.join(dir, 'words');
+      const words = Array.from({ length: 9999 }, (_, index) => `word${String(index).padStart(5, '0')}`);
+      await writeFile(file, `${words.join('\n')}\n`);
+      await assert.rejects(loadDictionary(file), /has 9999 words; expected at least 10000/);
+    } finally {
+      await rm(dir, { recursive: true, force: true });
+    }
+  });
+});
 
 describe('OCR suspect-word confidence handling', () => {
   it('ignores zero-confidence geometry guesses', () => {

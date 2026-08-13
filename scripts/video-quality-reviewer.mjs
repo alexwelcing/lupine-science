@@ -610,10 +610,7 @@ async function main() {
 
   const dictionary = await loadDictionary();
   const corpus = await buildDomainCorpus();
-  // CI runners do not ship /usr/share/dict/words. When the system dictionary
-  // is empty, train the character model on the domain corpus instead so the
-  // nonsense-word detector still has a reference distribution.
-  const bigram = trainBigramModel(dictionary.size > 0 ? dictionary : corpus);
+  const bigram = trainBigramModel(dictionary);
   console.error(`Dictionary ${dictionary.size}, corpus ${corpus.size}`);
 
   let worker = null;
