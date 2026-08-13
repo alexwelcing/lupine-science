@@ -97,6 +97,7 @@ function loudness(videoPath) {
 function parseVtt(text) {
   const lines = text.split(/\r?\n/);
   const cues = [];
+  const errors = [];
   let i = 0;
   if (lines[i]?.trim().toLowerCase() === 'webvtt') i++;
   while (i < lines.length) {
@@ -118,11 +119,15 @@ function parseVtt(text) {
       cues.push({ start, end, text: payload });
       continue;
     }
+    if (line.includes('-->')) errors.push(`malformed cue timing: ${line}`);
     i++;
   }
 
-  const errors = [];
   if (cues.length === 0) errors.push('no cues parsed');
+  for (let j = 0; j < cues.length; j++) {
+    if (cues[j].end <= cues[j].start) errors.push(`cue ${j + 1} has non-positive duration`);
+    if (!cues[j].text.trim()) errors.push(`cue ${j + 1} has no text`);
+  }
   for (let j = 1; j < cues.length; j++) {
     if (cues[j].start < cues[j - 1].end - 0.001) {
       errors.push(`cue ${j + 1} overlaps cue ${j}`);
@@ -166,6 +171,16 @@ function sampleTimes(duration, cues) {
   return Array.from(times).filter((t) => t > 0 && t < duration).sort((a, b) => a - b);
 }
 
+export function cueOcrTimes(duration, cues) {
+  return cues.map((cue, cueIndex) => ({
+    cueIndex,
+    time: cue.start + ((cue.end - cue.start) / 2),
+    valid: cue.start >= 0 && cue.end > cue.start &&
+      cue.start + ((cue.end - cue.start) / 2) > 0 &&
+      cue.start + ((cue.end - cue.start) / 2) < duration,
+  }));
+}
+
 async function extractFrame(videoPath, time, outPath) {
   const r = run('ffmpeg', [
     '-ss', String(time),
@@ -194,20 +209,20 @@ async function sampleFrames(videoPath, cues, slug, worker, dictionary, corpus, b
   if (!duration) return { samples: [], blankFrames: [], ocrHits: [] };
 
   const times = sampleTimes(duration, cues);
-  const maxOcrSamples = 9;
-  const ocrTimes = new Set(
-    times.length <= maxOcrSamples
-      ? times
-      : Array.from({ length: maxOcrSamples }, (_, index) =>
-          times[Math.round((index * (times.length - 1)) / (maxOcrSamples - 1))]),
-  );
+  const ocrCues = cueOcrTimes(duration, cues);
+  for (const { time } of ocrCues) {
+    if (!times.includes(time)) times.push(time);
+  }
+  times.sort((a, b) => a - b);
   const samples = [];
   const blankFrames = [];
   const ocrHits = [];
+  const ocrAttempts = [];
   const tmpDir = path.join(REPORT_DIR, '.frame-samples', slug);
   await mkdir(tmpDir, { recursive: true });
 
   for (const t of times) {
+    const cuesAtTime = ocrCues.filter((cue) => cue.time === t);
     const framePath = path.join(tmpDir, `${slug}-${t.toFixed(3)}.jpg`);
     try {
       await extractFrame(videoPath, t, framePath);
@@ -216,23 +231,25 @@ async function sampleFrames(videoPath, cues, slug, worker, dictionary, corpus, b
         time: t,
         avgStd: Number(avgStd.toFixed(2)),
         avgMean: Number(avgMean.toFixed(2)),
+        ocrCueIndexes: cuesAtTime.map((cue) => cue.cueIndex),
       };
       samples.push(frameStatsRecord);
       if (isBlankFrameStats(avgStd, avgMean, stdThreshold)) {
         blankFrames.push(frameStatsRecord);
       }
-      if (worker && ocrTimes.has(t)) {
+      for (const cue of cuesAtTime) {
+        ocrAttempts.push({ cueIndex: cue.cueIndex, time: t });
         const { data } = await worker.recognize(framePath);
         const analysis = analyzeText(data.words || [], dictionary, corpus, bigram);
         if (analysis.unknown.length) {
-          ocrHits.push({ time: t, words: analysis.unknown.slice(0, 6) });
+          ocrHits.push({ cueIndex: cue.cueIndex, time: t, words: analysis.unknown.slice(0, 6) });
         }
       }
     } catch (e) {
-      samples.push({ time: t, error: e.message });
+      samples.push({ time: t, ocrCueIndexes: cuesAtTime.map((cue) => cue.cueIndex), error: e.message });
     }
   }
-  return { samples, blankFrames, ocrHits };
+  return { samples, blankFrames, ocrHits, ocrAttempts };
 }
 
 function analyzeText(words, dictionary, corpus, bigram) {
@@ -346,7 +363,7 @@ function classifyP0(report, sample) {
     }
   }
   for (const n of report.captions.notes) {
-    if (/VTT missing|no cues|final cue exceeds/.test(n)) p0.push(`captions:${n}`);
+    p0.push(`captions:${n}`);
   }
   for (const n of report.brand.notes) {
     if (/self-citation/.test(n)) p0.push(`brand:${n}`);
@@ -478,8 +495,14 @@ async function reviewVideo(file, dictionary, corpus, bigram, worker, flags) {
     vttCues = vtt.cues;
     if (vtt.errors.length) report.captions.notes.push(...vtt.errors);
     if (vtt.cues.length === 0) report.captions.notes.push('no cues');
-    else if (duration && vtt.cues[vtt.cues.length - 1].end > duration + 1) {
-      report.captions.notes.push('final cue exceeds video duration');
+    if (duration) {
+      for (let cueIndex = 0; cueIndex < vtt.cues.length; cueIndex++) {
+        const cue = vtt.cues[cueIndex];
+        const midpoint = cue.start + ((cue.end - cue.start) / 2);
+        if (midpoint <= 0 || midpoint >= duration || cue.end > duration + 1) {
+          report.captions.notes.push(`cue ${cueIndex + 1} exceeds video duration`);
+        }
+      }
     }
   }
   report.captions.score = Math.max(0, report.captions.max - report.captions.notes.length * 4);
@@ -600,6 +623,7 @@ async function main() {
     });
   } catch (e) {
     console.error('OCR unavailable:', e.message);
+    if (flags.sampleFrames) process.exit(1);
   }
 
   const reports = [];

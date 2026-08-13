@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 
 import { findSuspectWords, trainBigramModel } from '../scripts/lib/text-quality.mjs';
-import { hasHighConfidenceOcrGibberish, isBlankFrameStats, sampleFrameErrors } from '../scripts/video-quality-reviewer.mjs';
+import { cueOcrTimes, hasHighConfidenceOcrGibberish, isBlankFrameStats, sampleFrameErrors } from '../scripts/video-quality-reviewer.mjs';
 
 const dictionary = new Set(['recover', 'destroy', 'containment', 'material', 'measurement']);
 const corpus = new Set(dictionary);
@@ -64,6 +64,55 @@ describe('video sample quality classification', () => {
     ]), [
       { time: 2, error: 'Input file is missing' },
       { time: 3, error: 'Sharp statistics failed' },
+    ]);
+  });
+
+  it('assigns one OCR sample to every caption cue', () => {
+    const cues = [
+      { start: 1, end: 3, text: 'first' },
+      { start: 4, end: 8, text: 'second' },
+      { start: 9, end: 11, text: 'third' },
+    ];
+    assert.deepEqual(cueOcrTimes(12, cues), [
+      { cueIndex: 0, time: 2, valid: true },
+      { cueIndex: 1, time: 6, valid: true },
+      { cueIndex: 2, time: 10, valid: true },
+    ]);
+    assert.equal(cueOcrTimes(12, cues).length, cues.length);
+  });
+
+  it('retains cue identity when sampled recognition fails', () => {
+    assert.deepEqual(sampleFrameErrors([
+      { time: 2, ocrCueIndexes: [0], error: 'OCR recognition failed' },
+    ]), [
+      { time: 2, ocrCueIndexes: [0], error: 'OCR recognition failed' },
+    ]);
+  });
+
+  it('preserves duplicate cue midpoints as distinct OCR work', () => {
+    const attempts = cueOcrTimes(5, [
+      { start: 1, end: 3, text: 'first' },
+      { start: 1.5, end: 2.5, text: 'second' },
+    ]);
+    assert.deepEqual(attempts.map(({ cueIndex, time }) => ({ cueIndex, time })), [
+      { cueIndex: 0, time: 2 },
+      { cueIndex: 1, time: 2 },
+    ]);
+  });
+
+  it('marks out-of-duration cues invalid without dropping their identity', () => {
+    assert.deepEqual(cueOcrTimes(5, [
+      { start: 5, end: 6, text: 'outside' },
+    ]), [
+      { cueIndex: 0, time: 5.5, valid: false },
+    ]);
+  });
+
+  it('keeps sub-second container-tail drift reviewable when its OCR midpoint is in range', () => {
+    assert.deepEqual(cueOcrTimes(5, [
+      { start: 4, end: 5.5, text: 'tail rounding' },
+    ]), [
+      { cueIndex: 0, time: 4.75, valid: true },
     ]);
   });
 });

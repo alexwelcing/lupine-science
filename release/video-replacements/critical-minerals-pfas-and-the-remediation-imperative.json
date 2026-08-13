@@ -169,8 +169,9 @@
     "liveHashAndBrowserVerification": "pending"
   },
   "rollback": {
-    "method": "run the repository helper to restore the pinned baseline article and five canonical media assets and set baseline-rollback state; rebuild generated routes; require npm run verify to validate baseline bytes; commit and redeploy only through protected environments",
-    "command": "node scripts/rollback-pfas-replacement.mjs && npm run build && npm run verify",
-    "script": "scripts/rollback-pfas-replacement.mjs"
+    "method": "run the repository helper to restore the pinned baseline article and five canonical media assets, set baseline-rollback state, and rebuild the owned article/video/sitemap/header surfaces; require npm run verify to validate baseline bytes; commit and redeploy only through protected environments",
+    "command": "node scripts/rollback-pfas-replacement.mjs && npm run verify",
+    "script": "scripts/rollback-pfas-replacement.mjs",
+    "cacheRevision": 5
   }
 }

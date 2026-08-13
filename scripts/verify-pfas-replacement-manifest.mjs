@@ -86,7 +86,8 @@ require(manifest.slug === slug, 'slug mismatch');
 require(manifest.sourceMainCommit === 'e0cccacca7e8050d6fb6d208cce3248689653532', 'source main commit drift');
 require(['replacement-active', 'baseline-rollback'].includes(manifest.releaseState), 'unknown release state');
 require(manifest.rollback.script === 'scripts/rollback-pfas-replacement.mjs', 'rollback script path drift');
-require(manifest.rollback.command === 'node scripts/rollback-pfas-replacement.mjs && npm run build && npm run verify', 'rollback command drift');
+require(manifest.rollback.command === 'node scripts/rollback-pfas-replacement.mjs && npm run verify', 'rollback command drift');
+require(manifest.rollback.cacheRevision === 5, 'rollback cache revision drift');
 if (manifest.releaseState === 'baseline-rollback') {
   require(manifest.rollback.executedAt != null, 'rollback execution timestamp missing');
   require(manifest.editorial.articlePath === `articles/${slug}.md`, 'rollback article path drift');
@@ -103,6 +104,17 @@ if (manifest.releaseState === 'baseline-rollback') {
     require(asset?.path === relativePath, `rollback ${label} canonical path drift`);
     verifyBaselineAsset(asset, `rollback ${label}`);
     verifyAsset(asset, `rollback ${label}`);
+  }
+  const rollbackRoutes = [
+    `public/articles/${slug}/index.html`,
+    `public/videos/${slug}/index.html`,
+    'public/videos/index.html',
+  ];
+  for (const route of rollbackRoutes) {
+    const html = fs.readFileSync(path.join(ROOT, route), 'utf8');
+    const posterRefs = html.match(new RegExp(`${slug}-poster\\.(?:jpg|avif|webp)\\?v=\\d+`, 'g')) || [];
+    require(posterRefs.length > 0, `rollback route missing PFAS poster reference: ${route}`);
+    require(posterRefs.every((ref) => ref.endsWith('?v=5')), `rollback route cache revision drift: ${route}`);
   }
   console.log(`PFAS baseline rollback verified: ${manifest.sourceMainCommit}`);
   process.exit(0);

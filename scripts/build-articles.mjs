@@ -93,9 +93,20 @@ const ASSET_CACHE_BUST = '?v=3';
 const ARTICLE_ASSET_CACHE_BUST = new Map([
   ['shared-dft-anchors', '?v=4'],
 ]);
+const PFAS_SLUG = 'critical-minerals-pfas-and-the-remediation-imperative';
+const PFAS_RELEASE = JSON.parse(fs.readFileSync(
+  path.join(ROOT, 'release', 'video-replacements', `${PFAS_SLUG}.json`),
+  'utf8',
+));
+const PFAS_POSTER_CACHE_REVISION = PFAS_RELEASE.releaseState === 'baseline-rollback'
+  ? PFAS_RELEASE.rollback.cacheRevision
+  : PFAS_RELEASE.replacement.cacheRevision;
+if (!Number.isSafeInteger(PFAS_POSTER_CACHE_REVISION) || PFAS_POSTER_CACHE_REVISION < 1) {
+  throw new Error('Invalid PFAS poster cache revision');
+}
 const VIDEO_POSTER_CACHE_BUST = new Map([
   ['water-and-air-correcting-the-molecules-we-drink-and-breathe', '?v=4'],
-  ['critical-minerals-pfas-and-the-remediation-imperative', '?v=4'],
+  [PFAS_SLUG, `?v=${PFAS_POSTER_CACHE_REVISION}`],
 ]);
 
 function bust(url, slug) {

@@ -31,4 +31,10 @@ execFileSync('git', ['restore', '--source', manifest.sourceMainCommit, '--worktr
 manifest.releaseState = 'baseline-rollback';
 manifest.rollback.executedAt = new Date().toISOString();
 fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
-console.log('PFAS baseline bytes restored. Run npm run build && npm run verify, then commit and redeploy through protected environments.');
+for (const script of ['build-articles.mjs', 'build-sitemap.mjs', 'build-headers.mjs']) {
+  execFileSync(process.execPath, [path.join(ROOT, 'scripts', script)], {
+    cwd: ROOT,
+    stdio: 'inherit',
+  });
+}
+console.log('PFAS baseline bytes and generated discovery surfaces restored. Run npm run verify, then commit and redeploy through protected environments.');
