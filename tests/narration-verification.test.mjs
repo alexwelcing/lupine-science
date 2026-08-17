@@ -401,6 +401,25 @@ test('two-pass normalization is deterministic', () => {
   assert.ok(Number(after.input_tp) <= TRUE_PEAK_TARGET_DBTP, `true peak ${after.input_tp} dBTP`);
 });
 
+test('stereo sources are downmixed before loudness measurement', () => {
+  const dir = tmpdir();
+  const src = path.join(dir, 'stereo.wav');
+  const out = path.join(dir, 'mono-normalized.wav');
+  const r = spawnSync(FFMPEG, [
+    '-hide_banner', '-loglevel', 'error', '-y',
+    '-f', 'lavfi', '-i', 'sine=frequency=220:sample_rate=44100:duration=6',
+    '-af', 'volume=0.9', '-c:a', 'pcm_s16le', '-ac', '2', src,
+  ], { encoding: 'utf8' });
+  assert.equal(r.status, 0, r.stderr);
+
+  normalizeLoudness({ inPath: src, outPath: out });
+  const after = measureLoudness(out);
+  assert.ok(
+    Math.abs(Number(after.input_i) - LOUDNESS_TARGET_LUFS) <= 0.5,
+    `stereo-to-mono loudness ${after.input_i} LUFS`,
+  );
+});
+
 test('peaks are limited to the target without sacrificing loudness', () => {
   // A quiet body with loud transients: normalizing its LOUDNESS up to -16 LUFS
   // would drive its PEAKS past the target, so the true-peak constraint has to bind.

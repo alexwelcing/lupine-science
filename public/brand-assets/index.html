@@ -79,6 +79,31 @@
     .design-system .card figcaption { flex-direction: column; align-items: flex-start; gap: 4px; }
     .design-system .card figcaption strong { margin-bottom: 2px; }
     .design-system .card figcaption span { font-size: 10px; }
+    .world-library {
+      margin: 72px calc(clamp(20px, 5vw, 64px) * -1) 0;
+      padding: clamp(48px, 7vw, 88px) clamp(20px, 5vw, 64px);
+      color: #ecece7; background: #0b0d0c; border-block: 1px solid #29302d;
+    }
+    .world-intro { max-width: 980px; margin-bottom: 64px; }
+    .world-kicker, .world-class-head p, .world-class-head span {
+      font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #9eaaa4;
+    }
+    .world-intro h2 { max-width: 17ch; margin: 8px 0 20px; font-size: clamp(36px, 6vw, 76px); font-weight: 350; line-height: .98; letter-spacing: -.035em; }
+    .world-intro h2 em { color: #ef5a3c; font-weight: inherit; }
+    .world-intro > p:last-child { max-width: 72ch; color: #b7c0bb; font-size: 17px; }
+    .world-class { margin-top: 64px; padding-top: 22px; border-top: 1px solid #303733; }
+    .world-class-head { display: grid; grid-template-columns: 1fr auto; gap: 4px 24px; align-items: end; margin-bottom: 20px; }
+    .world-class-head p { grid-column: 1 / -1; }
+    .world-class-head h3 { font-size: clamp(26px, 3vw, 40px); font-weight: 400; letter-spacing: -.02em; }
+    .world-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+    .world-card { background: #131714; border-color: #303733; border-radius: 2px; }
+    .world-card:hover { border-color: #ef5a3c; box-shadow: 0 20px 52px rgba(0,0,0,.3); }
+    .world-card a { display: block; }
+    .world-card img { background: #1b201d; }
+    .world-card[data-aspect="4:5"] img { aspect-ratio: 4/5; }
+    .world-card figcaption { color: #d8ddd9; }
+    .world-card figcaption span { color: #87938c; }
+    @media (max-width: 620px) { .world-class-head { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -1498,6 +1523,9 @@
   </figcaption>
 </figure>
     </div>
+
+    <!-- MIDWEST_2076_LIBRARY_START -->
+    <!-- MIDWEST_2076_LIBRARY_END -->
 
     <section class="design-system">
       <h2>Design system <em>assets.</em></h2>

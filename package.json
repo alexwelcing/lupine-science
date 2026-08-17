@@ -37,6 +37,8 @@
     "video:motion:verify": "node scripts/verify-motion-manifests.mjs",
     "video:motion:publish": "node scripts/publish-article-motion-video.mjs --slug ${SLUG}",
     "video:motion:publish:all": "node scripts/publish-all-motion-videos.mjs",
+    "video:replacement:inventory": "node scripts/build-article-video-replacement-inventory.mjs",
+    "video:replacement:review": "node scripts/review-article-video-candidate.mjs",
     "monitor:laptop": "node scripts/monitoring/laptop-diagnostics.mjs",
     "monitor:cleanup": "bash scripts/monitoring/cleanup-hermes-artifacts.sh"
   },
