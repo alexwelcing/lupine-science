@@ -1,0 +1,1090 @@
+{
+  "ok": false,
+  "strict": true,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "system_font_will_alias",
+        "severity": "info",
+        "message": "Font family will be substituted at render time: 'arial' → Inter. The renderer maps these to bundled fonts for cross-platform consistency. Use the target font name directly for consistent preview and render results.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/alex/Dev/lupine/lupine-science/media/projects/article-video-replacements/water-and-air-correcting-the-molecules-we-drink-and-breathe/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0
+      }
+    ],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": false,
+    "errorCount": 2,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "http_error",
+        "severity": "error",
+        "message": "404 loading fonts/plex-sans.woff2",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "131.51",
+          "data-width": "1920",
+          "data-height": "1080",
+          "data-fps": "30"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "time": 0,
+        "url": "http://127.0.0.1:40995/fonts/plex-sans.woff2"
+      },
+      {
+        "code": "request_failed",
+        "severity": "error",
+        "message": "Failed to load fonts/plex-sans.woff2: net::ERR_ABORTED",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "131.51",
+          "data-width": "1920",
+          "data-height": "1080",
+          "data-fps": "30"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "time": 0,
+        "url": "http://127.0.0.1:40995/fonts/plex-sans.woff2"
+      }
+    ]
+  },
+  "layout": {
+    "ok": false,
+    "errorCount": 10,
+    "warningCount": 5,
+    "infoCount": 10,
+    "findings": [
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 50.496,
+        "selector": "span.id",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 1134,
+          "top": 929.88,
+          "right": 1150.81,
+          "bottom": 966.88,
+          "width": 16.81,
+          "height": 37
+        },
+        "containerSelector": "span.id",
+        "text": "C",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1134,
+          "y": 929.88,
+          "width": 16.81,
+          "height": 37
+        },
+        "firstSeen": 50.496,
+        "lastSeen": 52.033,
+        "occurrences": 6
+      },
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 50.496,
+        "selector": "span.rank",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 1726.8,
+          "top": 931.88,
+          "right": 1758,
+          "bottom": 965.88,
+          "width": 31.2,
+          "height": 34
+        },
+        "containerSelector": "span.rank",
+        "text": "01",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1726.8,
+          "y": 931.88,
+          "width": 31.2,
+          "height": 34
+        },
+        "firstSeen": 50.496,
+        "lastSeen": 52.033,
+        "occurrences": 6
+      },
+      {
+        "selector": "#scene-water > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 134,
+          "y": 1002.97,
+          "width": 183.8,
+          "height": 42
+        },
+        "time": 65.755,
+        "rect": {
+          "left": 134,
+          "top": 1002.97,
+          "right": 317.8,
+          "bottom": 1044.97,
+          "width": 183.8,
+          "height": 42
+        },
+        "code": "caption_zone_collision",
+        "severity": "error",
+        "text": "selectivity",
+        "message": "<div> \"selectivity\" is centred in the reserved caption band (~5% up from the bottom).",
+        "fixHint": "Keep main content outside the configured caption band, or mark intentional lower-third copy with data-layout-allow-caption-zone.",
+        "firstSeen": 65.755,
+        "lastSeen": 65.755,
+        "occurrences": 1
+      },
+      {
+        "selector": "#scene-water > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 714,
+          "y": 1002.97,
+          "width": 143.61,
+          "height": 42
+        },
+        "time": 65.755,
+        "rect": {
+          "left": 714,
+          "top": 1002.97,
+          "right": 857.61,
+          "bottom": 1044.97,
+          "width": 143.61,
+          "height": 42
+        },
+        "code": "caption_zone_collision",
+        "severity": "error",
+        "text": "stability",
+        "message": "<div> \"stability\" is centred in the reserved caption band (~5% up from the bottom).",
+        "fixHint": "Keep main content outside the configured caption band, or mark intentional lower-third copy with data-layout-allow-caption-zone.",
+        "firstSeen": 65.755,
+        "lastSeen": 65.755,
+        "occurrences": 1
+      },
+      {
+        "selector": "#scene-water > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(3)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1294,
+          "y": 1002.97,
+          "width": 221.66,
+          "height": 42
+        },
+        "time": 65.755,
+        "rect": {
+          "left": 1294,
+          "top": 1002.97,
+          "right": 1515.66,
+          "bottom": 1044.97,
+          "width": 221.66,
+          "height": 42
+        },
+        "code": "caption_zone_collision",
+        "severity": "error",
+        "text": "ion ordering",
+        "message": "<div> \"ion ordering\" is centred in the reserved caption band (~5% up from the bottom).",
+        "fixHint": "Keep main content outside the configured caption band, or mark intentional lower-third copy with data-layout-allow-caption-zone.",
+        "firstSeen": 65.755,
+        "lastSeen": 65.755,
+        "occurrences": 1
+      },
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 96.163,
+        "selector": "div.record-value",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 174,
+          "top": 787,
+          "right": 300.34,
+          "bottom": 881,
+          "width": 126.34,
+          "height": 94
+        },
+        "containerSelector": "div.source",
+        "text": "36",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 174,
+          "y": 787,
+          "width": 126.34,
+          "height": 94
+        },
+        "firstSeen": 96.163,
+        "lastSeen": 104.725,
+        "occurrences": 42
+      },
+      {
+        "selector": "div.mechanism.record > div:nth-of-type(2) > div:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 174,
+          "y": 900.3,
+          "width": 374.41,
+          "height": 32
+        },
+        "time": 98.633,
+        "rect": {
+          "left": 174,
+          "top": 900.3,
+          "right": 548.41,
+          "bottom": 932.3,
+          "width": 374.41,
+          "height": 32
+        },
+        "code": "caption_zone_collision",
+        "severity": "error",
+        "text": "blind model–material pairs",
+        "message": "<div> \"blind model–material pairs\" is centred in the reserved caption band (~15% up from the bottom).",
+        "fixHint": "Keep main content outside the configured caption band, or mark intentional lower-third copy with data-layout-allow-caption-zone.",
+        "firstSeen": 98.633,
+        "lastSeen": 98.633,
+        "occurrences": 1
+      },
+      {
+        "selector": "div.mechanism.record > div:nth-of-type(3) > div:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 722,
+          "y": 900.3,
+          "width": 460.81,
+          "height": 32
+        },
+        "time": 98.633,
+        "rect": {
+          "left": 722,
+          "top": 900.3,
+          "right": 1182.81,
+          "bottom": 932.3,
+          "width": 460.81,
+          "height": 32
+        },
+        "code": "caption_zone_collision",
+        "severity": "error",
+        "text": "corrected prediction correlation",
+        "message": "<div> \"corrected prediction correlation\" is centred in the reserved caption band (~15% up from the bottom).",
+        "fixHint": "Keep main content outside the configured caption band, or mark intentional lower-third copy with data-layout-allow-caption-zone.",
+        "firstSeen": 98.633,
+        "lastSeen": 98.633,
+        "occurrences": 1
+      },
+      {
+        "selector": "div.mechanism.record > div:nth-of-type(4) > div:nth-of-type(2)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1270,
+          "y": 900.3,
+          "width": 244.81,
+          "height": 32
+        },
+        "time": 98.633,
+        "rect": {
+          "left": 1270,
+          "top": 900.3,
+          "right": 1514.81,
+          "bottom": 932.3,
+          "width": 244.81,
+          "height": 32
+        },
+        "code": "caption_zone_collision",
+        "severity": "error",
+        "text": "fitted parameters",
+        "message": "<div> \"fitted parameters\" is centred in the reserved caption band (~15% up from the bottom).",
+        "fixHint": "Keep main content outside the configured caption band, or mark intentional lower-third copy with data-layout-allow-caption-zone.",
+        "firstSeen": 98.633,
+        "lastSeen": 98.633,
+        "occurrences": 1
+      },
+      {
+        "code": "content_overlap",
+        "severity": "error",
+        "time": 121.191,
+        "selector": "#branch-water",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 463.58,
+          "top": 849.09,
+          "right": 552.41,
+          "bottom": 887.09,
+          "width": 88.83,
+          "height": 38
+        },
+        "containerSelector": "div.source",
+        "text": "water",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 463.58,
+          "y": 849.09,
+          "width": 88.83,
+          "height": 38
+        },
+        "firstSeen": 121.191,
+        "lastSeen": 126.68,
+        "occurrences": 27
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "warning",
+        "time": 28.955,
+        "selector": "div.lattice-panel",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": 104,
+          "top": 340,
+          "right": 924,
+          "bottom": 1420,
+          "width": 820,
+          "height": 1080
+        },
+        "containerSelector": "#root",
+        "text": "LOCAL COORDINATION BULK → PORE / METAL CENTRE / ",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "bottom": 340
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 104,
+          "y": 340,
+          "width": 820,
+          "height": 1080
+        },
+        "firstSeen": 28.955,
+        "lastSeen": 32.878,
+        "occurrences": 2
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "warning",
+        "time": 28.955,
+        "selector": "div.barrier-panel",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": 996,
+          "top": 340,
+          "right": 1816,
+          "bottom": 1420,
+          "width": 820,
+          "height": 1080
+        },
+        "containerSelector": "#root",
+        "text": "ENERGY BARRIER",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "bottom": 340
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 996,
+          "y": 340,
+          "width": 820,
+          "height": 1080
+        },
+        "firstSeen": 28.955,
+        "lastSeen": 32.878,
+        "occurrences": 2
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "warning",
+        "time": 98.633,
+        "selector": "div.mechanism.record",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": 104,
+          "top": 340,
+          "right": 1816,
+          "bottom": 1420,
+          "width": 1712,
+          "height": 1080
+        },
+        "containerSelector": "#root",
+        "text": "36 blind model–material pairs r = 0.906 correcte",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "bottom": 340
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 104,
+          "y": 340,
+          "width": 1712,
+          "height": 1080
+        },
+        "firstSeen": 98.633,
+        "lastSeen": 100.065,
+        "occurrences": 2
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 110.653,
+        "selector": "#state-synthesis",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 1441.95,
+          "top": 980.19,
+          "right": 1802.03,
+          "bottom": 1021.19,
+          "width": 360.08,
+          "height": 41
+        },
+        "containerSelector": "#state-bounded",
+        "text": "synthesis-dependent",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1441.95,
+          "y": 980.19,
+          "width": 360.08,
+          "height": 41
+        },
+        "firstSeen": 110.653,
+        "lastSeen": 110.872,
+        "occurrences": 2
+      },
+      {
+        "code": "content_overlap",
+        "severity": "warning",
+        "time": 115.263,
+        "selector": "#state-bounded",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 1546.02,
+          "top": 980.19,
+          "right": 1697.98,
+          "bottom": 1021.19,
+          "width": 151.97,
+          "height": 41
+        },
+        "containerSelector": "#state-supported",
+        "text": "bounded",
+        "fixHint": "Give each block its own zone, or mark intentional layering with data-layout-allow-overlap.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1546.02,
+          "y": 980.19,
+          "width": 151.97,
+          "height": 41
+        },
+        "firstSeen": 115.263,
+        "lastSeen": 115.483,
+        "occurrences": 2
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 28.955,
+        "selector": "div.label",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 140,
+          "top": 1361.61,
+          "right": 720.81,
+          "bottom": 1390.61,
+          "width": 580.81,
+          "height": 29
+        },
+        "containerSelector": "#root",
+        "text": "bulk → pore / metal centre / single site",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "bottom": 310.61
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 140,
+          "y": 1361.61,
+          "width": 580.81,
+          "height": 29
+        },
+        "firstSeen": 28.955,
+        "lastSeen": 32.878,
+        "occurrences": 2
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 87.955,
+        "selector": "div.label",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 969.58,
+          "top": 1311.61,
+          "right": 1085.75,
+          "bottom": 1340.61,
+          "width": 116.17,
+          "height": 29
+        },
+        "containerSelector": "#root",
+        "text": "bulk = 0",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "bottom": 260.61
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 969.58,
+          "y": 1311.61,
+          "width": 116.17,
+          "height": 29
+        },
+        "firstSeen": 87.955,
+        "lastSeen": 87.955,
+        "occurrences": 1
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "info",
+        "time": 87.955,
+        "selector": "div.field-chart",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": 104,
+          "top": 340,
+          "right": 1137.75,
+          "bottom": 1420,
+          "width": 1033.75,
+          "height": 1080
+        },
+        "containerSelector": "#root",
+        "text": "ERROR OVER LOCAL COORDINATION BULK = 0",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "bottom": 340
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 104,
+          "y": 340,
+          "width": 1033.75,
+          "height": 1080
+        },
+        "firstSeen": 87.955,
+        "lastSeen": 87.955,
+        "occurrences": 1
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "info",
+        "time": 87.955,
+        "selector": "div.force-panel",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": 1195.75,
+          "top": 340,
+          "right": 1816,
+          "bottom": 1420,
+          "width": 620.25,
+          "height": 1080
+        },
+        "containerSelector": "#root",
+        "text": "RAW GRADIENT + CORRECTION CORRECTED FORCE",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "bottom": 340
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1195.75,
+          "y": 340,
+          "width": 620.25,
+          "height": 1080
+        },
+        "firstSeen": 87.955,
+        "lastSeen": 87.955,
+        "occurrences": 1
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "info",
+        "time": 111.88,
+        "selector": "div.mechanism.domain-map",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": 208,
+          "top": 601.19,
+          "right": 1920,
+          "bottom": 1401.19,
+          "width": 1712,
+          "height": 800
+        },
+        "containerSelector": "#root",
+        "text": "OUTSIDE MEASURED DOMAIN INSIDE MEASURED DOMAIN s",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "bottom": 321.19
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 208,
+          "y": 601.19,
+          "width": 1712,
+          "height": 800
+        },
+        "firstSeen": 111.88,
+        "lastSeen": 111.88,
+        "occurrences": 1
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 125.235,
+        "selector": "#signature",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 927.61,
+          "top": 1053.42,
+          "right": 1200.39,
+          "bottom": 1134.19,
+          "width": 272.78,
+          "height": 80.77
+        },
+        "containerSelector": "#root",
+        "text": "LOWCOORDINATION",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "bottom": 54.19
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 927.61,
+          "y": 1053.42,
+          "width": 272.78,
+          "height": 80.77
+        },
+        "firstSeen": 125.235,
+        "lastSeen": 125.235,
+        "occurrences": 1
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 125.235,
+        "selector": "#branch-battery",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 437.13,
+          "top": 1360.03,
+          "right": 578.86,
+          "bottom": 1398.03,
+          "width": 141.73,
+          "height": 38
+        },
+        "containerSelector": "#root",
+        "text": "batteries",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "bottom": 318.03
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 437.13,
+          "y": 1360.03,
+          "width": 141.73,
+          "height": 38
+        },
+        "firstSeen": 125.235,
+        "lastSeen": 125.235,
+        "occurrences": 1
+      },
+      {
+        "code": "canvas_overflow",
+        "severity": "info",
+        "time": 125.235,
+        "selector": "div.lab-endpoint",
+        "message": "Text extends outside the composition canvas.",
+        "rect": {
+          "left": 768.8,
+          "top": 1423.86,
+          "right": 1359.2,
+          "bottom": 1455.86,
+          "width": 590.41,
+          "height": 32
+        },
+        "containerSelector": "#root",
+        "text": "verified correction → laboratory priority",
+        "fixHint": "Move the text inward, reduce its size, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "bottom": 375.86
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 768.8,
+          "y": 1423.86,
+          "width": 590.41,
+          "height": 32
+        },
+        "firstSeen": 125.235,
+        "lastSeen": 125.235,
+        "occurrences": 1
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "info",
+        "time": 125.235,
+        "selector": "i.platform-line.line-a",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": 866.98,
+          "top": 1005.04,
+          "right": 1261.02,
+          "bottom": 1182.68,
+          "width": 394.04,
+          "height": 177.64
+        },
+        "containerSelector": "#root",
+        "text": "",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "bottom": 102.68
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 866.98,
+          "y": 1005.04,
+          "width": 394.04,
+          "height": 177.64
+        },
+        "firstSeen": 125.235,
+        "lastSeen": 125.235,
+        "occurrences": 1
+      },
+      {
+        "code": "panel_out_of_canvas",
+        "severity": "info",
+        "time": 125.235,
+        "selector": "i.platform-line.line-b",
+        "message": "Painted panel extends outside the composition canvas.",
+        "rect": {
+          "left": 866.98,
+          "top": 1005.04,
+          "right": 1261.02,
+          "bottom": 1182.68,
+          "width": 394.04,
+          "height": 177.64
+        },
+        "containerSelector": "#root",
+        "text": "",
+        "fixHint": "Move the panel inward, or mark intentional off-canvas animation with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "bottom": 102.68
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 866.98,
+          "y": 1005.04,
+          "width": 394.04,
+          "height": 177.64
+        },
+        "firstSeen": 125.235,
+        "lastSeen": 125.235,
+        "occurrences": 1
+      }
+    ],
+    "duration": 131.51,
+    "samples": [
+      8.765,
+      28.955,
+      32.878,
+      49.605,
+      63.52,
+      65.755,
+      74.395,
+      87.955,
+      98.633,
+      100.065,
+      111.88,
+      125.235
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 25,
+    "truncated": false
+  },
+  "motion": {
+    "ok": false,
+    "errorCount": 2,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "motion_selector_ambiguous",
+        "severity": "error",
+        "time": 0,
+        "selector": ".scene-inner",
+        "message": ".scene-inner matches multiple elements — use a more specific selector so the assertion targets exactly one",
+        "rect": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "width": 0,
+          "height": 0
+        },
+        "fixHint": "Use #id or :nth-child() instead of a class selector when multiple elements share the same class.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "firstSeen": 0,
+        "lastSeen": 0,
+        "occurrences": 1
+      },
+      {
+        "code": "motion_selector_ambiguous",
+        "severity": "error",
+        "time": 0,
+        "selector": ".mechanism",
+        "message": ".mechanism matches multiple elements — use a more specific selector so the assertion targets exactly one",
+        "rect": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "width": 0,
+          "height": 0
+        },
+        "fixHint": "Use #id or :nth-child() instead of a class selector when multiple elements share the same class.",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "firstSeen": 0,
+        "lastSeen": 0,
+        "occurrences": 1
+      }
+    ],
+    "enabled": true,
+    "specPath": "/home/alex/Dev/lupine/lupine-science/media/projects/article-video-replacements/water-and-air-correcting-the-molecules-we-drink-and-breathe/index.motion.json",
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      8.765,
+      49.605,
+      74.395,
+      100.065,
+      125.235
+    ],
+    "checked": 54,
+    "passed": 54
+  },
+  "snapshots": {
+    "enabled": true,
+    "files": [
+      "snapshots/frame-00-at-8.8s.png",
+      "snapshots/frame-01-at-49.6s.png",
+      "snapshots/frame-02-at-74.4s.png",
+      "snapshots/frame-03-at-100.1s.png",
+      "snapshots/frame-04-at-125.2s.png"
+    ],
+    "times": [
+      8.765,
+      49.605,
+      74.395,
+      100.065,
+      125.235
+    ],
+    "findingFiles": [
+      "snapshots/finding-00-content_overlap.png",
+      "snapshots/finding-01-content_overlap.png",
+      "snapshots/finding-02-caption_zone_collision.png",
+      "snapshots/finding-03-caption_zone_collision.png",
+      "snapshots/finding-04-caption_zone_collision.png",
+      "snapshots/finding-05-content_overlap.png",
+      "snapshots/finding-06-caption_zone_collision.png",
+      "snapshots/finding-07-caption_zone_collision.png",
+      "snapshots/finding-08-caption_zone_collision.png",
+      "snapshots/finding-09-content_overlap.png",
+      "snapshots/finding-10-http_error.png",
+      "snapshots/finding-11-request_failed.png"
+    ]
+  },
+  "_meta": {
+    "version": "0.7.107",
+    "latestVersion": "0.7.107",
+    "updateAvailable": false
+  }
+}

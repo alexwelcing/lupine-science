@@ -1,0 +1,186 @@
+{
+  "schemaVersion": "2026-08-11",
+  "slug": "water-and-air-correcting-the-molecules-we-drink-and-breathe",
+  "status": "authored-private-candidate-only",
+  "articleClaim": "Bulk-trained uMLIPs systematically soften energies in under-coordinated environments that govern water and air materials; a measured coordination-specific runtime correction restores trustworthy binding, barrier, and ranking predictions.",
+  "explanatoryPurpose": "Make the causal chain visible: coordination drops, the raw energy surface softens, rankings invert, and the measured runtime correction restores the ordering while preserving explicit epistemic boundaries.",
+  "productionTier": "authored-hyperframes-deterministic-motion",
+  "colorDirection": {
+    "palette": {
+      "background": "#101513",
+      "foreground": "#F2EFE6",
+      "correction": "#C97745",
+      "water": "#76A9C3",
+      "air": "#B4BE92",
+      "warning": "#D36B61"
+    },
+    "semantics": {
+      "background": "persistent institutional field and non-evidentiary negative space",
+      "correction": "measured correction, transfer layer, or verified mechanism",
+      "water": "water-bearing pathway or moving measured-domain point",
+      "air": "air-bearing pathway or supported claim state",
+      "warning": "raw bias, synthesis-dependent state, or warning",
+      "foreground": "neutral evidence and settled output"
+    },
+    "prohibitions": [
+      "no color-encoded unsupported magnitude or probability",
+      "no decorative rainbow accenting",
+      "no paper-and-indigo treatment"
+    ],
+    "nonColorRedundancy": "Every state remains identifiable through labels, geometry, position, or motion when color is removed."
+  },
+  "artifacts": {
+    "contractValidator": "scripts/validate-contract.mjs",
+    "hyperframesStrictReport": "check-color-pass2.json",
+    "hyperframesVersion": "0.7.107"
+  },
+  "sources": [
+    "articles/water-and-air-correcting-the-molecules-we-drink-and-breathe.md",
+    "data/narration-scripts/water-and-air-correcting-the-molecules-we-drink-and-breathe.json",
+    "data/video-motion/water-and-air-correcting-the-molecules-we-drink-and-breathe.json",
+    "reviews/p0-unblock-directive.md"
+  ],
+  "excludedEvidence": [
+    {
+      "claim": "190 build-locked Lean 4 theorems",
+      "reason": "Repository evidence records a 77/190/262/839 count conflict pending machine-generated resolution.",
+      "action": "Remove the narration cue and show no theorem count."
+    }
+  ],
+  "audioExcision": {
+    "source": "source/verified-narration.m4a",
+    "removedIntervalSeconds": [104.8, 112.69],
+    "minimumDecodedPcmCorrelation": 0.99,
+    "forbiddenSpokenPattern": "one hundred ninety|190 build-locked",
+    "reason": "Remove the disputed theorem-count sentence and its handoff gap from both spoken narration and timed captions."
+  },
+  "scenes": [
+    {
+      "id": "stakes",
+      "semanticColorRoles": ["water", "air", "correction"],
+      "windowSeconds": [0, 17.53],
+      "reviewTimesSeconds": [0.25, 8.765, 17.28],
+      "dominantProof": "Water and air failures converge on one materials layer.",
+      "visibleRelationships": ["water need → separation material", "air burden → catalytic material"],
+      "motion": "Two environmental streams converge on a single material cross-section.",
+      "why": "Establish that the shared bottleneck is material prediction, not two unrelated application markets.",
+      "evidenceThatMustRemainVisible": ["water stream", "air stream", "shared material boundary"]
+    },
+    {
+      "id": "coordination",
+      "semanticColorRoles": ["correction", "warning", "foreground"],
+      "windowSeconds": [17.53, 40.38],
+      "reviewTimesSeconds": [17.78, 28.955, 40.13],
+      "dominantProof": "Low coordination removes neighbours exactly where function occurs and the raw barrier softens.",
+      "visibleRelationships": ["bulk site → many neighbours", "functional site → fewer neighbours", "fewer neighbours → softened barrier"],
+      "motion": "A regular lattice opens into a pore/active site while the raw energy barrier visibly lowers.",
+      "why": "Show the shared physical cause rather than naming application categories.",
+      "evidenceThatMustRemainVisible": ["bulk reference", "under-coordinated site", "barrier before/after"]
+    },
+    {
+      "id": "ranking-inversion",
+      "semanticColorRoles": ["warning", "correction", "foreground"],
+      "windowSeconds": [40.38, 58.83],
+      "reviewTimesSeconds": [40.63, 49.605, 58.58],
+      "dominantProof": "A systematic barrier error reverses candidate order.",
+      "visibleRelationships": ["raw barrier → false rank", "corrected barrier → restored rank", "rank change → experiment priority"],
+      "motion": "Three anonymous candidates reorder only when the correction field is applied.",
+      "why": "Make the consequence of softening operationally legible without fabricating candidate data.",
+      "evidenceThatMustRemainVisible": ["same anonymous candidates", "raw ordering", "corrected ordering"]
+    },
+    {
+      "id": "water",
+      "semanticColorRoles": ["water", "correction"],
+      "windowSeconds": [58.83, 68.21],
+      "reviewTimesSeconds": [59.08, 63.52, 67.96],
+      "dominantProof": "The same corrected local-energy ordering governs three water-material functions.",
+      "visibleRelationships": ["pore → membrane selectivity", "metal-linker bond → sorbent stability", "ion window → lithium selectivity"],
+      "motion": "One corrected local-site marker traverses three deterministic cross-sections.",
+      "why": "Connect one mechanism to desalination, atmospheric-water sorbents, and ion-selective frameworks without card UI.",
+      "evidenceThatMustRemainVisible": ["pore", "metal-linker bond", "ion window"]
+    },
+    {
+      "id": "air",
+      "semanticColorRoles": ["air", "warning", "correction"],
+      "windowSeconds": [68.21, 80.58],
+      "reviewTimesSeconds": [68.46, 74.395, 80.33],
+      "dominantProof": "The same corrected activation-energy ordering separates real activity from artificial promise in air catalysts.",
+      "visibleRelationships": ["exchanged cation → NOx activation", "coated channel → soot oxidation", "single site → VOC oxidation"],
+      "motion": "An activation path passes through three catalyst geometries; the false-short path is replaced by the corrected path.",
+      "why": "Extend the same physical failure class to air without changing causal vocabulary.",
+      "evidenceThatMustRemainVisible": ["catalyst site", "raw short path", "corrected activation path"]
+    },
+    {
+      "id": "runtime-correction",
+      "semanticColorRoles": ["correction", "foreground"],
+      "windowSeconds": [80.58, 95.33],
+      "reviewTimesSeconds": [80.83, 87.955, 95.08],
+      "dominantProof": "A measured local-coordination error field modifies runtime gradients and vanishes in bulk.",
+      "visibleRelationships": ["three anchors → error field", "bulk reference → zero correction", "error field + raw gradient → corrected force"],
+      "motion": "Three anchors shape a deterministic field; its value falls to zero at bulk and adds to a raw force arrow.",
+      "why": "Explain what the correction does rather than depicting it as a black-box product layer.",
+      "evidenceThatMustRemainVisible": ["three anchors", "zero-at-bulk boundary", "raw and corrected force vectors"]
+    },
+    {
+      "id": "blind-record",
+      "semanticColorRoles": ["correction", "foreground"],
+      "windowSeconds": [95.33, 104.8],
+      "reviewTimesSeconds": [95.58, 100.065, 104.55],
+      "dominantProof": "The approved blind-prediction record is stated without inventing underlying points.",
+      "visibleRelationships": ["36 pairs → blind evaluation", "corrected predictions → r = 0.906", "model form → zero fitted parameters"],
+      "motion": "A source-record line resolves sequentially into sample scope, correlation, and fitting status.",
+      "why": "Preserve the grounded quantitative claim while refusing a fabricated scatter plot.",
+      "evidenceThatMustRemainVisible": ["36 model-material pairs", "r = 0.906", "zero fitted parameters"]
+    },
+    {
+      "id": "epistemic-boundary",
+      "semanticColorRoles": ["warning", "correction", "air", "water"],
+      "windowSeconds": [104.8, 118.96],
+      "reviewTimesSeconds": [105.05, 111.88, 118.71],
+      "dominantProof": "Claim status depends on whether local environments lie inside the measured domain.",
+      "visibleRelationships": ["inside domain → supported", "outside domain → synthesis-dependent", "uncertain boundary → bounded"],
+      "motion": "A local-environment point crosses a measured-domain boundary and its claim state changes.",
+      "why": "Replace the contradicted theorem count with the actual verification function.",
+      "evidenceThatMustRemainVisible": ["measured-domain boundary", "local-environment point", "claim state"]
+    },
+    {
+      "id": "platform-close",
+      "semanticColorRoles": ["water", "air", "correction"],
+      "windowSeconds": [118.96, 131.51],
+      "reviewTimesSeconds": [119.21, 123.3, 127.2],
+      "dominantProof": "The transferable object is the coordination-specific failure signature, not a climate category.",
+      "visibleRelationships": ["low-coordination signature → water/air", "same signature → batteries/DAC", "verified correction → laboratory priority"],
+      "motion": "Water/air branches appear first, then exchange for batteries/DAC while the central coordination signature persists.",
+      "why": "Close on one transferable mechanism while never displaying more than two domain branches at once.",
+      "evidenceThatMustRemainVisible": ["central coordination signature", "two domain branches maximum", "laboratory-priority endpoint"]
+    }
+  ],
+  "delivery": {
+    "durationSeconds": 131.51,
+    "aspectRatio": "16:9",
+    "resolution": "1920x1080",
+    "frameRate": 30,
+    "playback": "on-demand-controls-no-autoplay-no-loop",
+    "container": "mp4",
+    "videoCodec": "h264",
+    "pixelFormat": "yuv420p",
+    "audioCodec": "aac",
+    "audio": "mono-44100Hz-narration-only",
+    "captions": "English WebVTT required",
+    "poster": "1920x1080 source frame plus evaluated 1200x630 crop",
+    "reducedMotion": "static poster and transcript/captions; no autoplay or looping",
+    "softFileSizeBytes": 12000000,
+    "hardFileSizeBytes": 16777216
+  },
+  "gates": [
+    "hyperframes-check-strict",
+    "37-frame-review-package",
+    "repaired-fail-closed-visual-reviewer",
+    "audio-release-gate",
+    "caption-timing-check",
+    "article-placement-check",
+    "human-review",
+    "owner-approval-before-public-overwrite"
+  ],
+  "eligibleForPublication": false
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "decision": "pass",
+  "source": "/home/alex/Dev/lupine/lupine-science/media/projects/article-video-replacements/water-and-air-correcting-the-molecules-we-drink-and-breathe/source/verified-narration.m4a",
+  "candidate": "/home/alex/Dev/lupine/lupine-science/media/projects/article-video-replacements/water-and-air-correcting-the-molecules-we-drink-and-breathe/output/private-candidate.mp4",
+  "removedIntervalSeconds": [
+    104.8,
+    112.69
+  ],
+  "removedDurationSeconds": 7.890000000000001,
+  "expectedSamples": 5800147,
+  "actualSamples": 5800960,
+  "bestAlignmentSamples": 0,
+  "decodedPcmCorrelation": 0.9989754071336064,
+  "meanSquaredError": 0.00006769171260602956,
+  "minimumCorrelation": 0.99
+}

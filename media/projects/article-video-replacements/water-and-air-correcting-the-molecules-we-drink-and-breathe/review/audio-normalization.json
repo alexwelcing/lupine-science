@@ -1,0 +1,8 @@
+{
+  "targetLufs": -16,
+  "targetTruePeakDbtp": -3,
+  "measuredInputLufs": -13.43,
+  "measuredInputTruePeakDbtp": 0.48,
+  "normalizationType": "linear (two-pass)",
+  "intermediateCodec": "pcm"
+}

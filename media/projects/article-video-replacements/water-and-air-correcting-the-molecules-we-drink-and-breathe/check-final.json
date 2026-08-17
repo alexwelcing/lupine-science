@@ -1,0 +1,595 @@
+{
+  "ok": false,
+  "strict": true,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 12,
+    "findings": [
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 74.395,
+        "selector": "span.warning",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 1278,
+          "top": 300,
+          "right": 1482,
+          "bottom": 327,
+          "width": 204,
+          "height": 27
+        },
+        "containerSelector": "div.mechanism.site-sequence",
+        "text": "raw softened path",
+        "fixHint": "Text is 204px x 27px inside 1712px x 510px and overflows by up to 40px; increase the container height to at least ~550px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 104,
+          "top": 340,
+          "right": 1816,
+          "bottom": 850,
+          "width": 1712,
+          "height": 510
+        },
+        "overflow": {
+          "top": 40
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1278,
+          "y": 300,
+          "width": 204,
+          "height": 27
+        },
+        "firstSeen": 74.395,
+        "lastSeen": 74.395,
+        "occurrences": 1
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 74.395,
+        "selector": "span.copper",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 1516,
+          "top": 300,
+          "right": 1816,
+          "bottom": 327,
+          "width": 300,
+          "height": 27
+        },
+        "containerSelector": "div.mechanism.site-sequence",
+        "text": "corrected activation path",
+        "fixHint": "Text is 300px x 27px inside 1712px x 510px and overflows by up to 40px; increase the container height to at least ~550px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 104,
+          "top": 340,
+          "right": 1816,
+          "bottom": 850,
+          "width": 1712,
+          "height": 510
+        },
+        "overflow": {
+          "top": 40
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1516,
+          "y": 300,
+          "width": 300,
+          "height": 27
+        },
+        "firstSeen": 74.395,
+        "lastSeen": 74.395,
+        "occurrences": 1
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 111.88,
+        "selector": "div.label",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 280,
+          "top": 657.19,
+          "right": 613.97,
+          "bottom": 683.58,
+          "width": 333.97,
+          "height": 26.39
+        },
+        "containerSelector": "div.mechanism.domain-map",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 208,
+          "top": 601.19,
+          "right": 1920,
+          "bottom": 605.19,
+          "width": 1712,
+          "height": 4
+        },
+        "overflow": {
+          "bottom": 78.39
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 280,
+          "y": 657.19,
+          "width": 333.97,
+          "height": 26.39
+        },
+        "firstSeen": 111.88,
+        "lastSeen": 111.88,
+        "occurrences": 1
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 111.88,
+        "selector": "div.label.copper",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 1134,
+          "top": 657.19,
+          "right": 1453.45,
+          "bottom": 683.58,
+          "width": 319.45,
+          "height": 26.39
+        },
+        "containerSelector": "div.mechanism.domain-map",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 208,
+          "top": 601.19,
+          "right": 1920,
+          "bottom": 605.19,
+          "width": 1712,
+          "height": 4
+        },
+        "overflow": {
+          "bottom": 78.39
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1134,
+          "y": 657.19,
+          "width": 319.45,
+          "height": 26.39
+        },
+        "firstSeen": 111.88,
+        "lastSeen": 111.88,
+        "occurrences": 1
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 111.88,
+        "selector": "div.domain-circle",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 804,
+          "top": 343.19,
+          "right": 1324,
+          "bottom": 863.19,
+          "width": 520,
+          "height": 520
+        },
+        "containerSelector": "div.mechanism.domain-map",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 208,
+          "top": 601.19,
+          "right": 1920,
+          "bottom": 605.19,
+          "width": 1712,
+          "height": 4
+        },
+        "overflow": {
+          "top": 258,
+          "bottom": 258
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 804,
+          "y": 343.19,
+          "width": 520,
+          "height": 520
+        },
+        "firstSeen": 111.88,
+        "lastSeen": 111.88,
+        "occurrences": 1
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 111.88,
+        "selector": "#domain-point",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 1056.41,
+          "top": 575.19,
+          "right": 1112.41,
+          "bottom": 631.19,
+          "width": 56,
+          "height": 56
+        },
+        "containerSelector": "div.mechanism.domain-map",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 208,
+          "top": 601.19,
+          "right": 1920,
+          "bottom": 605.19,
+          "width": 1712,
+          "height": 4
+        },
+        "overflow": {
+          "top": 26,
+          "bottom": 26
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1056.41,
+          "y": 575.19,
+          "width": 56,
+          "height": 56
+        },
+        "firstSeen": 111.88,
+        "lastSeen": 111.88,
+        "occurrences": 1
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 111.88,
+        "selector": "#claim-state",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 1422,
+          "top": 548.19,
+          "right": 1822,
+          "bottom": 658.19,
+          "width": 400,
+          "height": 110
+        },
+        "containerSelector": "div.mechanism.domain-map",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 208,
+          "top": 601.19,
+          "right": 1920,
+          "bottom": 605.19,
+          "width": 1712,
+          "height": 4
+        },
+        "overflow": {
+          "top": 53,
+          "bottom": 53
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1422,
+          "y": 548.19,
+          "width": 400,
+          "height": 110
+        },
+        "firstSeen": 111.88,
+        "lastSeen": 111.88,
+        "occurrences": 1
+      },
+      {
+        "code": "escaped_container",
+        "severity": "info",
+        "time": 111.88,
+        "selector": "div.label",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 280,
+          "top": 657.19,
+          "right": 613.97,
+          "bottom": 683.58,
+          "width": 333.97,
+          "height": 26.39
+        },
+        "containerSelector": "div.mechanism.domain-map",
+        "text": "OUTSIDE MEASURED DOMAIN",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 208,
+          "top": 601.19,
+          "right": 1920,
+          "bottom": 605.19,
+          "width": 1712,
+          "height": 4
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 280,
+          "y": 657.19,
+          "width": 333.97,
+          "height": 26.39
+        },
+        "firstSeen": 111.88,
+        "lastSeen": 111.88,
+        "occurrences": 1
+      },
+      {
+        "code": "escaped_container",
+        "severity": "info",
+        "time": 111.88,
+        "selector": "div.label.copper",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 1134,
+          "top": 657.19,
+          "right": 1453.45,
+          "bottom": 683.58,
+          "width": 319.45,
+          "height": 26.39
+        },
+        "containerSelector": "div.mechanism.domain-map",
+        "text": "INSIDE MEASURED DOMAIN",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 208,
+          "top": 601.19,
+          "right": 1920,
+          "bottom": 605.19,
+          "width": 1712,
+          "height": 4
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1134,
+          "y": 657.19,
+          "width": 319.45,
+          "height": 26.39
+        },
+        "firstSeen": 111.88,
+        "lastSeen": 111.88,
+        "occurrences": 1
+      },
+      {
+        "code": "escaped_container",
+        "severity": "info",
+        "time": 111.88,
+        "selector": "div.domain-circle",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 804,
+          "top": 343.19,
+          "right": 1324,
+          "bottom": 863.19,
+          "width": 520,
+          "height": 520
+        },
+        "containerSelector": "div.mechanism.domain-map",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 208,
+          "top": 601.19,
+          "right": 1920,
+          "bottom": 605.19,
+          "width": 1712,
+          "height": 4
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 804,
+          "y": 343.19,
+          "width": 520,
+          "height": 520
+        },
+        "firstSeen": 111.88,
+        "lastSeen": 111.88,
+        "occurrences": 1
+      },
+      {
+        "code": "escaped_container",
+        "severity": "info",
+        "time": 111.88,
+        "selector": "#domain-point",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 1056.41,
+          "top": 575.19,
+          "right": 1112.41,
+          "bottom": 631.19,
+          "width": 56,
+          "height": 56
+        },
+        "containerSelector": "div.mechanism.domain-map",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 208,
+          "top": 601.19,
+          "right": 1920,
+          "bottom": 605.19,
+          "width": 1712,
+          "height": 4
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1056.41,
+          "y": 575.19,
+          "width": 56,
+          "height": 56
+        },
+        "firstSeen": 111.88,
+        "lastSeen": 111.88,
+        "occurrences": 1
+      },
+      {
+        "code": "escaped_container",
+        "severity": "info",
+        "time": 111.88,
+        "selector": "#claim-state",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": 1422,
+          "top": 548.19,
+          "right": 1822,
+          "bottom": 658.19,
+          "width": 400,
+          "height": 110
+        },
+        "containerSelector": "div.mechanism.domain-map",
+        "text": "synthesis-dependent bounded supported",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 208,
+          "top": 601.19,
+          "right": 1920,
+          "bottom": 605.19,
+          "width": 1712,
+          "height": 4
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1422,
+          "y": 548.19,
+          "width": 400,
+          "height": 110
+        },
+        "firstSeen": 111.88,
+        "lastSeen": 111.88,
+        "occurrences": 1
+      }
+    ],
+    "duration": 131.51,
+    "samples": [
+      8.765,
+      28.955,
+      32.878,
+      49.605,
+      63.52,
+      65.755,
+      74.395,
+      87.955,
+      98.633,
+      100.065,
+      111.88,
+      125.235
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 12,
+    "truncated": false
+  },
+  "motion": {
+    "ok": false,
+    "errorCount": 1,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "motion_frozen",
+        "severity": "error",
+        "time": 49.701,
+        "selector": "#root",
+        "message": "nothing moves within #root between 49.7s and 58.94s (9.24s static) — should keep moving",
+        "rect": {
+          "left": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "width": 0,
+          "height": 0
+        },
+        "fixHint": "Add or extend motion so no shot freezes for this long, or shorten the static hold.",
+        "dataAttributes": {
+          "data-composition-id": "main",
+          "data-start": "0",
+          "data-duration": "131.51",
+          "data-width": "1920",
+          "data-height": "1080",
+          "data-fps": "30"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "firstSeen": 49.701,
+        "lastSeen": 49.701,
+        "occurrences": 1
+      }
+    ],
+    "enabled": true,
+    "specPath": "/home/alex/Dev/lupine/lupine-science/media/projects/article-video-replacements/water-and-air-correcting-the-molecules-we-drink-and-breathe/index.motion.json",
+    "samples": 300
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      8.765,
+      49.605,
+      74.395,
+      100.065,
+      125.235
+    ],
+    "checked": 55,
+    "passed": 55
+  },
+  "snapshots": {
+    "enabled": true,
+    "files": [
+      "snapshots/frame-00-at-8.8s.png",
+      "snapshots/frame-01-at-49.6s.png",
+      "snapshots/frame-02-at-74.4s.png",
+      "snapshots/frame-03-at-100.1s.png",
+      "snapshots/frame-04-at-125.2s.png"
+    ],
+    "times": [
+      8.765,
+      49.605,
+      74.395,
+      100.065,
+      125.235
+    ],
+    "findingFiles": []
+  },
+  "_meta": {
+    "version": "0.7.107",
+    "latestVersion": "0.7.107",
+    "updateAvailable": false
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "policy": {
+    "integratedLufsMin": -18,
+    "integratedLufsMax": -14,
+    "effectiveSilenceFloorLufs": -50,
+    "meanVolumeFloorDb": -45,
+    "truePeakCeilingDbtp": -1,
+    "durationToleranceMs": 100,
+    "silenceNoiseDb": -45,
+    "silenceMinimumSeconds": 0.75,
+    "cueSilenceOverlapSeconds": 0.5
+  },
+  "decision": "pass",
+  "commitSha": null,
+  "generatedAt": "2026-08-11T22:57:10.068Z",
+  "summary": {
+    "total": 1,
+    "passed": 1,
+    "failed": 0
+  },
+  "files": [
+    {
+      "file": "media/projects/article-video-replacements/water-and-air-correcting-the-molecules-we-drink-and-breathe/output/private-candidate.mp4",
+      "absoluteFile": "/home/alex/Dev/lupine/lupine-science/media/projects/article-video-replacements/water-and-air-correcting-the-molecules-we-drink-and-breathe/output/private-candidate.mp4",
+      "vtt": "media/projects/article-video-replacements/water-and-air-correcting-the-molecules-we-drink-and-breathe/output/private-candidate.vtt",
+      "verdict": "pass",
+      "rank": 99,
+      "checks": [
+        {
+          "id": "audio-stream-present",
+          "status": "pass",
+          "severity": null,
+          "detail": "audio stream present"
+        },
+        {
+          "id": "not-effectively-silent",
+          "status": "pass",
+          "severity": null,
+          "detail": "integrated loudness -16.2 LUFS",
+          "integratedLufs": -16.18
+        },
+        {
+          "id": "integrated-loudness-band",
+          "status": "pass",
+          "severity": null,
+          "detail": "-16.2 LUFS; required -18.0 to -14.0 LUFS",
+          "integratedLufs": -16.18
+        },
+        {
+          "id": "mean-volume-floor",
+          "status": "pass",
+          "severity": null,
+          "detail": "-15.9 dB; floor -45.0 dB",
+          "meanVolumeDb": -15.9
+        },
+        {
+          "id": "true-peak-ceiling",
+          "status": "pass",
+          "severity": null,
+          "detail": "-2.7 dBTP; ceiling -1.0 dBTP",
+          "truePeakDbtp": -2.74
+        },
+        {
+          "id": "audio-video-duration-match",
+          "status": "pass",
+          "severity": null,
+          "detail": "audio/video delta 13.3 ms; tolerance 100 ms",
+          "audioDurationSeconds": 131.52,
+          "videoDurationSeconds": 131.533333,
+          "durationDeltaMs": 13.332999999988715
+        },
+        {
+          "id": "narration-timeline-present",
+          "status": "pass",
+          "severity": null,
+          "detail": "18 valid VTT cues"
+        },
+        {
+          "id": "no-dead-air-during-narration",
+          "status": "pass",
+          "severity": null,
+          "detail": "no long silence overlaps a narrated VTT cue",
+          "defects": []
+        },
+        {
+          "id": "speech-rate-in-band",
+          "status": "pass",
+          "severity": null,
+          "detail": "131 wpm over 126 s of narration (275 words); required 100-190 wpm",
+          "wpm": 130.53797468354432,
+          "words": 275,
+          "narratedSeconds": 126.39999999999998
+        }
+      ],
+      "measurements": {
+        "integratedLufs": -16.18,
+        "integratedLufsRaw": "-16.18",
+        "truePeakDbtp": -2.74,
+        "truePeakDbtpRaw": "-2.74",
+        "loudnessRangeLu": 2.4,
+        "meanVolumeDb": -15.9,
+        "meanVolumeDbRaw": "-15.9",
+        "silenceIntervals": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "duration": 131.51,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#scene-stakes h1", "bySec": 1.5 },
+    { "kind": "appearsBy", "selector": "#scene-coordination h1", "bySec": 19.1 },
+    { "kind": "appearsBy", "selector": "#scene-ranking h1", "bySec": 42.0 },
+    { "kind": "appearsBy", "selector": "#scene-water h1", "bySec": 60.4 },
+    { "kind": "appearsBy", "selector": "#scene-air h1", "bySec": 69.8 },
+    { "kind": "appearsBy", "selector": "#scene-correction h1", "bySec": 82.2 },
+    { "kind": "appearsBy", "selector": "#scene-record h1", "bySec": 96.9 },
+    { "kind": "appearsBy", "selector": "#scene-domain h1", "bySec": 106.4 },
+    { "kind": "appearsBy", "selector": "#scene-platform h1", "bySec": 120.6 },
+    { "kind": "staysInFrame", "selector": "#scene-stakes .mechanism" },
+    { "kind": "staysInFrame", "selector": "#scene-coordination .mechanism" },
+    { "kind": "staysInFrame", "selector": "#scene-ranking .mechanism" },
+    { "kind": "staysInFrame", "selector": "#scene-water .mechanism" },
+    { "kind": "staysInFrame", "selector": "#scene-air .mechanism" },
+    { "kind": "staysInFrame", "selector": "#scene-correction .mechanism" },
+    { "kind": "staysInFrame", "selector": "#scene-record .mechanism" },
+    { "kind": "staysInFrame", "selector": "#scene-domain .mechanism" },
+    { "kind": "staysInFrame", "selector": "#scene-platform .mechanism" },
+    { "kind": "keepsMoving", "withinSelector": "#root", "maxStaticSec": 4 }
+  ]
+}

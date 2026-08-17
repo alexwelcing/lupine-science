@@ -1,0 +1,295 @@
+{
+  "ok": false,
+  "strict": true,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 3,
+    "findings": [
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 74.395,
+        "selector": "span.warning",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 1278,
+          "top": 300,
+          "right": 1482,
+          "bottom": 327,
+          "width": 204,
+          "height": 27
+        },
+        "containerSelector": "div.mechanism.site-sequence",
+        "text": "raw softened path",
+        "fixHint": "Text is 204px x 27px inside 1712px x 510px and overflows by up to 40px; increase the container height to at least ~550px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 104,
+          "top": 340,
+          "right": 1816,
+          "bottom": 850,
+          "width": 1712,
+          "height": 510
+        },
+        "overflow": {
+          "top": 40
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1278,
+          "y": 300,
+          "width": 204,
+          "height": 27
+        },
+        "firstSeen": 74.395,
+        "lastSeen": 74.395,
+        "occurrences": 1
+      },
+      {
+        "code": "text_box_overflow",
+        "severity": "info",
+        "time": 74.395,
+        "selector": "span.copper",
+        "message": "Text extends outside its nearest visual/container box.",
+        "rect": {
+          "left": 1516,
+          "top": 300,
+          "right": 1816,
+          "bottom": 327,
+          "width": 300,
+          "height": 27
+        },
+        "containerSelector": "div.mechanism.site-sequence",
+        "text": "corrected activation path",
+        "fixHint": "Text is 300px x 27px inside 1712px x 510px and overflows by up to 40px; increase the container height to at least ~550px, or allow wrapping with max-width/fitTextFontSize.",
+        "containerRect": {
+          "left": 104,
+          "top": 340,
+          "right": 1816,
+          "bottom": 850,
+          "width": 1712,
+          "height": 510
+        },
+        "overflow": {
+          "top": 40
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1516,
+          "y": 300,
+          "width": 300,
+          "height": 27
+        },
+        "firstSeen": 74.395,
+        "lastSeen": 74.395,
+        "occurrences": 1
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 111.88,
+        "selector": "div.domain-circle",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 700,
+          "top": 335,
+          "right": 1220,
+          "bottom": 855,
+          "width": 520,
+          "height": 520
+        },
+        "containerSelector": "div.mechanism.domain-map",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 104,
+          "top": 340,
+          "right": 1816,
+          "bottom": 850,
+          "width": 1712,
+          "height": 510
+        },
+        "overflow": {
+          "top": 5,
+          "bottom": 5
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 700,
+          "y": 335,
+          "width": 520,
+          "height": 520
+        },
+        "firstSeen": 111.88,
+        "lastSeen": 111.88,
+        "occurrences": 1
+      }
+    ],
+    "duration": 131.51,
+    "samples": [
+      8.765,
+      28.955,
+      32.878,
+      49.605,
+      63.52,
+      65.755,
+      74.395,
+      87.955,
+      98.633,
+      100.065,
+      111.88,
+      123.3,
+      127.2
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 3,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "specPath": "/home/alex/Dev/lupine/lupine-science/media/projects/article-video-replacements/water-and-air-correcting-the-molecules-we-drink-and-breathe/index.motion.json",
+    "samples": 300
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 4,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 4.25:1; WCAG AA requires 4.5:1.",
+        "text": "Water",
+        "fg": "rgb(118,169,195)",
+        "bg": "rgb(46,64,70)",
+        "ratio": 4.25,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(126,174,198)",
+        "large": false,
+        "selector": "div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 140,
+          "y": 502,
+          "width": 582,
+          "height": 26.390625
+        },
+        "time": 8.765
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 4.34:1; WCAG AA requires 4.5:1.",
+        "text": "ARTICLE CLAIM · materials-limited water and air sy",
+        "fg": "rgb(129,140,134)",
+        "bg": "rgb(29,40,41)",
+        "ratio": 4.34,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(132,143,137)",
+        "large": false,
+        "selector": "div > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 104,
+          "y": 848.40625,
+          "width": 627.015625,
+          "height": 26.59375
+        },
+        "time": 8.765
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 4.28:1; WCAG AA requires 4.5:1.",
+        "text": "raw softened surface",
+        "fg": "rgb(211,107,97)",
+        "bg": "rgb(48,37,32)",
+        "ratio": 4.28,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(213,113,103)",
+        "large": false,
+        "selector": "div > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 136,
+          "y": 412,
+          "width": 676,
+          "height": 26.390625
+        },
+        "time": 49.605
+      },
+      {
+        "code": "contrast_aa_failure",
+        "severity": "warning",
+        "message": "Contrast is 4.05:1; WCAG AA requires 4.5:1.",
+        "text": "measured correction",
+        "fg": "rgb(201,119,69)",
+        "bg": "rgb(58,42,32)",
+        "ratio": 4.05,
+        "requiredRatio": 4.5,
+        "suggestedColor": "rgb(205,130,84)",
+        "large": false,
+        "selector": "div > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1)",
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1108,
+          "y": 412,
+          "width": 676,
+          "height": 26.390625
+        },
+        "time": 49.605
+      }
+    ],
+    "enabled": true,
+    "samples": [
+      8.765,
+      49.605,
+      74.395,
+      100.065,
+      127.2
+    ],
+    "checked": 57,
+    "passed": 53
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "_meta": {
+    "version": "0.7.107",
+    "latestVersion": "0.7.107",
+    "updateAvailable": false
+  }
+}

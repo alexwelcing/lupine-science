@@ -1,0 +1,331 @@
+{
+  "generatedAt": "2026-08-11T23:09:02.442Z",
+  "videos": [
+    {
+      "slug": "water-and-air-correcting-the-molecules-we-drink-and-breathe",
+      "file": "private-candidate.mp4",
+      "technical": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "poster": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "captions": {
+        "score": 20,
+        "max": 20,
+        "notes": []
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 100,
+      "max": 100,
+      "duration": 131.533333,
+      "loudness": {
+        "integrated": -16.1,
+        "lra": 2.5,
+        "threshold": -26.5
+      },
+      "posterOcr": {
+        "preview": "Measure the field. Preserve a\n®\nthe bulk.\nERROR OVER LOCAL COORDINATION\nRAW GRADIENT\n+ CORRECTION\nCORRECTED FORCE\nBULK = 0 —_—\nARTICLE METHOD - three anchors - zero in bulk - analytic runtime forces\n",
+        "wordCount": 35
+      },
+      "posterAnalysis": {
+        "unknown": [],
+        "selfCitations": []
+      },
+      "sample": {
+        "samples": [
+          {
+            "time": 0.4,
+            "avgStd": 30.24
+          },
+          {
+            "time": 2.54,
+            "avgStd": 37.54
+          },
+          {
+            "time": 3.34,
+            "avgStd": 37.55
+          },
+          {
+            "time": 10.56,
+            "avgStd": 37.74
+          },
+          {
+            "time": 11.360000000000001,
+            "avgStd": 37.77
+          },
+          {
+            "time": 17.13,
+            "avgStd": 37.77
+          },
+          {
+            "time": 17.93,
+            "avgStd": 26.13
+          },
+          {
+            "time": 24.419999999999998,
+            "avgStd": 34.41
+          },
+          {
+            "time": 25.22,
+            "avgStd": 34.56
+          },
+          {
+            "time": 32.88333325,
+            "avgStd": 34.49
+          },
+          {
+            "time": 34.61,
+            "avgStd": 34.47
+          },
+          {
+            "time": 35.41,
+            "avgStd": 34.49
+          },
+          {
+            "time": 39.98,
+            "avgStd": 34.49
+          },
+          {
+            "time": 40.78,
+            "avgStd": 26.87
+          },
+          {
+            "time": 48.67,
+            "avgStd": 33.04
+          },
+          {
+            "time": 49.47,
+            "avgStd": 33.98
+          },
+          {
+            "time": 53.92,
+            "avgStd": 34.03
+          },
+          {
+            "time": 54.72,
+            "avgStd": 34.04
+          },
+          {
+            "time": 58.43,
+            "avgStd": 34.12
+          },
+          {
+            "time": 59.23,
+            "avgStd": 31.09
+          },
+          {
+            "time": 65.7666665,
+            "avgStd": 38.53
+          },
+          {
+            "time": 67.81,
+            "avgStd": 38.54
+          },
+          {
+            "time": 68.61000000000001,
+            "avgStd": 29.31
+          },
+          {
+            "time": 80.18,
+            "avgStd": 35.49
+          },
+          {
+            "time": 80.98,
+            "avgStd": 27.59
+          },
+          {
+            "time": 87.98,
+            "avgStd": 32.48
+          },
+          {
+            "time": 88.78,
+            "avgStd": 32.5
+          },
+          {
+            "time": 94.93,
+            "avgStd": 33.27
+          },
+          {
+            "time": 95.73,
+            "avgStd": 27.63
+          },
+          {
+            "time": 98.64999975,
+            "avgStd": 37.56
+          },
+          {
+            "time": 104.4,
+            "avgStd": 37.76
+          },
+          {
+            "time": 105.2,
+            "avgStd": 30.93
+          },
+          {
+            "time": 114,
+            "avgStd": 36.59
+          },
+          {
+            "time": 114.80000000000001,
+            "avgStd": 36.6
+          },
+          {
+            "time": 118.56,
+            "avgStd": 36.67
+          },
+          {
+            "time": 119.36000000000001,
+            "avgStd": 27.65
+          },
+          {
+            "time": 128.03,
+            "avgStd": 34.55
+          },
+          {
+            "time": 128.83,
+            "avgStd": 34.57
+          }
+        ],
+        "blankFrames": [],
+        "ocrHits": [
+          {
+            "time": 24.419999999999998,
+            "words": [
+              {
+                "word": "ighb",
+                "clean": "ighb",
+                "score": -3.91,
+                "confidence": 56.551937103271484
+              }
+            ]
+          },
+          {
+            "time": 25.22,
+            "words": [
+              {
+                "word": "ighb",
+                "clean": "ighb",
+                "score": -3.91,
+                "confidence": 48.6015739440918
+              }
+            ]
+          },
+          {
+            "time": 32.88333325,
+            "words": [
+              {
+                "word": "ighb",
+                "clean": "ighb",
+                "score": -3.91,
+                "confidence": 44.99900436401367
+              }
+            ]
+          },
+          {
+            "time": 34.61,
+            "words": [
+              {
+                "word": "ighb",
+                "clean": "ighb",
+                "score": -3.91,
+                "confidence": 27.74285888671875
+              }
+            ]
+          },
+          {
+            "time": 35.41,
+            "words": [
+              {
+                "word": "ighb",
+                "clean": "ighb",
+                "score": -3.91,
+                "confidence": 27.74285888671875
+              }
+            ]
+          },
+          {
+            "time": 39.98,
+            "words": [
+              {
+                "word": "ighb",
+                "clean": "ighb",
+                "score": -3.91,
+                "confidence": 27.74285888671875
+              }
+            ]
+          },
+          {
+            "time": 80.18,
+            "words": [
+              {
+                "word": "EEEEEEN",
+                "clean": "eeeeeen",
+                "score": -3.33,
+                "confidence": 20.73387908935547
+              }
+            ]
+          },
+          {
+            "time": 95.73,
+            "words": [
+              {
+                "word": "econo",
+                "clean": "econo",
+                "score": -2.92,
+                "confidence": 19.40528106689453
+              }
+            ]
+          },
+          {
+            "time": 98.64999975,
+            "words": [
+              {
+                "word": "recor",
+                "clean": "recor",
+                "score": -2.44,
+                "confidence": 33.225128173828125
+              }
+            ]
+          },
+          {
+            "time": 104.4,
+            "words": [
+              {
+                "word": "econo",
+                "clean": "econo",
+                "score": -2.92,
+                "confidence": 48.263851165771484
+              }
+            ]
+          },
+          {
+            "time": 105.2,
+            "words": [
+              {
+                "word": "taranss",
+                "clean": "taranss",
+                "score": -2.22,
+                "confidence": 0
+              }
+            ]
+          }
+        ]
+      },
+      "p0": []
+    }
+  ]
+}

@@ -1,0 +1,464 @@
+{
+  "schemaVersion": 1,
+  "slug": "water-and-air-correcting-the-molecules-we-drink-and-breathe",
+  "decision": "pass",
+  "checks": [
+    {
+      "id": "private-status",
+      "status": "pass",
+      "detail": "status=authored-private-candidate-only"
+    },
+    {
+      "id": "publication-disabled",
+      "status": "pass",
+      "detail": "eligibleForPublication=false"
+    },
+    {
+      "id": "scene-count",
+      "status": "pass",
+      "detail": "scenes=9"
+    },
+    {
+      "id": "color-palette-present",
+      "status": "pass",
+      "detail": "roles=background,foreground,correction,water,air,warning"
+    },
+    {
+      "id": "color-semantics-present",
+      "status": "pass",
+      "detail": "semanticRoles=background,correction,water,air,warning,foreground"
+    },
+    {
+      "id": "color-prohibitions-present",
+      "status": "pass",
+      "detail": "prohibitions=3; nonColorRedundancy=true"
+    },
+    {
+      "id": "color-background-in-frame-spec",
+      "status": "pass",
+      "detail": "background=#101513"
+    },
+    {
+      "id": "color-background-in-composition",
+      "status": "pass",
+      "detail": "background=#101513"
+    },
+    {
+      "id": "color-foreground-in-frame-spec",
+      "status": "pass",
+      "detail": "foreground=#F2EFE6"
+    },
+    {
+      "id": "color-foreground-in-composition",
+      "status": "pass",
+      "detail": "foreground=#F2EFE6"
+    },
+    {
+      "id": "color-correction-in-frame-spec",
+      "status": "pass",
+      "detail": "correction=#C97745"
+    },
+    {
+      "id": "color-correction-in-composition",
+      "status": "pass",
+      "detail": "correction=#C97745"
+    },
+    {
+      "id": "color-water-in-frame-spec",
+      "status": "pass",
+      "detail": "water=#76A9C3"
+    },
+    {
+      "id": "color-water-in-composition",
+      "status": "pass",
+      "detail": "water=#76A9C3"
+    },
+    {
+      "id": "color-air-in-frame-spec",
+      "status": "pass",
+      "detail": "air=#B4BE92"
+    },
+    {
+      "id": "color-air-in-composition",
+      "status": "pass",
+      "detail": "air=#B4BE92"
+    },
+    {
+      "id": "color-warning-in-frame-spec",
+      "status": "pass",
+      "detail": "warning=#D36B61"
+    },
+    {
+      "id": "color-warning-in-composition",
+      "status": "pass",
+      "detail": "warning=#D36B61"
+    },
+    {
+      "id": "scene-stakes-proof",
+      "status": "pass",
+      "detail": "exactly one dominantProof field required"
+    },
+    {
+      "id": "scene-stakes-relationships",
+      "status": "pass",
+      "detail": "relationships=2"
+    },
+    {
+      "id": "scene-stakes-review-times",
+      "status": "pass",
+      "detail": "reviewTimesSeconds=[0.25,8.765,17.28]"
+    },
+    {
+      "id": "scene-stakes-semantic-colors",
+      "status": "pass",
+      "detail": "semanticColorRoles=[\"water\",\"air\",\"correction\"]"
+    },
+    {
+      "id": "scene-coordination-proof",
+      "status": "pass",
+      "detail": "exactly one dominantProof field required"
+    },
+    {
+      "id": "scene-coordination-relationships",
+      "status": "pass",
+      "detail": "relationships=3"
+    },
+    {
+      "id": "scene-coordination-review-times",
+      "status": "pass",
+      "detail": "reviewTimesSeconds=[17.78,28.955,40.13]"
+    },
+    {
+      "id": "scene-coordination-semantic-colors",
+      "status": "pass",
+      "detail": "semanticColorRoles=[\"correction\",\"warning\",\"foreground\"]"
+    },
+    {
+      "id": "scene-ranking-inversion-proof",
+      "status": "pass",
+      "detail": "exactly one dominantProof field required"
+    },
+    {
+      "id": "scene-ranking-inversion-relationships",
+      "status": "pass",
+      "detail": "relationships=3"
+    },
+    {
+      "id": "scene-ranking-inversion-review-times",
+      "status": "pass",
+      "detail": "reviewTimesSeconds=[40.63,49.605,58.58]"
+    },
+    {
+      "id": "scene-ranking-inversion-semantic-colors",
+      "status": "pass",
+      "detail": "semanticColorRoles=[\"warning\",\"correction\",\"foreground\"]"
+    },
+    {
+      "id": "scene-water-proof",
+      "status": "pass",
+      "detail": "exactly one dominantProof field required"
+    },
+    {
+      "id": "scene-water-relationships",
+      "status": "pass",
+      "detail": "relationships=3"
+    },
+    {
+      "id": "scene-water-review-times",
+      "status": "pass",
+      "detail": "reviewTimesSeconds=[59.08,63.52,67.96]"
+    },
+    {
+      "id": "scene-water-semantic-colors",
+      "status": "pass",
+      "detail": "semanticColorRoles=[\"water\",\"correction\"]"
+    },
+    {
+      "id": "scene-air-proof",
+      "status": "pass",
+      "detail": "exactly one dominantProof field required"
+    },
+    {
+      "id": "scene-air-relationships",
+      "status": "pass",
+      "detail": "relationships=3"
+    },
+    {
+      "id": "scene-air-review-times",
+      "status": "pass",
+      "detail": "reviewTimesSeconds=[68.46,74.395,80.33]"
+    },
+    {
+      "id": "scene-air-semantic-colors",
+      "status": "pass",
+      "detail": "semanticColorRoles=[\"air\",\"warning\",\"correction\"]"
+    },
+    {
+      "id": "scene-runtime-correction-proof",
+      "status": "pass",
+      "detail": "exactly one dominantProof field required"
+    },
+    {
+      "id": "scene-runtime-correction-relationships",
+      "status": "pass",
+      "detail": "relationships=3"
+    },
+    {
+      "id": "scene-runtime-correction-review-times",
+      "status": "pass",
+      "detail": "reviewTimesSeconds=[80.83,87.955,95.08]"
+    },
+    {
+      "id": "scene-runtime-correction-semantic-colors",
+      "status": "pass",
+      "detail": "semanticColorRoles=[\"correction\",\"foreground\"]"
+    },
+    {
+      "id": "scene-blind-record-proof",
+      "status": "pass",
+      "detail": "exactly one dominantProof field required"
+    },
+    {
+      "id": "scene-blind-record-relationships",
+      "status": "pass",
+      "detail": "relationships=3"
+    },
+    {
+      "id": "scene-blind-record-review-times",
+      "status": "pass",
+      "detail": "reviewTimesSeconds=[95.58,100.065,104.55]"
+    },
+    {
+      "id": "scene-blind-record-semantic-colors",
+      "status": "pass",
+      "detail": "semanticColorRoles=[\"correction\",\"foreground\"]"
+    },
+    {
+      "id": "scene-epistemic-boundary-proof",
+      "status": "pass",
+      "detail": "exactly one dominantProof field required"
+    },
+    {
+      "id": "scene-epistemic-boundary-relationships",
+      "status": "pass",
+      "detail": "relationships=3"
+    },
+    {
+      "id": "scene-epistemic-boundary-review-times",
+      "status": "pass",
+      "detail": "reviewTimesSeconds=[105.05,111.88,118.71]"
+    },
+    {
+      "id": "scene-epistemic-boundary-semantic-colors",
+      "status": "pass",
+      "detail": "semanticColorRoles=[\"warning\",\"correction\",\"air\",\"water\"]"
+    },
+    {
+      "id": "scene-platform-close-proof",
+      "status": "pass",
+      "detail": "exactly one dominantProof field required"
+    },
+    {
+      "id": "scene-platform-close-relationships",
+      "status": "pass",
+      "detail": "relationships=3"
+    },
+    {
+      "id": "scene-platform-close-review-times",
+      "status": "pass",
+      "detail": "reviewTimesSeconds=[119.21,123.3,127.2]"
+    },
+    {
+      "id": "scene-platform-close-semantic-colors",
+      "status": "pass",
+      "detail": "semanticColorRoles=[\"water\",\"air\",\"correction\"]"
+    },
+    {
+      "id": "candidate-contract-validator",
+      "status": "pass",
+      "detail": "{\n  \"ok\": true,\n  \"scenes\": 9,\n  \"durationSeconds\": 131.51,\n  \"maxVisibleRelationships\": 3,\n  \"eligibleForPublication\": false,\n  \"excludedClaims\": [\n    \"190 build-locked Lean 4 theorems\"\n  ]\n}"
+    },
+    {
+      "id": "hyperframes-version-pinned",
+      "status": "pass",
+      "detail": "0.7.107 expected 0.7.107"
+    },
+    {
+      "id": "hyperframes-strict-pass",
+      "status": "pass",
+      "detail": "lint=true; runtime=true; layout=true; motion=true; contrast=true"
+    },
+    {
+      "id": "file-private-candidate.mp4",
+      "status": "pass",
+      "detail": "media/projects/article-video-replacements/water-and-air-correcting-the-molecules-we-drink-and-breathe/output/private-candidate.mp4"
+    },
+    {
+      "id": "file-private-candidate.vtt",
+      "status": "pass",
+      "detail": "media/projects/article-video-replacements/water-and-air-correcting-the-molecules-we-drink-and-breathe/output/private-candidate.vtt"
+    },
+    {
+      "id": "file-private-candidate-poster.jpg",
+      "status": "pass",
+      "detail": "media/projects/article-video-replacements/water-and-air-correcting-the-molecules-we-drink-and-breathe/output/private-candidate-poster.jpg"
+    },
+    {
+      "id": "file-private-candidate-poster-1200x630.jpg",
+      "status": "pass",
+      "detail": "media/projects/article-video-replacements/water-and-air-correcting-the-molecules-we-drink-and-breathe/output/private-candidate-poster-1200x630.jpg"
+    },
+    {
+      "id": "video-codec",
+      "status": "pass",
+      "detail": "codec=h264"
+    },
+    {
+      "id": "video-resolution",
+      "status": "pass",
+      "detail": "1920x1080"
+    },
+    {
+      "id": "video-pixel-format",
+      "status": "pass",
+      "detail": "pix_fmt=yuv420p"
+    },
+    {
+      "id": "video-frame-rate",
+      "status": "pass",
+      "detail": "fps=30/1"
+    },
+    {
+      "id": "audio-codec",
+      "status": "pass",
+      "detail": "codec=aac"
+    },
+    {
+      "id": "audio-sample-rate",
+      "status": "pass",
+      "detail": "sample_rate=44100"
+    },
+    {
+      "id": "audio-channels",
+      "status": "pass",
+      "detail": "channels=1"
+    },
+    {
+      "id": "duration",
+      "status": "pass",
+      "detail": "actual=131.52, contract=131.51"
+    },
+    {
+      "id": "hard-file-budget",
+      "status": "pass",
+      "detail": "bytes=11411150, max=16777216"
+    },
+    {
+      "id": "soft-file-budget",
+      "status": "pass",
+      "detail": "bytes=11411150, max=12000000"
+    },
+    {
+      "id": "poster-source-size",
+      "status": "pass",
+      "detail": "1920x1080"
+    },
+    {
+      "id": "poster-social-size",
+      "status": "pass",
+      "detail": "1200x630"
+    },
+    {
+      "id": "captions-present",
+      "status": "pass",
+      "detail": "cues=18"
+    },
+    {
+      "id": "captions-monotonic",
+      "status": "pass",
+      "detail": "cues must be monotonic and non-overlapping"
+    },
+    {
+      "id": "captions-in-duration",
+      "status": "pass",
+      "detail": "last=131.5, duration=131.52"
+    },
+    {
+      "id": "excluded-caption-claim-absent",
+      "status": "pass",
+      "detail": "pattern=one hundred ninety|190 build-locked"
+    },
+    {
+      "id": "article-video-placement",
+      "status": "pass",
+      "detail": "article references canonical MP4"
+    },
+    {
+      "id": "article-poster-placement",
+      "status": "pass",
+      "detail": "article references canonical poster"
+    },
+    {
+      "id": "player-controls",
+      "status": "pass",
+      "detail": "video detail uses native controls"
+    },
+    {
+      "id": "player-poster-first",
+      "status": "pass",
+      "detail": "preload none with poster"
+    },
+    {
+      "id": "player-no-autoplay",
+      "status": "pass",
+      "detail": "autoplay absent"
+    },
+    {
+      "id": "player-no-loop",
+      "status": "pass",
+      "detail": "loop absent"
+    },
+    {
+      "id": "player-caption-track",
+      "status": "pass",
+      "detail": "default English WebVTT track"
+    },
+    {
+      "id": "player-aria-label",
+      "status": "pass",
+      "detail": "video player has an accessible description"
+    },
+    {
+      "id": "full-decode",
+      "status": "pass",
+      "detail": "exit=0; stderr=empty"
+    },
+    {
+      "id": "no-sustained-black",
+      "status": "pass",
+      "detail": "no black interval may persist for 0.5 seconds"
+    },
+    {
+      "id": "excluded-spoken-claim-absent",
+      "status": "pass",
+      "detail": "Audio excision PASS: correlation 0.99897541 (minimum 0.99)"
+    },
+    {
+      "id": "audio-release-gate",
+      "status": "pass",
+      "detail": "Audio gate PASS: 1/1 passed\nJSON: /home/alex/Dev/lupine/lupine-science/media/projects/article-video-replacements/water-and-air-correcting-the-molecules-we-drink-and-breathe/review/audio-gate.json\nSummary: /home/alex/Dev/lupine/lupine-science/media/projects/article-video-replacements/water-and-air-correcting-the-molecules-we-drink-and-breathe/review/audio-gate.md"
+    },
+    {
+      "id": "fail-closed-visual-reviewer",
+      "status": "pass",
+      "detail": "Wrote /home/alex/Dev/lupine/lupine-science/media/projects/article-video-replacements/water-and-air-correcting-the-molecules-we-drink-and-breathe/review/visual-review/2026-08-12-02-07-48-smart-review.json\nWrote /home/alex/Dev/lupine/lupine-science/media/projects/article-video-replacements/water-and-air-correcting-the-molecules-we-drink-and-breathe/review/visual-review/2026-08-12-02-07-48-smart-review.md\nAverage score: 100.0/100 across 1 videos"
+    },
+    {
+      "id": "review-frame-count",
+      "status": "pass",
+      "detail": "frames=37"
+    }
+  ],
+  "errors": [],
+  "reviewManifest": "review/review-37-manifest.json"
+}

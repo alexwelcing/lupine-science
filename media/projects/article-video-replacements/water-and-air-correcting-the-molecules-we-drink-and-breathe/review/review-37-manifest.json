@@ -1,0 +1,331 @@
+{
+  "schemaVersion": 1,
+  "slug": "water-and-air-correcting-the-molecules-we-drink-and-breathe",
+  "candidate": {
+    "video": {
+      "path": "media/projects/article-video-replacements/water-and-air-correcting-the-molecules-we-drink-and-breathe/output/private-candidate.mp4",
+      "bytes": 11411150,
+      "sha256": "7d587757dbd9586a8a8531e873a2ee6278ed116086c6c88d8da08d4622cf978a"
+    },
+    "captions": {
+      "path": "media/projects/article-video-replacements/water-and-air-correcting-the-molecules-we-drink-and-breathe/output/private-candidate.vtt",
+      "sha256": "792cde488cdf88ccc6a7b06b904ad970c7e0a76162dbf2d21cf252af45555e6b"
+    },
+    "poster": {
+      "path": "media/projects/article-video-replacements/water-and-air-correcting-the-molecules-we-drink-and-breathe/output/private-candidate-poster.jpg",
+      "sha256": "59b59cc6f62555919c7f3c2e06181f59f2fd1aa514f88ca01f6680d185bfc9c5"
+    },
+    "posterCrop": {
+      "path": "media/projects/article-video-replacements/water-and-air-correcting-the-molecules-we-drink-and-breathe/output/private-candidate-poster-1200x630.jpg",
+      "sha256": "576fd5d6d160e88ced047f0c03018cb4662005e0f469bf9c64e0c00d1c2e4c79"
+    }
+  },
+  "frames": [
+    {
+      "index": "01",
+      "time": 0.25,
+      "kind": "scene-early",
+      "scene": "stakes",
+      "file": "review/frames-37/frame-01-0.250s.jpg",
+      "sha256": "3e188659796ba4d4700767f53d2f1795fc39af4d8923d72e7dfe24901be0225e"
+    },
+    {
+      "index": "02",
+      "time": 1,
+      "kind": "sentinel-start",
+      "scene": "stakes",
+      "file": "review/frames-37/frame-02-1.000s.jpg",
+      "sha256": "fcd65025cdd8d5451d52323d2e0572f55dad0225dcea47635288eaf690a66750"
+    },
+    {
+      "index": "03",
+      "time": 8.765,
+      "kind": "scene-proof",
+      "scene": "stakes",
+      "file": "review/frames-37/frame-03-8.765s.jpg",
+      "sha256": "44a7669a0ac5bede6318a750ad7a2258a69b7fdbc900d0493dc7b04bdc343d31"
+    },
+    {
+      "index": "04",
+      "time": 17.28,
+      "kind": "scene-late",
+      "scene": "stakes",
+      "file": "review/frames-37/frame-04-17.280s.jpg",
+      "sha256": "2f4ea519f74fd9e78f963163e1f2df28d06118ee3de31d089d89ee425769e5c1"
+    },
+    {
+      "index": "05",
+      "time": 17.53,
+      "kind": "exact-boundary",
+      "scene": "coordination",
+      "file": "review/frames-37/frame-05-17.530s.jpg",
+      "sha256": "b28ff805632918688c216c9604b48d47f8ebbb58c1f4289186410b7e5fe90d8f"
+    },
+    {
+      "index": "06",
+      "time": 17.78,
+      "kind": "scene-early",
+      "scene": "coordination",
+      "file": "review/frames-37/frame-06-17.780s.jpg",
+      "sha256": "5188e860cc8796726fcba3493a724e458d92e1cee6c5c56f641fdd3003aa83c0"
+    },
+    {
+      "index": "07",
+      "time": 28.955,
+      "kind": "scene-proof",
+      "scene": "coordination",
+      "file": "review/frames-37/frame-07-28.955s.jpg",
+      "sha256": "25d542ced03a14c74da926feb8a99f55ca69afefc640d2e0539935929798e186"
+    },
+    {
+      "index": "08",
+      "time": 40.13,
+      "kind": "scene-late",
+      "scene": "coordination",
+      "file": "review/frames-37/frame-08-40.130s.jpg",
+      "sha256": "0d967f8a8bddab7264c0a018ce0d1786d39d7b7957487662e7dec84c662369e1"
+    },
+    {
+      "index": "09",
+      "time": 40.38,
+      "kind": "exact-boundary",
+      "scene": "ranking-inversion",
+      "file": "review/frames-37/frame-09-40.380s.jpg",
+      "sha256": "0b889fbe01a24dc4b8cd01bf4ea60bf6583b9f2ae47c94b30100a42854b1b019"
+    },
+    {
+      "index": "10",
+      "time": 40.63,
+      "kind": "scene-early",
+      "scene": "ranking-inversion",
+      "file": "review/frames-37/frame-10-40.630s.jpg",
+      "sha256": "c2d0cdac7abd9c0d092accb517012e31e8c95581384274b93f6277107c7c8cb2"
+    },
+    {
+      "index": "11",
+      "time": 49.605,
+      "kind": "scene-proof",
+      "scene": "ranking-inversion",
+      "file": "review/frames-37/frame-11-49.605s.jpg",
+      "sha256": "50bb5762cea88b07662c968ea607e0fa5ae25ecfe9cea4736020394148135986"
+    },
+    {
+      "index": "12",
+      "time": 58.58,
+      "kind": "scene-late",
+      "scene": "ranking-inversion",
+      "file": "review/frames-37/frame-12-58.580s.jpg",
+      "sha256": "adfcf52fa940a1bf3fafa9045163cafb11ca49aa8d6ecd474dae7d8fed69e005"
+    },
+    {
+      "index": "13",
+      "time": 58.83,
+      "kind": "exact-boundary",
+      "scene": "water",
+      "file": "review/frames-37/frame-13-58.830s.jpg",
+      "sha256": "54848c72db64f754f66061722f6484aa149263d66a3769c43ab0bb6b6adcb2a1"
+    },
+    {
+      "index": "14",
+      "time": 59.08,
+      "kind": "scene-early",
+      "scene": "water",
+      "file": "review/frames-37/frame-14-59.080s.jpg",
+      "sha256": "bf6c46bd3ad2bb3ffd56fcd06912fc9e5f72c559a3bcaa61585ad9c9dd21b958"
+    },
+    {
+      "index": "15",
+      "time": 63.52,
+      "kind": "scene-proof",
+      "scene": "water",
+      "file": "review/frames-37/frame-15-63.520s.jpg",
+      "sha256": "abbe83edc7346afc8d8055ddd3c0792a7b59353cd2cff0c4378ed10299a6cc1b"
+    },
+    {
+      "index": "16",
+      "time": 67.96,
+      "kind": "scene-late",
+      "scene": "water",
+      "file": "review/frames-37/frame-16-67.960s.jpg",
+      "sha256": "40da144483c0789986128a185f37722e00edf169fd69563bada74c534f3e916d"
+    },
+    {
+      "index": "17",
+      "time": 68.21,
+      "kind": "exact-boundary",
+      "scene": "air",
+      "file": "review/frames-37/frame-17-68.210s.jpg",
+      "sha256": "a2ad53c6893622db3ad325d23faa810b39b4e9629d158581adf09d42458ddee2"
+    },
+    {
+      "index": "18",
+      "time": 68.46,
+      "kind": "scene-early",
+      "scene": "air",
+      "file": "review/frames-37/frame-18-68.460s.jpg",
+      "sha256": "50398b65c33afbc7b5b7b8a5e00b596022d7deb21e7cecb01df136d72b017a09"
+    },
+    {
+      "index": "19",
+      "time": 74.395,
+      "kind": "scene-proof",
+      "scene": "air",
+      "file": "review/frames-37/frame-19-74.395s.jpg",
+      "sha256": "516c06ecd942c7c84decd80dfaaa494711e6e226a9a5c91e0b9ab405eff4b92f"
+    },
+    {
+      "index": "20",
+      "time": 80.33,
+      "kind": "scene-late",
+      "scene": "air",
+      "file": "review/frames-37/frame-20-80.330s.jpg",
+      "sha256": "4a906df8c3e4bacf65863d347fd1935154ae406590d00fcb58d0a77a7a7e9038"
+    },
+    {
+      "index": "21",
+      "time": 80.58,
+      "kind": "exact-boundary",
+      "scene": "runtime-correction",
+      "file": "review/frames-37/frame-21-80.580s.jpg",
+      "sha256": "dbb56d0c9a9d107cf250cc37fe0871df5d1250ffd5fc29d258b650627ceb6c64"
+    },
+    {
+      "index": "22",
+      "time": 80.83,
+      "kind": "scene-early",
+      "scene": "runtime-correction",
+      "file": "review/frames-37/frame-22-80.830s.jpg",
+      "sha256": "c8d637d4ef97915887285be47f8ba43ce57d2b64c845be240f2990810fc8802d"
+    },
+    {
+      "index": "23",
+      "time": 87.955,
+      "kind": "scene-proof",
+      "scene": "runtime-correction",
+      "file": "review/frames-37/frame-23-87.955s.jpg",
+      "sha256": "f933e170c5509a5a6e823962c08c756af533e113e3beaa42e6b693a18558b8b7"
+    },
+    {
+      "index": "24",
+      "time": 95.08,
+      "kind": "scene-late",
+      "scene": "runtime-correction",
+      "file": "review/frames-37/frame-24-95.080s.jpg",
+      "sha256": "50aa97c86b2da5c6846c17c00a5d388b93db50750195218d60f5ecc1dd53d591"
+    },
+    {
+      "index": "25",
+      "time": 95.33,
+      "kind": "exact-boundary",
+      "scene": "blind-record",
+      "file": "review/frames-37/frame-25-95.330s.jpg",
+      "sha256": "e377d54169610b2aff734ee11d6b8312294c917cdddd217a56a89eeae1192c68"
+    },
+    {
+      "index": "26",
+      "time": 95.58,
+      "kind": "scene-early",
+      "scene": "blind-record",
+      "file": "review/frames-37/frame-26-95.580s.jpg",
+      "sha256": "aa5bb441186ee79a4da9dde6522096ad86daebee757446e5030849e6f986b17c"
+    },
+    {
+      "index": "27",
+      "time": 100.065,
+      "kind": "scene-proof",
+      "scene": "blind-record",
+      "file": "review/frames-37/frame-27-100.065s.jpg",
+      "sha256": "a1a73c27155e1149854240313bee9b5d1e145759291e31cbd6b4dfcd13fce2e6"
+    },
+    {
+      "index": "28",
+      "time": 104.55,
+      "kind": "scene-late",
+      "scene": "blind-record",
+      "file": "review/frames-37/frame-28-104.550s.jpg",
+      "sha256": "c95b147b6ecc163f04a7b875824056acb39d91c254155378050f1c3e6c32c08d"
+    },
+    {
+      "index": "29",
+      "time": 104.8,
+      "kind": "exact-boundary",
+      "scene": "epistemic-boundary",
+      "file": "review/frames-37/frame-29-104.800s.jpg",
+      "sha256": "bc8efc2ab73b161958b5bf95f1e77f09a82ff78cb5be5a3700b330e117335932"
+    },
+    {
+      "index": "30",
+      "time": 105.05,
+      "kind": "scene-early",
+      "scene": "epistemic-boundary",
+      "file": "review/frames-37/frame-30-105.050s.jpg",
+      "sha256": "88d429ed3c45bb5aa328c2221e4c2c3821a2aeec9b6c655c27b57bfbd6ed86a4"
+    },
+    {
+      "index": "31",
+      "time": 111.88,
+      "kind": "scene-proof",
+      "scene": "epistemic-boundary",
+      "file": "review/frames-37/frame-31-111.880s.jpg",
+      "sha256": "982203466d26902594070f5cca7778527cdaacbb09ff47d9a62e26e603fdf541"
+    },
+    {
+      "index": "32",
+      "time": 118.71,
+      "kind": "scene-late",
+      "scene": "epistemic-boundary",
+      "file": "review/frames-37/frame-32-118.710s.jpg",
+      "sha256": "4a91b0863db23d07f9f638da960b081ca6223813fea9752930adde52f7f8b2e6"
+    },
+    {
+      "index": "33",
+      "time": 118.96,
+      "kind": "exact-boundary",
+      "scene": "platform-close",
+      "file": "review/frames-37/frame-33-118.960s.jpg",
+      "sha256": "9fce7eb52e654bcb08a31ceacc38ca502fb56b0a5484f42ff8a208976227f1c7"
+    },
+    {
+      "index": "34",
+      "time": 119.21,
+      "kind": "scene-early",
+      "scene": "platform-close",
+      "file": "review/frames-37/frame-34-119.210s.jpg",
+      "sha256": "43a75406ae7962832fde3f9ea60e4baefbbf64c6b5d01485da1eb4de2c8be991"
+    },
+    {
+      "index": "35",
+      "time": 123.3,
+      "kind": "scene-proof",
+      "scene": "platform-close",
+      "file": "review/frames-37/frame-35-123.300s.jpg",
+      "sha256": "8f5d9ae28a4ccb4d0719e1d8e25d35e368df1841d3061a249359fabecfb94a77"
+    },
+    {
+      "index": "36",
+      "time": 127.2,
+      "kind": "scene-late",
+      "scene": "platform-close",
+      "file": "review/frames-37/frame-36-127.200s.jpg",
+      "sha256": "9c889b0fece64f9e25414730b83fc9d64d8a1148b5ad067b4e1943208eb53bce"
+    },
+    {
+      "index": "37",
+      "time": 130.52,
+      "kind": "sentinel-end",
+      "scene": "platform-close",
+      "file": "review/frames-37/frame-37-130.520s.jpg",
+      "sha256": "a93d4c4889c8d3dfdb62db054ac8bc57cfc05710ac72370ae4f1b6e9bcaf4ecf"
+    }
+  ],
+  "contactSheets": [
+    {
+      "path": "review/contact-sheet-01-20.jpg",
+      "sha256": "1e44d734ffa0accea51fd452536f4cbd82c75c439a57fdfb07f8fe9cf85aaec0"
+    },
+    {
+      "path": "review/contact-sheet-21-37.jpg",
+      "sha256": "65b0ce3d438ad069cab5bf1bb07c92fe3329376de3ec11838d6f4251e4e150e5"
+    }
+  ]
+}

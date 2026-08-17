@@ -1,0 +1,232 @@
+{
+  "generatedAt": "2026-08-12T02:03:20.732Z",
+  "videos": [
+    {
+      "slug": "water-and-air-correcting-the-molecules-we-drink-and-breathe",
+      "file": "private-candidate.mp4",
+      "technical": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "poster": {
+        "score": 25,
+        "max": 25,
+        "notes": []
+      },
+      "captions": {
+        "score": 20,
+        "max": 20,
+        "notes": []
+      },
+      "integration": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "brand": {
+        "score": 15,
+        "max": 15,
+        "notes": []
+      },
+      "total": 100,
+      "max": 100,
+      "duration": 131.52,
+      "loudness": {
+        "integrated": -16.1,
+        "lra": 2.5,
+        "threshold": -26.5
+      },
+      "posterOcr": {
+        "preview": "Measure the field. Preserve Ei a\n®\nthe bulk.\nERROR OVER LOCAL COORDINATION\nRAW GRADIENT\n+ CORRECTION\nCORRECTED FORCE\nBULK = 0 —_—\nARTICLE METHOD - three anchors - zero in bulk - analytic runtime forces\n",
+        "wordCount": 36
+      },
+      "posterAnalysis": {
+        "unknown": [],
+        "selfCitations": []
+      },
+      "sample": {
+        "samples": [
+          {
+            "time": 0.4,
+            "avgStd": 30.09
+          },
+          {
+            "time": 2.54,
+            "avgStd": 38.73
+          },
+          {
+            "time": 3.34,
+            "avgStd": 38.74
+          },
+          {
+            "time": 10.56,
+            "avgStd": 38.82
+          },
+          {
+            "time": 11.360000000000001,
+            "avgStd": 38.84
+          },
+          {
+            "time": 17.13,
+            "avgStd": 38.85
+          },
+          {
+            "time": 17.93,
+            "avgStd": 26.06
+          },
+          {
+            "time": 24.419999999999998,
+            "avgStd": 34.83
+          },
+          {
+            "time": 25.22,
+            "avgStd": 34.83
+          },
+          {
+            "time": 32.88,
+            "avgStd": 34.82
+          },
+          {
+            "time": 34.61,
+            "avgStd": 34.8
+          },
+          {
+            "time": 35.41,
+            "avgStd": 34.81
+          },
+          {
+            "time": 39.98,
+            "avgStd": 34.82
+          },
+          {
+            "time": 40.78,
+            "avgStd": 26.8
+          },
+          {
+            "time": 48.67,
+            "avgStd": 33.89
+          },
+          {
+            "time": 49.47,
+            "avgStd": 34.69
+          },
+          {
+            "time": 53.92,
+            "avgStd": 34.68
+          },
+          {
+            "time": 54.72,
+            "avgStd": 34.69
+          },
+          {
+            "time": 58.43,
+            "avgStd": 34.71
+          },
+          {
+            "time": 59.23,
+            "avgStd": 31.38
+          },
+          {
+            "time": 65.76,
+            "avgStd": 39.21
+          },
+          {
+            "time": 67.81,
+            "avgStd": 39.25
+          },
+          {
+            "time": 68.61000000000001,
+            "avgStd": 29.56
+          },
+          {
+            "time": 80.18,
+            "avgStd": 36.39
+          },
+          {
+            "time": 80.98,
+            "avgStd": 27.91
+          },
+          {
+            "time": 87.98,
+            "avgStd": 33.49
+          },
+          {
+            "time": 88.78,
+            "avgStd": 33.5
+          },
+          {
+            "time": 94.93,
+            "avgStd": 34.14
+          },
+          {
+            "time": 95.73,
+            "avgStd": 27.86
+          },
+          {
+            "time": 98.64000000000001,
+            "avgStd": 38.51
+          },
+          {
+            "time": 104.4,
+            "avgStd": 38.58
+          },
+          {
+            "time": 105.2,
+            "avgStd": 30.76
+          },
+          {
+            "time": 114,
+            "avgStd": 36.91
+          },
+          {
+            "time": 114.80000000000001,
+            "avgStd": 36.92
+          },
+          {
+            "time": 118.56,
+            "avgStd": 39.3
+          },
+          {
+            "time": 119.36000000000001,
+            "avgStd": 27.59
+          },
+          {
+            "time": 128.03,
+            "avgStd": 35.18
+          },
+          {
+            "time": 128.83,
+            "avgStd": 35.2
+          }
+        ],
+        "blankFrames": [],
+        "ocrHits": [
+          {
+            "time": 59.23,
+            "words": [
+              {
+                "word": "allt",
+                "clean": "allt",
+                "score": -2.73,
+                "confidence": 15.714225769042969
+              }
+            ]
+          },
+          {
+            "time": 95.73,
+            "words": [
+              {
+                "word": "secon",
+                "clean": "secon",
+                "score": -2.42,
+                "confidence": 0
+              }
+            ]
+          }
+        ]
+      },
+      "p0": []
+    }
+  ]
+}

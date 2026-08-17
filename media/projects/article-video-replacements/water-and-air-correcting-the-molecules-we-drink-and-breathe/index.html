@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Newsreader"; src: url("/fonts/newsreader-var.woff2") format("woff2"); font-weight: 200 900; }
+      @font-face { font-family: "Plex Mono"; src: url("/fonts/plex-mono-400.woff2") format("woff2"); font-weight: 400; }
+
+      :root {
+        --bg: #101513;
+        --panel: #18201d;
+        --fg: #f2efe6;
+        --muted: #a6aea8;
+        --copper: #c97745;
+        --water: #76a9c3;
+        --air: #b4be92;
+        --warning: #d36b61;
+        --line: #3c4842;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--bg); }
+      body { font-family: "Inter", sans-serif; color: var(--fg); }
+      #root { position: relative; width: 1920px; height: 1080px; overflow: hidden; }
+      .scene { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; }
+      .scene-bg { position: absolute; inset: 0; background: var(--bg); }
+      .scene-bg::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(242,239,230,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(242,239,230,.035) 1px, transparent 1px); background-size: 64px 64px; }
+      .scene-bg::after { content: ""; position: absolute; left: 88px; right: 88px; top: 74px; height: 2px; background: var(--line); }
+      #scene-stakes .scene-bg { background: radial-gradient(circle at 19% 62%, rgba(118,169,195,.22), transparent 34%), radial-gradient(circle at 81% 62%, rgba(180,190,146,.20), transparent 34%), var(--bg); }
+      #scene-coordination .scene-bg, #scene-ranking .scene-bg { background: radial-gradient(circle at 76% 64%, rgba(211,107,97,.16), transparent 38%), radial-gradient(circle at 28% 72%, rgba(201,119,69,.16), transparent 34%), var(--bg); }
+      #scene-water .scene-bg { background: radial-gradient(circle at 52% 68%, rgba(118,169,195,.22), transparent 48%), var(--bg); }
+      #scene-air .scene-bg { background: radial-gradient(circle at 52% 68%, rgba(180,190,146,.20), transparent 48%), var(--bg); }
+      #scene-correction .scene-bg, #scene-record .scene-bg { background: radial-gradient(circle at 50% 68%, rgba(201,119,69,.20), transparent 46%), var(--bg); }
+      #scene-domain .scene-bg { background: radial-gradient(circle at 34% 68%, rgba(211,107,97,.14), transparent 34%), radial-gradient(circle at 68% 68%, rgba(180,190,146,.17), transparent 36%), var(--bg); }
+      #scene-platform .scene-bg { background: radial-gradient(circle at 50% 68%, rgba(201,119,69,.22), transparent 42%), radial-gradient(circle at 22% 70%, rgba(118,169,195,.12), transparent 26%), radial-gradient(circle at 78% 70%, rgba(180,190,146,.12), transparent 26%), var(--bg); }
+      .scene-inner { position: absolute; inset: 0; padding: 92px 104px 188px; }
+      .kicker { position: absolute; top: 100px; right: 104px; font: 400 22px/1 "Plex Mono", monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+      h1 { margin: 0; max-width: 1220px; font: 720 90px/.94 "Newsreader", serif; letter-spacing: -.035em; }
+      .deck { margin-top: 22px; max-width: 1220px; font-size: 31px; line-height: 1.28; color: var(--muted); }
+      .mechanism { position: absolute; left: 104px; right: 104px; top: 340px; bottom: 230px; }
+      .mono { font-family: "Plex Mono", monospace; }
+      .label { font: 400 22px/1.2 "Plex Mono", monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+      .big-label { font: 620 38px/1.08 "Inter", sans-serif; color: var(--fg); }
+      .hairline { height: 2px; background: var(--line); }
+      .node { display: flex; align-items: center; justify-content: center; border: 2px solid var(--line); background: var(--panel); color: var(--fg); }
+      .water { color: var(--water); }
+      .air { color: var(--air); }
+      .copper { color: var(--copper); }
+      .warning { color: var(--warning); }
+      .source { position: absolute; left: 104px; bottom: 205px; font: 400 19px/1.4 "Plex Mono", monospace; color: #929d97; }
+      .caption-safe { position: absolute; left: 0; right: 0; bottom: 0; height: 190px; border-top: 1px solid rgba(166,174,168,.16); }
+
+      /* Scene 1 */
+      .convergence { display: grid; grid-template-columns: 1fr 320px 1fr; align-items: center; height: auto; gap: 42px; }
+      .stream { position: relative; height: 258px; border: 2px solid var(--line); background: #151c19; padding: 34px; }
+      .stream:first-child { background: rgba(118,169,195,.18); border-color: var(--water); }
+      .stream:last-child { background: rgba(180,190,146,.17); border-color: var(--air); }
+      .stream:first-child .label, .stream:last-child .label { color: var(--fg); }
+      .stream svg { width: 100%; height: 128px; overflow: visible; }
+      .stream-path { fill: none; stroke-width: 12; stroke-linecap: round; }
+      .stream-marker { transform-box: fill-box; transform-origin: center; }
+      .material-boundary { height: 430px; border: 3px solid var(--copper); position: relative; background: rgba(201,119,69,.20); display: grid; place-items: center; }
+      .material-boundary::before { content: ""; position: absolute; inset: 28px; border: 1px solid rgba(201,119,69,.55); }
+      .boundary-core { width: 120px; height: 120px; border: 3px solid var(--copper); border-radius: 50%; display: grid; place-items: center; font-size: 54px; }
+
+      /* Scene 2 */
+      .coord-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; height: auto; }
+      .lattice-panel, .barrier-panel { position: relative; border: 2px solid var(--line); background: #151c19; padding: 34px; }
+      .lattice-panel { background: rgba(201,119,69,.13); border-color: rgba(201,119,69,.72); }
+      .barrier-panel { background: rgba(211,107,97,.12); border-color: rgba(211,107,97,.68); }
+      .lattice { position: absolute; inset: 90px 72px 54px; display: grid; grid-template-columns: repeat(5, 1fr); grid-template-rows: repeat(3, 1fr); gap: 34px; }
+      .atom { width: 38px; height: 38px; border-radius: 50%; background: var(--fg); box-shadow: 0 0 0 12px rgba(242,239,230,.08); align-self: center; justify-self: center; }
+      .atom.site { background: var(--copper); box-shadow: 0 0 0 16px rgba(201,119,69,.14); }
+      .atom.missing { opacity: .12; border: 2px dashed var(--muted); background: transparent; }
+      .barrier-chart { position: absolute; left: 56px; right: 56px; top: 100px; bottom: 58px; border-left: 3px solid var(--line); border-bottom: 3px solid var(--line); }
+      .barrier { position: absolute; left: 60px; right: 60px; bottom: 40px; height: 210px; border-radius: 50% 50% 0 0; border-top: 8px solid; }
+      .barrier.raw { border-color: var(--warning); }
+      .barrier.corrected { border-color: var(--copper); height: 320px; opacity: .86; }
+      .barrier-token { position: absolute; left: 48px; bottom: 30px; width: 34px; height: 34px; border-radius: 50%; background: var(--water); }
+
+      /* Scene 3 */
+      .rank-layout { display: grid; grid-template-columns: 1fr 160px 1fr; gap: 36px; height: auto; align-items: center; }
+      .rank-board { height: 430px; border: 2px solid var(--line); background: #151c19; padding: 30px; position: relative; }
+      .rank-board:first-child { background: rgba(211,107,97,.13); border-color: rgba(211,107,97,.72); }
+      .rank-board:last-child { background: rgba(201,119,69,.16); border-color: rgba(201,119,69,.78); }
+      .rank-board:first-child > .label, .rank-board:last-child > .label { color: var(--fg); }
+      .rank-list { margin-top: 34px; display: grid; gap: 18px; }
+      .candidate { height: 82px; border: 2px solid var(--line); display: grid; grid-template-columns: 70px 1fr 100px; align-items: center; padding: 0 24px; background: var(--panel); }
+      .candidate .id { font: 400 28px/1 "Plex Mono", monospace; }
+      .candidate .bar { display: block; height: 12px; width: 100%; background: var(--muted); transform-origin: left center; }
+      .candidate .rank { text-align: right; font: 400 26px/1 "Plex Mono", monospace; }
+      .correction-arrow { display: grid; place-items: center; color: var(--copper); font-size: 78px; }
+
+      /* Scenes 4 and 5 */
+      .site-sequence { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; height: auto; align-items: center; border-top: 2px solid var(--line); border-bottom: 2px solid var(--line); position: absolute; }
+      .site-module { height: 390px; border: 0; background: transparent; padding: 28px; position: relative; overflow: hidden; }
+      .site-module + .site-module { border-left: 2px solid var(--line); }
+      .site-module .diagram { position: absolute; left: 28px; right: 28px; top: 100px; bottom: 76px; border: 2px solid var(--line); }
+      #scene-water .site-module { background: rgba(118,169,195,.12); }
+      #scene-water .site-module .diagram { border-color: rgba(118,169,195,.78); background-color: rgba(118,169,195,.10); }
+      #scene-air .site-module { background: rgba(180,190,146,.11); }
+      #scene-air .site-module .diagram { border-color: rgba(180,190,146,.72); background-color: rgba(180,190,146,.09); }
+      .path-legend { position: absolute; right: 0; top: -38px; display: flex; gap: 34px; font: 400 20px/1 "Plex Mono", monospace; text-transform: uppercase; z-index: 2; }
+      #water-site-2, #water-site-3 { opacity: 0; }
+      .pore::before, .pore::after { content: ""; position: absolute; top: 0; bottom: 0; width: 38%; background: #35413b; }
+      .pore::before { left: 0; }
+      .pore::after { right: 0; }
+      .bond::before { content: ""; position: absolute; left: 24%; right: 24%; top: 50%; height: 5px; background: var(--line); }
+      .bond::after { content: ""; position: absolute; left: calc(50% - 28px); top: calc(50% - 28px); width: 56px; height: 56px; border-radius: 50%; background: var(--copper); }
+      .ion-window { background: repeating-linear-gradient(90deg, transparent 0 68px, #35413b 68px 104px); }
+      .site-dot { position: absolute; left: 42px; top: 50%; width: 34px; height: 34px; border-radius: 50%; background: var(--copper); transform: translateY(-50%); }
+      .catalyst-channel { background: repeating-linear-gradient(90deg, #35413b 0 28px, transparent 28px 66px); }
+      .single-site::before { content: ""; position: absolute; inset: 70px 50px; background: #35413b; }
+      .single-site::after { content: ""; position: absolute; left: calc(50% - 26px); top: calc(50% - 26px); width: 52px; height: 52px; border-radius: 50%; background: var(--copper); }
+      .activation-path { position: absolute; left: 42px; right: 42px; top: 54%; height: 8px; background: var(--warning); transform-origin: left center; }
+      .activation-corrected { top: 42%; background: var(--copper); }
+
+      /* Scene 6 */
+      .field-layout { display: grid; grid-template-columns: 1.25fr .75fr; gap: 58px; height: auto; }
+      .field-chart { border: 2px solid var(--copper); background: rgba(201,119,69,.14); position: relative; }
+      .field-axis { position: absolute; left: 70px; right: 56px; bottom: 56px; height: 3px; background: var(--line); }
+      .field-curve { position: absolute; left: 80px; right: 64px; top: 96px; height: 250px; border-top: 8px solid var(--copper); border-radius: 70% 15% 0 0; transform: rotate(-8deg); }
+      .anchor { position: absolute; width: 34px; height: 34px; border-radius: 50%; background: var(--fg); border: 8px solid var(--copper); }
+      .a1 { left: 22%; top: 37%; } .a2 { left: 48%; top: 26%; } .a3 { left: 70%; top: 19%; }
+      .bulk-zero { position: absolute; right: 64px; bottom: 42px; width: 96px; height: 4px; background: var(--copper); }
+      .force-panel { border: 2px solid rgba(201,119,69,.72); background: rgba(201,119,69,.10); padding: 40px; display: flex; flex-direction: column; justify-content: center; gap: 50px; }
+      .force-row { position: relative; height: 74px; }
+      .force-arrow { display: block; position: absolute; left: 0; top: 42px; height: 8px; transform-origin: left center; }
+      .force-arrow::after { content: ""; position: absolute; right: -18px; top: -12px; border-left: 20px solid; border-top: 16px solid transparent; border-bottom: 16px solid transparent; }
+      .raw-force { width: 190px; background: var(--muted); }
+      .raw-force::after { border-left-color: var(--muted); }
+      .correction-force { width: 110px; background: var(--copper); }
+      .correction-force::after { border-left-color: var(--copper); }
+      .corrected-force { width: 300px; background: var(--fg); }
+      .corrected-force::after { border-left-color: var(--fg); }
+
+      /* Scene 7 */
+      .record { height: auto; border: 2px solid var(--copper); background: rgba(201,119,69,.12); padding: 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; align-items: center; }
+      .record-item { height: 260px; border-top: 8px solid var(--copper); background: rgba(16,21,19,.42); padding: 36px 20px; }
+      .record-value { font: 720 94px/.95 "Newsreader", serif; color: var(--fg); }
+      .record-label { margin-top: 22px; font: 400 24px/1.3 "Plex Mono", monospace; color: var(--muted); }
+      .record-scan { position: absolute; top: 0; bottom: 0; width: 4px; background: var(--copper); box-shadow: 0 0 34px rgba(201,119,69,.8); }
+
+      /* Scene 8 */
+      .domain-map { height: 510px; border: 2px solid var(--line); background: #151c19; position: absolute; overflow: hidden; }
+      .domain-map::before, .domain-map::after { content: ""; position: absolute; top: 0; bottom: 0; width: 50%; }
+      .domain-map::before { left: 0; background: rgba(211,107,97,.13); }
+      .domain-map::after { right: 0; background: rgba(180,190,146,.14); }
+      .domain-circle { position: absolute; width: 520px; height: 520px; border-radius: 50%; border: 4px solid var(--copper); left: 50%; top: 50%; transform: translate(-50%, -50%); background: rgba(201,119,69,.05); }
+      .domain-boundary { position: absolute; left: 50%; top: 40px; bottom: 40px; width: 2px; background: var(--line); }
+      .domain-point { position: absolute; left: 330px; top: calc(50% - 28px); width: 56px; height: 56px; border-radius: 50%; background: var(--water); box-shadow: 0 0 0 18px rgba(118,169,195,.12); }
+      .claim-state { position: absolute; right: 96px; top: calc(50% - 55px); width: 400px; height: 110px; display: grid; place-items: center; border: 3px solid var(--air); font: 620 36px/1 "Inter", sans-serif; overflow: hidden; }
+      .claim-state span { position: absolute; inset: 0; display: grid; place-items: center; }
+      #state-synthesis { background: rgba(211,107,97,.24); }
+      #state-bounded { background: rgba(201,119,69,.28); }
+      #state-supported { background: rgba(180,190,146,.82); color: var(--bg); }
+      #state-bounded, #state-supported { opacity: 0; }
+
+      /* Scene 9 */
+      .platform { height: 510px; position: absolute; }
+      .signature { position: absolute; left: calc(50% - 150px); top: 92px; width: 300px; height: 300px; border-radius: 50%; border: 5px solid var(--copper); display: grid; place-items: center; text-align: center; background: rgba(201,119,69,.28); font: 620 34px/1.18 "Inter", sans-serif; z-index: 2; }
+      .branch { position: absolute; width: 360px; height: 130px; border: 2px solid var(--line); background: #151c19; display: grid; place-items: center; font: 620 34px/1.1 "Inter", sans-serif; }
+      #branch-water { border-color: var(--water); background: rgba(118,169,195,.24); color: var(--fg); }
+      #branch-air { border-color: var(--air); background: rgba(180,190,146,.23); color: var(--fg); }
+      #branch-battery, #branch-dac { border-color: var(--copper); background: rgba(201,119,69,.22); }
+      .branch-left, .branch-lower-left { left: 80px; top: 175px; }
+      .branch-right, .branch-lower-right { right: 80px; top: 175px; }
+      .lab-endpoint { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); font: 400 24px/1 "Plex Mono", monospace; color: var(--muted); }
+      .platform-line { position: absolute; top: 250px; height: 3px; width: 430px; background: var(--line); transform-origin: center; }
+      .line-a { left: 430px; transform: rotate(-8deg); } .line-b { right: 430px; transform: rotate(8deg); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="131.51" data-width="1920" data-height="1080" data-fps="30">
+      <div id="scene-stakes" class="clip scene" data-start="0" data-duration="17.53" data-track-index="1">
+        <div class="scene-bg"></div><div class="scene-inner">
+          <div class="kicker">01 · Shared bottleneck</div>
+          <h1>Water and air fail at the material boundary.</h1>
+          <p class="deck">Two human systems. One prediction problem.</p>
+          <div class="mechanism convergence">
+            <div class="stream"><div class="label water">Water</div><svg viewBox="0 0 520 128"><path class="stream-path" stroke="#76a9c3" d="M10 64 C160 8 340 120 510 64"/><circle id="water-marker" class="stream-marker" cx="24" cy="58" r="17" fill="#76a9c3"/></svg><div class="big-label">Separation</div></div>
+            <div class="material-boundary"><div class="boundary-core">Δ</div><div class="label" style="position:absolute;bottom:54px">material model</div></div>
+            <div class="stream"><div class="label air">Air</div><svg viewBox="0 0 520 128"><path class="stream-path" stroke="#b4be92" d="M10 64 C160 120 340 8 510 64"/><circle id="air-marker" class="stream-marker" cx="24" cy="70" r="17" fill="#b4be92"/></svg><div class="big-label">Catalysis</div></div>
+          </div>
+          <div class="source">ARTICLE CLAIM · materials-limited water and air systems</div><div class="caption-safe"></div>
+        </div>
+      </div>
+
+      <div id="scene-coordination" class="clip scene" data-start="17.53" data-duration="22.85" data-track-index="2">
+        <div class="scene-bg"></div><div class="scene-inner">
+          <div class="kicker">02 · Physical cause</div><h1>Function removes neighbours.</h1><p class="deck">The active site leaves the tidy bulk regime; the raw energy barrier softens.</p>
+          <div class="mechanism coord-grid">
+            <div class="lattice-panel"><div class="label">local coordination</div><div class="lattice">
+              <i class="atom"></i><i class="atom"></i><i class="atom"></i><i class="atom"></i><i class="atom"></i>
+              <i class="atom"></i><i class="atom missing"></i><i id="active-site" class="atom site"></i><i class="atom missing"></i><i class="atom"></i>
+              <i class="atom"></i><i class="atom"></i><i class="atom missing"></i><i class="atom"></i><i class="atom"></i>
+            </div><div class="label" style="position:absolute;bottom:28px;left:34px">bulk → pore / metal centre / single site</div></div>
+            <div class="barrier-panel"><div class="label">energy barrier</div><div class="barrier-chart"><div class="barrier corrected"></div><div id="soft-barrier" class="barrier raw"></div><div id="barrier-token" class="barrier-token"></div></div></div>
+          </div>
+          <div class="source">SOURCE · Deng et al. (2025) · 15–60% softening in under-coordinated environments</div><div class="caption-safe"></div>
+        </div>
+      </div>
+
+      <div id="scene-ranking" class="clip scene" data-start="40.38" data-duration="18.45" data-track-index="3">
+        <div class="scene-bg"></div><div class="scene-inner">
+          <div class="kicker">03 · Consequence</div><h1>Small bias. Wrong experiment.</h1><p class="deck">Keep the candidates fixed. Change only the barrier estimate. The priority reverses.</p>
+          <div class="mechanism rank-layout">
+            <div class="rank-board"><div class="label warning">raw softened surface</div><div class="rank-list"><div class="candidate"><span class="id">A</span><i class="bar" style="width:62%;background:var(--warning)"></i><span class="rank">01</span></div><div class="candidate"><span class="id">B</span><i class="bar" style="width:78%"></i><span class="rank">02</span></div><div class="candidate"><span class="id">C</span><i class="bar" style="width:92%"></i><span class="rank">03</span></div></div></div>
+            <div class="correction-arrow">→</div>
+            <div class="rank-board"><div class="label copper">measured correction</div><div class="rank-list"><div id="rank-c" class="candidate"><span class="id">C</span><i class="bar" style="width:68%;background:var(--copper)"></i><span class="rank">01</span></div><div id="rank-a" class="candidate"><span class="id">A</span><i class="bar" style="width:84%"></i><span class="rank">02</span></div><div id="rank-b" class="candidate"><span class="id">B</span><i class="bar" style="width:96%"></i><span class="rank">03</span></div></div></div>
+          </div>
+          <div class="source">MECHANISM · anonymous candidates; no fabricated material values</div><div class="caption-safe"></div>
+        </div>
+      </div>
+
+      <div id="scene-water" class="clip scene" data-start="58.83" data-duration="9.38" data-track-index="4">
+        <div class="scene-bg"></div><div class="scene-inner"><div class="kicker">04 · Water</div><h1>One local-energy correction. Three water functions.</h1>
+          <div class="mechanism site-sequence">
+            <div class="site-module"><div class="label water">membrane pore</div><div class="diagram pore"><i id="water-site-1" class="site-dot"></i></div><div class="big-label" style="position:absolute;bottom:28px">selectivity</div></div>
+            <div class="site-module"><div class="label water">metal–linker bond</div><div class="diagram bond"><i id="water-site-2" class="site-dot"></i></div><div class="big-label" style="position:absolute;bottom:28px">stability</div></div>
+            <div class="site-module"><div class="label water">ion window</div><div class="diagram ion-window"><i id="water-site-3" class="site-dot"></i></div><div class="big-label" style="position:absolute;bottom:28px">ion ordering</div></div>
+          </div><div class="source">ARTICLE DOMAINS · desalination · atmospheric water · lithium-selective frameworks</div><div class="caption-safe"></div>
+        </div>
+      </div>
+
+      <div id="scene-air" class="clip scene" data-start="68.21" data-duration="12.37" data-track-index="5">
+        <div class="scene-bg"></div><div class="scene-inner"><div class="kicker">05 · Air</div><h1>Correct the activation path, not the label.</h1>
+          <div class="mechanism site-sequence"><div class="path-legend"><span class="warning">raw softened path</span><span class="copper">corrected activation path</span></div>
+            <div class="site-module"><div class="label air">exchanged cation</div><div class="diagram bond"><i class="activation-path"></i><i class="activation-path activation-corrected"></i></div><div class="big-label" style="position:absolute;bottom:28px">NOx</div></div>
+            <div class="site-module"><div class="label air">coated channel</div><div class="diagram catalyst-channel"><i class="activation-path"></i><i class="activation-path activation-corrected"></i></div><div class="big-label" style="position:absolute;bottom:28px">soot</div></div>
+            <div class="site-module"><div class="label air">single site</div><div class="diagram single-site"><i class="activation-path"></i><i class="activation-path activation-corrected"></i></div><div class="big-label" style="position:absolute;bottom:28px">VOC</div></div>
+          </div><div class="source">ARTICLE DOMAINS · exhaust catalysts · particulate filters · VOC oxidation</div><div class="caption-safe"></div>
+        </div>
+      </div>
+
+      <div id="scene-correction" class="clip scene" data-start="80.58" data-duration="14.75" data-track-index="6">
+        <div class="scene-bg"></div><div class="scene-inner"><div class="kicker">06 · Runtime mechanism</div><h1>Measure the field. Preserve the bulk.</h1>
+          <div class="mechanism field-layout">
+            <div class="field-chart"><div class="label" style="position:absolute;top:30px;left:34px">error over local coordination</div><div id="field-curve" class="field-curve"></div><i class="anchor a1"></i><i class="anchor a2"></i><i class="anchor a3"></i><div class="field-axis"></div><div class="bulk-zero"></div><div class="label" style="position:absolute;right:50px;bottom:78px">bulk = 0</div></div>
+            <div class="force-panel"><div class="force-row"><div class="label">raw gradient</div><i class="force-arrow raw-force"></i></div><div class="force-row"><div class="label copper">+ correction</div><i id="correction-force" class="force-arrow correction-force"></i></div><div class="hairline"></div><div class="force-row"><div class="label">corrected force</div><i id="corrected-force" class="force-arrow corrected-force"></i></div></div>
+          </div><div class="source">ARTICLE METHOD · three anchors · zero in bulk · analytic runtime forces</div><div class="caption-safe"></div>
+        </div>
+      </div>
+
+      <div id="scene-record" class="clip scene" data-start="95.33" data-duration="9.47" data-track-index="7">
+        <div class="scene-bg"></div><div class="scene-inner"><div class="kicker">07 · Blind record</div><h1>State the record. Do not invent the plot.</h1>
+          <div class="mechanism record"><div id="record-scan" class="record-scan"></div><div class="record-item"><div class="record-value">36</div><div class="record-label">blind model–material pairs</div></div><div class="record-item"><div class="record-value">r = 0.906</div><div class="record-label">corrected prediction correlation</div></div><div class="record-item"><div class="record-value">zero</div><div class="record-label">fitted parameters</div></div></div>
+          <div class="source">REPOSITORY RECORD · underlying points intentionally not fabricated</div><div class="caption-safe"></div>
+        </div>
+      </div>
+
+      <div id="scene-domain" class="clip scene" data-start="104.8" data-duration="14.16" data-track-index="8">
+        <div class="scene-bg"></div><div class="scene-inner"><div class="kicker">08 · Verification boundary</div><h1>A claim changes state at the measured boundary.</h1>
+          <div class="mechanism domain-map"><div class="label" style="position:absolute;left:70px;top:54px">outside measured domain</div><div class="label copper" style="position:absolute;left:calc(50% + 70px);top:54px">inside measured domain</div><div class="domain-boundary"></div><div class="domain-circle"></div><i id="domain-point" class="domain-point"></i><div id="claim-state" class="claim-state"><span id="state-synthesis">synthesis-dependent</span><span id="state-bounded">bounded</span><span id="state-supported">supported</span></div></div>
+          <div class="source">COUNT-FREE PROOF · supported · bounded · synthesis-dependent</div><div class="caption-safe"></div>
+        </div>
+      </div>
+
+      <div id="scene-platform" class="clip scene" data-start="118.96" data-duration="12.55" data-track-index="9">
+        <div class="scene-bg"></div><div class="scene-inner"><div class="kicker">09 · Transfer</div><h1>The failure is coordination-specific.</h1><p class="deck">The application changes. The physical signature stays.</p>
+          <div class="mechanism platform"><i class="platform-line line-a"></i><i class="platform-line line-b"></i><div id="signature" class="signature">LOW<br>COORDINATION</div><div id="branch-water" class="branch branch-left water">water</div><div id="branch-air" class="branch branch-right air">air</div><div id="branch-battery" class="branch branch-lower-left">batteries</div><div id="branch-dac" class="branch branch-lower-right">direct air capture</div><div class="lab-endpoint">verified correction → laboratory priority</div></div>
+          <div class="source">PLATFORM THESIS · predictions laboratories can trust</div><div class="caption-safe"></div>
+        </div>
+      </div>
+
+      <audio id="narration" src="/source/narration-private.m4a" data-start="0" data-duration="131.51" data-track-index="0" data-volume="1"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const reveal = (scene, start) => {
+        tl.from(`${scene} .scene-inner`, { opacity: 0, y: 34, duration: 0.7, ease: "power3.out" }, start);
+        tl.from(`${scene} h1`, { opacity: 0, x: -42, duration: 0.8, ease: "expo.out" }, start + 0.12);
+        tl.from(`${scene} .mechanism`, { opacity: 0, scale: 0.975, duration: 0.9, ease: "power2.out" }, start + 0.34);
+      };
+      reveal("#scene-stakes", 0);
+      tl.to("#water-marker", { x: 430, duration: 14.8, ease: "none" }, 1.2);
+      tl.to("#air-marker", { x: 430, duration: 14.8, ease: "none" }, 1.2);
+
+      reveal("#scene-coordination", 17.53);
+      tl.from("#scene-coordination .atom.missing", { opacity: 1, scale: 1, duration: 4.8, stagger: 0.7, ease: "power2.in" }, 19.2);
+      tl.to("#active-site", { scale: 1.45, duration: 5.2, ease: "power1.inOut" }, 24.2);
+      tl.to("#soft-barrier", { scale: 0.68, y: 68, duration: 6.6, ease: "power2.inOut" }, 28.0);
+      tl.to("#barrier-token", { x: 440, y: -124, duration: 8.4, ease: "power1.inOut" }, 29.2);
+
+      reveal("#scene-ranking", 40.38);
+      tl.from("#scene-ranking .rank-board:first-child .candidate", { opacity: 0, x: -30, duration: 0.65, stagger: 0.16, ease: "power3.out" }, 41.1);
+      tl.fromTo("#scene-ranking .correction-arrow", { opacity: 0.35, x: -26 }, { opacity: 1, x: 26, duration: 5.3, ease: "power1.inOut" }, 42.3);
+      tl.from("#scene-ranking .rank-board:last-child .candidate", { opacity: 0, x: 48, duration: 1.2, stagger: 0.55, ease: "power3.out" }, 47.5);
+      tl.to("#rank-c", { scale: 1.035, duration: 8.5, ease: "sine.inOut" }, 49.85);
+
+      reveal("#scene-water", 58.83);
+      tl.from("#scene-water .site-module", { opacity: 0, y: 44, duration: 0.7, stagger: 0.18, ease: "back.out(1.2)" }, 59.5);
+      tl.to("#water-site-1", { x: 170, duration: 1.8, ease: "power1.inOut" }, 60.2);
+      tl.to("#water-site-1", { opacity: 0, duration: 0.35 }, 62.1);
+      tl.to("#water-site-2", { opacity: 1, duration: 0.35 }, 62.45);
+      tl.to("#water-site-2", { x: 170, duration: 1.8, ease: "power1.inOut" }, 62.45);
+      tl.to("#water-site-2", { opacity: 0, duration: 0.35 }, 64.35);
+      tl.to("#water-site-3", { opacity: 1, duration: 0.35 }, 64.7);
+      tl.to("#water-site-3", { x: 170, duration: 1.8, ease: "power1.inOut" }, 64.7);
+
+      reveal("#scene-air", 68.21);
+      tl.from("#scene-air .site-module", { opacity: 0, y: 44, duration: 0.7, stagger: 0.18, ease: "back.out(1.2)" }, 68.8);
+      tl.from("#scene-air .activation-corrected", { scale: 0.1, duration: 9.7, stagger: 0.2, ease: "power1.inOut" }, 69.7);
+      tl.to("#scene-air .activation-path:not(.activation-corrected)", { opacity: 0.22, y: 22, duration: 8.8, stagger: 0.2, ease: "power1.inOut" }, 70.4);
+
+      reveal("#scene-correction", 80.58);
+      tl.from("#scene-correction .anchor", { opacity: 0, scale: 0.2, duration: 0.8, stagger: 0.55, ease: "back.out(1.5)" }, 81.6);
+      tl.from("#field-curve", { opacity: 0, x: -120, duration: 4.6, ease: "power2.out" }, 83.7);
+      tl.from("#correction-force", { scale: 0.05, duration: 4.3, ease: "power1.inOut" }, 87.2);
+      tl.from("#corrected-force", { scale: 0.62, duration: 4.6, ease: "power1.inOut" }, 90.0);
+
+      reveal("#scene-record", 95.33);
+      tl.from("#scene-record .record-item", { opacity: 0, y: 36, duration: 0.75, stagger: 0.45, ease: "power3.out" }, 96.0);
+      tl.fromTo("#record-scan", { x: 0 }, { x: 1570, duration: 7.4, ease: "none" }, 96.5);
+
+      reveal("#scene-domain", 104.8);
+      tl.to("#domain-point", { x: 830, duration: 10.2, ease: "power1.inOut" }, 106.1);
+      tl.to("#state-synthesis", { opacity: 0, duration: 0.35, ease: "power1.inOut" }, 110.2);
+      tl.to("#state-bounded", { opacity: 1, duration: 0.35, ease: "power1.inOut" }, 110.55);
+      tl.to("#state-bounded", { opacity: 0, duration: 0.35, ease: "power1.inOut" }, 114.8);
+      tl.to("#state-supported", { opacity: 1, duration: 0.35, ease: "power1.inOut" }, 115.15);
+
+      reveal("#scene-platform", 118.96);
+      tl.from("#signature", { opacity: 0, scale: 0.72, duration: 1.1, ease: "back.out(1.4)" }, 119.7);
+      tl.from(["#branch-water", "#branch-air"], { opacity: 0, y: 34, duration: 0.9, stagger: 0.22, ease: "power3.out" }, 121.0);
+      tl.to(["#branch-water", "#branch-air"], { opacity: 0, y: -20, duration: 0.8, ease: "power2.inOut" }, 124.5);
+      tl.from(["#branch-battery", "#branch-dac"], { opacity: 0, y: 28, duration: 1.7, stagger: 0.22, ease: "power2.out" }, 125.45);
+      tl.to("#signature", { scale: 1.08, duration: 9.8, ease: "sine.inOut" }, 120.8);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
