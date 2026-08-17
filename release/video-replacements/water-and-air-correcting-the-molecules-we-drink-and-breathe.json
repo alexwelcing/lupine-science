@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "slug": "water-and-air-correcting-the-molecules-we-drink-and-breathe",
+  "purpose": "canonical-public-video-replacement-and-rollback-evidence",
+  "sourceMainCommit": "7d26c2b13005ac18b8c885e7fa66f9a89121af30",
+  "inventory": {
+    "publishedArticleVideos": 22,
+    "knownStructuralReplacements": 4,
+    "completedStructuralReplacementsIncludingThisOne": 1,
+    "remainingKnownStructuralReplacements": 3,
+    "technicalAudioRemasters": 9
+  },
+  "previous": {
+    "video": {
+      "path": "public/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe.mp4",
+      "sha256": "0afd1968c677370eb0cb14de118562696503fcfcc96f97919c369c7598b070b7",
+      "bytes": 10185282,
+      "durationSeconds": 139.402993
+    },
+    "captions": {
+      "path": "public/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe.vtt",
+      "sha256": "4d1711f9adcd620489c2f2afe052a4a5e9d212ce6b225f22a62aa0c5209788a2"
+    },
+    "poster": {
+      "path": "public/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe-poster.jpg",
+      "sha256": "695f98d0ac1bfbef40202b03f300309373eb0c754c8f91a0caf0a21ec649ad7e",
+      "width": 1280,
+      "height": 720
+    },
+    "posterAvif": {
+      "path": "public/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe-poster.avif",
+      "sha256": "aaf0ea09e84f795182aae322c4d410d6ac180dffee34abf5c33f7abb4ed7456d",
+      "bytes": 20407,
+      "width": 1280,
+      "height": 720
+    },
+    "posterWebp": {
+      "path": "public/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe-poster.webp",
+      "sha256": "54b4990d79bb69b69bb9a7ebdb01279e795a73ceb2e34a65d2b687d0aa465145",
+      "bytes": 29174,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "replacement": {
+    "video": {
+      "path": "public/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe.mp4",
+      "sha256": "7d587757dbd9586a8a8531e873a2ee6278ed116086c6c88d8da08d4622cf978a",
+      "bytes": 11411150,
+      "durationSeconds": 131.52,
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": "30/1",
+      "pixelFormat": "yuv420p",
+      "color": "bt709",
+      "audioCodec": "aac",
+      "audioSampleRate": 44100,
+      "audioChannels": 1
+    },
+    "captions": {
+      "path": "public/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe.vtt",
+      "sha256": "792cde488cdf88ccc6a7b06b904ad970c7e0a76162dbf2d21cf252af45555e6b",
+      "bytes": 2766,
+      "cueCount": 18
+    },
+    "poster": {
+      "path": "public/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe-poster.jpg",
+      "sha256": "59b59cc6f62555919c7f3c2e06181f59f2fd1aa514f88ca01f6680d185bfc9c5",
+      "bytes": 96973,
+      "width": 1920,
+      "height": 1080
+    },
+    "posterAvif": {
+      "path": "public/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe-poster.avif",
+      "sha256": "c5461f8c6054badf6b86a1f38f9ebdf290d45995ef61073ae5b5ef7b1caa1c5d",
+      "bytes": 24761,
+      "width": 1600,
+      "height": 900
+    },
+    "posterWebp": {
+      "path": "public/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe-poster.webp",
+      "sha256": "0a073eaff30c31717df92e0c2d60967703ab9337ae0e23d988a26b032affe1d3",
+      "bytes": 31698,
+      "width": 1600,
+      "height": 900
+    }
+  },
+  "reviewEvidence": {
+    "candidateReview": {
+      "checksPassed": 91,
+      "checksTotal": 91,
+      "decodedReviewFrames": 37,
+      "sha256": "f5970f1965f11af7683b7835f1ebc93dfb418706734c86c1b5e73c014a2a313f"
+    },
+    "strictHyperFrames": {
+      "version": "0.7.107",
+      "sha256": "7b2fdaadfb35879c20d79017991d77e898b2e6219cf46812eebd90bb9e0035d2"
+    },
+    "audioGate": {
+      "decision": "pass",
+      "integratedLufs": -16.18,
+      "truePeakDbtp": -2.74,
+      "sha256": "3eaa6f6d0caad325ea462d3bf5d2c54251c534fe6269e421b896293f7161a21b"
+    },
+    "independentDirectorReview": {
+      "decision": "pass-for-owner-review",
+      "sha256": "aabe63e026a6bb0b1c4197f9c69db2ede43d7f8d9f385ba89e938d2b2b186112"
+    }
+  },
+  "rollback": {
+    "method": "restore the five canonical paths from sourceMainCommit and redeploy",
+    "command": "git restore --source 7d26c2b13005ac18b8c885e7fa66f9a89121af30 -- public/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe.mp4 public/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe.vtt public/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe-poster.jpg public/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe-poster.avif public/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe-poster.webp"
+  }
+}

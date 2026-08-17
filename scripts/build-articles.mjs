@@ -93,10 +93,18 @@ const ASSET_CACHE_BUST = '?v=3';
 const ARTICLE_ASSET_CACHE_BUST = new Map([
   ['shared-dft-anchors', '?v=4'],
 ]);
+const VIDEO_POSTER_CACHE_BUST = new Map([
+  ['water-and-air-correcting-the-molecules-we-drink-and-breathe', '?v=4'],
+]);
 
 function bust(url, slug) {
   if (!url || url.includes('?') || url.includes('#')) return url;
   return `${url}${ARTICLE_ASSET_CACHE_BUST.get(slug) || ASSET_CACHE_BUST}`;
+}
+
+function bustVideoPoster(url, slug) {
+  if (!url || url.includes('?') || url.includes('#')) return url;
+  return `${url}${VIDEO_POSTER_CACHE_BUST.get(slug) || ASSET_CACHE_BUST}`;
 }
 
 // Append the cache-bust query to local image URLs inside rendered Markdown.
@@ -288,7 +296,7 @@ function inlineVideoPlayer(slug, title, { detailLink = true } = {}) {
   const vttPath = path.join(PUBLIC_ROOT, 'videos', `${slug}.vtt`);
   const hasPoster = fs.existsSync(posterPath);
   const hasCaptions = fs.existsSync(vttPath);
-  const posterAttr = hasPoster ? ` poster="${bust(`/videos/${slug}-poster.jpg`)}"` : '';
+  const posterAttr = hasPoster ? ` poster="${bustVideoPoster(`/videos/${slug}-poster.jpg`, slug)}"` : '';
   const captionsTrack = hasCaptions
     ? `    <track kind="captions" src="/videos/${slug}.vtt" srclang="en" label="English" default>\n`
     : '';
@@ -358,12 +366,12 @@ function posterPicture(slug) {
   const dir = path.join(PUBLIC_ROOT, 'videos');
   const avif = fs.existsSync(path.join(dir, `${slug}-poster.avif`));
   const webp = fs.existsSync(path.join(dir, `${slug}-poster.webp`));
-  const img = `<img src="${bust(`/videos/${slug}-poster.jpg`)}" alt="" loading="lazy" decoding="async">`;
+  const img = `<img src="${bustVideoPoster(`/videos/${slug}-poster.jpg`, slug)}" alt="" loading="lazy" decoding="async">`;
   if (!avif && !webp) return img;
   return `<picture>${
-    avif ? `<source srcset="${bust(`/videos/${slug}-poster.avif`)}" type="image/avif">` : ''
+    avif ? `<source srcset="${bustVideoPoster(`/videos/${slug}-poster.avif`, slug)}" type="image/avif">` : ''
   }${
-    webp ? `<source srcset="${bust(`/videos/${slug}-poster.webp`)}" type="image/webp">` : ''
+    webp ? `<source srcset="${bustVideoPoster(`/videos/${slug}-poster.webp`, slug)}" type="image/webp">` : ''
   }${img}</picture>`;
 }
 
@@ -620,7 +628,7 @@ async function buildArticle(raw, slug) {
   const twitterCard = 'summary_large_image';
   const videoUrl = publishedVideoUrl(slug);
   const videoPoster = fs.existsSync(path.join(PUBLIC_ROOT, 'videos', `${slug}-poster.jpg`))
-    ? bust(`${SITE}/videos/${slug}-poster.jpg`)
+    ? bustVideoPoster(`${SITE}/videos/${slug}-poster.jpg`, slug)
     : undefined;
   const socialTitle = meta.ogTitle || `${title} — Lupine Science`;
   const socialDescription = meta.ogDescription || description;
@@ -650,7 +658,9 @@ async function buildArticle(raw, slug) {
         name: title,
         description,
         thumbnailUrl: fs.existsSync(path.join(PUBLIC_ROOT, 'videos', `${slug}-poster.jpg`))
-          ? `${SITE}/videos/${slug}-poster.jpg`
+          ? VIDEO_POSTER_CACHE_BUST.has(slug)
+            ? bustVideoPoster(`${SITE}/videos/${slug}-poster.jpg`, slug)
+            : `${SITE}/videos/${slug}-poster.jpg`
           : articleJsonLd.image,
         uploadDate: meta.date,
         contentUrl: videoUrl,
@@ -703,7 +713,14 @@ function buildIndex(articles) {
       ? pictureSources(a.slug, base, { eager: index === 0 })
           .replace('width="1280" height="720"', 'class="card-thumb" width="640" height="360"')
       : '<span class="card-thumb card-thumb-empty" aria-hidden="true"><i></i><i></i><i></i></span>';
-    const metaLine = [a.meta.date ? formatDate(a.meta.date) : '', a.meta.status ? esc(formatStatus(a.meta.status)) : ''].filter(Boolean).join(' · ');
+    // status renders as its own span so settled work (Published/Live/Final)
+    // can carry the verified green while drafts stay quiet; long editorial
+    // statuses keep only their leading clause — the card is a label, not a memo
+    const statusLabel = (a.meta.status ? formatStatus(a.meta.status) : '').split(/[—;]/)[0].trim();
+    const statusHtml = statusLabel
+      ? `<span class="card-status${/^(published|live|final)/i.test(statusLabel) ? ' is-published' : ''}">${esc(statusLabel)}</span>`
+      : '';
+    const metaLine = [a.meta.date ? esc(formatDate(a.meta.date)) : '', statusHtml].filter(Boolean).join(' · ');
     return `<li>
   <a class="article-card" href="/articles/${a.slug}/">
     ${thumb}
@@ -786,7 +803,7 @@ function videoDescription(article) {
 function videoHead(article, url) {
   const { slug, title, meta } = article;
   const description = videoDescription(article);
-  const poster = bust(`${SITE}/videos/${slug}-poster.jpg`);
+  const poster = bustVideoPoster(`${SITE}/videos/${slug}-poster.jpg`, slug);
   const contentUrl = `${SITE}/videos/${slug}.mp4`;
   const jsonld = {
     '@context': 'https://schema.org',
@@ -935,6 +952,11 @@ function buildNotFoundPage() {
 </head>
 <body>
 ${chrome(`  <main id="content" class="article-shell">
+    <picture class="lost-ribbon" aria-hidden="true">
+      <source srcset="/ribbon-still.avif" type="image/avif">
+      <source srcset="/ribbon-still.webp" type="image/webp">
+      <img src="/ribbon-still.jpg" alt="" loading="lazy" decoding="async" width="1440" height="900">
+    </picture>
     <article class="article">
       <p class="article-kicker">404</p>
       <h1>That page or download is not available.</h1>

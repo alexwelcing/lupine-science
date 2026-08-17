@@ -5,6 +5,7 @@ import http from 'node:http';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
+import { chromiumExecutablePath } from './lib/chromium-executable.mjs';
 import { PDFDocument } from 'pdf-lib';
 import sharp from 'sharp';
 import { validateClosureCertification } from './venture-deck-tools.mjs';
@@ -164,7 +165,7 @@ async function browserChecks() {
   const { server, origin } = await startServer();
   let browser;
   try {
-    browser = await chromium.launch({ headless: true });
+    browser = await chromium.launch({ headless: true, executablePath: chromiumExecutablePath() });
     const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
     const requests = [];
     const consoleErrors = [];

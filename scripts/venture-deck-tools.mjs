@@ -3,7 +3,9 @@ import http from 'node:http';
 import path from 'node:path';
 import { chromium } from 'playwright-core';
 import { PDFDocument, PDFName } from 'pdf-lib';
+import { chromiumExecutablePath } from './lib/chromium-executable.mjs';
 
+const CHROME_EXECUTABLE = chromiumExecutablePath();
 const MIN_SLIDES = 12;
 const MAX_SLIDES = 14;
 const VIEWPORT = { width: 1280, height: 720 };
@@ -162,7 +164,7 @@ async function inspectHtml({ htmlPath, slideSelector = '.slide', webRoot, media 
   const allowedOrigin = new URL(url).origin;
   let browser;
   try {
-    browser = await chromium.launch({ headless: true });
+    browser = await chromium.launch({ headless: true, executablePath: CHROME_EXECUTABLE });
     const page = await browser.newPage({ viewport, deviceScaleFactor: 1 });
     await page.emulateMedia({ media });
     const externalRequests = [];

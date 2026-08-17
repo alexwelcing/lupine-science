@@ -38,6 +38,8 @@ for (const relativePath of [
   // frontmatter `> **Ontology:** ...` lines. Required by build-articles.mjs
   // and shipped with the site so /articles/<slug>/ pages render the footer.
   'public/data/article_ontology.json',
+  // the WebGPU tier module; index.html imports it behind a navigator.gpu gate
+  'public/assets/ribbon-gpu.js',
   'public/lupine-science-icon.png',
   'public/lupine-science-mark.svg',
   'public/og-lupine-science.jpg',
@@ -72,6 +74,19 @@ const requiredIndexSnippets = [
 
 for (const snippet of requiredIndexSnippets) {
   if (!index.includes(snippet)) fail(`index.html missing required snippet: ${snippet}`);
+}
+
+// the hero must keep its full fallback chain: WebGPU is opt-in enhancement
+// over the 2D canvas, which falls back to the still, which has a noscript twin
+for (const snippet of [
+  'navigator.gpu',            // GPU tier is gated, never assumed
+  '/assets/ribbon-gpu.js',    // ...and loaded from the shipped module
+  'getContext("2d")',         // the 2D instrument stays self-sufficient
+  'ribbon-fallback',          // still-image tier
+  '<noscript>',               // no-JS tier
+  'gpuOwnsRibbon',            // 2D resumes the ribbon when the GPU dies
+] ) {
+  if (!index.includes(snippet)) fail(`index.html hero fallback chain broken: missing ${snippet}`);
 }
 
 // perf regression guards: these must never come back
