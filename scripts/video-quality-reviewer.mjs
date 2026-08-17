@@ -26,7 +26,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const VIDEOS_DIR = path.join(ROOT, 'public', 'videos');
 const ARTICLES_DIR = path.join(ROOT, 'public', 'articles');
 const ARTICLE_SOURCES_DIR = path.join(ROOT, 'articles');
-const REPORT_DIR = path.join(ROOT, 'media', 'projects', 'video-review', 'reports');
+let REPORT_DIR = path.join(ROOT, 'media', 'projects', 'video-review', 'reports');
 
 const TARGET_WIDTH = 1920;
 const TARGET_HEIGHT = 1080;
@@ -137,6 +137,11 @@ function parseArgs() {
     failOnP0: true,
     sampleFrames: true,
     sampleStdThreshold: 12,
+    slug: null,
+    videoPath: null,
+    vttPath: null,
+    posterPath: null,
+    reportDir: null,
   };
   for (let i = 0; i < args.length; i++) {
     const a = args[i];
@@ -144,11 +149,16 @@ function parseArgs() {
     if (a === '--no-fail-on-p0') flags.failOnP0 = false;
     if (a === '--no-sample-frames') flags.sampleFrames = false;
     if (a === '--sample-std-threshold') flags.sampleStdThreshold = Number(args[++i]);
+    if (a === '--slug') flags.slug = args[++i];
+    if (a === '--video') flags.videoPath = path.resolve(args[++i]);
+    if (a === '--vtt') flags.vttPath = path.resolve(args[++i]);
+    if (a === '--poster') flags.posterPath = path.resolve(args[++i]);
+    if (a === '--report-dir') flags.reportDir = path.resolve(args[++i]);
   }
   return flags;
 }
 
-function sampleTimes(duration, cues) {
+export function sampleTimes(duration, cues) {
   const times = new Set();
   if (duration && duration > 0) {
     times.add(Math.max(0.5, duration * 0.25));
@@ -156,7 +166,11 @@ function sampleTimes(duration, cues) {
     times.add(Math.min(duration - 0.5, duration * 0.75));
   }
   for (const cue of cues) {
-    if (cue.start > 0.2) times.add(cue.start);
+    // Cue starts often coincide with a deliberate single dark cut frame. Sample
+    // just inside the cue for content analysis; release review separately keeps
+    // exact boundaries plus their neighbours in the 37-frame package.
+    const settledStart = Math.min(cue.end - 0.1, cue.start + 0.4);
+    if (settledStart > 0.2) times.add(settledStart);
     if (cue.end < duration - 0.2) times.add(Math.max(0, cue.end - 0.1));
   }
   return Array.from(times).filter((t) => t > 0 && t < duration).sort((a, b) => a - b);
@@ -174,10 +188,17 @@ async function extractFrame(videoPath, time, outPath) {
   if (r.status !== 0) throw new Error(r.stderr);
 }
 
-async function frameStats(framePath) {
-  const { stats } = await sharp(framePath).stats();
-  const channels = stats.map((s) => s.std);
-  const avgStd = channels.reduce((a, b) => a + b, 0) / channels.length;
+export async function frameStats(framePath) {
+  const result = await sharp(framePath).stats();
+  const channels = result.channels;
+  if (!Array.isArray(channels) || channels.length === 0) {
+    throw new Error('Sharp returned no channel statistics');
+  }
+  const deviations = channels.map((channel) => Number(channel.stdev));
+  if (deviations.some((value) => !Number.isFinite(value))) {
+    throw new Error('Sharp returned invalid channel standard deviations');
+  }
+  const avgStd = deviations.reduce((a, b) => a + b, 0) / deviations.length;
   return { avgStd };
 }
 
@@ -300,7 +321,7 @@ function isHighConfidenceOcrHit(hit) {
   return confidences.some((c) => c > 80);
 }
 
-function classifyP0(report, sample) {
+export function classifyP0(report, sample) {
   const p0 = [];
   for (const n of report.technical.notes) {
     if (/no video stream|no audio stream|video codec|pixel format/.test(n)) p0.push(`technical:${n}`);
@@ -325,6 +346,10 @@ function classifyP0(report, sample) {
     if (/self-citation/.test(n)) p0.push(`brand:${n}`);
   }
   if (sample) {
+    const analysisErrors = sample.samples.filter((frame) => frame.error);
+    if (analysisErrors.length) {
+      p0.push(`frames:analysis failed for ${analysisErrors.length} sampled frame(s)`);
+    }
     if (sample.blankFrames.length) {
       p0.push(`frames:blank/flat frames at ${sample.blankFrames.map((f) => `${f.time.toFixed(1)}s`).join(', ')}`);
     }
@@ -337,10 +362,10 @@ function classifyP0(report, sample) {
 }
 
 async function reviewVideo(file, dictionary, corpus, bigram, worker, flags) {
-  const slug = path.basename(file, '.mp4');
-  const videoPath = path.join(VIDEOS_DIR, file);
-  const posterPath = path.join(VIDEOS_DIR, `${slug}-poster.jpg`);
-  const vttPath = path.join(VIDEOS_DIR, `${slug}.vtt`);
+  const slug = flags.slug || path.basename(file, '.mp4');
+  const videoPath = flags.videoPath || path.join(VIDEOS_DIR, file);
+  const posterPath = flags.posterPath || path.join(VIDEOS_DIR, `${slug}-poster.jpg`);
+  const vttPath = flags.vttPath || path.join(VIDEOS_DIR, `${slug}.vtt`);
 
   const probe = ffprobeJson(videoPath);
   const report = {
@@ -451,7 +476,10 @@ async function reviewVideo(file, dictionary, corpus, bigram, worker, flags) {
   }
   report.captions.score = Math.max(0, report.captions.max - report.captions.notes.length * 4);
 
-  const integration = await checkArticleIntegration(slug, file, `${slug}-poster.jpg`);
+  // A private candidate may live outside public/videos. Placement still checks
+  // the canonical filenames the approved replacement would occupy; it must not
+  // require a public-media overwrite merely to run pre-publication review.
+  const integration = await checkArticleIntegration(slug, `${slug}.mp4`, `${slug}-poster.jpg`);
   if (!integration.found) {
     report.integration.notes.push(...integration.errors);
   } else {
@@ -542,13 +570,19 @@ function formatReport(reports, dateStamp) {
 
 async function main() {
   const flags = parseArgs();
+  if (flags.reportDir) REPORT_DIR = flags.reportDir;
   await ensureReportDir();
-  const files = (await readdir(VIDEOS_DIR))
-    .filter((f) => f.endsWith('.mp4'))
-    .sort();
+  const files = flags.videoPath
+    ? [path.basename(flags.videoPath)]
+    : (await readdir(VIDEOS_DIR))
+      .filter((f) => f.endsWith('.mp4'))
+      .filter((f) => !flags.slug || f === `${flags.slug}.mp4`)
+      .sort();
 
   if (files.length === 0) {
-    console.error('No MP4s found in', VIDEOS_DIR);
+    console.error(flags.videoPath
+      ? `No MP4 found at ${flags.videoPath}`
+      : flags.slug ? `No MP4 found for slug ${flags.slug}` : `No MP4s found in ${VIDEOS_DIR}`);
     process.exit(1);
   }
 
@@ -611,7 +645,9 @@ async function main() {
   if (exitCode) process.exit(exitCode);
 }
 
-main().catch((e) => {
-  console.error(e);
-  process.exit(1);
-});
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });
+}

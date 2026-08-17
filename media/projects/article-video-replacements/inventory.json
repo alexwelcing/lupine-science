@@ -1,0 +1,2179 @@
+{
+  "schemaVersion": 1,
+  "project": "article-video-replacements",
+  "status": "inventory-prepared-no-replacements-generated",
+  "generatedFrom": {
+    "contract": {
+      "path": "media/projects/article-video-replacements/system-contract.json",
+      "exists": true,
+      "bytes": 4945,
+      "sha256": "6df57541fdae321756be00d0dad389e4174352bba708f5f263d1bc52ab538d67"
+    },
+    "knownDefects": {
+      "path": "media/projects/article-video-replacements/known-defects.json",
+      "exists": true,
+      "bytes": 1472,
+      "sha256": "ba9a98d7c9bc3509ef35c4c611b714dac2a81fc96557f3812865c20baff566b4"
+    },
+    "audioReport": {
+      "path": "release/audio-gate/audio-gate.json",
+      "exists": true,
+      "bytes": 83260,
+      "sha256": "14e2eddcdcb94cd88d7619bdda29a997c7cbf6c75ce799db4ec2f6402cbacbbd"
+    },
+    "audioBaseline": {
+      "path": "tests/fixtures/audio-gate-baseline.json",
+      "exists": true,
+      "bytes": 6665,
+      "sha256": "3336a285d41ac82571cb884957344cf9b95d3e46d1ea8ac0d84cc860ff5078d4"
+    }
+  },
+  "summary": {
+    "publishedArticleVideos": 22,
+    "audioPassingIndependently": 13,
+    "audioFailing": 9,
+    "knownHumanVisualDefects": 4,
+    "freshErrorFreeTargetedVisualReviews": 2,
+    "technicalRemasters": 9,
+    "authoredHyperFramesReplacements": 4,
+    "generatedMotionApproved": 0,
+    "publicationEligible": 0
+  },
+  "policy": {
+    "systemContract": "media/projects/article-video-replacements/system-contract.json",
+    "reviewStandard": "docs/video-review-playbook.md",
+    "noBroadGeneration": true,
+    "generativeMotionRequiresOwnerApprovalPerShot": true,
+    "scientificAndEconomicEvidenceMustRemainDeterministic": true
+  },
+  "entries": [
+    {
+      "slug": "a-field-not-a-neural-net",
+      "title": "A Field, Not a Neural Net",
+      "status": "Draft",
+      "source": {
+        "path": "articles/a-field-not-a-neural-net.md",
+        "exists": true,
+        "bytes": 20534,
+        "sha256": "964c6ecca02c18b5995cdeb5d65aec0003b05ffc8b8119aa5ef5802578bafefb"
+      },
+      "published": {
+        "video": {
+          "path": "public/videos/a-field-not-a-neural-net.mp4",
+          "exists": true,
+          "bytes": 10561445,
+          "sha256": "ba554532485142bc57fbbd0e63e631fe22472d3d55174784dedec19999bc1bef",
+          "probe": {
+            "durationSeconds": 145.380998,
+            "video": {
+              "codec": "h264",
+              "width": 1920,
+              "height": 1080,
+              "frameRate": "30/1",
+              "pixelFormat": "yuv420p"
+            },
+            "audio": {
+              "codec": "aac",
+              "sampleRate": 44100,
+              "channels": 1
+            }
+          }
+        },
+        "poster": {
+          "path": "public/videos/a-field-not-a-neural-net-poster.jpg",
+          "exists": true,
+          "bytes": 35430,
+          "sha256": "d1f524fda0bcdbb1921b5caa8a6d222e60a1e2ffaccdcb7352c2e53443bb1727"
+        },
+        "captions": {
+          "path": "public/videos/a-field-not-a-neural-net.vtt",
+          "exists": true,
+          "bytes": 3262,
+          "sha256": "3038b1b8eaca3e0da329458e75fa43f1c864f85e206b90f71d8f8e2a834dbc70"
+        }
+      },
+      "inputs": {
+        "motionManifest": {
+          "path": "data/video-motion/a-field-not-a-neural-net.json",
+          "exists": true,
+          "bytes": 2768,
+          "sha256": "35536c6214891da2192b81442caee60a18ac185e61339d0c1ccf7bcdafb44fba"
+        },
+        "narrationScript": {
+          "path": "data/narration-scripts/a-field-not-a-neural-net.json",
+          "exists": true,
+          "bytes": 2288,
+          "sha256": "3bee6b8d32dd1f2e6c8848334bfae7cbb59ea0d31d968d4c88552b6ae76eed60"
+        },
+        "articleVideoProject": {
+          "path": "media/projects/article-videos/a-field-not-a-neural-net",
+          "exists": true
+        }
+      },
+      "audit": {
+        "audio": {
+          "report": "release/audio-gate/audio-gate.json",
+          "decision": "pass",
+          "failures": [],
+          "baselinedFailures": [],
+          "independentlyPassing": true
+        },
+        "visual": {
+          "report": "media/projects/video-review/reports/2026-08-11-21-09-51-smart-review.json",
+          "generatedAt": "2026-08-11T21:09:51.651Z",
+          "score": 100,
+          "p0": [],
+          "sampleCount": 53,
+          "blankFrameCount": 0,
+          "ocrHitCount": 32
+        },
+        "knownHumanDefects": null
+      },
+      "replacement": {
+        "recommendedTier": "deterministic-motion-rebuild",
+        "readiness": "automated-gates-pass-human-review-required",
+        "reasons": [
+          "automated-audio-pass",
+          "targeted-visual-pass"
+        ],
+        "sceneContractRequired": false,
+        "eligibleForGeneration": false,
+        "eligibleForPublication": false
+      }
+    },
+    {
+      "slug": "a-smooth-environment-resolved-error-field",
+      "title": "A smooth, environment-resolved error field underlies the systematic property errors of universal machine-learned interatomic potentials",
+      "status": "Published",
+      "source": {
+        "path": "articles/a-smooth-environment-resolved-error-field.md",
+        "exists": true,
+        "bytes": 7369,
+        "sha256": "71a94bf87d3b02889759c33ed566e55ddd7f738b5796f24b4a22d883a6059787"
+      },
+      "published": {
+        "video": {
+          "path": "public/videos/a-smooth-environment-resolved-error-field.mp4",
+          "exists": true,
+          "bytes": 3740511,
+          "sha256": "6f0281ad6ff6d8cf8ed0194e1945173fd955edba67680022d2e04de203fa284f",
+          "probe": {
+            "durationSeconds": 111.255011,
+            "video": {
+              "codec": "h264",
+              "width": 1920,
+              "height": 1080,
+              "frameRate": "30/1",
+              "pixelFormat": "yuv420p"
+            },
+            "audio": {
+              "codec": "aac",
+              "sampleRate": 44100,
+              "channels": 1
+            }
+          }
+        },
+        "poster": {
+          "path": "public/videos/a-smooth-environment-resolved-error-field-poster.jpg",
+          "exists": true,
+          "bytes": 29490,
+          "sha256": "10cf6383c2abb21fa9079b939374680b860b2d0369c819edbed766b643b56127"
+        },
+        "captions": {
+          "path": "public/videos/a-smooth-environment-resolved-error-field.vtt",
+          "exists": true,
+          "bytes": 2046,
+          "sha256": "4808086ca4c3d3bba6d7de0749f222a2690a1b37c9f5b826719abaaf2b8bf30e"
+        }
+      },
+      "inputs": {
+        "motionManifest": {
+          "path": "data/video-motion/a-smooth-environment-resolved-error-field.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "narrationScript": {
+          "path": "data/narration-scripts/a-smooth-environment-resolved-error-field.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "articleVideoProject": {
+          "path": "media/projects/article-videos/a-smooth-environment-resolved-error-field",
+          "exists": false
+        }
+      },
+      "audit": {
+        "audio": {
+          "report": "release/audio-gate/audio-gate.json",
+          "decision": "fail",
+          "failures": [
+            "true-peak-ceiling"
+          ],
+          "baselinedFailures": [
+            "true-peak-ceiling"
+          ],
+          "independentlyPassing": false
+        },
+        "visual": {
+          "report": null,
+          "score": null,
+          "p0": null,
+          "sampleCount": 0,
+          "status": "no-fresh-error-free-targeted-review"
+        },
+        "knownHumanDefects": null
+      },
+      "replacement": {
+        "recommendedTier": "technical-remaster",
+        "readiness": "technical-remaster-required",
+        "reasons": [
+          "audio:true-peak-ceiling"
+        ],
+        "sceneContractRequired": false,
+        "eligibleForGeneration": false,
+        "eligibleForPublication": false
+      }
+    },
+    {
+      "slug": "an-order-of-effort",
+      "title": "An Order of Effort: Where Correction Laws Hold, and Where the Boundary Begins",
+      "status": "Final",
+      "source": {
+        "path": "articles/an-order-of-effort.md",
+        "exists": true,
+        "bytes": 7458,
+        "sha256": "3311278a4abe2087d791ae2857d9774790a0300fc9ef575098b4770842092e6e"
+      },
+      "published": {
+        "video": {
+          "path": "public/videos/an-order-of-effort.mp4",
+          "exists": true,
+          "bytes": 1264498,
+          "sha256": "2d2a796f96506471cfadfdf2e27c81d85d044f290e18bdd8c00207e801fce420",
+          "probe": {
+            "durationSeconds": 28,
+            "video": {
+              "codec": "h264",
+              "width": 1920,
+              "height": 1080,
+              "frameRate": "30/1",
+              "pixelFormat": "yuv420p"
+            },
+            "audio": {
+              "codec": "aac",
+              "sampleRate": 48000,
+              "channels": 1
+            }
+          }
+        },
+        "poster": {
+          "path": "public/videos/an-order-of-effort-poster.jpg",
+          "exists": true,
+          "bytes": 40861,
+          "sha256": "28a27d4ede4c84711a8422cd18eaf92f02510df5bed4d00c53c81bc25dd95fdb"
+        },
+        "captions": {
+          "path": "public/videos/an-order-of-effort.vtt",
+          "exists": true,
+          "bytes": 480,
+          "sha256": "9d59aaa9544e59ca9fc0fabfdbac7cf5d7114c711a37c90bbe2cccf11d0b6594"
+        }
+      },
+      "inputs": {
+        "motionManifest": {
+          "path": "data/video-motion/an-order-of-effort.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "narrationScript": {
+          "path": "data/narration-scripts/an-order-of-effort.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "articleVideoProject": {
+          "path": "media/projects/article-videos/an-order-of-effort",
+          "exists": false
+        }
+      },
+      "audit": {
+        "audio": {
+          "report": "release/audio-gate/audio-gate.json",
+          "decision": "fail",
+          "failures": [
+            "integrated-loudness-band"
+          ],
+          "baselinedFailures": [
+            "integrated-loudness-band"
+          ],
+          "independentlyPassing": false
+        },
+        "visual": {
+          "report": null,
+          "score": null,
+          "p0": null,
+          "sampleCount": 0,
+          "status": "no-fresh-error-free-targeted-review"
+        },
+        "knownHumanDefects": null
+      },
+      "replacement": {
+        "recommendedTier": "technical-remaster",
+        "readiness": "technical-remaster-required",
+        "reasons": [
+          "audio:integrated-loudness-band"
+        ],
+        "sceneContractRequired": false,
+        "eligibleForGeneration": false,
+        "eligibleForPublication": false
+      }
+    },
+    {
+      "slug": "beyond-carbon-the-error-geometry-of-environmental-materials",
+      "title": "Beyond Carbon: The Error Geometry of Environmental Materials",
+      "status": "Draft",
+      "source": {
+        "path": "articles/beyond-carbon-the-error-geometry-of-environmental-materials.md",
+        "exists": true,
+        "bytes": 20755,
+        "sha256": "af35e7ebe7da909319aacc2ff824c81fb55189448952eb688ab9adfe55284b1a"
+      },
+      "published": {
+        "video": {
+          "path": "public/videos/beyond-carbon-the-error-geometry-of-environmental-materials.mp4",
+          "exists": true,
+          "bytes": 9493610,
+          "sha256": "3a9127ac0b9754758358a55542163984c7340cec2fe874985d1d84ba33c99873",
+          "probe": {
+            "durationSeconds": 150.058005,
+            "video": {
+              "codec": "h264",
+              "width": 1920,
+              "height": 1080,
+              "frameRate": "30/1",
+              "pixelFormat": "yuv420p"
+            },
+            "audio": {
+              "codec": "aac",
+              "sampleRate": 44100,
+              "channels": 1
+            }
+          }
+        },
+        "poster": {
+          "path": "public/videos/beyond-carbon-the-error-geometry-of-environmental-materials-poster.jpg",
+          "exists": true,
+          "bytes": 46644,
+          "sha256": "1aed8250fb1a66830045124f22aaaec4e5557e25d9f8eaf284118522c05aa848"
+        },
+        "captions": {
+          "path": "public/videos/beyond-carbon-the-error-geometry-of-environmental-materials.vtt",
+          "exists": true,
+          "bytes": 3434,
+          "sha256": "ed51c010dbbe532c5c5378c4fadd67342005a808c191242b6994e20edc7f0194"
+        }
+      },
+      "inputs": {
+        "motionManifest": {
+          "path": "data/video-motion/beyond-carbon-the-error-geometry-of-environmental-materials.json",
+          "exists": true,
+          "bytes": 3619,
+          "sha256": "5615dea68a290c20cff5f2c7e248c337079a09c0e019a2343268ac307c68cb67"
+        },
+        "narrationScript": {
+          "path": "data/narration-scripts/beyond-carbon-the-error-geometry-of-environmental-materials.json",
+          "exists": true,
+          "bytes": 2461,
+          "sha256": "c5af62781f71623671bbd914e94a5495c8b6660a2c15b9669d9e2376635a27d8"
+        },
+        "articleVideoProject": {
+          "path": "media/projects/article-videos/beyond-carbon-the-error-geometry-of-environmental-materials",
+          "exists": true
+        }
+      },
+      "audit": {
+        "audio": {
+          "report": "release/audio-gate/audio-gate.json",
+          "decision": "pass",
+          "failures": [],
+          "baselinedFailures": [],
+          "independentlyPassing": true
+        },
+        "visual": {
+          "report": null,
+          "score": null,
+          "p0": null,
+          "sampleCount": 0,
+          "status": "no-fresh-error-free-targeted-review"
+        },
+        "knownHumanDefects": {
+          "defectClasses": [
+            "missing-review-package",
+            "undersized-typography",
+            "weak-opening",
+            "transition-collision",
+            "half-empty-transition"
+          ],
+          "requiredTimestampsSeconds": [
+            0,
+            0.1,
+            61.612,
+            74.991,
+            93.935,
+            106.92
+          ],
+          "recommendedTier": "authored-hyperframes-replacement"
+        }
+      },
+      "replacement": {
+        "recommendedTier": "authored-hyperframes-replacement",
+        "readiness": "blocked-pending-authored-scene-contract-and-review-package",
+        "reasons": [
+          "missing-review-package",
+          "undersized-typography",
+          "weak-opening",
+          "transition-collision",
+          "half-empty-transition"
+        ],
+        "sceneContractRequired": true,
+        "eligibleForGeneration": false,
+        "eligibleForPublication": false
+      }
+    },
+    {
+      "slug": "cement-concrete-and-the-weight-of-the-built-world",
+      "title": "Cement, Concrete, and the Weight of the Built World",
+      "status": "Draft",
+      "source": {
+        "path": "articles/cement-concrete-and-the-weight-of-the-built-world.md",
+        "exists": true,
+        "bytes": 22576,
+        "sha256": "97f7e57f231408a16ed29e57031066cb974482b9bb4e7c71f425567862736c1c"
+      },
+      "published": {
+        "video": {
+          "path": "public/videos/cement-concrete-and-the-weight-of-the-built-world.mp4",
+          "exists": true,
+          "bytes": 10516396,
+          "sha256": "4e5e7cad14d09f954f68c33441849549417b705049ded8ec64e40b2de08986fd",
+          "probe": {
+            "durationSeconds": 140.815011,
+            "video": {
+              "codec": "h264",
+              "width": 1920,
+              "height": 1080,
+              "frameRate": "30/1",
+              "pixelFormat": "yuv420p"
+            },
+            "audio": {
+              "codec": "aac",
+              "sampleRate": 44100,
+              "channels": 1
+            }
+          }
+        },
+        "poster": {
+          "path": "public/videos/cement-concrete-and-the-weight-of-the-built-world-poster.jpg",
+          "exists": true,
+          "bytes": 43612,
+          "sha256": "48dac6297f2ed63d76f5b08c6f86aebb2b3353977e09ec97d87a0021a24a94fd"
+        },
+        "captions": {
+          "path": "public/videos/cement-concrete-and-the-weight-of-the-built-world.vtt",
+          "exists": true,
+          "bytes": 3144,
+          "sha256": "76ab3993d39c04a8410f45006fa2e4949a3183ba0b87f155dd28c3c3c44addd1"
+        }
+      },
+      "inputs": {
+        "motionManifest": {
+          "path": "data/video-motion/cement-concrete-and-the-weight-of-the-built-world.json",
+          "exists": true,
+          "bytes": 3224,
+          "sha256": "6fe6b6b8036eee009919e32f0a0895db016e09e9cf43515f39d0db861d5e09e3"
+        },
+        "narrationScript": {
+          "path": "data/narration-scripts/cement-concrete-and-the-weight-of-the-built-world.json",
+          "exists": true,
+          "bytes": 2310,
+          "sha256": "1fe5298c996fd491db75f5698699de756dac4cdbdd2db2e8e86077511d4dd573"
+        },
+        "articleVideoProject": {
+          "path": "media/projects/article-videos/cement-concrete-and-the-weight-of-the-built-world",
+          "exists": true
+        }
+      },
+      "audit": {
+        "audio": {
+          "report": "release/audio-gate/audio-gate.json",
+          "decision": "pass",
+          "failures": [],
+          "baselinedFailures": [],
+          "independentlyPassing": true
+        },
+        "visual": {
+          "report": null,
+          "score": null,
+          "p0": null,
+          "sampleCount": 0,
+          "status": "no-fresh-error-free-targeted-review"
+        },
+        "knownHumanDefects": null
+      },
+      "replacement": {
+        "recommendedTier": "deterministic-motion-rebuild",
+        "readiness": "targeted-frame-review-required",
+        "reasons": [
+          "fresh-targeted-visual-review-missing"
+        ],
+        "sceneContractRequired": false,
+        "eligibleForGeneration": false,
+        "eligibleForPublication": false
+      }
+    },
+    {
+      "slug": "critical-minerals-pfas-and-the-remediation-imperative",
+      "title": "Critical Minerals, PFAS, and the Remediation Imperative",
+      "status": "Draft",
+      "source": {
+        "path": "articles/critical-minerals-pfas-and-the-remediation-imperative.md",
+        "exists": true,
+        "bytes": 25034,
+        "sha256": "ea61c3fd4f4b91f0bad91be0c09c58d8c5c1fe922df20cae9088fa4601ac91a4"
+      },
+      "published": {
+        "video": {
+          "path": "public/videos/critical-minerals-pfas-and-the-remediation-imperative.mp4",
+          "exists": true,
+          "bytes": 12007553,
+          "sha256": "1305c1ebf22974631fa0f68cd018a8eb3a6367c91cbce1f6d1247b9897f0afa0",
+          "probe": {
+            "durationSeconds": 147.689002,
+            "video": {
+              "codec": "h264",
+              "width": 1920,
+              "height": 1080,
+              "frameRate": "30/1",
+              "pixelFormat": "yuv420p"
+            },
+            "audio": {
+              "codec": "aac",
+              "sampleRate": 44100,
+              "channels": 1
+            }
+          }
+        },
+        "poster": {
+          "path": "public/videos/critical-minerals-pfas-and-the-remediation-imperative-poster.jpg",
+          "exists": true,
+          "bytes": 43174,
+          "sha256": "76624e438b6119ec66d69ff60522469de5779d244f0fb8a7b6de81f3900e90a4"
+        },
+        "captions": {
+          "path": "public/videos/critical-minerals-pfas-and-the-remediation-imperative.vtt",
+          "exists": true,
+          "bytes": 3522,
+          "sha256": "e6b108d0432824f172162bc6de16032e6e83922abc9db5165e90ebdac32f7b20"
+        }
+      },
+      "inputs": {
+        "motionManifest": {
+          "path": "data/video-motion/critical-minerals-pfas-and-the-remediation-imperative.json",
+          "exists": true,
+          "bytes": 3538,
+          "sha256": "91eaa8f9f5c7ed5af873c3cf6809f7fa609871853f67eb758c9d21405fe4928d"
+        },
+        "narrationScript": {
+          "path": "data/narration-scripts/critical-minerals-pfas-and-the-remediation-imperative.json",
+          "exists": true,
+          "bytes": 2536,
+          "sha256": "1d0acb2af42b19026a2e1be1725f32255621ca944e8b7175edc682415e86d824"
+        },
+        "articleVideoProject": {
+          "path": "media/projects/article-videos/critical-minerals-pfas-and-the-remediation-imperative",
+          "exists": true
+        }
+      },
+      "audit": {
+        "audio": {
+          "report": "release/audio-gate/audio-gate.json",
+          "decision": "pass",
+          "failures": [],
+          "baselinedFailures": [],
+          "independentlyPassing": true
+        },
+        "visual": {
+          "report": null,
+          "score": null,
+          "p0": null,
+          "sampleCount": 0,
+          "status": "no-fresh-error-free-targeted-review"
+        },
+        "knownHumanDefects": null
+      },
+      "replacement": {
+        "recommendedTier": "deterministic-motion-rebuild",
+        "readiness": "targeted-frame-review-required",
+        "reasons": [
+          "fresh-targeted-visual-review-missing"
+        ],
+        "sceneContractRequired": false,
+        "eligibleForGeneration": false,
+        "eligibleForPublication": false
+      }
+    },
+    {
+      "slug": "five-materials-for-5-to-12-gtco2-year",
+      "title": "Five Materials That Could Unlock 5–12 GtCO₂/Year",
+      "status": "Draft",
+      "source": {
+        "path": "articles/five-materials-for-5-to-12-gtco2-year.md",
+        "exists": true,
+        "bytes": 25298,
+        "sha256": "8f21adf69b3c06ea5f48e31878f85f397566893a8808cbd4bfcdb03859235fdf"
+      },
+      "published": {
+        "video": {
+          "path": "public/videos/five-materials-for-5-to-12-gtco2-year.mp4",
+          "exists": true,
+          "bytes": 7937794,
+          "sha256": "cfbfdd6d93e9964b1b5494bdcd8083ff56099742f6de7a7f5bd7533ffca5819b",
+          "probe": {
+            "durationSeconds": 123.381995,
+            "video": {
+              "codec": "h264",
+              "width": 1920,
+              "height": 1080,
+              "frameRate": "30/1",
+              "pixelFormat": "yuv420p"
+            },
+            "audio": {
+              "codec": "aac",
+              "sampleRate": 44100,
+              "channels": 1
+            }
+          }
+        },
+        "poster": {
+          "path": "public/videos/five-materials-for-5-to-12-gtco2-year-poster.jpg",
+          "exists": true,
+          "bytes": 42027,
+          "sha256": "0f9568a21663cfe3f7fcbab73fb6ad6dff617854259d86752a8791dd69d983d2"
+        },
+        "captions": {
+          "path": "public/videos/five-materials-for-5-to-12-gtco2-year.vtt",
+          "exists": true,
+          "bytes": 2827,
+          "sha256": "e5ff5061494cb6bcffcb4a49e9dbaa0fc465258374509dcbd37f11630986fdc3"
+        }
+      },
+      "inputs": {
+        "motionManifest": {
+          "path": "data/video-motion/five-materials-for-5-to-12-gtco2-year.json",
+          "exists": true,
+          "bytes": 3272,
+          "sha256": "dc6d04e141a75ba24d1671a078130846b30fa6593cfc064303bdb7d9a1595da2"
+        },
+        "narrationScript": {
+          "path": "data/narration-scripts/five-materials-for-5-to-12-gtco2-year.json",
+          "exists": true,
+          "bytes": 2104,
+          "sha256": "15894f9a509b68153c3ef11fe285c70f9e3a44e8d6fc3e6dcbde056a84c4049e"
+        },
+        "articleVideoProject": {
+          "path": "media/projects/article-videos/five-materials-for-5-to-12-gtco2-year",
+          "exists": true
+        }
+      },
+      "audit": {
+        "audio": {
+          "report": "release/audio-gate/audio-gate.json",
+          "decision": "pass",
+          "failures": [],
+          "baselinedFailures": [],
+          "independentlyPassing": true
+        },
+        "visual": {
+          "report": null,
+          "score": null,
+          "p0": null,
+          "sampleCount": 0,
+          "status": "no-fresh-error-free-targeted-review"
+        },
+        "knownHumanDefects": {
+          "defectClasses": [
+            "missing-review-package",
+            "low-opacity-headline",
+            "text-obscured-by-motion"
+          ],
+          "requiredTimestampsSeconds": [
+            48,
+            49.7,
+            75,
+            80,
+            84
+          ],
+          "recommendedTier": "authored-hyperframes-replacement"
+        }
+      },
+      "replacement": {
+        "recommendedTier": "authored-hyperframes-replacement",
+        "readiness": "blocked-pending-authored-scene-contract-and-review-package",
+        "reasons": [
+          "missing-review-package",
+          "low-opacity-headline",
+          "text-obscured-by-motion"
+        ],
+        "sceneContractRequired": true,
+        "eligibleForGeneration": false,
+        "eligibleForPublication": false
+      }
+    },
+    {
+      "slug": "from-fantasy-frameworks-to-makeable-materials",
+      "title": "From Fantasy Frameworks to Makeable Materials: A Prospectus for Formalized MOF Discovery",
+      "status": "Draft for discussion",
+      "source": {
+        "path": "articles/from-fantasy-frameworks-to-makeable-materials.md",
+        "exists": true,
+        "bytes": 19693,
+        "sha256": "c6597a885211a35b850bc1cc3f52b0ec95e13356b2451b94408bd10fa9a44055"
+      },
+      "published": {
+        "video": {
+          "path": "public/videos/from-fantasy-frameworks-to-makeable-materials.mp4",
+          "exists": true,
+          "bytes": 4063859,
+          "sha256": "36227fe262b682b078ef80dece7b032e072a4acd730ffa92f63afc034d6d4129",
+          "probe": {
+            "durationSeconds": 108.266667,
+            "video": {
+              "codec": "h264",
+              "width": 1920,
+              "height": 1080,
+              "frameRate": "30/1",
+              "pixelFormat": "yuv420p"
+            },
+            "audio": {
+              "codec": "aac",
+              "sampleRate": 44100,
+              "channels": 1
+            }
+          }
+        },
+        "poster": {
+          "path": "public/videos/from-fantasy-frameworks-to-makeable-materials-poster.jpg",
+          "exists": true,
+          "bytes": 33809,
+          "sha256": "e77b8843c1f31105c183d5fe55ffc96e60e9ffc1759b1defcc0d06e7ea60a446"
+        },
+        "captions": {
+          "path": "public/videos/from-fantasy-frameworks-to-makeable-materials.vtt",
+          "exists": true,
+          "bytes": 1981,
+          "sha256": "df2722988b16704703f233cab9dfd24d8ad86662a17f34554e3f2c5959c1994b"
+        }
+      },
+      "inputs": {
+        "motionManifest": {
+          "path": "data/video-motion/from-fantasy-frameworks-to-makeable-materials.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "narrationScript": {
+          "path": "data/narration-scripts/from-fantasy-frameworks-to-makeable-materials.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "articleVideoProject": {
+          "path": "media/projects/article-videos/from-fantasy-frameworks-to-makeable-materials",
+          "exists": false
+        }
+      },
+      "audit": {
+        "audio": {
+          "report": "release/audio-gate/audio-gate.json",
+          "decision": "pass",
+          "failures": [],
+          "baselinedFailures": [],
+          "independentlyPassing": true
+        },
+        "visual": {
+          "report": null,
+          "score": null,
+          "p0": null,
+          "sampleCount": 0,
+          "status": "no-fresh-error-free-targeted-review"
+        },
+        "knownHumanDefects": null
+      },
+      "replacement": {
+        "recommendedTier": "deterministic-motion-rebuild",
+        "readiness": "targeted-frame-review-required",
+        "reasons": [
+          "fresh-targeted-visual-review-missing"
+        ],
+        "sceneContractRequired": false,
+        "eligibleForGeneration": false,
+        "eligibleForPublication": false
+      }
+    },
+    {
+      "slug": "from-predicted-crystal-to-commercial-cell",
+      "title": "From Predicted Crystal to Commercial Cell",
+      "status": "Draft",
+      "source": {
+        "path": "articles/from-predicted-crystal-to-commercial-cell.md",
+        "exists": true,
+        "bytes": 22733,
+        "sha256": "9b522780f265a97bdb97f028023c58bd02a4f3698415c999d1ea11dcb34b1ff7"
+      },
+      "published": {
+        "video": {
+          "path": "public/videos/from-predicted-crystal-to-commercial-cell.mp4",
+          "exists": true,
+          "bytes": 8216705,
+          "sha256": "3e9e7ae136d28483df6b9e797d86462e783af8a63e3a6bc39aaa4a4277d98c8a",
+          "probe": {
+            "durationSeconds": 126.452993,
+            "video": {
+              "codec": "h264",
+              "width": 1920,
+              "height": 1080,
+              "frameRate": "30/1",
+              "pixelFormat": "yuv420p"
+            },
+            "audio": {
+              "codec": "aac",
+              "sampleRate": 44100,
+              "channels": 1
+            }
+          }
+        },
+        "poster": {
+          "path": "public/videos/from-predicted-crystal-to-commercial-cell-poster.jpg",
+          "exists": true,
+          "bytes": 41043,
+          "sha256": "a6ccc870bc18b175e9d6a67588ede13ad7ce66e9766265e4d9a1124b03b8f25d"
+        },
+        "captions": {
+          "path": "public/videos/from-predicted-crystal-to-commercial-cell.vtt",
+          "exists": true,
+          "bytes": 3034,
+          "sha256": "25cbf5ea305ebe8a70fd3015c265086f5ab3063e84ef4ac00758597668115df7"
+        }
+      },
+      "inputs": {
+        "motionManifest": {
+          "path": "data/video-motion/from-predicted-crystal-to-commercial-cell.json",
+          "exists": true,
+          "bytes": 3272,
+          "sha256": "a68f6d25836636f52a98f4487d2b023fec6c0915e5c349876b22a1692bf4402c"
+        },
+        "narrationScript": {
+          "path": "data/narration-scripts/from-predicted-crystal-to-commercial-cell.json",
+          "exists": true,
+          "bytes": 2185,
+          "sha256": "940c0a21af39e611a6b45aa52fbd51bfd6386eb0c93e453412b573cf1afc9d4f"
+        },
+        "articleVideoProject": {
+          "path": "media/projects/article-videos/from-predicted-crystal-to-commercial-cell",
+          "exists": true
+        }
+      },
+      "audit": {
+        "audio": {
+          "report": "release/audio-gate/audio-gate.json",
+          "decision": "pass",
+          "failures": [],
+          "baselinedFailures": [],
+          "independentlyPassing": true
+        },
+        "visual": {
+          "report": null,
+          "score": null,
+          "p0": null,
+          "sampleCount": 0,
+          "status": "no-fresh-error-free-targeted-review"
+        },
+        "knownHumanDefects": null
+      },
+      "replacement": {
+        "recommendedTier": "deterministic-motion-rebuild",
+        "readiness": "targeted-frame-review-required",
+        "reasons": [
+          "fresh-targeted-visual-review-missing"
+        ],
+        "sceneContractRequired": false,
+        "eligibleForGeneration": false,
+        "eligibleForPublication": false
+      }
+    },
+    {
+      "slug": "investing-in-the-trust-layer",
+      "title": "Investing in the Trust Layer",
+      "status": "Draft",
+      "source": {
+        "path": "articles/investing-in-the-trust-layer.md",
+        "exists": true,
+        "bytes": 18107,
+        "sha256": "5d9a8c2646b27482dfaaf192ed01c3f6e2daa208fef141524bef052f60d00973"
+      },
+      "published": {
+        "video": {
+          "path": "public/videos/investing-in-the-trust-layer.mp4",
+          "exists": true,
+          "bytes": 10684363,
+          "sha256": "8972e7cf1b53833d3f4b80a1754a20a641a6677f5f5ff083e71bb2cb3c498574",
+          "probe": {
+            "durationSeconds": 155.819002,
+            "video": {
+              "codec": "h264",
+              "width": 1920,
+              "height": 1080,
+              "frameRate": "30/1",
+              "pixelFormat": "yuv420p"
+            },
+            "audio": {
+              "codec": "aac",
+              "sampleRate": 44100,
+              "channels": 1
+            }
+          }
+        },
+        "poster": {
+          "path": "public/videos/investing-in-the-trust-layer-poster.jpg",
+          "exists": true,
+          "bytes": 37563,
+          "sha256": "1f9e02e287eb5973661dff12a528fb5cb2bede695d05d9da7e55b15da239d3c4"
+        },
+        "captions": {
+          "path": "public/videos/investing-in-the-trust-layer.vtt",
+          "exists": true,
+          "bytes": 3630,
+          "sha256": "ce81d87b0775db5413d05a7235145f3d22788a95bde54b04032e92d88b791f78"
+        }
+      },
+      "inputs": {
+        "motionManifest": {
+          "path": "data/video-motion/investing-in-the-trust-layer.json",
+          "exists": true,
+          "bytes": 2940,
+          "sha256": "2d0b1a6a49d1321b1c7574acd17238dc532eb09ba1d729c3864bb46739b628a6"
+        },
+        "narrationScript": {
+          "path": "data/narration-scripts/investing-in-the-trust-layer.json",
+          "exists": true,
+          "bytes": 2422,
+          "sha256": "af71b6017115df54f5381947758cc01c129701581d552aa85c9a09f06c5cdd4e"
+        },
+        "articleVideoProject": {
+          "path": "media/projects/article-videos/investing-in-the-trust-layer",
+          "exists": true
+        }
+      },
+      "audit": {
+        "audio": {
+          "report": "release/audio-gate/audio-gate.json",
+          "decision": "pass",
+          "failures": [],
+          "baselinedFailures": [],
+          "independentlyPassing": true
+        },
+        "visual": {
+          "report": null,
+          "score": null,
+          "p0": null,
+          "sampleCount": 0,
+          "status": "no-fresh-error-free-targeted-review"
+        },
+        "knownHumanDefects": {
+          "defectClasses": [
+            "missing-review-package",
+            "timing-contract",
+            "undersized-typography",
+            "transition-collision",
+            "missing-terminal-hold"
+          ],
+          "requiredTimestampsSeconds": [
+            13.9,
+            15.2,
+            21.9,
+            32.1,
+            44.7,
+            48.3,
+            64.6,
+            77,
+            86.2,
+            98,
+            104.2,
+            115
+          ],
+          "recommendedTier": "authored-hyperframes-replacement"
+        }
+      },
+      "replacement": {
+        "recommendedTier": "authored-hyperframes-replacement",
+        "readiness": "blocked-pending-authored-scene-contract-and-review-package",
+        "reasons": [
+          "missing-review-package",
+          "timing-contract",
+          "undersized-typography",
+          "transition-collision",
+          "missing-terminal-hold"
+        ],
+        "sceneContractRequired": true,
+        "eligibleForGeneration": false,
+        "eligibleForPublication": false
+      }
+    },
+    {
+      "slug": "lupi-hfc-refrigerant-research-payloads",
+      "title": "Lupi Gains HFC Refrigerant Research Payloads",
+      "status": "Live",
+      "source": {
+        "path": "articles/lupi-hfc-refrigerant-research-payloads.md",
+        "exists": true,
+        "bytes": 5223,
+        "sha256": "5827e82439e43f7614bcfb4e24670c3037117505fefb0dd0efd29169cd64f83f"
+      },
+      "published": {
+        "video": {
+          "path": "public/videos/lupi-hfc-refrigerant-research-payloads.mp4",
+          "exists": true,
+          "bytes": 3982328,
+          "sha256": "fd354785974aa59ac8329be35fa1f0a33977d036c02ed61da5999b49088411de",
+          "probe": {
+            "durationSeconds": 124.433333,
+            "video": {
+              "codec": "h264",
+              "width": 1920,
+              "height": 1080,
+              "frameRate": "30/1",
+              "pixelFormat": "yuv420p"
+            },
+            "audio": {
+              "codec": "aac",
+              "sampleRate": 44100,
+              "channels": 1
+            }
+          }
+        },
+        "poster": {
+          "path": "public/videos/lupi-hfc-refrigerant-research-payloads-poster.jpg",
+          "exists": true,
+          "bytes": 43648,
+          "sha256": "8bf9a2cb5318d5ee7f03c71a830346a8f5a26cc3e4f657935b1231ba0d68cb74"
+        },
+        "captions": {
+          "path": "public/videos/lupi-hfc-refrigerant-research-payloads.vtt",
+          "exists": true,
+          "bytes": 2218,
+          "sha256": "ebab3a863147d4d3d5b17221490039d79d4fa1a499cc256adcc9a3059ce35756"
+        }
+      },
+      "inputs": {
+        "motionManifest": {
+          "path": "data/video-motion/lupi-hfc-refrigerant-research-payloads.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "narrationScript": {
+          "path": "data/narration-scripts/lupi-hfc-refrigerant-research-payloads.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "articleVideoProject": {
+          "path": "media/projects/article-videos/lupi-hfc-refrigerant-research-payloads",
+          "exists": false
+        }
+      },
+      "audit": {
+        "audio": {
+          "report": "release/audio-gate/audio-gate.json",
+          "decision": "pass",
+          "failures": [],
+          "baselinedFailures": [],
+          "independentlyPassing": true
+        },
+        "visual": {
+          "report": null,
+          "score": null,
+          "p0": null,
+          "sampleCount": 0,
+          "status": "no-fresh-error-free-targeted-review"
+        },
+        "knownHumanDefects": null
+      },
+      "replacement": {
+        "recommendedTier": "deterministic-motion-rebuild",
+        "readiness": "targeted-frame-review-required",
+        "reasons": [
+          "fresh-targeted-visual-review-missing"
+        ],
+        "sceneContractRequired": false,
+        "eligibleForGeneration": false,
+        "eligibleForPublication": false
+      }
+    },
+    {
+      "slug": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers",
+      "title": "Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers",
+      "status": "Draft",
+      "source": {
+        "path": "articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers.md",
+        "exists": true,
+        "bytes": 24050,
+        "sha256": "6ca8d11e0832a7bf38739e6dd8dcb1a73f349454d0029e1dd357f65c67954dd0"
+      },
+      "published": {
+        "video": {
+          "path": "public/videos/methane-and-refrigerants-cutting-the-non-co2-climate-forcers.mp4",
+          "exists": true,
+          "bytes": 10412706,
+          "sha256": "3dc3e21b09104925768bf46b7eaa75400b2d435a46eab01e4571277f9d355475",
+          "probe": {
+            "durationSeconds": 136.789002,
+            "video": {
+              "codec": "h264",
+              "width": 1920,
+              "height": 1080,
+              "frameRate": "30/1",
+              "pixelFormat": "yuv420p"
+            },
+            "audio": {
+              "codec": "aac",
+              "sampleRate": 44100,
+              "channels": 1
+            }
+          }
+        },
+        "poster": {
+          "path": "public/videos/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-poster.jpg",
+          "exists": true,
+          "bytes": 46971,
+          "sha256": "59705d2563cbb2a81821e9d817391f3dac504d5536302e8c72884b1d58337d6b"
+        },
+        "captions": {
+          "path": "public/videos/methane-and-refrigerants-cutting-the-non-co2-climate-forcers.vtt",
+          "exists": true,
+          "bytes": 3178,
+          "sha256": "75f0922ea28f91ba85d2549ecb46f984ddbc182a2414a4a67f7eb4263fbd7c5d"
+        }
+      },
+      "inputs": {
+        "motionManifest": {
+          "path": "data/video-motion/methane-and-refrigerants-cutting-the-non-co2-climate-forcers.json",
+          "exists": true,
+          "bytes": 3826,
+          "sha256": "8d67f8d7e95bce6dd58dd2064671d413eeaa07dabe95ad78d9be845e2bc05385"
+        },
+        "narrationScript": {
+          "path": "data/narration-scripts/methane-and-refrigerants-cutting-the-non-co2-climate-forcers.json",
+          "exists": true,
+          "bytes": 2439,
+          "sha256": "25da4940c12d0ffd78c5c82622863720127283fec5b8126daa0ac20b4bafe157"
+        },
+        "articleVideoProject": {
+          "path": "media/projects/article-videos/methane-and-refrigerants-cutting-the-non-co2-climate-forcers",
+          "exists": true
+        }
+      },
+      "audit": {
+        "audio": {
+          "report": "release/audio-gate/audio-gate.json",
+          "decision": "pass",
+          "failures": [],
+          "baselinedFailures": [],
+          "independentlyPassing": true
+        },
+        "visual": {
+          "report": null,
+          "score": null,
+          "p0": null,
+          "sampleCount": 0,
+          "status": "no-fresh-error-free-targeted-review"
+        },
+        "knownHumanDefects": null
+      },
+      "replacement": {
+        "recommendedTier": "deterministic-motion-rebuild",
+        "readiness": "targeted-frame-review-required",
+        "reasons": [
+          "fresh-targeted-visual-review-missing"
+        ],
+        "sceneContractRequired": false,
+        "eligibleForGeneration": false,
+        "eligibleForPublication": false
+      }
+    },
+    {
+      "slug": "rhizo-non-co2-climate-forcers-lean",
+      "title": "Non-CO₂ Climate Forcers, Now Formalized in Lean",
+      "status": "Live",
+      "source": {
+        "path": "articles/rhizo-non-co2-climate-forcers-lean.md",
+        "exists": true,
+        "bytes": 5360,
+        "sha256": "fd57404f69bdea5a07246d86868c128048cb376abc63f990a3e8c3db4c297389"
+      },
+      "published": {
+        "video": {
+          "path": "public/videos/rhizo-non-co2-climate-forcers-lean.mp4",
+          "exists": true,
+          "bytes": 4234591,
+          "sha256": "e1d2843ebe3697a22f9b211a1adcd67c092058e56b65033f8939f0f6ce29bb15",
+          "probe": {
+            "durationSeconds": 123.062993,
+            "video": {
+              "codec": "h264",
+              "width": 1920,
+              "height": 1080,
+              "frameRate": "30/1",
+              "pixelFormat": "yuv420p"
+            },
+            "audio": {
+              "codec": "aac",
+              "sampleRate": 44100,
+              "channels": 1
+            }
+          }
+        },
+        "poster": {
+          "path": "public/videos/rhizo-non-co2-climate-forcers-lean-poster.jpg",
+          "exists": true,
+          "bytes": 15452,
+          "sha256": "d20a0f48c031a9e89b82923dc774804c0cdbcfce582a2ec2ae7400bb1d3baf7d"
+        },
+        "captions": {
+          "path": "public/videos/rhizo-non-co2-climate-forcers-lean.vtt",
+          "exists": true,
+          "bytes": 2139,
+          "sha256": "c7dc801560e972c8cf665f6b9bed449851b6d067f0a92e76d65e85ca6089ec2c"
+        }
+      },
+      "inputs": {
+        "motionManifest": {
+          "path": "data/video-motion/rhizo-non-co2-climate-forcers-lean.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "narrationScript": {
+          "path": "data/narration-scripts/rhizo-non-co2-climate-forcers-lean.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "articleVideoProject": {
+          "path": "media/projects/article-videos/rhizo-non-co2-climate-forcers-lean",
+          "exists": false
+        }
+      },
+      "audit": {
+        "audio": {
+          "report": "release/audio-gate/audio-gate.json",
+          "decision": "fail",
+          "failures": [
+            "true-peak-ceiling"
+          ],
+          "baselinedFailures": [
+            "true-peak-ceiling"
+          ],
+          "independentlyPassing": false
+        },
+        "visual": {
+          "report": null,
+          "score": null,
+          "p0": null,
+          "sampleCount": 0,
+          "status": "no-fresh-error-free-targeted-review"
+        },
+        "knownHumanDefects": null
+      },
+      "replacement": {
+        "recommendedTier": "technical-remaster",
+        "readiness": "technical-remaster-required",
+        "reasons": [
+          "audio:true-peak-ceiling"
+        ],
+        "sceneContractRequired": false,
+        "eligibleForGeneration": false,
+        "eligibleForPublication": false
+      }
+    },
+    {
+      "slug": "the-02-percent-synthesis-problem",
+      "title": "The 0.2% Synthesis Problem",
+      "status": "Draft",
+      "source": {
+        "path": "articles/the-02-percent-synthesis-problem.md",
+        "exists": true,
+        "bytes": 12383,
+        "sha256": "edbf1ad1baa651a8ef84d4b7a30362f86b1907c34215605603cb1add79ca6bd4"
+      },
+      "published": {
+        "video": {
+          "path": "public/videos/the-02-percent-synthesis-problem.mp4",
+          "exists": true,
+          "bytes": 8428089,
+          "sha256": "049fe47b6d80b2c054f5f7d4150e0d725a899da7e8b1905d203ba5996aa6cb26",
+          "probe": {
+            "durationSeconds": 124.412993,
+            "video": {
+              "codec": "h264",
+              "width": 1920,
+              "height": 1080,
+              "frameRate": "30/1",
+              "pixelFormat": "yuv420p"
+            },
+            "audio": {
+              "codec": "aac",
+              "sampleRate": 44100,
+              "channels": 1
+            }
+          }
+        },
+        "poster": {
+          "path": "public/videos/the-02-percent-synthesis-problem-poster.jpg",
+          "exists": true,
+          "bytes": 38959,
+          "sha256": "9b021dab5f0b828aa7839fc3ea7e76e77da72f7c65106cf725503221a88b9b0c"
+        },
+        "captions": {
+          "path": "public/videos/the-02-percent-synthesis-problem.vtt",
+          "exists": true,
+          "bytes": 3077,
+          "sha256": "8d93fa56317ea96a5524b0fb50d8420bed80c42e4d0f4a5ebaf34a227845b8e5"
+        }
+      },
+      "inputs": {
+        "motionManifest": {
+          "path": "data/video-motion/the-02-percent-synthesis-problem.json",
+          "exists": true,
+          "bytes": 3133,
+          "sha256": "543dd4524b5537502d2b7779e0c54194837a453ba4eeef2ecf302818e85759c8"
+        },
+        "narrationScript": {
+          "path": "data/narration-scripts/the-02-percent-synthesis-problem.json",
+          "exists": true,
+          "bytes": 2104,
+          "sha256": "25913fd969976958b8d956b75d8c1ec205f2ac3095636807f3e0dc230652b819"
+        },
+        "articleVideoProject": {
+          "path": "media/projects/article-videos/the-02-percent-synthesis-problem",
+          "exists": true
+        }
+      },
+      "audit": {
+        "audio": {
+          "report": "release/audio-gate/audio-gate.json",
+          "decision": "pass",
+          "failures": [],
+          "baselinedFailures": [],
+          "independentlyPassing": true
+        },
+        "visual": {
+          "report": null,
+          "score": null,
+          "p0": null,
+          "sampleCount": 0,
+          "status": "no-fresh-error-free-targeted-review"
+        },
+        "knownHumanDefects": null
+      },
+      "replacement": {
+        "recommendedTier": "deterministic-motion-rebuild",
+        "readiness": "targeted-frame-review-required",
+        "reasons": [
+          "fresh-targeted-visual-review-missing"
+        ],
+        "sceneContractRequired": false,
+        "eligibleForGeneration": false,
+        "eligibleForPublication": false
+      }
+    },
+    {
+      "slug": "the-materials-we-test-against",
+      "title": "The Z1 Barrier Panel: Evaluating Foundation MLIPs on 42 Solid-State Electrolyte Chemistries",
+      "status": "Final",
+      "source": {
+        "path": "articles/the-materials-we-test-against.md",
+        "exists": true,
+        "bytes": 7458,
+        "sha256": "d4a543b1975ad882f3757c7fa06d5803fe22d8594beda2c387a7b56585113954"
+      },
+      "published": {
+        "video": {
+          "path": "public/videos/the-materials-we-test-against.mp4",
+          "exists": true,
+          "bytes": 1161903,
+          "sha256": "3845a7de90db3a6432e489bdf76922b924f18def96a999a5d668f57a7330f69d",
+          "probe": {
+            "durationSeconds": 30,
+            "video": {
+              "codec": "h264",
+              "width": 1920,
+              "height": 1080,
+              "frameRate": "30/1",
+              "pixelFormat": "yuv420p"
+            },
+            "audio": {
+              "codec": "aac",
+              "sampleRate": 48000,
+              "channels": 1
+            }
+          }
+        },
+        "poster": {
+          "path": "public/videos/the-materials-we-test-against-poster.jpg",
+          "exists": true,
+          "bytes": 39134,
+          "sha256": "36003bbf030e7c0d4d8dc72b06e8b77082a9bd00beccf92b9f6df29b4a51b2a4"
+        },
+        "captions": {
+          "path": "public/videos/the-materials-we-test-against.vtt",
+          "exists": true,
+          "bytes": 638,
+          "sha256": "ffb2d9ff7cdf6863d5970b169e2695d2bd9b8abe0135cbbc74e25b20f27611e5"
+        }
+      },
+      "inputs": {
+        "motionManifest": {
+          "path": "data/video-motion/the-materials-we-test-against.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "narrationScript": {
+          "path": "data/narration-scripts/the-materials-we-test-against.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "articleVideoProject": {
+          "path": "media/projects/article-videos/the-materials-we-test-against",
+          "exists": false
+        }
+      },
+      "audit": {
+        "audio": {
+          "report": "release/audio-gate/audio-gate.json",
+          "decision": "fail",
+          "failures": [
+            "integrated-loudness-band"
+          ],
+          "baselinedFailures": [
+            "integrated-loudness-band"
+          ],
+          "independentlyPassing": false
+        },
+        "visual": {
+          "report": null,
+          "score": null,
+          "p0": null,
+          "sampleCount": 0,
+          "status": "no-fresh-error-free-targeted-review"
+        },
+        "knownHumanDefects": null
+      },
+      "replacement": {
+        "recommendedTier": "technical-remaster",
+        "readiness": "technical-remaster-required",
+        "reasons": [
+          "audio:integrated-loudness-band"
+        ],
+        "sceneContractRequired": false,
+        "eligibleForGeneration": false,
+        "eligibleForPublication": false
+      }
+    },
+    {
+      "slug": "the-order-is-right-the-size-is-wrong",
+      "title": "The Order Is Right, the Size Is Wrong",
+      "status": "Live evidence — every number reported is sealed as a machine-checked theorem over provenance-hashed data; kills and corrections are preserved in the record",
+      "source": {
+        "path": "articles/the-order-is-right-the-size-is-wrong.md",
+        "exists": true,
+        "bytes": 7012,
+        "sha256": "af557ed30afbdba08247d8ffc07bf5f482526be7fa7c1959a9d917033e5c3b2f"
+      },
+      "published": {
+        "video": {
+          "path": "public/videos/the-order-is-right-the-size-is-wrong.mp4",
+          "exists": true,
+          "bytes": 4934030,
+          "sha256": "49562e5b3459c245ebf88180ffdbb1326eda4d926060424439999c0fcbcdfd3f",
+          "probe": {
+            "durationSeconds": 134.933333,
+            "video": {
+              "codec": "h264",
+              "width": 1920,
+              "height": 1080,
+              "frameRate": "30/1",
+              "pixelFormat": "yuv420p"
+            },
+            "audio": {
+              "codec": "aac",
+              "sampleRate": 44100,
+              "channels": 1
+            }
+          }
+        },
+        "poster": {
+          "path": "public/videos/the-order-is-right-the-size-is-wrong-poster.jpg",
+          "exists": true,
+          "bytes": 35021,
+          "sha256": "2819619d2965af7206a49e35456e4a9a250078a0274d1945a7d6773a6575edd8"
+        },
+        "captions": {
+          "path": "public/videos/the-order-is-right-the-size-is-wrong.vtt",
+          "exists": true,
+          "bytes": 2351,
+          "sha256": "075f7d917520dc6d1c78af50e7a7b37ac4325dec1ef0d011c15bce881549a83e"
+        }
+      },
+      "inputs": {
+        "motionManifest": {
+          "path": "data/video-motion/the-order-is-right-the-size-is-wrong.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "narrationScript": {
+          "path": "data/narration-scripts/the-order-is-right-the-size-is-wrong.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "articleVideoProject": {
+          "path": "media/projects/article-videos/the-order-is-right-the-size-is-wrong",
+          "exists": false
+        }
+      },
+      "audit": {
+        "audio": {
+          "report": "release/audio-gate/audio-gate.json",
+          "decision": "fail",
+          "failures": [
+            "true-peak-ceiling"
+          ],
+          "baselinedFailures": [
+            "true-peak-ceiling"
+          ],
+          "independentlyPassing": false
+        },
+        "visual": {
+          "report": null,
+          "score": null,
+          "p0": null,
+          "sampleCount": 0,
+          "status": "no-fresh-error-free-targeted-review"
+        },
+        "knownHumanDefects": null
+      },
+      "replacement": {
+        "recommendedTier": "technical-remaster",
+        "readiness": "technical-remaster-required",
+        "reasons": [
+          "audio:true-peak-ceiling"
+        ],
+        "sceneContractRequired": false,
+        "eligibleForGeneration": false,
+        "eligibleForPublication": false
+      }
+    },
+    {
+      "slug": "the-savings-stack",
+      "title": "The Savings Stack: A Booklet on Doing Less, and the Commons That Makes Everyone Faster",
+      "status": "Final",
+      "source": {
+        "path": "articles/the-savings-stack.md",
+        "exists": true,
+        "bytes": 7311,
+        "sha256": "72d6fd80b024bf6968e75bda7fac87306a0a297c10a47167cbc82d8dfe4e551f"
+      },
+      "published": {
+        "video": {
+          "path": "public/videos/the-savings-stack.mp4",
+          "exists": true,
+          "bytes": 1101244,
+          "sha256": "48ed48f919b3e12ec06fcc84d355279921404c1a96c1526b33fea2b00e41996e",
+          "probe": {
+            "durationSeconds": 28,
+            "video": {
+              "codec": "h264",
+              "width": 1920,
+              "height": 1080,
+              "frameRate": "30/1",
+              "pixelFormat": "yuv420p"
+            },
+            "audio": {
+              "codec": "aac",
+              "sampleRate": 48000,
+              "channels": 1
+            }
+          }
+        },
+        "poster": {
+          "path": "public/videos/the-savings-stack-poster.jpg",
+          "exists": true,
+          "bytes": 51758,
+          "sha256": "d22c6d5a76766b43ad33036ee7ab0736b12f69f6044a94cebdfe594e6eac1dfa"
+        },
+        "captions": {
+          "path": "public/videos/the-savings-stack.vtt",
+          "exists": true,
+          "bytes": 482,
+          "sha256": "0c21b332e5eb6aead11bd636958225c9c8bf076b0b8b6b4b652299e390f7da1e"
+        }
+      },
+      "inputs": {
+        "motionManifest": {
+          "path": "data/video-motion/the-savings-stack.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "narrationScript": {
+          "path": "data/narration-scripts/the-savings-stack.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "articleVideoProject": {
+          "path": "media/projects/article-videos/the-savings-stack",
+          "exists": false
+        }
+      },
+      "audit": {
+        "audio": {
+          "report": "release/audio-gate/audio-gate.json",
+          "decision": "fail",
+          "failures": [
+            "integrated-loudness-band"
+          ],
+          "baselinedFailures": [
+            "integrated-loudness-band"
+          ],
+          "independentlyPassing": false
+        },
+        "visual": {
+          "report": null,
+          "score": null,
+          "p0": null,
+          "sampleCount": 0,
+          "status": "no-fresh-error-free-targeted-review"
+        },
+        "knownHumanDefects": null
+      },
+      "replacement": {
+        "recommendedTier": "technical-remaster",
+        "readiness": "technical-remaster-required",
+        "reasons": [
+          "audio:integrated-loudness-band"
+        ],
+        "sceneContractRequired": false,
+        "eligibleForGeneration": false,
+        "eligibleForPublication": false
+      }
+    },
+    {
+      "slug": "the-trust-layer",
+      "title": "The Trust Layer",
+      "status": "Published",
+      "source": {
+        "path": "articles/the-trust-layer.md",
+        "exists": true,
+        "bytes": 6090,
+        "sha256": "7f7da6495e0ccb764cfd2b4b5e8a1a6f3868822437a4198c97fedb0baa058200"
+      },
+      "published": {
+        "video": {
+          "path": "public/videos/the-trust-layer.mp4",
+          "exists": true,
+          "bytes": 933070,
+          "sha256": "b3e3657062ccb36327c1e313923c04f37f7d9c3e89483bb4c6697c227f1b6049",
+          "probe": {
+            "durationSeconds": 24,
+            "video": {
+              "codec": "h264",
+              "width": 1920,
+              "height": 1080,
+              "frameRate": "30/1",
+              "pixelFormat": "yuv420p"
+            },
+            "audio": {
+              "codec": "aac",
+              "sampleRate": 48000,
+              "channels": 1
+            }
+          }
+        },
+        "poster": {
+          "path": "public/videos/the-trust-layer-poster.jpg",
+          "exists": true,
+          "bytes": 34644,
+          "sha256": "b91b039899a6b24a8b0d6e11a1858be21ba0847e34651d19bde2fc5d9db6994d"
+        },
+        "captions": {
+          "path": "public/videos/the-trust-layer.vtt",
+          "exists": true,
+          "bytes": 474,
+          "sha256": "463cd24cdf8aca74b2df6c3f6bede56021622a0961ba8b2d164fb83041ff16bc"
+        }
+      },
+      "inputs": {
+        "motionManifest": {
+          "path": "data/video-motion/the-trust-layer.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "narrationScript": {
+          "path": "data/narration-scripts/the-trust-layer.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "articleVideoProject": {
+          "path": "media/projects/article-videos/the-trust-layer",
+          "exists": false
+        }
+      },
+      "audit": {
+        "audio": {
+          "report": "release/audio-gate/audio-gate.json",
+          "decision": "fail",
+          "failures": [
+            "integrated-loudness-band"
+          ],
+          "baselinedFailures": [
+            "integrated-loudness-band"
+          ],
+          "independentlyPassing": false
+        },
+        "visual": {
+          "report": null,
+          "score": null,
+          "p0": null,
+          "sampleCount": 0,
+          "status": "no-fresh-error-free-targeted-review"
+        },
+        "knownHumanDefects": null
+      },
+      "replacement": {
+        "recommendedTier": "technical-remaster",
+        "readiness": "technical-remaster-required",
+        "reasons": [
+          "audio:integrated-loudness-band"
+        ],
+        "sceneContractRequired": false,
+        "eligibleForGeneration": false,
+        "eligibleForPublication": false
+      }
+    },
+    {
+      "slug": "water-and-air-correcting-the-molecules-we-drink-and-breathe",
+      "title": "Water and Air: Correcting the Molecules Humans Drink and Breathe",
+      "status": "Draft",
+      "source": {
+        "path": "articles/water-and-air-correcting-the-molecules-we-drink-and-breathe.md",
+        "exists": true,
+        "bytes": 21417,
+        "sha256": "041f671d39de3ae484168ac52dcf72be9988658321d3c1ecd6a4f4d82d75f0fe"
+      },
+      "published": {
+        "video": {
+          "path": "public/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe.mp4",
+          "exists": true,
+          "bytes": 10185282,
+          "sha256": "0afd1968c677370eb0cb14de118562696503fcfcc96f97919c369c7598b070b7",
+          "probe": {
+            "durationSeconds": 139.402993,
+            "video": {
+              "codec": "h264",
+              "width": 1920,
+              "height": 1080,
+              "frameRate": "30/1",
+              "pixelFormat": "yuv420p"
+            },
+            "audio": {
+              "codec": "aac",
+              "sampleRate": 44100,
+              "channels": 1
+            }
+          }
+        },
+        "poster": {
+          "path": "public/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe-poster.jpg",
+          "exists": true,
+          "bytes": 43796,
+          "sha256": "695f98d0ac1bfbef40202b03f300309373eb0c754c8f91a0caf0a21ec649ad7e"
+        },
+        "captions": {
+          "path": "public/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe.vtt",
+          "exists": true,
+          "bytes": 3177,
+          "sha256": "4d1711f9adcd620489c2f2afe052a4a5e9d212ce6b225f22a62aa0c5209788a2"
+        }
+      },
+      "inputs": {
+        "motionManifest": {
+          "path": "data/video-motion/water-and-air-correcting-the-molecules-we-drink-and-breathe.json",
+          "exists": true,
+          "bytes": 3628,
+          "sha256": "a14e11aa7023bcfafda1f8b73f21872a74c9387b9becda6dbb82825457280a41"
+        },
+        "narrationScript": {
+          "path": "data/narration-scripts/water-and-air-correcting-the-molecules-we-drink-and-breathe.json",
+          "exists": true,
+          "bytes": 2457,
+          "sha256": "10dbe5d29891604725b322dafd9fd121481e7dd950b79eb27bdfa60bcba421eb"
+        },
+        "articleVideoProject": {
+          "path": "media/projects/article-videos/water-and-air-correcting-the-molecules-we-drink-and-breathe",
+          "exists": true
+        }
+      },
+      "audit": {
+        "audio": {
+          "report": "release/audio-gate/audio-gate.json",
+          "decision": "pass",
+          "failures": [],
+          "baselinedFailures": [],
+          "independentlyPassing": true
+        },
+        "visual": {
+          "report": "media/projects/video-review/reports/2026-08-11-22-55-39-smart-review.json",
+          "generatedAt": "2026-08-11T22:55:39.213Z",
+          "score": 95,
+          "p0": [],
+          "sampleCount": 38,
+          "blankFrameCount": 0,
+          "ocrHitCount": 11
+        },
+        "knownHumanDefects": {
+          "defectClasses": [
+            "missing-review-package",
+            "generic-application-cards",
+            "mechanism-not-legible"
+          ],
+          "requiredTimestampsSeconds": [
+            17,
+            32,
+            43,
+            53,
+            59,
+            68,
+            74,
+            84,
+            97,
+            102.8
+          ],
+          "recommendedTier": "authored-hyperframes-replacement"
+        }
+      },
+      "replacement": {
+        "recommendedTier": "authored-hyperframes-replacement",
+        "readiness": "blocked-pending-authored-scene-contract-and-review-package",
+        "reasons": [
+          "missing-review-package",
+          "generic-application-cards",
+          "mechanism-not-legible"
+        ],
+        "sceneContractRequired": true,
+        "eligibleForGeneration": false,
+        "eligibleForPublication": false
+      }
+    },
+    {
+      "slug": "why-lupi",
+      "title": "Why LUPI?",
+      "status": "Published",
+      "source": {
+        "path": "articles/why-lupi.md",
+        "exists": true,
+        "bytes": 4087,
+        "sha256": "ad22ee41c1f76ad26c45d5283b7ea5867d50c7ef6462c7267e298e4de55b5deb"
+      },
+      "published": {
+        "video": {
+          "path": "public/videos/why-lupi.mp4",
+          "exists": true,
+          "bytes": 4526023,
+          "sha256": "ecfa1d2c59bdb7dee67938c30f2a5328cd3fe9eb38bbe05658b8f4d61c386a97",
+          "probe": {
+            "durationSeconds": 112.733333,
+            "video": {
+              "codec": "h264",
+              "width": 1920,
+              "height": 1080,
+              "frameRate": "30/1",
+              "pixelFormat": "yuv420p"
+            },
+            "audio": {
+              "codec": "aac",
+              "sampleRate": 44100,
+              "channels": 1
+            }
+          }
+        },
+        "poster": {
+          "path": "public/videos/why-lupi-poster.jpg",
+          "exists": true,
+          "bytes": 18560,
+          "sha256": "3b66d7481734efa620a6a9abc5edeec92bb70328afbe7f7557e18fe3880d687d"
+        },
+        "captions": {
+          "path": "public/videos/why-lupi.vtt",
+          "exists": true,
+          "bytes": 1963,
+          "sha256": "4aadaa663d6c9f53860395c4e900c07a611f7cf5e9c54763b3b259d57f118f50"
+        }
+      },
+      "inputs": {
+        "motionManifest": {
+          "path": "data/video-motion/why-lupi.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "narrationScript": {
+          "path": "data/narration-scripts/why-lupi.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "articleVideoProject": {
+          "path": "media/projects/article-videos/why-lupi",
+          "exists": false
+        }
+      },
+      "audit": {
+        "audio": {
+          "report": "release/audio-gate/audio-gate.json",
+          "decision": "fail",
+          "failures": [
+            "true-peak-ceiling"
+          ],
+          "baselinedFailures": [
+            "true-peak-ceiling"
+          ],
+          "independentlyPassing": false
+        },
+        "visual": {
+          "report": null,
+          "score": null,
+          "p0": null,
+          "sampleCount": 0,
+          "status": "no-fresh-error-free-targeted-review"
+        },
+        "knownHumanDefects": null
+      },
+      "replacement": {
+        "recommendedTier": "technical-remaster",
+        "readiness": "technical-remaster-required",
+        "reasons": [
+          "audio:true-peak-ceiling"
+        ],
+        "sceneContractRequired": false,
+        "eligibleForGeneration": false,
+        "eligibleForPublication": false
+      }
+    },
+    {
+      "slug": "why-lupine-science",
+      "title": "Why Lupine Science?",
+      "status": "Published",
+      "source": {
+        "path": "articles/why-lupine-science.md",
+        "exists": true,
+        "bytes": 5803,
+        "sha256": "ef88d353e780db378a5ac300e63321350b2f8f5286b07d60afbfc2d8c034fe6c"
+      },
+      "published": {
+        "video": {
+          "path": "public/videos/why-lupine-science.mp4",
+          "exists": true,
+          "bytes": 4504753,
+          "sha256": "aa7bccaff718aa16c9a0da2550c6e574016379f8d1e1b6796756bfdb00817858",
+          "probe": {
+            "durationSeconds": 112.560998,
+            "video": {
+              "codec": "h264",
+              "width": 1920,
+              "height": 1080,
+              "frameRate": "30/1",
+              "pixelFormat": "yuv420p"
+            },
+            "audio": {
+              "codec": "aac",
+              "sampleRate": 44100,
+              "channels": 1
+            }
+          }
+        },
+        "poster": {
+          "path": "public/videos/why-lupine-science-poster.jpg",
+          "exists": true,
+          "bytes": 13925,
+          "sha256": "874b6fa6187181bb0287b2a174eeae332de95420cad62bfb1a49fa473255d805"
+        },
+        "captions": {
+          "path": "public/videos/why-lupine-science.vtt",
+          "exists": true,
+          "bytes": 2076,
+          "sha256": "a987d9600508365a0f44dd1f2a99bf97204eae7bf0eb7f016a7574068a5cf882"
+        }
+      },
+      "inputs": {
+        "motionManifest": {
+          "path": "data/video-motion/why-lupine-science.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "narrationScript": {
+          "path": "data/narration-scripts/why-lupine-science.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "articleVideoProject": {
+          "path": "media/projects/article-videos/why-lupine-science",
+          "exists": false
+        }
+      },
+      "audit": {
+        "audio": {
+          "report": "release/audio-gate/audio-gate.json",
+          "decision": "pass",
+          "failures": [],
+          "baselinedFailures": [],
+          "independentlyPassing": true
+        },
+        "visual": {
+          "report": null,
+          "score": null,
+          "p0": null,
+          "sampleCount": 0,
+          "status": "no-fresh-error-free-targeted-review"
+        },
+        "knownHumanDefects": null
+      },
+      "replacement": {
+        "recommendedTier": "deterministic-motion-rebuild",
+        "readiness": "targeted-frame-review-required",
+        "reasons": [
+          "fresh-targeted-visual-review-missing"
+        ],
+        "sceneContractRequired": false,
+        "eligibleForGeneration": false,
+        "eligibleForPublication": false
+      }
+    },
+    {
+      "slug": "z1-union-debrief",
+      "title": "The Union Verdict: A De-brief on the Z1 Campaign",
+      "status": "FOR EDITOR REVIEW — draft for the lead, pre-conversation; not for citation",
+      "source": {
+        "path": "articles/z1-union-debrief.md",
+        "exists": true,
+        "bytes": 9210,
+        "sha256": "0eccad9ee0311be575754851308e884757baca5cb00efd6359998ddbcfbc5ea8"
+      },
+      "published": {
+        "video": {
+          "path": "public/videos/z1-union-debrief.mp4",
+          "exists": true,
+          "bytes": 1064842,
+          "sha256": "5ace393923af277227916ee6bc786b5da63bebd5742ae385f0b3a5b5e5be1b27",
+          "probe": {
+            "durationSeconds": 28,
+            "video": {
+              "codec": "h264",
+              "width": 1920,
+              "height": 1080,
+              "frameRate": "30/1",
+              "pixelFormat": "yuv420p"
+            },
+            "audio": {
+              "codec": "aac",
+              "sampleRate": 48000,
+              "channels": 1
+            }
+          }
+        },
+        "poster": {
+          "path": "public/videos/z1-union-debrief-poster.jpg",
+          "exists": true,
+          "bytes": 40778,
+          "sha256": "02b5251fa926ba7229f1741a46e4b347b7ce72f5f73f466b0d33283f5909c02d"
+        },
+        "captions": {
+          "path": "public/videos/z1-union-debrief.vtt",
+          "exists": true,
+          "bytes": 598,
+          "sha256": "4ffc64b0932fd5017cbd17e14bef061ae4d2de897c7c67fd6493ec24e6c928f5"
+        }
+      },
+      "inputs": {
+        "motionManifest": {
+          "path": "data/video-motion/z1-union-debrief.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "narrationScript": {
+          "path": "data/narration-scripts/z1-union-debrief.json",
+          "exists": false,
+          "bytes": null,
+          "sha256": null
+        },
+        "articleVideoProject": {
+          "path": "media/projects/article-videos/z1-union-debrief",
+          "exists": false
+        }
+      },
+      "audit": {
+        "audio": {
+          "report": "release/audio-gate/audio-gate.json",
+          "decision": "fail",
+          "failures": [
+            "integrated-loudness-band"
+          ],
+          "baselinedFailures": [
+            "integrated-loudness-band"
+          ],
+          "independentlyPassing": false
+        },
+        "visual": {
+          "report": null,
+          "score": null,
+          "p0": null,
+          "sampleCount": 0,
+          "status": "no-fresh-error-free-targeted-review"
+        },
+        "knownHumanDefects": null
+      },
+      "replacement": {
+        "recommendedTier": "technical-remaster",
+        "readiness": "technical-remaster-required",
+        "reasons": [
+          "audio:integrated-loudness-band"
+        ],
+        "sceneContractRequired": false,
+        "eligibleForGeneration": false,
+        "eligibleForPublication": false
+      }
+    }
+  ]
+}
