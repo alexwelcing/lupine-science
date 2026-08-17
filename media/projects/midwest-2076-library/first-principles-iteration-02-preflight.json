@@ -1,0 +1,66 @@
+{
+  "count": 5,
+  "exitStatus": 0,
+  "results": [
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/first-principles/iteration-02/fp-01-r2.webp",
+      "paperShare": 0.004313151041666667,
+      "indigoShare": 0,
+      "inkShare": 0.2390407986111111,
+      "darkFieldShare": 0.23863389756944445,
+      "offPaletteShare": 0,
+      "wordCount": 241,
+      "suspectCount": 6,
+      "strongCount": 0,
+      "strongWords": []
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/first-principles/iteration-02/fp-04-r2.webp",
+      "paperShare": 0,
+      "indigoShare": 0,
+      "inkShare": 0.17274305555555555,
+      "darkFieldShare": 0.17228190104166666,
+      "offPaletteShare": 0.0008138020833333334,
+      "wordCount": 959,
+      "suspectCount": 41,
+      "strongCount": 1,
+      "strongWords": ["shen"]
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/first-principles/iteration-02/fp-06-r2.webp",
+      "paperShare": 0.019504123263888888,
+      "indigoShare": 0.0002712673611111111,
+      "inkShare": 0.12535264756944445,
+      "darkFieldShare": 0.12890625,
+      "offPaletteShare": 0,
+      "wordCount": 617,
+      "suspectCount": 22,
+      "strongCount": 0,
+      "strongWords": []
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/first-principles/iteration-02/fp-07-r2.webp",
+      "paperShare": 0.0013834635416666667,
+      "indigoShare": 0,
+      "inkShare": 0.3141547309027778,
+      "darkFieldShare": 0.3113878038194444,
+      "offPaletteShare": 0,
+      "wordCount": 382,
+      "suspectCount": 11,
+      "strongCount": 0,
+      "strongWords": []
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/first-principles/iteration-02/fp-08-r2.webp",
+      "paperShare": 0.009738498263888888,
+      "indigoShare": 0,
+      "inkShare": 0.3072916666666667,
+      "darkFieldShare": 0.2992621527777778,
+      "offPaletteShare": 0.001980251736111111,
+      "wordCount": 201,
+      "suspectCount": 7,
+      "strongCount": 0,
+      "strongWords": []
+    }
+  ]
+}

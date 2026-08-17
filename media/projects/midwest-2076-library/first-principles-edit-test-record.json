@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "project": "midwest-2076-brand-library",
+  "testId": "fp-07-r2-gpt-image-2-edit",
+  "purpose": "Test whether a fine-grained image editor can preserve a successful Recraft composition while correcting the exact mechanical relationships that text-to-image omitted.",
+  "sourceRequestId": "fp-07-r2",
+  "sourceProviderUrl": "https://v3b.fal.media/files/b/0aa5f371/XssVLxOWctxUxz5IoGFv0_qLrV3cto.webp",
+  "endpoint": "openai/gpt-image-2/edit",
+  "providerRequestId": "019ff280-9147-7f72-b435-379ed6892459",
+  "statusUrl": "https://queue.fal.run/openai/gpt-image-2/requests/019ff280-9147-7f72-b435-379ed6892459/status",
+  "responseUrl": "https://queue.fal.run/openai/gpt-image-2/requests/019ff280-9147-7f72-b435-379ed6892459",
+  "providerOutputUrl": "https://v3b.fal.media/files/b/0aa5f3cc/ANRDyVGrLewOT_Tq0VAe8_Jp4gktCR.webp",
+  "prompt": "Make a precise localized mechanical correction to the supplied industrial documentary image. Preserve the exact camera position, room geometry, concrete walls and ceiling, neutral lighting, palette, broad black tension table, radial clamps, copper edge pins, accordion-folded dark-green replacement skin on its wheeled cradle, material wear, and all existing proportions. Do not redesign or restyle the scene. Change only these two relationships: (1) replace the pale longitudinal worn strip on the stretched dark-green structural skin with one unmistakable opened diagonal load-spreading seam running from the near-left edge toward the far-right edge; the seam must have two physically separated composite edges, expose the black support beneath through the narrow opening, and show copper edge pins half-installed along only part of the diagonal joint; (2) add a clearly separate skeletal black freight-vehicle frame aligned lengthwise immediately behind the tension table, with open rectangular bays and visible distance between the vehicle frame and table structure, so it cannot be mistaken for the table base. Keep the repaired skin stretched flat and keep the folded replacement skin unchanged. Photorealistic matter-of-fact industrial documentation. No people, words, labels, logos, screens, diagrams, glow, sparks, clouds, or additional machinery.",
+  "settings": {
+    "imageSize": "auto",
+    "quality": "high",
+    "outputFormat": "webp",
+    "numImages": 1,
+    "syncMode": false
+  },
+  "conservativeAllowanceUsd": 1.0,
+  "exactBilledCostUsd": null,
+  "classification": "Speculative worldbuilding artwork informed by materials culture. Not a forecast, engineering proposal, validated material claim, scientific reference, simulation result, or evidence of a real deployment.",
+  "files": {
+    "source": {
+      "path": "media/projects/midwest-2076-library/assets/first-principles/edit-tests/fp-07-r2-gpt-image-2-edit-source.webp",
+      "width": 3072,
+      "height": 1536,
+      "bytes": 5383672,
+      "sha256": "5d51c938dcbe36cb41c5d7306978bb8bb34b6f1752d2f46e2cdbb59b2c87bbe9"
+    },
+    "master": {
+      "path": "public/brand-assets/assets/images/midwest-2076/first-principles/edit-tests/fp-07-r2-gpt-image-2-edit.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 254418,
+      "sha256": "c6a52950712f7bc27911711531505e076af45447702e01b3199a3b7bc60efa0c"
+    },
+    "thumbnail": {
+      "path": "public/brand-assets/assets/images/midwest-2076/first-principles/edit-tests/thumbs/fp-07-r2-gpt-image-2-edit.webp",
+      "width": 480,
+      "height": 270,
+      "bytes": 21176,
+      "sha256": "ef894f533e3bcb86f57fa409da6412cfef60600781e6a2b138305cf8983c19bf"
+    },
+    "comparison": {
+      "path": "media/projects/midwest-2076-library/fp-07-edit-comparison.jpg",
+      "width": 3200,
+      "height": 964,
+      "bytes": 852188,
+      "sha256": "de7ce40ccd10225a2ca4ef27806439160075ef50fd4ee90601f59a7d3c5a19d2"
+    }
+  },
+  "evaluation": {
+    "workflowVerdict": "fail",
+    "assetVerdict": "reject",
+    "eligibleForFinalLibrary": false,
+    "preservedCompositionAndMaterialLanguage": true,
+    "openedDiagonalSeamSucceeded": false,
+    "partialRepinningAlongSeamSucceeded": false,
+    "separateFreightFrameSucceeded": false,
+    "observations": [
+      "The edit preserved the room, camera, tension table, clamps, palette, replacement skin, and documentary character.",
+      "The editor replaced the worn strip with a long central opening, but the opening is longitudinal rather than diagonal.",
+      "Copper pins remain on the outer table edges instead of partially repinning the new seam.",
+      "The exposed black grid remains visually integrated with the table or support substrate; no separate skeletal freight frame appears behind it.",
+      "The edit therefore improved visual separation without establishing the authored reversible freight-body repair topology."
+    ],
+    "decision": "Stop paid edit iteration. Two Recraft prompt revisions and one GPT Image 2 localized edit did not achieve the complete authored mechanical relationship. Preserve outputs as method evidence only."
+  }
+}

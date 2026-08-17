@@ -1,0 +1,304 @@
+{
+  "schemaVersion": 1,
+  "project": "midwest-2076-brand-library",
+  "sequenceId": "sys-07",
+  "generatedAt": "2026-08-11T20:38:27.203319Z",
+  "source": "media/projects/midwest-2076-library/first-principles-library-requests.json",
+  "provider": "fal.ai",
+  "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+  "requestIds": [
+    "m76-fp-062",
+    "m76-fp-063",
+    "m76-fp-064",
+    "m76-fp-066"
+  ],
+  "submittedCount": 4,
+  "completedCount": 4,
+  "failedCount": 0,
+  "conservativeUnitAllowanceUsd": 0.21,
+  "conservativeTotalAllowanceUsd": 0.84,
+  "exactBilledCostUsd": null,
+  "classification": "Speculative worldbuilding artwork informed by materials culture. Not a forecast, engineering proposal, validated material claim, scientific reference, simulation result, or evidence of a real deployment.",
+  "results": [
+    {
+      "id": "m76-fp-062",
+      "systemId": "sys-07",
+      "systemTitle": "Freight body repaired like a textile",
+      "sourceSceneId": "fp-07",
+      "role": "enabling-mechanism",
+      "requiredEvidence": [
+        "simple black frame",
+        "one diagonal open seam",
+        "continuous peeled skin"
+      ],
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff28b-f37d-7a02-b1cc-e218d2b38ded",
+      "statusUrl": "https://queue.fal.run/fal-ai/recraft/requests/019ff28b-f37d-7a02-b1cc-e218d2b38ded/status",
+      "responseUrl": "https://queue.fal.run/fal-ai/recraft/requests/019ff28b-f37d-7a02-b1cc-e218d2b38ded",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f406/USrdsjlAPz44J1YEaXc4N_ieR5eoPr.webp",
+      "prompt": "Render this exact pre-authored speculative evidence view. Preserve the specified future system and do not attempt to show the complete causal chain in one frame. System context: High-toughness structural sheets use reversible load-spreading seams that reopen without destroying adjacent material. Present constraint removed: Large vehicle shells no longer require permanent welded monocoques or full rigid-panel replacement. Resulting system topology: Freight bodies become tensioned garments over durable frames, serviced on infrastructural textile floors. This image has one dominant proof only: The vehicle skin opens as one continuous diagonal joint rather than detached rigid panels. Exact visible scene: On a simple black freight frame, one long diagonal seam is unpinned from floor to roof, allowing a continuous green skin to peel outward while neighboring skin remains taut. Required visible facts, limited to these 3: simple black frame; one diagonal open seam; continuous peeled skin. Camera hierarchy: Medium side mechanism view. Matter-of-fact institutional documentary photography. Believable gravity, explicit joints, repair wear, ordinary neutral light, restrained color, and materially specific surfaces. Weather is visible only through material effects, residue, frost, moisture, or maintenance. Sky must be absent or visually negligible. Never include or substitute: words or labels; diagrams or pseudo-data; dramatic clouds or weather spectacle; generic futuristic architecture; holograms or neon; flying vehicles; solarpunk decoration; luxury visualization; apocalypse; molecule decoration. Speculative worldbuilding artwork informed by materials culture. Not a forecast, engineering proposal, validated material claim, scientific reference, simulation result, or evidence of a real deployment.",
+      "promptSha256": "c2ee0f83747c0145345d55b5dcbe5350d6b9fc9e23264355c16cf7e0c2f75551",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/sequence-pilot/sys-07/source/m76-fp-062.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/sequence-pilot/sys-07/m76-fp-062.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/sequence-pilot/sys-07/thumbs/m76-fp-062.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 5631984,
+        "master": 217036,
+        "thumbnail": 18000
+      },
+      "sha256": {
+        "source": "1ab1f533ce2e98f22a331704336c4db49b8a89e38a261dcaf21b1e693b1b103c",
+        "master": "7809d93539875dfbd06058579c96faa3ebaa13e3bff8937dfcc33d427b35e8fb",
+        "thumbnail": "769842c9e9bdc9aa80dc4b5bcdd08a8468cfa5889271a955f8096f048e133c52"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed"
+    },
+    {
+      "id": "m76-fp-063",
+      "systemId": "sys-07",
+      "systemTitle": "Freight body repaired like a textile",
+      "sourceSceneId": "fp-07",
+      "role": "impossible-scale",
+      "requiredEvidence": [
+        "three connected frames",
+        "train-length folded skin",
+        "broad low repair hall"
+      ],
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff28b-f3fa-75f1-b37a-2a21e88ea69a",
+      "statusUrl": "https://queue.fal.run/fal-ai/recraft/requests/019ff28b-f3fa-75f1-b37a-2a21e88ea69a/status",
+      "responseUrl": "https://queue.fal.run/fal-ai/recraft/requests/019ff28b-f3fa-75f1-b37a-2a21e88ea69a",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f406/TmG1gVl07JF1TmxRwNKPc_i8Z4LMBt.webp",
+      "prompt": "Render this exact pre-authored speculative evidence view. Preserve the specified future system and do not attempt to show the complete causal chain in one frame. System context: High-toughness structural sheets use reversible load-spreading seams that reopen without destroying adjacent material. Present constraint removed: Large vehicle shells no longer require permanent welded monocoques or full rigid-panel replacement. Resulting system topology: Freight bodies become tensioned garments over durable frames, serviced on infrastructural textile floors. This image has one dominant proof only: Train-length surfaces are renewed as broad continuous strips. Exact visible scene: Inside a long low hall, three connected freight frames stand exposed while one continuous folded replacement skin extends the full visible train length beside them. Required visible facts, limited to these 3: three connected frames; train-length folded skin; broad low repair hall. Camera hierarchy: Compressed axial hall view; no exterior. Matter-of-fact institutional documentary photography. Believable gravity, explicit joints, repair wear, ordinary neutral light, restrained color, and materially specific surfaces. Weather is visible only through material effects, residue, frost, moisture, or maintenance. Sky must be absent or visually negligible. Never include or substitute: words or labels; diagrams or pseudo-data; dramatic clouds or weather spectacle; generic futuristic architecture; holograms or neon; flying vehicles; solarpunk decoration; luxury visualization; apocalypse; molecule decoration. Speculative worldbuilding artwork informed by materials culture. Not a forecast, engineering proposal, validated material claim, scientific reference, simulation result, or evidence of a real deployment.",
+      "promptSha256": "7d08a51681bf30686107d218121da9637509fe1147dbf76c8666f43440f27f88",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/sequence-pilot/sys-07/source/m76-fp-063.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/sequence-pilot/sys-07/m76-fp-063.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/sequence-pilot/sys-07/thumbs/m76-fp-063.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 5884968,
+        "master": 249636,
+        "thumbnail": 25540
+      },
+      "sha256": {
+        "source": "3b1e543bb1747896ea55d914ee77c8d24e54cae5ed11c38b46adc75060b9bbba",
+        "master": "46c5dd0181cc3d3d5a1a7024f969c9562c666696a9f2d19c051e7479c10cc32e",
+        "thumbnail": "49886e0346fdeca42ec2f60a2602e9ccfa11a6c6a8e0212bc6d46f1d39b42d02"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed"
+    },
+    {
+      "id": "m76-fp-064",
+      "systemId": "sys-07",
+      "systemTitle": "Freight body repaired like a textile",
+      "sourceSceneId": "fp-07",
+      "role": "operation",
+      "requiredEvidence": [
+        "dominant tension table",
+        "radial clamps",
+        "separate aligned vehicle frame"
+      ],
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff28b-f47e-7883-bb61-a96164aaca7f",
+      "statusUrl": "https://queue.fal.run/fal-ai/recraft/requests/019ff28b-f47e-7883-bb61-a96164aaca7f/status",
+      "responseUrl": "https://queue.fal.run/fal-ai/recraft/requests/019ff28b-f47e-7883-bb61-a96164aaca7f",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f406/3HpoejPCHVfSmgdOJm3D2_7QBcKqbB.webp",
+      "prompt": "Render this exact pre-authored speculative evidence view. Preserve the specified future system and do not attempt to show the complete causal chain in one frame. System context: High-toughness structural sheets use reversible load-spreading seams that reopen without destroying adjacent material. Present constraint removed: Large vehicle shells no longer require permanent welded monocoques or full rigid-panel replacement. Resulting system topology: Freight bodies become tensioned garments over durable frames, serviced on infrastructural textile floors. This image has one dominant proof only: A tension table transfers a peeled structural skin into a controlled load state. Exact visible scene: A broad green freight skin lies stretched across a waist-high black table under radial clamps, aligned directly with its exposed vehicle frame behind it. Required visible facts, limited to these 3: dominant tension table; radial clamps; separate aligned vehicle frame. Camera hierarchy: Three-quarter service-balcony view. Matter-of-fact institutional documentary photography. Believable gravity, explicit joints, repair wear, ordinary neutral light, restrained color, and materially specific surfaces. Weather is visible only through material effects, residue, frost, moisture, or maintenance. Sky must be absent or visually negligible. Never include or substitute: words or labels; diagrams or pseudo-data; dramatic clouds or weather spectacle; generic futuristic architecture; holograms or neon; flying vehicles; solarpunk decoration; luxury visualization; apocalypse; molecule decoration. Speculative worldbuilding artwork informed by materials culture. Not a forecast, engineering proposal, validated material claim, scientific reference, simulation result, or evidence of a real deployment.",
+      "promptSha256": "a88fc76435fd28af6e3314abe3a8e3c3682b4b528628ccae4fb0d0e5f45a0a59",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/sequence-pilot/sys-07/source/m76-fp-064.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/sequence-pilot/sys-07/m76-fp-064.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/sequence-pilot/sys-07/thumbs/m76-fp-064.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 6746626,
+        "master": 318842,
+        "thumbnail": 26510
+      },
+      "sha256": {
+        "source": "9db6738739014022be3ebdea4fe9eee141239c99375b31cc2e4f30f743daea62",
+        "master": "75906a5ec62f217a145272eea9ceb0c06c3f3ded4305daeec38a911de0cf0ef9",
+        "thumbnail": "4ffdb3427bb19a592b523d35390a9d9050c6a9c4b3e7c9c28b6200b10ff1b707"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed"
+    },
+    {
+      "id": "m76-fp-066",
+      "systemId": "sys-07",
+      "systemTitle": "Freight body repaired like a textile",
+      "sourceSceneId": "fp-07",
+      "role": "changed-labor",
+      "requiredEvidence": [
+        "accordion skin cradle",
+        "tension table",
+        "manual seam pinning"
+      ],
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff28b-f4f6-7f12-a978-c348d965dcf8",
+      "statusUrl": "https://queue.fal.run/fal-ai/recraft/requests/019ff28b-f4f6-7f12-a978-c348d965dcf8/status",
+      "responseUrl": "https://queue.fal.run/fal-ai/recraft/requests/019ff28b-f4f6-7f12-a978-c348d965dcf8",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f412/k1S-6uIlXux8SES5_WQbU_czF9d6SK.webp",
+      "prompt": "Render this exact pre-authored speculative evidence view. Preserve the specified future system and do not attempt to show the complete causal chain in one frame. System context: High-toughness structural sheets use reversible load-spreading seams that reopen without destroying adjacent material. Present constraint removed: Large vehicle shells no longer require permanent welded monocoques or full rigid-panel replacement. Resulting system topology: Freight bodies become tensioned garments over durable frames, serviced on infrastructural textile floors. This image has one dominant proof only: Vehicle repair becomes large-scale tensioning, folding, and seam work. Exact visible scene: Workers guide an accordion-folded replacement skin from a wheeled cradle onto a broad tension table while another worker sets copper seam pins by hand. Required visible facts, limited to these 3: accordion skin cradle; tension table; manual seam pinning. Camera hierarchy: Documentary hall view; machinery and sheet dominate. Matter-of-fact institutional documentary photography. Believable gravity, explicit joints, repair wear, ordinary neutral light, restrained color, and materially specific surfaces. Weather is visible only through material effects, residue, frost, moisture, or maintenance. Sky must be absent or visually negligible. Never include or substitute: words or labels; diagrams or pseudo-data; dramatic clouds or weather spectacle; generic futuristic architecture; holograms or neon; flying vehicles; solarpunk decoration; luxury visualization; apocalypse; molecule decoration. Speculative worldbuilding artwork informed by materials culture. Not a forecast, engineering proposal, validated material claim, scientific reference, simulation result, or evidence of a real deployment.",
+      "promptSha256": "67a631b57636682a595142507071eddea26354c1c7ad0f0c95dc92f24351ea9a",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/sequence-pilot/sys-07/source/m76-fp-066.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/sequence-pilot/sys-07/m76-fp-066.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/sequence-pilot/sys-07/thumbs/m76-fp-066.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 6162766,
+        "master": 284612,
+        "thumbnail": 23994
+      },
+      "sha256": {
+        "source": "5512542948aaf534606e832c4e23ba8ad11723f22ccbaf513b0ca11fcb964729",
+        "master": "23e0fddcf3ac73a5fb720c22a7894938c90309ab76661eec37329d09ecce752e",
+        "thumbnail": "5a15049249afd3df5fe7fb296a84dfece3dd26f621db7f63f3c5a1f26bbe03a3"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed"
+    }
+  ],
+  "derivativeMethod": {
+    "tool": "ImageMagick",
+    "master": "flatten #faf9f6; centered 16:9 cover crop; Lanczos resize 1600x900; WebP quality 86 method 6",
+    "thumbnail": "flatten #faf9f6; centered 16:9 cover crop; Lanczos resize 480x270; WebP quality 80 method 6"
+  },
+  "contactSheet": {
+    "path": "media/projects/midwest-2076-library/sequence-pilot-sys-07-contact-sheet.jpg",
+    "causalOrder": [
+      "m76-fp-062",
+      "m76-fp-063",
+      "m76-fp-064",
+      "m76-fp-066"
+    ],
+    "dimensions": {
+      "width": 1680,
+      "height": 1032
+    },
+    "bytes": 541983,
+    "sha256": "c015d214e8acacde4f6e13a3bb5d6f0cbcbc79f63e8b60ae1d4a55bd75c7482c"
+  },
+  "totalPublicBytes": 1164170,
+  "manifestUpdate": {
+    "path": "media/projects/midwest-2076-library/first-principles-library-requests.json",
+    "updatedIds": [
+      "m76-fp-062",
+      "m76-fp-063",
+      "m76-fp-064",
+      "m76-fp-066"
+    ],
+    "updatedStatus": "generated",
+    "eligibleForFinalLibrary": false,
+    "nonSelectedRecordsUnchanged": true
+  },
+  "preflight": {
+    "path": "media/projects/midwest-2076-library/sequence-pilot-sys-07-preflight.json",
+    "bytes": 1627,
+    "sha256": "7f4d6bf5b36f12bb7ad62b89f7fc2ccf378d90905c55ac20d738d4e89b0582b3",
+    "exitStatus": 0,
+    "scope": "four public masters"
+  },
+  "selection": {
+    "path": "media/projects/midwest-2076-library/sequence-pilot-sys-07-selection.json",
+    "bytes": 8599,
+    "sha256": "477e0af77902823e9f34730c70e3faa2f92c52dc12b2bbc792cbbc4de94af207",
+    "sequenceVerdict": "fail"
+  },
+  "integrityVerification": {
+    "verifiedAt": "2026-08-11T20:46:05.549018Z",
+    "allPassed": true,
+    "checks": [
+      "100-request manifest cardinality",
+      "all 100 prompt SHA-256 digests valid",
+      "generated IDs exactly m76-fp-062, m76-fp-063, m76-fp-064, m76-fp-066",
+      "96 non-pilot statuses remain authored-not-submitted",
+      "all four eligibleForFinalLibrary remain false",
+      "submitted/completed/failed = 4/4/0",
+      "allowance = 4 x $0.21 = $0.84",
+      "exact billing null at batch and result levels",
+      "all source/master/thumb dimensions, bytes, and SHA-256 match",
+      "contact-sheet order, dimensions, bytes, and SHA-256 match",
+      "preflight count/exit/hash match",
+      "selection IDs/counts/hash and sequence fail verdict match"
+    ]
+  }
+}

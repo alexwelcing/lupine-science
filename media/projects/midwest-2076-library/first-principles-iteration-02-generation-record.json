@@ -1,0 +1,285 @@
+{
+  "schemaVersion": 1,
+  "project": "midwest-2076-brand-library",
+  "generatedAt": "2026-08-11T20:18:10Z",
+  "provider": "fal.ai",
+  "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+  "requestIds": [
+    "fp-01-r2",
+    "fp-04-r2",
+    "fp-06-r2",
+    "fp-07-r2",
+    "fp-08-r2"
+  ],
+  "submittedCount": 5,
+  "completedCount": 5,
+  "failedCount": 0,
+  "conservativeUnitAllowanceUsd": 0.21,
+  "conservativeTotalAllowanceUsd": 1.05,
+  "exactBilledCostUsd": null,
+  "classification": "Speculative worldbuilding artwork informed by materials culture. Not a forecast, engineering proposal, validated material claim, scientific reference, simulation result, or evidence of a real deployment.",
+  "results": [
+    {
+      "id": "fp-01-r2",
+      "title": "River-width separation loom",
+      "sourceSceneId": "fp-01",
+      "revision": 2,
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff275-286d-7a32-9bb6-9eeccc4ff63e",
+      "statusUrl": "https://queue.fal.run/fal-ai/recraft/requests/019ff275-286d-7a32-9bb6-9eeccc4ff63e/status",
+      "responseUrl": "https://queue.fal.run/fal-ai/recraft/requests/019ff275-286d-7a32-9bb6-9eeccc4ff63e",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f370/_6d4ylJ2ObKsJIrUlk9V2_9E0iXxZX.webp",
+      "prompt": "Render exactly the following pre-authored speculative scene. Do not redesign the machine, add a different future concept, or replace specified relationships with familiar science-fiction imagery. Title: River-width separation loom. Speculative material premise, not a validated scientific claim: Durable low-fouling ion-selective membranes remain mechanically useful as long flexible ribbons in moving freshwater. First-principles consequence: this removes the present constraint that water separation no longer requires the whole flow to be forced through a compact high-pressure building full of rigid cartridges. Required machine topology: The plant becomes a distributed loom: replaceable membrane bands move slowly between anchored service piers, using ambient current and long residence distance instead of one pressurized vessel. Required scale consequence: The active separation surface becomes river-width and landscape-length while remaining sectional, repairable, and navigable. Required operational logic: Crews isolate one band, draw it onto a spool deck, clean or replace it, and return it without closing the entire system; fouling and replacement rolls remain visible. Required spatial organization: Shipping channels, public crossings, wet maintenance decks, sediment corridors, and selective membrane lanes share one broad civic-industrial river section; there is no iconic plant building. Regional reason: The machine belongs to a working inland river where drinking water, freight, flood sediment, and ecological passage share a constrained cross-section. Exact visible scene: The center of the frame is a transverse maintenance rack spanning three dark-green membrane ribbons at the water edge. Each ribbon passes visibly through its own low white ceramic comb: five thick parallel teeth, hinged side arms, and an open top that lets the ribbon be lifted out. Behind the rack, the three ribbons continue far into the river as independent lanes. In front, one ribbon winds onto a stained ceramic drum; a second empty replacement drum rests sideways on a wheeled cart. A broad navigation channel remains open beyond the rightmost lane. The image must visibly contain all of these mechanical facts: independent membrane lanes; ceramic spool drums; articulated comb frames; edge clamps; replacement rolls; sediment staining; maintenance cart; unobstructed navigation channel. Camera and hierarchy: Close eye-level documentary view from the wet service pier; the three hinged comb frames and ribbon path occupy the middle half, drums occupy the foreground, river lanes establish scale behind them; machinery fills ninety percent; sky is excluded. Use quiet matter-of-fact institutional documentary photography, believable gravity, consistent joints, maintenance wear, ordinary neutral light, and materially specific surfaces. Weather may appear only through residue, moisture, frost, light, or maintenance. Never make sky or clouds the subject. Do not substitute: dam; waterfall; desalination plant; giant pipe array; turbine hall; glowing water; aerial masterplan; technical labels. No words, letters, numbers, labels, signs, logos, flags, diagrams, screens, pseudo-data, molecule imagery, DNA, holograms, neon, flying vehicles, generic smart-city towers, solarpunk greenery, apocalypse, luxury architecture, dramatic cloudscape, storm spectacle, or promotional gloss. Speculative worldbuilding artwork informed by materials culture. Not a forecast, engineering proposal, validated material claim, scientific reference, simulation result, or evidence of a real deployment.",
+      "promptSha256": "4d2716651598bca5564c9c21bd369f9acd3c9e22280cb20632d5f6f65ec1c95b",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/first-principles/source/iteration-02/fp-01-r2.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/first-principles/iteration-02/fp-01-r2.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/first-principles/iteration-02/thumbs/fp-01-r2.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 5936894,
+        "master": 285374,
+        "thumbnail": 22362
+      },
+      "sha256": {
+        "source": "74d28dcca8182194e54a23b31c4d1b702d0def2938b2e28403138e9d91f29ecf",
+        "master": "b04774e077c6897f7a20ece2bac9d77331d54f7707d1761c5bd4c2e6ace0d8c4",
+        "thumbnail": "8309e5e8ee1ed57085a2bb69114e801446a22314d78ecc42c1c5d7617312d274"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed"
+    },
+    {
+      "id": "fp-04-r2",
+      "title": "Library whose walls are the seasonal heat machine",
+      "sourceSceneId": "fp-04",
+      "revision": 2,
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff275-28df-7cb0-a411-294f73566b9d",
+      "statusUrl": "https://queue.fal.run/fal-ai/recraft/requests/019ff275-28df-7cb0-a411-294f73566b9d/status",
+      "responseUrl": "https://queue.fal.run/fal-ai/recraft/requests/019ff275-28df-7cb0-a411-294f73566b9d",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f371/sjvpkhXUZPbPb6lGfmrWf_VH5N6LN4.webp",
+      "prompt": "Render exactly the following pre-authored speculative scene. Do not redesign the machine, add a different future concept, or replace specified relationships with familiar science-fiction imagery. Title: Library whose walls are the seasonal heat machine. Speculative material premise, not a validated scientific claim: Load-bearing porous mineral blocks hold a stable phase-changing thermal medium in sealed internal gradients and remain repairable as discrete courses. First-principles consequence: this removes the present constraint that thermal storage no longer requires a separate tank farm, hidden basement, or disconnected plant room. Required machine topology: Storage, structure, environmental control, shelves, seating, and refuge space become one thick inhabited wall with accessible dry manifolds at course joints. Required scale consequence: An ordinary civic building can contain neighborhood-scale seasonal thermal storage without surrendering a separate building-sized volume to tanks. Required operational logic: Maintenance occurs along removable public-facing joint bands; people migrate through different thermal depths during heat, cold, or interruption. Required spatial organization: The library is a gradient of deep chambers carved into a thermal body: exchange rooms, reading galleries, and protected refuge rooms rather than rooms behind a thin facade. Regional reason: The institution serves everyday learning and seasonal refuge through humid summers and severe winter cold. Exact visible scene: A working public reading room is carved directly into an immense porous mineral wall: three deep occupied alcoves contain low bookshelves, worn benches, tables, reading lamps, and ordinary readers. Between two alcoves, one complete horizontal structural course-joint cover has been removed and leans beside the opening. The long rectangular opening exposes a row of sealed ceramic thermal cartridges and copper manifolds; two matching cartridges sit on a wheeled service cradle. A very thick doorway reveals a warmer inner refuge room behind the reading wall. The image must visibly contain all of these mechanical facts: inhabited wall depth; removable joint band; sealed ceramic cartridges; wheeled service cradle; shelves and seating inside thermal wall; multiple thermal-depth chambers; worn touch surfaces. Camera and hierarchy: Eye-level interior view perpendicular to the inhabited wall; occupied library alcoves fill both sides of the frame, the removed course-joint maintenance opening is central, and the deep doorway remains visible; no exterior view or sky. Use quiet matter-of-fact institutional documentary photography, believable gravity, consistent joints, maintenance wear, ordinary neutral light, and materially specific surfaces. Weather may appear only through residue, moisture, frost, light, or maintenance. Never make sky or clouds the subject. Do not substitute: atrium; amphitheater; spa; bunker; conventional library with futuristic cladding; glowing walls; luxury minimalism. No words, letters, numbers, labels, signs, logos, flags, diagrams, screens, pseudo-data, molecule imagery, DNA, holograms, neon, flying vehicles, generic smart-city towers, solarpunk greenery, apocalypse, luxury architecture, dramatic cloudscape, storm spectacle, or promotional gloss. Speculative worldbuilding artwork informed by materials culture. Not a forecast, engineering proposal, validated material claim, scientific reference, simulation result, or evidence of a real deployment.",
+      "promptSha256": "f949719e697363a5c34f71bb1afa792d30118cf0bdb7d477def6bec7bf34882a",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/first-principles/source/iteration-02/fp-04-r2.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/first-principles/iteration-02/fp-04-r2.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/first-principles/iteration-02/thumbs/fp-04-r2.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 7516162,
+        "master": 527030,
+        "thumbnail": 36696
+      },
+      "sha256": {
+        "source": "a96ba9b2caba72dce3ca0114de1d6bfd5454ab466fe1f9401ada64e62e08a139",
+        "master": "11e3b9e9b9dc3feda24035db8a8694a0c3b771dbeccd5a681e6c0d6359b6be75",
+        "thumbnail": "1362fce66a8baab97a980e8640126f9911ac2f24807d7995fbea1884af96b476"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed"
+    },
+    {
+      "id": "fp-06-r2",
+      "title": "Quarry-scale continuous fabricator",
+      "sourceSceneId": "fp-06",
+      "revision": 2,
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff275-295e-7ba3-9197-1fe204ef4b30",
+      "statusUrl": "https://queue.fal.run/fal-ai/recraft/requests/019ff275-295e-7ba3-9197-1fe204ef4b30/status",
+      "responseUrl": "https://queue.fal.run/fal-ai/recraft/requests/019ff275-295e-7ba3-9197-1fe204ef4b30",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f371/UNpE-6jmgFL_o_YfoETyN_1kORBwrD.webp",
+      "prompt": "Render exactly the following pre-authored speculative scene. Do not redesign the machine, add a different future concept, or replace specified relationships with familiar science-fiction imagery. Title: Quarry-scale continuous fabricator. Speculative material premise, not a validated scientific claim: Local mineral slurry can be deposited in thick graded layers, stabilized at low temperature, and reinforced only along required stress paths. First-principles consequence: this removes the present constraint that massive flood structures no longer require standardized precast units, dense formwork, or transport from a centralized factory. Required machine topology: A slow linear gantry moves through quarry and floodplain, depositing continuous branching water structures while a smaller machine inserts reusable reinforcement at junctions. Required scale consequence: Kilometer-long structures vary continuously with ground and flow instead of repeating truckable components. Required operational logic: Work shifts from formwork and hauling to slurry preparation, nozzle service, reinforcement recovery, surface inspection, and patching interrupted strata. Required spatial organization: Quarry, factory, test yard, and finished infrastructure become one continuous territory occupied before the whole work is complete. Regional reason: Glacial aggregate pits, river flood works, declining haul capacity, and local public-works maintenance define the production geography. Exact visible scene: From the quarry rim, a kilometer-scale black gantry crosses an excavated mineral bed. In the near foreground, its service carriage carries two enormous visible reinforcement spools and two deposition nozzles. One nozzle is actively laying a dark wet layer into a branching Y-junction; the second lays a pale porous layer beside it. Immediately behind the carriage, one interrupted layer has a rough rectangular repair splice with clamp scars, unmistakably different from the smooth continuous strata. Farther behind, the changing deposited cross-section becomes a walkable service edge and slow-water basin. The image must visibly contain all of these mechanical facts: long linear gantry; two deposition nozzles; graded wet strata; changing cross-section; branching channel; reinforcement spools; maintenance platforms; patched nozzle interruptions. Camera and hierarchy: High oblique view from the quarry rim with the spool-and-nozzle service carriage large in the lower foreground and the kilometer-scale gantry receding across the frame; the Y-junction and repaired interruption must remain readable; sky excluded. Use quiet matter-of-fact institutional documentary photography, believable gravity, consistent joints, maintenance wear, ordinary neutral light, and materially specific surfaces. Weather may appear only through residue, moisture, frost, light, or maintenance. Never make sky or clouds the subject. Do not substitute: house-scale printer; giant robotic arm; lunar base; concrete utopia; technical overlay; immaculate construction site. No words, letters, numbers, labels, signs, logos, flags, diagrams, screens, pseudo-data, molecule imagery, DNA, holograms, neon, flying vehicles, generic smart-city towers, solarpunk greenery, apocalypse, luxury architecture, dramatic cloudscape, storm spectacle, or promotional gloss. Speculative worldbuilding artwork informed by materials culture. Not a forecast, engineering proposal, validated material claim, scientific reference, simulation result, or evidence of a real deployment.",
+      "promptSha256": "7dab866052ab3551659ade3cb7b44659d9fee2ca0b039c3aba8ca28064055a0b",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/first-principles/source/iteration-02/fp-06-r2.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/first-principles/iteration-02/fp-06-r2.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/first-principles/iteration-02/thumbs/fp-06-r2.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 7024898,
+        "master": 484116,
+        "thumbnail": 31234
+      },
+      "sha256": {
+        "source": "ffee3bed94117ae7fc80b4768b093a97d09c72c946f0be1e5cab0a65f3ef61bf",
+        "master": "6c8187e1548e6f9fa2e5b8716658d115cc00f9d5967bafc0728fbae1f78ae045",
+        "thumbnail": "80677bd23131838fc9db0f4be5782daf8dfd2df5861d4295d41c6c761b2a9f70"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed"
+    },
+    {
+      "id": "fp-07-r2",
+      "title": "Freight body repaired like a textile",
+      "sourceSceneId": "fp-07",
+      "revision": 2,
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff275-2a26-7211-a513-ab418e96aee9",
+      "statusUrl": "https://queue.fal.run/fal-ai/recraft/requests/019ff275-2a26-7211-a513-ab418e96aee9/status",
+      "responseUrl": "https://queue.fal.run/fal-ai/recraft/requests/019ff275-2a26-7211-a513-ab418e96aee9",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f371/XssVLxOWctxUxz5IoGFv0_qLrV3cto.webp",
+      "prompt": "Render exactly the following pre-authored speculative scene. Do not redesign the machine, add a different future concept, or replace specified relationships with familiar science-fiction imagery. Title: Freight body repaired like a textile. Speculative material premise, not a validated scientific claim: High-toughness structural composite sheets use reversible load-spreading seams that open, inspect, and rebond without destroying adjacent material. First-principles consequence: this removes the present constraint that large vehicle shells no longer need permanent welded monocoques or whole rigid-panel replacement after local damage. Required machine topology: The freight body becomes a tensioned garment over a durable frame; load paths relax, a long seam opens, and a shaped sheet is repinned into the same force network. Required scale consequence: Train-length surfaces can be renewed in broad continuous strips while frame and embedded service systems remain. Required operational logic: Repair halls become infrastructural textile floors with tension rigs, sheet cradles, seam bridges, and folded replacement skins. Required spatial organization: The hall is broad and low; trains separate into exposed frames and hanging skins, with circulation alongside unrolled components. Regional reason: Rail manufacturing, salt exposure, composite repair, and cooperative technical education shape an inland freight economy. Exact visible scene: A broad waist-high tension table dominates the center of a low repair hall. A dark-green structural freight skin has been opened along one precise diagonal load-spreading seam, peeled away from its simple black vehicle frame, stretched flat across the table, and held by radial clamps. Beside it, a thick replacement skin is folded in repeated accordion pleats on a wheeled cradle. Copper edge pins are half-installed along the new seam; the old skin retains large abrasion patches. The exposed freight frame remains aligned directly behind the table. The image must visibly contain all of these mechanical facts: exposed durable frame; opened load-spreading seam; broad tension table; folded replacement skin; copper edge pins; clamps; abrasion patches; half-completed joint. Camera and hierarchy: Three-quarter view from a low service balcony: the entire tension table, stretched skin, folded replacement, exposed frame, ceiling, floor, and both side walls are visible; no exterior sky. Use quiet matter-of-fact institutional documentary photography, believable gravity, consistent joints, maintenance wear, ordinary neutral light, and materially specific surfaces. Weather may appear only through residue, moisture, frost, light, or maintenance. Never make sky or clouds the subject. Do not substitute: decorative tailoring; humanoid robots; welding sparks; train advertisement; floating fabric; unsupported sheet. No words, letters, numbers, labels, signs, logos, flags, diagrams, screens, pseudo-data, molecule imagery, DNA, holograms, neon, flying vehicles, generic smart-city towers, solarpunk greenery, apocalypse, luxury architecture, dramatic cloudscape, storm spectacle, or promotional gloss. Speculative worldbuilding artwork informed by materials culture. Not a forecast, engineering proposal, validated material claim, scientific reference, simulation result, or evidence of a real deployment.",
+      "promptSha256": "556dc25eb2d8054576dcea81b4953abadcd98861f7bee556cea7db6b61182613",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/first-principles/source/iteration-02/fp-07-r2.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/first-principles/iteration-02/fp-07-r2.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/first-principles/iteration-02/thumbs/fp-07-r2.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 6281354,
+        "master": 302524,
+        "thumbnail": 18602
+      },
+      "sha256": {
+        "source": "c304468d019204048a185366c2ce18262d05015cc2faabdbafcd28a9cd26d1c7",
+        "master": "e6a3e343577377929a40a352b3e5f2d7341cf66a115d102b954c5293a186d2ad",
+        "thumbnail": "9621cea6b5672cca0cf33b43336c2980524ab4cfbfa702e5d1784ece2003d18b"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed"
+    },
+    {
+      "id": "fp-08-r2",
+      "title": "Underground winter daylight room",
+      "sourceSceneId": "fp-08",
+      "revision": 2,
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff275-2aab-78f1-8426-29081d0bdf1b",
+      "statusUrl": "https://queue.fal.run/fal-ai/recraft/requests/019ff275-2aab-78f1-8426-29081d0bdf1b/status",
+      "responseUrl": "https://queue.fal.run/fal-ai/recraft/requests/019ff275-2aab-78f1-8426-29081d0bdf1b",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f371/k0J5SpJCcDIMlS5hUy4wR_aYiJeYGZ.webp",
+      "prompt": "Render exactly the following pre-authored speculative scene. Do not redesign the machine, add a different future concept, or replace specified relationships with familiar science-fiction imagery. Title: Underground winter daylight room. Speculative material premise, not a validated scientific claim: Load-bearing translucent ceramic light guides turn and diffuse daylight through thick structural paths and are replaceable in short gasketed segments. First-principles consequence: this removes the present constraint that deep public rooms no longer depend entirely on large exterior glazing, open atria, or electric imitation of daylight. Required machine topology: Roof and retaining walls become branching solid light infrastructure; small exterior collectors feed luminous structural ribs that turn around corners into occupied space. Required scale consequence: A large thermally stable civic room can sit below grade and remain connected to the daytime cycle. Required operational logic: Clouded, abraded, or leaking guide segments are replaced from wall galleries; daylight depth varies naturally across the day. Required spatial organization: Reading, repair, play, and rest gather around branching luminous ribs instead of facing one glass facade. Regional reason: The underground room serves as winter public room and summer heat refuge with a limited exposed envelope. Exact visible scene: An underground civic room is roofed by heavy opaque mineral vaults, not glass or translucent panels. From the left retaining wall, three massive solid pale ceramic light-guide ribs emerge from deep buttresses, turn through ninety degrees as continuous structural elbows, cross beneath the dark vault, and terminate in thick glowing cut faces over communal tables. One rib has a short rectangular segment physically removed in a side maintenance gallery, leaving a dark gasketed gap; the matching solid segment rests on a wheeled cradle directly below. The cut faces glow at different intensities, while all rib sides remain opaque, thick, and weight-bearing. The image must visibly contain all of these mechanical facts: branching structural ribs; turned light path; different light intensity by depth; removed short segment; dark gaskets; side maintenance gallery; replacement cradle; worn public furniture. Camera and hierarchy: Interior three-quarter section-like documentary view: opaque vault above, left retaining-wall buttresses, three solid turning ribs, the removed segment gap, side maintenance gallery, replacement cradle, and occupied tables all share the frame; no windows, translucent canopy, skylight, or sky. Use quiet matter-of-fact institutional documentary photography, believable gravity, consistent joints, maintenance wear, ordinary neutral light, and materially specific surfaces. Weather may appear only through residue, moisture, frost, light, or maintenance. Never make sky or clouds the subject. Do not substitute: LED strips; crystal cave; temple; spa; bunker corridor; magic glow; conventional skylight atrium. No words, letters, numbers, labels, signs, logos, flags, diagrams, screens, pseudo-data, molecule imagery, DNA, holograms, neon, flying vehicles, generic smart-city towers, solarpunk greenery, apocalypse, luxury architecture, dramatic cloudscape, storm spectacle, or promotional gloss. Speculative worldbuilding artwork informed by materials culture. Not a forecast, engineering proposal, validated material claim, scientific reference, simulation result, or evidence of a real deployment.",
+      "promptSha256": "c0642a2fec5cd470bd981cc9a90ac688e5e32796cba4aa80e81b6b0a6d1f18de",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/first-principles/source/iteration-02/fp-08-r2.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/first-principles/iteration-02/fp-08-r2.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/first-principles/iteration-02/thumbs/fp-08-r2.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 6020120,
+        "master": 301418,
+        "thumbnail": 19838
+      },
+      "sha256": {
+        "source": "78c6e3595acc23d39e3a24876944f3fa7d69c0be1a333000786c395880df8475",
+        "master": "5a5d12fa35f745b064ad8188edc3a930eaa4ebb36d33835e01b9112b07a8eb57",
+        "thumbnail": "182285149377a191da6dc4be9be9c02ee915211e5eb5e25774c1204d207540b6"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed"
+    }
+  ],
+  "contactSheet": {
+    "path": "media/projects/midwest-2076-library/first-principles-iteration-02-contact-sheet.jpg",
+    "dimensions": {
+      "width": 1640,
+      "height": 1566
+    },
+    "bytes": 770357,
+    "sha256": "7701f190d96b6b03b5d80142fdda0e6a2347c1df432bb22b6b75f5997e539fef"
+  },
+  "totalPublicBytes": 2029194,
+  "preflight": {
+    "path": "media/projects/midwest-2076-library/first-principles-iteration-02-preflight.json",
+    "bytes": 2071,
+    "sha256": "1033f5def9d9b9f8a1e99ff24109c7296f9ce932dc6dee43c9bfc9afff63046e",
+    "exitStatus": 0,
+    "scope": "five iteration-02 public masters only"
+  },
+  "selection": {
+    "path": "media/projects/midwest-2076-library/first-principles-iteration-02-selection.json",
+    "bytes": 14675,
+    "sha256": "99ce8cc510239f8d96f14c95870a6322637c297f591d1f64969702d3de4b5caa"
+  }
+}

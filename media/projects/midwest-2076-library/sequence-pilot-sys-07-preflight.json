@@ -1,0 +1,54 @@
+{
+  "count": 4,
+  "exitStatus": 0,
+  "results": [
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/sequence-pilot/sys-07/m76-fp-062.webp",
+      "paperShare": 8.138020833333333e-05,
+      "indigoShare": 0,
+      "inkShare": 0.3012152777777778,
+      "darkFieldShare": 0.3243001302083333,
+      "offPaletteShare": 0,
+      "wordCount": 374,
+      "suspectCount": 4,
+      "strongCount": 0,
+      "strongWords": []
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/sequence-pilot/sys-07/m76-fp-063.webp",
+      "paperShare": 0.0016547309027777778,
+      "indigoShare": 0,
+      "inkShare": 0.231201171875,
+      "darkFieldShare": 0.22916666666666666,
+      "offPaletteShare": 0,
+      "wordCount": 290,
+      "suspectCount": 6,
+      "strongCount": 0,
+      "strongWords": []
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/sequence-pilot/sys-07/m76-fp-064.webp",
+      "paperShare": 0.0006510416666666666,
+      "indigoShare": 0,
+      "inkShare": 0.3619249131944444,
+      "darkFieldShare": 0.3559841579861111,
+      "offPaletteShare": 0.0007866753472222222,
+      "wordCount": 397,
+      "suspectCount": 2,
+      "strongCount": 0,
+      "strongWords": []
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/sequence-pilot/sys-07/m76-fp-066.webp",
+      "paperShare": 0.018093532986111112,
+      "indigoShare": 0,
+      "inkShare": 0.3191189236111111,
+      "darkFieldShare": 0.3165690104166667,
+      "offPaletteShare": 0,
+      "wordCount": 284,
+      "suspectCount": 8,
+      "strongCount": 0,
+      "strongWords": []
+    }
+  ]
+}

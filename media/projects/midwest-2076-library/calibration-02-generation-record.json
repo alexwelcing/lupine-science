@@ -1,0 +1,313 @@
+{
+  "schemaVersion": 1,
+  "project": "midwest-2076-brand-library",
+  "generatedAt": "2026-08-11T19:52:56.116Z",
+  "provider": "fal.ai",
+  "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+  "requestIds": [
+    "m76-032",
+    "m76-062",
+    "m76-073",
+    "m76-082",
+    "m76-092"
+  ],
+  "submittedCount": 5,
+  "completedCount": 5,
+  "failedCount": 0,
+  "conservativeUnitAllowanceUsd": 0.21,
+  "conservativeTotalAllowanceUsd": 1.05,
+  "exactBilledCostUsd": null,
+  "classification": "Speculative worldbuilding artwork informed by materials culture. Not a forecast, architectural proposal, engineering design, scientific reference, simulation result, or evidence of a real deployment.",
+  "results": [
+    {
+      "id": "m76-032",
+      "assetClass": "civic-futures",
+      "assetClassName": "Civic Futures",
+      "generatedAt": "2026-08-11T19:52:56.116Z",
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff260-8f38-72c1-8cf8-4c609ab9f824",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f2e9/5zQvOq5kqxS-kkhVou-dD_lQisXV6v.webp",
+      "promptSha256": "f6c50c20ab36a660a69557b1940a66d9aae090d9d9b21563edcde3b5f23906ed",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/source/m76-032.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/m76-032.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/thumbs/m76-032.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 6248628,
+        "master": 230542,
+        "thumbnail": 24752
+      },
+      "sha256": {
+        "source": "ab23a7507a6e54b5c8f18f91d5b720b1a9ad593ba4984a3a7485f99041f12a71",
+        "master": "1d39b3cf76b096a8085b68a2b35b9fb6e972bcef8df74191ace8b6a2c96e7800",
+        "thumbnail": "1132051c68dfd74e45e254c1542411f7720a719178ea43d0c492fd94d8f16688"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed",
+      "selectionStatus": "superseded-calibration",
+      "eligibleForFinalLibrary": false
+    },
+    {
+      "id": "m76-062",
+      "assetClass": "material-workshops",
+      "assetClassName": "Material Workshops",
+      "generatedAt": "2026-08-11T19:52:56.116Z",
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff260-8fc3-73a0-b2d7-50394b391124",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f2e9/FNxnpjFMWPjL84D4lo41v_7saw8lRu.webp",
+      "promptSha256": "55d94d23eedf54bbcd598cdac5c2558d863de22643b71aee2471a8d1e6f47df5",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/source/m76-062.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/m76-062.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/thumbs/m76-062.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 5978846,
+        "master": 252420,
+        "thumbnail": 30922
+      },
+      "sha256": {
+        "source": "a146435e552926527e235aa718baf0630ef5e455ed0a57e329ce4241df9f1734",
+        "master": "2250f9b87eff14cb58144f94d4e2c15e53d961da1fec7e24b9fde70559b935ec",
+        "thumbnail": "7196c0fa489aeb0fbd36c97a6d38810f2a79d35d5032b232646fc65c2fa9f063"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed",
+      "selectionStatus": "superseded-calibration",
+      "eligibleForFinalLibrary": false
+    },
+    {
+      "id": "m76-073",
+      "assetClass": "atmospheric-habitats",
+      "assetClassName": "Atmospheric Habitats",
+      "generatedAt": "2026-08-11T19:52:56.116Z",
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff260-908f-71d0-9965-7767d4ada9d7",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f2ea/87doOv48p9JLyQHE6mVnx_VRneZf0C.webp",
+      "promptSha256": "d871ef84790d74c5c63fb0f2b9c88b900aca4d24a6ed802603559e616b6255f4",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/source/m76-073.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/m76-073.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/thumbs/m76-073.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 6240972,
+        "master": 276550,
+        "thumbnail": 23118
+      },
+      "sha256": {
+        "source": "a36c692ee4b16c8af2ae5dd5f2e190a14c37ae5576def368ad2f2cbe81428249",
+        "master": "d72431a5a49ce651d4184494be5cd60537da06c897378d984f9890bb88a98d26",
+        "thumbnail": "a1eb4ff254f8d4cbde0f85256bc6c933aa0fd959d4a62fb178be9bb0a490a55e"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed",
+      "selectionStatus": "superseded-calibration",
+      "eligibleForFinalLibrary": false
+    },
+    {
+      "id": "m76-082",
+      "assetClass": "scientific-instruments",
+      "assetClassName": "Scientific Instruments",
+      "generatedAt": "2026-08-11T19:52:56.116Z",
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff260-910d-7642-99da-e0f23b75f41b",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f2e9/S6pWTaZEKT4qSmDtvHDHe_JADUBZ6c.webp",
+      "promptSha256": "3ccf6edac01b49382ee5e12414919106f3b2001239026672552d67decc568951",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/source/m76-082.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/m76-082.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/thumbs/m76-082.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 6687908,
+        "master": 279826,
+        "thumbnail": 25030
+      },
+      "sha256": {
+        "source": "2377bb7cbd741e9e31b51ee8e7f3da2e070cbefad4021d07c53e9aa3e167e5b1",
+        "master": "5e099562cfede047df534a06b987efde2b0b326477459fddd5a0a547d31f3f76",
+        "thumbnail": "8dd2e5cec78578539bf784598257d3cf77042a0d60b62bc3262274e86c9e638f"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed",
+      "selectionStatus": "superseded-calibration",
+      "eligibleForFinalLibrary": false
+    },
+    {
+      "id": "m76-092",
+      "assetClass": "material-studies",
+      "assetClassName": "Material Studies",
+      "generatedAt": "2026-08-11T19:52:56.116Z",
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff260-918f-72d1-b88d-077a496b611e",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f2e9/As3C6r0wRU1fTv3jXTHth_7g6iXqLM.webp",
+      "promptSha256": "e6ca3fbacfdb2b4a71be0c92175f93594365c08505753669d98a24dca738db53",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/source/m76-092.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/m76-092.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/thumbs/m76-092.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 5591296,
+        "master": 194218,
+        "thumbnail": 22594
+      },
+      "sha256": {
+        "source": "4f9f8a918f515bebc4a3cf0c7c9b353727c1b573f44fcd373b527da67e927234",
+        "master": "b4d501e9b2686cd7af967415b9d6742afb40edc84189306d757e09dd984b44b8",
+        "thumbnail": "b1553fe7e3f4f72bcf88cf403b698072d0ae53e55e969ac659af0864d28170a2"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed",
+      "selectionStatus": "superseded-calibration",
+      "eligibleForFinalLibrary": false
+    }
+  ],
+  "visualInspection": {
+    "artifact": "media/projects/midwest-2076-library/calibration-02-contact-sheet.jpg",
+    "criteria": "Severe editorial inspection: weather/sky subordinate; requested function immediately legible; no prohibited text, logos, screens, malformed geometry, or fantasy spectacle.",
+    "summary": {
+      "passCount": 4,
+      "failCount": 1,
+      "cloudOrSkyDominantCount": 0,
+      "requestedFunctionLegibleCount": 4
+    },
+    "results": [
+      {
+        "id": "m76-032",
+        "verdict": "fail",
+        "skyShareEstimate": 0,
+        "cloudOrSkyDominant": false,
+        "requestedFunctionLegible": false,
+        "notes": "Fully enclosed archive/workroom; storage and worn central work surface are clear, but the repair-school/teaching function is not immediately legible and there are few visible tools or active repair fixtures. No visible text, logo, screen, dramatic weather, or severe geometry defect."
+      },
+      {
+        "id": "m76-062",
+        "verdict": "pass",
+        "skyShareEstimate": 0,
+        "cloudOrSkyDominant": false,
+        "requestedFunctionLegible": true,
+        "notes": "Enclosed composite repair hall reads clearly through long components, copper tension rigs, trestles, benches, residue, and circulation. No visible text, logo, screen, dramatic weather, or severe geometry defect."
+      },
+      {
+        "id": "m76-073",
+        "verdict": "pass",
+        "skyShareEstimate": 0,
+        "cloudOrSkyDominant": false,
+        "requestedFunctionLegible": true,
+        "notes": "Institutional entry/mudroom function is legible through layered thresholds, mineral benches, floor drainage and grates, wet/frost residue, and open repair storage. School identity is implicit rather than signed, consistent with the no-text rule. No severe defect."
+      },
+      {
+        "id": "m76-082",
+        "verdict": "pass",
+        "skyShareEstimate": 10,
+        "cloudOrSkyDominant": false,
+        "requestedFunctionLegible": true,
+        "notes": "Single frost-covered modular field instrument occupies roughly 65% of frame; optical ports, repeated joints, grounded modules, access panels, woven/frosted wind skin, service road, and scale vehicles are coherent. Pale clear sky is subordinate; no clouds, text, logo, or screen."
+      },
+      {
+        "id": "m76-092",
+        "verdict": "pass",
+        "skyShareEstimate": 0,
+        "cloudOrSkyDominant": false,
+        "requestedFunctionLegible": true,
+        "notes": "Tight macro material study clearly shows folded frosted polymer, dark rib-like support, dense weathered metal pins, controlled lighting, and shallow depth. No horizon, landscape, sky, text, logo, screen, or severe geometry defect."
+      }
+    ]
+  },
+  "selectionStatus": "superseded-calibration",
+  "eligibleForFinalLibrary": false,
+  "supersededReason": "Generated before first-principles material-consequence scene specifications were authored. These outputs may inform method comparison but cannot enter the public library."
+}

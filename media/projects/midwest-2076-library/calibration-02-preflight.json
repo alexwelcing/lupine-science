@@ -1,0 +1,65 @@
+{
+  "count": 5,
+  "results": [
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/m76-032.webp",
+      "paperShare": 0.00016276041666666666,
+      "indigoShare": 0.0030381944444444445,
+      "inkShare": 0.19691297743055555,
+      "darkFieldShare": 0.213134765625,
+      "offPaletteShare": 0.024332682291666668,
+      "wordCount": 259,
+      "suspectCount": 12,
+      "strongCount": 0,
+      "strongWords": []
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/m76-062.webp",
+      "paperShare": 0.013346354166666666,
+      "indigoShare": 0,
+      "inkShare": 0.2312554253472222,
+      "darkFieldShare": 0.240478515625,
+      "offPaletteShare": 0.0005425347222222222,
+      "wordCount": 401,
+      "suspectCount": 13,
+      "strongCount": 0,
+      "strongWords": []
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/m76-073.webp",
+      "paperShare": 0.0012749565972222222,
+      "indigoShare": 0,
+      "inkShare": 0.4881727430555556,
+      "darkFieldShare": 0.4916720920138889,
+      "offPaletteShare": 0.0025499131944444445,
+      "wordCount": 442,
+      "suspectCount": 14,
+      "strongCount": 0,
+      "strongWords": []
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/m76-082.webp",
+      "paperShare": 0.07093641493055555,
+      "indigoShare": 0.06287977430555555,
+      "inkShare": 0.19639756944444445,
+      "darkFieldShare": 0.2715928819444444,
+      "offPaletteShare": 0.04391818576388889,
+      "wordCount": 289,
+      "suspectCount": 6,
+      "strongCount": 0,
+      "strongWords": []
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/m76-092.webp",
+      "paperShare": 0.0006239149305555555,
+      "indigoShare": 0,
+      "inkShare": 0.242919921875,
+      "darkFieldShare": 0.2666286892361111,
+      "offPaletteShare": 0.0020616319444444445,
+      "wordCount": 356,
+      "suspectCount": 12,
+      "strongCount": 0,
+      "strongWords": []
+    }
+  ]
+}

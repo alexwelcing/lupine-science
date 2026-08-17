@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 1,
+  "project": "midwest-2076-brand-library",
+  "sequenceId": "sys-07",
+  "systemTitle": "Freight body repaired like a textile",
+  "generationRecord": "media/projects/midwest-2076-library/sequence-pilot-sys-07-generation-record.json",
+  "contactSheet": "media/projects/midwest-2076-library/sequence-pilot-sys-07-contact-sheet.jpg",
+  "evaluationMethod": "Severe master-resolution inspection of each image against only its authored requiredEvidence items, followed by an unlabeled 2x2 blind sequence inspection in causal order without prompts, filenames, or role labels. Mechanical presence does not rescue a sequence that fails to explain the causal system.",
+  "verdictCounts": {
+    "pass": 1,
+    "mutate": 2,
+    "reject": 1
+  },
+  "results": [
+    {
+      "id": "m76-fp-062",
+      "role": "enabling-mechanism",
+      "verdict": "mutate",
+      "requiredEvidence": [
+        {
+          "item": "simple black frame",
+          "status": "present",
+          "observation": "A plain black riveted rectilinear frame is fully exposed across the central opening."
+        },
+        {
+          "item": "one diagonal open seam",
+          "status": "absent",
+          "observation": "The image shows a diagonal rolled flap crossing the opening, but no single unpinned floor-to-roof seam line or repeated seam hardware defines where the skin opened."
+        },
+        {
+          "item": "continuous peeled skin",
+          "status": "present",
+          "observation": "A broad green sheet visibly curls away from the frame as one continuous flexible strip while green skin remains taut at both sides."
+        }
+      ],
+      "missingEvidence": [
+        "one diagonal open seam"
+      ],
+      "ambiguousEvidence": [],
+      "generatedTextOrLogo": false,
+      "geometryCorruption": false,
+      "familiarTypologySubstitution": false,
+      "firstPrinciplesTopologyPreserved": true,
+      "rationale": "The garment-over-frame mechanism is legible, but the causal joint is not. Without a visible reversible diagonal seam, the sheet could simply be a loose roll placed across an exposed frame; mutate rather than pass."
+    },
+    {
+      "id": "m76-fp-063",
+      "role": "impossible-scale",
+      "verdict": "reject",
+      "requiredEvidence": [
+        {
+          "item": "three connected frames",
+          "status": "absent",
+          "observation": "One long continuous rounded railcar-like skeleton recedes through the hall; three discrete connected freight frames and their junctions are not legible."
+        },
+        {
+          "item": "train-length folded skin",
+          "status": "absent",
+          "observation": "Several stiff-looking draped sheets hang only in the foreground and along carts; no single accordion-folded continuous strip visibly extends the full train length."
+        },
+        {
+          "item": "broad low repair hall",
+          "status": "present",
+          "observation": "A wide, long industrial hall with a low repetitive ceiling recedes to a compressed vanishing point."
+        }
+      ],
+      "missingEvidence": [
+        "three connected frames",
+        "train-length folded skin"
+      ],
+      "ambiguousEvidence": [],
+      "generatedTextOrLogo": false,
+      "geometryCorruption": false,
+      "familiarTypologySubstitution": true,
+      "substitutedTypology": "generic stripped railcar refurbishment hall with separate draped panels",
+      "firstPrinciplesTopologyPreserved": false,
+      "rationale": "Reject: the polished hall image supplies atmosphere and a long stripped vehicle, but loses the authored proof of three connected frames renewed by one train-length continuous folded skin. Familiar railcar refurbishment replaces the impossible-scale topology."
+    },
+    {
+      "id": "m76-fp-064",
+      "role": "operation",
+      "verdict": "pass",
+      "requiredEvidence": [
+        {
+          "item": "dominant tension table",
+          "status": "present",
+          "observation": "A waist-high black table carrying the broad green sheet occupies most of the foreground and is clearly distinct from the gridded floor."
+        },
+        {
+          "item": "radial clamps",
+          "status": "present",
+          "observation": "Three dark hub-and-spoke clamp assemblies spread radially across the sheet and connect to the table edge."
+        },
+        {
+          "item": "separate aligned vehicle frame",
+          "status": "present",
+          "observation": "A separate exposed wheeled vehicle frame runs directly behind and parallel to the table and skin."
+        }
+      ],
+      "missingEvidence": [],
+      "ambiguousEvidence": [],
+      "generatedTextOrLogo": false,
+      "geometryCorruption": false,
+      "familiarTypologySubstitution": false,
+      "firstPrinciplesTopologyPreserved": true,
+      "rationale": "Pass on the limited authored evidence: the table dominates, radial tension hardware is unmistakable, and the separated aligned frame makes the transfer relationship readable."
+    },
+    {
+      "id": "m76-fp-066",
+      "role": "changed-labor",
+      "verdict": "mutate",
+      "requiredEvidence": [
+        {
+          "item": "accordion skin cradle",
+          "status": "present",
+          "observation": "At left, a wheeled rectangular cradle holds a densely accordion-folded dark sheet that feeds into the broad suspended skin."
+        },
+        {
+          "item": "tension table",
+          "status": "absent",
+          "observation": "The sheet spans unsupported above the floor; no broad waist-high table or visible tensioning surface occupies the work zone."
+        },
+        {
+          "item": "manual seam pinning",
+          "status": "ambiguous",
+          "observation": "Copper pin rows are visible and the kneeling worker handles the lower seam by hand, but the pixels do not clearly show a pin being set or a hand tool engaging a pin."
+        }
+      ],
+      "missingEvidence": [
+        "tension table"
+      ],
+      "ambiguousEvidence": [
+        "manual seam pinning"
+      ],
+      "generatedTextOrLogo": false,
+      "malformedPeopleOrHands": false,
+      "geometryCorruption": false,
+      "familiarTypologySubstitution": false,
+      "firstPrinciplesTopologyPreserved": true,
+      "rationale": "The scale of folding and hand seam work changes the labor legibly, but omission of the tension table breaks the specified spatial organization and weakens the operation into suspended-sheet handling. Mutate."
+    }
+  ],
+  "sequenceEvaluation": {
+    "causalOrder": [
+      "m76-fp-062",
+      "m76-fp-063",
+      "m76-fp-064",
+      "m76-fp-066"
+    ],
+    "blindEvaluation": true,
+    "axes": [
+      {
+        "idea": "reversible freight skin over durable frame",
+        "status": "partial",
+        "observation": "The first panel clearly shows flexible skin peeled from a durable frame, but it does not show the reversible diagonal seam or unpinning mechanism, so reversibility must be inferred."
+      },
+      {
+        "idea": "train-length replacement scale",
+        "status": "not-communicated",
+        "observation": "The second panel shows a long stripped rail vehicle and separate draped sheets, not three connected frames paired with one continuous train-length replacement skin."
+      },
+      {
+        "idea": "tension-table operation",
+        "status": "clear",
+        "observation": "The third panel clearly isolates a broad skin on a dedicated elevated table under radial clamp arrays beside an aligned vehicle frame."
+      },
+      {
+        "idea": "changed repair labor and spatial organization",
+        "status": "partial",
+        "observation": "The fourth panel makes accordion handling and manual seam work visible, but lacks the table-centered spatial system; across the set, repair still reads partly as a generic industrial workshop."
+      }
+    ],
+    "verdict": "fail",
+    "rationale": "Fail: the images share a coherent material and documentary style, and two panels establish flexible skin and a tension table, but the sequence does not independently explain the causal system. It loses train-length continuous replacement entirely, leaves seam reversibility implicit, and only partially establishes the new labor floor. Shared style is not a substitute for causal legibility.",
+    "recommendation": "Do not scale this four-view grammar to the 10-by-10 library unchanged. Preserve m76-fp-064; mutate m76-fp-062 and m76-fp-066; replace the m76-fp-063 composition with an unequivocal three-frame plus one continuous accordion-folded train-length strip view before another sequence test."
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "count": 5,
+  "results": [
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/first-principles/fp-01.webp",
+      "paperShare": 0.030598958333333332,
+      "indigoShare": 0,
+      "inkShare": 0.1628146701388889,
+      "darkFieldShare": 0.1585015190972222,
+      "offPaletteShare": 0,
+      "wordCount": 251,
+      "suspectCount": 6,
+      "strongCount": 0,
+      "strongWords": []
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/first-principles/fp-04.webp",
+      "paperShare": 0.011121961805555556,
+      "indigoShare": 0,
+      "inkShare": 0.09990776909722222,
+      "darkFieldShare": 0.11683485243055555,
+      "offPaletteShare": 0.012044270833333334,
+      "wordCount": 675,
+      "suspectCount": 27,
+      "strongCount": 0,
+      "strongWords": []
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/first-principles/fp-06.webp",
+      "paperShare": 0.00002712673611111111,
+      "indigoShare": 0,
+      "inkShare": 0.20225694444444445,
+      "darkFieldShare": 0.2001410590277778,
+      "offPaletteShare": 0.007839626736111112,
+      "wordCount": 557,
+      "suspectCount": 18,
+      "strongCount": 1,
+      "strongWords": [
+        "erne"
+      ]
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/first-principles/fp-07.webp",
+      "paperShare": 0.009250217013888888,
+      "indigoShare": 0,
+      "inkShare": 0.28857421875,
+      "darkFieldShare": 0.2896050347222222,
+      "offPaletteShare": 0,
+      "wordCount": 204,
+      "suspectCount": 3,
+      "strongCount": 0,
+      "strongWords": []
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/first-principles/fp-08.webp",
+      "paperShare": 0.06342230902777778,
+      "indigoShare": 0,
+      "inkShare": 0.19840494791666666,
+      "darkFieldShare": 0.1928982204861111,
+      "offPaletteShare": 0.00016276041666666666,
+      "wordCount": 193,
+      "suspectCount": 0,
+      "strongCount": 0,
+      "strongWords": []
+    }
+  ]
+}

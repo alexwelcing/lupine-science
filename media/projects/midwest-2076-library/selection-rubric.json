@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "project": "midwest-2076-brand-library",
+  "purpose": "Select publishable speculative-worldbuilding assets before site integration.",
+  "states": [
+    {
+      "id": "publish",
+      "meaning": "Strong enough to enter the 100-image public library without regeneration."
+    },
+    {
+      "id": "mutate",
+      "meaning": "Promising territory or composition, but requires one documented prompt correction and regeneration."
+    },
+    {
+      "id": "reject",
+      "meaning": "Generic, incoherent, falsely authoritative, or outside the intended world. Preserve the record but do not publish."
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "worldSpecificity",
+      "label": "World specificity",
+      "weight": 0.2,
+      "question": "Could this only belong to a plausible inland North American future, or is it placeless concept art?"
+    },
+    {
+      "id": "functionalClarity",
+      "label": "Functional clarity",
+      "weight": 0.15,
+      "question": "Does the unfamiliarity arise from a legible civic or material function rather than decoration?"
+    },
+    {
+      "id": "materialIntelligence",
+      "label": "Material intelligence",
+      "weight": 0.2,
+      "question": "Do surfaces, joints, gravity, maintenance, residue, weathering, and scale form a coherent material system?"
+    },
+    {
+      "id": "institutionalQuality",
+      "label": "Institutional quality",
+      "weight": 0.15,
+      "question": "Could an enduring museum, journal, laboratory, or scientific institution credibly publish it?"
+    },
+    {
+      "id": "ownability",
+      "label": "Ownability",
+      "weight": 0.2,
+      "question": "Does it avoid familiar AI concept-art priors and establish a distinctive LUPI visual world?"
+    },
+    {
+      "id": "practicalRange",
+      "label": "Practical range",
+      "weight": 0.1,
+      "question": "Can it support editorial, product, exhibition, motion, and print contexts without dictating one story?"
+    }
+  ],
+  "scoreScale": {
+    "minimum": 1,
+    "maximum": 5,
+    "anchors": {
+      "1": "fundamental failure",
+      "2": "weak or generic",
+      "3": "credible but ordinary",
+      "4": "strong and distinctive",
+      "5": "identity-defining"
+    }
+  },
+  "automaticRejects": [
+    "generated text, letters, numbers, labels, logos, watermarks, flags, or pseudo-data",
+    "prominent molecule, DNA, scientific-interface, or lab-coat imagery",
+    "cyberpunk, neon rain, holograms, flying cars, glowing circuit motifs, or spaceship styling",
+    "generic solarpunk, vertical forests, decorative greenery, spotless smart-city towers, or luxury eco-resort rendering",
+    "post-apocalyptic spectacle, ruin porn, disaster spectacle, or regional misery",
+    "picturesque barn, tractor, cornfield, silo, or diner used as Midwestern costume",
+    "impossible geometry, broken gravity, duplicated structures, melted circulation, malformed people, or unusable crop",
+    "false implication of measured data, a real deployment, technical validation, or forecast authority",
+    "generic airport, corporate campus, product advertisement, or entertainment key art with no world specificity"
+  ],
+  "publishGate": {
+    "automaticRejectCount": 0,
+    "minimumWeightedScore": 3.6,
+    "minimumDimensionScores": {
+      "worldSpecificity": 3,
+      "materialIntelligence": 3,
+      "institutionalQuality": 3,
+      "ownability": 3
+    },
+    "requiredReviewFields": [
+      "state",
+      "scores",
+      "oneSentenceReading",
+      "strength",
+      "weakness",
+      "promptLesson"
+    ]
+  },
+  "libraryGate": {
+    "requiredPublishedCount": 100,
+    "requiredAssetClassCount": 10,
+    "minimumPublishedPerAssetClass": 6,
+    "maximumPublishedPerAssetClass": 14,
+    "classification": "Speculative worldbuilding artwork informed by materials culture. Not a forecast, architectural proposal, engineering design, scientific reference, simulation result, or evidence of a real deployment."
+  }
+}

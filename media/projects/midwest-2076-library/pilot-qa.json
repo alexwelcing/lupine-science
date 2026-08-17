@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "project": "midwest-2076-brand-library",
+  "reviewedAt": "2026-08-11T15:36:26-04:00",
+  "reviewSurface": "media/projects/midwest-2076-library/pilot-contact-sheet.jpg",
+  "criteria": [
+    "asset-class specificity",
+    "material intelligence",
+    "institutional quality",
+    "generic AI tropes",
+    "text, logos, corruption, or geometry defects",
+    "prompt-grammar readiness before scale"
+  ],
+  "overall": {
+    "strong": ["m76-001", "m76-021", "m76-041", "m76-051", "m76-081", "m76-091"],
+    "mixed": ["m76-011"],
+    "failedAssetClassRead": ["m76-031", "m76-061", "m76-071"],
+    "scaleRecommendation": "Do not scale unchanged. The repeated thunderstorm and identical low-horizon composition dominate class identity. Diversify conditions and camera grammar by class, and require the named civic/interior/process program to remain visibly legible."
+  },
+  "results": [
+    {
+      "id": "m76-001",
+      "assetClass": "inland-climate-works",
+      "specificity": "Strong: terraced basins, porous shelf edges, standing water, and service bridges read as county-scale flood and filtration works.",
+      "materialIntelligence": "Good modular porosity, drainage residue, wet surfaces, access bridges, and believable gravity; membrane behavior is less explicit than requested.",
+      "institutionalQuality": "High; restrained, severe documentary landscape.",
+      "genericAiTropes": "Oversized cinematic shelf cloud is visually dominant but infrastructure remains credible.",
+      "defects": "No visible generated text or logo; no material corruption apparent at contact-sheet scale.",
+      "promptChangeBeforeScale": "Minor. Reduce sky dominance and explicitly require translucent water-bearing membranes to be visibly attached, tensioned, and serviced."
+    },
+    {
+      "id": "m76-011",
+      "assetClass": "prairie-machine-commons",
+      "specificity": "Mixed: field-scale woven windbreaks and maintenance houses read, but the system resembles monumental fabric ramps more than shared agricultural infrastructure.",
+      "materialIntelligence": "Weathered fabric and support edges are convincing; attachment points, maintenance paths, and instruments are underdescribed visually.",
+      "institutionalQuality": "Good editorial scale, though the scene leans concept-art spectacle.",
+      "genericAiTropes": "Repeated heroic storm and extreme sculptural fabric forms; small red airborne shape reads as an unwanted malformed aircraft/bird artifact.",
+      "defects": "No visible text or logo; red sky artifact and ambiguous support geometry require rejection or retouching for production use.",
+      "promptChangeBeforeScale": "Yes. Require windbreaks to be vertical or clearly wind-functional, show anchors, repair seams, access lanes, soil instrumentation, and forbid aircraft, drones, and airborne objects."
+    },
+    {
+      "id": "m76-021",
+      "assetClass": "lake-effect-foundry",
+      "specificity": "Strong: lake horizon, rail-water interface, recovery hall, transfer cylinders, and condensation establish Great Lakes industry.",
+      "materialIntelligence": "Strong process legibility, rails, pipes, segmented structures, service circulation, and wet industrial surfaces.",
+      "institutionalQuality": "High; monumental but still documentary and infrastructural.",
+      "genericAiTropes": "Symmetrical megastructure and storm spectacle verge on science-fiction concept art.",
+      "defects": "No visible generated text or logo; no obvious geometry corruption at contact-sheet scale.",
+      "promptChangeBeforeScale": "Minor. Ask for asymmetrical active repair, ordinary freight equipment, and less axial symmetry to preserve industrial dignity over spectacle."
+    },
+    {
+      "id": "m76-031",
+      "assetClass": "civic-futures",
+      "specificity": "Fail: reads as an outdoor industrial basin or amphitheater, not a public library or neighborhood cooling shelter.",
+      "materialIntelligence": "Wet concrete, curtains, drainage, and circulation are plausible, but books, seating, accessible public thresholds, repeated civic use, and interior thermal function are absent.",
+      "institutionalQuality": "Visually polished, but programmatically wrong and uninhabited.",
+      "genericAiTropes": "Empty monumental architecture under a cinematic storm; generic brutalist future campus.",
+      "defects": "No visible generated text or logo; curved rail/basin geometry is coherent but semantically misassigned.",
+      "promptChangeBeforeScale": "Yes. Require an interior or threshold view with unmistakable shelving, durable communal seating, accessible circulation, cooling curtains in use, personal traces, and several distant ordinary occupants; prohibit amphitheaters and water-treatment basins."
+    },
+    {
+      "id": "m76-041",
+      "assetClass": "regional-logistics",
+      "specificity": "Strong: river edge, low freight modules, transfer deck, and long weather membrane clearly read as regional intermodal logistics.",
+      "materialIntelligence": "Good cable supports, membrane sag, wet deck, modular freight, and plausible regional scale; transfer machinery and repair access remain sparse.",
+      "institutionalQuality": "High, restrained, and adaptable.",
+      "genericAiTropes": "Large tensile canopy is a familiar future-infrastructure shorthand, amplified by the storm.",
+      "defects": "No visible generated text or logo; no obvious structural corruption at contact-sheet scale.",
+      "promptChangeBeforeScale": "Minor. Require a visible rail alignment, river loading interface, waiting/repair zone, drainage, and patched membrane sections so the image cannot collapse into a generic canopy."
+    },
+    {
+      "id": "m76-051",
+      "assetClass": "thermal-energy-commons",
+      "specificity": "Good: ceramic chambers, copper exchange lines, vapor, and insulated channels read as a thermal bank, though the neighborhood/public commons context is weak.",
+      "materialIntelligence": "Strong pipe routing, joints, thermal mass, condensation, and service corridor; vessels look somewhat generic and uniformly pristine.",
+      "institutionalQuality": "High editorial industrial image.",
+      "genericAiTropes": "Rounded reactor-like vessels risk prohibited energy-facility shorthand despite the absence of a glowing core.",
+      "defects": "No visible generated text or logo; pipe continuity is mostly coherent at contact-sheet scale.",
+      "promptChangeBeforeScale": "Yes. Require public terraces, neighborhood adjacency, insulation repair patches, valves and removable service panels; explicitly forbid reactor domes and pressure-vessel spectacle."
+    },
+    {
+      "id": "m76-061",
+      "assetClass": "material-workshops",
+      "specificity": "Fail: reads as an outdoor processing or drying field rather than a municipal ceramic-membrane workshop.",
+      "materialIntelligence": "Casting beds and wet residue are visible, but tools, fixtures, stacked work-in-progress, worker-scale circulation, fabrication steps, and reuse are not legible.",
+      "institutionalQuality": "Atmospheric and coherent, but too empty and landscape-led for a workshop asset.",
+      "genericAiTropes": "Post-industrial field beneath a cinematic storm; repetitive tarp arrays.",
+      "defects": "No visible generated text or logo; no obvious corruption at contact-sheet scale.",
+      "promptChangeBeforeScale": "Yes. Require a close interior or covered-yard documentary view with hand tools, molds, clamps, residue gradients, drying racks, repair benches, storage, offcuts, and distant workers; prohibit field-scale arrays."
+    },
+    {
+      "id": "m76-071",
+      "assetClass": "atmospheric-habitats",
+      "specificity": "Fail: reads as an industrial shed or field shelter, not a shared apartment winter room.",
+      "materialIntelligence": "Deep frame, translucent insulation, and exposed joints are plausible, but drying rails, communal work surfaces, domestic wear, airflow, and thermal mass are not legible.",
+      "institutionalQuality": "Strong formal image but emotionally and functionally empty.",
+      "genericAiTropes": "Monumental empty frame and storm vista; generic austere future architecture.",
+      "defects": "No visible generated text or logo; small red shape at far right may be an unwanted airborne artifact.",
+      "promptChangeBeforeScale": "Yes. Resolve the winter-room versus humid-thunderstorm contradiction; require an occupied collective interior, visible snow or frost outside, coats/boots/drying textiles, communal tables, moisture traces, and domestic-scale windows; forbid hangars and open agricultural sheds."
+    },
+    {
+      "id": "m76-081",
+      "assetClass": "scientific-instruments",
+      "specificity": "Strong: repeated articulated arms, porous collectors, river exposure, and maintenance-scale structure read as an unfamiliar sediment instrument.",
+      "materialIntelligence": "Good housings, joints, scale, and environmental exposure; calibration access and bridge continuity need more explicit definition.",
+      "institutionalQuality": "High and ownable; the strongest unfamiliar-instrument read in the pilot.",
+      "genericAiTropes": "Repetition and storm drama remain somewhat concept-art-like, but no glowing tech shorthand appears.",
+      "defects": "No visible generated text, logo, screen, or pseudo-data; arm linkages are stylized but not obviously broken at contact-sheet scale.",
+      "promptChangeBeforeScale": "Minor. Require removable collector cartridges, safe calibration platforms, handrails, fasteners, and one active maintenance trace; vary weather away from storms."
+    },
+    {
+      "id": "m76-091",
+      "assetClass": "material-studies",
+      "specificity": "Strong: close authored study of porous black ceramic, translucent wet membrane, copper tension lines, and condensation.",
+      "materialIntelligence": "Excellent surface contrast and moisture behavior; seams and wire anchoring are visible but could show more wear and tool marks.",
+      "institutionalQuality": "High; flexible editorial image and among the most distinctive pilots.",
+      "genericAiTropes": "Minimal; storm backdrop is unnecessary and makes the still life less studio-authored.",
+      "defects": "No visible generated text or logo; no obvious texture corruption at contact-sheet scale.",
+      "promptChangeBeforeScale": "Minor. Replace landscape/low-horizon composition with macro or tabletop photographic grammar, controlled raking light, cut edges, tool marks, repair seams, and neutral background; remove ordinary-use and distant-figure clauses for this class."
+    }
+  ]
+}

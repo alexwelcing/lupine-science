@@ -1,0 +1,483 @@
+{
+  "schemaVersion": 1,
+  "project": "midwest-2076-brand-library",
+  "generatedAt": "2026-08-11T15:36:26-04:00",
+  "provider": "fal.ai",
+  "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+  "requestIds": [
+    "m76-001",
+    "m76-011",
+    "m76-021",
+    "m76-031",
+    "m76-041",
+    "m76-051",
+    "m76-061",
+    "m76-071",
+    "m76-081",
+    "m76-091"
+  ],
+  "submittedCount": 10,
+  "completedCount": 10,
+  "failedCount": 0,
+  "conservativeUnitAllowanceUsd": 0.21,
+  "conservativeTotalAllowanceUsd": 2.1,
+  "exactBilledCostUsd": null,
+  "classification": "Speculative worldbuilding artwork informed by materials culture. Not a forecast, architectural proposal, engineering design, scientific reference, simulation result, or evidence of a real deployment.",
+  "results": [
+    {
+      "id": "m76-001",
+      "assetClass": "inland-climate-works",
+      "assetClassName": "Inland Climate Works",
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff252-7a4c-7453-8a20-12523ccbfc53",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f29f/YOTT8UdrlKICkGgSFlXCH_WKB67GSX.webp",
+      "promptSha256": "ded5c2863bfda0cbbdeb9a2b47fc7f6b5ddad675a85387b80720590bafdb8002",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/source/m76-001.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/m76-001.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/thumbs/m76-001.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 5100012,
+        "master": 156012,
+        "thumbnail": 17088
+      },
+      "sha256": {
+        "source": "efda54765c91239844dbda807686a5382f4a4fc48afadb1ec8f7fbfc2e6f02c2",
+        "master": "570e3c7850e9ba74a977f3fbdff5326298486ef57aa005894874bee44fa6aa18",
+        "thumbnail": "f0f9d1380146ab5ce66ed44291eb692280e61cfeb57dd93a875f43fae1042655"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed"
+    },
+    {
+      "id": "m76-011",
+      "assetClass": "prairie-machine-commons",
+      "assetClassName": "Prairie Machine Commons",
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff252-7b00-7882-a0d2-6f544fb397fd",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f28d/G6oXhbPMfBNfJD6qInF_4_Sb08PcKJ.webp",
+      "promptSha256": "b2f7e04b2ecca187bf2012c43e059ebde33fa81cc9a473e0fd87950215019731",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/source/m76-011.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/m76-011.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/thumbs/m76-011.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 5613906,
+        "master": 152044,
+        "thumbnail": 14284
+      },
+      "sha256": {
+        "source": "13f7ac2184dcb04aea4cd65cddaffbac550faa7ee741d474ecf36886eaf87edb",
+        "master": "aa2f3ea585c582dfdeae1e583233a41b5862c05df8c6c394088cd83564989caf",
+        "thumbnail": "0ffdbeab6886eac3f79080da340a168f7eb368bf1aac86f86393f62423f8034e"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed"
+    },
+    {
+      "id": "m76-021",
+      "assetClass": "lake-effect-foundry",
+      "assetClassName": "Lake Effect Foundry",
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff252-7b86-78e3-8d3c-8fd728910670",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f28e/VlfUhbCn40IHlF0iNZdx8_CWdhQVIe.webp",
+      "promptSha256": "c6bb95cb8ebfd9da385484021ff40622e73c75ad2822849bfc7bb2c459e55ab7",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/source/m76-021.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/m76-021.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/thumbs/m76-021.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 4791728,
+        "master": 129620,
+        "thumbnail": 15232
+      },
+      "sha256": {
+        "source": "02e7d6a2fa0c1766213f5476b596904a707d6b4051a69f625273266ebb0b252e",
+        "master": "21ba4b1ca74330f93849380f3adf873d537500a03d7730b965ed59ffa141cad5",
+        "thumbnail": "25848f7dcdd0c4665c973ed213e26a1a793896b94b9f1d09e33485aa4d5b488b"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed"
+    },
+    {
+      "id": "m76-031",
+      "assetClass": "civic-futures",
+      "assetClassName": "Civic Futures",
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff252-7c07-7120-86c9-a95ec919706f",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f29f/l-6IGHw0L2TW4cKMl4Ql1_kjS8rK08.webp",
+      "promptSha256": "3d0b8fda46f4124eb434eb1d884e156a407eb4daa40e1894c595c1cceb840c4b",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/source/m76-031.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/m76-031.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/thumbs/m76-031.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 5194514,
+        "master": 130442,
+        "thumbnail": 16410
+      },
+      "sha256": {
+        "source": "fca0b0a2baa49a0ed53975cfae5fc19de80e261ef7cbce074051957c945fa938",
+        "master": "ff967ae86da2643c73e145300a62fc1bb81cd8bf7ee1de5b4342328159600c59",
+        "thumbnail": "7ad35d7a6fde98261f072f92aff91d6d79739a12e0d11ad1dead74de4150e0a3"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed"
+    },
+    {
+      "id": "m76-041",
+      "assetClass": "regional-logistics",
+      "assetClassName": "Regional Logistics",
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff252-7c8d-7753-ba2d-254e00cc05e6",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f2a0/lNDtSxKOLJEOkxLJCnY8j_UH2KjREe.webp",
+      "promptSha256": "28d32860727f4b54fefd2d739de28a4e0350d61e5daa34bdba8b23182fbc1f47",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/source/m76-041.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/m76-041.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/thumbs/m76-041.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 5749658,
+        "master": 247506,
+        "thumbnail": 25208
+      },
+      "sha256": {
+        "source": "a13d4b6abf0c3cd5543c86164b5a91d51fbdec0f8620a33fddaebbce57001620",
+        "master": "9f3da22b5e87b3af9a25cc80dc77e3c9bf47cc89adb4043a9d899f1d71ef4870",
+        "thumbnail": "e7e8612e577c144592c3ef74858c9d95644a6c8cc29bdf7d4cd3cb43087acdb0"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed"
+    },
+    {
+      "id": "m76-051",
+      "assetClass": "thermal-energy-commons",
+      "assetClassName": "Thermal Energy Commons",
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff252-7d05-78c0-a1de-03c9512d6205",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f29f/X2PDeqC5QJspU30OqIxEC_RYvPdIDw.webp",
+      "promptSha256": "f9973de0214f29436ac3e936ca03ea1ac217d5420a38588308b582fb7f6224ac",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/source/m76-051.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/m76-051.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/thumbs/m76-051.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 5230070,
+        "master": 166352,
+        "thumbnail": 18700
+      },
+      "sha256": {
+        "source": "40f3efc0098a548b8b87bc4976f4c438c2ea43bc0bf2103f14bdef3e730dfeaf",
+        "master": "8bdcd7e53d08dec865951d5103b62662a2618079a56ef5dc5b390fdcdd64004b",
+        "thumbnail": "903dd950741c5ba4c7771b2ddd49cd41e8240b20a3fb41eea30e89892cc1d12c"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed"
+    },
+    {
+      "id": "m76-061",
+      "assetClass": "material-workshops",
+      "assetClassName": "Material Workshops",
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff252-7d89-7722-94f7-61d8f836fbb3",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f28e/Tz7XLf8EKBdvAn_6qvRiC_nIYvmM3m.webp",
+      "promptSha256": "b6cf0519ee7094af116926287c84f89b04ab67322833359fa1032571c3c7d358",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/source/m76-061.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/m76-061.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/thumbs/m76-061.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 5902822,
+        "master": 206054,
+        "thumbnail": 20226
+      },
+      "sha256": {
+        "source": "75eecdd2717eb58df42f7774021ca5c330e92f4990413eac10c005c10a1850ce",
+        "master": "45bb65471fb399c272f1bcf2fc32288dad17453e95a7b5d9d73a66c7a6664dbc",
+        "thumbnail": "5a7d5170f5e04d49b6265bfc9ab4cdf10668ab3df2ed4cf060ffbaae76aa8717"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed"
+    },
+    {
+      "id": "m76-071",
+      "assetClass": "atmospheric-habitats",
+      "assetClassName": "Atmospheric Habitats",
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff252-7e11-7ef2-8e27-5edb1959f0db",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f28d/q4vFk7Hbk5AbbzykwCAIR_coMPkOvK.webp",
+      "promptSha256": "3c6c8398a62b75d87f267bf8157f9f0bdc8e59f026902874956fe7ad79dd8c64",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/source/m76-071.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/m76-071.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/thumbs/m76-071.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 5255932,
+        "master": 148316,
+        "thumbnail": 18510
+      },
+      "sha256": {
+        "source": "c315749c7614e7dd64e351b1e1fd062561bef50b4394d1f5188ed44e0360a281",
+        "master": "047e1685504720eee7d87962c2a4a3038886bff3a40c02fc155a7e22e60648cb",
+        "thumbnail": "a5124e26f9a899f1568a67905132d3df54c3b9c43deb5e9c5f9ca50248877cb8"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed"
+    },
+    {
+      "id": "m76-081",
+      "assetClass": "scientific-instruments",
+      "assetClassName": "Scientific Instruments",
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff252-7ea5-7781-91cd-a88aa7cb112c",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f28d/HYT170yVs9Ek-B3rTij87_aXDjc8Hj.webp",
+      "promptSha256": "8fe3e3b2f3b7cac2cc4ddd42ac24123fe809b7fdd071a1813ab404a01a55f2e7",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/source/m76-081.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/m76-081.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/thumbs/m76-081.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 4903560,
+        "master": 115914,
+        "thumbnail": 15578
+      },
+      "sha256": {
+        "source": "3038fc1b72b639be1377948c07d4551b1f6df626597aa3292b0e1a8ec17c50a9",
+        "master": "647d1e73421dddc7ad298889b0006843f11122aa7d076e8855cc30ca479a0f00",
+        "thumbnail": "3628ea2ce6537e94db2e3e5f245796c9158cd74fa12cb3f03ebaf43ad6e99c89"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed"
+    },
+    {
+      "id": "m76-091",
+      "assetClass": "material-studies",
+      "assetClassName": "Material Studies",
+      "provider": "fal.ai",
+      "endpoint": "fal-ai/recraft/v4.1/pro/text-to-image",
+      "requestId": "019ff252-7f21-72b0-afa0-4d1fc45b65ae",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa5f28d/Tbp6xU_Mif6OFK9KX1wnE_mKpaGfw9.webp",
+      "promptSha256": "bf7c740de9b3e204e3ab70d9474c5378104bda1e5686cefbe7514979868c955b",
+      "requestedSize": {
+        "width": 2048,
+        "height": 1152
+      },
+      "sourceDimensions": {
+        "width": 3072,
+        "height": 1536
+      },
+      "sourceLocalPath": "media/projects/midwest-2076-library/assets/source/m76-091.webp",
+      "publicMasterPath": "public/brand-assets/assets/images/midwest-2076/m76-091.webp",
+      "publicThumbPath": "public/brand-assets/assets/images/midwest-2076/thumbs/m76-091.webp",
+      "outputDimensions": {
+        "master": {
+          "width": 1600,
+          "height": 900
+        },
+        "thumbnail": {
+          "width": 480,
+          "height": 270
+        }
+      },
+      "bytes": {
+        "source": 5677220,
+        "master": 188740,
+        "thumbnail": 17210
+      },
+      "sha256": {
+        "source": "c433e87fbc306e3869254e5f916fe272ffbc805304bb0da4afaa53bfbb93d44f",
+        "master": "c0f893770dc2ce13f3da7afef71ff99168f48f441a1d14834600c1564123b11d",
+        "thumbnail": "1d770f590f1584104c847915492e74aca33072d1fb6d9f61c0efbcd8a13c08f6"
+      },
+      "conservativeAllowanceUsd": 0.21,
+      "exactBilledCostUsd": null,
+      "status": "completed"
+    }
+  ],
+  "contactSheet": {
+    "path": "media/projects/midwest-2076-library/pilot-contact-sheet.jpg",
+    "bytes": 849385,
+    "sha256": "906fb75c354082256fccb71f1896497b69dd18606ff83cc8031782978fc09be8",
+    "dimensions": {
+      "width": 1512,
+      "height": 2635
+    }
+  },
+  "qaRecord": {
+    "path": "media/projects/midwest-2076-library/pilot-qa.json",
+    "bytes": 10635,
+    "sha256": "805e4167382523a0ff41eeffce9cd096963bececa6fc41b2b60b73af03593a44"
+  },
+  "totalPublicBytes": 1819446
+}

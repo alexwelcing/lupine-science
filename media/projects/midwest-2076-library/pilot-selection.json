@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "project": "midwest-2076-brand-library",
+  "round": "pilot-01",
+  "reviewedAt": "2026-08-11",
+  "reviewBasis": "Contact-sheet review plus full-resolution inspection of strongest and weakest candidates; repository preflight exited 0.",
+  "summary": {
+    "generated": 10,
+    "publish": 0,
+    "mutate": 5,
+    "reject": 5,
+    "conservativeAllowanceUsd": 2.1,
+    "exactBilledCostUsd": null
+  },
+  "sharedFindings": [
+    "All ten pilots inherited the same first weather, palette, and wide-landscape variables, creating false class homogeneity.",
+    "Dramatic shelf clouds became the subject and repeatedly displaced the requested civic, workshop, habitat, and instrument functions.",
+    "Global landscape composition overrode class-level interior and close-object requirements.",
+    "The batch reads too consistently as dark civil-engineering visualization; later prompts need ordinary light, interiors, close process views, and less spectacle.",
+    "Recraft can render coherent materials and infrastructure, but function must be expressed as required visible evidence rather than descriptive nouns alone."
+  ],
+  "reviews": [
+    {
+      "id": "m76-001",
+      "state": "mutate",
+      "scores": {"worldSpecificity":3,"functionalClarity":4,"materialIntelligence":4,"institutionalQuality":4,"ownability":3,"practicalRange":4},
+      "weightedScore": 3.6,
+      "automaticRejects": [],
+      "oneSentenceReading": "Credible flood infrastructure whose porous shelves, access bridges, and water basins read clearly, but still resembles contemporary treatment infrastructure under cinematic weather.",
+      "strength": "Legible hydrological function and strong spatial coherence.",
+      "weakness": "Insufficiently ownable and too dependent on storm spectacle.",
+      "promptLesson": "Use ordinary post-rain light, closer evidence of filtration media and repair, and cap sky to less than one quarter of the frame."
+    },
+    {
+      "id": "m76-011",
+      "state": "reject",
+      "scores": {"worldSpecificity":2,"functionalClarity":2,"materialIntelligence":3,"institutionalQuality":3,"ownability":2,"practicalRange":3},
+      "weightedScore": 2.45,
+      "automaticRejects": ["generic-ai-trope", "world-failure"],
+      "oneSentenceReading": "A storm-facing field of repeated membranes with an inexplicable aircraft, closer to dystopian agricultural key art than a shared machine commons.",
+      "strength": "Membrane scale and weather exposure are visually forceful.",
+      "weakness": "No repair commons, fabrication, people-scale maintenance, or legible agricultural function.",
+      "promptLesson": "Require a service yard, repair activity evidence, stacked parts, and ordinary prairie light; explicitly forbid aircraft and storm spectacle."
+    },
+    {
+      "id": "m76-021",
+      "state": "mutate",
+      "scores": {"worldSpecificity":3,"functionalClarity":3,"materialIntelligence":4,"institutionalQuality":4,"ownability":3,"practicalRange":4},
+      "weightedScore": 3.45,
+      "automaticRejects": [],
+      "oneSentenceReading": "A strong freshwater-industrial panorama with believable condensation and transfer scale, but it remains generic coastal science-fiction industry.",
+      "strength": "Coherent industrial massing, lake horizon, transfer paths, and severe material language.",
+      "weakness": "Great Lakes specificity and material-recovery process are not visible enough.",
+      "promptLesson": "Show rail-water transfer, recovered components, ice or freshwater residue, and ordinary work access; reduce sky."
+    },
+    {
+      "id": "m76-031",
+      "state": "reject",
+      "scores": {"worldSpecificity":2,"functionalClarity":1,"materialIntelligence":2,"institutionalQuality":3,"ownability":2,"practicalRange":2},
+      "weightedScore": 2.0,
+      "automaticRejects": ["world-failure"],
+      "oneSentenceReading": "An empty outdoor concrete amphitheater that does not depict a library, cooling shelter, or inhabited civic interior.",
+      "strength": "Clean geometry and a restrained institutional tone.",
+      "weakness": "The requested function is absent and the scene feels abandoned rather than civic.",
+      "promptLesson": "Force an eye-level interior with ceiling and multiple walls visible, shelves, durable seating, thermal curtains, clear circulation, and evidence of routine public use; forbid amphitheaters."
+    },
+    {
+      "id": "m76-041",
+      "state": "mutate",
+      "scores": {"worldSpecificity":3,"functionalClarity":3,"materialIntelligence":3,"institutionalQuality":4,"ownability":3,"practicalRange":4},
+      "weightedScore": 3.25,
+      "automaticRejects": [],
+      "oneSentenceReading": "A compelling river canopy and transport edge whose logistics function is only implied.",
+      "strength": "Membrane scale, river geography, and service-platform rhythm.",
+      "weakness": "Transfer, freight modules, repair, and circulation are too weak to distinguish it from an infrastructural pavilion.",
+      "promptLesson": "Require visible cargo transfer between rail and water, couplers, service carts, replacement panels, and a lower documentary camera."
+    },
+    {
+      "id": "m76-051",
+      "state": "mutate",
+      "scores": {"worldSpecificity":4,"functionalClarity":4,"materialIntelligence":4,"institutionalQuality":4,"ownability":4,"practicalRange":4},
+      "weightedScore": 4.0,
+      "automaticRejects": [],
+      "oneSentenceReading": "A coherent thermal commons of ceramic storage vessels, copper exchange lines, wet channels, vapor, and service circulation embedded in a flat inland landscape.",
+      "strength": "Distinctive but mechanically legible material system with strong editorial utility.",
+      "weakness": "The sky remains too dominant and several pipe runs terminate ambiguously.",
+      "promptLesson": "Preserve the object family while removing cinematic cloud, lowering the horizon, and requiring visible access hatches and manifold logic. This pilot is calibration-only after the cloud-emphasis correction."
+    },
+    {
+      "id": "m76-061",
+      "state": "reject",
+      "scores": {"worldSpecificity":2,"functionalClarity":1,"materialIntelligence":2,"institutionalQuality":3,"ownability":2,"practicalRange":2},
+      "weightedScore": 2.0,
+      "automaticRejects": ["world-failure"],
+      "oneSentenceReading": "An outdoor wastewater-like field that contains none of the requested municipal ceramic workshop process.",
+      "strength": "Weathering and drainage are photographically coherent.",
+      "weakness": "No interior, casting beds, tools, fixtures, workers' circulation, or drying process.",
+      "promptLesson": "Force a fully enclosed workshop interior, eye-level camera, work tables, molds, fixtures, racks, residue, overhead handling, and no horizon or sky."
+    },
+    {
+      "id": "m76-071",
+      "state": "reject",
+      "scores": {"worldSpecificity":2,"functionalClarity":1,"materialIntelligence":3,"institutionalQuality":3,"ownability":2,"practicalRange":3},
+      "weightedScore": 2.3,
+      "automaticRejects": ["world-failure"],
+      "oneSentenceReading": "A roof frame looking over a field rather than an apartment winter room or collective habitat.",
+      "strength": "The translucent insulated edge and structural frame have useful material vocabulary.",
+      "weakness": "No domestic scale, furnishings, communal work surface, drying rail, or interior enclosure.",
+      "promptLesson": "Keep the camera inside a complete occupied room; require furniture, storage, worn touch points, windows as secondary elements, and less than ten percent visible sky."
+    },
+    {
+      "id": "m76-081",
+      "state": "reject",
+      "scores": {"worldSpecificity":3,"functionalClarity":1,"materialIntelligence":3,"institutionalQuality":3,"ownability":3,"practicalRange":3},
+      "weightedScore": 2.7,
+      "automaticRejects": ["geometry-corruption", "false-authority"],
+      "oneSentenceReading": "A striking line of vessel-like collectors whose unsupported arms and inconsistent connections do not resolve into a credible sediment instrument.",
+      "strength": "Memorable silhouette and unusual regional scale.",
+      "weakness": "Mechanical relationships are inconsistent, with floating elements and no clear calibration or service access.",
+      "promptLesson": "Make one instrument occupy most of the frame; require grounded supports, repeated joint logic, sample path, service platform, and no unsupported spans."
+    },
+    {
+      "id": "m76-091",
+      "state": "mutate",
+      "scores": {"worldSpecificity":3,"functionalClarity":3,"materialIntelligence":5,"institutionalQuality":4,"ownability":4,"practicalRange":5},
+      "weightedScore": 3.95,
+      "automaticRejects": [],
+      "oneSentenceReading": "A tactile and flexible material world of porous black ceramic, tension wire, translucent wet membrane, and weathered structural cuts.",
+      "strength": "The batch's most ownable material language and strongest editorial abstraction.",
+      "weakness": "The landscape and storm make it read as installation architecture rather than a controlled still life.",
+      "promptLesson": "Move future material studies into close conservation-object photography with no horizon, sky, or infrastructural scale. This pilot is calibration-only after the cloud-emphasis correction."
+    }
+  ]
+}

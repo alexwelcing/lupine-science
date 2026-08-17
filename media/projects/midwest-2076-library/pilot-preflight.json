@@ -1,0 +1,125 @@
+{
+  "count": 10,
+  "results": [
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/m76-001.webp",
+      "paperShare": 0.002631293402777778,
+      "indigoShare": 0,
+      "inkShare": 0.2258029513888889,
+      "darkFieldShare": 0.2331000434027778,
+      "offPaletteShare": 0,
+      "wordCount": 154,
+      "suspectCount": 6,
+      "strongCount": 0,
+      "strongWords": []
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/m76-011.webp",
+      "paperShare": 0.003933376736111111,
+      "indigoShare": 0.004638671875,
+      "inkShare": 0.2985297309027778,
+      "darkFieldShare": 0.3134223090277778,
+      "offPaletteShare": 0,
+      "wordCount": 208,
+      "suspectCount": 2,
+      "strongCount": 0,
+      "strongWords": []
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/m76-021.webp",
+      "paperShare": 0.019883897569444444,
+      "indigoShare": 0,
+      "inkShare": 0.2025824652777778,
+      "darkFieldShare": 0.2038302951388889,
+      "offPaletteShare": 0,
+      "wordCount": 88,
+      "suspectCount": 2,
+      "strongCount": 0,
+      "strongWords": []
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/m76-031.webp",
+      "paperShare": 0.013075086805555556,
+      "indigoShare": 0.005533854166666667,
+      "inkShare": 0.16764322916666666,
+      "darkFieldShare": 0.18543836805555555,
+      "offPaletteShare": 0,
+      "wordCount": 113,
+      "suspectCount": 1,
+      "strongCount": 0,
+      "strongWords": []
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/m76-041.webp",
+      "paperShare": 0.031032986111111112,
+      "indigoShare": 0,
+      "inkShare": 0.2793511284722222,
+      "darkFieldShare": 0.2870279947916667,
+      "offPaletteShare": 0,
+      "wordCount": 69,
+      "suspectCount": 1,
+      "strongCount": 0,
+      "strongWords": []
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/m76-051.webp",
+      "paperShare": 0.009440104166666666,
+      "indigoShare": 0.00043402777777777775,
+      "inkShare": 0.18912760416666666,
+      "darkFieldShare": 0.20166015625,
+      "offPaletteShare": 0.00005425347222222222,
+      "wordCount": 172,
+      "suspectCount": 1,
+      "strongCount": 0,
+      "strongWords": []
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/m76-061.webp",
+      "paperShare": 0.005072699652777778,
+      "indigoShare": 0.0068359375,
+      "inkShare": 0.3092719184027778,
+      "darkFieldShare": 0.3119032118055556,
+      "offPaletteShare": 0.039306640625,
+      "wordCount": 104,
+      "suspectCount": 0,
+      "strongCount": 0,
+      "strongWords": []
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/m76-071.webp",
+      "paperShare": 0.032036675347222224,
+      "indigoShare": 0,
+      "inkShare": 0.2664116753472222,
+      "darkFieldShare": 0.2671712239583333,
+      "offPaletteShare": 0,
+      "wordCount": 205,
+      "suspectCount": 3,
+      "strongCount": 0,
+      "strongWords": []
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/m76-081.webp",
+      "paperShare": 0.017144097222222224,
+      "indigoShare": 0,
+      "inkShare": 0.1784125434027778,
+      "darkFieldShare": 0.19710286458333334,
+      "offPaletteShare": 0,
+      "wordCount": 80,
+      "suspectCount": 1,
+      "strongCount": 0,
+      "strongWords": []
+    },
+    {
+      "file": "public/brand-assets/assets/images/midwest-2076/m76-091.webp",
+      "paperShare": 0.007568359375,
+      "indigoShare": 0.036702473958333336,
+      "inkShare": 0.20328776041666666,
+      "darkFieldShare": 0.2575141059027778,
+      "offPaletteShare": 0.00010850694444444444,
+      "wordCount": 260,
+      "suspectCount": 12,
+      "strongCount": 0,
+      "strongWords": []
+    }
+  ]
+}

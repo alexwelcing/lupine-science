@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "project": "midwest-2076-brand-library",
+  "source": "media/projects/midwest-2076-library/first-principles-scenes.json",
+  "generationRecord": "media/projects/midwest-2076-library/first-principles-pilot-generation-record.json",
+  "contactSheet": "media/projects/midwest-2076-library/first-principles-pilot-contact-sheet.jpg",
+  "evaluationMethod": "Master-resolution visual inspection against every mechanicalEvidence item, required first-principles topology, prohibited familiar typologies, weather/sky discipline, and downstream spatial consequence.",
+  "verdictCounts": {
+    "pass": 0,
+    "mutate": 4,
+    "reject": 1
+  },
+  "results": [
+    {
+      "id": "fp-01",
+      "title": "River-width separation loom",
+      "verdict": "mutate",
+      "mechanicalEvidence": [
+        { "item": "independent membrane lanes", "status": "present", "observation": "Three foreground ribbons feed separate long lanes, with additional separated lanes visible across the river." },
+        { "item": "ceramic spool drums", "status": "ambiguous", "observation": "Three large pale-ended drums are clear, but their ceramic material is not visually established." },
+        { "item": "articulated comb frames", "status": "absent", "observation": "The lanes have repeated dark edge elements, but no low articulated comb assemblies pass across or guide the ribbons." },
+        { "item": "edge clamps", "status": "present", "observation": "Regular small light clamps are visible along both edges of the foreground ribbons." },
+        { "item": "replacement rolls", "status": "ambiguous", "observation": "The active wound drums are visible, but separate replacement rolls are not clearly distinguishable." },
+        { "item": "sediment staining", "status": "ambiguous", "observation": "Muddy water and wet deck residue are visible, but discrete sediment staining on serviced components is weak." },
+        { "item": "maintenance cart", "status": "present", "observation": "A low four-wheel service cart stands between the center and right drums." },
+        { "item": "unobstructed navigation channel", "status": "present", "observation": "Broad open-water corridors remain between the separated membrane lanes." }
+      ],
+      "missingEvidence": ["articulated comb frames"],
+      "ambiguousEvidence": ["ceramic spool drums", "replacement rolls", "sediment staining"],
+      "familiarTypologySubstitution": false,
+      "firstPrinciplesTopologyPreserved": true,
+      "weatherSpectacle": false,
+      "downstreamSpatialConsequencePreserved": true,
+      "defects": ["The output uses four long guide-like lane structures rather than clearly showing three ribbons passing beneath articulated comb frames and re-emerging.", "The broad open water supports navigation, but no vessel or crossing makes shared civic use explicit."],
+      "rationale": "The distributed river loom and shared open channel are legible, so rejection is not warranted. Mutation is required to add the missing articulated comb frames and make replacement rolls, ceramic drums, and sediment service evidence unequivocal."
+    },
+    {
+      "id": "fp-04",
+      "title": "Library whose walls are the seasonal heat machine",
+      "verdict": "mutate",
+      "mechanicalEvidence": [
+        { "item": "inhabited wall depth", "status": "present", "observation": "Immense porous block walls contain deep niches and a thick passage to another chamber." },
+        { "item": "removable joint band", "status": "ambiguous", "observation": "Horizontal copper services run at course joints, but a clearly removed public-facing joint band is not shown." },
+        { "item": "sealed ceramic cartridges", "status": "present", "observation": "A row of sealed pale cylindrical cartridges with capped ends is exposed in the foreground." },
+        { "item": "wheeled service cradle", "status": "present", "observation": "The cartridge rack is mounted on a robust four-wheel steel cradle." },
+        { "item": "shelves and seating inside thermal wall", "status": "ambiguous", "observation": "Deep ledges and cavities read as inhabitable, but books, shelves, and distinct seating are not clearly legible." },
+        { "item": "multiple thermal-depth chambers", "status": "present", "observation": "A very thick opening reveals a second enclosed chamber beyond the foreground gallery." },
+        { "item": "worn touch surfaces", "status": "present", "observation": "The timber service platform, mineral ledges, and floor carry visible wear and staining." }
+      ],
+      "missingEvidence": [],
+      "ambiguousEvidence": ["removable joint band", "shelves and seating inside thermal wall"],
+      "familiarTypologySubstitution": false,
+      "firstPrinciplesTopologyPreserved": true,
+      "weatherSpectacle": false,
+      "downstreamSpatialConsequencePreserved": true,
+      "defects": ["The maintenance opening reads as exposed piping and a cartridge cart rather than a joint band removed from a discrete structural course.", "The frame does not make the everyday library program immediately legible because shelves and seating are largely absent."],
+      "rationale": "The thick inhabited thermal body, accessible manifolds, cartridges, cradle, and chamber depth are strong. Mutation should restore unmistakable library occupation and the removable course-joint maintenance logic."
+    },
+    {
+      "id": "fp-06",
+      "title": "Quarry-scale continuous fabricator",
+      "verdict": "mutate",
+      "mechanicalEvidence": [
+        { "item": "long linear gantry", "status": "present", "observation": "A very long low dark gantry spans the excavated bed across the upper half of the image." },
+        { "item": "two deposition nozzles", "status": "present", "observation": "Two downward dark nozzles are visible under the left end of the gantry." },
+        { "item": "graded wet strata", "status": "present", "observation": "Dark and tan wet deposited layers curve continuously through the mineral bed." },
+        { "item": "changing cross-section", "status": "present", "observation": "The sinuous porous channel edges vary in width, height, and cavity size along their lengths." },
+        { "item": "branching channel", "status": "ambiguous", "observation": "Multiple sinuous channels and basins are visible, but a clear branch junction from one deposited channel is not unequivocal." },
+        { "item": "reinforcement spools", "status": "absent", "observation": "No identifiable reinforcement spool or recovery coil is visible." },
+        { "item": "maintenance platforms", "status": "present", "observation": "Guardrailed maintenance walks and service platforms run along the gantry." },
+        { "item": "patched nozzle interruptions", "status": "absent", "observation": "No repaired break or patch in an interrupted deposited stratum is clearly visible." }
+      ],
+      "missingEvidence": ["reinforcement spools", "patched nozzle interruptions"],
+      "ambiguousEvidence": ["branching channel"],
+      "familiarTypologySubstitution": false,
+      "firstPrinciplesTopologyPreserved": true,
+      "weatherSpectacle": false,
+      "downstreamSpatialConsequencePreserved": true,
+      "defects": ["The porous cavity pattern is highly repetitive and risks reading as a finished retaining wall rather than continuously graded deposition.", "Raw ground, wet work, and cured basins coexist, but reinforcement insertion and patch maintenance are not shown."],
+      "rationale": "The quarry-scale gantry and continuous changing waterwork are legible without a house-printer or robot-arm substitution. Mutation is required because two specified maintenance-production facts are absent and branching remains unclear."
+    },
+    {
+      "id": "fp-07",
+      "title": "Freight body repaired like a textile",
+      "verdict": "mutate",
+      "mechanicalEvidence": [
+        { "item": "exposed durable frame", "status": "present", "observation": "A long simple black rectilinear freight frame is exposed behind the hanging sheets." },
+        { "item": "opened load-spreading seam", "status": "ambiguous", "observation": "Sheet edges are opened and pinned, but a single precise diagonal load-spreading seam is not clearly resolved." },
+        { "item": "broad tension table", "status": "absent", "observation": "The broad foreground circulation floor is bare; no tension table supports or spreads the peeled skin." },
+        { "item": "folded replacement skin", "status": "absent", "observation": "Several sheets hang or drape from the frame, but none is visibly folded as a replacement skin." },
+        { "item": "copper edge pins", "status": "present", "observation": "Repeated copper-colored pins line exposed sheet edges." },
+        { "item": "clamps", "status": "ambiguous", "observation": "The edge fasteners may act as clamps, but distinct clamping fixtures are not legible." },
+        { "item": "abrasion patches", "status": "present", "observation": "Large scraped and abraded dark patches mark the central green sheet." },
+        { "item": "half-completed joint", "status": "present", "observation": "Pinned sheet edges stop partway and leave the frame exposed, reading as an incomplete reversible joint." }
+      ],
+      "missingEvidence": ["broad tension table", "folded replacement skin"],
+      "ambiguousEvidence": ["opened load-spreading seam", "clamps"],
+      "familiarTypologySubstitution": false,
+      "firstPrinciplesTopologyPreserved": true,
+      "weatherSpectacle": false,
+      "downstreamSpatialConsequencePreserved": true,
+      "defects": ["The camera shows only one wall and omits the ceiling, weakening the specified broad-low-hall section.", "Without a tension table or folded replacement sheet, the repair process reads as panel hanging rather than an infrastructural textile floor."],
+      "rationale": "The garment-over-frame premise, reversible pins, abrasion, exposed frame, and circulation lane survive. Mutation is needed to make the textile repair operation—not merely a skinned frame—the dominant spatial fact."
+    },
+    {
+      "id": "fp-08",
+      "title": "Underground winter daylight room",
+      "verdict": "reject",
+      "mechanicalEvidence": [
+        { "item": "branching structural ribs", "status": "ambiguous", "observation": "Bright canopy bands branch and curve, but they appear as translucent infill held by dark metal ribs rather than load-bearing ceramic light guides." },
+        { "item": "turned light path", "status": "ambiguous", "observation": "Illuminated surfaces curve from ceiling toward walls, but no solid guide path visibly turns through a thick buttress." },
+        { "item": "different light intensity by depth", "status": "present", "observation": "The left and central luminous surfaces vary visibly in brightness while the rear chamber is darker." },
+        { "item": "removed short segment", "status": "absent", "observation": "No short guide segment is visibly removed from a rib." },
+        { "item": "dark gaskets", "status": "present", "observation": "Dark repeated joints separate the luminous canopy panels." },
+        { "item": "side maintenance gallery", "status": "absent", "observation": "The right edge is an open floor aisle, not a distinct side wall maintenance gallery." },
+        { "item": "replacement cradle", "status": "ambiguous", "observation": "A long pale rolled or segmented object sits on small wheels at right, but it is not a short matching guide segment on a service cradle." },
+        { "item": "worn public furniture", "status": "present", "observation": "Communal tables and padded benches show scuffs, stains, and rounded worn edges." }
+      ],
+      "missingEvidence": ["removed short segment", "side maintenance gallery"],
+      "ambiguousEvidence": ["branching structural ribs", "turned light path", "replacement cradle"],
+      "familiarTypologySubstitution": true,
+      "substitutedTypology": "conventional luminous canopy/skylight-atrium language",
+      "firstPrinciplesTopologyPreserved": false,
+      "weatherSpectacle": false,
+      "downstreamSpatialConsequencePreserved": false,
+      "defects": ["The bright panelized ceiling behaves visually like a translucent canopy or skylight assembly rather than solid load-bearing ceramic light infrastructure.", "No removed short segment, side maintenance gallery, or matching replacement guide proves short-segment serviceability.", "The room reads primarily as a cafeteria or institutional hall; repair, play, rest, and gathering around structural light ribs are not differentiated."],
+      "rationale": "Reject: a familiar luminous canopy replaces the required solid branching light-guide topology, and the maintenance gallery/short-segment logic and downstream multi-use spatial consequence are lost."
+    }
+  ]
+}
