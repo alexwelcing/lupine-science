@@ -35,7 +35,33 @@ export function selectRollbackTarget(response) {
 }
 
 export function renderRollbackCommand(accountId, projectName, deploymentId) {
-  return `curl -fsS -X POST "https://api.cloudflare.com/client/v4/accounts/${accountId}/pages/projects/${projectName}/deployments/${deploymentId}/rollback" -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" -H "Content-Type: application/json" -d '{}'`;
+  return `curl -fsS -X POST "https://api.cloudflare.com/client/v4/accounts/${accountId}/pages/projects/${projectName}/deployments/${deploymentId}/rollback" -H "Authorization: Bearer $CLOUD...OKEN" -H "Content-Type: application/json" -d '{}'`;
+}
+
+export function buildRollbackCapture({ previous, accountId, projectName, capturedAt }) {
+  if (!isEligibleRollbackTarget(previous)) throw new Error('previous deployment is not an eligible successful production deployment');
+  const deploymentId = requireText(previous.id, 'rollback target deployment id');
+  const targetUrl = requireText(previous.url, 'rollback target URL');
+  const targetCommitSha = requireText(previous.deployment_trigger?.metadata?.commit_hash, 'rollback target commit SHA');
+  if (!/^[0-9a-f]{40}$/i.test(targetCommitSha)) throw new Error('rollback target commit SHA is invalid');
+
+  return {
+    schemaVersion: 1,
+    capturedBeforeDeployment: true,
+    capturedAt: requireText(capturedAt, 'capture timestamp'),
+    rollbackTarget: {
+      deploymentId,
+      commitSha: targetCommitSha,
+      url: targetUrl,
+    },
+    rollback: {
+      command: renderRollbackCommand(
+        requireText(accountId, 'Cloudflare account id'),
+        requireText(projectName, 'Cloudflare Pages project'),
+        deploymentId,
+      ),
+    },
+  };
 }
 
 export function buildRollbackEvidence({
@@ -111,6 +137,17 @@ function main(argv = process.argv.slice(2)) {
     const output = valueAfter('--output', argv);
     fs.mkdirSync(path.dirname(output), { recursive: true });
     fs.writeFileSync(output, `${JSON.stringify(selected, null, 2)}\n`);
+    if (argv.includes('--capture-output')) {
+      const captureOutput = valueAfter('--capture-output', argv);
+      const capture = buildRollbackCapture({
+        previous: selected,
+        accountId: valueAfter('--account-id', argv),
+        projectName: valueAfter('--project-name', argv),
+        capturedAt: valueAfter('--captured-at', argv),
+      });
+      fs.mkdirSync(path.dirname(captureOutput), { recursive: true });
+      fs.writeFileSync(captureOutput, `${JSON.stringify(capture, null, 2)}\n`);
+    }
     console.log(`Selected previous production deployment ${selected.id}`);
     return;
   }

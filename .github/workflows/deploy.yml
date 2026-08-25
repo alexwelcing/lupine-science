@@ -450,7 +450,11 @@ jobs:
             > "$response"
           node scripts/build-rollback-evidence.mjs \
             --select-from "$response" \
-            --output "$RUNNER_TEMP/previous-production-deployment.json"
+            --output "$RUNNER_TEMP/previous-production-deployment.json" \
+            --capture-output "$RUNNER_TEMP/rollback-target-capture.json" \
+            --account-id "$CLOUDFLARE_ACCOUNT_ID" \
+            --project-name "$CF_PAGES_PROJECT" \
+            --captured-at "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 
       - name: Deploy production to Cloudflare Pages
         id: deploy
@@ -499,10 +503,13 @@ jobs:
             --output "$RUNNER_TEMP/rollback-evidence.json"
 
       - name: Retain rollback evidence
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: rollback-evidence-${{ github.event.workflow_run.head_sha }}
-          path: ${{ runner.temp }}/rollback-evidence.json
+          path: |
+            ${{ runner.temp }}/rollback-target-capture.json
+            ${{ runner.temp }}/rollback-evidence.json
           if-no-files-found: error
           retention-days: 90
 

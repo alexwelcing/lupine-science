@@ -23,6 +23,7 @@ function artifactLinks(receipt, recordsArtifactUrl, sourceRunUrl, sourceArtifact
   const links = [
     ['Visual checks', receipt?.checks?.visual?.artifactUrl ?? sourceArtifactsUrl],
     ['Smoke checks', receipt?.checks?.smoke?.artifactUrl ?? sourceArtifactsUrl],
+    ['Audio checks', receipt?.checks?.audio?.artifactUrl ?? sourceArtifactsUrl],
     ['Source CI run', receipt?.ciRunUrl ?? sourceRunUrl],
     ['Release-certification records', recordsArtifactUrl],
   ];

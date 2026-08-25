@@ -54,9 +54,13 @@ test('production deploy captures and verifies an exact rollback target', async (
 
   assert.match(source, /name: Capture previous production deployment/);
   assert.match(source, /pages\/projects\/\$CF_PAGES_PROJECT\/deployments\?env=production/);
+  assert.match(source, /--capture-output "\$RUNNER_TEMP\/rollback-target-capture\.json"/);
+  assert.match(source, /--account-id "\$CLOUDFLARE_ACCOUNT_ID"/);
+  assert.match(source, /--project-name "\$CF_PAGES_PROJECT"/);
   assert.match(source, /name: Prove previous deployment remains restorable/);
   assert.match(source, /node scripts\/build-rollback-evidence\.mjs/);
-  assert.match(source, /name: Retain rollback evidence/);
+  assert.match(source, /name: Retain rollback evidence\n\s+if: always\(\)/);
+  assert.match(source, /path: \|\n\s+\$\{\{ runner\.temp \}\}\/rollback-target-capture\.json\n\s+\$\{\{ runner\.temp \}\}\/rollback-evidence\.json/);
   assert.match(source, /rollback-evidence-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
   assert.match(source, /retention-days: 90/);
 });

@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 
 import {
+  buildRollbackCapture,
   buildRollbackEvidence,
   renderRollbackCommand,
   selectRollbackTarget,
@@ -33,6 +34,23 @@ const input = {
   deploymentUrl: 'https://deployment-current.pages.dev',
   verifiedAt: '2026-08-03T12:00:00Z',
 };
+
+test('pre-deploy capture retains the exact target and an executable rollback command', () => {
+  const capture = buildRollbackCapture({
+    previous,
+    accountId: 'account-123',
+    projectName: 'lupine-science',
+    capturedAt: '2026-08-03T11:30:00Z',
+  });
+
+  assert.equal(capture.schemaVersion, 1);
+  assert.equal(capture.capturedBeforeDeployment, true);
+  assert.equal(capture.rollbackTarget.deploymentId, previous.id);
+  assert.equal(capture.rollbackTarget.commitSha, 'b'.repeat(40));
+  assert.equal(capture.rollbackTarget.url, previous.url);
+  assert.equal(capture.rollback.command, renderRollbackCommand('account-123', 'lupine-science', previous.id));
+  assert.match(capture.rollback.command, /deployment-previous-123\/rollback/);
+});
 
 test('rollback evidence identifies the exact prior version and executable procedure', () => {
   const evidence = buildRollbackEvidence(input);

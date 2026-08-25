@@ -10,6 +10,7 @@ const baseReceipt = {
   checks: {
     visual: { passed: true, artifactUrl: 'https://github.example/ci#artifacts' },
     smoke: { passed: true, artifactUrl: 'https://github.example/ci#artifacts' },
+    audio: { passed: true, artifactUrl: 'https://github.example/audio#artifacts' },
   },
   failures: [],
   ciRunUrl: 'https://github.example/ci',
@@ -48,11 +49,17 @@ test('passing release notification still names the release, decision, and artifa
   assert.match(notification.title, /lupine-science@aaaaaaaaaaaa/);
   assert.match(notification.markdown, /Failing checks: none/);
   assert.match(notification.markdown, /Release-certification records/);
+  assert.equal(notification.artifactLinks['Audio checks'], 'https://github.example/audio#artifacts');
 });
 
 test('missing certification receipt becomes an explicit failing decision', () => {
-  const notification = buildReleaseNotification({ receipt: null, ...context });
+  const notification = buildReleaseNotification({
+    receipt: null,
+    sourceArtifactsUrl: 'https://github.example/source#artifacts',
+    ...context,
+  });
 
   assert.equal(notification.decision, 'fail');
   assert.match(notification.markdown, /release certification receipt was not produced/);
+  assert.equal(notification.artifactLinks['Audio checks'], 'https://github.example/source#artifacts');
 });
