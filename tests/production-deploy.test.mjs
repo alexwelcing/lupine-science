@@ -40,9 +40,14 @@ test('production deploy records a durable receipt and invokes live verification'
   const deployIndex = source.indexOf('- name: Deploy production to Cloudflare Pages');
   const receiptIndex = source.indexOf('- name: Record production deployment receipt');
   const rollbackVerificationIndex = source.indexOf('- name: Prove previous deployment remains restorable');
+  const securityVerificationIndex = source.indexOf('- name: Security headers are live');
+  const receiptFailureIndex = source.indexOf('- name: Fail if production deployment receipt was not retained');
 
   assert.match(source, /name: Record production deployment receipt/);
   assert.ok(deployIndex < receiptIndex && receiptIndex < rollbackVerificationIndex);
+  assert.match(source, /name: Upload production deployment receipt\n\s+id: receipt_upload\n\s+continue-on-error: true/);
+  assert.ok(securityVerificationIndex < receiptFailureIndex);
+  assert.match(source, /if: steps\.receipt_upload\.outcome != 'success'/);
   assert.match(source, /production-deployment-receipt-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
   assert.match(source, /retention-days: 90/);
   assert.match(source, /name: Smoke test production deployment URL/);
