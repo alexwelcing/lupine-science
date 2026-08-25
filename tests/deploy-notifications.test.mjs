@@ -75,9 +75,12 @@ test('production live verification creates an assigned GitHub notification and r
   assert.match(notifyStep, /rollback-evidence\.json[\s\S]*rollback-target-capture\.json[\s\S]*\.rollback\.command/);
   assert.match(notifyStep, /RECEIPT_UPLOAD_OUTCOME: \$\{\{ steps\.receipt_upload\.outcome \}\}/);
   assert.match(notifyStep, /ROLLBACK_VERIFICATION_OUTCOME: \$\{\{ steps\.rollback_verification\.outcome \}\}/);
+  assert.match(notifyStep, /LIVE_LOGS_UPLOAD_OUTCOME: \$\{\{ steps\.live_logs_upload\.outcome \}\}/);
   assert.match(notifyStep, /rollback target verification/);
   assert.match(notifyStep, /deployment receipt retention/);
   assert.match(notifyStep, /rollback evidence retention/);
+  assert.match(notifyStep, /live-verification log retention/);
+  assert.match(notifyStep, /\[ "\$RECEIPT_UPLOAD_OUTCOME" = "failure" \]/);
   assert.match(source, /Notify team of live verification result[\s\S]*GH_TOKEN: \$\{\{ github\.token \}\}/);
   assert.match(source, /Notify team of live verification result[\s\S]*repos\/\$GITHUB_REPOSITORY\/issues/);
   assert.match(source, /Artifact: \$RUN_URL#artifacts/);

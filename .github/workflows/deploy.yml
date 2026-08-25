@@ -657,7 +657,9 @@ jobs:
         run: echo "${{ steps.deploy.outputs.url }}"
 
       - name: Upload live verification logs
+        id: live_logs_upload
         if: always()
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: production-live-verification-${{ github.run_id }}
@@ -672,7 +674,7 @@ jobs:
           retention-days: 90
 
       - name: Fail if deployment evidence was not retained
-        if: steps.receipt_upload.outcome != 'success' || steps.rollback_verification.outcome != 'success' || steps.rollback_upload.outcome != 'success' || steps.deployment_smoke.outcome != 'success' || steps.domain_smoke.outcome != 'success' || steps.security_headers.outcome != 'success'
+        if: steps.receipt_upload.outcome != 'success' || steps.rollback_verification.outcome != 'success' || steps.rollback_upload.outcome != 'success' || steps.deployment_smoke.outcome != 'success' || steps.domain_smoke.outcome != 'success' || steps.security_headers.outcome != 'success' || steps.live_logs_upload.outcome != 'success'
         run: |
           echo "::error::One or more post-deploy evidence or live-safety steps failed."
           exit 1
@@ -692,6 +694,7 @@ jobs:
           DEPLOYMENT_SMOKE_OUTCOME: ${{ steps.deployment_smoke.outcome }}
           DOMAIN_SMOKE_OUTCOME: ${{ steps.domain_smoke.outcome }}
           SECURITY_HEADERS_OUTCOME: ${{ steps.security_headers.outcome }}
+          LIVE_LOGS_UPLOAD_OUTCOME: ${{ steps.live_logs_upload.outcome }}
         run: |
           status="${{ job.status }}"
           icon="✅"
@@ -733,15 +736,16 @@ jobs:
           smoke_detail="$(grep -m1 -E '^      (page unreachable|page body unreadable|missing |canonical URL broken|og:url broken|og:image broken|video link broken|download link broken)' "$SMOKE_FAILURES_FILE" | sed -E 's/^      //' || true)"
           if [ "$status" != "success" ]; then
             failure_categories=()
-            [ "$RECEIPT_UPLOAD_OUTCOME" = "success" ] || failure_categories+=("deployment receipt retention")
-            [ "$ROLLBACK_VERIFICATION_OUTCOME" = "success" ] || failure_categories+=("rollback target verification")
-            [ "$ROLLBACK_UPLOAD_OUTCOME" = "success" ] || failure_categories+=("rollback evidence retention")
-            [ "$DEPLOYMENT_SMOKE_OUTCOME" = "success" ] || failure_categories+=("deployment URL smoke${smoke_detail:+: $smoke_detail}")
-            [ "$DOMAIN_SMOKE_OUTCOME" = "success" ] || failure_categories+=("custom-domain smoke${smoke_detail:+: $smoke_detail}")
-            [ "$SECURITY_HEADERS_OUTCOME" = "success" ] || failure_categories+=("security-header verification")
+            [ "$RECEIPT_UPLOAD_OUTCOME" = "failure" ] && failure_categories+=("deployment receipt retention")
+            [ "$ROLLBACK_VERIFICATION_OUTCOME" = "failure" ] && failure_categories+=("rollback target verification")
+            [ "$ROLLBACK_UPLOAD_OUTCOME" = "failure" ] && failure_categories+=("rollback evidence retention")
+            [ "$DEPLOYMENT_SMOKE_OUTCOME" = "failure" ] && failure_categories+=("deployment URL smoke${smoke_detail:+: $smoke_detail}")
+            [ "$DOMAIN_SMOKE_OUTCOME" = "failure" ] && failure_categories+=("custom-domain smoke${smoke_detail:+: $smoke_detail}")
+            [ "$SECURITY_HEADERS_OUTCOME" = "failure" ] && failure_categories+=("security-header verification")
+            [ "$LIVE_LOGS_UPLOAD_OUTCOME" = "failure" ] && failure_categories+=("live-verification log retention")
             failure_category="$(IFS=', '; echo "${failure_categories[*]}")"
             failure_category="${failure_category:-deployment verification stopped before outcomes were recorded}"
-            if [ "$DEPLOYMENT_SMOKE_OUTCOME" != "success" ] || [ "$DOMAIN_SMOKE_OUTCOME" != "success" ] || [ "$SECURITY_HEADERS_OUTCOME" != "success" ]; then
+            if [ "$DEPLOYMENT_SMOKE_OUTCOME" = "failure" ] || [ "$DOMAIN_SMOKE_OUTCOME" = "failure" ] || [ "$SECURITY_HEADERS_OUTCOME" = "failure" ]; then
               failing_url="${failing_url:-${DEPLOY_URL:-https://lupine.science}}"
             else
               failing_url="not applicable"
