@@ -41,13 +41,13 @@ test('production deploy records a durable receipt and invokes live verification'
   const receiptIndex = source.indexOf('- name: Record production deployment receipt');
   const rollbackVerificationIndex = source.indexOf('- name: Prove previous deployment remains restorable');
   const securityVerificationIndex = source.indexOf('- name: Security headers are live');
-  const receiptFailureIndex = source.indexOf('- name: Fail if production deployment receipt was not retained');
+  const evidenceFailureIndex = source.indexOf('- name: Fail if deployment evidence was not retained');
 
   assert.match(source, /name: Record production deployment receipt/);
   assert.ok(deployIndex < receiptIndex && receiptIndex < rollbackVerificationIndex);
   assert.match(source, /name: Upload production deployment receipt\n\s+id: receipt_upload\n\s+continue-on-error: true/);
-  assert.ok(securityVerificationIndex < receiptFailureIndex);
-  assert.match(source, /if: steps\.receipt_upload\.outcome != 'success'/);
+  assert.ok(securityVerificationIndex < evidenceFailureIndex);
+  assert.match(source, /if: steps\.receipt_upload\.outcome != 'success' \|\| steps\.rollback_upload\.outcome != 'success'/);
   assert.match(source, /production-deployment-receipt-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
   assert.match(source, /retention-days: 90/);
   assert.match(source, /name: Smoke test production deployment URL/);
@@ -69,10 +69,11 @@ test('production deploy captures and verifies an exact rollback target', async (
   assert.match(source, /--project-name "\$CF_PAGES_PROJECT"/);
   assert.match(source, /name: Prove previous deployment remains restorable/);
   assert.match(source, /node scripts\/build-rollback-evidence\.mjs/);
-  assert.match(source, /name: Retain rollback evidence\n\s+if: always\(\)/);
+  assert.match(source, /name: Retain rollback evidence\n\s+id: rollback_upload\n\s+if: always\(\)\n\s+continue-on-error: true/);
   assert.match(source, /path: \|\n\s+\$\{\{ runner\.temp \}\}\/rollback-target-capture\.json\n\s+\$\{\{ runner\.temp \}\}\/rollback-evidence\.json/);
   assert.match(source, /rollback-evidence-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
   assert.match(source, /retention-days: 90/);
+  assert.equal(source.match(/name: Purge Cloudflare cache for custom domain/g)?.length, 1);
 });
 
 // Both tests survive the rebase: the rollback-target test is this branch's addition,

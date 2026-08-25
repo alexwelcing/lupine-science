@@ -553,7 +553,9 @@ jobs:
             --output "$RUNNER_TEMP/rollback-evidence.json"
 
       - name: Retain rollback evidence
+        id: rollback_upload
         if: always()
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: rollback-evidence-${{ github.event.workflow_run.head_sha }}
@@ -562,39 +564,6 @@ jobs:
             ${{ runner.temp }}/rollback-evidence.json
           if-no-files-found: error
           retention-days: 90
-
-      - name: Purge Cloudflare cache for custom domain
-        env:
-          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: |
-          set -uo pipefail
-          zone_response=$(curl -fsS -X GET "https://api.cloudflare.com/client/v4/zones?name=lupine.science&account.id=${CF_ACCOUNT}" \
-            -H "Authorization: Bearer ${CF_TOKEN}" \
-            -H "Content-Type: application/json" 2>/tmp/cf-zone-err.log) || {
-            echo "::warning::Could not look up Cloudflare zone; cache purge skipped. Details: $(cat /tmp/cf-zone-err.log)"
-            exit 0
-          }
-          zone_id=$(echo "$zone_response" | jq -r '.result[0].id')
-          if [ -z "$zone_id" ] || [ "$zone_id" = "null" ]; then
-            echo "::warning::Could not find Cloudflare zone for lupine.science; cache purge skipped."
-            echo "$zone_response" | jq . >&2
-            exit 0
-          fi
-          purge_response=$(curl -fsS -X POST "https://api.cloudflare.com/client/v4/zones/${zone_id}/purge_cache" \
-            -H "Authorization: Bearer ${CF_TOKEN}" \
-            -H "Content-Type: application/json" \
-            -d '{"purge_everything":true}' 2>/tmp/cf-purge-err.log) || {
-            echo "::warning::Cloudflare cache purge request failed; the deploy still uses cache-busted image URLs so the new content should be served. Details: $(cat /tmp/cf-purge-err.log)"
-            exit 0
-          }
-          if [ "$(echo "$purge_response" | jq -r '.success')" != "true" ]; then
-            echo "::warning::Cloudflare cache purge was not successful; cache-busted image URLs will still bypass stale cache."
-            echo "$purge_response" | jq . >&2
-            exit 0
-          fi
-          echo "Cloudflare zone cache purged successfully"
-          sleep 10
 
       - name: Purge Cloudflare cache for custom domain
         env:
@@ -689,10 +658,10 @@ jobs:
           if-no-files-found: ignore
           retention-days: 90
 
-      - name: Fail if production deployment receipt was not retained
-        if: steps.receipt_upload.outcome != 'success'
+      - name: Fail if deployment evidence was not retained
+        if: steps.receipt_upload.outcome != 'success' || steps.rollback_upload.outcome != 'success'
         run: |
-          echo "::error::Production changed, but its deployment receipt was not retained."
+          echo "::error::Production changed, but its receipt or rollback evidence was not retained."
           exit 1
 
       - name: Notify team of live verification result
