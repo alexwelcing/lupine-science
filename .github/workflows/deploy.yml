@@ -491,6 +491,35 @@ jobs:
           [ -n "$url" ] || { echo "::error::Could not find Pages deployment URL"; exit 1; }
           echo "url=$url" >> "$GITHUB_OUTPUT"
 
+      - name: Record production deployment receipt
+        env:
+          DEPLOY_URL: ${{ steps.deploy.outputs.url }}
+          DEPLOYED_SHA: ${{ github.event.workflow_run.head_sha }}
+          SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
+          APPROVAL_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          jq -n \
+            --arg environment production \
+            --arg branch main \
+            --arg commit_sha "$DEPLOYED_SHA" \
+            --arg source_ci_run_id "$SOURCE_RUN_ID" \
+            --arg source_artifact "lupine-science-public-$DEPLOYED_SHA" \
+            --arg deployment_url "$DEPLOY_URL" \
+            --arg publication_signoff_artifact "publication-owner-signoff-$DEPLOYED_SHA" \
+            --arg production_approval_record "$APPROVAL_RUN_URL" \
+            --arg rollback_evidence_artifact "rollback-evidence-$DEPLOYED_SHA" \
+            --arg deployed_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            '{environment: $environment, branch: $branch, commit_sha: $commit_sha, source_ci_run_id: $source_ci_run_id, source_artifact: $source_artifact, publication_signoff_artifact: $publication_signoff_artifact, production_approval_record: $production_approval_record, rollback_evidence_artifact: $rollback_evidence_artifact, deployment_url: $deployment_url, deployed_at: $deployed_at}' \
+            > "$RUNNER_TEMP/production-deployment-receipt.json"
+
+      - name: Upload production deployment receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-deployment-receipt-${{ github.event.workflow_run.head_sha }}
+          path: ${{ runner.temp }}/production-deployment-receipt.json
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Prove previous deployment remains restorable
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -529,35 +558,6 @@ jobs:
           path: |
             ${{ runner.temp }}/rollback-target-capture.json
             ${{ runner.temp }}/rollback-evidence.json
-          if-no-files-found: error
-          retention-days: 90
-
-      - name: Record production deployment receipt
-        env:
-          DEPLOY_URL: ${{ steps.deploy.outputs.url }}
-          DEPLOYED_SHA: ${{ github.event.workflow_run.head_sha }}
-          SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
-          APPROVAL_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: |
-          jq -n \
-            --arg environment production \
-            --arg branch main \
-            --arg commit_sha "$DEPLOYED_SHA" \
-            --arg source_ci_run_id "$SOURCE_RUN_ID" \
-            --arg source_artifact "lupine-science-public-$DEPLOYED_SHA" \
-            --arg deployment_url "$DEPLOY_URL" \
-            --arg publication_signoff_artifact "publication-owner-signoff-$DEPLOYED_SHA" \
-            --arg production_approval_record "$APPROVAL_RUN_URL" \
-            --arg rollback_evidence_artifact "rollback-evidence-$DEPLOYED_SHA" \
-            --arg deployed_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-            '{environment: $environment, branch: $branch, commit_sha: $commit_sha, source_ci_run_id: $source_ci_run_id, source_artifact: $source_artifact, publication_signoff_artifact: $publication_signoff_artifact, production_approval_record: $production_approval_record, rollback_evidence_artifact: $rollback_evidence_artifact, deployment_url: $deployment_url, deployed_at: $deployed_at}' \
-            > "$RUNNER_TEMP/production-deployment-receipt.json"
-
-      - name: Upload production deployment receipt
-        uses: actions/upload-artifact@v4
-        with:
-          name: production-deployment-receipt-${{ github.event.workflow_run.head_sha }}
-          path: ${{ runner.temp }}/production-deployment-receipt.json
           if-no-files-found: error
           retention-days: 90
 

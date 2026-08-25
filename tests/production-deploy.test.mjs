@@ -37,8 +37,12 @@ test('production deploy uses the exact artifact created by the approved CI run',
 
 test('production deploy records a durable receipt and invokes live verification', async () => {
   const source = await workflow();
+  const deployIndex = source.indexOf('- name: Deploy production to Cloudflare Pages');
+  const receiptIndex = source.indexOf('- name: Record production deployment receipt');
+  const rollbackVerificationIndex = source.indexOf('- name: Prove previous deployment remains restorable');
 
   assert.match(source, /name: Record production deployment receipt/);
+  assert.ok(deployIndex < receiptIndex && receiptIndex < rollbackVerificationIndex);
   assert.match(source, /production-deployment-receipt-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
   assert.match(source, /retention-days: 90/);
   assert.match(source, /name: Smoke test production deployment URL/);
