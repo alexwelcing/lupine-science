@@ -49,6 +49,7 @@ test('every release gate decision creates an assigned GitHub notification and re
   assert.match(source, /name: Send loud release gate notification\n\s+if: always\(\)/);
   assert.match(source, /repos\/\$GITHUB_REPOSITORY\/issues/);
   assert.match(source, /assignees: \["alexwelcing"\]/);
+  assert.match(source, /if issue_result=[\s\S]*gh api --method POST[\s\S]*WARNING: assigned release notification FAILED/);
   assert.match(source, /name: Retain release decision and notification/);
   assert.match(source, /release-gate-records-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
   assert.match(source, /retention-days: 90/);
@@ -72,6 +73,11 @@ test('production live verification creates an assigned GitHub notification and r
   const notifyStep = source.slice(notifyStart, notifyEnd);
 
   assert.match(notifyStep, /rollback-evidence\.json[\s\S]*rollback-target-capture\.json[\s\S]*\.rollback\.command/);
+  assert.match(notifyStep, /RECEIPT_UPLOAD_OUTCOME: \$\{\{ steps\.receipt_upload\.outcome \}\}/);
+  assert.match(notifyStep, /ROLLBACK_VERIFICATION_OUTCOME: \$\{\{ steps\.rollback_verification\.outcome \}\}/);
+  assert.match(notifyStep, /rollback target verification/);
+  assert.match(notifyStep, /deployment receipt retention/);
+  assert.match(notifyStep, /rollback evidence retention/);
   assert.match(source, /Notify team of live verification result[\s\S]*GH_TOKEN: \$\{\{ github\.token \}\}/);
   assert.match(source, /Notify team of live verification result[\s\S]*repos\/\$GITHUB_REPOSITORY\/issues/);
   assert.match(source, /Artifact: \$RUN_URL#artifacts/);

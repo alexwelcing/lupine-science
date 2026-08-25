@@ -352,13 +352,18 @@ jobs:
         run: |
           notification="$RUNNER_TEMP/release-gate-records/release-notification.json"
           test -s "$notification"
-          jq -n \
+          issue_payload="$(jq -n \
             --arg title "$(jq -r '.title' "$notification")" \
             --arg body "$(jq -r '.markdown' "$notification")" \
-            '{title: $title, body: $body, assignees: ["alexwelcing"]}' \
-            | gh api --method POST "repos/$GITHUB_REPOSITORY/issues" --input - \
-              --jq '"Assigned notification: " + .html_url' \
-            | tee -a "$GITHUB_STEP_SUMMARY"
+            '{title: $title, body: $body, assignees: ["alexwelcing"]}')"
+          if issue_result="$(printf '%s' "$issue_payload" \
+              | gh api --method POST "repos/$GITHUB_REPOSITORY/issues" --input - \
+                --jq '.html_url' 2>&1)"; then
+            echo "Assigned notification: $issue_result" | tee -a "$GITHUB_STEP_SUMMARY"
+          else
+            echo "WARNING: assigned release notification FAILED; the job summary and retained release-gate record remain available. Detail: $issue_result" \
+              | tee -a "$GITHUB_STEP_SUMMARY"
+          fi
 
       - name: Retain release decision and notification
         if: always()
@@ -681,6 +686,12 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           SLACK_DEPLOY_WEBHOOK_URL: ${{ secrets.SLACK_DEPLOY_WEBHOOK_URL }}
           GH_TOKEN: ${{ github.token }}
+          RECEIPT_UPLOAD_OUTCOME: ${{ steps.receipt_upload.outcome }}
+          ROLLBACK_VERIFICATION_OUTCOME: ${{ steps.rollback_verification.outcome }}
+          ROLLBACK_UPLOAD_OUTCOME: ${{ steps.rollback_upload.outcome }}
+          DEPLOYMENT_SMOKE_OUTCOME: ${{ steps.deployment_smoke.outcome }}
+          DOMAIN_SMOKE_OUTCOME: ${{ steps.domain_smoke.outcome }}
+          SECURITY_HEADERS_OUTCOME: ${{ steps.security_headers.outcome }}
         run: |
           status="${{ job.status }}"
           icon="✅"
@@ -719,10 +730,22 @@ jobs:
           # category. Surface the first pair above the full log excerpt.
           SMOKE_FAILURES_FILE="$log_excerpt_file"
           failing_url="$(grep -m1 -E '^    - https?://' "$SMOKE_FAILURES_FILE" | sed -E 's/^    - //' || true)"
-          failure_category="$(grep -m1 -E '^      (page unreachable|page body unreadable|missing |canonical URL broken|og:url broken|og:image broken|video link broken|download link broken)' "$SMOKE_FAILURES_FILE" | sed -E 's/^      //' || true)"
+          smoke_detail="$(grep -m1 -E '^      (page unreachable|page body unreadable|missing |canonical URL broken|og:url broken|og:image broken|video link broken|download link broken)' "$SMOKE_FAILURES_FILE" | sed -E 's/^      //' || true)"
           if [ "$status" != "success" ]; then
-            failing_url="${failing_url:-${DEPLOY_URL:-https://lupine.science}}"
-            failure_category="${failure_category:-deployment or security-header verification}"
+            failure_categories=()
+            [ "$RECEIPT_UPLOAD_OUTCOME" = "success" ] || failure_categories+=("deployment receipt retention")
+            [ "$ROLLBACK_VERIFICATION_OUTCOME" = "success" ] || failure_categories+=("rollback target verification")
+            [ "$ROLLBACK_UPLOAD_OUTCOME" = "success" ] || failure_categories+=("rollback evidence retention")
+            [ "$DEPLOYMENT_SMOKE_OUTCOME" = "success" ] || failure_categories+=("deployment URL smoke${smoke_detail:+: $smoke_detail}")
+            [ "$DOMAIN_SMOKE_OUTCOME" = "success" ] || failure_categories+=("custom-domain smoke${smoke_detail:+: $smoke_detail}")
+            [ "$SECURITY_HEADERS_OUTCOME" = "success" ] || failure_categories+=("security-header verification")
+            failure_category="$(IFS=', '; echo "${failure_categories[*]}")"
+            failure_category="${failure_category:-deployment verification stopped before outcomes were recorded}"
+            if [ "$DEPLOYMENT_SMOKE_OUTCOME" != "success" ] || [ "$DOMAIN_SMOKE_OUTCOME" != "success" ] || [ "$SECURITY_HEADERS_OUTCOME" != "success" ]; then
+              failing_url="${failing_url:-${DEPLOY_URL:-https://lupine.science}}"
+            else
+              failing_url="not applicable"
+            fi
           else
             failing_url="not applicable"
             failure_category="none"
