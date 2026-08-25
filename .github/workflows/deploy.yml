@@ -263,7 +263,20 @@ jobs:
       - name: Fail closed on unsuccessful release prerequisite
         if: github.event.workflow_run.conclusion != 'success' || needs.lighthouse.result != 'success'
         run: |
-          echo "::error::Source CI=${{ github.event.workflow_run.conclusion }}, Lighthouse=${{ needs.lighthouse.result }}; publication remains blocked."
+          source_result="${{ github.event.workflow_run.conclusion }}"
+          lighthouse_result="${{ needs.lighthouse.result }}"
+          source_failure="Source CI concluded: $source_result"
+          lighthouse_failure="Lighthouse concluded: $lighthouse_result"
+          mkdir -p "$RUNNER_TEMP/release-gate-records"
+          jq -n \
+            --arg commit_sha "${{ github.event.workflow_run.head_sha }}" \
+            --arg source_result "$source_result" \
+            --arg lighthouse_result "$lighthouse_result" \
+            --arg source_failure "$source_failure" \
+            --arg lighthouse_failure "$lighthouse_failure" \
+            '{schemaVersion: 1, decision: "fail", commitSha: $commit_sha, failures: ([if $source_result != "success" then $source_failure else empty end, if $lighthouse_result != "success" then $lighthouse_failure else empty end])}' \
+            > "$RUNNER_TEMP/release-gate-records/release-certification.json"
+          echo "::error::$source_failure; $lighthouse_failure; publication remains blocked."
           exit 1
 
       - name: Download visual gate artifact from source CI

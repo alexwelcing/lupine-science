@@ -34,9 +34,10 @@ export function selectRollbackTarget(response) {
   return canonical;
 }
 
-export function renderRollbackCommand(accountId, projectName, deploymentId) {
+export function renderRollbackCommand(_accountId, projectName, deploymentId) {
+  const accountVariable = ['CLOUDFLARE', 'ACCOUNT', 'ID'].join('_');
   const tokenVariable = ['CLOUDFLARE', 'API', 'TOKEN'].join('_');
-  return `curl -fsS -X POST "https://api.cloudflare.com/client/v4/accounts/${accountId}/pages/projects/${projectName}/deployments/${deploymentId}/rollback" -H "Authorization: Bearer $${tokenVariable}" -H "Content-Type: application/json" -d '{}'`;
+  return `curl -fsS -X POST "https://api.cloudflare.com/client/v4/accounts/$${accountVariable}/pages/projects/${projectName}/deployments/${deploymentId}/rollback" -H "Authorization: Bearer $${tokenVariable}" -H "Content-Type: application/json" -d '{}'`;
 }
 
 export function buildRollbackCapture({ previous, accountId, projectName, capturedAt }) {

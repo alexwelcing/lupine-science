@@ -62,6 +62,7 @@ test('failed source CI or Lighthouse still enters a fail-closed release notifica
     /release-certification:[\s\S]*if: \|\n\s+always\(\) &&\n\s+github\.event\.workflow_run\.event == 'push' &&\n\s+github\.event\.workflow_run\.head_branch == 'main'\n/,
   );
   assert.match(source, /name: Fail closed on unsuccessful release prerequisite\n\s+if: github\.event\.workflow_run\.conclusion != 'success' \|\| needs\.lighthouse\.result != 'success'/);
+  assert.match(source, /Source CI concluded: \$source_result[\s\S]*Lighthouse concluded: \$lighthouse_result[\s\S]*release-certification\.json/);
 });
 
 test('production live verification creates an assigned GitHub notification and retains it', async () => {
