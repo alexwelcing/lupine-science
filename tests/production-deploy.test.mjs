@@ -53,7 +53,8 @@ test('production deploy captures and verifies an exact rollback target', async (
   const source = await workflow();
 
   assert.match(source, /name: Capture previous production deployment/);
-  assert.match(source, /pages\/projects\/\$CF_PAGES_PROJECT\/deployments\?env=production/);
+  assert.match(source, /pages\/projects\/\$CF_PAGES_PROJECT"/);
+  assert.doesNotMatch(source, /deployments\?env=production/);
   assert.match(source, /--capture-output "\$RUNNER_TEMP\/rollback-target-capture\.json"/);
   assert.match(source, /--account-id "\$CLOUDFLARE_ACCOUNT_ID"/);
   assert.match(source, /--project-name "\$CF_PAGES_PROJECT"/);

@@ -81,18 +81,23 @@ test('mock rollback can select the captured target without guessing an identifie
   assert.equal(evidence.rollbackTarget.commitSha.length, 40);
 });
 
-test('rollback target selection is deterministic even when the API response is unordered', () => {
+test('rollback target selection uses the active canonical deployment after a prior rollback', () => {
   const selected = selectRollbackTarget({
     success: true,
-    result: [
-      { ...previous, id: 'older', created_on: '2026-08-01T11:00:00Z' },
-      { ...previous, id: 'preview', environment: 'preview', created_on: '2026-08-04T11:00:00Z' },
-      { ...previous, id: 'newest', created_on: '2026-08-03T11:00:00Z' },
-      { ...previous, id: 'failed', created_on: '2026-08-05T11:00:00Z', latest_stage: { name: 'deploy', status: 'failure' } },
-    ],
+    result: {
+      canonical_deployment: { ...previous, id: 'active-rollback-target', created_on: '2026-08-01T11:00:00Z' },
+      latest_deployment: { ...previous, id: 'newer-superseded-bad-deployment', created_on: '2026-08-05T11:00:00Z' },
+    },
   });
 
-  assert.equal(selected.id, 'newest');
+  assert.equal(selected.id, 'active-rollback-target');
+});
+
+test('rollback target selection fails closed without a canonical production deployment', () => {
+  assert.throws(
+    () => selectRollbackTarget({ success: true, result: { latest_deployment: previous } }),
+    /canonical production deployment is missing or ineligible/,
+  );
 });
 
 test('rollback evidence fails closed when the prior target is no longer retrievable', () => {

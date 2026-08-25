@@ -54,13 +54,14 @@ test('every release gate decision creates an assigned GitHub notification and re
   assert.match(source, /retention-days: 90/);
 });
 
-test('failed main source workflows still enter the release notification path', async () => {
+test('failed source CI or Lighthouse still enters a fail-closed release notification path', async () => {
   const source = await workflow();
 
   assert.match(
     source,
-    /release-certification:[\s\S]*if: \|\n\s+always\(\) &&[\s\S]*github\.event\.workflow_run\.conclusion != 'success'[\s\S]*needs\.lighthouse\.result == 'success'/,
+    /release-certification:[\s\S]*if: \|\n\s+always\(\) &&\n\s+github\.event\.workflow_run\.event == 'push' &&\n\s+github\.event\.workflow_run\.head_branch == 'main'\n/,
   );
+  assert.match(source, /name: Fail closed on unsuccessful release prerequisite\n\s+if: github\.event\.workflow_run\.conclusion != 'success' \|\| needs\.lighthouse\.result != 'success'/);
 });
 
 test('production live verification creates an assigned GitHub notification and retains it', async () => {

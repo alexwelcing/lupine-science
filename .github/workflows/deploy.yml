@@ -252,8 +252,7 @@ jobs:
     if: |
       always() &&
       github.event.workflow_run.event == 'push' &&
-      github.event.workflow_run.head_branch == 'main' &&
-      (github.event.workflow_run.conclusion != 'success' || needs.lighthouse.result == 'success')
+      github.event.workflow_run.head_branch == 'main'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout exact release source
@@ -261,10 +260,10 @@ jobs:
         with:
           ref: ${{ github.event.workflow_run.head_sha }}
 
-      - name: Fail closed on unsuccessful source CI
-        if: github.event.workflow_run.conclusion != 'success'
+      - name: Fail closed on unsuccessful release prerequisite
+        if: github.event.workflow_run.conclusion != 'success' || needs.lighthouse.result != 'success'
         run: |
-          echo "::error::Source CI concluded ${{ github.event.workflow_run.conclusion }}; publication remains blocked."
+          echo "::error::Source CI=${{ github.event.workflow_run.conclusion }}, Lighthouse=${{ needs.lighthouse.result }}; publication remains blocked."
           exit 1
 
       - name: Download visual gate artifact from source CI
@@ -449,9 +448,9 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          response="$RUNNER_TEMP/production-deployments-before.json"
+          response="$RUNNER_TEMP/production-project-before.json"
           curl -fsS \
-            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$CF_PAGES_PROJECT/deployments?env=production&per_page=25" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$CF_PAGES_PROJECT" \
             -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
             -H "Content-Type: application/json" \
             > "$response"

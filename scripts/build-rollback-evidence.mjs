@@ -24,14 +24,14 @@ function isEligibleRollbackTarget(deployment) {
 }
 
 export function selectRollbackTarget(response) {
-  if (response?.success !== true || !Array.isArray(response.result)) {
-    throw new Error('Cloudflare production deployment list is invalid');
+  if (response?.success !== true || !response.result || typeof response.result !== 'object') {
+    throw new Error('Cloudflare Pages project response is invalid');
   }
-  const eligible = response.result.filter(isEligibleRollbackTarget);
-  if (eligible.length === 0) throw new Error('no eligible successful production deployment exists');
-  return eligible.reduce((newest, candidate) => (
-    Date.parse(candidate.created_on) > Date.parse(newest.created_on) ? candidate : newest
-  ));
+  const canonical = response.result.canonical_deployment;
+  if (!isEligibleRollbackTarget(canonical)) {
+    throw new Error('canonical production deployment is missing or ineligible');
+  }
+  return canonical;
 }
 
 export function renderRollbackCommand(accountId, projectName, deploymentId) {
