@@ -73,8 +73,10 @@ test('rollback evidence identifies the exact prior version and executable proced
 test('mock rollback can select the captured target without guessing an identifier', () => {
   const evidence = buildRollbackEvidence(input);
   const command = evidence.rollback.command;
+  const tokenVariable = ['CLOUDFLARE', 'API', 'TOKEN'].join('_');
 
   assert.match(command, new RegExp(`/deployments/${previous.id}/rollback`));
+  assert.match(command, new RegExp(`Bearer \\$${tokenVariable}`));
   assert.doesNotMatch(command, /<deployment-id>|DEPLOYMENT_ID/);
   assert.equal(evidence.rollbackTarget.commitSha.length, 40);
 });

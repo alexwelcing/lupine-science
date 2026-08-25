@@ -65,7 +65,11 @@ test('failed main source workflows still enter the release notification path', a
 
 test('production live verification creates an assigned GitHub notification and retains it', async () => {
   const source = await workflow();
+  const notifyStart = source.indexOf('      - name: Notify team of live verification result');
+  const notifyEnd = source.indexOf('      - name: Retain live verification notification', notifyStart);
+  const notifyStep = source.slice(notifyStart, notifyEnd);
 
+  assert.match(notifyStep, /rollback-evidence\.json[\s\S]*rollback-target-capture\.json[\s\S]*\.rollback\.command/);
   assert.match(source, /Notify team of live verification result[\s\S]*GH_TOKEN: \$\{\{ github\.token \}\}/);
   assert.match(source, /Notify team of live verification result[\s\S]*repos\/\$GITHUB_REPOSITORY\/issues/);
   assert.match(source, /Artifact: \$RUN_URL#artifacts/);

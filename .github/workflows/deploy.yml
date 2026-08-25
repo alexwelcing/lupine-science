@@ -696,6 +696,8 @@ jobs:
           rollback_command='rollback evidence was not captured before the job stopped'
           if [ -s "$RUNNER_TEMP/rollback-evidence.json" ]; then
             rollback_command="$(jq -r '.rollback.command' "$RUNNER_TEMP/rollback-evidence.json")"
+          elif [ -s "$RUNNER_TEMP/rollback-target-capture.json" ]; then
+            rollback_command="$(jq -r '.rollback.command' "$RUNNER_TEMP/rollback-target-capture.json")"
           fi
           log_excerpt_file="$RUNNER_TEMP/live-verification-log-excerpt.txt"
           : > "$log_excerpt_file"
