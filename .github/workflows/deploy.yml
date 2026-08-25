@@ -523,6 +523,8 @@ jobs:
           retention-days: 90
 
       - name: Prove previous deployment remains restorable
+        id: rollback_verification
+        continue-on-error: true
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -599,6 +601,8 @@ jobs:
           sleep 10
 
       - name: Smoke test production deployment URL
+        id: deployment_smoke
+        continue-on-error: true
         env:
           SMOKE_PREVIEW_BASE_URL: ${{ steps.deploy.outputs.url }}
           SMOKE_REPORT_PATH: ${{ runner.temp }}/smoke-deployment-url.json
@@ -609,6 +613,8 @@ jobs:
           npm run smoke 2>&1 | tee "$RUNNER_TEMP/smoke-deployment-url.log"
 
       - name: Smoke test custom domain
+        id: domain_smoke
+        continue-on-error: true
         env:
           SMOKE_PRODUCTION_BASE_URL: https://lupine.science
           SMOKE_REPORT_PATH: ${{ runner.temp }}/smoke-custom-domain.json
@@ -619,6 +625,8 @@ jobs:
           npm run smoke 2>&1 | tee "$RUNNER_TEMP/smoke-custom-domain.log"
 
       - name: Security headers are live
+        id: security_headers
+        continue-on-error: true
         run: |
           set -o pipefail
           {
@@ -659,9 +667,9 @@ jobs:
           retention-days: 90
 
       - name: Fail if deployment evidence was not retained
-        if: steps.receipt_upload.outcome != 'success' || steps.rollback_upload.outcome != 'success'
+        if: steps.receipt_upload.outcome != 'success' || steps.rollback_verification.outcome != 'success' || steps.rollback_upload.outcome != 'success' || steps.deployment_smoke.outcome != 'success' || steps.domain_smoke.outcome != 'success' || steps.security_headers.outcome != 'success'
         run: |
-          echo "::error::Production changed, but its receipt or rollback evidence was not retained."
+          echo "::error::One or more post-deploy evidence or live-safety steps failed."
           exit 1
 
       - name: Notify team of live verification result

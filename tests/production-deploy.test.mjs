@@ -47,11 +47,14 @@ test('production deploy records a durable receipt and invokes live verification'
   assert.ok(deployIndex < receiptIndex && receiptIndex < rollbackVerificationIndex);
   assert.match(source, /name: Upload production deployment receipt\n\s+id: receipt_upload\n\s+continue-on-error: true/);
   assert.ok(securityVerificationIndex < evidenceFailureIndex);
-  assert.match(source, /if: steps\.receipt_upload\.outcome != 'success' \|\| steps\.rollback_upload\.outcome != 'success'/);
+  assert.match(source, /if: steps\.receipt_upload\.outcome != 'success' \|\| steps\.rollback_verification\.outcome != 'success' \|\| steps\.rollback_upload\.outcome != 'success' \|\| steps\.deployment_smoke\.outcome != 'success' \|\| steps\.domain_smoke\.outcome != 'success' \|\| steps\.security_headers\.outcome != 'success'/);
   assert.match(source, /production-deployment-receipt-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
   assert.match(source, /retention-days: 90/);
   assert.match(source, /name: Smoke test production deployment URL/);
   assert.match(source, /name: Smoke test custom domain/);
+  assert.match(source, /name: Smoke test production deployment URL\n\s+id: deployment_smoke\n\s+continue-on-error: true/);
+  assert.match(source, /name: Smoke test custom domain\n\s+id: domain_smoke\n\s+continue-on-error: true/);
+  assert.match(source, /name: Security headers are live\n\s+id: security_headers\n\s+continue-on-error: true/);
   assert.match(source, /SMOKE_REPORT_PATH: \$\{\{ runner\.temp \}\}\/smoke-deployment-url\.json/);
   assert.match(source, /SMOKE_REPORT_PATH: \$\{\{ runner\.temp \}\}\/smoke-custom-domain\.json/);
   assert.match(source, /path:[\s\S]*smoke-deployment-url\.json[\s\S]*smoke-custom-domain\.json/);
@@ -67,7 +70,7 @@ test('production deploy captures and verifies an exact rollback target', async (
   assert.match(source, /--capture-output "\$RUNNER_TEMP\/rollback-target-capture\.json"/);
   assert.match(source, /--account-id "\$CLOUDFLARE_ACCOUNT_ID"/);
   assert.match(source, /--project-name "\$CF_PAGES_PROJECT"/);
-  assert.match(source, /name: Prove previous deployment remains restorable/);
+  assert.match(source, /name: Prove previous deployment remains restorable\n\s+id: rollback_verification\n\s+continue-on-error: true/);
   assert.match(source, /node scripts\/build-rollback-evidence\.mjs/);
   assert.match(source, /name: Retain rollback evidence\n\s+id: rollback_upload\n\s+if: always\(\)\n\s+continue-on-error: true/);
   assert.match(source, /path: \|\n\s+\$\{\{ runner\.temp \}\}\/rollback-target-capture\.json\n\s+\$\{\{ runner\.temp \}\}\/rollback-evidence\.json/);
