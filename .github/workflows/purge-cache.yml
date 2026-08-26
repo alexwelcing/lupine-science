@@ -113,9 +113,6 @@ jobs:
   glim-ledger-d1-maintenance:
     if: ${{ github.ref == 'refs/heads/ops/glim-ledger-d1-maintenance-v2' }}
     runs-on: ubuntu-latest
-    env:
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
     steps:
       - name: Checkout reviewed lupine-rhizo revision
         uses: actions/checkout@v4
@@ -142,6 +139,9 @@ jobs:
 
       - name: Validate Cloudflare secrets
         shell: bash
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           set -euo pipefail
           test -n "${CLOUDFLARE_API_TOKEN:-}"
@@ -150,6 +150,9 @@ jobs:
 
       - name: Apply migrations and seed reviewed literature hypotheses
         working-directory: lupine-rhizo/glim-think
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           set -euo pipefail
           npx wrangler d1 migrations apply glim-ledger --remote
@@ -157,20 +160,19 @@ jobs:
           import json
           from pathlib import Path
 
-          statements = []
-          for path in sorted(Path('../examples/literature-hypotheses').glob('*.json')):
-              contract = json.loads(path.read_text())
-              canonical = json.dumps(contract, separators=(',', ':'), sort_keys=True)
-              statements.append(
-                  "INSERT INTO literature_hypotheses "
-                  "(literature_hypothesis_id, contract_json) "
-                  f"VALUES ('lit-hypothesis.{path.stem}.v1', "
-                  f"'{canonical.replace(chr(39), chr(39) * 2)}') "
-                  "ON CONFLICT(literature_hypothesis_id) DO UPDATE SET "
-                  "contract_json = excluded.contract_json;"
-              )
+          path = Path('../examples/literature-hypotheses/protocol-offset-sign-skew.json')
+          contract = json.loads(path.read_text())
+          canonical = json.dumps(contract, separators=(',', ':'), sort_keys=True)
+          statement = (
+              "INSERT INTO literature_hypotheses "
+              "(literature_hypothesis_id, contract_json) "
+              "VALUES ('lit-hypothesis.protocol-offset-sign-skew.v1', "
+              f"'{canonical.replace(chr(39), chr(39) * 2)}') "
+              "ON CONFLICT(literature_hypothesis_id) DO UPDATE SET "
+              "contract_json = excluded.contract_json;"
+          )
           Path('../seed-production-hypotheses.sql').write_text(
-              '\n'.join(statements) + '\n', encoding='utf-8'
+              statement + '\n', encoding='utf-8'
           )
           PY
           npx wrangler d1 execute glim-ledger --remote \
@@ -178,6 +180,9 @@ jobs:
 
       - name: Verify protocol-offset sign-skew in production D1
         working-directory: lupine-rhizo/glim-think
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           set -euo pipefail
           npx wrangler d1 execute glim-ledger --remote --json \
