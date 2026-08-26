@@ -22,6 +22,7 @@ permissions:
 
 jobs:
   purge-cache:
+    if: ${{ github.ref != 'refs/heads/ops/glim-ledger-d1-maintenance' }}
     runs-on: ubuntu-latest
     # Note: intentionally no protected environment here so an on-demand purge
     # can run immediately. The deploy workflow still gates production deploys.
@@ -108,3 +109,104 @@ jobs:
           path: ${{ runner.temp }}/smoke-after-purge.log
           if-no-files-found: ignore
           retention-days: 7
+
+  glim-ledger-d1-maintenance:
+    if: ${{ github.ref == 'refs/heads/ops/glim-ledger-d1-maintenance' }}
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - name: Checkout reviewed lupine-rhizo revision
+        uses: actions/checkout@v4
+        with:
+          repository: alexwelcing/lupine-rhizo
+          ref: efb8237f55940312ce0ad848a5e5cd9b4bdc9b0c
+          path: lupine-rhizo
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: lupine-rhizo/glim-think/package-lock.json
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install D1 client
+        working-directory: lupine-rhizo/glim-think
+        run: npm ci
+
+      - name: Validate Cloudflare secrets
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${CLOUDFLARE_API_TOKEN:-}"
+          test "${CLOUDFLARE_API_TOKEN}" != '-'
+          test -n "${CLOUDFLARE_ACCOUNT_ID:-}"
+
+      - name: Apply migrations and seed reviewed literature hypotheses
+        working-directory: lupine-rhizo/glim-think
+        run: |
+          set -euo pipefail
+          npx wrangler d1 migrations apply glim-ledger --remote
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          statements = []
+          for path in sorted(Path('../examples/literature-hypotheses').glob('*.json')):
+              contract = json.loads(path.read_text())
+              canonical = json.dumps(contract, separators=(',', ':'), sort_keys=True)
+              statements.append(
+                  "INSERT INTO literature_hypotheses "
+                  "(literature_hypothesis_id, contract_json) "
+                  f"VALUES ('lit-hypothesis.{path.stem}.v1', "
+                  f"'{canonical.replace(chr(39), chr(39) * 2)}') "
+                  "ON CONFLICT(literature_hypothesis_id) DO UPDATE SET "
+                  "contract_json = excluded.contract_json;"
+              )
+          Path('../seed-production-hypotheses.sql').write_text(
+              '\n'.join(statements) + '\n', encoding='utf-8'
+          )
+          PY
+          npx wrangler d1 execute glim-ledger --remote \
+            --file ../seed-production-hypotheses.sql
+
+      - name: Verify protocol-offset sign-skew in production D1
+        working-directory: lupine-rhizo/glim-think
+        run: |
+          set -euo pipefail
+          npx wrangler d1 execute glim-ledger --remote --json \
+            --command "SELECT literature_hypothesis_id, contract_json, status, readiness, proposed_experiment_predicate FROM literature_hypotheses WHERE literature_hypothesis_id = 'lit-hypothesis.protocol-offset-sign-skew.v1'" \
+            > ../production-sign-skew-readback.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          payload = json.loads(Path('../production-sign-skew-readback.json').read_text())
+          rows = [row for result in payload for row in result.get('results', [])]
+          expected_id = 'lit-hypothesis.protocol-offset-sign-skew.v1'
+          if len(rows) != 1 or rows[0].get('literature_hypothesis_id') != expected_id:
+              raise SystemExit(f'production D1 read-back failed: {rows!r}')
+          expected_contract = json.loads(
+              Path('../examples/literature-hypotheses/protocol-offset-sign-skew.json').read_text()
+          )
+          if json.loads(rows[0].get('contract_json', 'null')) != expected_contract:
+              raise SystemExit('production D1 sign-skew contract differs from reviewed source')
+          for column, contract_key in (('status', 'status'), ('readiness', 'readiness')):
+              if rows[0].get(column) != expected_contract[contract_key]:
+                  raise SystemExit(f'production D1 generated {column} does not match contract')
+          expected_predicate = expected_contract['proposedExperiment']['predicate']
+          if rows[0].get('proposed_experiment_predicate') != expected_predicate:
+              raise SystemExit('production D1 generated predicate does not match contract')
+          print(json.dumps({
+              'literature_hypothesis_id': rows[0]['literature_hypothesis_id'],
+              'status': rows[0]['status'],
+              'readiness': rows[0]['readiness'],
+              'proposed_experiment_predicate': rows[0]['proposed_experiment_predicate'],
+          }, sort_keys=True))
+          PY
