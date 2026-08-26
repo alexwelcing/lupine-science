@@ -114,6 +114,22 @@ const words = (s) => s.trim().split(/\s+/).filter(Boolean).length;
 // narration source. This preserves provenance while preventing a routine rebuild
 // from restoring claims that have since failed evidence reconciliation.
 const EDITORIAL_EXCLUSIONS = new Map([
+  ['investing-in-the-trust-layer', new Map([
+    [
+      'On a blind nickel surface, relative error fell from 9.7 percent to 1.5 percent. Users keep their simulators. The correction makes them more trustworthy. Better materials infrastructure is estimated to create 123 to 270 billion dollars in annual value for United States industry.',
+      'On a blind nickel surface, relative error fell from 9.7 percent to 1.5 percent. Users keep their simulators. The correction makes them more trustworthy.',
+    ],
+    [
+      'Against that scale, the 36-month budget is about 3.2 million dollars. The investment is not a bet on one material. It is leverage across every screened material.',
+      'The investment is not a bet on one material. It is infrastructure for every materials-discovery program. Generators, databases, autonomous labs, manufacturers, and national labs keep their own tools while gaining a shared correction-and-verification layer.',
+    ],
+  ])],
+  ['the-02-percent-synthesis-problem', new Map([
+    [
+      'And four: what does failure cost? Usually weeks of lab time and thousands of dollars. This is not a tiny accuracy problem. Miss an ion-migration barrier by one hundred milli-electronvolts, and the predicted hopping rate changes about fifty-fold at room temperature.',
+      'And four: what happens when a candidate that passed the screen fails in synthesis? Weeks of lab time disappear while each filter compounds the next. This is not a tiny accuracy problem. Miss an ion-migration barrier by one hundred milli-electronvolts, and the predicted hopping rate changes about fifty-fold at room temperature.',
+    ],
+  ])],
   ['water-and-air-correcting-the-molecules-we-drink-and-breathe', new Map([
     [
       'One hundred ninety build-locked Lean 4 theorems mark which claims are supported, bounded, or synthesis-dependent. A membrane ranking is supported only when its local environments fall inside the measured domain, and a metastable sorbent phase is flagged honestly rather than sold as predicted.',
