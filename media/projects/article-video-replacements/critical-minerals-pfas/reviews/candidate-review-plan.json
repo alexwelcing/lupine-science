@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "candidateStatus": "private-human-review-required",
+  "samples": [
+    {"timeSeconds": 0.0, "purpose": "opening frame and title safe area"},
+    {"timeSeconds": 8.0, "purpose": "scene 1 topology"},
+    {"timeSeconds": 16.80, "purpose": "scene 1 terminal frame before cut"},
+    {"timeSeconds": 16.93, "purpose": "scene 2 initial frame after cut"},
+    {"timeSeconds": 30.0, "purpose": "scene 2 cartridge relationships"},
+    {"timeSeconds": 40.0, "purpose": "scene 3 mechanism panels"},
+    {"timeSeconds": 55.0, "purpose": "scene 3 C-F barrier"},
+    {"timeSeconds": 64.40, "purpose": "scene 4 raw/reference landscape"},
+    {"timeSeconds": 76.0, "purpose": "scene 4 ordering panel"},
+    {"timeSeconds": 88.20, "purpose": "scene 5 correction/support boundary"},
+    {"timeSeconds": 100.0, "purpose": "scene 5 domain decision"},
+    {"timeSeconds": 109.20, "purpose": "scene 6 recovery loop"},
+    {"timeSeconds": 115.93, "purpose": "scene 7 proposed pilot initial frame"},
+    {"timeSeconds": 120.0, "purpose": "scene 7 unresolved validation status"},
+    {"timeSeconds": 123.57, "purpose": "scene 8 separated fixtures"},
+    {"timeSeconds": 130.0, "purpose": "scene 8 shared discipline"},
+    {"timeSeconds": 134.83, "purpose": "scene 9 supported/unsupported split"},
+    {"timeSeconds": 145.0, "purpose": "terminal disposition and final hold"},
+    {"timeSeconds": 147.60, "purpose": "last decodable frame"}
+  ],
+  "requiredChecks": [
+    "no blank or corrupt frames",
+    "hard cuts land on intended cue boundaries",
+    "camera motion remains slow and does not crop labels",
+    "generated atmosphere never introduces pseudo-data",
+    "mineral and PFAS matter paths remain separate",
+    "capture remains distinct from destruction",
+    "proposed pilot remains visibly unvalidated",
+    "unsupported outside-domain state remains withheld",
+    "all labels remain readable at 1920x1080",
+    "source narration packets match exactly"
+  ]
+}

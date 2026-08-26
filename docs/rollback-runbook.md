@@ -5,6 +5,13 @@
 > Escalation: `devops` / person who merged the last deploy.
 > Last validated: 2026-07-10
 
+For deployments produced after rollback-evidence automation was enabled, first
+download the 90-day `rollback-evidence-<deployed-commit>` workflow artifact. It
+records the exact prior deployment id, prior commit, immutable deployment URL,
+rollback API command, and post-deploy proof that the target remained retrievable.
+If the artifact is missing or `restorable` is not `true`, fail closed and use the
+manual identification procedure below; never infer a deployment id.
+
 ## 1. When to roll back
 
 Roll back the production deployment when **any** of the following are observed after a deploy:

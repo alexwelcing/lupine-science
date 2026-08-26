@@ -12,7 +12,7 @@
     "lint": "node scripts/lint.mjs",
     "typecheck": "node scripts/typecheck.mjs",
     "test": "node --test --test-concurrency=1 \"tests/**/*.test.mjs\"",
-    "verify": "node scripts/check-static.mjs && node scripts/verify-article-images.mjs && node scripts/verify-motion-manifests.mjs && node scripts/perf-budget.mjs",
+    "verify": "node scripts/check-static.mjs && node scripts/verify-article-images.mjs && node scripts/verify-motion-manifests.mjs && node scripts/verify-pfas-replacement-manifest.mjs && node scripts/perf-budget.mjs",
     "smoke": "node scripts/smoke-live.mjs",
     "proofpack": "node scripts/build-proofpack.mjs --consolidated",
     "proofpack:all": "node scripts/build-proofpack.mjs --all",

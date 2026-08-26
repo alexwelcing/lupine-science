@@ -33,7 +33,7 @@ test('sample-analysis errors are P0 instead of silently preserving a high score'
     blankFrames: [],
     ocrHits: [],
   };
-  assert.deepEqual(classifyP0(report, sample), ['frames:analysis failed for 1 sampled frame(s)']);
+  assert.deepEqual(classifyP0(report, sample), ['frames:sample failures at 1.0s: statistics unavailable']);
 });
 
 test('content samples settle inside cues instead of treating exact dark cut frames as blank scenes', () => {
