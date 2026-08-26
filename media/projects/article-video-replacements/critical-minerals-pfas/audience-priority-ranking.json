@@ -1,0 +1,314 @@
+{
+  "schemaVersion": 1,
+  "baseCommit": "e0cccacca7e8050d6fb6d208cce3248689653532",
+  "status": "planning-proxy-not-analytics",
+  "analyticsAvailable": false,
+  "disclaimer": "No first-party pageview analytics were found. Topic accessibility and public relevance are editorial proxies, not measured traffic or search volume.",
+  "weights": {
+    "firstPartyPlacement": 0.3,
+    "topicAccessibility": 0.25,
+    "publicRelevance": 0.2,
+    "replacementUrgency": 0.15,
+    "releaseReadiness": 0.1
+  },
+  "scoreRange": "0..100",
+  "completedExcluded": [
+    "water-and-air-correcting-the-molecules-we-drink-and-breathe"
+  ],
+  "ranking": [
+    {
+      "slug": "critical-minerals-pfas-and-the-remediation-imperative",
+      "title": "Critical Minerals, PFAS, and the Remediation Imperative",
+      "score": 97.0,
+      "scores": {
+        "firstPartyPlacement": 5.0,
+        "topicAccessibility": 5.0,
+        "publicRelevance": 5.0,
+        "replacementUrgency": 4.0,
+        "releaseReadiness": 5.0
+      },
+      "rationale": "Homepage feature; PFAS public-search hook plus critical-mineral/battery reach; passing audio; current film is chart/flowchart dominated.",
+      "rank": 1
+    },
+    {
+      "slug": "cement-concrete-and-the-weight-of-the-built-world",
+      "title": "Cement, Concrete, and the Weight of the Built World",
+      "score": 96.0,
+      "scores": {
+        "firstPartyPlacement": 5.0,
+        "topicAccessibility": 4.8,
+        "publicRelevance": 5.0,
+        "replacementUrgency": 4.0,
+        "releaseReadiness": 5.0
+      },
+      "rationale": "Homepage feature; universal built-environment relevance; passing audio; deterministic rebuild ready.",
+      "rank": 2
+    },
+    {
+      "slug": "methane-and-refrigerants-cutting-the-non-co2-climate-forcers",
+      "title": "Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers",
+      "score": 95.5,
+      "scores": {
+        "firstPartyPlacement": 5.0,
+        "topicAccessibility": 4.7,
+        "publicRelevance": 5.0,
+        "replacementUrgency": 4.0,
+        "releaseReadiness": 5.0
+      },
+      "rationale": "Homepage feature; strong climate/policy and household-refrigeration hook; passing audio; deterministic rebuild ready.",
+      "rank": 3
+    },
+    {
+      "slug": "five-materials-for-5-to-12-gtco2-year",
+      "title": "Five Materials That Could Unlock 5–12 GtCO₂/Year",
+      "score": 91.7,
+      "scores": {
+        "firstPartyPlacement": 5.0,
+        "topicAccessibility": 4.7,
+        "publicRelevance": 4.8,
+        "replacementUrgency": 5.0,
+        "releaseReadiness": 2.0
+      },
+      "rationale": "Homepage feature and broad list-format appeal; known obscured-text defects; claim-heavy treatment requires a new source-bound scene contract.",
+      "rank": 4
+    },
+    {
+      "slug": "beyond-carbon-the-error-geometry-of-environmental-materials",
+      "title": "Beyond Carbon: The Error Geometry of Environmental Materials",
+      "score": 85.6,
+      "scores": {
+        "firstPartyPlacement": 4.7,
+        "topicAccessibility": 4.0,
+        "publicRelevance": 4.6,
+        "replacementUrgency": 5.0,
+        "releaseReadiness": 2.0
+      },
+      "rationale": "Homepage-prominent umbrella topic; known weak opening, undersized type, collision, and empty-transition defects; requires authored contract.",
+      "rank": 5
+    },
+    {
+      "slug": "lupi-hfc-refrigerant-research-payloads",
+      "title": "Lupi Gains HFC Refrigerant Research Payloads",
+      "score": 77.4,
+      "scores": {
+        "firstPartyPlacement": 3.4,
+        "topicAccessibility": 4.0,
+        "publicRelevance": 4.5,
+        "replacementUrgency": 3.0,
+        "releaseReadiness": 5.0
+      },
+      "rationale": "Upper video-index placement and refrigerant relevance; narrower product-update framing; passing audio.",
+      "rank": 6
+    },
+    {
+      "slug": "from-fantasy-frameworks-to-makeable-materials",
+      "title": "From Fantasy Frameworks to Makeable Materials",
+      "score": 77.3,
+      "scores": {
+        "firstPartyPlacement": 4.0,
+        "topicAccessibility": 3.6,
+        "publicRelevance": 3.7,
+        "replacementUrgency": 3.5,
+        "releaseReadiness": 5.0
+      },
+      "rationale": "Homepage-prominent and strong makeability hook; MOF-specific audience; passing audio.",
+      "rank": 7
+    },
+    {
+      "slug": "from-predicted-crystal-to-commercial-cell",
+      "title": "From Predicted Crystal to Commercial Cell",
+      "score": 76.7,
+      "scores": {
+        "firstPartyPlacement": 3.0,
+        "topicAccessibility": 4.2,
+        "publicRelevance": 4.3,
+        "replacementUrgency": 3.5,
+        "releaseReadiness": 5.0
+      },
+      "rationale": "Accessible lab-to-market story; passing audio; deterministic rebuild ready.",
+      "rank": 8
+    },
+    {
+      "slug": "the-02-percent-synthesis-problem",
+      "title": "The 0.2% Synthesis Problem",
+      "score": 76.0,
+      "scores": {
+        "firstPartyPlacement": 2.7,
+        "topicAccessibility": 4.5,
+        "publicRelevance": 4.2,
+        "replacementUrgency": 3.5,
+        "releaseReadiness": 5.0
+      },
+      "rationale": "Strong curiosity/title hook and makeability problem; passing audio; deterministic rebuild ready.",
+      "rank": 9
+    },
+    {
+      "slug": "why-lupine-science",
+      "title": "Why Lupine Science?",
+      "score": 72.3,
+      "scores": {
+        "firstPartyPlacement": 2.0,
+        "topicAccessibility": 4.6,
+        "publicRelevance": 4.2,
+        "replacementUrgency": 3.5,
+        "releaseReadiness": 5.0
+      },
+      "rationale": "Core institutional-intent search; published; passing audio and deterministic rebuild ready.",
+      "rank": 10
+    },
+    {
+      "slug": "investing-in-the-trust-layer",
+      "title": "Investing in the Trust Layer",
+      "score": 71.5,
+      "scores": {
+        "firstPartyPlacement": 2.8,
+        "topicAccessibility": 4.1,
+        "publicRelevance": 3.8,
+        "replacementUrgency": 5.0,
+        "releaseReadiness": 2.0
+      },
+      "rationale": "Clear investor intent; known timing, typography, collision, and terminal-hold defects; requires authored contract.",
+      "rank": 11
+    },
+    {
+      "slug": "the-savings-stack",
+      "title": "The Savings Stack",
+      "score": 70.7,
+      "scores": {
+        "firstPartyPlacement": 4.3,
+        "topicAccessibility": 3.7,
+        "publicRelevance": 3.6,
+        "replacementUrgency": 3.0,
+        "releaseReadiness": 1.5
+      },
+      "rationale": "High video-index/homepage placement and accessible savings hook; frozen-economics conflict plus audio remaster lower readiness.",
+      "rank": 12
+    },
+    {
+      "slug": "a-field-not-a-neural-net",
+      "title": "A Field, Not a Neural Net",
+      "score": 70.4,
+      "scores": {
+        "firstPartyPlacement": 3.2,
+        "topicAccessibility": 3.7,
+        "publicRelevance": 3.8,
+        "replacementUrgency": 2.5,
+        "releaseReadiness": 5.0
+      },
+      "rationale": "Strong conceptual title and upper-mid video placement; passing automated gates but narrower MLIP audience.",
+      "rank": 13
+    },
+    {
+      "slug": "why-lupi",
+      "title": "Why LUPI?",
+      "score": 66.5,
+      "scores": {
+        "firstPartyPlacement": 2.2,
+        "topicAccessibility": 4.7,
+        "publicRelevance": 4.2,
+        "replacementUrgency": 3.0,
+        "releaseReadiness": 2.0
+      },
+      "rationale": "Core product-intent search; published; audio true-peak defect requires remaster before release.",
+      "rank": 14
+    },
+    {
+      "slug": "an-order-of-effort",
+      "title": "An Order of Effort",
+      "score": 66.4,
+      "scores": {
+        "firstPartyPlacement": 4.2,
+        "topicAccessibility": 3.0,
+        "publicRelevance": 3.3,
+        "replacementUrgency": 3.0,
+        "releaseReadiness": 2.0
+      },
+      "rationale": "High video-index/homepage placement but abstract title; audio loudness remaster required.",
+      "rank": 15
+    },
+    {
+      "slug": "the-order-is-right-the-size-is-wrong",
+      "title": "The Order Is Right, the Size Is Wrong",
+      "score": 65.9,
+      "scores": {
+        "firstPartyPlacement": 3.8,
+        "topicAccessibility": 3.5,
+        "publicRelevance": 3.4,
+        "replacementUrgency": 3.0,
+        "releaseReadiness": 1.5
+      },
+      "rationale": "Homepage-visible and curiosity-led title; evidence-heavy status plus true-peak remaster lower readiness.",
+      "rank": 16
+    },
+    {
+      "slug": "the-materials-we-test-against",
+      "title": "The Z1 Barrier Panel",
+      "score": 65.0,
+      "scores": {
+        "firstPartyPlacement": 4.2,
+        "topicAccessibility": 2.8,
+        "publicRelevance": 3.2,
+        "replacementUrgency": 3.0,
+        "releaseReadiness": 2.0
+      },
+      "rationale": "High video-index placement but specialist benchmark intent; audio loudness remaster required.",
+      "rank": 17
+    },
+    {
+      "slug": "rhizo-non-co2-climate-forcers-lean",
+      "title": "Non-CO₂ Climate Forcers, Now Formalized in Lean",
+      "score": 64.8,
+      "scores": {
+        "firstPartyPlacement": 3.3,
+        "topicAccessibility": 3.2,
+        "publicRelevance": 4.0,
+        "replacementUrgency": 3.0,
+        "releaseReadiness": 2.0
+      },
+      "rationale": "Climate hook but formal-methods framing narrows audience; true-peak remaster required.",
+      "rank": 18
+    },
+    {
+      "slug": "the-trust-layer",
+      "title": "The Trust Layer",
+      "score": 64.0,
+      "scores": {
+        "firstPartyPlacement": 2.5,
+        "topicAccessibility": 4.0,
+        "publicRelevance": 4.0,
+        "replacementUrgency": 3.0,
+        "releaseReadiness": 2.0
+      },
+      "rationale": "Central product thesis and published route; audio loudness defect requires remaster.",
+      "rank": 19
+    },
+    {
+      "slug": "z1-union-debrief",
+      "title": "The Union Verdict: A De-brief on the Z1 Campaign",
+      "score": 62.2,
+      "scores": {
+        "firstPartyPlacement": 4.5,
+        "topicAccessibility": 2.6,
+        "publicRelevance": 2.8,
+        "replacementUrgency": 3.0,
+        "releaseReadiness": 1.0
+      },
+      "rationale": "First video-index position but editor-review status, specialist campaign context, economics guardrails, and audio remaster make it a poor early replacement.",
+      "rank": 20
+    },
+    {
+      "slug": "a-smooth-environment-resolved-error-field",
+      "title": "A Smooth Environment-Resolved Error Field",
+      "score": 54.6,
+      "scores": {
+        "firstPartyPlacement": 2.4,
+        "topicAccessibility": 2.8,
+        "publicRelevance": 3.3,
+        "replacementUrgency": 3.0,
+        "releaseReadiness": 2.0
+      },
+      "rationale": "Published foundational result but highly technical title; true-peak remaster required.",
+      "rank": 21
+    }
+  ]
+}

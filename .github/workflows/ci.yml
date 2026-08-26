@@ -326,7 +326,7 @@ jobs:
         run: npm ci
 
       - name: Install ffmpeg for technical/frame checks
-        run: sudo apt-get update && sudo apt-get install --yes ffmpeg
+        run: sudo apt-get update && sudo apt-get install --yes ffmpeg wamerican
 
       - name: Download built site artifact
         uses: actions/download-artifact@v4
@@ -364,7 +364,7 @@ jobs:
         run: npm ci
 
       - name: Install tesseract for OCR
-        run: sudo apt-get update && sudo apt-get install --yes tesseract-ocr
+        run: sudo apt-get update && sudo apt-get install --yes tesseract-ocr wamerican
 
       - name: Download built site artifact
         uses: actions/download-artifact@v4

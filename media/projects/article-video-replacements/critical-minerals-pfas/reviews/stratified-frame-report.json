@@ -1,0 +1,498 @@
+{
+  "schemaVersion": 1,
+  "candidateSha256": "49c720aacc5b64cafab3ed9fceb978ebddd148621aa7110392c693d9cf424213",
+  "sampleStrategy": "five interior frames per scene plus both sides of every cut",
+  "sampleCount": 61,
+  "blankCount": 0,
+  "minimumAverageStdDev": 34.62,
+  "rows": [
+    {
+      "index": 1,
+      "timeSeconds": 1.35,
+      "path": "reviews/stratified-frames/01-001.350.png",
+      "sha256": "20d1af7e4cd739800b90c5790f5a7ae8c8749a394624086180a254ccfd8e9fd0",
+      "averageStdDev": 59.7,
+      "blank": false
+    },
+    {
+      "index": 2,
+      "timeSeconds": 4.558,
+      "path": "reviews/stratified-frames/02-004.558.png",
+      "sha256": "73806128d213f081c6a153efabbe5e245d0a4567fc0dfb94e5fe374079d39886",
+      "averageStdDev": 59.7,
+      "blank": false
+    },
+    {
+      "index": 3,
+      "timeSeconds": 8.44,
+      "path": "reviews/stratified-frames/03-008.440.png",
+      "sha256": "5e902f04c431eb399ab0a16b8bef69c85c35df3fedb752cad5fd155a51288760",
+      "averageStdDev": 65.89,
+      "blank": false
+    },
+    {
+      "index": 4,
+      "timeSeconds": 12.322,
+      "path": "reviews/stratified-frames/04-012.322.png",
+      "sha256": "09a8d06b0ad26836e2525d2b7f03df9b76f6fbf17f6cbed964d04310d1fd15a1",
+      "averageStdDev": 66.94,
+      "blank": false
+    },
+    {
+      "index": 5,
+      "timeSeconds": 15.53,
+      "path": "reviews/stratified-frames/05-015.530.png",
+      "sha256": "f577966fab9cc9f2b6e082e5fae1f42d1568eaf275f763a2e458e87f2ef5fcd6",
+      "averageStdDev": 66.94,
+      "blank": false
+    },
+    {
+      "index": 6,
+      "timeSeconds": 16.83,
+      "path": "reviews/stratified-frames/06-016.830.png",
+      "sha256": "ff15cd2ccd63cfa017408c3f9d98577c7f12a8de9af576e0f14041bd4a40c0af",
+      "averageStdDev": 66.95,
+      "blank": false
+    },
+    {
+      "index": 7,
+      "timeSeconds": 16.93,
+      "path": "reviews/stratified-frames/07-016.930.png",
+      "sha256": "c172d1ad1aaa81e1da14cda4d31b53d7f5b15ebcb0155b7c1f6a2db5f0c099a4",
+      "averageStdDev": 42.5,
+      "blank": false
+    },
+    {
+      "index": 8,
+      "timeSeconds": 18.726,
+      "path": "reviews/stratified-frames/08-018.726.png",
+      "sha256": "8064953e96b701f99abfd98d55ef54a463e090d42a85eb602dc7dee84a8c9167",
+      "averageStdDev": 42.51,
+      "blank": false
+    },
+    {
+      "index": 9,
+      "timeSeconds": 23.109,
+      "path": "reviews/stratified-frames/09-023.109.png",
+      "sha256": "d997f7c8165a5c9eabd197588999c6f3466908194b42261144fa43ecb1ca06fe",
+      "averageStdDev": 42.51,
+      "blank": false
+    },
+    {
+      "index": 10,
+      "timeSeconds": 28.415,
+      "path": "reviews/stratified-frames/10-028.415.png",
+      "sha256": "228b57c59ca169351b8353affa97b7514896147ddc98438e56e2d7ce67b389be",
+      "averageStdDev": 52.28,
+      "blank": false
+    },
+    {
+      "index": 11,
+      "timeSeconds": 33.721,
+      "path": "reviews/stratified-frames/11-033.721.png",
+      "sha256": "6d1940c25d21d815b3972c79385847bccb6a3f5ce2c90d0af36aed84928edb21",
+      "averageStdDev": 60.15,
+      "blank": false
+    },
+    {
+      "index": 12,
+      "timeSeconds": 38.104,
+      "path": "reviews/stratified-frames/12-038.104.png",
+      "sha256": "194c099c60feccc16776073317c18b2692791d1c5e53462b97e4a05442b9be10",
+      "averageStdDev": 60.16,
+      "blank": false
+    },
+    {
+      "index": 13,
+      "timeSeconds": 39.9,
+      "path": "reviews/stratified-frames/13-039.900.png",
+      "sha256": "2ccad32b610a1c0c3851e24dd41d1ea8456617a3fbd70ccdca4464a74c0a4176",
+      "averageStdDev": 60.16,
+      "blank": false
+    },
+    {
+      "index": 14,
+      "timeSeconds": 40.0,
+      "path": "reviews/stratified-frames/14-040.000.png",
+      "sha256": "69f2eab4ba737d964f91e5401e0898f7282f58f0407126f67c86aba6ee49d7aa",
+      "averageStdDev": 36.19,
+      "blank": false
+    },
+    {
+      "index": 15,
+      "timeSeconds": 41.901,
+      "path": "reviews/stratified-frames/15-041.901.png",
+      "sha256": "568b6791888d8d53339d9cbe32834026e71d3f4caac006f25e48443fa87fa4d2",
+      "averageStdDev": 36.19,
+      "blank": false
+    },
+    {
+      "index": 16,
+      "timeSeconds": 46.535,
+      "path": "reviews/stratified-frames/16-046.535.png",
+      "sha256": "64a76f22c9ac8feffbab1cca6334fc15c2f4210e0dc8df7d194b13847ba2b6da",
+      "averageStdDev": 36.19,
+      "blank": false
+    },
+    {
+      "index": 17,
+      "timeSeconds": 52.145,
+      "path": "reviews/stratified-frames/17-052.145.png",
+      "sha256": "6e8ab4930be78871bb315af1601e8b93c2dfa77a3b25fdf0f9b2b4c29475eea8",
+      "averageStdDev": 41.0,
+      "blank": false
+    },
+    {
+      "index": 18,
+      "timeSeconds": 57.755,
+      "path": "reviews/stratified-frames/18-057.755.png",
+      "sha256": "cf86572b0a1edcb93494b7f6f62ccdb01bebe1b9cc112a3b7ceab0b89992e4a2",
+      "averageStdDev": 44.73,
+      "blank": false
+    },
+    {
+      "index": 19,
+      "timeSeconds": 62.389,
+      "path": "reviews/stratified-frames/19-062.389.png",
+      "sha256": "dd25d73ab88b97e341abcd331c20f15be1fa3dcb2fa1dd6b268cff68aff9f5ca",
+      "averageStdDev": 44.73,
+      "blank": false
+    },
+    {
+      "index": 20,
+      "timeSeconds": 64.29,
+      "path": "reviews/stratified-frames/20-064.290.png",
+      "sha256": "47dca4c33f8549c657ac0781351caae2fc3ad4932d42821c77883a9743baefc5",
+      "averageStdDev": 44.73,
+      "blank": false
+    },
+    {
+      "index": 21,
+      "timeSeconds": 64.39,
+      "path": "reviews/stratified-frames/21-064.390.png",
+      "sha256": "1da10746144dfb8b2441669875d0cb0c73f156479b79d930a5dee9a385005a09",
+      "averageStdDev": 39.63,
+      "blank": false
+    },
+    {
+      "index": 22,
+      "timeSeconds": 66.246,
+      "path": "reviews/stratified-frames/22-066.246.png",
+      "sha256": "4894b217cac30d978df9c63ef5b8a04a922405cd2da354b9f583f883a3673840",
+      "averageStdDev": 39.63,
+      "blank": false
+    },
+    {
+      "index": 23,
+      "timeSeconds": 70.774,
+      "path": "reviews/stratified-frames/23-070.774.png",
+      "sha256": "4894b217cac30d978df9c63ef5b8a04a922405cd2da354b9f583f883a3673840",
+      "averageStdDev": 39.63,
+      "blank": false
+    },
+    {
+      "index": 24,
+      "timeSeconds": 76.255,
+      "path": "reviews/stratified-frames/24-076.255.png",
+      "sha256": "f7001c8ed734ddbc8d6ac83c6c908b714061267f646758f064b8491f3152472a",
+      "averageStdDev": 45.79,
+      "blank": false
+    },
+    {
+      "index": 25,
+      "timeSeconds": 81.736,
+      "path": "reviews/stratified-frames/25-081.736.png",
+      "sha256": "9068e6d8900fb4ffefe4c3ff04fca6bb1593ec7028bea67805478ddfe1bf2f45",
+      "averageStdDev": 48.98,
+      "blank": false
+    },
+    {
+      "index": 26,
+      "timeSeconds": 86.264,
+      "path": "reviews/stratified-frames/26-086.264.png",
+      "sha256": "33004422cc03bece28b4b83eb7f0c386909c0c9ef4b633ee1052e474c7e58e42",
+      "averageStdDev": 48.98,
+      "blank": false
+    },
+    {
+      "index": 27,
+      "timeSeconds": 88.12,
+      "path": "reviews/stratified-frames/27-088.120.png",
+      "sha256": "5bfd622dd70e87c11fdb1b4cf6b9cd10a5924c233da7f6b1b312c5777ddcfd64",
+      "averageStdDev": 48.98,
+      "blank": false
+    },
+    {
+      "index": 28,
+      "timeSeconds": 88.22,
+      "path": "reviews/stratified-frames/28-088.220.png",
+      "sha256": "472a2d5f9fac0893a04941a3346f559c37345f34b31d6542f261015c761297d6",
+      "averageStdDev": 34.62,
+      "blank": false
+    },
+    {
+      "index": 29,
+      "timeSeconds": 89.849,
+      "path": "reviews/stratified-frames/29-089.849.png",
+      "sha256": "4f3270578fa723ad6050e28a1b6c6f38d86ff581880ee7c54c068fbbf03e9fd8",
+      "averageStdDev": 34.63,
+      "blank": false
+    },
+    {
+      "index": 30,
+      "timeSeconds": 93.837,
+      "path": "reviews/stratified-frames/30-093.837.png",
+      "sha256": "4f3270578fa723ad6050e28a1b6c6f38d86ff581880ee7c54c068fbbf03e9fd8",
+      "averageStdDev": 34.63,
+      "blank": false
+    },
+    {
+      "index": 31,
+      "timeSeconds": 98.665,
+      "path": "reviews/stratified-frames/31-098.665.png",
+      "sha256": "5ca63e6981f18aa942f5841c14006de9ae2b4839f292756359d46a4ad099c8bc",
+      "averageStdDev": 38.19,
+      "blank": false
+    },
+    {
+      "index": 32,
+      "timeSeconds": 103.493,
+      "path": "reviews/stratified-frames/32-103.493.png",
+      "sha256": "18207cb11f0922741e1efd2813614e86dedac7851e995c968aff612e6c0bc3b7",
+      "averageStdDev": 47.65,
+      "blank": false
+    },
+    {
+      "index": 33,
+      "timeSeconds": 107.481,
+      "path": "reviews/stratified-frames/33-107.481.png",
+      "sha256": "cb380bafa044d6b18a5aa38d81733193caa4a84077c17b64aebd4849de70315d",
+      "averageStdDev": 47.65,
+      "blank": false
+    },
+    {
+      "index": 34,
+      "timeSeconds": 109.11,
+      "path": "reviews/stratified-frames/34-109.110.png",
+      "sha256": "7e6d49c08f4661cab4b8d38dadc344262fdbaa70301b70c290a0258c2492cae5",
+      "averageStdDev": 47.65,
+      "blank": false
+    },
+    {
+      "index": 35,
+      "timeSeconds": 109.21,
+      "path": "reviews/stratified-frames/35-109.210.png",
+      "sha256": "ee455fc0f716a0000fb419f59d8f2c5ef384451dfd1ce36e2ea29fb89ca70139",
+      "averageStdDev": 41.17,
+      "blank": false
+    },
+    {
+      "index": 36,
+      "timeSeconds": 109.698,
+      "path": "reviews/stratified-frames/36-109.698.png",
+      "sha256": "a31422a21151b3d9daacddd4bdd8e105aafc5d538aa7233b6e09f222d40fb91b",
+      "averageStdDev": 41.17,
+      "blank": false
+    },
+    {
+      "index": 37,
+      "timeSeconds": 110.977,
+      "path": "reviews/stratified-frames/37-110.977.png",
+      "sha256": "a60a229acefcaad467a979c2aac3dbcd03775b08f155dfa741b88d2432b92bc9",
+      "averageStdDev": 41.17,
+      "blank": false
+    },
+    {
+      "index": 38,
+      "timeSeconds": 112.525,
+      "path": "reviews/stratified-frames/38-112.525.png",
+      "sha256": "fd43932df7422a2fcda7b6aed7ad43609f393699b90474288931dc46887bd24b",
+      "averageStdDev": 51.65,
+      "blank": false
+    },
+    {
+      "index": 39,
+      "timeSeconds": 114.073,
+      "path": "reviews/stratified-frames/39-114.073.png",
+      "sha256": "94ddf04e2bccf21ebf4f4a61deb2e8df75d6163664e87162b7ed9ff7f7917b79",
+      "averageStdDev": 58.73,
+      "blank": false
+    },
+    {
+      "index": 40,
+      "timeSeconds": 115.352,
+      "path": "reviews/stratified-frames/40-115.352.png",
+      "sha256": "71a7507712df4c3c50da107cfa0ecf5f8133de810c17dd2a601b8d8d10f38ce7",
+      "averageStdDev": 58.73,
+      "blank": false
+    },
+    {
+      "index": 41,
+      "timeSeconds": 115.84,
+      "path": "reviews/stratified-frames/41-115.840.png",
+      "sha256": "5d97a7c7b88754f79581049fb301d08eab5ddf42428fe56cb11ac43244ced912",
+      "averageStdDev": 58.73,
+      "blank": false
+    },
+    {
+      "index": 42,
+      "timeSeconds": 115.94,
+      "path": "reviews/stratified-frames/42-115.940.png",
+      "sha256": "1d199ddb04ef1c56bfa4426c1c06c1b8c6967b619eab09440de4338f81d97d34",
+      "averageStdDev": 48.04,
+      "blank": false
+    },
+    {
+      "index": 43,
+      "timeSeconds": 116.501,
+      "path": "reviews/stratified-frames/43-116.501.png",
+      "sha256": "8d3e12aef36305a403d7a18c7763569508264580463f67d99f6fcd5f2f3ee371",
+      "averageStdDev": 48.04,
+      "blank": false
+    },
+    {
+      "index": 44,
+      "timeSeconds": 117.953,
+      "path": "reviews/stratified-frames/44-117.953.png",
+      "sha256": "32aa686029779b924e64c009f42bae00b485cc76fdce36306791531f3a749f3f",
+      "averageStdDev": 48.04,
+      "blank": false
+    },
+    {
+      "index": 45,
+      "timeSeconds": 119.71,
+      "path": "reviews/stratified-frames/45-119.710.png",
+      "sha256": "8f4235f1c6c6539b494d9e2bf38892f504ce1f0a69c0f26b8e877c5da77fea46",
+      "averageStdDev": 65.45,
+      "blank": false
+    },
+    {
+      "index": 46,
+      "timeSeconds": 121.467,
+      "path": "reviews/stratified-frames/46-121.467.png",
+      "sha256": "6ee62bd28ea0bd3d4df64bc123f82c63430bf5cad3495d9d2868ebff0e8ccd76",
+      "averageStdDev": 66.18,
+      "blank": false
+    },
+    {
+      "index": 47,
+      "timeSeconds": 122.919,
+      "path": "reviews/stratified-frames/47-122.919.png",
+      "sha256": "f5c4df7b6c043adf2827a6aa4976507b7740b39994d33c70d84e127b5f2d45c9",
+      "averageStdDev": 66.18,
+      "blank": false
+    },
+    {
+      "index": 48,
+      "timeSeconds": 123.48,
+      "path": "reviews/stratified-frames/48-123.480.png",
+      "sha256": "6e5175f806b435b77e826b81c5b842fcb732a7c8f7950acf01505aef39bc9a18",
+      "averageStdDev": 66.18,
+      "blank": false
+    },
+    {
+      "index": 49,
+      "timeSeconds": 123.58,
+      "path": "reviews/stratified-frames/49-123.580.png",
+      "sha256": "6fbdbbbdeb15e2b029cd9a22d126a134bbc4b4d1483af07dcf84b03fa7a9fa9a",
+      "averageStdDev": 56.09,
+      "blank": false
+    },
+    {
+      "index": 50,
+      "timeSeconds": 124.43,
+      "path": "reviews/stratified-frames/50-124.430.png",
+      "sha256": "99d3694b2a812d6e45cbed8356e2abfadeed15bd9904d5d335aabe6a764dda33",
+      "averageStdDev": 56.09,
+      "blank": false
+    },
+    {
+      "index": 51,
+      "timeSeconds": 126.567,
+      "path": "reviews/stratified-frames/51-126.567.png",
+      "sha256": "131f70aefb6be04fe78bb76b15ad17b299a487c269d6fb18b0791401535429cb",
+      "averageStdDev": 56.09,
+      "blank": false
+    },
+    {
+      "index": 52,
+      "timeSeconds": 129.155,
+      "path": "reviews/stratified-frames/52-129.155.png",
+      "sha256": "ec104bc8290ec94aa863e5b4bd63805a001e1498f74ba8e05477ca7168541b99",
+      "averageStdDev": 58.19,
+      "blank": false
+    },
+    {
+      "index": 53,
+      "timeSeconds": 131.743,
+      "path": "reviews/stratified-frames/53-131.743.png",
+      "sha256": "8ab9613a17bd6b2eb5296ac0cf6d377d3b63fb158f2535619bbb54a4f529d052",
+      "averageStdDev": 64.06,
+      "blank": false
+    },
+    {
+      "index": 54,
+      "timeSeconds": 133.88,
+      "path": "reviews/stratified-frames/54-133.880.png",
+      "sha256": "b8aaa87d778725884556d90606468b67f70427ce84ffb8ecd73eb209109b0700",
+      "averageStdDev": 64.05,
+      "blank": false
+    },
+    {
+      "index": 55,
+      "timeSeconds": 134.73,
+      "path": "reviews/stratified-frames/55-134.730.png",
+      "sha256": "dbc997849ade70431d386e80b4f5cb601b4c17b96643034b0af919bd312b77b3",
+      "averageStdDev": 64.06,
+      "blank": false
+    },
+    {
+      "index": 56,
+      "timeSeconds": 134.83,
+      "path": "reviews/stratified-frames/56-134.830.png",
+      "sha256": "e5e27ee209d3e033eed273fda22c363bf10fb571a362528b66eb7931cb0631ba",
+      "averageStdDev": 36.58,
+      "blank": false
+    },
+    {
+      "index": 57,
+      "timeSeconds": 135.806,
+      "path": "reviews/stratified-frames/57-135.806.png",
+      "sha256": "836ac3a8b9d31fba6fc77afd102834435d812c05b74fb97098a7ddd7eb888a39",
+      "averageStdDev": 36.58,
+      "blank": false
+    },
+    {
+      "index": 58,
+      "timeSeconds": 138.241,
+      "path": "reviews/stratified-frames/58-138.241.png",
+      "sha256": "8dc18bb72019037a68c47f2b303215bddb9fcf65688497ace4ef5548e47a3933",
+      "averageStdDev": 36.58,
+      "blank": false
+    },
+    {
+      "index": 59,
+      "timeSeconds": 141.19,
+      "path": "reviews/stratified-frames/59-141.190.png",
+      "sha256": "b19ca7f8a4d52d9ff58f3c250e2b995a51c447d70c7699cfcab5a6103c7d58a2",
+      "averageStdDev": 41.05,
+      "blank": false
+    },
+    {
+      "index": 60,
+      "timeSeconds": 144.139,
+      "path": "reviews/stratified-frames/60-144.139.png",
+      "sha256": "c762cee4023065e6a8849376be1d3fe2dfba9d59a21220e11924554a0e81c31c",
+      "averageStdDev": 41.48,
+      "blank": false
+    },
+    {
+      "index": 61,
+      "timeSeconds": 146.574,
+      "path": "reviews/stratified-frames/61-146.574.png",
+      "sha256": "18d49103268bbc18fc46cbc6002112e6079eeab525aaab23c9b9dcfa7426f022",
+      "averageStdDev": 41.48,
+      "blank": false
+    }
+  ]
+}

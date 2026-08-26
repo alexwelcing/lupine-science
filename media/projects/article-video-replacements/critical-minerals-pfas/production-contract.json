@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "articleSlug": "critical-minerals-pfas-and-the-remediation-imperative",
+  "status": "private-treatment-authored",
+  "method": "fal-first-with-deterministic-evidence-overlays",
+  "baseCommit": "e0cccacca7e8050d6fb6d208cce3248689653532",
+  "sources": {
+    "article": {
+      "path": "articles/critical-minerals-pfas-and-the-remediation-imperative.md",
+      "sha256": "714cd516f5c10896066ec979375b9f45875c29d9ba442554ba76a9a93c69019d"
+    },
+    "narration": {
+      "path": "data/narration-scripts/critical-minerals-pfas-and-the-remediation-imperative.json",
+      "sha256": "1d0acb2af42b19026a2e1be1725f32255621ca944e8b7175edc682415e86d824"
+    },
+    "publishedVideo": {
+      "path": "public/videos/critical-minerals-pfas-and-the-remediation-imperative.mp4",
+      "sha256": "49c720aacc5b64cafab3ed9fceb978ebddd148621aa7110392c693d9cf424213"
+    },
+    "publishedCaptions": {
+      "path": "public/videos/critical-minerals-pfas-and-the-remediation-imperative.vtt",
+      "sha256": "e6b108d0432824f172162bc6de16032e6e83922abc9db5165e90ebdac32f7b20"
+    }
+  },
+  "visualClassification": {
+    "fal": "Speculative worldbuilding artwork informed by materials culture. Not a forecast, architectural proposal, engineering design, scientific reference, simulation result, or evidence of a real deployment.",
+    "deterministic": "Source-bound explanatory graphic. Relationships and labels are authored and reproducible; not new experimental evidence."
+  },
+  "generationControl": {
+    "falOwns": [
+      "architectural atmosphere",
+      "material surface",
+      "ordinary light",
+      "wear residue and civic scale"
+    ],
+    "deterministicOwns": [
+      "all process equipment topology",
+      "pipes cartridges vessels and barriers",
+      "flow direction and state",
+      "labels measurements and scientific relationships"
+    ],
+    "reason": "The first three-shot Fal pilot failed process-topology and generated-instrumentation review; all three outputs were rejected."
+  },
+  "palette": {
+    "field": "#101513",
+    "evidence": "#F2EFE6",
+    "correction": "#C97745",
+    "water": "#76A9C3",
+    "regeneration": "#B4BE92",
+    "warning": "#D36B61"
+  },
+  "rules": {
+    "generatedText": "prohibited",
+    "generatedMeasurements": "prohibited",
+    "generatedScientificEvidence": "prohibited",
+    "dominantProofCountPerScene": 1,
+    "visibleRelationshipMinimum": 1,
+    "visibleRelationshipMaximum": 3,
+    "colorOnlyEncoding": "prohibited",
+    "dramaticClouds": "prohibited",
+    "paperAndIndigoFallback": "prohibited",
+    "frozenEconomics": [
+      "72.4% fewer DFT evaluations",
+      "$14.65 per 129 anchors"
+    ],
+    "newEconomicClaims": "prohibited",
+    "prohibitedClaimPatterns": [
+      "190 build-locked Lean 4 theorems"
+    ]
+  },
+  "reviewAnchors": [
+    "early-shared-hall",
+    "proof-corrected-ranking-boundary",
+    "late-common-test-and-disposition"
+  ],
+  "publication": {
+    "eligible": false,
+    "requires": [
+      "candidate validator pass",
+      "decoded narration verification",
+      "audio gate pass",
+      "visual gate pass",
+      "37+ decoded-frame review",
+      "independent reviewer pass bound to exact tree",
+      "director approval",
+      "owner approval of exact artifact",
+      "PR and CI",
+      "protected publication and production approvals",
+      "live byte and browser verification"
+    ]
+  }
+}
