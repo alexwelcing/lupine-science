@@ -22,7 +22,7 @@ permissions:
 
 jobs:
   purge-cache:
-    if: ${{ github.ref != 'refs/heads/ops/glim-ledger-d1-maintenance' }}
+    if: ${{ github.ref != 'refs/heads/ops/glim-ledger-d1-maintenance-v2' }}
     runs-on: ubuntu-latest
     # Note: intentionally no protected environment here so an on-demand purge
     # can run immediately. The deploy workflow still gates production deploys.
@@ -111,7 +111,7 @@ jobs:
           retention-days: 7
 
   glim-ledger-d1-maintenance:
-    if: ${{ github.ref == 'refs/heads/ops/glim-ledger-d1-maintenance' }}
+    if: ${{ github.ref == 'refs/heads/ops/glim-ledger-d1-maintenance-v2' }}
     runs-on: ubuntu-latest
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
