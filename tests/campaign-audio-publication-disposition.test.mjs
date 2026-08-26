@@ -20,6 +20,7 @@ test('campaign audio publication disposition is exact and hash-bound', () => {
 
   assert.equal(contract.decision, 'quarantine-proposed');
   assert.equal(contract.publicationState, 'needs-verification');
+  assert.equal(contract.scope, 'public/videos/campaign-2026-07-27/*.mp4');
   assert.equal(contract.deliveryAction.performedByThisTask, false);
   assert.equal(contract.records.length, 10);
 
@@ -40,6 +41,12 @@ test('campaign audio publication disposition is exact and hash-bound', () => {
     contract.records.map((record) => record.file).sort(),
     expectedFiles.sort(),
   );
+  const campaignDirectory = path.join(ROOT, 'public/videos/campaign-2026-07-27');
+  const actualFiles = fs.readdirSync(campaignDirectory)
+    .filter((name) => name.endsWith('.mp4'))
+    .map((name) => `public/videos/campaign-2026-07-27/${name}`)
+    .sort();
+  assert.deepEqual(actualFiles, expectedFiles.sort());
 
   for (const record of contract.records) {
     assert.equal(record.publicationState, 'needs-verification');
@@ -52,6 +59,15 @@ test('campaign audio publication disposition is exact and hash-bound', () => {
     );
   }
 
+  const expectedEvidence = [
+    'media/brand-campaign-2026-07-27/final-acceptance-manifest.json',
+    'media/brand-campaign-2026-07-27/qa/video-qa-evidence.json',
+    'public/videos/campaign-2026-07-27/video-manifest.json',
+  ];
+  assert.deepEqual(
+    contract.evidence.map((evidence) => evidence.path).sort(),
+    expectedEvidence.sort(),
+  );
   for (const evidence of contract.evidence) {
     assert.equal(sha256(path.join(ROOT, evidence.path)), evidence.sha256);
   }
