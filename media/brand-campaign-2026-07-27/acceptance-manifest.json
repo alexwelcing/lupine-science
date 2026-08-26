@@ -1112,35 +1112,35 @@
       "excluded": [
         {
           "film_id": "01-z1-campaign-story",
-          "path": "public/videos/campaign-2026-07-27/01-z1-union-verdict-qa-attempt-1.mp4",
+          "path": "media/brand-campaign-2026-07-27/quarantine/01-z1-union-verdict-qa-attempt-1.mp4",
           "playable": true,
           "exclusion_class": "publication_qa_failed",
           "reason": "Text-policy and transition-integrity rejection: body, label, footer, and QA overlay text is below the mandatory 48/36 px floors; all five transition midpoints show outgoing/incoming text collisions and competing focal systems."
         },
         {
           "film_id": "02-savings-stack",
-          "path": "public/videos/campaign-2026-07-27/02-savings-stack-qa-attempt-1.mp4",
+          "path": "media/brand-campaign-2026-07-27/quarantine/02-savings-stack-qa-attempt-1.mp4",
           "playable": true,
           "exclusion_class": "publication_qa_failed",
           "reason": "Text-policy and transition-integrity rejection: body, label, footer, and QA overlay text is below the mandatory 48/36 px floors; all four transition midpoints show outgoing/incoming text collisions and competing focal systems."
         },
         {
           "film_id": "03-trust-layer",
-          "path": "public/videos/campaign-2026-07-27/03-trust-layer-qa-attempt-1.mp4",
+          "path": "media/brand-campaign-2026-07-27/quarantine/03-trust-layer-qa-attempt-1.mp4",
           "playable": true,
           "exclusion_class": "publication_qa_failed",
           "reason": "Text-policy and transition-integrity rejection: body, label, footer, and QA overlay text is below the mandatory 48/36 px floors; all four transition midpoints show outgoing/incoming text collisions and competing focal systems, including a conspicuous shot 3-to-4 collision at 13.8 s."
         },
         {
           "film_id": "04-order-of-effort",
-          "path": "public/videos/campaign-2026-07-27/04-order-of-effort-qa-attempt-1.mp4",
+          "path": "media/brand-campaign-2026-07-27/quarantine/04-order-of-effort-qa-attempt-1.mp4",
           "playable": true,
           "exclusion_class": "publication_qa_failed",
           "reason": "Text-policy and transition-integrity rejection: body, label, footer, and QA overlay text is below the mandatory 48/36 px floors; all four transition midpoints show outgoing/incoming text collisions and competing focal systems."
         },
         {
           "film_id": "05-materials-in-society",
-          "path": "public/videos/campaign-2026-07-27/05-materials-for-society-qa-attempt-1.mp4",
+          "path": "media/brand-campaign-2026-07-27/quarantine/05-materials-for-society-qa-attempt-1.mp4",
           "playable": true,
           "exclusion_class": "publication_qa_failed",
           "reason": "Text-policy and transition-integrity rejection: body, label, footer, and QA overlay text is below the mandatory 48/36 px floors; all five transition midpoints show outgoing/incoming text collisions and competing focal systems."
@@ -1151,6 +1151,6 @@
   "integrity": {
     "algorithm": "sha256",
     "canonicalization": "UTF-8 JSON, keys sorted, compact separators; omit integrity.manifest_sha256 before hashing",
-    "manifest_sha256": "4daf44e3e5a0824409527c7c1ec236bb0787bd163ca3ee9efabb7d0325a3edb2"
+    "manifest_sha256": "ae2654c895458a14cdd2145e94369b39b2119cf0939763ab054820a4d9c811b9"
   }
 }
