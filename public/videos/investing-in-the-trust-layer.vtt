@@ -68,7 +68,7 @@ Quantitative claims are then sealed as Lean 4 theorems with hash-locked provenan
 
 17
 00:01:16.950 --> 00:01:22.530
-The proof layer has 190 build-locked theorems and zero unfinished proofs.
+The machine-generated proof inventory records zero unfinished proofs.
 
 18
 00:01:22.830 --> 00:01:28.880
