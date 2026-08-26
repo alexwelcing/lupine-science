@@ -21,7 +21,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[2]
 STORYBOARDS = ROOT / "media/brand-campaign-2026-07-27/campaign-video-storyboards.json"
-OUTPUT_DIR = ROOT / "public/videos/campaign-2026-07-27"
+OUTPUT_DIR = ROOT / "media/brand-campaign-2026-07-27/quarantine"
 WIDTH, HEIGHT, FPS = 960, 540, 30
 PAPER = "#faf9f6"
 INK = "#16171d"

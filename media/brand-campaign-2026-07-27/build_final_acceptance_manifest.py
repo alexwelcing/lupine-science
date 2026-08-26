@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 EVIDENCE = ROOT / "media/brand-campaign-2026-07-27/final-qa-evidence"
 MACHINE_REPORT = EVIDENCE / "image-machine-qa.json"
-VIDEO_REPORT = ROOT / "public/videos/campaign-2026-07-27/qa-attempt-1-probe-report.json"
+VIDEO_REPORT = ROOT / "media/brand-campaign-2026-07-27/quarantine/qa-attempt-1-probe-report.json"
 OUTPUT = ROOT / "media/brand-campaign-2026-07-27/final-acceptance-manifest.json"
 
 ACCEPTED = {
@@ -157,7 +157,7 @@ def main() -> None:
                 "media/brand-campaign-2026-07-27/final-qa-evidence/B4-candidate-contact-sheet.jpg",
                 "media/brand-campaign-2026-07-27/final-qa-evidence/B5-candidate-contact-sheet.jpg",
                 "media/brand-campaign-2026-07-27/final-qa-evidence/B6-candidate-contact-sheet.jpg",
-                "public/videos/campaign-2026-07-27/qa-attempt-1-probe-report.json",
+                "media/brand-campaign-2026-07-27/quarantine/qa-attempt-1-probe-report.json",
                 "media/brand-campaign-2026-07-27/render_campaign_videos.py",
             ],
         },
