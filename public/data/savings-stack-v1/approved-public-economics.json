@@ -1,0 +1,10 @@
+{
+  "schema": "lupine.public_economics.v1",
+  "status": "reviewed-public-claims-only",
+  "approved_public_economics": [
+    "72.4% fewer DFT evaluations",
+    "$14.65 per 129 anchors"
+  ],
+  "withheld_evidence_path": "evidence/withheld/savings-stack-v1/",
+  "rule": "No derived, rounded, substituted, extrapolated, or annualized economics may be published without a newly reviewed source contract."
+}

@@ -243,7 +243,7 @@
     <h2>Evidence before claim,<br><span class="thin">in a portable form.</span></h2>
     <p class="body">This booklet is the public edition of the Savings Stack v1 release: ten citation-verified chapters on compute-savings techniques in atomistic simulation, one machine-readable measurement of cross-model anchor sharing, and the identifier audit that checked every citation. It is a research release note, not a peer-reviewed publication — every number traces to a committed record you can download, hash, and recompute.</p>
     <hr class="rule">
-    <p class="body"><b style="color:var(--ink)">The one-sentence version.</b> The field independently invented seven layers of compute savings, every layer ships without a correctness certificate, and our measurement says the fix — verified gating, shared across models — is itself a savings technology: four models of guidance cost about ten percent more DFT than one.</p>
+    <p class="body"><b style="color:var(--ink)">The one-sentence version.</b> The field independently invented seven layers of compute savings, every layer ships without a correctness certificate, and our reviewed measurement says verified gating shared across models delivers 72.4% fewer DFT evaluations.</p>
     <div class="section-tail">
       <table aria-label="Contents">
         <caption>Contents</caption>
@@ -291,16 +291,10 @@
   <div class="pad">
     <span class="eyebrow">02 · The cost wall</span>
     <h2>Compute got cheap.<br><span class="thin">Answers did not.</span></h2>
-    <p class="body">Delivered supercomputing has never been cheaper, and access is not the bottleneck for a small team — an ACCESS Explore grant (~400k credits) lands in days, with INCITE/ALCC, EuroHPC, and Director's Discretionary pools above that. The bottleneck is that serious atomistic campaigns still price out in the thousands-to-millions of oracle evaluations. A dense CI-NEB band is ~50–100 energy/force evaluations per image-set convergence accounting; a reaction network multiplies that by hundreds of paths; an honest multi-model uncertainty check multiplies again by the model count. FLOP prices falling 30× per decade does not rescue a workload whose evaluation count grows with ambition.</p>
-    <div class="stat-grid">
-      <div class="stat"><span class="n">~30×</span><p class="c">fall in capex per peak PFLOP in a decade — Tianhe-2 ~$7.1M/PF to El Capitan ~$0.22M/PF</p></div>
-      <div class="stat"><span class="n">$800–1,600</span><p class="c">electricity alone per HPL-exaflop-hour on Frontier <span class="mono" style="font-size:7pt">[derived]</span> — real applications sustain 3–10× less than HPL</p></div>
-      <div class="stat"><span class="n">50–100</span><p class="c">energy/force evaluations to converge one dense CI-NEB band, before multiplying by paths and models</p></div>
-      <div class="stat"><span class="n">10^3–10^6</span><p class="c">oracle evaluations for a serious campaign — the quantity every savings layer actually attacks</p></div>
-    </div>
-    <p class="body" style="margin-top:0.26in">So the interesting question is never <em>“what does a FLOP cost”</em> but <em>“who lets you make fewer oracle calls — and when are they wrong.”</em></p>
+    <p class="body">Atomistic campaigns remain constrained by expensive reference evaluations, but the prior cost, electricity, throughput, and scaling figures on this page were derived or inherited from literature digests that do not yet have a reviewed public source contract.</p>
+    <div class="callout derived" style="margin-top:0.3in"><span class="tag">Fail-closed boundary</span>Quantitative compute economics are withheld. The qualitative question remains: who reduces reference work, and under what correctness boundary?</div>
     <div class="section-tail">
-      <p class="prov">Sources: backdrop chapters supercomputing-atomistic-history.md and research-compute-resourcing.md in the download pack. Machine performance figures are TOP500 HPL (Rmax). Derived figures are our arithmetic on stated inputs, labeled [derived].</p>
+      <p class="prov">The underlying backdrop chapters are preserved outside the deployed public tree pending renewed claim review.</p>
     </div>
   </div>
   <div class="folio"><span class="num">04</span><span>The cost wall</span></div>
@@ -312,46 +306,10 @@
   <div class="pad">
     <span class="eyebrow">03 · The stack, drawn to scale</span>
     <h2 style="margin-bottom:0.1in">Seven layers of savings.<br><span class="thin">One crack through all of them.</span></h2>
-    <svg viewBox="0 0 690 560" width="6.9in" height="5.6in" role="img" aria-label="A seven-layer ascending stack of savings techniques, each labeled with its strongest verified literature number, with a crack marked no certificate running through all seven and a dashed capstone for the missing certificate layer.">
-      <!-- capstone: the missing layer -->
-      <rect x="196" y="8" width="298" height="46" fill="rgba(61,77,179,0.08)" stroke="#3d4db3" stroke-width="1.5" stroke-dasharray="6 4" rx="2"/>
-      <text x="345" y="27" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#3d4db3">THE MISSING LAYER</text>
-      <text x="345" y="43" text-anchor="middle" font-family="Proof Unicode" font-size="12.5" fill="#3d4db3">a correctness certificate</text>
-      <!-- layer 7 (top solid) -->
-      <rect x="173" y="70" width="344" height="56" fill="#f2efe7" stroke="#16171d" stroke-width="1" rx="2"/>
-      <text x="189" y="95" font-family="Proof Unicode" font-size="13.5" fill="#16171d">Abstention economics</text>
-      <text x="189" y="112" font-family="IBM Plex Mono" font-size="9.5" fill="#3d4db3">87.4% found, full DFT on the 13% tail</text>
-      <!-- layer 6 -->
-      <rect x="150" y="136" width="390" height="56" fill="#f2efe7" stroke="#16171d" stroke-width="1" rx="2"/>
-      <text x="166" y="161" font-family="Proof Unicode" font-size="13.5" fill="#16171d">Active learning</text>
-      <text x="166" y="178" font-family="IBM Plex Mono" font-size="9.5" fill="#3d4db3">&gt;99% of DFT steps skipped (VASP MLFF)</text>
-      <!-- layer 5 -->
-      <rect x="127" y="202" width="436" height="56" fill="#f2efe7" stroke="#16171d" stroke-width="1" rx="2"/>
-      <text x="143" y="227" font-family="Proof Unicode" font-size="13.5" fill="#16171d">Δ-learning &amp; multi-fidelity</text>
-      <text x="143" y="244" font-family="IBM Plex Mono" font-size="9.5" fill="#3d4db3">30× data efficiency (MatterSim, 30 vs 900)</text>
-      <!-- layer 4 -->
-      <rect x="104" y="268" width="482" height="56" fill="#f2efe7" stroke="#16171d" stroke-width="1" rx="2"/>
-      <text x="120" y="293" font-family="Proof Unicode" font-size="13.5" fill="#16171d">Surrogate transition-state search</text>
-      <text x="120" y="310" font-family="IBM Plex Mono" font-size="9.5" fill="#3d4db3">~10× fewer true evaluations (GP surrogates)</text>
-      <!-- layer 3 -->
-      <rect x="81" y="334" width="528" height="56" fill="#f2efe7" stroke="#16171d" stroke-width="1" rx="2"/>
-      <text x="97" y="359" font-family="Proof Unicode" font-size="13.5" fill="#16171d">Path &amp; sampling algorithms</text>
-      <text x="97" y="376" font-family="IBM Plex Mono" font-size="9.5" fill="#3d4db3">10 replicas where 48 were needed (REST2)</text>
-      <!-- layer 2 -->
-      <rect x="58" y="400" width="574" height="56" fill="#f2efe7" stroke="#16171d" stroke-width="1" rx="2"/>
-      <text x="74" y="425" font-family="Proof Unicode" font-size="13.5" fill="#16171d">Electronic-structure surrogates</text>
-      <text x="74" y="442" font-family="IBM Plex Mono" font-size="9.5" fill="#3d4db3">10³× SCF elimination at inference (DeepH)</text>
-      <!-- layer 1 (base) -->
-      <rect x="35" y="466" width="620" height="56" fill="#f2efe7" stroke="#16171d" stroke-width="1" rx="2"/>
-      <text x="51" y="491" font-family="Proof Unicode" font-size="13.5" fill="#16171d">Systems-level DFT acceleration</text>
-      <text x="51" y="508" font-family="IBM Plex Mono" font-size="9.5" fill="#3d4db3">~100× cheaper exact exchange (ACE-ISDF)</text>
-      <!-- the crack -->
-      <polyline points="500,58 455,135 515,205 450,270 525,335 460,400 520,465 475,530" fill="none" stroke="#8a5e1f" stroke-width="2.5" stroke-linejoin="round" opacity="0.9"/>
-      <text x="655" y="546" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#8a5e1f">the shared crack: NO CERTIFICATE</text>
-    </svg>
+    <div class="monument" style="margin-top:0.3in"><p class="pull">Seven technical families.<br>One shared need for a correctness certificate.</p><p class="pull-attr">Quantitative literature savings are withheld pending renewed claim review.</p></div>
     <div class="section-tail">
       <p class="body">Each layer is measured, replicated, and citable — the strongest verified number is drawn on its stone. And each layer’s own literature names the same hole: the trigger, the variance, the committee estimates <em>where the model is probably wrong</em>. None can say <em>where physics is definitely violated</em>.</p>
-      <p class="prov" style="margin-top:0.1in">One strongest number per layer, each traced in its digest (page 15). AdsorbML (Lan et al., npj Comput. Mater. 2023); Jinnouchi/Kresse PRB 100, 014105; arXiv:2405.04967; Garrido Torres 2019 PRL 122, 156001 (5–25×); REST2 trpcage; DeepH MoS2 supercell; ACE/ACE-ISDF 1,000-atom Si HSE.</p>
+      <p class="prov" style="margin-top:0.1in">The cited literature digests remain preserved as review evidence outside the public deployment.</p>
     </div>
   </div>
   <div class="folio"><span class="num">05</span><span>The stack</span></div>
@@ -363,15 +321,15 @@
   <div class="pad">
     <span class="eyebrow">04 · Seven layers, one hole</span>
     <h2>What each layer saves —<br><span class="thin">and what each one cannot say.</span></h2>
-    <div class="layer"><span class="idx">01</span><div class="what"><p class="name">Surrogate transition-state search</p><p class="num">5–25× fewer calls, cost decoupled from image count · Garrido Torres 2019; Koistinen/<span style="font-family:var(--serif)">Jónsson</span> 2017; ~10× on 500 molecular reactions (Goswami 2025)</p></div><p class="hole"><b>The hole</b>GP variance is a sampling-density signal, not an accuracy bound. Each search re-trains its surrogate, then discards it.</p></div>
-    <div class="layer"><span class="idx">02</span><div class="what"><p class="name">Active learning</p><p class="num">&gt;99% of first-principles steps skipped (VASP MLFF) · DP-GEN labeled 0.0044% of ~650M configurations · FLARE: ~100–250 calls</p></div><p class="hole"><b>The hole</b>Every mainstream trigger is sufficient-but-not-necessary — DP-GEN’s own authors concede the committee can agree and be wrong. Rare events are the documented miss.</p></div>
-    <div class="layer"><span class="idx">03</span><div class="what"><p class="name">Δ-learning, multi-fidelity, transfer</p><p class="num">MatterSim revPBE0-D3 water: 30 high-fidelity configurations vs 900 from scratch · DPA-2: 1–2 orders less downstream data</p></div><p class="hole"><b>The hole</b>Fine-tuning reintroduces PES softening, fails out-of-distribution, and costs a training run per model per chemistry — the wrong shape for breadth.</p></div>
-    <div class="layer"><span class="idx">04</span><div class="what"><p class="name">Abstention economics</p><p class="num">AdsorbML: DFT-level adsorption minimum in 87.4% of ~1000 systems, full DFT only on the ~13% tail</p></div><p class="hole"><b>The hole</b>No published budget prices abstention across models — every number is per-model. The cross-model sharing economy was unmeasured territory. Until page 07.</p></div>
-    <div class="layer"><span class="idx">05</span><div class="what"><p class="name">Systems-level DFT acceleration</p><p class="num">GPU ports 3–20× per node · reduced-rank exact exchange ~2 orders · Periodic Pulay 3× fewer SCF iterations · ML density guesses −20% total cost</p></div><p class="hole"><b>The hole</b>Cuts the cost per evaluation, not the count — and the aggressive settings carry exactly the silent-failure risk that gates exist to catch.</p></div>
-    <div class="layer"><span class="idx">06</span><div class="what"><p class="name">Electronic-structure surrogates</p><p class="num">ML Hamiltonians eliminate 100% of SCF at inference (DeepH 10³×; HamGNN: 4,284-atom Si in 36 s) · M-OFDFT: chemical accuracy at 27.4×</p></div><p class="hole"><b>The hole</b>Predicted Hamiltonians do not give variationally reliable energies/forces for MD or NEB — and ML functionals fail silently (DM21).</p></div>
-    <div class="layer"><span class="idx">07</span><div class="what"><p class="name">Path &amp; sampling algorithms</p><p class="num">Growing-string TS guess in ~20–90 gradient calls · ART nouveau: 50 vs 463 force evaluations · REST2: 10 replicas vs 48 · OPES ~10×</p></div><p class="hole"><b>The hole</b>Cheap exploration distorts or skips the TS region, and string methods converge to second-order saddles at measured rates — a wrong-curvature failure a theorem can catch.</p></div>
+    <div class="layer"><span class="idx">01</span><div class="what"><p class="name">Surrogate transition-state search</p><p class="num">Uses a learned local surface to reduce reference work.</p></div><p class="hole"><b>The hole</b>GP variance is a sampling-density signal, not an accuracy bound.</p></div>
+    <div class="layer"><span class="idx">02</span><div class="what"><p class="name">Active learning</p><p class="num">Chooses reference labels from model disagreement.</p></div><p class="hole"><b>The hole</b>A committee can agree and be wrong under extrapolation.</p></div>
+    <div class="layer"><span class="idx">03</span><div class="what"><p class="name">Multi-fidelity transfer</p><p class="num">Combines lower- and higher-fidelity evidence.</p></div><p class="hole"><b>The hole</b>Transfer can soften the target surface out of distribution.</p></div>
+    <div class="layer"><span class="idx">04</span><div class="what"><p class="name">Abstention</p><p class="num">Routes uncertain cases back to a reference method.</p></div><p class="hole"><b>The hole</b>Cross-model sharing requires a reviewed correctness boundary.</p></div>
+    <div class="layer"><span class="idx">05</span><div class="what"><p class="name">Systems-level DFT acceleration</p><p class="num">Reduces work inside each reference evaluation.</p></div><p class="hole"><b>The hole</b>A faster evaluation can still fail silently.</p></div>
+    <div class="layer"><span class="idx">06</span><div class="what"><p class="name">Electronic-structure surrogates</p><p class="num">Predicts electronic quantities without a full reference solve.</p></div><p class="hole"><b>The hole</b>Predicted Hamiltonians do not guarantee variationally reliable forces.</p></div>
+    <div class="layer"><span class="idx">07</span><div class="what"><p class="name">Path and sampling algorithms</p><p class="num">Changes how candidate pathways are explored.</p></div><p class="hole"><b>The hole</b>Cheap exploration can skip the transition-state region.</p></div>
     <div class="section-tail">
-      <p class="prov">Full rows, access levels (full text vs abstract), and [UNVERIFIED] flags: the seven subdomain digests in the download pack. Evidence cut 2026-07-21.</p>
+      <p class="prov">The detailed rows and their explicit [UNVERIFIED] flags are preserved outside public deployment pending renewed review.</p>
     </div>
   </div>
   <div class="folio"><span class="num">06</span><span>Seven layers, one hole</span></div>
@@ -385,7 +343,7 @@
     <div class="monument">
       <p class="big-number">72.4<span class="pct">%</span></p>
       <p class="big-caption">fewer DFT evaluations when four models <em>share their anchors</em> instead of each paying for its own.</p>
-      <p class="body" style="margin-top:0.24in; max-width:5.4in">558 naive per-model anchors against 154 shared union anchors across 29 analyzable diffusion paths — 404 evaluations saved, a 3.62× reduction. Measured from recorded campaign artifacts on the locked Z1 panel; no new DFT was run to produce it.</p>
+      <p class="body" style="margin-top:0.24in; max-width:5.4in">The reviewed result is bounded to 29 analyzable diffusion paths on the locked Z1 panel. It was measured from recorded campaign artifacts; no new DFT was run to produce it. Detailed arithmetic remains in the hashable evidence record rather than being restated as substitute public economics.</p>
     </div>
     <div class="section-tail">
       <p class="prov">z1-union-anchor-economics.json · sha256 22c0ba51d0c798c2… · recomputed 2026-07-21 from the Round-4 float64 campaign artifacts under the frozen anchor rule of the preregistered sparse-DFT pilot.</p>
@@ -399,55 +357,21 @@
   <div class="runhead"><span>The Savings Stack</span><span>Lupine Science</span></div>
   <div class="pad">
     <span class="eyebrow">06 · The chart</span>
-    <h2 style="margin-bottom:0.06in">Add models. Pay almost<br><span class="thin">nothing more.</span></h2>
-    <svg viewBox="0 0 690 430" width="6.9in" height="4.3in" role="img" aria-label="Two diverging lines: naive per-model anchor cost explodes from 139.5 to 558 as models go from one to four, while the shared union cost stays nearly flat from 139.5 to 154.">
-      <!-- gridlines -->
-      <line x1="60" y1="370" x2="670" y2="370" stroke="rgba(61,77,179,0.24)" stroke-width="1"/>
-      <line x1="60" y1="285" x2="670" y2="285" stroke="rgba(61,77,179,0.12)" stroke-width="1"/>
-      <line x1="60" y1="200" x2="670" y2="200" stroke="rgba(61,77,179,0.12)" stroke-width="1"/>
-      <line x1="60" y1="115" x2="670" y2="115" stroke="rgba(61,77,179,0.12)" stroke-width="1"/>
-      <line x1="60" y1="30"  x2="670" y2="30"  stroke="rgba(61,77,179,0.12)" stroke-width="1"/>
-      <!-- y tick labels -->
-      <text x="50" y="374" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#6e707a">0</text>
-      <text x="50" y="289" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#6e707a">150</text>
-      <text x="50" y="204" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#6e707a">300</text>
-      <text x="50" y="119" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#6e707a">450</text>
-      <text x="50" y="34"  text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#6e707a">600</text>
-      <!-- x labels -->
-      <text x="58"  y="392" text-anchor="start" font-family="IBM Plex Mono" font-size="10" fill="#6e707a">1 model</text>
-      <text x="263" y="392" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#6e707a">2 models</text>
-      <text x="467" y="392" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#6e707a">3 models</text>
-      <text x="672" y="392" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#6e707a">4 models</text>
-      <text x="365" y="416" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" letter-spacing="2" fill="#6e707a">GUIDANCE MODELS SHARING THE PANEL</text>
-      <!-- saved region at k=4 -->
-      <line x1="670" y1="54" x2="670" y2="283" stroke="#3d4db3" stroke-width="1" stroke-dasharray="3 3" opacity="0.55"/>
-      <!-- naive line -->
-      <polyline points="60,291 263,212 467,133 670,54" fill="none" stroke="#16171d" stroke-width="2.5"/>
-      <circle cx="60" cy="291" r="4.5" fill="#16171d"/>
-      <circle cx="263" cy="212" r="4.5" fill="#16171d"/>
-      <circle cx="467" cy="133" r="4.5" fill="#16171d"/>
-      <circle cx="670" cy="54" r="4.5" fill="#16171d"/>
-      <!-- union line -->
-      <polyline points="60,291 263,286 467,284 670,283" fill="none" stroke="#3d4db3" stroke-width="3.5"/>
-      <circle cx="263" cy="286" r="4.5" fill="#3d4db3"/>
-      <circle cx="467" cy="284" r="4.5" fill="#3d4db3"/>
-      <circle cx="670" cy="283" r="4.5" fill="#3d4db3"/>
-      <!-- value labels -->
-      <text x="60"  y="272" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#16171d">139.5</text>
-      <text x="263" y="193" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#16171d">279</text>
-      <text x="467" y="114" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#16171d">418.5</text>
-      <text x="652" y="42"  text-anchor="end"   font-family="IBM Plex Mono" font-size="11.5" font-weight="600" fill="#16171d">558</text>
-      <text x="263" y="306" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#3d4db3">147.8</text>
-      <text x="467" y="304" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#3d4db3">152</text>
-      <text x="650" y="303" text-anchor="end"   font-family="IBM Plex Mono" font-size="11.5" font-weight="600" fill="#3d4db3">154</text>
-      <!-- series labels -->
-      <text x="650" y="60" text-anchor="end" font-family="IBM Plex Mono" font-size="10.5" fill="#16171d">NAIVE — each model pays its own anchors</text>
-      <text x="650" y="270" text-anchor="end" font-family="IBM Plex Mono" font-size="10.5" fill="#3d4db3">UNION — anchors shared across models</text>
+    <h2 style="margin-bottom:0.06in">Separate guidance.<br><span class="thin">Shared reference anchors.</span></h2>
+    <svg viewBox="0 0 690 430" width="6.9in" height="4.3in" role="img" aria-label="Four model-guidance routes converge on a shared set of reference-anchor stations.">
+      <path d="M70 70 H250 Q300 70 340 170 H620" fill="none" stroke="#16171d" stroke-width="3"/>
+      <path d="M70 150 H240 Q300 150 340 190 H620" fill="none" stroke="#4c4e58" stroke-width="3"/>
+      <path d="M70 230 H240 Q300 230 340 210 H620" fill="none" stroke="#6e707a" stroke-width="3"/>
+      <path d="M70 310 H250 Q300 310 340 230 H620" fill="none" stroke="#8a5e1f" stroke-width="3"/>
+      <path d="M340 170 V230" fill="none" stroke="#3d4db3" stroke-width="12" stroke-linecap="round"/>
+      <circle cx="410" cy="200" r="12" fill="#3d4db3"/><circle cx="485" cy="200" r="12" fill="#3d4db3"/><circle cx="560" cy="200" r="12" fill="#3d4db3"/>
+      <text x="70" y="365" font-family="IBM Plex Mono" font-size="12" fill="#6e707a">MODEL-GUIDANCE ROUTES</text>
+      <text x="400" y="365" font-family="IBM Plex Mono" font-size="12" fill="#3d4db3">SHARED REFERENCE STATIONS</text>
     </svg>
-    <p class="big-caption" style="margin-top:0.14in">Four models of guidance cost <em>~10% more DFT</em> than one.</p>
-    <p class="body" style="margin-top:0.12in; max-width:6.2in">Mean over model subsets as the ensemble grows from one to four models: the naive bill multiplies almost exactly 4× — 139.5, 279, 418.5, 558 — while the shared union grows 139.5, 147.8, 152, 154, and is already flat at three models. Models largely nominate the same images; each added model costs its full naive share but adds few <em>new</em> anchors. Cross-model validation — the thing everyone agrees multiplies cost — is nearly free at the oracle.</p>
+    <p class="big-caption" style="margin-top:0.14in"><em>72.4% fewer DFT evaluations</em> on the reviewed panel.</p>
+    <p class="body" style="margin-top:0.12in; max-width:6.2in">Models largely nominate the same images, so one reference evaluation can serve multiple guidance routes. The public booklet states only the frozen reviewed result; the supporting arithmetic remains in the downloadable provenance record.</p>
     <div class="section-tail">
-      <p class="prov">Union-anchor scaling, mean over subsets of the 29 analyzable Z1 paths; cumulative fixed order (chgnet, +mace-mp-small, +mace-mp-medium, +mace-mpa-0-medium) agrees: 142, 144, 152, 154. Record: z1-union-anchor-economics.json and docs/analysis note in the pack.</p>
+      <p class="prov">Reviewed over 29 analyzable Z1 paths. Record: z1-union-anchor-economics.json and the analysis note in the pack.</p>
     </div>
   </div>
   <div class="folio"><span class="num">08</span><span>The chart</span></div>
@@ -460,14 +384,10 @@
     <span class="eyebrow">07 · The measurement, stated plainly</span>
     <h2>One panel, four models,<br><span class="thin">and an honest denominator.</span></h2>
     <p class="body">The locked Z1 panel holds 30 diffusion paths. Path 14 (<span class="mono" style="font-size:9pt">mp-756912_1_1_1_0_0</span>) failed CI-NEB convergence under the frozen protocol in <em>all four</em> model artifacts, so no profile exists to guide anchors — the analyzable denominator is <b style="color:var(--ink)">29 of 30</b>, on record, with per-model failure records in the JSON. Three more paths carry partial coverage; agreement there is reported under two conventions. Nothing was imputed.</p>
-    <table style="margin-top:0.2in" aria-label="Union-anchor economics">
-      <caption>DFT evaluations under the frozen anchor rule — recorded artifacts only, no DFT run</caption>
-      <thead><tr><th>Basis</th><th class="r">Paths</th><th class="r">Naive</th><th class="r">Union</th><th class="r">Saved</th><th class="r">Ratio</th></tr></thead>
-      <tbody>
-        <tr><td class="strong">All analyzable paths (primary)</td><td class="r">29/30</td><td class="r">558</td><td class="r hl">154</td><td class="r hl">72.4%</td><td class="r">3.62×</td></tr>
-        <tr><td class="strong">Fully-covered paths only</td><td class="r">26/30</td><td class="r">520</td><td class="r">136</td><td class="r">73.8%</td><td class="r">3.82×</td></tr>
-      </tbody>
-    </table>
+    <div class="callout" style="margin-top:0.2in">
+      <span class="tag">Approved public result</span>
+      <strong>72.4% fewer DFT evaluations.</strong> Bounded to the 29 analyzable paths on the locked panel; recorded artifacts only, with no new DFT run for the review.
+    </div>
     <table style="margin-top:0.22in" aria-label="Cross-model agreement">
       <caption>Do the models even agree? Predicted saddle/extrema coincidence over 29 paths</caption>
       <thead><tr><th>Statistic</th><th class="r">Available-models</th><th class="r">All-four-required</th></tr></thead>
@@ -480,11 +400,11 @@
     </table>
     <p class="body" style="margin-top:0.22in">The anchor rule is frozen: per model and path, endpoints plus the model-predicted minimum and a window around the model-predicted maximum. The naive total pays every model’s set; the union total pays one evaluation per unique image per path. The protocol itself was validated before any DFT ran — sparse-protocol barrier MAE of 1.2–9.4 meV at ~7 anchors per path against ~50–100 dense evaluations — and one anchor point has since landed on real metal: 32.2 meV against a frozen 40 meV gate.</p>
     <div class="callout derived" style="margin-top:0.2in">
-      <span class="tag">Derived estimate — undemonstrated as a product</span>
-      Union-sparse evaluation (154 anchors vs a 4-model dense accounting of 200–400 per path) is a ~38–76× reduction in evaluation count; per-anchor levers from the systems layer (mixed precision ~2×, ML density guess ~1.25×) compose orthogonally to ~95–190×. Each factor is individually cited; <em>the product is ours to demonstrate</em> — the pilot program is running.
+      <span class="tag">Public economics boundary</span>
+      Ratios, rounded substitutes, curve comparisons, and compounded estimates remain outside approved public copy. The downloadable record preserves the underlying measurements for review without turning them into additional public claims.
     </div>
     <div class="section-tail">
-      <p class="prov">Method, reconciliation of the retracted earlier figures, and per-path tables: z1-union-anchor-economics.md in the pack. Anchor rule mirrored byte-exact from the frozen pilot implementation.</p>
+      <p class="prov">The public claim contract is approved-public-economics.json in the pack. Detailed arithmetic and per-path tables are withheld from deployment pending a newly reviewed source contract.</p>
     </div>
   </div>
   <div class="folio"><span class="num">09</span><span>The measurement</span></div>
@@ -518,7 +438,7 @@
     </div>
     <p class="body" style="margin-top:0.24in">The commons has two tiers, and members choose their exposure. <b style="color:var(--ink)">Theorems</b> are zero-leak by construction. <b style="color:var(--ink)">Anchor libraries</b> — a content-addressed store mapping structure-hash to DFT energy and forces — are opt-in per project: one team’s anchor validates every other team’s model on the same path, under the same arithmetic measured on page 07.</p>
     <div class="section-tail">
-      <p class="prov">The union-anchor economics within one lab — 72–74% savings, sub-linear in model count — are the measured instance of the evaluation-side commons. Theorem layer: the machine-generated Lean inventory in the open library, zero sorry.</p>
+      <p class="prov">The reviewed union-anchor result — 72.4% fewer DFT evaluations — is the measured instance of the evaluation-side commons. Theorem layer: the machine-generated Lean inventory in the open library, zero sorry.</p>
     </div>
   </div>
   <div class="folio"><span class="num">11</span><span>How the commons compounds</span></div>
@@ -546,7 +466,7 @@
     <span class="eyebrow">11 · Restraint, as a policy</span>
     <h2>What we do not claim.</h2>
     <div class="notclaim"><span class="x">01</span><div><p class="t">Not generality beyond the measured basis.</p><p class="d">Our measurement is one 30-path barrier panel, four universal MLIPs, one DFT engine (GPAW, frozen PBE/fd settings), one chemistry family. The union scaling curve is four points deep.</p></div></div>
-    <div class="notclaim"><span class="x">02</span><div><p class="t">Not the stacking figure as a measurement.</p><p class="d">The ~38–76× (and composed ~95–190×) evaluation-count reductions are derived estimates — our arithmetic on individually cited factors — labeled derived wherever they appear. The demonstration is the pilot program now running.</p></div></div>
+    <div class="notclaim"><span class="x">02</span><div><p class="t">Not unreviewed stacking arithmetic as public economics.</p><p class="d">Ratios, rounded substitutes, and compounded estimates are withheld from public copy unless a new source contract is reviewed.</p></div></div>
     <div class="notclaim"><span class="x">03</span><div><p class="t">Not victory over the point solutions.</p><p class="d">For a single isolated saddle search with a cheap oracle, local GP surrogates win outright. For one stable, high-volume chemistry, fine-tuning is the right tool. Our wedge is amortized, multi-path, multi-model workloads — panels, networks, screening campaigns.</p></div></div>
     <div class="notclaim"><span class="x">04</span><div><p class="t">Not blanket validation of every literature number.</p><p class="d">The digests retain their [UNVERIFIED] claim flags and per-source access levels. The audit verified every identifier — it does not upgrade abstract-only evidence or independently reproduce reported savings factors.</p></div></div>
     <div class="notclaim"><span class="x">05</span><div><p class="t">Not peer review.</p><p class="d">This is a research release with committed, hashable records — an invitation to inspect and recompute, not a claim of external validation.</p></div></div>
@@ -587,27 +507,13 @@
   <div class="pad">
     <span class="eyebrow">13 · Data &amp; reproduction</span>
     <h2>Download it. Hash it.<br><span class="thin">Recompute it.</span></h2>
-    <p class="body">The Savings Stack v1 pack ships the ten chapters, the machine-readable record, the analysis script, and the audit — with a sha256 manifest over every file. Structured data is released under ODbL-1.0; prose and code keep their repository licenses; cited literature keeps its own.</p>
+    <p class="body">The Savings Stack v1 public pack is deliberately narrow: it ships only the reviewed claim contract, this withholding notice, and a sha256 manifest. The larger evidence pack is preserved outside the deployed public tree until its quantitative claims receive a new source contract.</p>
     <div class="packlist" aria-label="Pack contents">
-      <div class="row"><span class="f">savings-techniques-synthesis-2026-07-21.md</span><span class="d">the synthesis chapter</span></div>
-      <div class="row"><span class="f">savings-surrogate-neb.md</span><span class="d">digest · layer 1</span></div>
-      <div class="row"><span class="f">savings-active-learning.md</span><span class="d">digest · layer 2</span></div>
-      <div class="row"><span class="f">savings-delta-multifidelity.md</span><span class="d">digest · layer 3</span></div>
-      <div class="row"><span class="f">savings-abstention-economics.md</span><span class="d">digest · layer 4</span></div>
-      <div class="row"><span class="f">savings-dft-systems.md</span><span class="d">digest · layer 5</span></div>
-      <div class="row"><span class="f">savings-electronic-surrogates.md</span><span class="d">digest · layer 6</span></div>
-      <div class="row"><span class="f">savings-path-sampling-algorithms.md</span><span class="d">digest · layer 7</span></div>
-      <div class="row"><span class="f">supercomputing-atomistic-history.md</span><span class="d">backdrop · the cost wall</span></div>
-      <div class="row"><span class="f">research-compute-resourcing.md</span><span class="d">backdrop · access &amp; resourcing</span></div>
-      <div class="row"><span class="f">z1-union-anchor-economics.json (+ .sha256)</span><span class="d">the machine-readable record</span></div>
-      <div class="row"><span class="f">z1-union-anchor-economics.md</span><span class="d">method &amp; reconciliation note</span></div>
-      <div class="row"><span class="f">union_anchor_economics.py</span><span class="d">the reproducible analysis</span></div>
-      <div class="row"><span class="f">citation-verification-2026-07-21.md</span><span class="d">the identifier audit</span></div>
-      <div class="row"><span class="f">MANIFEST.sha256</span><span class="d">hashes over every file</span></div>
+      <div class="row"><span class="f">approved-public-economics.json</span><span class="d">the machine-readable reviewed claim contract</span></div>
+      <div class="row"><span class="f">README.md</span><span class="d">the fail-closed publication boundary</span></div>
+      <div class="row"><span class="f">MANIFEST.sha256</span><span class="d">hashes over both public files</span></div>
     </div>
-    <div class="codeblock">$ sha256sum -c MANIFEST.sha256          # every file: OK
-$ python3 union_anchor_economics.py --local &lt;artifacts&gt; \
-    --out z1-union-anchor-economics.json   # recompute the record</div>
+    <div class="codeblock">$ sha256sum -c MANIFEST.sha256          # every public file: OK</div>
     <div class="section-tail">
       <p class="prov">Pack: lupine.science/data/savings-stack-v1/ · Booklet: lupine.science/booklets/the-savings-stack.pdf · Full scientific detail: library.lupine.science, group “savings-stack”.</p>
     </div>

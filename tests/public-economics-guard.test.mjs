@@ -1,50 +1,41 @@
-// Guards the ONE economics figure that is settled: $14.65 per 129 anchors.
+// Guards the frozen public economics while preserving the unresolved source conflict.
 //
-// `$4.65` was a dropped digit in owner card `t_1c23b226`. The authoritative ledger
-// reproduces $14.65 as 244 vCPU-h x $0.06 (script-backed, hash-pinned), and
-// lupine-hq's `partnerships/validate_partnerships.py:64` already enforces $14.65
-// across all 93 prospect mappings. The command-center records that reconciled on
-// 2026-08-08, retiring the "preserve both pending reconciliation" wording that had
-// been blocking cost-cap activation.
+// Public copy may use `$14.65 per 129 anchors`, but the conflicting `$4.65 per 129
+// anchors` record remains preserved pending authoritative ledger verification. This
+// guard blocks the conflicting value from publication without declaring it a typo,
+// retiring it, or otherwise laundering the unresolved state into factual prose.
 //
-// Every public surface is currently clean of $4.65, so this is a ratchet: it passes
-// today and fails only if the retired figure comes back. It deliberately does NOT
-// police other derived economics.
-//
-// WHY SO NARROW — this file is the surviving, verified part of a broader guard on
-// `task/t_da0354ce` that forbade 70%, 3.33x, 3.62x, ~10%, $0.60, 558/154 and
-// 430/129, and required exact adjacency after every "72.4%". Run against `main` on
-// 2026-08-08 that version failed 13 of 20 checks, and each failure was a FALSE
-// POSITIVE on legitimate content:
-//
-//   - `articles/z1-union-debrief.md` reports "430 anchors. Union executed: 129.
-//     That is 70% fewer DFT evaluations (3.33x) - the prediction said 72.4%".
-//     That is the debrief honestly contrasting its MEASURED result against the
-//     prediction. Forbidding it would force an article to hide its own measurement.
-//   - `articles/the-savings-stack.md` says "72.4% fewer evaluations, a 3.62x
-//     reduction". 3.62x is the arithmetic restatement of 72.4% (1/(1-0.724)), not
-//     a substitute for it.
-//   - the venture-deck surfaces failed exact-adjacency after "72.4%" only because
-//     HTML markup sits between the number and the words.
-//
-// So the broad guard would have blocked accurate publication rather than protecting
-// it. That is a fence, not a ratchet. The narrow claim is the one worth enforcing,
-// and the card carried no recorded verification, which is how it stayed unlanded.
+// The earlier guard on task/t_da0354ce used a denylist and a hand-maintained surface
+// list. It blocked truthful historical measurements in the source articles and still
+// missed newly added files. This successor discovers rendered publication surfaces;
+// reviewed primary records remain path-bound, while new/republication surfaces fail
+// closed to the two frozen claims.
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { describe, it } from 'node:test';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { JSDOM } from 'jsdom';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-
 const APPROVED_COST = '$14.65 per 129 anchors';
+const APPROVED_SAVINGS = '72.4% fewer DFT evaluations';
+const PUBLIC_TEXT_EXTENSIONS = new Set(['.css', '.html', '.js', '.json', '.md', '.mjs', '.py', '.svg', '.txt', '.vtt', '.xml']);
+const REVIEWED_PRIMARY_RECORDS = new Set([
+  'public/articles/the-savings-stack/index.html',
+  'public/articles/z1-union-debrief/index.html',
+  'public/booklets/the-savings-stack.pdf',
+  'media/booklets/savings-stack/index.html',
+  'articles/the-savings-stack.md',
+  'articles/z1-union-debrief.md',
+]);
+const REVIEWED_PRIMARY_PREFIXES = ['public/data/savings-stack-v1/'];
 
-// The retired figure, in the forms it actually appeared in.
-const RETIRED = [
-  { label: '$4.65 dropped-digit cost', sample: 'measured execution guardrail: $4.65 per 129 anchors', pattern: /\$\s?4\.65/ },
+const BLOCKED_CONFLICT = [
+  { label: '$4.65 conflicting cost', sample: 'measured execution guardrail: $4.65 per 129 anchors', pattern: /\$\s?4\.65/ },
   { label: 'bare 4.65 per anchors', sample: '4.65 per 129 anchors', pattern: /\b4\.65\s+per\s+\d+\s+anchors/i },
 ];
 
@@ -61,12 +52,8 @@ const TEXT_SURFACES = [
   'public/venture/deck.html',
   'public/venture/evidence-manifest.json',
   'public/videos/index.html',
-  // The campaign videos BURN the cost into their frames, so scanning
-  // public/videos/index.html (links and descriptions) misses it entirely. These two
-  // are the composition source that render_campaign_videos.py draws from — checking
-  // them catches a regression before it is baked into an mp4 nobody can grep.
-  // Dropped by mistake when this guard was narrowed; they only ever failed the
-  // over-broad "70%" rule that is gone.
+  // These composition sources are part of the publication inventory because their
+  // text is burned into MP4 frames and cannot be recovered from HTML or captions.
   'media/brand-campaign-2026-07-27/render_campaign_videos.py',
   'media/brand-campaign-2026-07-27/campaign-video-storyboards.json',
 ];
@@ -80,8 +67,10 @@ function normalized(text) {
   return text.replace(/\s+/g, ' ').trim();
 }
 
-// HTML surfaces hide text in metadata, alt text and JSON-LD, so a naive body read
-// would let a retired figure through in a meta description.
+function sha256(absolute) {
+  return createHash('sha256').update(fs.readFileSync(absolute)).digest('hex');
+}
+
 function publicText(relative, raw) {
   if (!relative.endsWith('.html')) return raw;
   const document = new JSDOM(raw).window.document;
@@ -98,52 +87,170 @@ function publicText(relative, raw) {
   return [body.join('\n'), ...metadata, ...imageText, ...structured].join('\n');
 }
 
-function assertNoRetiredCost(relative, raw) {
+function isReviewedPrimaryRecord(relative) {
+  return REVIEWED_PRIMARY_RECORDS.has(relative) || REVIEWED_PRIMARY_PREFIXES.some((prefix) => relative.startsWith(prefix));
+}
+
+function assertNoUnapprovedCost(relative, raw) {
   const text = normalized(raw);
-  for (const { label, pattern } of RETIRED) {
-    assert.doesNotMatch(text, pattern, `${relative}: ${label} was retired as a transcription error; use ${APPROVED_COST}`);
+  for (const { label, pattern } of BLOCKED_CONFLICT) {
+    assert.doesNotMatch(text, pattern, `${relative}: ${label} is blocked by the preserved conflict pending ledger verification`);
+  }
+  for (const match of text.matchAll(/\$\s?\d+(?:\.\d+)?\s+per\s+\d+\s+anchors\b/gi)) {
+    assert.equal(match[0], APPROVED_COST, `${relative}: ${match[0]} is not approved public economics`);
+  }
+  for (const match of text.matchAll(/\d+(?:\.\d+)?\s*%\s+fewer\s+(?:DFT\s+)?evaluations\b/gi)) {
+    if (isReviewedPrimaryRecord(relative)) continue;
+    assert.equal(match[0], APPROVED_SAVINGS, `${relative}: ${match[0]} is not approved public economics`);
+  }
+  if (!isReviewedPrimaryRecord(relative)) {
+    const derivedClaims = [
+      /\$\s?\d+(?:\.\d+)?\s+cloud-equivalent\b/i,
+      /\d+(?:\.\d+)?\s*[×x]\s+(?:(?:reduction|decrease)\s+in\s+|fewer\s+)?DFT\s+evaluations\b/i,
+      /\d+(?:\.\d+)?\s+naive\s+(?:evaluations?|anchors?)[\s\S]{0,80}\d+(?:\.\d+)?\s+(?:shared|union|executed)\s+(?:evaluations?|anchors?)/i,
+    ];
+    for (const pattern of derivedClaims) {
+      const match = text.match(pattern);
+      assert.equal(match, null, `${relative}: ${match?.[0]} is not approved public economics`);
+    }
   }
 }
 
-describe('retired economics figures stay off public surfaces', () => {
+function walkFiles(directory) {
+  if (!fs.existsSync(directory)) return [];
+  return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const absolute = path.join(directory, entry.name);
+    return entry.isDirectory() ? walkFiles(absolute) : [absolute];
+  });
+}
+
+function scanPublicSurfaces(root) {
+  const publicRoot = path.join(root, 'public');
+  assert.ok(fs.existsSync(publicRoot), 'public publication root is missing');
+  const surfaces = walkFiles(publicRoot)
+    .filter((absolute) => PUBLIC_TEXT_EXTENSIONS.has(path.extname(absolute).toLowerCase()) || absolute.endsWith('.pdf'))
+    .sort();
+  assert.ok(surfaces.length > 0, 'public publication inventory is empty');
+  for (const absolute of surfaces) {
+    const relative = path.relative(root, absolute).split(path.sep).join('/');
+    const raw = absolute.endsWith('.pdf')
+      ? execFileSync('pdftotext', ['-layout', absolute, '-'], { encoding: 'utf8' })
+      : fs.readFileSync(absolute, 'utf8');
+    assertNoUnapprovedCost(relative, publicText(relative, raw));
+  }
+  return surfaces.map((absolute) => path.relative(root, absolute).split(path.sep).join('/'));
+}
+
+describe('unapproved economics stay off public surfaces', () => {
   for (const relative of TEXT_SURFACES) {
-    it(`keeps $4.65 out of ${relative}`, () => {
+    it(`keeps unapproved costs out of ${relative}`, () => {
       const absolute = path.join(ROOT, relative);
-      // A missing surface must fail loudly rather than pass vacuously: a guard that
-      // silently skips its own inputs is the failure mode that let a speech-rate
-      // check report 0 words for 22 files while showing green.
-      assert.ok(fs.existsSync(absolute), `${relative} is missing — update TEXT_SURFACES if it was removed on purpose`);
-      assertNoRetiredCost(relative, publicText(relative, fs.readFileSync(absolute, 'utf8')));
+      assert.ok(fs.existsSync(absolute), `${relative} is missing — update the publication inventory if it was removed on purpose`);
+      assertNoUnapprovedCost(relative, publicText(relative, fs.readFileSync(absolute, 'utf8')));
     });
   }
 
   for (const relative of PDF_SURFACES) {
-    it(`keeps $4.65 out of ${relative}`, () => {
+    it(`keeps unapproved costs out of ${relative}`, () => {
       const absolute = path.join(ROOT, relative);
-      assert.ok(fs.existsSync(absolute), `${relative} is missing — update PDF_SURFACES if it was removed on purpose`);
-      assertNoRetiredCost(relative, execFileSync('pdftotext', ['-layout', absolute, '-'], { encoding: 'utf8' }));
+      assert.ok(fs.existsSync(absolute), `${relative} is missing — update the publication inventory if it was removed on purpose`);
+      assertNoUnapprovedCost(relative, execFileSync('pdftotext', ['-layout', absolute, '-'], { encoding: 'utf8' }));
     });
   }
 
-  // Both directions. Asserting only that the corpus is clean would pass just as
-  // happily with a regex that never matches anything.
-  it('rejects each retired form', () => {
-    for (const { label, sample } of RETIRED) {
+  it('rejects each conflicting form', () => {
+    for (const { label, sample } of BLOCKED_CONFLICT) {
       assert.throws(
-        () => assertNoRetiredCost(`fixture:${label}`, `Public economics: ${sample}`),
-        /was retired as a transcription error/,
-        `expected rejection for ${label}`
+        () => assertNoUnapprovedCost(`fixture:${label}`, `Public economics: ${sample}`),
+        /preserved conflict pending ledger verification/,
+        `expected rejection for ${label}`,
       );
     }
   });
 
-  it('permits the approved figure', () => {
-    assert.doesNotThrow(() => assertNoRetiredCost('fixture:approved', `Measured execution guardrail: ${APPROVED_COST}.`));
+  it('blocks $4.65 without resolving the preserved ledger conflict', () => {
+    assert.throws(
+      () => assertNoUnapprovedCost('fixture:preserved-conflict', 'Measured execution guardrail: $4.65 per 129 anchors.'),
+      /preserved conflict pending ledger verification/,
+    );
   });
 
-  // 4.65 is not banned as a number — only as this cost claim. Without this, the
-  // guard would eventually block an unrelated legitimate 4.65 and get deleted.
+  it('rejects an arbitrary unreviewed anchor cost, not only known bad values', () => {
+    assert.throws(
+      () => assertNoUnapprovedCost('fixture:unknown-cost', 'Measured execution guardrail: $99.99 per 129 anchors.'),
+      /not approved public economics/,
+    );
+  });
+
+  it('rejects an arbitrary unreviewed DFT savings percentage', () => {
+    assert.throws(
+      () => assertNoUnapprovedCost('fixture:unknown-savings', 'Sharing anchors required 81.25% fewer DFT evaluations.'),
+      /not approved public economics/,
+    );
+  });
+
+  it('rejects arbitrary derived economics without a value denylist', () => {
+    const mutations = [
+      'The run cost $88.88 cloud-equivalent.',
+      'Sharing anchors delivered a 4.2× reduction in DFT evaluations.',
+      'The comparison used 777 naive evaluations versus 111 shared anchors.',
+    ];
+    for (const mutation of mutations) {
+      assert.throws(
+        () => assertNoUnapprovedCost('public/new-campaign/index.html', mutation),
+        /not approved public economics/,
+        mutation,
+      );
+    }
+  });
+
+  it('discovers and rejects economics in a newly added public text surface', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'lupine-economics-mutation-'));
+    try {
+      const publicRoot = path.join(root, 'public', 'new-campaign');
+      fs.mkdirSync(publicRoot, { recursive: true });
+      fs.writeFileSync(path.join(publicRoot, 'index.html'), '<main>Only $88.88 per 129 anchors.</main>');
+      assert.throws(() => scanPublicSurfaces(root), /public\/new-campaign\/index\.html.*not approved public economics/);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('scans the complete current public text and PDF inventory', () => {
+    const surfaces = scanPublicSurfaces(ROOT);
+    assert.ok(surfaces.includes('public/index.html'));
+    assert.ok(surfaces.includes('public/venture/lupine-science-venture-deck.pdf'));
+  });
+
+  it('supports selected immutable video rerenders without overwriting prior evidence', () => {
+    const help = execFileSync('python3', ['media/brand-campaign-2026-07-27/render_campaign_videos.py', '--help'], {
+      cwd: ROOT,
+      encoding: 'utf8',
+    });
+    assert.match(help, /--qa-attempt QA_ATTEMPT/);
+    assert.match(help, /--film-id FILM_ID/);
+  });
+
+  it('binds frozen-copy sources to immutable renders and promoted public films', () => {
+    const receiptPath = path.join(ROOT, 'tests/fixtures/public-economics-video-receipts.json');
+    assert.ok(fs.existsSync(receiptPath), 'video receipt manifest is missing');
+    const receipt = JSON.parse(fs.readFileSync(receiptPath, 'utf8'));
+    for (const [relative, expected] of Object.entries(receipt.sources)) {
+      assert.equal(sha256(path.join(ROOT, relative)), expected, `${relative} changed without rerendering the frozen-copy films`);
+    }
+    for (const promotion of receipt.promotions) {
+      const renderHash = sha256(path.join(ROOT, promotion.render));
+      const publicHash = sha256(path.join(ROOT, promotion.public));
+      assert.equal(renderHash, promotion.sha256, `${promotion.render} does not match its reviewed receipt`);
+      assert.equal(publicHash, promotion.sha256, `${promotion.public} is stale relative to ${promotion.render}`);
+    }
+  });
+
+  it('permits the approved figure', () => {
+    assert.doesNotThrow(() => assertNoUnapprovedCost('fixture:approved', `Measured execution guardrail: ${APPROVED_COST}.`));
+  });
+
   it('permits an unrelated 4.65 that is not the cost claim', () => {
-    assert.doesNotThrow(() => assertNoRetiredCost('fixture:unrelated', 'The lattice constant is 4.65 angstroms.'));
+    assert.doesNotThrow(() => assertNoUnapprovedCost('fixture:unrelated', 'The lattice constant is 4.65 angstroms.'));
   });
 });

@@ -579,16 +579,22 @@ describe('proof-pack promises reach the rendered page', () => {
   });
 
   it('omits the lock section for a pack whose artifacts are url-only references', () => {
-    // shared-dft-anchors declares five artifacts with no id, path or digest. Rendering
-    // those under "exact URLs and SHA-256 digests" printed blank code elements and
-    // silently added a sixth page, which the page-count test caught only by luck.
-    const manifestPath = path.join(ROOT, 'public', 'articles', 'shared-dft-anchors', 'shared-dft-anchors.proofpack.json');
-    const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    const manifest = {
+      metadata: { title: 'Reference-only fixture', date: '2026-08-03', articleUrl: 'https://lupine.science/articles/reference-only-fixture/' },
+      summary: { claim: 'Reference-only test fixture.' },
+      figures: [],
+      dataTables: [],
+      methodology: {
+        artifacts: [{ id: 'literature', label: 'Literature', url: 'https://doi.org/10.1000/example' }],
+      },
+      credits: { authors: [], institutions: [] },
+      bibliography: [],
+    };
     assert.ok((manifest.methodology?.artifacts || []).length > 0, 'fixture must declare url-only artifacts');
-    const html = renderPackHtml('shared-dft-anchors', manifest, {
-      title: manifest.title || 'shared-dft-anchors',
+    const html = renderPackHtml('reference-only-fixture', manifest, {
+      title: manifest.metadata.title,
       description: '',
-      canonicalUrl: 'https://lupine.science/articles/shared-dft-anchors/',
+      canonicalUrl: 'https://lupine.science/articles/reference-only-fixture/',
     });
     assert.ok(!html.includes('Lock artifacts'), 'lock section must not render without locked artifacts');
   });

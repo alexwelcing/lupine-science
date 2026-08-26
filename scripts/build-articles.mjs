@@ -188,7 +188,7 @@ const HERO_CAPTIONS = {
   'what-the-cap-was-hiding':
     'A dense field of refused cases banked against a single indigo gate, and the three that were let through continuing across open paper.',
   'shared-dft-anchors':
-    'The locked Z1 evaluation-count comparison: 558 projected separate-model anchors and 154 projected shared-union anchors, labeled 72.4% fewer DFT evaluations.',
+    'Many pale compute lanes converge into one shared reference backbone, showing reuse without publishing substitute economics.',
   'z1-union-debrief':
     'A row of solid-electrolyte coupons mounted in identical diffusion rigs, with a sparse set of shared reference pins anchoring the barrier comparison across the whole panel.',
   'an-order-of-effort':

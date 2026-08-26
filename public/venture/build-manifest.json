@@ -6,7 +6,7 @@
   "inputs": {
     "html_template": {
       "path": "media/projects/venture-deck/index.html",
-      "sha256": "e68f0281e48b55b6509299ab349dbdf402ef2dbd81fac5efb154d5217cef3fa1"
+      "sha256": "9171fc20373b7e84914cf2397b8d176d5c8ad1ad87060c1b163544b65a3887aa"
     },
     "narrative": {
       "path": "media/projects/venture-deck/narrative-script.md",
@@ -22,24 +22,24 @@
     },
     "art_direction": {
       "path": "media/projects/venture-deck/art-direction.md",
-      "sha256": "a5dfdc15acbbbe782596707bf5da6f707e80e88c3cd27c53951c2e9c8d3bb015"
+      "sha256": "e61e0f64dc3bee3430e58de60c1efe12d42838be9326424c55cba59cb7ea9138"
     }
   },
   "outputs": {
     "html": {
       "path": "public/venture/deck.html",
-      "sha256": "bf8b47322b9e9ba5893a93565424cfc5429a998899dadb964351e8d34baf8f74"
+      "sha256": "8c4a62d1150b885b50f3b8be611c65a3c9d9060dd1988db1f035b51bcd407857"
     },
     "pdf": {
       "path": "media/projects/venture-deck/lupine-science-venture-deck.pdf",
-      "sha256": "03d577ce27ab29fcb4cdf14c6c16a6daff0bcf0e020da05d661137a35090b2e9",
-      "bytes": 402702,
+      "sha256": "143660bdf82902c8bbd2de8b5a7706448f371b38ecab0eaa6839328c627b95dc",
+      "bytes": 411327,
       "pages": 13
     },
     "public_pdf": {
       "path": "public/venture/lupine-science-venture-deck.pdf",
-      "sha256": "03d577ce27ab29fcb4cdf14c6c16a6daff0bcf0e020da05d661137a35090b2e9",
-      "bytes": 402702,
+      "sha256": "143660bdf82902c8bbd2de8b5a7706448f371b38ecab0eaa6839328c627b95dc",
+      "bytes": 411327,
       "pages": 13
     },
     "landing": {

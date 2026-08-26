@@ -67,7 +67,7 @@
       "rhythm": "hook-hold-build-evidence-caution-resolve",
       "source_articles": [
         {"path": "articles/z1-union-debrief.md", "status": "FOR EDITOR REVIEW", "use": "Primary campaign verdict, economics, failures, and caveats; external publication requires clearance."},
-        {"path": "public/data/savings-stack-v1/z1-union-anchor-economics.md", "status": "recorded analysis", "use": "Supporting earlier union-anchor economics; do not substitute its 558-to-154 baseline for the later executed 430-to-129 result."}
+        {"path": "public/data/savings-stack-v1/z1-union-anchor-economics.md", "status": "recorded analysis", "use": "Supporting evidence for the frozen approved public result; detailed arithmetic is not video-facing copy."}
       ],
       "approved_source_assets": [
         {"asset_id": "B6-A01-01", "path": "public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-hero.jpg", "role": "opening multi-model anchor field"},
@@ -80,16 +80,16 @@
       ],
       "shots": [
         {"shot": 1, "timecode": "00:00-00:04", "role": "hook", "on_screen": "Four model-specific indigo traces converge only at shared anchors. Deterministic title: Four models. One evidence bill.", "motion": "Slow camera push; traces draw from separate edges and lock with restrained mechanical snaps.", "transition": "Velocity-matched horizontal push, 0.4s.", "source_assets": ["B6-A01-01"]},
-        {"shot": 2, "timecode": "00:04-00:09", "role": "baseline", "on_screen": "Four duplicated lanes assemble as deterministic dots, then a union lane appears. Caption the recorded baseline as 430 naive evaluations.", "motion": "Dots step on in rows; the union lane waits until duplication is legible.", "transition": "Paper-mask fold toward union, 0.5s.", "source_assets": ["B6-A01-02"]},
-        {"shot": 3, "timecode": "00:09-00:14", "role": "value", "on_screen": "Four lanes fold into one ribbon. Counters resolve to 129 executed anchors and 70% fewer DFT evaluations, qualified as the recorded campaign.", "motion": "Paths pull into one indigo spine; omitted work fades to untouched paper.", "transition": "Focus pull to ledger, 0.4s.", "source_assets": ["B6-A01-02"]},
-        {"shot": 4, "timecode": "00:14-00:20", "role": "receipts", "on_screen": "Deterministic ledger: 129/129 anchors evaluated, zero evaluation failures, 61.0 wall-hours, $14.65 cloud-equivalent; all four met the same-engine strong-win gate.", "motion": "Rules draw and values type on once; no celebratory badges.", "transition": "Hard cut on however.", "source_assets": ["B6-A01-01"]},
+        {"shot": 2, "timecode": "00:04-00:09", "role": "baseline", "on_screen": "Four duplicated lanes assemble as deterministic dots, then a union lane appears. Caption repeated evaluation work without substitute economics.", "motion": "Dots step on in rows; the union lane waits until duplication is legible.", "transition": "Paper-mask fold toward union, 0.5s.", "source_assets": ["B6-A01-02"]},
+        {"shot": 3, "timecode": "00:09-00:14", "role": "value", "on_screen": "Four lanes fold into one ribbon. Caption the exact reviewed result: 72.4% fewer DFT evaluations.", "motion": "Paths pull into one indigo spine; omitted work fades to untouched paper.", "transition": "Focus pull to ledger, 0.4s.", "source_assets": ["B6-A01-02"]},
+        {"shot": 4, "timecode": "00:14-00:20", "role": "receipts", "on_screen": "Deterministic ledger: $14.65 per 129 anchors; zero evaluation failures; all four met the same-engine strong-win gate.", "motion": "Rules draw and values type on once; no celebratory badges.", "transition": "Hard cut on however.", "source_assets": ["B6-A01-01"]},
         {"shot": 5, "timecode": "00:20-00:25", "role": "caveat", "on_screen": "Two guidance models meet the true extrema; two miss saddles on some paths and record a 6.8 meV deficit. A thin ochre rule marks the caveat.", "motion": "Matched pairs align; undercovered gauges stop visibly short.", "transition": "Gentle indigo line wipe, 0.5s.", "source_assets": ["B6-A01-03"]},
         {"shot": 6, "timecode": "00:25-00:28", "role": "bounded close", "on_screen": "Models guide. DFT measures. Proof keeps the score. Footer: one chemistry family; one engine; short-path sparsity not stress-tested.", "motion": "Camera settles; the next route draws only halfway to signal open work.", "transition": "End on paper.", "source_assets": ["B6-A01-05"]}
       ],
       "claims_and_evidence_constraints": {
-        "allowed": ["430 naive evaluations versus 129 union anchors; 70% fewer; 3.33x on the recorded campaign.", "129/129 evaluated; zero evaluation failures; 61.0 wall-hours; $14.65 cloud-equivalent.", "All four models met the same-engine strong-win gate; two exact-extrema results and two 6.8 meV undercoverage deficits."],
+        "allowed": ["72.4% fewer DFT evaluations.", "$14.65 per 129 anchors.", "All four models met the same-engine strong-win gate; two exact-extrema results and two 6.8 meV undercoverage deficits."],
         "must_disclose": ["Primary article is FOR EDITOR REVIEW and not cleared for external citation.", "One panel, one Li-migration chemistry family, one engine, one functional; seven large paths deferred.", "On five-to-seven-image paths, sparse extension is nearly dense by construction.", "Do not imply GPAW-VASP equivalence."],
-        "forbidden": ["Universal transfer, production readiness, solved solid-state batteries, or general DFT replacement.", "Conflating the earlier 558-to-154 estimate with the executed 430-to-129 campaign."]
+        "forbidden": ["Universal transfer, production readiness, solved solid-state batteries, or general DFT replacement.", "Any substitute ratio, rounded value, derived comparison, or local-energy estimate."]
       },
       "output_spec": {"inherits": "common_output_spec", "duration_seconds": 28, "suggested_filename": "01-z1-union-verdict.mp4"}
     },
@@ -102,7 +102,7 @@
       "rhythm": "provocation-build-build-gap-foundation-hold",
       "source_articles": [
         {"path": "articles/the-savings-stack.md", "status": "Final", "use": "Primary release summary, seven-layer taxonomy, union economics, and evidence status."},
-        {"path": "public/data/savings-stack-v1/z1-union-anchor-economics.md", "status": "recorded analysis", "use": "Backing for the 29-path 558-to-154 comparison."}
+        {"path": "public/data/savings-stack-v1/z1-union-anchor-economics.md", "status": "recorded analysis", "use": "Backing for the frozen approved public result."}
       ],
       "approved_source_assets": [
         {"asset_id": "B1-A03-01", "path": "public/brand-assets/campaign-2026-07-27/B1/the-savings-stack-hero.jpg", "role": "shared evaluation backbone"},
@@ -115,13 +115,13 @@
         {"shot": 1, "timecode": "00:00-00:04", "role": "hook", "on_screen": "One costly evaluation pulse crosses an empty paper field. Deterministic title: The expensive part is the call.", "motion": "One indigo pulse crosses fine ink infrastructure.", "transition": "Vertical paper push, 0.4s.", "source_assets": ["B1-A03-01"]},
         {"shot": 2, "timecode": "00:04-00:15", "role": "seven-layer build", "on_screen": "Seven plates assemble: surrogate search, active learning, multi-fidelity, abstention, faster DFT, electronic surrogates, path and sampling algorithms. Deterministic captions name each bounded role.", "motion": "Each plate enters from a distinct edge and locks to a shared spine.", "transition": "Camera aligns the gaps, 0.5s.", "source_assets": ["B1-A03-02"]},
         {"shot": 3, "timecode": "00:15-00:19", "role": "shared limitation", "on_screen": "The gaps align into one void. Caption: Signals are not certificates.", "motion": "Plates stop; only the shared void expands.", "transition": "Indigo foundation rises, 0.5s.", "source_assets": ["B1-A03-02"]},
-        {"shot": 4, "timecode": "00:19-00:24", "role": "measured value", "on_screen": "Shared anchor stations connect four routes. Deterministic figures: 558 naive, 154 union, 72.4% fewer, 3.62x on 29 analyzable Z1 paths; four-model union cost is about 10% above one-model union on this curve.", "motion": "Routes merge at existing stations; counts move only after the denominator appears.", "transition": "Focus pull to open rack, 0.4s.", "source_assets": ["B1-A03-03"]},
+        {"shot": 4, "timecode": "00:19-00:24", "role": "measured value", "on_screen": "Shared anchor stations connect four routes. Deterministic reviewed figure: 72.4% fewer DFT evaluations on 29 analyzable Z1 paths.", "motion": "Routes merge at existing stations; the approved claim appears only after the denominator.", "transition": "Focus pull to open rack, 0.4s.", "source_assets": ["B1-A03-03"]},
         {"shot": 5, "timecode": "00:24-00:28", "role": "commons close", "on_screen": "An open rack feeds independent test bays. Close: Reuse the evidence. Keep the limits. Footer: one panel, four models, one engine, one chemistry family; not peer reviewed.", "motion": "Evidence cartridges slide outward; camera ends on the wider system.", "transition": "End on paper.", "source_assets": ["B1-A03-04", "B1-A03-05"]}
       ],
       "claims_and_evidence_constraints": {
-        "allowed": ["On 29 analyzable Z1 paths, 558 naive anchors versus 154 union anchors equals 72.4% fewer and 3.62x.", "The recorded union curve rises from 139.5 to 154 as models go from one to four, approximately 10%, while naive cost rises to 558.", "The v1 audit resolved 115/115 arXiv and 48/48 DOI identifiers."],
+        "allowed": ["72.4% fewer DFT evaluations.", "The v1 audit resolved 115/115 arXiv and 48/48 DOI identifiers."],
         "must_disclose": ["Path 14 failed CI-NEB convergence, making 29 the denominator.", "No new DFT was run for the booklet analysis.", "Hashable research release, not peer review; identifier checks do not upgrade abstract-only evidence.", "Multiplicative stacking is derived, not measured, unless explicitly labeled."],
-        "forbidden": ["Universal 72.4% savings, guaranteed accuracy, zero-cost validation, or independent multiplicative savings.", "Implying that the commons replaces experiments or exposes proprietary chemistry."]
+        "forbidden": ["Any substitute ratio, rounded value, derived comparison, local-energy estimate, guaranteed accuracy, zero-cost validation, or independent multiplicative savings.", "Implying that the commons replaces experiments or exposes proprietary chemistry."]
       },
       "output_spec": {"inherits": "common_output_spec", "duration_seconds": 28, "suggested_filename": "02-savings-stack.mp4"}
     },

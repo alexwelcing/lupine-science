@@ -10,7 +10,7 @@ import { PDFDocument } from 'pdf-lib';
 import { readProofPackMetadata } from '../scripts/lib/proof-pack-metadata.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const PUBLISHED_PDF = path.join(ROOT, 'public', 'proof-packs', 'shared-dft-anchors.proofpack.pdf');
+const PUBLISHED_PDF = path.join(ROOT, 'public', 'proof-packs', 'a-smooth-environment-resolved-error-field.proofpack.pdf');
 
 function temporaryFile(name) {
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'proof-pack-metadata-'));
@@ -21,9 +21,9 @@ test('reads page count, byte size, and embedded update date from a valid proof p
   const metadata = await readProofPackMetadata(PUBLISHED_PDF);
   const bytes = fs.statSync(PUBLISHED_PDF).size;
 
-  assert.equal(metadata.pageCount, 5);
+  assert.equal(metadata.pageCount, 6);
   assert.equal(metadata.size, `${Math.round(bytes / 1024)} KB`);
-  assert.equal(metadata.updatedDate, '2026-08-03');
+  assert.equal(metadata.updatedDate, '2026-07-02');
 });
 
 test('rejects malformed bytes that merely contain a PDF page marker', async () => {

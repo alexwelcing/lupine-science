@@ -157,7 +157,7 @@ Never recolor, mask with a gradient, add a shadow, place on a dark panel, or cro
 ### 06 — Proof today: one completed Z1 execution campaign.
 
 - **Narrative copy:** render slide 6 headline and body verbatim; claim metadata `C-Z1-EXEC-01`, `C-Z1-PANEL-01`, `C-Z1-MODELS-01`, `C-Z1-SPLIT-01`.
-- **Layout:** two KPI cells across `x=112–1808, y=280–460`: `129 anchors` and `$14.65`, preserving the approved `$14.65 per 129 anchors` basis. Below, asset occupies `x=112, y=500, w=1050, h=400`; panel description occupies `x=1220, y=520, w=588`.
+- **Layout:** one KPI cell across `x=112–1808, y=280–460`: `$14.65 per 129 anchors`. Do not split the reviewed phrase into partial numeric labels. Below, asset occupies `x=112, y=500, w=1050, h=400`; panel description occupies `x=1220, y=520, w=588`.
 - **Chart/form:** KPI strip plus shared-anchor apparatus; no progress rings.
 - **Locked asset:** `SW1-B6-A01-01`, shared-reference diffusion rigs.
 - **Qualification:** if the two/two model split is shown, render the complete sentence from the speaker note including `6.8 meV undercoverage deficit`; never show only the successful half. Keep `FOR EDITOR REVIEW; not peer-reviewed` in the source/qualification zone.
@@ -166,7 +166,7 @@ Never recolor, mask with a gradient, add a shadow, place on a dark panel, or cro
 ### 07 — Economics: the expensive oracle becomes shared infrastructure.
 
 - **Narrative copy:** render slide 7 headline and body verbatim; claim metadata `C-ECON-01`.
-- **Layout:** headline top. Central result at `x=112, y=320, w=820` with `72.4% FEWER` in live type. Asset at `x=990, y=300, w=818, h=590`.
+- **Layout:** headline top. Central result at `x=112, y=320, w=820` with `72.4% fewer DFT evaluations` in live type. Do not split or shorten the reviewed phrase. Asset at `x=990, y=300, w=818, h=590`.
 - **Chart/form:** one bounded result block. Do not infer or visualize any denominator, multiplier, secondary percentage, or comparison quantity.
 - **Locked asset:** `SW1-B6-A01-02`, union route shared stations.
 - **Mandatory qualification rail:** boxed with ink, never ochre: `EVIDENCE-LOCKED CLAIM · NO EXTRAPOLATION`.
