@@ -8,9 +8,11 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ARTICLES = path.join(ROOT, 'articles');
 const NARRATIVE_ROOTS = [
   ARTICLES,
+
   path.join(ROOT, 'media'),
   path.join(ROOT, 'public', 'brand-assets'),
   path.join(ROOT, 'public', 'presentations'),
+  path.join(ROOT, 'public', 'videos'),
 ];
 const NARRATIVE_FILES = [
   path.join(ROOT, 'public', 'articles', 'from-predicted-crystal-to-commercial-cell', 'images', 'manifest.json'),
@@ -25,7 +27,7 @@ function narrativeFiles(root) {
   return fs.readdirSync(root, { withFileTypes: true }).flatMap((entry) => {
     const entryPath = path.join(root, entry.name);
     if (entry.isDirectory()) return narrativeFiles(entryPath);
-    return entry.isFile() && /\.(?:html|md|py)$/.test(entry.name) ? [entryPath] : [];
+    return entry.isFile() && /\.(?:html|json|md|py|vtt)$/.test(entry.name) ? [entryPath] : [];
   });
 }
 
