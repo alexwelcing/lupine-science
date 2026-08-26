@@ -9,7 +9,6 @@ const PROJECT = path.join(ROOT, 'media', 'projects', 'midwest-2076-library');
 const SOURCE = path.join(PROJECT, 'first-principles-library-plan.json');
 const OUTPUT = path.join(PROJECT, 'first-principles-library-requests.json');
 const ENDPOINT = 'fal-ai/recraft/v4.1/pro/text-to-image';
-const UNIT_ALLOWANCE_USD = 0.21;
 const plan = JSON.parse(fs.readFileSync(SOURCE, 'utf8'));
 
 function assert(condition, message) {
@@ -71,7 +70,6 @@ for (const system of plan.systems) {
       requestedSize: { width: 2048, height: 1152 },
       prompt,
       promptSha256: createHash('sha256').update(prompt).digest('hex'),
-      conservativeAllowanceUsd: UNIT_ALLOWANCE_USD,
       exactBilledCostUsd: null,
       classification: plan.classification,
       status: 'authored-not-submitted',
@@ -94,12 +92,10 @@ const manifest = {
   systemCount: plan.systems.length,
   requestCount: requests.length,
   roleCounts,
-  conservativeUnitAllowanceUsd: UNIT_ALLOWANCE_USD,
-  conservativeTotalAllowanceUsd: Number((requests.length * UNIT_ALLOWANCE_USD).toFixed(2)),
   exactBilledCostUsd: null,
   classification: plan.classification,
   selectionGate: 'Each output requires technical preflight plus human evidence review. Generation alone never changes eligibleForFinalLibrary to true.',
   requests,
 };
 fs.writeFileSync(OUTPUT, `${JSON.stringify(manifest, null, 2)}\n`);
-console.log(JSON.stringify({ output: path.relative(ROOT, OUTPUT), systems: manifest.systemCount, requests: manifest.requestCount, roleCounts, allowanceUsd: manifest.conservativeTotalAllowanceUsd }, null, 2));
+console.log(JSON.stringify({ output: path.relative(ROOT, OUTPUT), systems: manifest.systemCount, requests: manifest.requestCount, roleCounts }, null, 2));

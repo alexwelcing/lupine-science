@@ -10,7 +10,6 @@ const OUT = path.join(PROJECT, 'requests.json');
 
 const CLASSIFICATION = 'Speculative worldbuilding artwork informed by materials culture. Not a forecast, architectural proposal, engineering design, scientific reference, simulation result, or evidence of a real deployment.';
 const ENDPOINT = 'fal-ai/recraft/v4.1/pro/text-to-image';
-const ALLOWANCE_USD = 0.21;
 
 const shared = {
   intent: 'Institutionally credible speculative worldbuilding in the American Midwest approximately fifty years from now. Reveal the future through material culture, geography, weather, logistics, maintenance, and public use—not gadgets or molecule decoration.',
@@ -306,7 +305,6 @@ for (const [classIndex, cls] of classes.entries()) {
       prompt,
       promptSha256: createHash('sha256').update(prompt).digest('hex'),
       classification: CLASSIFICATION,
-      conservativeAllowanceUsd: ALLOWANCE_USD,
       status: 'planned',
       publicMasterPath: `/brand-assets/assets/images/midwest-2076/${id}.webp`,
       publicThumbPath: `/brand-assets/assets/images/midwest-2076/thumbs/${id}.webp`,
@@ -325,11 +323,9 @@ const manifest = {
   assetClasses: classes.map(({ id, name, grammar }) => ({ id, name, grammar, count: 10 })),
   sharedPromptGrammar: shared,
   requestedCount: requests.length,
-  conservativeUnitAllowanceUsd: ALLOWANCE_USD,
-  conservativeTotalAllowanceUsd: Number((requests.length * ALLOWANCE_USD).toFixed(2)),
   classification: CLASSIFICATION,
   requests,
 };
 fs.mkdirSync(PROJECT, { recursive: true });
 fs.writeFileSync(OUT, JSON.stringify(manifest, null, 2) + '\n');
-console.log(JSON.stringify({ output: path.relative(ROOT, OUT), requests: requests.length, classes: classes.length, conservativeTotalAllowanceUsd: manifest.conservativeTotalAllowanceUsd }, null, 2));
+console.log(JSON.stringify({ output: path.relative(ROOT, OUT), requests: requests.length, classes: classes.length }, null, 2));

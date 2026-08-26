@@ -9,7 +9,6 @@ const PROJECT = path.join(ROOT, 'media', 'projects', 'midwest-2076-library');
 const SOURCE = path.join(PROJECT, 'first-principles-scenes.json');
 const OUTPUT = path.join(PROJECT, 'first-principles-requests.json');
 const ENDPOINT = 'fal-ai/recraft/v4.1/pro/text-to-image';
-const ALLOWANCE_USD = 0.21;
 const data = JSON.parse(fs.readFileSync(SOURCE, 'utf8'));
 
 if (!Array.isArray(data.requiredFields) || !Array.isArray(data.scenes)) {
@@ -72,7 +71,6 @@ const requests = data.scenes.map((scene) => {
     prompt,
     promptSha256: createHash('sha256').update(prompt).digest('hex'),
     classification: data.classification,
-    conservativeAllowanceUsd: ALLOWANCE_USD,
     status: 'authored-not-submitted',
   };
 });
@@ -85,9 +83,8 @@ const manifest = {
   source: path.relative(ROOT, SOURCE),
   endpoint: ENDPOINT,
   requestCount: requests.length,
-  conservativeTotalAllowanceUsd: Number((requests.length * ALLOWANCE_USD).toFixed(2)),
   classification: data.classification,
   requests,
 };
 fs.writeFileSync(OUTPUT, JSON.stringify(manifest, null, 2) + '\n');
-console.log(JSON.stringify({ output: path.relative(ROOT, OUTPUT), requestCount: requests.length, conservativeTotalAllowanceUsd: manifest.conservativeTotalAllowanceUsd }, null, 2));
+console.log(JSON.stringify({ output: path.relative(ROOT, OUTPUT), requestCount: requests.length }, null, 2));
