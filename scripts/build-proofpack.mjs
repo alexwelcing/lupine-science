@@ -640,14 +640,7 @@ async function renderPdf(browser, { url, output, title, deterministicDate }) {
     });
     await page.goto(url, { waitUntil: 'networkidle' });
     await page.evaluate(() => document.fonts.ready).catch(() => {});
-    // Wait for images to decode.
-    await page.evaluate(() =>
-      Promise.all(
-        Array.from(document.images)
-          .filter((img) => !img.complete)
-          .map((img) => new Promise((resolve) => { img.onload = img.onerror = resolve; }))
-      )
-    ).catch(() => {});
+    await waitForPageImages(page);
     await page.waitForTimeout(200);
     await page.pdf({
       path: output,
@@ -661,6 +654,34 @@ async function renderPdf(browser, { url, output, title, deterministicDate }) {
   }
 
   await normalizePdf(output, { title, deterministicDate });
+}
+
+export async function waitForPageImages(page, timeoutMs = 30_000) {
+  await page.evaluate(async (imageTimeoutMs) => {
+    const images = Array.from(document.images);
+    for (const image of images) image.loading = 'eager';
+    await Promise.all(images.map(async (image) => {
+      const source = image.currentSrc || image.src || image.alt || '<unknown image>';
+      if (!image.complete) {
+        await new Promise((resolve, reject) => {
+          const timer = setTimeout(
+            () => reject(new Error(`timed out waiting for image: ${source}`)),
+            imageTimeoutMs
+          );
+          image.addEventListener('load', () => {
+            clearTimeout(timer);
+            resolve();
+          }, { once: true });
+          image.addEventListener('error', () => {
+            clearTimeout(timer);
+            reject(new Error(`image failed to load: ${source}`));
+          }, { once: true });
+        });
+      }
+      if (!image.naturalWidth) throw new Error(`image failed to load: ${source}`);
+      await image.decode();
+    }));
+  }, timeoutMs);
 }
 
 async function normalizePdf(output, { title, deterministicDate }) {
@@ -943,7 +964,7 @@ function legacyCoverHtml({ title, date, url, baseUrl }) {
 </html>`;
 }
 
-async function legacyRenderPdf(browser, { url, html, output }) {
+export async function legacyRenderPdf(browser, { url, html, output }) {
   const page = await browser.newPage();
   try {
     if (html) {
@@ -971,6 +992,7 @@ async function legacyRenderPdf(browser, { url, html, output }) {
     ` });
     await page.evaluate(() => document.fonts.ready).catch(() => {});
     await page.waitForSelector('.katex', { timeout: 5000 }).catch(() => {});
+    await waitForPageImages(page);
     await page.waitForTimeout(300);
     await page.pdf({
       path: output,
