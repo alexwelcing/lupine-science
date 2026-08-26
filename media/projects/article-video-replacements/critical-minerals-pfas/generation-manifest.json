@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "status": "pilot-rejected-atmosphere-plate-strategy-accepted",
+  "provider": "Fal.ai via configured Hermes image backend",
+  "model": "runtime-configured; record from tool output when exposed",
+  "aspectRatio": "16:9",
+  "batchPurpose": "Test three structurally distinct authored anchor scenes before full scene generation",
+  "combinedPilotCount": 3,
+  "classification": "Speculative worldbuilding artwork informed by materials culture. Not scientific evidence.",
+  "rejectedShots": [
+    {"id":"01-opposite-streams","prompt":"prompts/01-opposite-streams.md","output":"assets/pilot/01-opposite-streams.png","sha256":"a5648c13d03514af0be4e2f570c8658fb2ee7c822f6d95bf1d3679274bba1c74","status":"rejected-topology-and-generated-instrumentation"},
+    {"id":"06-return-scarce-atoms","prompt":"prompts/06-return-scarce-atoms.md","output":"assets/pilot/06-return-scarce-atoms.png","sha256":"a1b6cf8a9cd5cf1242498beb3bff40dc1fdd079c934072b56f15b93c6d1b0100","status":"rejected-magical-plumbing-and-missing-regeneration-loop"},
+    {"id":"07-destroy-dont-relocate","prompt":"prompts/07-destroy-dont-relocate.md","output":"assets/pilot/07-destroy-dont-relocate.png","sha256":"2bd3b224e588b582b1b7e32b0f1630d1f321a04f565aaec19a4ac2b15601b8eb","status":"rejected-open-containment-and-false-sorbent-topology"}
+  ],
+  "atmospherePlates": [
+    {
+      "id": "plate-01-civic-hall",
+      "prompt": "prompts/plate-01-civic-hall.md",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa610be/GIxBJJY7QZUOFl36JZXX9_vsAALc5m.png",
+      "output": "assets/plates/plate-01-civic-hall.png",
+      "sha256": "1830137ad7aadb0ba8fb54beba0b409735c28cf7917316331ece595208d9be16",
+      "dimensions": [1024, 576],
+      "status": "accepted"
+    },
+    {
+      "id": "plate-02-service-bay",
+      "prompt": "prompts/plate-02-service-bay.md",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa610d8/D-45Q-EUSTSjB8NMVXHRf_UTHj9CUt.png",
+      "output": "assets/plates/plate-02-service-bay.png",
+      "sha256": "5284e59d7a560c3fb03c214485eaefefd7340acd68b62a766012af5ad905e8de",
+      "dimensions": [1024, 576],
+      "status": "conditional-mandatory-occlusion"
+    },
+    {
+      "id": "plate-03-test-annex",
+      "prompt": "prompts/plate-03-test-annex.md",
+      "providerUrl": "https://v3b.fal.media/files/b/0aa610d8/T1nSN5cmVp-tLxdrvkgPi_PKsVKsB9.png",
+      "output": "assets/plates/plate-03-test-annex.png",
+      "sha256": "f0a250753feb6a10a0b008e852e42344373fc59c87c3ca7630bdf3a35e5a20aa",
+      "dimensions": [1024, 576],
+      "status": "conditional-mandatory-occlusion"
+    }
+  ],
+  "plateControl": "plate-control.json"
+}

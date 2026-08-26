@@ -29,66 +29,7 @@
     "public/videos/why-lupi.mp4": [
       "true-peak-ceiling"
     ],
-    "public/videos/campaign-2026-07-27/01-z1-union-verdict-qa-attempt-1.mp4": [
-      "integrated-loudness-band",
-      "narration-timeline-present",
-      "no-dead-air-during-narration",
-      "speech-rate-in-band"
-    ],
-    "public/videos/campaign-2026-07-27/01-z1-union-verdict.mp4": [
-      "integrated-loudness-band",
-      "narration-timeline-present",
-      "no-dead-air-during-narration",
-      "speech-rate-in-band"
-    ],
-    "public/videos/campaign-2026-07-27/02-savings-stack-qa-attempt-1.mp4": [
-      "integrated-loudness-band",
-      "narration-timeline-present",
-      "no-dead-air-during-narration",
-      "speech-rate-in-band"
-    ],
-    "public/videos/campaign-2026-07-27/02-savings-stack.mp4": [
-      "integrated-loudness-band",
-      "narration-timeline-present",
-      "no-dead-air-during-narration",
-      "speech-rate-in-band"
-    ],
-    "public/videos/campaign-2026-07-27/03-trust-layer-qa-attempt-1.mp4": [
-      "integrated-loudness-band",
-      "narration-timeline-present",
-      "no-dead-air-during-narration",
-      "speech-rate-in-band"
-    ],
-    "public/videos/campaign-2026-07-27/03-trust-layer.mp4": [
-      "integrated-loudness-band",
-      "narration-timeline-present",
-      "no-dead-air-during-narration",
-      "speech-rate-in-band"
-    ],
-    "public/videos/campaign-2026-07-27/04-order-of-effort-qa-attempt-1.mp4": [
-      "integrated-loudness-band",
-      "narration-timeline-present",
-      "no-dead-air-during-narration",
-      "speech-rate-in-band"
-    ],
-    "public/videos/campaign-2026-07-27/04-order-of-effort.mp4": [
-      "integrated-loudness-band",
-      "narration-timeline-present",
-      "no-dead-air-during-narration",
-      "speech-rate-in-band"
-    ],
-    "public/videos/campaign-2026-07-27/05-materials-for-society-qa-attempt-1.mp4": [
-      "integrated-loudness-band",
-      "narration-timeline-present",
-      "no-dead-air-during-narration",
-      "speech-rate-in-band"
-    ],
-    "public/videos/campaign-2026-07-27/05-materials-for-society.mp4": [
-      "integrated-loudness-band",
-      "narration-timeline-present",
-      "no-dead-air-during-narration",
-      "speech-rate-in-band"
-    ],
+
     "public/videos/an-order-of-effort.mp4": [
       "integrated-loudness-band"
     ],
