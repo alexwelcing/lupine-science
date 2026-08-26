@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "project": "midwest-2076-brand-world-expansion",
+  "status": "authored-not-submitted",
+  "generatedAt": "2026-08-24",
+  "classification": "Speculative worldbuilding artwork informed by materials culture. Not a forecast, engineering proposal, validated material claim, scientific reference, simulation result, or evidence of a real deployment.",
+  "worldBible": "media/projects/midwest-2076-library/MIDWEST_2076_WORLD_BIBLE.md",
+  "designRule": "Each territory is a six-view causal sequence. Every image carries one dominant proof and no more than three required visible relationships.",
+  "shotRoles": [
+    "territory",
+    "mechanism",
+    "ordinary-use",
+    "stewardship",
+    "regional-interface",
+    "material-coda"
+  ],
+  "globalVisualRules": {
+    "style": "Matter-of-fact large-format documentary photography with believable gravity, tactile joints, weathering, and ordinary use.",
+    "weather": "Weather appears through residue, maintenance, and seasonal conversion; exterior sky stays subordinate and normally below fifteen percent.",
+    "palette": "Bone ceramic, graphite composite, mineral gray, dark clay, oxidized copper-green, cold silver, and at most one restrained functional accent.",
+    "people": "People are secondary operators or users, never portrait subjects or futuristic lifestyle models.",
+    "prohibitions": [
+      "words or labels",
+      "logos or flags",
+      "diagrams or pseudo-data",
+      "screens as focal points",
+      "molecules or DNA",
+      "holograms or neon",
+      "generic futuristic architecture",
+      "flying vehicles",
+      "solarpunk decoration",
+      "solar-panel shorthand",
+      "luxury visualization",
+      "apocalypse or disaster spectacle",
+      "picturesque barns or tractor nostalgia",
+      "weather as the main subject"
+    ]
+  },
+  "territories": [
+    {
+      "id": "ex-01",
+      "title": "Ohio Valley Karst Water Circuit",
+      "geography": "Kentucky and the Ohio Valley hinge: rolling karst, pale limestone shelves, inherited livestock yards, county roads, and blackened agricultural structures.",
+      "materialPremise": "Reusable porous ceramic cartridges tolerate repeated mineral loading and can be regenerated at county-scale wash and heat facilities.",
+      "removedConstraint": "Distributed rural water points no longer discard whole filters or depend on sealed vendor equipment when limestone scale blocks flow.",
+      "topologyChange": "Household, livestock, clinic, and shelter water points share a visible circulation of standardized cartridges through county repair schools and exchange depots.",
+      "institution": "County water-circuit office and repair school.",
+      "recurringMotifs": ["pale cartridge courses", "oxidized green couplings", "limestone scale", "low wheeled exchange cradles"],
+      "shots": [
+        {"id":"m76-ex-001","role":"territory","dominantProof":"Karst collection, livestock use, and county exchange belong to one dry regional circuit.","scene":"A compressed view across a dry limestone creek where a low collection membrane leads toward a county cartridge depot and a distant livestock trough branch; inherited fences and blackened barn fabric remain secondary.","evidence":["dry limestone shelves","collection membrane","county depot and trough branch"]},
+        {"id":"m76-ex-002","role":"mechanism","dominantProof":"A scaled cartridge is exchanged without replacing the trough or pipe network.","scene":"At a gravity-fed livestock trough, one pale mineral-blocked cartridge rests on a low cradle beneath its open matching socket while two neighboring cartridges remain connected.","evidence":["blocked removed cartridge","matching open socket","two operating neighbors"]},
+        {"id":"m76-ex-003","role":"ordinary-use","dominantProof":"Water collection is ordinary county service rather than disaster distribution.","scene":"A shaded county exchange court joins household containers, livestock branches, and clinic supply cradles around one durable cartridge bank, with worn circulation and no signage or screens.","evidence":["shared cartridge bank","three distinct use paths","ordinary wear and shade"]},
+        {"id":"m76-ex-004","role":"stewardship","dominantProof":"Repair-school labor removes limestone scale and returns cartridges to circulation.","scene":"Inside a low county workshop, opened ceramic cartridges sit in wash cradles as workers brush pale scale from removable porous sleeves; cleaned and fouled parts occupy separate text-free racks.","evidence":["opened cartridges","scale cleaning","separate return racks"]},
+        {"id":"m76-ex-005","role":"regional-interface","dominantProof":"Returned rural components enter a wider river-and-road material loop.","scene":"A modest transfer bay beside an Ohio River freight landing receives cartridge cradles from county trucks while cleaned components depart on a short rail module; flood residue marks the lower structure.","evidence":["county cradles","river-rail transfer","flood residue"]},
+        {"id":"m76-ex-006","role":"material-coda","dominantProof":"Limestone scale, porous ceramic, gasket, and oxidized coupling define the system.","scene":"Conservation-style close study of one cut cartridge edge with pale mineral bloom, dark dry gasket, oxidized green coupling, and a hand-polished ceramic lip.","evidence":["mineral bloom","dry gasket","worn coupling and lip"]}
+      ]
+    },
+    {
+      "id": "ex-02",
+      "title": "Lake Ice Shell Cooperative",
+      "geography": "Great Lakes working shore: freshwater freight, freeze-thaw, spray, corrosion, limited industrial land, and low winter light.",
+      "materialPremise": "Foldable refractory shell bays remain serviceable after repeated deployment through replaceable hinges, liners, and tension nodes.",
+      "removedConstraint": "Each repair berth no longer needs a permanent ship-sized conditioned hall.",
+      "topologyChange": "Several low dock rings share mobile shell cassettes and seam crews across a regional shore cooperative.",
+      "institution": "Cooperative shell depot and seam school.",
+      "recurringMotifs": ["pale folded refractory shell", "black oval ground ring", "patched liner", "ice-marked tension node"],
+      "shots": [
+        {"id":"m76-ex-007","role":"territory","dominantProof":"Multiple working berths share deployable enclosure capacity without a permanent skyline of sheds.","scene":"Telephoto shore view of three low black dock rings at separate berths while a rail cassette carrying folded pale shell bays moves between them; lake and sky are narrow gray bands.","evidence":["three dock rings","mobile shell cassette","working freshwater shore"]},
+        {"id":"m76-ex-008","role":"mechanism","dominantProof":"A thin shell bay rises through a ground ring, tension masts, and internal ribs.","scene":"One refractory shell petal is half deployed from a long cassette above a black ring, held by two articulated masts and three visibly pressurized ribs.","evidence":["ground ring","two tension masts","three internal ribs"]},
+        {"id":"m76-ex-009","role":"ordinary-use","dominantProof":"The conditioned enclosure appears around repair work rather than receiving a vessel through a giant door.","scene":"A lake freighter remains stationary as two thin patched shell petals meet above its central work zone; the bow and stern remain outside under ordinary winter light.","evidence":["stationary vessel","localized deployed enclosure","thin patched shell"]},
+        {"id":"m76-ex-010","role":"stewardship","dominantProof":"A scorched fold zone is patched while the broader shell remains tensioned.","scene":"From a low seam bridge inside the shell, one dark rectangular liner patch is clipped across a scorched fold while intact pale material remains under visible tension.","evidence":["scorched fold","matching clipped patch","intact tensioned shell"]},
+        {"id":"m76-ex-011","role":"regional-interface","dominantProof":"Off-season dock infrastructure returns to shared working-shore use.","scene":"An empty flush dock ring crosses a public work route; folded shell cassettes form durable edges beside freight carts, repair students, and shared cranes without marina or leisure cues.","evidence":["flush empty ring","shared work route","stored shell infrastructure"]},
+        {"id":"m76-ex-012","role":"material-coda","dominantProof":"Fold, refractory wear, replaceable liner, ice residue, and tension hardware form one identity.","scene":"Macro study of layered pale shell around a black tension node with a dark clipped liner patch, scorched fibers, and a thin ice-and-salt tide line.","evidence":["layered fold","clipped liner patch","weathered tension node"]}
+      ]
+    },
+    {
+      "id": "ex-03",
+      "title": "Upper Mississippi Sediment Rooms",
+      "geography": "Working inland river and floodplain: navigation, sediment, seasonal overflow, low public crossings, and wet maintenance decks.",
+      "materialPremise": "Long flexible selective ribbons and porous sediment curtains remain useful as independently replaceable river-scale lanes.",
+      "removedConstraint": "Water separation and sediment handling no longer require one compact high-pressure plant isolated from navigation and public access.",
+      "topologyChange": "River treatment becomes a distributed civic-industrial section of membrane lanes, sediment rooms, service piers, and open channels.",
+      "institution": "River loom authority and public pier workshop.",
+      "recurringMotifs": ["dark-green wet ribbon", "pale ceramic comb", "stained spool drum", "open navigation lane"],
+      "shots": [
+        {"id":"m76-ex-013","role":"territory","dominantProof":"Treatment lanes, sediment passage, freight, and public crossing share one river section.","scene":"A transverse telephoto view shows three independent dark membrane lanes, one unlined sediment side channel, a low public crossing, and a broad open freight corridor with no treatment building.","evidence":["three membrane lanes","sediment side channel","open freight corridor"]},
+        {"id":"m76-ex-014","role":"mechanism","dominantProof":"A hinged comb isolates and lifts one ribbon while its edge remains captured.","scene":"Close pier view of one wet ribbon passing through a five-tooth pale ceramic comb; one side arm is open and lifts the clamped edge while the opposite edge remains guided.","evidence":["five-tooth comb","open hinged arm","captured clamped ribbon"]},
+        {"id":"m76-ex-015","role":"ordinary-use","dominantProof":"The river machine remains compatible with ordinary navigation and crossing.","scene":"A small freight barge passes through the open channel as pedestrians cross a low bridge above two active membrane lanes; simple rails separate service access.","evidence":["working barge","public crossing","two active lanes"]},
+        {"id":"m76-ex-016","role":"stewardship","dominantProof":"One fouled lane returns to a spool while neighboring lanes remain active.","scene":"A sediment-darkened ribbon winds onto a stained ceramic drum beside a clean replacement roll on a cart; two taut ribbons continue into the river behind it.","evidence":["fouled returning ribbon","clean replacement roll","two active neighbors"]},
+        {"id":"m76-ex-017","role":"regional-interface","dominantProof":"The loom connects water intake, freight quay, and flood sediment without merging their paths.","scene":"High oblique landing view of membrane lanes entering beside a low public-water intake, working freight quay, and flood sediment corridor, each with distinct access and containment.","evidence":["public intake","freight quay","separate sediment corridor"]},
+        {"id":"m76-ex-018","role":"material-coda","dominantProof":"Wet layered membrane, ceramic guidance, edge clamp, and sediment trace carry the visual identity.","scene":"Macro crop of a dark-green ribbon curling through three pale ceramic teeth with a continuous copper-gray edge clamp and brown sediment staining.","evidence":["wet layered ribbon","ceramic teeth","clamp and sediment"]}
+      ]
+    },
+    {
+      "id": "ex-04",
+      "title": "Quiet Inland Freight Court",
+      "geography": "Inland rail city: neighborhood blocks, river transfer, winter salt, repair education, and slow freight movement.",
+      "materialPremise": "Load-bearing mineral surfaces carry durable deep acoustic geometry in small replaceable cassettes.",
+      "removedConstraint": "Freight noise control no longer requires a tall continuous wall or distant land-use buffer.",
+      "topologyChange": "Acoustic control moves into rail beds, coupling canopies, platform edges, and inhabited building plinths.",
+      "institution": "Municipal freight court and acoustic repair school.",
+      "recurringMotifs": ["deep black ceramic ribs", "low coupling canopy", "steel dust", "replacement cassette cart"],
+      "shots": [
+        {"id":"m76-ex-019","role":"territory","dominantProof":"Freight and civic rooms face one connected court without a monumental barrier.","scene":"Street-height transverse view across two slow freight tracks between an active repair school and market service edge; low ribbed surfaces replace any tall wall.","evidence":["two freight tracks","active inhabited edges","no tall barrier"]},
+        {"id":"m76-ex-020","role":"mechanism","dominantProof":"Deep wheel-side cavities act at the source while remaining load-bearing.","scene":"Track-level close view of one freight wheel between two low dark ceramic edges whose deep branching cavities face the contact zone beneath intact structural tops.","evidence":["freight wheel","source-facing cavities","load-bearing top surfaces"]},
+        {"id":"m76-ex-021","role":"ordinary-use","dominantProof":"Public circulation crosses a working freight court as an ordinary timed condition.","scene":"A worn grade crossing links repair classrooms and a material market while one stationary freight module waits behind low safety rails beneath a localized coupling canopy.","evidence":["public grade crossing","stationary freight module","localized canopy"]},
+        {"id":"m76-ex-022","role":"stewardship","dominantProof":"One damaged acoustic cassette is exchanged without rebuilding the court edge.","scene":"A chipped soot-darkened cassette hangs from a low cart above its exact empty curb slot as students clean steel dust and replacements wait nearby.","evidence":["damaged cassette","matching empty slot","cleaning and replacement stack"]},
+        {"id":"m76-ex-023","role":"regional-interface","dominantProof":"The court continues from barge transfer into an inhabited urban block.","scene":"Compressed axial view from a low river-barge transfer through the freight court and beneath an occupied block bridge toward the municipal repair school.","evidence":["barge transfer","continuous freight court","inhabited bridge and school"]},
+        {"id":"m76-ex-024","role":"material-coda","dominantProof":"Rib depth, soot, salt, impact repair, and lifting hardware define the system.","scene":"Macro study of deep dark acoustic ribs with pale salt residue, metallic dust, one repaired chipped corner, and an oxidized lifting eye.","evidence":["deep rib pattern","salt and steel residue","repaired corner"]}
+      ]
+    },
+    {
+      "id": "ex-05",
+      "title": "Prairie Boundary Cooperative",
+      "geography": "Prairie watershed: black soil, flat wind, drainage crossings, snow distribution, cooperative fields, and low repair depots.",
+      "materialPremise": "Layered mineral-fiber skins passively change porosity and camber with moisture and surface temperature.",
+      "removedConstraint": "Field-scale wind and moisture control no longer requires powered louvers, rigid towers, or isolated machines.",
+      "topologyChange": "Kilometers of walk-in repairable ridges create a low continuous atmospheric boundary across a cooperative watershed.",
+      "institution": "Watershed cooperative and seasonal textile yard.",
+      "recurringMotifs": ["graphite woven ridge", "pale ceramic spine", "reversible ground clip", "dust-to-damp fiber transition"],
+      "shots": [
+        {"id":"m76-ex-025","role":"territory","dominantProof":"Different ridge cambers tune one watershed as a continuous low machine.","scene":"Elevated oblique view of six broad woven ridges crossing black-soil fields with visibly different cambers, interior service paths, and no towers or generic renewable equipment.","evidence":["six continuous ridges","different cambers","interior service paths"]},
+        {"id":"m76-ex-026","role":"mechanism","dominantProof":"Moisture-responsive layers change geometry through a ground spine and sliding clips without motors.","scene":"Low opened-ridge view exposing three woven layers around one pale ceramic spine; a damp bay curls steeply beside a dry shallow bay on identical sliding clips.","evidence":["three woven layers","shared ceramic spine","damp and dry geometry"]},
+        {"id":"m76-ex-027","role":"ordinary-use","dominantProof":"The ridge interior supports inspection and cooperative work without becoming decorative architecture.","scene":"Inside a broad translucent ridge, a worn inspection path, repair tables, folded spare bays, and drainage tools occupy the functional crossing.","evidence":["walk-in ridge","inspection path","stored repair material"]},
+        {"id":"m76-ex-028","role":"stewardship","dominantProof":"One abraded bay is rolled away while neighboring bays remain tensioned.","scene":"A damaged woven bay lies on a ground cart beside exposed reusable clips and collected grit; intact bays continue in both directions along the ridge.","evidence":["removed abraded bay","exposed reusable clips","operating neighbors"]},
+        {"id":"m76-ex-029","role":"regional-interface","dominantProof":"Ridges coordinate across drainage, rail, and cooperative boundaries.","scene":"High oblique junction where two woven ridges pass beneath a low rail embankment and terminate at a shared roll-out depot beside a vegetated drainage channel.","evidence":["ridge-rail crossing","roll-out depot","drainage channel"]},
+        {"id":"m76-ex-030","role":"material-coda","dominantProof":"Dry and damp mineral weave, embedded grit, and reversible ceramic clipping define the identity.","scene":"Macro crop where dusty matte graphite fibers become darker and taut around a pale worn ceramic clip with trapped black soil.","evidence":["dry-to-damp fibers","worn clip","embedded soil"]}
+      ]
+    },
+    {
+      "id": "ex-06",
+      "title": "Glacial Quarry Waterworks",
+      "geography": "Glacial aggregate and quarry belt: excavated mineral beds, floodplain alignments, local public works, and constrained hauling.",
+      "materialPremise": "Local mineral slurry can be deposited in continuously graded layers and reinforced only at authored stress paths.",
+      "removedConstraint": "Flood structures no longer require truckable precast units, dense formwork, or distant centralized factories.",
+      "topologyChange": "Quarry, fabrication line, test yard, water channel, and public service path become one continuous territory.",
+      "institution": "Regional public-works fabrication authority.",
+      "recurringMotifs": ["long black gantry", "dark-to-pale wet strata", "targeted reinforcement spool", "visible deposition splice"],
+      "shots": [
+        {"id":"m76-ex-031","role":"territory","dominantProof":"Raw quarry, active fabrication, and completed flood channel appear in one causal alignment.","scene":"High axial view with a low black gantry leaving an aggregate pit, crossing wet fabrication strata, and continuing beside a cured branching channel toward a floodplain; sky excluded.","evidence":["quarry source","continuous gantry","wet-to-cured channel sequence"]},
+        {"id":"m76-ex-032","role":"mechanism","dominantProof":"Two nozzles and one targeted reinforcement feed produce different functions in one pass.","scene":"Close carriage view of two distinct downward nozzles laying dark dense and pale porous wet bands while one central spool feeds reinforcement only into their joining stress path.","evidence":["two active nozzles","two graded material bands","targeted reinforcement feed"]},
+        {"id":"m76-ex-033","role":"ordinary-use","dominantProof":"Completed waterwork becomes public and service space before the full regional build is finished.","scene":"Behind the departing gantry, a cured channel widens into a worn maintenance walk and shallow cooling basin in ordinary use while wet fabrication continues farther ahead.","evidence":["cured service walk","occupied shallow basin","active fabrication beyond"]},
+        {"id":"m76-ex-034","role":"stewardship","dominantProof":"An interrupted continuous layer is repaired as a visible structural splice.","scene":"Close side view of a dark rectangular graded patch bridging one stopped deposition layer, with rough edges, clamp scars, and a recovered reinforcement tail.","evidence":["interrupted layer","graded repair splice","clamp scars and reinforcement tail"]},
+        {"id":"m76-ex-035","role":"regional-interface","dominantProof":"Finished branching waterwork links local material source to floodplain operation without a precast transport chain.","scene":"Oblique regional view of a Y-shaped cured channel crossing from quarry edge into a flood bypass with service rail and no stacks of repeating units or haul trucks.","evidence":["Y-shaped channel","quarry-to-floodplain continuity","absence of unit joints"]},
+        {"id":"m76-ex-036","role":"material-coda","dominantProof":"Dense-to-porous strata, reinforcement trace, wet aggregate, and repaired interruption create the identity.","scene":"Macro crop of dark dense mineral layers grading into pale open foam around one exposed reinforcement strand and a rough darker splice.","evidence":["graded strata","reinforcement strand","visible repair splice"]}
+      ]
+    },
+    {
+      "id": "ex-07",
+      "title": "Inhabited Thermal Library Network",
+      "geography": "Winter civic interiors across inland towns: humid summers, severe cold, grid interruptions, salt-wet thresholds, and inherited library service.",
+      "materialPremise": "Load-bearing porous mineral courses contain removable sealed thermal cartridges and accessible clean manifolds.",
+      "removedConstraint": "Neighborhood seasonal storage no longer needs a separate tank building or hidden plant room.",
+      "topologyChange": "Structure, storage, shelves, seating, maintenance, and refuge become one inhabited wall of thermal depths.",
+      "institution": "Public library and neighborhood thermal stewardship network.",
+      "recurringMotifs": ["deep porous wall", "removable horizontal course band", "pale cartridge", "wheeled service cradle"],
+      "shots": [
+        {"id":"m76-ex-037","role":"territory","dominantProof":"A network of ordinary libraries acts as seasonal refuge without becoming emergency architecture.","scene":"Winter street-level view beneath a deep mineral library edge where district pipes enter beside book-return carts, a worn public threshold, and salt-wet drying alcoves; sky excluded.","evidence":["district heat connection","ordinary library service","winter threshold wear"]},
+        {"id":"m76-ex-038","role":"mechanism","dominantProof":"A detached course-joint cover exposes matching cartridges and a clean manifold.","scene":"Perpendicular interior view of one complete horizontal cover resting on a low cart beneath its open wall course, exposing six identical ceramic cartridges and one copper-gray clean manifold.","evidence":["fully detached course cover","six matching cartridges","clean manifold"]},
+        {"id":"m76-ex-039","role":"ordinary-use","dominantProof":"People inhabit different thermal depths inside the storage wall.","scene":"Axial interior through a cool entry alcove, temperate reading gallery, and warm inner refuge room, all carved into one massive coursed wall and used in ordinary ways.","evidence":["three thermal depths","continuous wall body","ordinary differentiated occupancy"]},
+        {"id":"m76-ex-040","role":"stewardship","dominantProof":"One exhausted cartridge leaves service while neighboring wall courses remain occupied.","scene":"A stained pale cartridge sits on a matching wheeled cradle beneath one open socket as five sealed neighbors operate beside bookshelves and worn seating.","evidence":["removed stained cartridge","matching open socket","five operating neighbors"]},
+        {"id":"m76-ex-041","role":"regional-interface","dominantProof":"Libraries exchange cartridges and repair knowledge across a town network.","scene":"A low municipal transfer room connects cartridge cradles from three library branches to a wash workshop and clean district loop; book carts and winter gear keep the institutional use legible.","evidence":["multiple branch cradles","wash workshop","library and district-loop continuity"]},
+        {"id":"m76-ex-042","role":"material-coda","dominantProof":"Porous mineral, sealed cartridge, dry gasket, copper joint, and touch wear form the identity.","scene":"Macro study across a rough porous course, dark gasket, pale cartridge end, oxidized copper joint, and hand-polished reading ledge.","evidence":["porous mineral","sealed gasketed cartridge","touch-worn copper and ledge"]}
+      ]
+    },
+    {
+      "id": "ex-08",
+      "title": "Foundry Heat Civic Edge",
+      "geography": "Great Lakes industrial city: active foundry work, inland freight, cold-season public life, material education, and inherited urban blocks.",
+      "materialPremise": "Replaceable ceramic microchannel blocks exchange dirty industrial heat through sealed clean-side interfaces without mixing process and public fluids.",
+      "removedConstraint": "Useful foundry heat no longer remains isolated in a remote plant or rejected through one fragile centralized exchanger.",
+      "topologyChange": "A long industrial boundary becomes adjacent dirty-service, exchange-wall, clean-service, and inhabited civic bands.",
+      "institution": "Foundry utility cooperative and municipal winter-room service.",
+      "recurringMotifs": ["dark microchannel block", "sealed process aperture", "clean copper-gray manifold", "stained wash cradle"],
+      "shots": [
+        {"id":"m76-ex-043","role":"territory","dominantProof":"A working industrial edge and winter civic rooms form one continuous but safely separated urban section.","scene":"Compressed interior axis along repeated sealed foundry bays, a central removable exchange wall, and deep public winter rooms facing nearby inherited blocks; no flames or glass visitor theater.","evidence":["sealed industrial band","continuous exchange wall","inhabited civic band"]},
+        {"id":"m76-ex-044","role":"mechanism","dominantProof":"One removable block physically bridges a sealed dirty aperture and separate clean couplings.","scene":"Close three-quarter view of a dark ceramic block halfway withdrawn from a thick wall, with a soot-stained sealed aperture behind and two clean copper-gray manifold couplings in front.","evidence":["half-withdrawn block","sealed dirty aperture","two clean couplings"]},
+        {"id":"m76-ex-045","role":"ordinary-use","dominantProof":"Useful heat supports ordinary winter drying, repair, and reading without turning industry into spectacle.","scene":"Deep mineral alcoves on the clean side hold communal tables, material shelves, warm drying racks, coats, and meltwater channels while sealed foundry apertures remain inaccessible.","evidence":["ordinary civic uses","warm drying racks","sealed industrial boundary"]},
+        {"id":"m76-ex-046","role":"stewardship","dominantProof":"One fouled block is washed while neighboring modules continue operating across separated service paths.","scene":"A stained exchange block rests in a low wash cradle beneath one empty slot; six installed neighbors remain connected while dirty and clean crews use separate corridors.","evidence":["fouled removed block","six operating neighbors","separate service corridors"]},
+        {"id":"m76-ex-047","role":"regional-interface","dominantProof":"Foundry freight, district heat, repair school, and public winter access meet without merging paths.","scene":"At the exchange wall terminus, clean district pipes leave toward inhabited blocks, a freight lane enters the sealed foundry side, and a repair-school winter entrance occupies the clean edge.","evidence":["district heat pipes","foundry freight lane","clean public entrance"]},
+        {"id":"m76-ex-048","role":"material-coda","dominantProof":"Sooted channels, cleaned ceramic edge, oxidized coupling, and chalky wash residue form the identity.","scene":"Macro conservation view across a dark soot-stained microchannel face, pale cleaned edge, oxidized copper-gray coupling, gasket, and chalky wash trace.","evidence":["sooted microchannels","clean edge and gasket","coupling and wash residue"]}
+      ]
+    }
+  ]
+}
