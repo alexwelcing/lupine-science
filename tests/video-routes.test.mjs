@@ -5,6 +5,7 @@ import path from 'node:path';
 import { before, describe, it } from 'node:test';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
+import { isVideoIndexPromotable } from '../scripts/publication-policy.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC = path.join(ROOT, 'public');
@@ -15,6 +16,15 @@ function videoSlugs() {
     .filter((name) => name.endsWith('.mp4'))
     .map((name) => name.replace(/\.mp4$/, ''))
     .sort();
+}
+
+function articleStatus(slug) {
+  const source = fs.readFileSync(path.join(ROOT, 'articles', `${slug}.md`), 'utf8');
+  return source.match(/^> \*\*Status:\*\*\s*(.+?)\s*$/m)?.[1];
+}
+
+function promotedVideoSlugs() {
+  return videoSlugs().filter((slug) => isVideoIndexPromotable(articleStatus(slug)));
 }
 
 function read(...segments) {
@@ -37,12 +47,12 @@ before(() => {
 });
 
 describe('article and video publication routes', () => {
-  it('lists every top-level article video exactly once', () => {
+  it('lists every promotable top-level article video exactly once', () => {
     const index = read('videos', 'index.html');
     const cards = [...index.matchAll(/class="video-card-primary" href="\/videos\/([^/]+)\/"/g)]
       .map((match) => match[1])
       .sort();
-    assert.deepEqual(cards, videoSlugs());
+    assert.deepEqual(cards, promotedVideoSlugs());
   });
 
   it('resolves detail, article, poster, captions, share, and download routes for every video', () => {
@@ -65,7 +75,12 @@ describe('article and video publication routes', () => {
       assert.match(detail, new RegExp(`data-url="https://lupine\\.science/videos/${slug}/"`), `video share URL: ${slug}`);
       assert.match(detail, new RegExp(`href="/videos/${slug}\\.mp4" download`), `video download: ${slug}`);
       assert.match(detail, new RegExp(`href="/videos/${slug}\\.vtt" download`), `captions download: ${slug}`);
-      assert.match(index, new RegExp(`href="/videos/${slug}\\.mp4" download`), `index download: ${slug}`);
+      const indexDownload = new RegExp(`href="/videos/${slug}\\.mp4" download`);
+      if (isVideoIndexPromotable(articleStatus(slug))) {
+        assert.match(index, indexDownload, `index download: ${slug}`);
+      } else {
+        assert.doesNotMatch(index, indexDownload, `held index download: ${slug}`);
+      }
     }
   });
 
@@ -77,7 +92,7 @@ describe('article and video publication routes', () => {
   });
 
   it('refreshes stale article, video detail, and video index route outputs', () => {
-    const slug = 'methane-and-refrigerants-cutting-the-non-co2-climate-forcers';
+    const slug = 'rhizo-non-co2-climate-forcers-lean';
     const publicRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'article-route-refresh-'));
     const videosRoot = path.join(publicRoot, 'videos');
     const files = [
