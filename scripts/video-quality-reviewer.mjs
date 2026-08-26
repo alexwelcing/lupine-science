@@ -367,7 +367,7 @@ export function sampleFrameErrors(samples) {
 export function classifyP0(report, sample) {
   const p0 = [];
   for (const n of report.technical.notes) {
-    if (/no video stream|no audio stream|video codec|pixel format/.test(n)) p0.push(`technical:${n}`);
+    p0.push(`technical:${n}`);
   }
   for (const n of report.poster.notes) {
     if (/poster missing/.test(n)) {

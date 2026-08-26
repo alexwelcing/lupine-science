@@ -36,6 +36,28 @@ test('sample-analysis errors are P0 instead of silently preserving a high score'
   assert.deepEqual(classifyP0(report, sample), ['frames:sample failures at 1.0s: statistics unavailable']);
 });
 
+test('every technical conformance failure is P0', () => {
+  const technicalNotes = [
+    'resolution 640x360',
+    'frame rate 24/1',
+    'audio codec mp3',
+    'sample rate 48000',
+    'channels 2 (expected mono)',
+    'could not measure loudness',
+  ];
+  const report = {
+    technical: { notes: technicalNotes },
+    poster: { notes: [] },
+    captions: { notes: [] },
+    brand: { notes: [] },
+    posterAnalysis: { unknown: [] },
+  };
+  assert.deepEqual(
+    classifyP0(report),
+    technicalNotes.map((note) => `technical:${note}`),
+  );
+});
+
 test('content samples settle inside cues instead of treating exact dark cut frames as blank scenes', () => {
   const times = sampleTimes(12, [
     { start: 2, end: 5 },

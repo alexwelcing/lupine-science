@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { verifyAcceptedRecord } from './lib/brand-library-publication.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const MANIFEST = path.join(ROOT, 'media', 'projects', 'midwest-2076-library', 'requests.json');
@@ -16,11 +17,6 @@ const esc = (value) => String(value)
   .replaceAll('>', '&gt;')
   .replaceAll('"', '&quot;')
   .replaceAll("'", '&#39;');
-
-function localFile(publicPath) {
-  if (!publicPath.startsWith('/')) throw new Error(`public path must start with /: ${publicPath}`);
-  return path.join(ROOT, 'public', publicPath.slice(1));
-}
 
 function isAccepted(record) {
   return ['completed', 'generated', 'published'].includes(record.status) &&
@@ -42,10 +38,7 @@ if (allowPartial && accepted.length === 0) {
 }
 
 for (const record of accepted) {
-  for (const publicPath of [record.publicMasterPath, record.publicThumbPath]) {
-    if (!fs.existsSync(localFile(publicPath))) throw new Error(`missing public asset: ${publicPath}`);
-  }
-  if (!record.outputSha256 || !record.thumbSha256) throw new Error(`missing digests for ${record.id}`);
+  verifyAcceptedRecord(record, path.join(ROOT, 'public'));
 }
 
 const sections = manifest.assetClasses.map((assetClass) => {
