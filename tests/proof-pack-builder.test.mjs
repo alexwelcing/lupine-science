@@ -26,6 +26,11 @@ const OUT_DIR = path.join(ROOT, 'public', 'proof-packs');
 const SLUG = 'five-materials-for-5-to-12-gtco2-year';
 const PDF_PATH = path.join(OUT_DIR, `${SLUG}.proofpack.pdf`);
 const MANIFEST_PATH = path.join(OUT_DIR, `${SLUG}.proofpack.json`);
+const SHARED_DFT_SLUG = 'shared-dft-anchors';
+const SHARED_DFT_MANIFEST_PATH = path.join(OUT_DIR, `${SHARED_DFT_SLUG}.proofpack.json`);
+const INITIAL_SHARED_DFT_MANIFEST = JSON.parse(
+  fs.readFileSync(SHARED_DFT_MANIFEST_PATH, 'utf8')
+);
 const REPRESENTATIVE_SLUGS = [
   'a-smooth-environment-resolved-error-field',
   'five-materials-for-5-to-12-gtco2-year',
@@ -457,6 +462,22 @@ describe('proof-pack output validation', () => {
     assert.ok(manifest.inputs?.articleHtml?.sha256, 'article HTML checksum missing');
     assert.ok(manifest.output?.pdf?.sha256, 'output PDF checksum missing');
     assert.equal(manifest.output.pdf.sha256, sha256(PDF_PATH), 'output checksum mismatch');
+  });
+
+  it('committed shared-DFT output remains bound to its current inputs', () => {
+    const articleHtmlPath = path.join(
+      ROOT,
+      'public',
+      'articles',
+      SHARED_DFT_SLUG,
+      'index.html'
+    );
+    assert.equal(
+      INITIAL_SHARED_DFT_MANIFEST.inputs.articleHtml.sha256,
+      sha256(articleHtmlPath),
+      'initial shared-DFT manifest is stale relative to the current article HTML'
+    );
+    assert.deepEqual(validateProofPackOutput(SHARED_DFT_MANIFEST_PATH), []);
   });
 
   it('PDF uses embedded local fonts with Unicode maps', async () => {
