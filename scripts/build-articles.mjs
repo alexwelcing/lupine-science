@@ -93,8 +93,20 @@ const ASSET_CACHE_BUST = '?v=3';
 const ARTICLE_ASSET_CACHE_BUST = new Map([
   ['shared-dft-anchors', '?v=4'],
 ]);
+const PFAS_SLUG = 'critical-minerals-pfas-and-the-remediation-imperative';
+const PFAS_RELEASE = JSON.parse(fs.readFileSync(
+  path.join(ROOT, 'release', 'video-replacements', `${PFAS_SLUG}.json`),
+  'utf8',
+));
+const PFAS_POSTER_CACHE_REVISION = PFAS_RELEASE.releaseState === 'baseline-rollback'
+  ? PFAS_RELEASE.rollback.cacheRevision
+  : PFAS_RELEASE.replacement.cacheRevision;
+if (!Number.isSafeInteger(PFAS_POSTER_CACHE_REVISION) || PFAS_POSTER_CACHE_REVISION < 1) {
+  throw new Error('Invalid PFAS poster cache revision');
+}
 const VIDEO_POSTER_CACHE_BUST = new Map([
   ['water-and-air-correcting-the-molecules-we-drink-and-breathe', '?v=4'],
+  [PFAS_SLUG, `?v=${PFAS_POSTER_CACHE_REVISION}`],
 ]);
 
 function bust(url, slug) {
@@ -241,11 +253,13 @@ function extractMeta(raw) {
   for (const [key, name] of [
     ['type', 'Type'],
     ['date', 'Date'],
+    ['updated', 'Updated'],
     ['deck', 'Deck'],
     ['summary', 'Summary'],
     ['scope', 'Scope'],          // legacy alias for Deck
     ['description', 'Description'], // legacy alias for Summary
     ['status', 'Status'],
+    ['evidenceStatus', 'Evidence Status'],
     ['ogTitle', 'OG Title'],
     ['ogDescription', 'OG Description'],
     ['ogImage', 'OG Image'],
@@ -555,7 +569,8 @@ async function buildArticle(raw, slug) {
   // extracted above for JSON-LD and the index, then removed from the body.
   body = body.replace(/<blockquote>[\s\S]*?<\/blockquote>/, '');
 
-  // Publication-style header: kicker + title + deck + byline (date + status), then hero.
+  // Publication-style header: kicker + title + deck + byline (original date,
+  // update date, status), then an optional evidence-status disclosure and hero.
   // Articles default to "Research note"; other document types keep their explicit label.
   const kicker = (!meta.type || meta.type.toLowerCase() === 'article')
     ? 'Research note'
@@ -565,11 +580,20 @@ async function buildArticle(raw, slug) {
   if (deck) {
     headerParts.push(`<p class="article-deck">${esc(deck)}</p>`);
   }
-  if (meta.date || meta.status) {
-    const datePart = meta.date ? `<time datetime="${esc(meta.date)}">${formatDate(meta.date)}</time>` : '';
+  if (meta.date || meta.updated || meta.status) {
+    const datePart = meta.date ? `${meta.updated ? 'Originally published ' : ''}<time datetime="${esc(meta.date)}">${formatDate(meta.date)}</time>` : '';
+    const updatedPart = meta.updated ? `Updated <time datetime="${esc(meta.updated)}">${formatDate(meta.updated)}</time>` : '';
     const statusPart = meta.status ? `<span class="article-status">${esc(formatStatus(meta.status))}</span>` : '';
-    const sep = datePart && statusPart ? '<span class="byline-sep" aria-hidden="true">·</span>' : '';
-    headerParts.push(`<ul class="article-byline" aria-label="Publication details">${datePart ? `<li>${datePart}</li>` : ''}${sep ? ` <li aria-hidden="true">${sep}</li>` : ''}${statusPart ? ` <li>${statusPart}</li>` : ''}</ul>`);
+    if (meta.updated) {
+      const parts = [datePart, updatedPart, statusPart].filter(Boolean);
+      headerParts.push(`<ul class="article-byline" aria-label="Publication details">${parts.map((part, index) => `${index ? '<li aria-hidden="true"><span class="byline-sep">·</span></li>' : ''}<li>${part}</li>`).join('')}</ul>`);
+    } else {
+      const sep = datePart && statusPart ? '<span class="byline-sep" aria-hidden="true">·</span>' : '';
+      headerParts.push(`<ul class="article-byline" aria-label="Publication details">${datePart ? `<li>${datePart}</li>` : ''}${sep ? ` <li aria-hidden="true">${sep}</li>` : ''}${statusPart ? ` <li>${statusPart}</li>` : ''}</ul>`);
+    }
+  }
+  if (meta.evidenceStatus) {
+    headerParts.push(`<aside class="callout warning article-evidence-status" aria-label="Evidence status"><strong>Evidence status:</strong> ${esc(meta.evidenceStatus)}</aside>`);
   }
   const hero = heroFigure(slug);
   const video = inlineVideoPlayer(slug, title);
@@ -642,6 +666,7 @@ async function buildArticle(raw, slug) {
     headline: title,
     description,
     datePublished: meta.date || undefined,
+    ...(meta.updated ? { dateModified: meta.updated } : {}),
     url,
     mainEntityOfPage: url,
     image: hasJpg ? bust(`${SITE}/articles/${slug}/hero.jpg`, slug) : ogImage,
@@ -662,7 +687,7 @@ async function buildArticle(raw, slug) {
             ? bustVideoPoster(`${SITE}/videos/${slug}-poster.jpg`, slug)
             : `${SITE}/videos/${slug}-poster.jpg`
           : articleJsonLd.image,
-        uploadDate: meta.date,
+        uploadDate: meta.updated || meta.date,
         contentUrl: videoUrl,
         embedUrl: `${SITE}/videos/${slug}/`,
         isPartOf: { '@id': `${url}#article` },
@@ -811,7 +836,7 @@ function videoHead(article, url) {
     name: title,
     description,
     thumbnailUrl: poster,
-    uploadDate: meta.date,
+    uploadDate: meta.updated || meta.date,
     contentUrl,
     embedUrl: url,
     isPartOf: {

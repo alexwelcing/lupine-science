@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "platform": "Linux-7.0.0-29-generic-x86_64-with-glibc2.43",
+  "python": "3.14.4",
+  "pillow": "12.1.1",
+  "pyyaml": "6.0.3",
+  "ffmpegVersion": "ffmpeg version 8.0.1-3ubuntu2 Copyright (c) 2000-2025 the FFmpeg developers",
+  "ffprobeVersion": "ffprobe version 8.0.1-3ubuntu2 Copyright (c) 2007-2025 the FFmpeg developers",
+  "fonts": [
+    {
+      "path": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+      "sha256": "b4c632e3cdf9acc7f28758fb5a323c8524d7fc6660d46904d9b6cbe2809c419c"
+    },
+    {
+      "path": "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+      "sha256": "e1d733afbbfce842a1b43dced0c9885a76a4e67290dc7e690c4e9b76ebfc7d23"
+    }
+  ],
+  "buildScriptSha256": "c1aeac37cd0c367ddde4753179f7491d01c5daad8e949e4768e85cfd3f242d58",
+  "sceneRendererSha256": "21cfbcabf54f66d3d73d07def18f6672377f7baf235aff0ccee0dead07e91e28",
+  "motionRendererSha256": "38d2eeaeaeb028b773389cef640930bce40a85299ec26689802819649bca2022",
+  "validatorSha256": "d76f884d22db29f6bf4b4b9389f04a218423bc61ae2b2e9e63bdfdb09ad38421",
+  "claimEvidenceMapSha256": "8ea71addbc912acc9f2dbeedd6efebdcd50a79454e1e12acc580cd54651eb0f7",
+  "candidateBuildReportSha256": "26ca5a57e4a3e7d6f712ccf6340684beb1227bccff1e028560fcafdd6bd6e6fa",
+  "candidateSha256": "49c720aacc5b64cafab3ed9fceb978ebddd148621aa7110392c693d9cf424213",
+  "scope": "same-host-two-clean-checkout-reproduction",
+  "cleanCheckoutReproduction": true,
+  "reproduction": {
+    "sourceTreeSha": "b1b058ed1ed66d882d12752751332f613c278a7d",
+    "temporaryDetachedCommitSha": "41e64702f703bdb42c0468e96e4e59088d5a4b09",
+    "baseCommitSha": "e0cccacca7e8050d6fb6d208cce3248689653532",
+    "checkouts": 2,
+    "candidateSha256ByCheckout": [
+      "49c720aacc5b64cafab3ed9fceb978ebddd148621aa7110392c693d9cf424213",
+      "49c720aacc5b64cafab3ed9fceb978ebddd148621aa7110392c693d9cf424213"
+    ],
+    "validatorDecisionByCheckout": [
+      "pass-project-publication-integrity",
+      "pass-project-publication-integrity"
+    ],
+    "cleanAfterBuildByCheckout": [
+      true,
+      true
+    ],
+    "note": "The temporary commit object was created with a separate Git index and never attached to or committed on the feature branch."
+  }
+}
