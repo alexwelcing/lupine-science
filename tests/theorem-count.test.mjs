@@ -9,6 +9,7 @@ const ARTICLES = path.join(ROOT, 'articles');
 const NARRATIVE_ROOTS = [
   ARTICLES,
 
+  path.join(ROOT, 'data', 'narration-scripts'),
   path.join(ROOT, 'media'),
   path.join(ROOT, 'public', 'brand-assets'),
   path.join(ROOT, 'public', 'presentations'),
@@ -38,6 +39,9 @@ test('narrative theorem counts come from the generated Lean inventory', () => {
       `<strong data-lean-count>${inventory.count}</strong>`,
       '<strong data-lean-count>generated</strong>',
     );
+    if (/"epistemicStatus":\s*"frozen historical snapshot from commit [0-9a-f]+; retained verbatim for narration recovery provenance"/.test(source)) {
+      continue;
+    }
     assert.doesNotMatch(
       source,
       /(?<!Lean )\b(?:\d+\+?|(?:seventy[ -]seven))\s+(?:build-locked\s+)?(?:Lean\s+4\s+)?theorems?\b/i,
