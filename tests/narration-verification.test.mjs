@@ -509,6 +509,41 @@ test('water-and-air recovery preserves the reviewed theorem-count exclusion', ()
   assert.match(script.source, /reviewed editorial exclusions applied/);
 });
 
+test('narration recovery cannot restore retired economics claims', () => {
+  const root = path.resolve(import.meta.dirname, '..');
+  const cases = [
+    {
+      slug: 'investing-in-the-trust-layer',
+      forbidden: /123 to 270 billion dollars|3\.2 million dollars/i,
+      retained: /shared correction-and-verification layer/i,
+    },
+    {
+      slug: 'the-02-percent-synthesis-problem',
+      forbidden: /thousands of dollars/i,
+      retained: /Weeks of lab time disappear/i,
+    },
+  ];
+
+  for (const { slug, forbidden, retained } of cases) {
+    const script = JSON.parse(fs.readFileSync(path.join(
+      root,
+      `data/narration-scripts/${slug}.json`,
+    ), 'utf8'));
+    const text = script.paragraphs.join(' ');
+    assert.doesNotMatch(text, forbidden);
+    assert.match(text, retained);
+    assert.match(script.source, /reviewed editorial exclusions applied/);
+
+    const motion = JSON.parse(fs.readFileSync(path.join(
+      root,
+      `data/video-motion/${slug}.json`,
+    ), 'utf8'));
+    const visualText = JSON.stringify(motion);
+    assert.doesNotMatch(visualText, /economics-leverage|failure-economics/i);
+    assert.doesNotMatch(visualText, /trillion-dollar|123B|270B|\$3\.2M/i);
+  }
+});
+
 test('recovery payload validation fails closed on every provenance field', () => {
   const expected = {
     slug: 'film',
