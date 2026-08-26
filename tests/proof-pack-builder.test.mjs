@@ -6,7 +6,14 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { renderPackHtml, verifyArtifactIntegrity, verifyFigureIntegrity } from '../scripts/build-proofpack.mjs';
+import { chromium } from 'playwright-core';
+import { chromiumExecutablePath } from '../scripts/lib/chromium-executable.mjs';
+import {
+  legacyRenderPdf,
+  renderPackHtml,
+  verifyArtifactIntegrity,
+  verifyFigureIntegrity,
+} from '../scripts/build-proofpack.mjs';
 import { validateProofPack } from '../scripts/validate-proofpack.mjs';
 import { inspectPdf } from '../scripts/check-pdf.mjs';
 import {
@@ -516,6 +523,50 @@ describe('proof-pack determinism', () => {
 });
 
 describe('proof-pack consolidated mode', () => {
+  it('awaits lazy-image decode before printing the legacy PDF', async () => {
+    const browser = await chromium.launch({
+      headless: true,
+      executablePath: chromiumExecutablePath(),
+    });
+    const page = await browser.newPage();
+    const output = path.join(os.tmpdir(), `proofpack-lazy-image-${process.pid}.pdf`);
+
+    try {
+      await page.setContent(`
+        <!doctype html>
+        <img id="lazy-sentinel" loading="lazy"
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E">
+        <script>
+          window.lazyImageDecoded = false;
+          document.querySelector('#lazy-sentinel').decode = () => new Promise((resolve) => {
+            setTimeout(() => {
+              window.lazyImageDecoded = true;
+              resolve();
+            }, 750);
+          });
+        </script>
+      `, { waitUntil: 'networkidle' });
+
+      page.pdf = async () => {
+        const state = await page.evaluate(() => {
+          const image = document.querySelector('#lazy-sentinel');
+          return { loading: image.loading, decoded: window.lazyImageDecoded };
+        });
+        assert.equal(state.loading, 'eager', 'lazy image was not activated before printing');
+        assert.equal(state.decoded, true, 'image decode was not awaited before printing');
+      };
+
+      await legacyRenderPdf({ newPage: async () => page }, {
+        url: 'http://127.0.0.1/',
+        html: await page.content(),
+        output,
+      });
+    } finally {
+      await browser.close();
+      fs.rmSync(output, { force: true });
+    }
+  });
+
   it('produces a byte-identical legacy climate-series PDF on repeated builds', () => {
     const consolidatedPath = path.join(ROOT, 'public', 'proof-pack-climate-series.pdf');
     const run1 = run(['--consolidated']);
