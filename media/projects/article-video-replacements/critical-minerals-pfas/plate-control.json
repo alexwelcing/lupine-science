@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "status": "conditional-use-with-mandatory-deterministic-occlusion",
+  "plates": [
+    {
+      "id": "plate-01-civic-hall",
+      "path": "assets/plates/plate-01-civic-hall.png",
+      "sha256": "1830137ad7aadb0ba8fb54beba0b409735c28cf7917316331ece595208d9be16",
+      "status": "accepted",
+      "mandatoryOcclusionRectsAt1024x576": []
+    },
+    {
+      "id": "plate-02-service-bay",
+      "path": "assets/plates/plate-02-service-bay.png",
+      "sha256": "5284e59d7a560c3fb03c214485eaefefd7340acd68b62a766012af5ad905e8de",
+      "status": "conditional",
+      "mandatoryOcclusionRectsAt1024x576": [
+        {"x": 0, "y": 225, "width": 55, "height": 65, "reason": "generated wall markings"},
+        {"x": 605, "y": 215, "width": 75, "height": 100, "reason": "generated electrical/control box"},
+        {"x": 945, "y": 0, "width": 79, "height": 28, "reason": "generated ceiling-edge marking"}
+      ],
+      "rule": "Every final composite using this plate must cover all three rectangles with authored opaque equipment, wall panel, or framing geometry."
+    },
+    {
+      "id": "plate-03-test-annex",
+      "path": "assets/plates/plate-03-test-annex.png",
+      "sha256": "f0a250753feb6a10a0b008e852e42344373fc59c87c3ca7630bdf3a35e5a20aa",
+      "status": "conditional",
+      "mandatoryOcclusionRectsAt1024x576": [
+        {"x": 390, "y": 205, "width": 205, "height": 130, "reason": "generated EXIT, safety signage, and door paper"}
+      ],
+      "rule": "Every final composite using this plate must cover the full rear-door region with an authored opaque measurement/status structure."
+    }
+  ],
+  "sanitizationAttempt": {
+    "status": "rejected",
+    "script": "scripts/sanitize_plates.py",
+    "reason": "Clone and feather reconstruction produced visible artifacts and did not reliably remove generated signage.",
+    "outputsEligible": false
+  }
+}

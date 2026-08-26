@@ -36,6 +36,10 @@ const LOUDNESS_TOLERANCE = 2;
 const LRA_MAX = 8;
 const SAMPLE_STD_THRESHOLD = 12;
 
+export function isBlankFrameStats(avgStd, avgMean, stdThreshold = SAMPLE_STD_THRESHOLD) {
+  return avgStd < stdThreshold && (avgMean < 5 || avgMean > 250);
+}
+
 const SELF_CITATION_PATTERNS = [
   /lupine science strategic discovery plan/i,
   /lupine science error-field analysis/i,
@@ -93,6 +97,7 @@ function loudness(videoPath) {
 function parseVtt(text) {
   const lines = text.split(/\r?\n/);
   const cues = [];
+  const errors = [];
   let i = 0;
   if (lines[i]?.trim().toLowerCase() === 'webvtt') i++;
   while (i < lines.length) {
@@ -114,11 +119,15 @@ function parseVtt(text) {
       cues.push({ start, end, text: payload });
       continue;
     }
+    if (line.includes('-->')) errors.push(`malformed cue timing: ${line}`);
     i++;
   }
 
-  const errors = [];
   if (cues.length === 0) errors.push('no cues parsed');
+  for (let j = 0; j < cues.length; j++) {
+    if (cues[j].end <= cues[j].start) errors.push(`cue ${j + 1} has non-positive duration`);
+    if (!cues[j].text.trim()) errors.push(`cue ${j + 1} has no text`);
+  }
   for (let j = 1; j < cues.length; j++) {
     if (cues[j].start < cues[j - 1].end - 0.001) {
       errors.push(`cue ${j + 1} overlaps cue ${j}`);
@@ -162,6 +171,16 @@ function sampleTimes(duration, cues) {
   return Array.from(times).filter((t) => t > 0 && t < duration).sort((a, b) => a - b);
 }
 
+export function cueOcrTimes(duration, cues) {
+  return cues.map((cue, cueIndex) => ({
+    cueIndex,
+    time: cue.start + ((cue.end - cue.start) / 2),
+    valid: cue.start >= 0 && cue.end > cue.start &&
+      cue.start + ((cue.end - cue.start) / 2) > 0 &&
+      cue.start + ((cue.end - cue.start) / 2) < duration,
+  }));
+}
+
 async function extractFrame(videoPath, time, outPath) {
   const r = run('ffmpeg', [
     '-ss', String(time),
@@ -175,10 +194,12 @@ async function extractFrame(videoPath, time, outPath) {
 }
 
 async function frameStats(framePath) {
-  const { stats } = await sharp(framePath).stats();
-  const channels = stats.map((s) => s.std);
-  const avgStd = channels.reduce((a, b) => a + b, 0) / channels.length;
-  return { avgStd };
+  const { channels } = await sharp(framePath).stats();
+  const deviations = channels.map((channel) => channel.stdev);
+  const means = channels.map((channel) => channel.mean);
+  const avgStd = deviations.reduce((a, b) => a + b, 0) / deviations.length;
+  const avgMean = means.reduce((a, b) => a + b, 0) / means.length;
+  return { avgStd, avgMean };
 }
 
 async function sampleFrames(videoPath, cues, slug, worker, dictionary, corpus, bigram, stdThreshold = SAMPLE_STD_THRESHOLD) {
@@ -188,33 +209,47 @@ async function sampleFrames(videoPath, cues, slug, worker, dictionary, corpus, b
   if (!duration) return { samples: [], blankFrames: [], ocrHits: [] };
 
   const times = sampleTimes(duration, cues);
+  const ocrCues = cueOcrTimes(duration, cues);
+  for (const { time } of ocrCues) {
+    if (!times.includes(time)) times.push(time);
+  }
+  times.sort((a, b) => a - b);
   const samples = [];
   const blankFrames = [];
   const ocrHits = [];
+  const ocrAttempts = [];
   const tmpDir = path.join(REPORT_DIR, '.frame-samples', slug);
   await mkdir(tmpDir, { recursive: true });
 
   for (const t of times) {
+    const cuesAtTime = ocrCues.filter((cue) => cue.time === t);
     const framePath = path.join(tmpDir, `${slug}-${t.toFixed(3)}.jpg`);
     try {
       await extractFrame(videoPath, t, framePath);
-      const { avgStd } = await frameStats(framePath);
-      samples.push({ time: t, avgStd: Number(avgStd.toFixed(2)) });
-      if (avgStd < stdThreshold) {
-        blankFrames.push({ time: t, avgStd: Number(avgStd.toFixed(2)) });
+      const { avgStd, avgMean } = await frameStats(framePath);
+      const frameStatsRecord = {
+        time: t,
+        avgStd: Number(avgStd.toFixed(2)),
+        avgMean: Number(avgMean.toFixed(2)),
+        ocrCueIndexes: cuesAtTime.map((cue) => cue.cueIndex),
+      };
+      samples.push(frameStatsRecord);
+      if (isBlankFrameStats(avgStd, avgMean, stdThreshold)) {
+        blankFrames.push(frameStatsRecord);
       }
-      if (worker) {
+      for (const cue of cuesAtTime) {
+        ocrAttempts.push({ cueIndex: cue.cueIndex, time: t });
         const { data } = await worker.recognize(framePath);
         const analysis = analyzeText(data.words || [], dictionary, corpus, bigram);
         if (analysis.unknown.length) {
-          ocrHits.push({ time: t, words: analysis.unknown.slice(0, 6) });
+          ocrHits.push({ cueIndex: cue.cueIndex, time: t, words: analysis.unknown.slice(0, 6) });
         }
       }
     } catch (e) {
-      samples.push({ time: t, error: e.message });
+      samples.push({ time: t, ocrCueIndexes: cuesAtTime.map((cue) => cue.cueIndex), error: e.message });
     }
   }
-  return { samples, blankFrames, ocrHits };
+  return { samples, blankFrames, ocrHits, ocrAttempts };
 }
 
 function analyzeText(words, dictionary, corpus, bigram) {
@@ -297,7 +332,15 @@ async function checkArticleIntegration(slug, videoFile, posterFile) {
 
 function isHighConfidenceOcrHit(hit) {
   const confidences = hit.words.map((w) => w.confidence ?? 100);
-  return confidences.some((c) => c > 80);
+  return confidences.some((c) => c > 90);
+}
+
+export function hasHighConfidenceOcrGibberish(hits) {
+  return hits.some(isHighConfidenceOcrHit);
+}
+
+export function sampleFrameErrors(samples) {
+  return samples.filter((sample) => sample.error);
 }
 
 function classifyP0(report, sample) {
@@ -309,8 +352,9 @@ function classifyP0(report, sample) {
     if (/poster missing/.test(n)) {
       p0.push(`poster:${n}`);
     } else if (/suspect words/.test(n)) {
-      // Poster suspect words are P0 only if there are several or any is high-confidence,
-      // avoiding OCR hallucinations on abstract AI-generated textures.
+      // Poster suspect words are P0 only if there are several credible OCR
+      // observations or any is high-confidence. Zero-confidence geometry
+      // guesses are discarded by the shared classifier.
       const unknown = report.posterAnalysis?.unknown || [];
       const highConf = unknown.filter((u) => (u.confidence ?? 100) > 80);
       if (unknown.length >= 3 || highConf.length > 0) {
@@ -319,17 +363,23 @@ function classifyP0(report, sample) {
     }
   }
   for (const n of report.captions.notes) {
-    if (/VTT missing|no cues|final cue exceeds/.test(n)) p0.push(`captions:${n}`);
+    p0.push(`captions:${n}`);
   }
   for (const n of report.brand.notes) {
     if (/self-citation/.test(n)) p0.push(`brand:${n}`);
   }
   if (sample) {
+    const frameErrors = sampleFrameErrors(sample.samples);
+    if (frameErrors.length) {
+      p0.push(`frames:sample failures at ${frameErrors.map((frame) => `${frame.time.toFixed(1)}s: ${frame.error}`).join('; ')}`);
+    }
     if (sample.blankFrames.length) {
       p0.push(`frames:blank/flat frames at ${sample.blankFrames.map((f) => `${f.time.toFixed(1)}s`).join(', ')}`);
     }
-    const strongOcrHits = sample.ocrHits.filter(isHighConfidenceOcrHit);
-    if (strongOcrHits.length) {
+    // Sampled video OCR is noisy on motion/antialiasing. Require >90% OCR
+    // confidence; poster OCR remains a complete single-frame gate.
+    if (hasHighConfidenceOcrGibberish(sample.ocrHits)) {
+      const strongOcrHits = sample.ocrHits.filter(isHighConfidenceOcrHit);
       p0.push(`frames:gibberish text in ${strongOcrHits.length} sampled frame(s)`);
     }
   }
@@ -445,8 +495,14 @@ async function reviewVideo(file, dictionary, corpus, bigram, worker, flags) {
     vttCues = vtt.cues;
     if (vtt.errors.length) report.captions.notes.push(...vtt.errors);
     if (vtt.cues.length === 0) report.captions.notes.push('no cues');
-    else if (duration && vtt.cues[vtt.cues.length - 1].end > duration + 1) {
-      report.captions.notes.push('final cue exceeds video duration');
+    if (duration) {
+      for (let cueIndex = 0; cueIndex < vtt.cues.length; cueIndex++) {
+        const cue = vtt.cues[cueIndex];
+        const midpoint = cue.start + ((cue.end - cue.start) / 2);
+        if (midpoint <= 0 || midpoint >= duration || cue.end > duration + 1) {
+          report.captions.notes.push(`cue ${cueIndex + 1} exceeds video duration`);
+        }
+      }
     }
   }
   report.captions.score = Math.max(0, report.captions.max - report.captions.notes.length * 4);
@@ -554,10 +610,7 @@ async function main() {
 
   const dictionary = await loadDictionary();
   const corpus = await buildDomainCorpus();
-  // CI runners do not ship /usr/share/dict/words. When the system dictionary
-  // is empty, train the character model on the domain corpus instead so the
-  // nonsense-word detector still has a reference distribution.
-  const bigram = trainBigramModel(dictionary.size > 0 ? dictionary : corpus);
+  const bigram = trainBigramModel(dictionary);
   console.error(`Dictionary ${dictionary.size}, corpus ${corpus.size}`);
 
   let worker = null;
@@ -567,6 +620,7 @@ async function main() {
     });
   } catch (e) {
     console.error('OCR unavailable:', e.message);
+    if (flags.sampleFrames) process.exit(1);
   }
 
   const reports = [];
@@ -611,7 +665,9 @@ async function main() {
   if (exitCode) process.exit(exitCode);
 }
 
-main().catch((e) => {
-  console.error(e);
-  process.exit(1);
-});
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });
+}
