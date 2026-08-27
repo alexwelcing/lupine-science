@@ -11,6 +11,7 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { renderArticleMarkdown } from './lib/article-markdown.mjs';
 import { readProofPackMetadata } from './lib/proof-pack-metadata.mjs';
+import { isVideoIndexPromotable } from './publication-policy.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = path.join(ROOT, 'articles');
@@ -1019,6 +1020,7 @@ writeAtomic(path.join(OUT, 'index.html'), buildIndex(articles));
 console.log('built /articles/index.html');
 
 const videos = videoArticles(articles);
+const promotedVideos = videos.filter(({ meta }) => isVideoIndexPromotable(meta.status));
 // Retire the generated page for any article that no longer has a source file.
 // Video detail routes were already pruned this way (below) but article routes
 // were not, so moving an article to articles/_drafts/ left its published page and
@@ -1060,6 +1062,6 @@ for (const article of videos) {
   writeAtomic(path.join(dir, 'index.html'), buildVideoPage(article));
   console.log(`built /videos/${article.slug}/`);
 }
-writeAtomic(path.join(videosRoot, 'index.html'), buildVideoIndex(videos));
+writeAtomic(path.join(videosRoot, 'index.html'), buildVideoIndex(promotedVideos));
 writeAtomic(path.join(PUBLIC_ROOT, '404.html'), buildNotFoundPage());
-console.log(`built /videos/index.html (${videos.length} videos)`);
+console.log(`built /videos/index.html (${promotedVideos.length} promoted videos; ${videos.length} direct routes)`);

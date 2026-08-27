@@ -32,13 +32,33 @@ function narrativeFiles(root) {
   });
 }
 
+function stripProhibitedClaimPolicy(value) {
+  if (Array.isArray(value)) return value.map(stripProhibitedClaimPolicy);
+  if (!value || typeof value !== 'object') return value;
+
+  return Object.fromEntries(Object.entries(value)
+    .filter(([key]) => key !== 'prohibitedClaimPatterns')
+    .map(([key, nested]) => [key, stripProhibitedClaimPolicy(nested)]));
+}
+
+function stripProhibitedClaimPolicyFromJson(source) {
+  try {
+    return JSON.stringify(stripProhibitedClaimPolicy(JSON.parse(source)));
+  } catch {
+    return source;
+  }
+}
+
 test('narrative theorem counts come from the generated Lean inventory', () => {
   assert.ok(Number.isSafeInteger(inventory.count) && inventory.count > 0);
   for (const file of [...NARRATIVE_ROOTS.flatMap(narrativeFiles), ...NARRATIVE_FILES]) {
-    const source = fs.readFileSync(file, 'utf8').replaceAll(
+    let source = fs.readFileSync(file, 'utf8').replaceAll(
       `<strong data-lean-count>${inventory.count}</strong>`,
       '<strong data-lean-count>generated</strong>',
     );
+    if (path.extname(file) === '.json') {
+      source = stripProhibitedClaimPolicyFromJson(source);
+    }
     if (/"epistemicStatus":\s*"frozen historical snapshot from commit [0-9a-f]+; retained verbatim for narration recovery provenance"/.test(source)) {
       continue;
     }
