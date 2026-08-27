@@ -65,7 +65,7 @@
     ],
     "newEconomicClaims": "prohibited",
     "prohibitedClaimPatterns": [
-      "190 build-locked Lean 4 theorems"
+      "hand-typed build-locked Lean theorem count"
     ]
   },
   "reviewAnchors": [

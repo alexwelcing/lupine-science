@@ -675,34 +675,6 @@ async function renderPdf(browser, { url, output, title, deterministicDate }) {
   await normalizePdf(output, { title, deterministicDate });
 }
 
-export async function waitForPageImages(page, timeoutMs = 30_000) {
-  await page.evaluate(async (imageTimeoutMs) => {
-    const images = Array.from(document.images);
-    for (const image of images) image.loading = 'eager';
-    await Promise.all(images.map(async (image) => {
-      const source = image.currentSrc || image.src || image.alt || '<unknown image>';
-      if (!image.complete) {
-        await new Promise((resolve, reject) => {
-          const timer = setTimeout(
-            () => reject(new Error(`timed out waiting for image: ${source}`)),
-            imageTimeoutMs
-          );
-          image.addEventListener('load', () => {
-            clearTimeout(timer);
-            resolve();
-          }, { once: true });
-          image.addEventListener('error', () => {
-            clearTimeout(timer);
-            reject(new Error(`image failed to load: ${source}`));
-          }, { once: true });
-        });
-      }
-      if (!image.naturalWidth) throw new Error(`image failed to load: ${source}`);
-      await image.decode();
-    }));
-  }, timeoutMs);
-}
-
 async function normalizePdf(output, { title, deterministicDate }) {
   const bytes = fs.readFileSync(output);
   const doc = await PDFDocument.load(bytes, { updateMetadata: false });
