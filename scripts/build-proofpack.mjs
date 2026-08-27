@@ -627,6 +627,25 @@ export function renderPackHtml(slug, manifest, articleMeta) {
   return renderTemplate(template, view);
 }
 
+export async function waitForPageImages(page) {
+  await page.evaluate(async () => {
+    const images = Array.from(document.images);
+    for (const image of images) image.loading = 'eager';
+
+    await Promise.all(images.map(async (image) => {
+      if (!image.complete) {
+        await new Promise((resolve) => {
+          image.addEventListener('load', resolve, { once: true });
+          image.addEventListener('error', resolve, { once: true });
+        });
+      }
+      if (typeof image.decode === 'function') {
+        await image.decode().catch(() => {});
+      }
+    }));
+  });
+}
+
 async function renderPdf(browser, { url, output, title, deterministicDate }) {
   const page = await browser.newPage();
   try {

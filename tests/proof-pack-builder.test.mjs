@@ -7,13 +7,13 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
+import { chromiumExecutablePath } from '../scripts/lib/chromium-executable.mjs';
 import {
   legacyRenderPdf,
   renderPackHtml,
   verifyArtifactIntegrity,
   verifyFigureIntegrity,
 } from '../scripts/build-proofpack.mjs';
-import { chromiumExecutablePath } from '../scripts/lib/chromium-executable.mjs';
 import { validateProofPack } from '../scripts/validate-proofpack.mjs';
 import { inspectPdf } from '../scripts/check-pdf.mjs';
 import {
@@ -523,42 +523,47 @@ describe('proof-pack determinism', () => {
 });
 
 describe('proof-pack consolidated mode', () => {
-  it('awaits lazy-image decode before the legacy renderer reaches PDF printing', async () => {
-    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'proofpack-lazy-image-'));
-    const output = path.join(tempDir, 'lazy-image.pdf');
-    const browser = await chromium.launch({ headless: true, executablePath: chromiumExecutablePath() });
-    const instrumentedBrowser = {
-      async newPage() {
-        const page = await browser.newPage();
-        return new Proxy(page, {
-          get(target, property) {
-            if (property === 'pdf') {
-              return async (...args) => {
-                const imageState = await page.evaluate(() => ({
-                  decodeFinished: window.__proofpackImageDecodeFinished,
-                  loading: document.querySelector('img')?.loading,
-                }));
-                assert.equal(imageState.loading, 'eager', 'lazy image was not activated before printing');
-                assert.equal(imageState.decodeFinished, true, 'image decode was not awaited before printing');
-                return page.pdf(...args);
-              };
-            }
-            const value = Reflect.get(target, property, target);
-            return typeof value === 'function' ? value.bind(target) : value;
-          },
-        });
-      },
-    };
+  it('awaits lazy-image decode before printing the legacy PDF', async () => {
+    const browser = await chromium.launch({
+      headless: true,
+      executablePath: chromiumExecutablePath(),
+    });
+    const page = await browser.newPage();
+    const output = path.join(os.tmpdir(), `proofpack-lazy-image-${process.pid}.pdf`);
+
     try {
-      await legacyRenderPdf(instrumentedBrowser, {
-        url: 'http://127.0.0.1',
-        html: `<!doctype html><html><body><span class="katex">x</span><img loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='2' height='2'/%3E"><script>document.querySelector('img').decode = () => new Promise((resolve) => setTimeout(() => { window.__proofpackImageDecodeFinished = true; resolve(); }, 750));</script></body></html>`,
+      await page.setContent(`
+        <!doctype html>
+        <img id="lazy-sentinel" loading="lazy"
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E">
+        <script>
+          window.lazyImageDecoded = false;
+          document.querySelector('#lazy-sentinel').decode = () => new Promise((resolve) => {
+            setTimeout(() => {
+              window.lazyImageDecoded = true;
+              resolve();
+            }, 750);
+          });
+        </script>
+      `, { waitUntil: 'networkidle' });
+
+      page.pdf = async () => {
+        const state = await page.evaluate(() => {
+          const image = document.querySelector('#lazy-sentinel');
+          return { loading: image.loading, decoded: window.lazyImageDecoded };
+        });
+        assert.equal(state.loading, 'eager', 'lazy image was not activated before printing');
+        assert.equal(state.decoded, true, 'image decode was not awaited before printing');
+      };
+
+      await legacyRenderPdf({ newPage: async () => page }, {
+        url: 'http://127.0.0.1/',
+        html: await page.content(),
         output,
       });
-      assert.ok(fs.statSync(output).size > 0, 'legacy renderer did not produce a PDF');
     } finally {
       await browser.close();
-      fs.rmSync(tempDir, { recursive: true, force: true });
+      fs.rmSync(output, { force: true });
     }
   });
 
