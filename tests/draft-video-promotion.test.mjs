@@ -14,7 +14,6 @@ const SUPPRESSED_FROM_VIDEO_INDEX = [
   'a-field-not-a-neural-net',
   'beyond-carbon-the-error-geometry-of-environmental-materials',
   'cement-concrete-and-the-weight-of-the-built-world',
-  'critical-minerals-pfas-and-the-remediation-imperative',
   'five-materials-for-5-to-12-gtco2-year',
   'from-fantasy-frameworks-to-makeable-materials',
   'from-predicted-crystal-to-commercial-cell',
@@ -115,7 +114,7 @@ describe('draft-labelled article video promotion', () => {
     assert.match(sitemap, new RegExp(`<loc>https://lupine\\.science/videos/${HELD_VIDEO}/</loc>`));
   });
 
-  it('suppresses exactly the 12 held videos from cards and CollectionPage.hasPart', () => {
+  it('suppresses exactly the 11 held videos from cards and CollectionPage.hasPart', () => {
     const videoIndex = read('videos', 'index.html');
     const allVideoSlugs = fs.readdirSync(path.join(PUBLIC, 'videos'))
       .filter((name) => name.endsWith('.mp4'))
@@ -133,7 +132,7 @@ describe('draft-labelled article video promotion', () => {
 
     assert.deepEqual(indexVideoSlugs(videoIndex), expectedPromoted);
     assert.deepEqual(structuredSlugs, expectedPromoted);
-    assert.equal(expectedPromoted.length, 10);
+    assert.equal(expectedPromoted.length, 11);
   });
 
   it('does not change article or direct-video sitemap membership', () => {

@@ -9,9 +9,9 @@
     {
       "film_id": "01-z1-campaign-story",
       "attempt": 1,
-      "original": "public/videos/campaign-2026-07-27/01-z1-union-verdict.mp4",
+      "original": "media/brand-campaign-2026-07-27/quarantine/01-z1-union-verdict.mp4",
       "original_sha256": "8475ca4dc3e2d0780d4ff24f706251741fcfb2586f52c69d5991549fd0fbf22b",
-      "replacement": "public/videos/campaign-2026-07-27/01-z1-union-verdict-qa-attempt-1.mp4",
+      "replacement": "media/brand-campaign-2026-07-27/quarantine/01-z1-union-verdict-qa-attempt-1.mp4",
       "replacement_sha256": "5ace393923af277227916ee6bc786b5da63bebd5742ae385f0b3a5b5e5be1b27",
       "bytes": 1064842,
       "duration_seconds": 28.0,
@@ -27,8 +27,8 @@
         "audio_channels": 1,
         "integrated_loudness_lufs": -18.1
       },
-      "representative_frame": "public/videos/campaign-2026-07-27/01-z1-union-verdict-qa-attempt-1-representative.png",
-      "contact_sheet": "public/videos/campaign-2026-07-27/01-z1-union-verdict-qa-attempt-1-contact-sheet.png",
+      "representative_frame": "media/brand-campaign-2026-07-27/quarantine/01-z1-union-verdict-qa-attempt-1-representative.png",
+      "contact_sheet": "media/brand-campaign-2026-07-27/quarantine/01-z1-union-verdict-qa-attempt-1-contact-sheet.png",
       "shot_motion_checks": [
         {
           "shot": 1,
@@ -111,9 +111,9 @@
     {
       "film_id": "02-savings-stack",
       "attempt": 1,
-      "original": "public/videos/campaign-2026-07-27/02-savings-stack.mp4",
+      "original": "media/brand-campaign-2026-07-27/quarantine/02-savings-stack.mp4",
       "original_sha256": "4e12818c7c55eaec2ad90c5fe0026c307b7621036bc409490d8e4e86407ff19b",
-      "replacement": "public/videos/campaign-2026-07-27/02-savings-stack-qa-attempt-1.mp4",
+      "replacement": "media/brand-campaign-2026-07-27/quarantine/02-savings-stack-qa-attempt-1.mp4",
       "replacement_sha256": "48ed48f919b3e12ec06fcc84d355279921404c1a96c1526b33fea2b00e41996e",
       "bytes": 1101244,
       "duration_seconds": 28.0,
@@ -129,8 +129,8 @@
         "audio_channels": 1,
         "integrated_loudness_lufs": -18.1
       },
-      "representative_frame": "public/videos/campaign-2026-07-27/02-savings-stack-qa-attempt-1-representative.png",
-      "contact_sheet": "public/videos/campaign-2026-07-27/02-savings-stack-qa-attempt-1-contact-sheet.png",
+      "representative_frame": "media/brand-campaign-2026-07-27/quarantine/02-savings-stack-qa-attempt-1-representative.png",
+      "contact_sheet": "media/brand-campaign-2026-07-27/quarantine/02-savings-stack-qa-attempt-1-contact-sheet.png",
       "shot_motion_checks": [
         {
           "shot": 1,
@@ -203,9 +203,9 @@
     {
       "film_id": "03-trust-layer",
       "attempt": 1,
-      "original": "public/videos/campaign-2026-07-27/03-trust-layer.mp4",
+      "original": "media/brand-campaign-2026-07-27/quarantine/03-trust-layer.mp4",
       "original_sha256": "fc637aa13eb138ae714823aa021180376541b156e5b7efa0a9172e12dde549d9",
-      "replacement": "public/videos/campaign-2026-07-27/03-trust-layer-qa-attempt-1.mp4",
+      "replacement": "media/brand-campaign-2026-07-27/quarantine/03-trust-layer-qa-attempt-1.mp4",
       "replacement_sha256": "b3e3657062ccb36327c1e313923c04f37f7d9c3e89483bb4c6697c227f1b6049",
       "bytes": 933070,
       "duration_seconds": 24.0,
@@ -221,8 +221,8 @@
         "audio_channels": 1,
         "integrated_loudness_lufs": -18.1
       },
-      "representative_frame": "public/videos/campaign-2026-07-27/03-trust-layer-qa-attempt-1-representative.png",
-      "contact_sheet": "public/videos/campaign-2026-07-27/03-trust-layer-qa-attempt-1-contact-sheet.png",
+      "representative_frame": "media/brand-campaign-2026-07-27/quarantine/03-trust-layer-qa-attempt-1-representative.png",
+      "contact_sheet": "media/brand-campaign-2026-07-27/quarantine/03-trust-layer-qa-attempt-1-contact-sheet.png",
       "shot_motion_checks": [
         {
           "shot": 1,
@@ -295,9 +295,9 @@
     {
       "film_id": "04-order-of-effort",
       "attempt": 1,
-      "original": "public/videos/campaign-2026-07-27/04-order-of-effort.mp4",
+      "original": "media/brand-campaign-2026-07-27/quarantine/04-order-of-effort.mp4",
       "original_sha256": "89f84d111fc694e70ef09e8cad55dcc0e1e819e80e08bbeb0ff12d0442790f1c",
-      "replacement": "public/videos/campaign-2026-07-27/04-order-of-effort-qa-attempt-1.mp4",
+      "replacement": "media/brand-campaign-2026-07-27/quarantine/04-order-of-effort-qa-attempt-1.mp4",
       "replacement_sha256": "2d2a796f96506471cfadfdf2e27c81d85d044f290e18bdd8c00207e801fce420",
       "bytes": 1264498,
       "duration_seconds": 28.0,
@@ -313,8 +313,8 @@
         "audio_channels": 1,
         "integrated_loudness_lufs": -18.1
       },
-      "representative_frame": "public/videos/campaign-2026-07-27/04-order-of-effort-qa-attempt-1-representative.png",
-      "contact_sheet": "public/videos/campaign-2026-07-27/04-order-of-effort-qa-attempt-1-contact-sheet.png",
+      "representative_frame": "media/brand-campaign-2026-07-27/quarantine/04-order-of-effort-qa-attempt-1-representative.png",
+      "contact_sheet": "media/brand-campaign-2026-07-27/quarantine/04-order-of-effort-qa-attempt-1-contact-sheet.png",
       "shot_motion_checks": [
         {
           "shot": 1,
@@ -387,9 +387,9 @@
     {
       "film_id": "05-materials-in-society",
       "attempt": 1,
-      "original": "public/videos/campaign-2026-07-27/05-materials-for-society.mp4",
+      "original": "media/brand-campaign-2026-07-27/quarantine/05-materials-for-society.mp4",
       "original_sha256": "19ea2340cdcc5ad96fff16630c60ade12aa73edc307a1e00c98e74c7c44fc444",
-      "replacement": "public/videos/campaign-2026-07-27/05-materials-for-society-qa-attempt-1.mp4",
+      "replacement": "media/brand-campaign-2026-07-27/quarantine/05-materials-for-society-qa-attempt-1.mp4",
       "replacement_sha256": "3845a7de90db3a6432e489bdf76922b924f18def96a999a5d668f57a7330f69d",
       "bytes": 1161903,
       "duration_seconds": 30.0,
@@ -405,8 +405,8 @@
         "audio_channels": 1,
         "integrated_loudness_lufs": -18.1
       },
-      "representative_frame": "public/videos/campaign-2026-07-27/05-materials-for-society-qa-attempt-1-representative.png",
-      "contact_sheet": "public/videos/campaign-2026-07-27/05-materials-for-society-qa-attempt-1-contact-sheet.png",
+      "representative_frame": "media/brand-campaign-2026-07-27/quarantine/05-materials-for-society-qa-attempt-1-representative.png",
+      "contact_sheet": "media/brand-campaign-2026-07-27/quarantine/05-materials-for-society-qa-attempt-1-contact-sheet.png",
       "shot_motion_checks": [
         {
           "shot": 1,

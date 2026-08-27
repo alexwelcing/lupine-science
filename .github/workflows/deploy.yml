@@ -250,7 +250,7 @@ jobs:
     name: Release certification
     needs: lighthouse
     if: |
-      github.event.workflow_run.conclusion == 'success' &&
+      always() &&
       github.event.workflow_run.event == 'push' &&
       github.event.workflow_run.head_branch == 'main'
     runs-on: ubuntu-latest
@@ -259,6 +259,25 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Fail closed on unsuccessful release prerequisite
+        if: github.event.workflow_run.conclusion != 'success' || needs.lighthouse.result != 'success'
+        run: |
+          source_result="${{ github.event.workflow_run.conclusion }}"
+          lighthouse_result="${{ needs.lighthouse.result }}"
+          source_failure="Source CI concluded: $source_result"
+          lighthouse_failure="Lighthouse concluded: $lighthouse_result"
+          mkdir -p "$RUNNER_TEMP/release-gate-records"
+          jq -n \
+            --arg commit_sha "${{ github.event.workflow_run.head_sha }}" \
+            --arg source_result "$source_result" \
+            --arg lighthouse_result "$lighthouse_result" \
+            --arg source_failure "$source_failure" \
+            --arg lighthouse_failure "$lighthouse_failure" \
+            '{schemaVersion: 1, decision: "fail", commitSha: $commit_sha, failures: ([if $source_result != "success" then $source_failure else empty end, if $lighthouse_result != "success" then $lighthouse_failure else empty end])}' \
+            > "$RUNNER_TEMP/release-gate-records/release-certification.json"
+          echo "::error::$source_failure; $lighthouse_failure; publication remains blocked."
+          exit 1
 
       - name: Download visual gate artifact from source CI
         uses: actions/download-artifact@v4
@@ -289,41 +308,69 @@ jobs:
           RELEASE_SHA: ${{ github.event.workflow_run.head_sha }}
           CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
         run: |
+          mkdir -p "$RUNNER_TEMP/release-gate-records"
           node scripts/validate-release-gates.mjs \
             --visual gate-inputs/visual/visual-gate.json \
             --smoke gate-inputs/smoke/publication-smoke-gate.json \
             --audio gate-inputs/audio/audio-gate.json \
             --audio-baseline tests/fixtures/audio-gate-baseline.json \
             --audio-directory public/videos \
-            --output "$RUNNER_TEMP/release-certification.json" \
+            --output "$RUNNER_TEMP/release-gate-records/release-certification.json" \
             --sha "$RELEASE_SHA" \
             --ci-run-url "$CI_RUN_URL" \
             --visual-artifact-url "$CI_RUN_URL#artifacts" \
             --smoke-artifact-url "$CI_RUN_URL#artifacts" \
             --audio-artifact-url "$CI_RUN_URL#artifacts"
 
-      - name: Log release decision and artifact links
+      - name: Build release gate notification
         if: always()
         env:
+          RELEASE_SHA: ${{ github.event.workflow_run.head_sha }}
+          GATE_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          # The SOURCE ci run, distinct from this gate run. Needed so the notification
+          # can name the visual/smoke artifacts even when no receipt was written —
+          # without it the new --source-*-url flags expand empty and the links are
+          # silently dropped by the https:// filter, which is the failure this fixes.
           CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
         run: |
-          {
-            echo "## Release certification: ${{ job.status }}"
-            echo
-            echo "- Commit: \`${{ github.event.workflow_run.head_sha }}\`"
-            echo "- Visual-check artifact: $CI_RUN_URL#artifacts"
-            echo "- Smoke-suite artifact: $CI_RUN_URL#artifacts"
-            echo "- Audio-gate artifact: $CI_RUN_URL#artifacts"
-            echo "- Owner sign-off: required next through protected \`publication\` environment"
-            echo "- Production approval: required separately through protected \`production\` environment"
-          } >> "$GITHUB_STEP_SUMMARY"
+          mkdir -p "$RUNNER_TEMP/release-gate-records"
+          node scripts/build-release-notification.mjs \
+            --receipt "$RUNNER_TEMP/release-gate-records/release-certification.json" \
+            --release-name "lupine-science@${RELEASE_SHA:0:12}" \
+            --gate-run-url "$GATE_RUN_URL" \
+            --records-artifact-url "$GATE_RUN_URL#artifacts" \
+            --source-run-url "$CI_RUN_URL" \
+            --source-artifacts-url "$CI_RUN_URL#artifacts" \
+            --markdown-output "$RUNNER_TEMP/release-gate-records/release-notification.md" \
+            --json-output "$RUNNER_TEMP/release-gate-records/release-notification.json"
+          cat "$RUNNER_TEMP/release-gate-records/release-notification.md" >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Retain release certification receipt
+      - name: Send loud release gate notification
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          notification="$RUNNER_TEMP/release-gate-records/release-notification.json"
+          test -s "$notification"
+          issue_payload="$(jq -n \
+            --arg title "$(jq -r '.title' "$notification")" \
+            --arg body "$(jq -r '.markdown' "$notification")" \
+            '{title: $title, body: $body, assignees: ["alexwelcing"]}')"
+          if issue_result="$(printf '%s' "$issue_payload" \
+              | gh api --method POST "repos/$GITHUB_REPOSITORY/issues" --input - \
+                --jq '.html_url' 2>&1)"; then
+            echo "Assigned notification: $issue_result" | tee -a "$GITHUB_STEP_SUMMARY"
+          else
+            echo "WARNING: assigned release notification FAILED; the job summary and retained release-gate record remain available. Detail: $issue_result" \
+              | tee -a "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Retain release decision and notification
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: release-certification-${{ github.event.workflow_run.head_sha }}
-          path: ${{ runner.temp }}/release-certification.json
+          name: release-gate-records-${{ github.event.workflow_run.head_sha }}
+          path: ${{ runner.temp }}/release-gate-records/
           if-no-files-found: error
           retention-days: 90
 
@@ -414,6 +461,25 @@ jobs:
           [ -z "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}" ] && { echo "::error::MISSING SECRET: CLOUDFLARE_ACCOUNT_ID"; miss=1; }
           exit $miss
 
+      - name: Capture previous production deployment
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          response="$RUNNER_TEMP/production-project-before.json"
+          curl -fsS \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$CF_PAGES_PROJECT" \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            -H "Content-Type: application/json" \
+            > "$response"
+          node scripts/build-rollback-evidence.mjs \
+            --select-from "$response" \
+            --output "$RUNNER_TEMP/previous-production-deployment.json" \
+            --capture-output "$RUNNER_TEMP/rollback-target-capture.json" \
+            --account-id "$CLOUDFLARE_ACCOUNT_ID" \
+            --project-name "$CF_PAGES_PROJECT" \
+            --captured-at "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
       - name: Deploy production to Cloudflare Pages
         id: deploy
         env:
@@ -446,15 +512,63 @@ jobs:
             --arg deployment_url "$DEPLOY_URL" \
             --arg publication_signoff_artifact "publication-owner-signoff-$DEPLOYED_SHA" \
             --arg production_approval_record "$APPROVAL_RUN_URL" \
+            --arg rollback_evidence_artifact "rollback-evidence-$DEPLOYED_SHA" \
             --arg deployed_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-            '{environment: $environment, branch: $branch, commit_sha: $commit_sha, source_ci_run_id: $source_ci_run_id, source_artifact: $source_artifact, publication_signoff_artifact: $publication_signoff_artifact, production_approval_record: $production_approval_record, deployment_url: $deployment_url, deployed_at: $deployed_at}' \
+            '{environment: $environment, branch: $branch, commit_sha: $commit_sha, source_ci_run_id: $source_ci_run_id, source_artifact: $source_artifact, publication_signoff_artifact: $publication_signoff_artifact, production_approval_record: $production_approval_record, rollback_evidence_artifact: $rollback_evidence_artifact, deployment_url: $deployment_url, deployed_at: $deployed_at}' \
             > "$RUNNER_TEMP/production-deployment-receipt.json"
 
       - name: Upload production deployment receipt
+        id: receipt_upload
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: production-deployment-receipt-${{ github.event.workflow_run.head_sha }}
           path: ${{ runner.temp }}/production-deployment-receipt.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Prove previous deployment remains restorable
+        id: rollback_verification
+        continue-on-error: true
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          DEPLOYED_SHA: ${{ github.event.workflow_run.head_sha }}
+          DEPLOY_URL: ${{ steps.deploy.outputs.url }}
+        run: |
+          previous_id="$(jq -r '.id' "$RUNNER_TEMP/previous-production-deployment.json")"
+          previous_url="$(jq -r '.url' "$RUNNER_TEMP/previous-production-deployment.json")"
+          curl -fsS \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$CF_PAGES_PROJECT/deployments/$previous_id" \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            -H "Content-Type: application/json" \
+            > "$RUNNER_TEMP/verified-rollback-target.json"
+          curl --fail --silent --show-error --retry 3 --retry-delay 2 \
+            "$previous_url/health" > "$RUNNER_TEMP/rollback-target-health.txt"
+          curl --fail --silent --show-error --retry 3 --retry-delay 2 \
+            "$previous_url/" > "$RUNNER_TEMP/rollback-target-homepage.html"
+          node scripts/build-rollback-evidence.mjs \
+            --previous "$RUNNER_TEMP/previous-production-deployment.json" \
+            --verified-target "$RUNNER_TEMP/verified-rollback-target.json" \
+            --health "$RUNNER_TEMP/rollback-target-health.txt" \
+            --homepage "$RUNNER_TEMP/rollback-target-homepage.html" \
+            --account-id "$CLOUDFLARE_ACCOUNT_ID" \
+            --project-name "$CF_PAGES_PROJECT" \
+            --deployed-sha "$DEPLOYED_SHA" \
+            --deployment-url "$DEPLOY_URL" \
+            --verified-at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --output "$RUNNER_TEMP/rollback-evidence.json"
+
+      - name: Retain rollback evidence
+        id: rollback_upload
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: rollback-evidence-${{ github.event.workflow_run.head_sha }}
+          path: |
+            ${{ runner.temp }}/rollback-target-capture.json
+            ${{ runner.temp }}/rollback-evidence.json
           if-no-files-found: error
           retention-days: 90
 
@@ -491,40 +605,9 @@ jobs:
           echo "Cloudflare zone cache purged successfully"
           sleep 10
 
-      - name: Purge Cloudflare cache for custom domain
-        env:
-          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: |
-          set -uo pipefail
-          zone_response=$(curl -fsS -X GET "https://api.cloudflare.com/client/v4/zones?name=lupine.science&account.id=${CF_ACCOUNT}" \
-            -H "Authorization: Bearer ${CF_TOKEN}" \
-            -H "Content-Type: application/json" 2>/tmp/cf-zone-err.log) || {
-            echo "::warning::Could not look up Cloudflare zone; cache purge skipped. Details: $(cat /tmp/cf-zone-err.log)"
-            exit 0
-          }
-          zone_id=$(echo "$zone_response" | jq -r '.result[0].id')
-          if [ -z "$zone_id" ] || [ "$zone_id" = "null" ]; then
-            echo "::warning::Could not find Cloudflare zone for lupine.science; cache purge skipped."
-            echo "$zone_response" | jq . >&2
-            exit 0
-          fi
-          purge_response=$(curl -fsS -X POST "https://api.cloudflare.com/client/v4/zones/${zone_id}/purge_cache" \
-            -H "Authorization: Bearer ${CF_TOKEN}" \
-            -H "Content-Type: application/json" \
-            -d '{"purge_everything":true}' 2>/tmp/cf-purge-err.log) || {
-            echo "::warning::Cloudflare cache purge request failed; the deploy still uses cache-busted image URLs so the new content should be served. Details: $(cat /tmp/cf-purge-err.log)"
-            exit 0
-          }
-          if [ "$(echo "$purge_response" | jq -r '.success')" != "true" ]; then
-            echo "::warning::Cloudflare cache purge was not successful; cache-busted image URLs will still bypass stale cache."
-            echo "$purge_response" | jq . >&2
-            exit 0
-          fi
-          echo "Cloudflare zone cache purged successfully"
-          sleep 10
-
       - name: Smoke test production deployment URL
+        id: deployment_smoke
+        continue-on-error: true
         env:
           SMOKE_PREVIEW_BASE_URL: ${{ steps.deploy.outputs.url }}
           SMOKE_REPORT_PATH: ${{ runner.temp }}/smoke-deployment-url.json
@@ -535,6 +618,8 @@ jobs:
           npm run smoke 2>&1 | tee "$RUNNER_TEMP/smoke-deployment-url.log"
 
       - name: Smoke test custom domain
+        id: domain_smoke
+        continue-on-error: true
         env:
           SMOKE_PRODUCTION_BASE_URL: https://lupine.science
           SMOKE_REPORT_PATH: ${{ runner.temp }}/smoke-custom-domain.json
@@ -545,6 +630,8 @@ jobs:
           npm run smoke 2>&1 | tee "$RUNNER_TEMP/smoke-custom-domain.log"
 
       - name: Security headers are live
+        id: security_headers
+        continue-on-error: true
         run: |
           set -o pipefail
           {
@@ -570,7 +657,9 @@ jobs:
         run: echo "${{ steps.deploy.outputs.url }}"
 
       - name: Upload live verification logs
+        id: live_logs_upload
         if: always()
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: production-live-verification-${{ github.run_id }}
@@ -582,7 +671,13 @@ jobs:
             ${{ runner.temp }}/smoke-custom-domain.json
             ${{ runner.temp }}/security-headers.log
           if-no-files-found: ignore
-          retention-days: 14
+          retention-days: 90
+
+      - name: Fail if deployment evidence was not retained
+        if: steps.receipt_upload.outcome != 'success' || steps.rollback_verification.outcome != 'success' || steps.rollback_upload.outcome != 'success' || steps.deployment_smoke.outcome != 'success' || steps.domain_smoke.outcome != 'success' || steps.security_headers.outcome != 'success' || steps.live_logs_upload.outcome != 'success'
+        run: |
+          echo "::error::One or more post-deploy evidence or live-safety steps failed."
+          exit 1
 
       - name: Notify team of live verification result
         if: always()
@@ -592,6 +687,14 @@ jobs:
           HEAD_BRANCH: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_branch || github.ref_name }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           SLACK_DEPLOY_WEBHOOK_URL: ${{ secrets.SLACK_DEPLOY_WEBHOOK_URL }}
+          GH_TOKEN: ${{ github.token }}
+          RECEIPT_UPLOAD_OUTCOME: ${{ steps.receipt_upload.outcome }}
+          ROLLBACK_VERIFICATION_OUTCOME: ${{ steps.rollback_verification.outcome }}
+          ROLLBACK_UPLOAD_OUTCOME: ${{ steps.rollback_upload.outcome }}
+          DEPLOYMENT_SMOKE_OUTCOME: ${{ steps.deployment_smoke.outcome }}
+          DOMAIN_SMOKE_OUTCOME: ${{ steps.domain_smoke.outcome }}
+          SECURITY_HEADERS_OUTCOME: ${{ steps.security_headers.outcome }}
+          LIVE_LOGS_UPLOAD_OUTCOME: ${{ steps.live_logs_upload.outcome }}
         run: |
           status="${{ job.status }}"
           icon="✅"
@@ -601,7 +704,12 @@ jobs:
             title="Live verification failed"
           fi
 
-          rollback_command='curl -fsS -X POST "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/lupine-science/deployments/<deployment-id>/rollback" -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" -H "Content-Type: application/json" -d '\''{}'\'''
+          rollback_command='rollback evidence was not captured before the job stopped'
+          if [ -s "$RUNNER_TEMP/rollback-evidence.json" ]; then
+            rollback_command="$(jq -r '.rollback.command' "$RUNNER_TEMP/rollback-evidence.json")"
+          elif [ -s "$RUNNER_TEMP/rollback-target-capture.json" ]; then
+            rollback_command="$(jq -r '.rollback.command' "$RUNNER_TEMP/rollback-target-capture.json")"
+          fi
           log_excerpt_file="$RUNNER_TEMP/live-verification-log-excerpt.txt"
           : > "$log_excerpt_file"
           for file in \
@@ -625,10 +733,23 @@ jobs:
           # category. Surface the first pair above the full log excerpt.
           SMOKE_FAILURES_FILE="$log_excerpt_file"
           failing_url="$(grep -m1 -E '^    - https?://' "$SMOKE_FAILURES_FILE" | sed -E 's/^    - //' || true)"
-          failure_category="$(grep -m1 -E '^      (page unreachable|page body unreadable|missing |canonical URL broken|og:url broken|og:image broken|video link broken|download link broken)' "$SMOKE_FAILURES_FILE" | sed -E 's/^      //' || true)"
+          smoke_detail="$(grep -m1 -E '^      (page unreachable|page body unreadable|missing |canonical URL broken|og:url broken|og:image broken|video link broken|download link broken)' "$SMOKE_FAILURES_FILE" | sed -E 's/^      //' || true)"
           if [ "$status" != "success" ]; then
-            failing_url="${failing_url:-${DEPLOY_URL:-https://lupine.science}}"
-            failure_category="${failure_category:-deployment or security-header verification}"
+            failure_categories=()
+            [ "$RECEIPT_UPLOAD_OUTCOME" = "failure" ] && failure_categories+=("deployment receipt retention")
+            [ "$ROLLBACK_VERIFICATION_OUTCOME" = "failure" ] && failure_categories+=("rollback target verification")
+            [ "$ROLLBACK_UPLOAD_OUTCOME" = "failure" ] && failure_categories+=("rollback evidence retention")
+            [ "$DEPLOYMENT_SMOKE_OUTCOME" = "failure" ] && failure_categories+=("deployment URL smoke${smoke_detail:+: $smoke_detail}")
+            [ "$DOMAIN_SMOKE_OUTCOME" = "failure" ] && failure_categories+=("custom-domain smoke${smoke_detail:+: $smoke_detail}")
+            [ "$SECURITY_HEADERS_OUTCOME" = "failure" ] && failure_categories+=("security-header verification")
+            [ "$LIVE_LOGS_UPLOAD_OUTCOME" = "failure" ] && failure_categories+=("live-verification log retention")
+            failure_category="$(IFS=', '; echo "${failure_categories[*]}")"
+            failure_category="${failure_category:-deployment verification stopped before outcomes were recorded}"
+            if [ "$DEPLOYMENT_SMOKE_OUTCOME" = "failure" ] || [ "$DOMAIN_SMOKE_OUTCOME" = "failure" ] || [ "$SECURITY_HEADERS_OUTCOME" = "failure" ]; then
+              failing_url="${failing_url:-${DEPLOY_URL:-https://lupine.science}}"
+            else
+              failing_url="not applicable"
+            fi
           else
             failing_url="not applicable"
             failure_category="none"
@@ -643,7 +764,7 @@ jobs:
             echo "Commit: \`$COMMIT_SHA\`"
             echo "Live URL: ${DEPLOY_URL:-https://lupine.science}"
             echo "Workflow: $RUN_URL"
-            echo "Artifact: \`production-live-verification-$GITHUB_RUN_ID\`"
+            echo "Artifact: $RUN_URL#artifacts (\`production-live-verification-$GITHUB_RUN_ID\`)"
             echo "Failure category: $failure_category"
             echo "Failing URL: $failing_url"
             echo
@@ -659,6 +780,26 @@ jobs:
           } > "$notification_file"
 
           cat "$notification_file" >> "$GITHUB_STEP_SUMMARY"
+
+          # The assigned issue is the PRIMARY notification channel, so its failure must
+          # NOT abort the step: Actions runs this shell fail-fast, and an unguarded
+          # `gh api` non-zero (issues disabled, auth, unavailable assignee, body over
+          # the API limit) stopped execution before the Slack and /ops/report fallbacks
+          # below — killing every notification at exactly the moment the primary one
+          # broke. Failure is now reported into the summary and execution continues.
+          issue_title="$icon PRODUCTION LIVE VERIFICATION ${status^^}: lupine-science@${COMMIT_SHA:0:12}"
+          issue_payload="$(jq -n \
+            --arg title "$issue_title" \
+            --arg body "$(cat "$notification_file")" \
+            '{title: $title, body: $body, assignees: ["alexwelcing"]}')"
+          if issue_result="$(printf '%s' "$issue_payload" \
+              | gh api --method POST "repos/$GITHUB_REPOSITORY/issues" --input - \
+                --jq '.html_url' 2>&1)"; then
+            echo "Assigned notification: $issue_result" | tee -a "$GITHUB_STEP_SUMMARY"
+          else
+            echo "WARNING: assigned-issue notification FAILED; falling through to Slack and /ops/report. Detail: $issue_result" \
+              | tee -a "$GITHUB_STEP_SUMMARY"
+          fi
 
           if [ -n "$SLACK_DEPLOY_WEBHOOK_URL" ]; then
             slack_text="$title | ${DEPLOY_URL:-https://lupine.science} | $COMMIT_SHA | category: $failure_category | failing URL: $failing_url | $RUN_URL"
@@ -689,3 +830,12 @@ jobs:
           curl -fsS -X POST https://glim-think-v1.aw-ab5.workers.dev/ops/report \
             -H "Content-Type: application/json" \
             -d "$payload" || true
+
+      - name: Retain live verification notification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-live-notification-${{ github.run_id }}
+          path: ${{ runner.temp }}/live-verification-notification.md
+          if-no-files-found: error
+          retention-days: 90
