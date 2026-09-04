@@ -35,6 +35,19 @@ npm run verify
 npm run dev        # serves public/ with the production _headers/CSP applied
 ```
 
+Tests are split by what they need:
+
+```bash
+npm test              # tests/*.test.mjs — fast, parallel, no browser (~10 s)
+npm run test:render   # tests/render/ — proof-pack and venture-deck PDF builders;
+                      # drives Chromium and needs poppler-utils (~4 min, serial)
+npm run test:all      # both, in that order
+```
+
+The narration suite measures real audio and needs `ffmpeg`/`ffprobe` on
+`PATH` plus commit `4641d96` fetched (see the CI workflow); it fails loudly
+rather than skipping when they are missing.
+
 Open:
 
 - `http://localhost:8080/`

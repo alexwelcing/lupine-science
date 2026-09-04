@@ -125,7 +125,7 @@ async function main() {
     // Hardening, not a bug fix: both teardown steps were unbounded waits.
     //
     // A run under heavy load was reported as hanging forever here. It did NOT
-    // reproduce — tests/venture-deck-tooling.test.mjs passes 16/16 in ~21s, three
+    // reproduce — tests/render/venture-deck-tooling.test.mjs passes 16/16 in ~21s, three
     // times consecutively on unmodified main, and `npm test` never excluded it. So
     // treat the report as unconfirmed. What IS true is that `browser.close()` never
     // returns if Chromium wedges (it does wedge on this headless install — the

@@ -846,7 +846,11 @@
         for (const p of pos) rmax = Math.max(rmax, Math.hypot(p[0], p[1], p[2]));
         const zn = [];
         els.forEach((el, i) => { if (el === "Zn") zn.push(i); });
-        MOF = { els, pos, bonds, rmax, zn, proj: new Array(pos.length) };
+        MOF = { els, pos, bonds, rmax, zn, proj: new Array(pos.length),
+                // scratch reused every frame: depth per bond, and the painter's
+                // order for bonds and atoms (sorted in place, never reallocated)
+                bondZ: new Float32Array(bonds.length),
+                bondOrder: Array.from(bonds.keys()), atomOrder: Array.from(pos.keys()) };
         onMatterReady();
       })
       .catch(() => {});
@@ -861,6 +865,7 @@
     const cur = { ...FOCUS.objective };
     let tgt = { ...FOCUS.objective };
     let recomputeZones = () => {};   // assigned by the renderer; keeps the mask in sync
+    let redrawStill = () => {};      // assigned by the renderer when the canvas is a still
 
     function setFocus(name) {
       if (!FOCUS[name]) name = "objective";
@@ -873,7 +878,7 @@
         else p.removeAttribute("data-active");
       });
       // the active evidence panel changes height → re-measure the type zones
-      requestAnimationFrame(() => recomputeZones());
+      requestAnimationFrame(() => { recomputeZones(); redrawStill(); });
     }
 
     /* tooltip */
@@ -918,10 +923,27 @@
     }
     else {
       const INK = "22,23,29", IND = "61,77,179", OCH = "168,119,43";
-      let w = 0, h = 0, dpr = 1, raf = 0, t0 = 0, pts = [];
+      let w = 0, h = 0, dpr = 1, raf = 0, pts = [];
+      const mobileMQ = matchMedia("(max-width: 920px)");
+      // reduced-motion and phones get one still frame, not a loop
+      const staticCanvas = reduced || mobileMQ.matches;
+      /* ── one clock for both tiers. It pauses while the tab is hidden or the
+         hero is scrolled away and resumes where it left off, so nothing snaps
+         on return — and the WebGPU sheets read the same seconds as these 2D
+         glyphs, so a particle collapsing onto the spine lands on the sheet the
+         GPU is drawing, not on a spine several seconds out of phase. ── */
+      const clock = (() => {
+        let base = 0, pausedAt = 0, live = true;
+        return {
+          now(ts) { if (!base) base = ts; return (ts - base) / 1000; },
+          pause(ts) { if (live) { live = false; pausedAt = ts; } },
+          resume(ts) { if (!live) { live = true; if (base) base += ts - pausedAt; } },
+        };
+      })();
 
       function seed() {
         const n = Math.max(60, Math.min(190, Math.round((w * h) / 9000)));
+        if (pts.length === n) return;     // samples are normalized; a resize alone keeps them
         pts = [];
         for (let i = 0; i < n; i++) {
           const r1 = frac(Math.sin(i * 12.9898) * 43758.5453);
@@ -941,7 +963,6 @@
          object ever sits on top of text. Computed from the live DOM rects. ── */
       let zones = [], STAGE = { x0: 0, x1: 0, y0: 0, y1: 0, cx: 0, cy: 0, w: 0, h: 0 };
       const FEATHER = 36;
-      const mobileMQ = matchMedia("(max-width: 920px)");
       function rectOf(sel) {
         const el = document.querySelector(sel); if (!el) return null;
         const b = el.getBoundingClientRect(), c = canvas.getBoundingClientRect();
@@ -1005,6 +1026,16 @@
         w = canvas.clientWidth; h = canvas.clientHeight;
         canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0); seed(); computeZones();
+        // assigning canvas.width wipes the bitmap: a still must be drawn again
+        // (rotating a phone or hiding its address bar used to leave the hero blank)
+        if (staticCanvas) drawStill();
+      }
+      // one frame at time zero with the focus targets applied directly
+      function drawStill() {
+        requestAnimationFrame((ts) => {
+          for (const k in cur) cur[k] = tgt[k];
+          lastPaint = 0; frame(ts); cancelAnimationFrame(raf);
+        });
       }
       // ribbon spine biased to the upper-right of the field
       function spineY(u, time, amp) {
@@ -1115,12 +1146,16 @@
           const z1 = -p[0] * syr + p[2] * cyr;
           const y1 = p[1] * cxr - z1 * sxr;
           const z2 = p[1] * sxr + z1 * cxr;
-          P[i] = [cx + x1 * s * breath, cy + y1 * s * breath, z2 / MOF.rmax]; // z in [-1,1]
+          const q = P[i] || (P[i] = [0, 0, 0]);
+          q[0] = cx + x1 * s * breath; q[1] = cy + y1 * s * breath; q[2] = z2 / MOF.rmax; // z in [-1,1]
         }
         // bonds, painter's order, depth-cued
-        const order = MOF.bonds.map((b, i) => [i, (P[b[0]][2] + P[b[1]][2]) / 2]).sort((a, b) => a[1] - b[1]);
+        const BZ = MOF.bondZ, BO = MOF.bondOrder;
+        for (let b = 0; b < MOF.bonds.length; b++) BZ[b] = (P[MOF.bonds[b][0]][2] + P[MOF.bonds[b][1]][2]) / 2;
+        BO.sort((a, b) => BZ[a] - BZ[b]);
         ctx.lineCap = "round";
-        for (const [bi, z] of order) {
+        for (let k = 0; k < BO.length; k++) {
+          const bi = BO[k], z = BZ[bi];
           const [i, j] = MOF.bonds[bi];
           const d = (z + 1) / 2;                             // 0 far → 1 near
           const m = Math.min(clearAt(P[i][0], P[i][1]), clearAt(P[j][0], P[j][1]));
@@ -1130,8 +1165,10 @@
           ctx.beginPath(); ctx.moveTo(P[i][0], P[i][1]); ctx.lineTo(P[j][0], P[j][1]); ctx.stroke();
         }
         // atoms, far to near
-        const aorder = P.map((p, i) => [i, p[2]]).sort((a, b) => a[1] - b[1]);
-        for (const [i, z] of aorder) {
+        const AO = MOF.atomOrder;
+        AO.sort((a, b) => P[a][2] - P[b][2]);
+        for (let k = 0; k < AO.length; k++) {
+          const i = AO[k], z = P[i][2];
           const d = (z + 1) / 2;
           const m = clearAt(P[i][0], P[i][1]); if (m <= 0.02) continue;
           const el = MOF.els[i];
@@ -1163,7 +1200,7 @@
           return;
         }
         lastPaint = ts;
-        if (!t0) t0 = ts; const time = (ts - t0) / 1000;
+        const time = staticCanvas ? 0 : clock.now(ts);
         for (const k in cur) cur[k] += (tgt[k] - cur[k]) * 0.045;
         ctx.clearRect(0, 0, w, h);
         const amp = h * (0.16 + 0.07 * cur.ribbon);
@@ -1198,18 +1235,21 @@
           }
           ctx.stroke();
         }
-        // (c) luminous core thread — emerges from behind the hero text, dissolves toward the rail
-        ctx.save();
-        ctx.shadowColor = `rgba(${IND},${0.55 * cur.ribbon * breath})`; ctx.shadowBlur = 9;
+        // (c) luminous core thread — emerges from behind the hero text, dissolves toward the rail.
+        // Its halo is the same path stroked wide-and-faint beneath thin-and-bright: what a
+        // canvas shadowBlur gave, without the full-canvas blur pass that cost every frame.
         const a0 = STAGE.x0 / w, a1 = STAGE.x1 / w;
         const cg = ctx.createLinearGradient(0, 0, w, 0);
         cg.addColorStop(clamp01(a0 - 0.05), `rgba(${IND},0)`);
         cg.addColorStop(clamp01(a0 + 0.07), `rgba(${IND},${0.34 * cur.ribbon * breath})`);
         cg.addColorStop(clamp01(a1 - 0.03), `rgba(${IND},${0.26 * cur.ribbon * breath})`);
         cg.addColorStop(clamp01(a1 + 0.06), `rgba(${IND},0)`);
-        ctx.strokeStyle = cg; ctx.lineWidth = 1.4; ctx.lineCap = "round"; ctx.beginPath();
-        for (let s = 0; s <= 110; s++) { const u = s / 110, x = u * w, y = spineY(u, time, amp); s === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); }
-        ctx.stroke(); ctx.restore();
+        const thread = new Path2D();
+        for (let s = 0; s <= 110; s++) { const u = s / 110, x = u * w, y = spineY(u, time, amp); s === 0 ? thread.moveTo(x, y) : thread.lineTo(x, y); }
+        ctx.lineCap = "round";
+        ctx.strokeStyle = `rgba(${IND},${0.05 * cur.ribbon * breath})`; ctx.lineWidth = 10; ctx.stroke(thread);
+        ctx.strokeStyle = `rgba(${IND},${0.11 * cur.ribbon * breath})`; ctx.lineWidth = 4.5; ctx.stroke(thread);
+        ctx.strokeStyle = cg; ctx.lineWidth = 1.4; ctx.stroke(thread);
         }
 
         drawMatter(time);
@@ -1264,18 +1304,27 @@
       }
 
       resize(); addEventListener("resize", resize, { passive: true });
-      // when the structure arrives after the reduced-motion single frame,
-      // draw one more so the crystal appears in the still image too
-      const staticCanvas = reduced || mobileMQ.matches;
-      onMatterReady = () => {
-        if (staticCanvas) { t0 = 0; requestAnimationFrame((ts) => { frame(ts); cancelAnimationFrame(raf); }); }
-      };
-      if (staticCanvas) { requestAnimationFrame((ts) => { for (const k in cur) cur[k] = tgt[k]; frame(ts); cancelAnimationFrame(raf); }); }
-      else {
-        raf = requestAnimationFrame(frame);
-        document.addEventListener("visibilitychange", () => {
-          if (document.hidden) cancelAnimationFrame(raf); else { t0 = 0; raf = requestAnimationFrame(frame); }
-        });
+      if (staticCanvas) {
+        // when the structure arrives after the single frame, draw one more so
+        // the crystal appears in the still too; equation taps redraw it as well
+        onMatterReady = drawStill;
+        redrawStill = drawStill;
+        drawStill();
+      } else {
+        // the loop runs only while the tab is visible AND the hero is on
+        // screen — a reader three sections down was paying for 30 fps of
+        // ribbon they could not see. The clock pauses with it.
+        let running = false, offscreen = false;
+        const sync = () => {
+          const want = !document.hidden && !offscreen;
+          if (want && !running) { running = true; clock.resume(performance.now()); lastPaint = 0; raf = requestAnimationFrame(frame); }
+          else if (!want && running) { running = false; clock.pause(performance.now()); cancelAnimationFrame(raf); }
+        };
+        document.addEventListener("visibilitychange", sync);
+        if ("IntersectionObserver" in window) {
+          new IntersectionObserver((es) => { offscreen = es.some((e) => !e.isIntersecting); sync(); }).observe(canvas);
+        }
+        sync();
       }
 
       /* ── WebGPU tier: the same instrument, volumetrically lit. Loaded lazily,
@@ -1291,10 +1340,11 @@
           getTargets: () => tgt,
           getZones: () => zones,
           getStage: () => STAGE,
+          getTime: (ts) => clock.now(ts),
           claim: () => { gpuOwnsRibbon = true; },
           onLost: () => { gpuOwnsRibbon = false; gpuCanvas.style.opacity = "0"; },
         };
-        const boot = () => import("/assets/ribbon-gpu.js?v=1")
+        const boot = () => import("/assets/ribbon-gpu.js?v=2")
           .then((m) => m.start(bridge))
           .catch(() => {});
         if ("requestIdleCallback" in window) requestIdleCallback(boot, { timeout: 4000 });

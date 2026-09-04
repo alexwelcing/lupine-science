@@ -16,7 +16,6 @@ import { describe, it } from 'node:test';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { spawnSync } from 'node:child_process';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ATLAS_DIR = path.join(ROOT, 'public', 'atlas');
@@ -119,9 +118,4 @@ describe('atlas per-node detail pages (ATX-2 + ATX-5)', () => {
     }
   });
 
-  it('builder script is syntactically valid node', () => {
-    assert.ok(fs.existsSync(BUILDER));
-    const { status, stderr } = spawnSync(process.execPath, ['--check', BUILDER], { encoding: 'utf8' });
-    assert.equal(status, 0, `syntax check failed: ${stderr}`);
-  });
 });

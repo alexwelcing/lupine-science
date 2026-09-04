@@ -6,7 +6,12 @@
 // lupine_wiki_get read. We pull exactly the three ontology kinds the
 // public site needs to surface today (error_type, emblem, material_class)
 // and emit them under their canonical lupine-research://<kind>/<ID> URIs
-// — no renaming, no derivation, no ID synthesis.
+// — no renaming, no derivation, no ID synthesis. The same file carries a
+// `claims` map (short id -> {id, name}) for every claim node, because
+// scripts/build-claim-facets.mjs renders claim names and the CI runner
+// that builds the deploy artifact has no wiki DB: without committed names,
+// production shipped a "metadata not committed" sentinel in place of every
+// claim name (observed live on /atlas/claims/*/ on 2026-09-04).
 //
 // Fail-closed semantics:
 //   - DB missing, unreadable, or empty -> non-zero exit, no output.
@@ -82,7 +87,28 @@ const rows = db.prepare(`
   ORDER BY kind, id
 `).all(...KINDS);
 
+// Every claim node in the sphere, keyed by short id. Curated facets pick
+// from this map; the whole inventory is small (~150 rows) and committing all
+// of it means a newly curated claim never needs a DB host to get its name.
+const claimRows = db.prepare(`
+  SELECT id, name, status
+  FROM nodes
+  WHERE sphere_id = 'lupine-research'
+    AND kind = 'claim'
+    AND id LIKE 'lupine-research://claim/%'
+  ORDER BY id
+`).all();
+
 db.close();
+
+const claims = {};
+for (const row of claimRows) {
+  if (row.status && row.status !== 'active') continue;
+  const shortId = String(row.id).slice('lupine-research://claim/'.length);
+  if (!shortId || !row.name) fail(`claim node without id/name: ${row.id}`);
+  claims[shortId] = { id: row.id, name: row.name };
+}
+if (Object.keys(claims).length === 0) fail('no claim nodes in the lupine-research sphere (refusing to ship an atlas without claim names)');
 
 const buckets = Object.fromEntries(KINDS.map((k) => [k, []]));
 for (const row of rows) {
@@ -107,9 +133,10 @@ const payload = {
   generated_at_build: true,
   kinds: buckets,
   counts: Object.fromEntries(KINDS.map((k) => [k, buckets[k].length])),
+  claims: Object.fromEntries(Object.keys(claims).sort((a, b) => a.localeCompare(b)).map((k) => [k, claims[k]])),
 };
 
 fs.mkdirSync(path.dirname(OUT), { recursive: true });
 fs.writeFileSync(OUT, `${JSON.stringify(payload, null, 2)}\n`);
 
-console.log(`atlas_nodes: ${KINDS.map((k) => `${k}=${buckets[k].length}`).join(', ')} -> ${path.relative(ROOT, OUT)}`);
+console.log(`atlas_nodes: ${KINDS.map((k) => `${k}=${buckets[k].length}`).join(', ')}, claims=${Object.keys(claims).length} -> ${path.relative(ROOT, OUT)}`);

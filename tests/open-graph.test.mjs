@@ -1,9 +1,8 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { before, describe, it } from 'node:test';
+import { describe, it } from 'node:test';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -11,14 +10,9 @@ function readArticle(slug) {
   return fs.readFileSync(path.join(ROOT, 'public', 'articles', slug, 'index.html'), 'utf8');
 }
 
-before(() => {
-  const result = spawnSync(process.execPath, ['scripts/build-articles.mjs'], {
-    cwd: ROOT,
-    encoding: 'utf8',
-  });
-  assert.equal(result.status, 0, result.stderr);
-});
-
+// Reads the committed build output, like every other suite here. The old
+// before() hook rebuilt public/articles/ in place, which made this file the
+// one test that could not run alongside the others.
 describe('article Open Graph metadata', () => {
   it('uses scope when the optional description is missing', () => {
     const html = readArticle('the-order-is-right-the-size-is-wrong');

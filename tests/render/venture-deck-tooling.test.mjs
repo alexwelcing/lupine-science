@@ -7,9 +7,9 @@ import { spawnSync } from 'node:child_process';
 import { afterEach, describe, it } from 'node:test';
 import { PDFDocument } from 'pdf-lib';
 import { chromium } from 'playwright-core';
-import { renderDeckPdf, validateClosureCertification, validateDeckArtifacts } from '../scripts/venture-deck-tools.mjs';
+import { renderDeckPdf, validateClosureCertification, validateDeckArtifacts } from '../../scripts/venture-deck-tools.mjs';
 
-const ROOT = path.resolve(import.meta.dirname, '..');
+const ROOT = path.resolve(import.meta.dirname, '..', '..');
 const PROJECT = path.join(ROOT, 'media/projects/venture-deck');
 const temporaryDirectories = [];
 
@@ -204,8 +204,8 @@ describe('venture deck render tooling', () => {
   it('provides build and validate CLIs that operate on explicit fixture paths', () => {
     const files = workspace();
     fs.writeFileSync(files.htmlPath, deckHtml());
-    const buildScript = path.resolve(import.meta.dirname, '../media/projects/venture-deck/build-deck.mjs');
-    const validateScript = path.resolve(import.meta.dirname, '../media/projects/venture-deck/validate-deck.mjs');
+    const buildScript = path.resolve(import.meta.dirname, '../../media/projects/venture-deck/build-deck.mjs');
+    const validateScript = path.resolve(import.meta.dirname, '../../media/projects/venture-deck/validate-deck.mjs');
 
     const build = runScript(buildScript, ['--html', files.htmlPath, '--pdf', files.pdfPath]);
     assert.equal(build.status, 0, build.stderr);
@@ -219,8 +219,8 @@ describe('venture deck render tooling', () => {
   it('rejects partial fixture arguments without touching the canonical PDF', () => {
     const files = workspace();
     fs.writeFileSync(files.htmlPath, deckHtml());
-    const buildScript = path.resolve(import.meta.dirname, '../media/projects/venture-deck/build-deck.mjs');
-    const validateScript = path.resolve(import.meta.dirname, '../media/projects/venture-deck/validate-deck.mjs');
+    const buildScript = path.resolve(import.meta.dirname, '../../media/projects/venture-deck/build-deck.mjs');
+    const validateScript = path.resolve(import.meta.dirname, '../../media/projects/venture-deck/validate-deck.mjs');
     const canonicalPdf = path.join(PROJECT, 'lupine-science-venture-deck.pdf');
     const canonicalHash = sha256(canonicalPdf);
 
@@ -236,7 +236,7 @@ describe('venture deck render tooling', () => {
 
   it('keeps the integrated stage and controls inside short 1280px viewports', async () => {
     const files = workspace();
-    const template = fs.readFileSync(path.resolve(import.meta.dirname, '../media/projects/venture-deck/index.html'), 'utf8');
+    const template = fs.readFileSync(path.resolve(import.meta.dirname, '../../media/projects/venture-deck/index.html'), 'utf8');
     fs.writeFileSync(files.htmlPath, template.replace('__EVIDENCE_MANIFEST__', '{}'));
     const browser = await chromium.launch({ headless: true });
 

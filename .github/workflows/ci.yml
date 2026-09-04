@@ -103,7 +103,15 @@ jobs:
         run: npm run build
 
       - name: Run unit tests
+        # Fast, parallel, no browser. Failures here surface in seconds instead
+        # of behind the three-minute PDF suites below.
         run: npm test
+
+      - name: Run render tests (Chromium PDF, poppler)
+        # tests/render/: proof-pack and venture-deck builders drive a real
+        # Chromium to print PDFs and check them with poppler — 90% of the
+        # suite's wall clock, kept serial and separate.
+        run: npm run test:render
 
       - name: Report unit-test failure
         if: failure()

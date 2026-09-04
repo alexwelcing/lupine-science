@@ -27,7 +27,7 @@ node media/projects/venture-deck/validate-deck.mjs --html path/to/deck.html --pd
 Run the offline fixture self-tests (these do not render the final deck) with:
 
 ```sh
-node --test tests/venture-deck-tooling.test.mjs
+node --test tests/render/venture-deck-tooling.test.mjs
 ```
 
 The self-tests cover a valid 12-slide build, slide-count rejection, overflow rejection, external-request rejection, PDF/slide page-count mismatch rejection, precise still-closure scoping, and canonical PDF/build-manifest parity across every supported final build entry point.

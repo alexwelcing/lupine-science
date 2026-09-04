@@ -1,5 +1,26 @@
 # Lupine Science Changelog
 
+## 2026-09-04
+
+### Fixed
+- **Every claim name on `/atlas/claims/*/` was blank in production.** Live, every row on all eight facet pages read `(metadata not committed on this CI host - claim URI is canonical)` in place of the claim's name. `scripts/build-claim-facets.mjs` reads names from the wiki DB, and when the DB is absent it rendered that sentinel; the CI runner has no wiki DB, and the deploy artifact is CI's build, so the sentinel was what shipped even though the reviewed HTML in the repo carried the real names. `public/data/atlas_nodes.json` now carries a `claims` map (69 curated claims today; `build-atlas-nodes.mjs` writes every claim node on a host with the DB), the facet builder reads it, and a claim without a committed name is a build failure that names the ids — there is no placeholder path any more. Rebuilding on this DB-less host reproduces the reviewed pages byte for byte, so the next deploy fixes the live site.
+- **The two hero tiers kept separate clocks.** The WebGPU sheets started their clock when the module loaded (an idle callback, seconds after first paint) and the 2D tier reset its own clock on every tab switch, so the sheets and the 2D glyphs — the particles collapsing onto the spine, the ochre ledger dots riding it — disagreed on the spine's phase, by up to about a tenth of the viewport height. One pausable clock now lives in the page and reaches the module through `bridge.getTime(ts)`; the module keeps a local clock only for a bridge that has none.
+- **A still hero went blank after any resize on phones and under reduced motion.** Assigning `canvas.width` wipes the bitmap and nothing redrew, so rotating a phone or hiding its address bar left the hero empty. Resize now redraws the still, the sample field is only reseeded when its size changes (not on every address-bar resize), and an equation tap redraws the still so phones see the focus change too.
+- **`main` CI was red on `tests/theorem-count.test.mjs`** since #72: the PFAS production contract lists `"190 build-locked Lean 4 theorems"` under `prohibitedClaimPatterns`, and the hand-typed-count scan read the ban as the offence. The scan now blanks that array before matching.
+
+### Changed
+- The 2D hero loop pauses while the hero is off screen, not only while the tab is hidden. A reader three sections down was paying for a 30 fps canvas they could not see; measured in headless Chromium at 60 rAF/s at the top of the page, 0 while scrolled away, 60 again on return, with the canvas intact.
+- The core thread's glow is three strokes of one `Path2D` (wide and faint under thin and bright) instead of a `shadowBlur`, which cost a full-canvas blur pass every frame. The MOF-5 drawing reuses its projection and painter's-order buffers instead of allocating and sorting fresh arrays per frame.
+- `npm test` is the fast suite: `tests/*.test.mjs`, parallel, no browser, about 10 s. The proof-pack and venture-deck suites — which drive Chromium to print PDFs and took 218 of the old 235 s — moved to `tests/render/` behind `npm run test:render` (serial); `npm run test:all` runs both. CI runs them as two steps of the same job so a unit failure surfaces in seconds. `tests/open-graph.test.mjs` no longer rebuilds `public/articles/` in place before reading it, which was the one thing that made the fast suite unsafe to parallelize.
+
+### Removed
+- Ten tests that re-ran `node --check` on a builder (`npm run lint` already does that for every script) or grepped builder source for comment strings and log lines. Deleting them removes no behavioural check: the JSON-shape, route, sitemap, and fail-closed assertions those suites also carry all stay.
+
+### Verified
+- `npm run lint`, `npm run build`, `npm run verify` pass. A rebuild changes only the four files this change intends (`index.html`, `ribbon-gpu.js`, the CSP hashes in `_headers`, `atlas_nodes.json`).
+- `npm test`: 272 pass, 12 fail on this host — all twelve are the narration checks that need `ffmpeg`/`ffprobe` and the fetched provenance commit, which CI installs. `npm run test:render`: 43/45, the two failures being the sandbox Chromium cases that already failed here before this change and pass on CI.
+- Homepage driven in headless Chromium at desktop, phone, and reduced-motion settings: no page errors, the fallback-chain and GPU-contract suites pass, and `?v=2` cache-busts the module import.
+
 ## 2026-08-08
 
 ### Fixed

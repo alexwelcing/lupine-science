@@ -7,27 +7,27 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
-import { chromiumExecutablePath } from '../scripts/lib/chromium-executable.mjs';
+import { chromiumExecutablePath } from '../../scripts/lib/chromium-executable.mjs';
 import {
   legacyRenderPdf,
   renderPackHtml,
   verifyArtifactIntegrity,
   verifyFigureIntegrity,
-} from '../scripts/build-proofpack.mjs';
-import { validateProofPack } from '../scripts/validate-proofpack.mjs';
-import { inspectPdf } from '../scripts/check-pdf.mjs';
+} from '../../scripts/build-proofpack.mjs';
+import { validateProofPack } from '../../scripts/validate-proofpack.mjs';
+import { inspectPdf } from '../../scripts/check-pdf.mjs';
 import {
   generateProofPack,
   listEligibleArticles,
   validateProofPackOutput,
-} from '../lib/proof-pack-generator.mjs';
+} from '../../lib/proof-pack-generator.mjs';
 import {
   assertNoOutputCollisions,
   isLoopbackRequestUrl,
   resolvePublicRequestPath,
-} from '../scripts/build-proofpack.mjs';
+} from '../../scripts/build-proofpack.mjs';
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const SCRIPT = path.join(ROOT, 'scripts', 'build-proofpack.mjs');
 const OUT_DIR = path.join(ROOT, 'public', 'proof-packs');
 const SLUG = 'five-materials-for-5-to-12-gtco2-year';

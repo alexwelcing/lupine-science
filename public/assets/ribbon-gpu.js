@@ -8,7 +8,10 @@
 // but not exactly coplanar. That near-miss IS the result on the page.
 //
 // Contract with index.html (the `bridge` argument):
-//   canvas, getData(), getTargets(), getZones(), getStage(), claim(), onLost()
+//   canvas, getData(), getTargets(), getZones(), getStage(), getTime(ts),
+//   claim(), onLost()
+// getTime is the page's shared clock: both tiers must agree on the spine's
+// phase, and a private clock here started seconds after the 2D tier's.
 // Any failure, at any point, calls onLost() (or never claims) and the 2D
 // renderer keeps the stage. This file must never be the reason the hero is dark.
 
@@ -322,9 +325,10 @@ export async function start(bridge) {
       }
     }
     lastPaint = ts;
-    if (!t0) t0 = ts;
+    // seconds from the page's clock (a bridge without one gets a local clock)
+    const time = typeof bridge.getTime === "function" ? bridge.getTime(ts) : (ts - (t0 || (t0 = ts))) / 1000;
     try {
-      uniforms((ts - t0) / 1000);
+      uniforms(time);
       device.queue.writeBuffer(ubuf, 0, uarr);
       const enc = device.createCommandEncoder();
       const pass = enc.beginRenderPass({

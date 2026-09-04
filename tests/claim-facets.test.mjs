@@ -5,8 +5,9 @@
 //   - the facets index + every curated facet page ship under /atlas/claims/
 //   - each facet page carries every curated claim as a row with the canonical
 //     lupine-research://claim/<id> URI
-//   - every curated claim id resolves in the wiki DB (or committed JSON
-//     fallback) — no orphan claims
+//   - every curated claim has a committed name in atlas_nodes.json, and
+//     every shipped row renders it (the CI runner has no wiki DB; a
+//     nameless claim once shipped to production as a placeholder)
 //   - the curated mapping has no duplicate claim IDs across facets
 //   - facets are listed in narrative order on the index
 //   - the sitemap enumerates /atlas/claims/ and every facet
@@ -17,14 +18,15 @@ import { describe, it } from 'node:test';
 import fs from 'node:fs';
 import path from 'path';
 import { fileURLToPath } from 'node:url';
-import { spawnSync } from 'node:child_process';
-import { DatabaseSync } from 'node:sqlite';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CLAIMS_DIR = path.join(ROOT, 'public', 'atlas', 'claims');
 const SITEMAP = path.join(ROOT, 'public', 'sitemap.xml');
 const ATLAS_INDEX = path.join(ROOT, 'public', 'atlas', 'index.html');
 const BUILDER = path.join(ROOT, 'scripts', 'build-claim-facets.mjs');
+const ATLAS_JSON = path.join(ROOT, 'public', 'data', 'atlas_nodes.json');
+const escapeHtml = (s) => String(s)
+  .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 
 // The curated FACETS table lives in the builder. To keep this test in
 // sync with the builder, we re-import the source and parse the FACETS
@@ -52,23 +54,17 @@ describe('atlas curated claim facets (ATX-3)', () => {
     }
   });
 
-  it('every curated claim id resolves in the wiki DB', () => {
-    const dbPath = path.join(process.env.HOME, '.hermes', 'lupine-wiki.db');
-    if (!fs.existsSync(dbPath)) {
-      // CI without the timer: the builder falls back to a sentinel. Skip
-      // the DB existence assertion; the builder's own fail-closed handles it.
-      return;
-    }
-    const db = new DatabaseSync(dbPath, { readOnly: true });
-    try {
-      for (const facet of FACETS) {
-        for (const cid of facet.claims) {
-          const row = db.prepare(`SELECT id FROM nodes WHERE id = ?`).get(`lupine-research://claim/${cid}`);
-          assert.ok(row, `claim ${cid} (in facet ${facet.slug}) not in wiki DB`);
-        }
+  it('every curated claim has a committed name, and every shipped row renders it', () => {
+    const atlas = JSON.parse(fs.readFileSync(ATLAS_JSON, 'utf8'));
+    assert.ok(atlas.claims && typeof atlas.claims === 'object', 'atlas_nodes.json has no claims map');
+    for (const facet of FACETS) {
+      const html = fs.readFileSync(path.join(CLAIMS_DIR, facet.slug, 'index.html'), 'utf8');
+      assert.ok(!/metadata not committed/.test(html), `${facet.slug} ships a placeholder instead of a claim name`);
+      for (const cid of facet.claims) {
+        const name = atlas.claims[cid] && atlas.claims[cid].name;
+        assert.ok(typeof name === 'string' && name.trim(), `claim ${cid} (facet ${facet.slug}) has no committed name`);
+        assert.ok(html.includes(escapeHtml(name)), `${facet.slug} does not render the name of ${cid}`);
       }
-    } finally {
-      db.close();
     }
   });
 
@@ -110,18 +106,6 @@ describe('atlas curated claim facets (ATX-3)', () => {
     assert.ok(html.includes('href="/atlas/claims/"'), '/atlas/ index does not link to /atlas/claims/');
   });
 
-  it('builder script is syntactically valid node', () => {
-    const { status, stderr } = spawnSync(process.execPath, ['--check', BUILDER], { encoding: 'utf8' });
-    assert.equal(status, 0, `syntax check failed: ${stderr}`);
-  });
-
-  it('builder encodes the fail-closed semantics this test asserts', () => {
-    const src = fs.readFileSync(BUILDER, 'utf8');
-    assert.match(src, /LUPINE_FORCE_ATLAS_WIKI/, 'builder missing the strict-mode opt-in');
-    assert.match(src, /duplicate facet slug/, 'builder missing the dup-facet-slug check');
-    assert.match(src, /multiple facets/, 'builder missing the cross-facet claim dup check');
-    assert.match(src, /appears in multiple facets/, 'builder missing the cross-facet dup message');
-  });
 });
 
 // Parse FACETS out of the builder source. The literal is an array literal

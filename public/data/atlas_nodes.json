@@ -138,5 +138,283 @@
     "error_type": 7,
     "emblem": 9,
     "material_class": 9
+  },
+  "claims": {
+    "CA1": {
+      "id": "lupine-research://claim/CA1",
+      "name": "Climate aggregate"
+    },
+    "CG-High": {
+      "id": "lupine-research://claim/CG-High",
+      "name": "At least two independent evidence units concur"
+    },
+    "CG-Medium": {
+      "id": "lupine-research://claim/CG-Medium",
+      "name": "Single authoritative source; hedged inline; never thesis-load-bearing alone"
+    },
+    "CT1": {
+      "id": "lupine-research://claim/CT1",
+      "name": "Cobalt-free LMR cathodes"
+    },
+    "CT2": {
+      "id": "lupine-research://claim/CT2",
+      "name": "Earth-abundant halide solid electrolytes"
+    },
+    "CT3": {
+      "id": "lupine-research://claim/CT3",
+      "name": "MOF sorbents for DAC"
+    },
+    "CT4": {
+      "id": "lupine-research://claim/CT4",
+      "name": "Electrochemical ammonia catalysts"
+    },
+    "CT5": {
+      "id": "lupine-research://claim/CT5",
+      "name": "Lead-free perovskite absorbers"
+    },
+    "CZ-1": {
+      "id": "lupine-research://claim/CZ-1",
+      "name": "NEB barrier headline"
+    },
+    "CZ-2": {
+      "id": "lupine-research://claim/CZ-2",
+      "name": "Hydride compute share"
+    },
+    "CZ-3": {
+      "id": "lupine-research://claim/CZ-3",
+      "name": "China storage projection"
+    },
+    "CZ-4": {
+      "id": "lupine-research://claim/CZ-4",
+      "name": "Tritium balance"
+    },
+    "EMK-FRC": {
+      "id": "lupine-research://claim/EMK-FRC",
+      "name": "Forecast; dependent on time, cost, market, or policy variables"
+    },
+    "EMK-INF": {
+      "id": "lupine-research://claim/EMK-INF",
+      "name": "Author's interpretation of the cited evidence"
+    },
+    "EMK-OBS": {
+      "id": "lupine-research://claim/EMK-OBS",
+      "name": "Directly supported by the cited study"
+    },
+    "EMK-PRP": {
+      "id": "lupine-research://claim/EMK-PRP",
+      "name": "Proposed; not yet demonstrated anywhere"
+    },
+    "EMK-TRN": {
+      "id": "lupine-research://claim/EMK-TRN",
+      "name": "Demonstrated elsewhere, not yet in this class or observable"
+    },
+    "F1": {
+      "id": "lupine-research://claim/F1",
+      "name": "The inherited floor"
+    },
+    "F2": {
+      "id": "lupine-research://claim/F2",
+      "name": "The level playing field"
+    },
+    "F3": {
+      "id": "lupine-research://claim/F3",
+      "name": "The validation-first wedge"
+    },
+    "FP1": {
+      "id": "lupine-research://claim/FP1",
+      "name": "Formal proof library"
+    },
+    "K1": {
+      "id": "lupine-research://claim/K1",
+      "name": "The 90:10 fidelity wedge"
+    },
+    "K2": {
+      "id": "lupine-research://claim/K2",
+      "name": "Barrier wedge"
+    },
+    "K3": {
+      "id": "lupine-research://claim/K3",
+      "name": "Fusion long game"
+    },
+    "L1": {
+      "id": "lupine-research://claim/L1",
+      "name": "Non-equilibrium pretraining"
+    },
+    "L2": {
+      "id": "lupine-research://claim/L2",
+      "name": "Multi-fidelity Δ-learning"
+    },
+    "L3": {
+      "id": "lupine-research://claim/L3",
+      "name": "Systematic-error surgery + experiment anchoring"
+    },
+    "LM1": {
+      "id": "lupine-research://claim/LM1",
+      "name": "Lupine Method"
+    },
+    "PUB-1": {
+      "id": "lupine-research://claim/PUB-1",
+      "name": "PUB-1 shared DFT-anchor proof pack — published and verified"
+    },
+    "R1": {
+      "id": "lupine-research://claim/R1",
+      "name": "Fidelity ceiling: Δ-learning asymptotes below hybrid accuracy"
+    },
+    "R2": {
+      "id": "lupine-research://claim/R2",
+      "name": "Many-species data wall: composition space unlearnable to threshold"
+    },
+    "R3": {
+      "id": "lupine-research://claim/R3",
+      "name": "Solo-execution/credibility: one failed prediction is existential"
+    },
+    "R4": {
+      "id": "lupine-research://claim/R4",
+      "name": "REE-lapse/export-control shock: 0.1% rule auto-revives 2026-11-10"
+    },
+    "R5": {
+      "id": "lupine-research://claim/R5",
+      "name": "Compute-ladder gating at top (INCITE readiness; ALCC funding prerequisite)"
+    },
+    "R6": {
+      "id": "lupine-research://claim/R6",
+      "name": "Instrument disappearance (OCED zeroed; SBIR lapsed 195 days)"
+    },
+    "R7": {
+      "id": "lupine-research://claim/R7",
+      "name": "Foundation-model commoditization closing the wedge early"
+    },
+    "RG-H": {
+      "id": "lupine-research://claim/RG-H",
+      "name": "Two or more independent demonstrations on the target observable at useful scale"
+    },
+    "RG-L": {
+      "id": "lupine-research://claim/RG-L",
+      "name": "No demonstration on the target observable"
+    },
+    "RG-M": {
+      "id": "lupine-research://claim/RG-M",
+      "name": "Demonstrated in principle (mechanism-level or adjacent-domain; matched-budget evidence lacking)"
+    },
+    "RP1": {
+      "id": "lupine-research://claim/RP1",
+      "name": "RP1"
+    },
+    "RP2": {
+      "id": "lupine-research://claim/RP2",
+      "name": "RP2"
+    },
+    "RP3": {
+      "id": "lupine-research://claim/RP3",
+      "name": "RP3"
+    },
+    "S1": {
+      "id": "lupine-research://claim/S1",
+      "name": "A-Lab 41 'novel' compounds (Nature 2023)"
+    },
+    "S2": {
+      "id": "lupine-research://claim/S2",
+      "name": "GNoME 2.2M crystals / 381k 'stable'"
+    },
+    "S3": {
+      "id": "lupine-research://claim/S3",
+      "name": "LK-99 room-temperature superconductivity (2023)"
+    },
+    "S4": {
+      "id": "lupine-research://claim/S4",
+      "name": "CSH 2020 & Lu-hydride 2023 room-Tc claims"
+    },
+    "S5": {
+      "id": "lupine-research://claim/S5",
+      "name": "'AI-assisted researchers discover 44% more materials'"
+    },
+    "S6": {
+      "id": "lupine-research://claim/S6",
+      "name": "DFT-guided electrochemical N₂-reduction literature"
+    },
+    "S7": {
+      "id": "lupine-research://claim/S7",
+      "name": "ML water-stability MOF classifiers (83%/71%)"
+    },
+    "SB1": {
+      "id": "lupine-research://claim/SB1",
+      "name": "Equilibrium-only pretraining bias"
+    },
+    "SB10": {
+      "id": "lupine-research://claim/SB10",
+      "name": "Reference-functional ceiling"
+    },
+    "SB2": {
+      "id": "lupine-research://claim/SB2",
+      "name": "Systematic PES softening"
+    },
+    "SB3": {
+      "id": "lupine-research://claim/SB3",
+      "name": "Wrong fidelity: PBE labels where SCAN/hybrid needed"
+    },
+    "SB4": {
+      "id": "lupine-research://claim/SB4",
+      "name": "Missing long-range physics"
+    },
+    "SB5": {
+      "id": "lupine-research://claim/SB5",
+      "name": "No in-simulation trust signal"
+    },
+    "SB6": {
+      "id": "lupine-research://claim/SB6",
+      "name": "Benchmark–reality gap"
+    },
+    "SB7": {
+      "id": "lupine-research://claim/SB7",
+      "name": "Rare events / barriers"
+    },
+    "SB8": {
+      "id": "lupine-research://claim/SB8",
+      "name": "Extreme conditions"
+    },
+    "SB9": {
+      "id": "lupine-research://claim/SB9",
+      "name": "Missing electronic degrees of freedom"
+    },
+    "SG1": {
+      "id": "lupine-research://claim/SG1",
+      "name": "simulation accuracy"
+    },
+    "SG2": {
+      "id": "lupine-research://claim/SG2",
+      "name": "prospective hit-rate uplift"
+    },
+    "SG3": {
+      "id": "lupine-research://claim/SG3",
+      "name": "synthesis"
+    },
+    "SG4": {
+      "id": "lupine-research://claim/SG4",
+      "name": "stability/durability"
+    },
+    "SG5": {
+      "id": "lupine-research://claim/SG5",
+      "name": "component performance"
+    },
+    "SG6": {
+      "id": "lupine-research://claim/SG6",
+      "name": "manufacturability"
+    },
+    "SG7": {
+      "id": "lupine-research://claim/SG7",
+      "name": "technoeconomics"
+    },
+    "X1": {
+      "id": "lupine-research://claim/X1",
+      "name": "Conventional steels, simple metals, commodity ceramics"
+    },
+    "X2": {
+      "id": "lupine-research://claim/X2",
+      "name": "Bio/pharma, small-molecule discovery"
+    },
+    "X3": {
+      "id": "lupine-research://claim/X3",
+      "name": "Quantum-computing hype; business plan; lobbying"
+    }
   }
 }

@@ -35,10 +35,11 @@ function narrativeFiles(root) {
 test('narrative theorem counts come from the generated Lean inventory', () => {
   assert.ok(Number.isSafeInteger(inventory.count) && inventory.count > 0);
   for (const file of [...NARRATIVE_ROOTS.flatMap(narrativeFiles), ...NARRATIVE_FILES]) {
-    const source = fs.readFileSync(file, 'utf8').replaceAll(
-      `<strong data-lean-count>${inventory.count}</strong>`,
-      '<strong data-lean-count>generated</strong>',
-    );
+    const source = fs.readFileSync(file, 'utf8')
+      .replaceAll(`<strong data-lean-count>${inventory.count}</strong>`, '<strong data-lean-count>generated</strong>')
+      // a production contract's denylist names the phrase it forbids; that is
+      // not a claim, so the scan must not read the ban as the offence
+      .replace(/"prohibitedClaimPatterns":\s*\[[^\]]*\]/g, '"prohibitedClaimPatterns": []');
     if (/"epistemicStatus":\s*"frozen historical snapshot from commit [0-9a-f]+; retained verbatim for narration recovery provenance"/.test(source)) {
       continue;
     }

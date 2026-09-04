@@ -22,8 +22,11 @@
 //                       and program milestones (PUB-1, FP1, LM1, RP1-RP3, CA1).
 //
 // Fail-closed semantics:
-//   - DB missing -> fall back to committed claims JSON (CI skip-mode).
-//   - Claim ID in a facet not found in the source -> exit 1, names the facet.
+//   - DB missing -> read claim names from the committed atlas_nodes.json
+//     `claims` map (written by build-atlas-nodes.mjs on a host with the DB).
+//   - Claim ID missing from whichever source is in use -> exit 1, names the
+//     claim. There is no placeholder path: the CI runner has no DB, and a
+//     placeholder here shipped to production as the visible claim name.
 //   - Duplicate facet slugs or claim IDs across facets -> exit 1.
 //
 // Source-of-truth ordering: facets are listed in a deliberate narrative
@@ -129,22 +132,22 @@ if (!fs.existsSync(DB)) {
     fail(`wiki DB absent at ${DB} and no committed ${path.relative(ROOT, ATLAS_JSON)} exists; cannot ship claim facets`);
   }
   console.log(`wiki DB absent at ${DB} - using committed ${path.relative(ROOT, ATLAS_JSON)} as the source for claim metadata`);
-  // atlas_nodes.json does NOT currently include claims; load claims from a
-  // separate committed file if present. Build-claim-facets requires the wiki
-  // DB for full coverage; on CI hosts without the timer we still ship the
-  // page shells so the routes resolve, but each claim row shows a
-  // "metadata not committed" sentinel. CI hosts without the wiki DB will
-  // need the timer; this matches the project's existing skip-mode pattern.
   const atlas = JSON.parse(fs.readFileSync(ATLAS_JSON, 'utf8'));
-  if (!atlas.claims) atlas.claims = {};
+  if (!atlas.claims || typeof atlas.claims !== 'object') {
+    fail(`${path.relative(ROOT, ATLAS_JSON)} has no claims map; regenerate it on a host with the wiki DB (node scripts/build-atlas-nodes.mjs)`);
+  }
   claimIndex = new Map();
+  const missing = [];
   for (const id of allIds) {
     const entry = atlas.claims[id];
-    if (entry && entry.name) {
+    if (entry && typeof entry.name === 'string' && entry.name.trim()) {
       claimIndex.set(id, { uri: `lupine-research://claim/${id}`, name: entry.name, wiki_db_available: false });
     } else {
-      claimIndex.set(id, { uri: `lupine-research://claim/${id}`, name: null, wiki_db_available: false });
+      missing.push(id);
     }
+  }
+  if (missing.length) {
+    fail(`committed ${path.relative(ROOT, ATLAS_JSON)} lacks a name for ${missing.length} curated claim(s): ${missing.join(', ')} — regenerate it on a host with the wiki DB`);
   }
 } else {
   const db = new DatabaseSync(DB, { readOnly: true });
@@ -198,9 +201,7 @@ function escapeAttr(s) {
 function pageHtml({ facet, claims }) {
   const rows = claims.map((c) => {
     const shortId = c.uri.split('/').pop();
-    const displayName = c.name
-      ? escapeHtml(c.name)
-      : `<span class="atlas-claim-meta">(metadata not committed on this CI host - claim URI is canonical)</span>`;
+    const displayName = escapeHtml(c.name);
     return `        <li class="atlas-claim-row">
           <span class="atlas-claim-id">${escapeHtml(shortId)}</span>
           <span class="atlas-claim-name">${displayName}</span>
