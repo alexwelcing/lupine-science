@@ -3,7 +3,10 @@
 // the short id (T1, E4, MC9). Each page shows:
 //   - the canonical lupine-research://<kind>/<id> URI (large, copy-pasteable)
 //   - the node name and kind
-//   - the list of articles that reference this node (ATX-5, folded in)
+//   - the articles that reference this node (ATX-5), as a reading list:
+//     title, deck, and date read from each built article's JSON-LD, newest
+//     first — a reader arriving from a citation gets somewhere to go next,
+//     not a row of URL slugs
 //   - a back link to /atlas/
 //   - JSON-LD ItemPage
 //
@@ -66,14 +69,48 @@ nodes.sort((a, b) => a.uri.localeCompare(b.uri));
 
 if (nodes.length === 0) fail('atlas_nodes.json contains zero nodes');
 
-// Validate every article slug in by_node has a built article on disk.
+// Every article slug in by_node must have a built article on disk, and that
+// article's JSON-LD must carry the headline, deck, and date the reading list
+// shows. Reading the built page rather than the Markdown keeps this builder
+// downstream of build-articles.mjs's own frontmatter rules.
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+function longDate(iso) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+  if (!m) return null;
+  return `${MONTHS[Number(m[2]) - 1]} ${Number(m[3])}, ${m[1]}`;
+}
+const articleMeta = new Map();
+function readArticleMeta(slug) {
+  if (articleMeta.has(slug)) return articleMeta.get(slug);
+  const articleHtml = path.join(ROOT, 'public', 'articles', slug, 'index.html');
+  if (!fs.existsSync(articleHtml)) {
+    fail(`by_node references article "${slug}" but no built HTML at ${path.relative(ROOT, articleHtml)}`);
+  }
+  const html = fs.readFileSync(articleHtml, 'utf8');
+  const ld = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+  if (!ld) fail(`article "${slug}" has no JSON-LD to read a title from`);
+  let doc;
+  try { doc = JSON.parse(ld[1]); } catch { fail(`article "${slug}" has unparseable JSON-LD`); }
+  const graph = Array.isArray(doc['@graph']) ? doc['@graph'] : [doc];
+  const article = graph.find((n) => n && n['@type'] === 'Article');
+  if (!article || typeof article.headline !== 'string' || !article.headline.trim()) {
+    fail(`article "${slug}" JSON-LD has no Article headline`);
+  }
+  const meta = {
+    slug,
+    title: article.headline.trim(),
+    deck: typeof article.description === 'string' ? article.description.trim() : '',
+    date: typeof article.datePublished === 'string' ? article.datePublished : '',
+    dateLong: longDate(article.datePublished),
+  };
+  if (!meta.dateLong) fail(`article "${slug}" JSON-LD datePublished is not YYYY-MM-DD: ${meta.date}`);
+  articleMeta.set(slug, meta);
+  return meta;
+}
 for (const [uri, slugs] of Object.entries(crosslinks.by_node)) {
   for (const slug of slugs) {
     if (typeof slug !== 'string' || slug.length === 0) fail(`by_node[${uri}] has empty slug`);
-    const articleHtml = path.join(ROOT, 'public', 'articles', slug, 'index.html');
-    if (!fs.existsSync(articleHtml)) {
-      fail(`by_node[${uri}] references article "${slug}" but no built HTML at ${path.relative(ROOT, articleHtml)}`);
-    }
+    readArticleMeta(slug);
   }
 }
 
@@ -105,13 +142,19 @@ function escapeAttrContent(s) {
 }
 
 function pageHtml({ kind, uri, name, id }) {
-  const referencedBy = (crosslinks.by_node[id] || []).slice().sort();
+  // newest first, then title — the order a reader wants, not the order of slugs
+  const referencedBy = (crosslinks.by_node[id] || []).map(readArticleMeta)
+    .sort((a, b) => (b.date.localeCompare(a.date)) || a.title.localeCompare(b.title));
   const referencedSection = referencedBy.length > 0
     ? `      <section class="atlas-detail-references" aria-label="Articles that reference ${escapeHtml(uri)}">
-        <p class="atlas-detail-kicker">Referenced by</p>
-        <ul class="atlas-detail-refs">
-${referencedBy.map((slug) => `          <li><a class="atlas-detail-ref-link" href="/articles/${escapeHtml(slug)}/">${escapeHtml(slug)}</a></li>`).join('\n')}
-        </ul>
+        <p class="atlas-detail-kicker">Referenced by <span class="atlas-detail-kicker-count">${referencedBy.length} article${referencedBy.length === 1 ? '' : 's'}</span></p>
+        <ol class="atlas-detail-reading">
+${referencedBy.map((a) => `          <li><a class="atlas-detail-ref" href="/articles/${escapeHtml(a.slug)}/">
+            <span class="atlas-ref-date">${escapeHtml(a.dateLong)}</span>
+            <span class="atlas-ref-title">${escapeHtml(a.title)}</span>${a.deck ? `
+            <span class="atlas-ref-deck">${escapeHtml(a.deck)}</span>` : ''}
+          </a></li>`).join('\n')}
+        </ol>
       </section>`
     : `      <p class="atlas-detail-no-refs">No public articles reference this node yet. Editors: add an Ontology line in the article frontmatter, e.g. <code>&gt; **Ontology:** ${escapeHtml(uri.split('/').pop())}</code>.</p>`;
 
@@ -156,7 +199,7 @@ ${renderHeadMetaTags(headMetaTitleSegments({ prefix: uri, primary: name, suffix:
     <p class="atlas-detail-uri" aria-label="Canonical URI"><code>${escapeHtml(id)}</code></p>
     <p class="atlas-detail-blurb">${escapeHtml(blurb)}</p>
 ${referencedSection}
-    <p class="atlas-detail-asof">Source: <a href="/atlas/">Lupine research ontology</a> (lupine-research sphere). URI: <code>${escapeHtml(id)}</code>.</p>
+    <p class="atlas-detail-asof">Source: <a href="/atlas/">Lupine research ontology</a>. Cite this node by its URI: <code>${escapeHtml(id)}</code>.</p>
   </main>
   <footer class="foot">
     <span class="creed">Evidence before claim.</span>

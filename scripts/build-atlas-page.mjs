@@ -37,6 +37,22 @@ function escapeHtml(s) {
     .replace(/'/g, '&#39;');
 }
 
+// Article cross-links, so each card can say how many articles rest on the
+// node. Built by scripts/build-ontology-crosslinks.mjs, which runs before this
+// script in `npm run build`.
+const CROSSLINKS_PATH = path.join(ROOT, 'public', 'data', 'article_ontology.json');
+if (!fs.existsSync(CROSSLINKS_PATH)) {
+  console.error(`build-atlas-page: missing ${path.relative(ROOT, CROSSLINKS_PATH)} - run scripts/build-ontology-crosslinks.mjs first`);
+  process.exit(1);
+}
+const crosslinks = JSON.parse(fs.readFileSync(CROSSLINKS_PATH, 'utf8'));
+if (!crosslinks?.by_node || typeof crosslinks.by_node !== 'object') {
+  console.error('build-atlas-page: article_ontology.json has no .by_node object');
+  process.exit(1);
+}
+const refCount = (id) => (Array.isArray(crosslinks.by_node[id]) ? crosslinks.by_node[id].length : 0);
+const refLabel = (n) => (n === 0 ? '' : `<span class="atlas-refs">${n} article${n === 1 ? '' : 's'}</span>`);
+
 const SECTIONS = [
   { kind: 'error_type', title: 'Error types', kicker: 'T1–T7' },
   { kind: 'emblem', title: 'Emblems', kicker: 'E1–E9' },
@@ -47,7 +63,7 @@ const sectionHtml = SECTIONS.map(({ kind, title, kicker }) => {
   const nodes = data.kinds[kind] || [];
   const items = nodes.map((n) => `      <li id="${escapeHtml(n.uri)}">
         <a class="atlas-card" href="/atlas/${escapeHtml(n.uri)}/">
-          <span class="atlas-id">${escapeHtml(n.uri)}</span>
+          <span class="atlas-id">${escapeHtml(n.uri)}${refLabel(refCount(n.id))}</span>
           <span class="atlas-name">${escapeHtml(n.name)}</span>
           <span class="atlas-uri">${escapeHtml(n.id)}</span>
         </a>
@@ -99,7 +115,7 @@ ${renderHeadMetaTags(headMetaTitleSegments({ primary: 'Ontology atlas', suffix: 
     <h1>Error types, emblems, and material classes that anchor the Lupine research frame.</h1>
     <p class="atlas-lede">${totalCount} nodes, pulled from the project's knowledge wiki at build time. Each card carries the canonical <code>lupine-research://</code> URI — copy it, search for it, cite it. Source: <a href="/data/atlas_nodes.json"><code>/data/atlas_nodes.json</code></a>. For the curated claim inventory (the 146 claim/S* nodes, organized into 8 narrative facets), see <a href="/atlas/claims/">/atlas/claims/</a>.</p>
 ${sectionHtml}
-    <p class="atlas-asof">Generated from <code>${escapeHtml(data.source)}</code>; counts: error_type=${data.counts.error_type}, emblem=${data.counts.emblem}, material_class=${data.counts.material_class}.</p>
+    <p class="atlas-asof">Generated at build time from the lupine-research sphere of the project's knowledge wiki: ${data.counts.error_type} error types, ${data.counts.emblem} emblems, ${data.counts.material_class} material classes, and ${crosslinks.total_links} article cross-links.</p>
   </main>
   <footer class="foot">
     <span class="creed">Evidence before claim.</span>

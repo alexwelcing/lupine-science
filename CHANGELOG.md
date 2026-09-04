@@ -13,6 +13,11 @@
 - The core thread's glow is three strokes of one `Path2D` (wide and faint under thin and bright) instead of a `shadowBlur`, which cost a full-canvas blur pass every frame. The MOF-5 drawing reuses its projection and painter's-order buffers instead of allocating and sorting fresh arrays per frame.
 - `npm test` is the fast suite: `tests/*.test.mjs`, parallel, no browser, about 10 s. The proof-pack and venture-deck suites — which drive Chromium to print PDFs and took 218 of the old 235 s — moved to `tests/render/` behind `npm run test:render` (serial); `npm run test:all` runs both. CI runs them as two steps of the same job so a unit failure surfaces in seconds. `tests/open-graph.test.mjs` no longer rebuilds `public/articles/` in place before reading it, which was the one thing that made the fast suite unsafe to parallelize.
 
+### Atlas
+- **Node pages are a reading list now.** `/atlas/<id>/` listed the articles that cite a node as raw URL slugs in boxes (`a-smooth-environment-resolved-error-field`). Each entry now carries the article's title, deck, and date, read from the built article's JSON-LD and ordered newest first, so a reader arriving from a citation has somewhere to go next. Decks clamp to two lines.
+- **Index cards say how much of the corpus rests on each node** ("6 articles"), which turns the atlas from a glossary into a map of where the writing actually is. The page footer no longer prints the path of a database file on the author's laptop.
+- Build order: article cross-links are generated before the atlas pages that count them.
+
 ### Removed
 - Ten tests that re-ran `node --check` on a builder (`npm run lint` already does that for every script) or grepped builder source for comment strings and log lines. Deleting them removes no behavioural check: the JSON-shape, route, sitemap, and fail-closed assertions those suites also carry all stay.
 
