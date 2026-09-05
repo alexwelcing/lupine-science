@@ -49,6 +49,8 @@ test('passing release notification still names the release, decision, and artifa
   assert.match(notification.title, /lupine-science@aaaaaaaaaaaa/);
   assert.match(notification.markdown, /Failing checks: none/);
   assert.match(notification.markdown, /Release-certification records/);
+  assert.match(notification.markdown, /production deployment may proceed automatically/);
+  assert.doesNotMatch(notification.markdown, /approval/);
   assert.equal(notification.artifactLinks['Audio checks'], 'https://github.example/audio#artifacts');
 });
 

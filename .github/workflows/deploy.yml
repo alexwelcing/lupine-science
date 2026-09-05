@@ -313,7 +313,6 @@ jobs:
             --visual gate-inputs/visual/visual-gate.json \
             --smoke gate-inputs/smoke/publication-smoke-gate.json \
             --audio gate-inputs/audio/audio-gate.json \
-            --audio-baseline tests/fixtures/audio-gate-baseline.json \
             --audio-directory public/videos \
             --output "$RUNNER_TEMP/release-gate-records/release-certification.json" \
             --sha "$RELEASE_SHA" \
@@ -374,43 +373,8 @@ jobs:
           if-no-files-found: error
           retention-days: 90
 
-  publication-signoff:
-    name: Named owner publication sign-off
-    needs: release-certification
-    runs-on: ubuntu-latest
-    environment:
-      name: publication
-    steps:
-      - name: Record protected-environment sign-off
-        env:
-          RELEASE_SHA: ${{ github.event.workflow_run.head_sha }}
-          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: |
-          jq -n \
-            --arg commit_sha "$RELEASE_SHA" \
-            --arg owner "alexwelcing" \
-            --arg environment "publication" \
-            --arg run_url "$RUN_URL" \
-            --arg recorded_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-            '{schemaVersion: 1, decision: "approved", commitSha: $commit_sha, owner: $owner, environment: $environment, environmentApprovalRecord: $run_url, recordedAt: $recorded_at}' \
-            > "$RUNNER_TEMP/publication-owner-signoff.json"
-          {
-            echo "## Publication approved by protected environment review"
-            echo "- Required reviewer: \`alexwelcing\`"
-            echo "- Commit: \`$RELEASE_SHA\`"
-            echo "- Approval audit: $RUN_URL"
-          } >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Retain owner sign-off receipt
-        uses: actions/upload-artifact@v4
-        with:
-          name: publication-owner-signoff-${{ github.event.workflow_run.head_sha }}
-          path: ${{ runner.temp }}/publication-owner-signoff.json
-          if-no-files-found: error
-          retention-days: 90
-
   deploy-production:
-    needs: [lighthouse, release-certification, publication-signoff]
+    needs: [lighthouse, release-certification]
     if: |
       github.event.workflow_run.conclusion == 'success' &&
       github.event.workflow_run.event == 'push' &&
@@ -510,11 +474,11 @@ jobs:
             --arg source_ci_run_id "$SOURCE_RUN_ID" \
             --arg source_artifact "lupine-science-public-$DEPLOYED_SHA" \
             --arg deployment_url "$DEPLOY_URL" \
-            --arg publication_signoff_artifact "publication-owner-signoff-$DEPLOYED_SHA" \
+            --arg release_certification_artifact "release-gate-records-$DEPLOYED_SHA" \
             --arg production_approval_record "$APPROVAL_RUN_URL" \
             --arg rollback_evidence_artifact "rollback-evidence-$DEPLOYED_SHA" \
             --arg deployed_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-            '{environment: $environment, branch: $branch, commit_sha: $commit_sha, source_ci_run_id: $source_ci_run_id, source_artifact: $source_artifact, publication_signoff_artifact: $publication_signoff_artifact, production_approval_record: $production_approval_record, rollback_evidence_artifact: $rollback_evidence_artifact, deployment_url: $deployment_url, deployed_at: $deployed_at}' \
+            '{environment: $environment, branch: $branch, commit_sha: $commit_sha, source_ci_run_id: $source_ci_run_id, source_artifact: $source_artifact, release_certification_artifact: $release_certification_artifact, production_approval_record: $production_approval_record, rollback_evidence_artifact: $rollback_evidence_artifact, deployment_url: $deployment_url, deployed_at: $deployed_at}' \
             > "$RUNNER_TEMP/production-deployment-receipt.json"
 
       - name: Upload production deployment receipt
