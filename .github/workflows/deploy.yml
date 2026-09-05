@@ -313,7 +313,6 @@ jobs:
             --visual gate-inputs/visual/visual-gate.json \
             --smoke gate-inputs/smoke/publication-smoke-gate.json \
             --audio gate-inputs/audio/audio-gate.json \
-            --audio-baseline tests/fixtures/audio-gate-baseline.json \
             --audio-directory public/videos \
             --output "$RUNNER_TEMP/release-gate-records/release-certification.json" \
             --sha "$RELEASE_SHA" \

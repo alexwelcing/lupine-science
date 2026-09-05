@@ -44,7 +44,7 @@ function mediaFilesRecursively(directory, root = process.cwd()) {
   return files.sort();
 }
 
-export function certifyRelease({ visual, smoke, audio, audioBaseline, audioExpectedFiles, commitSha, ciRunUrl, visualArtifactUrl, smokeArtifactUrl, audioArtifactUrl }) {
+export function certifyRelease({ visual, smoke, audio, audioExpectedFiles, commitSha, ciRunUrl, visualArtifactUrl, smokeArtifactUrl, audioArtifactUrl }) {
   const failures = [];
   const visualChecks = Array.isArray(visual.checks) ? visual.checks : [];
   const visualFailed = visualChecks.filter((check) => check.status === 'failed').length;
@@ -68,32 +68,6 @@ export function certifyRelease({ visual, smoke, audio, audioBaseline, audioExpec
   const audioFiles = Array.isArray(audio.files) ? audio.files : [];
   const cleanFiles = audioFiles.filter((file) => file.verdict === 'pass');
   const failedFiles = audioFiles.filter((file) => file.verdict === 'fail');
-  const adoptedAt = audio.baseline?.adoptedAt;
-  const adoptedAtTimestamp = typeof adoptedAt === 'string'
-    ? Date.parse(`${adoptedAt}T00:00:00Z`)
-    : Number.NaN;
-  const tracker = typeof audio.baseline?.trackedBy === 'string'
-    ? audio.baseline.trackedBy.trim()
-    : '';
-  const baselineFilms = audioBaseline?.films && typeof audioBaseline.films === 'object'
-    ? audioBaseline.films
-    : {};
-  const baselineEntriesValid = Object.entries(baselineFilms).length > 0
-    && Object.entries(baselineFilms).every(([file, ids]) => (
-      typeof file === 'string'
-      && file.startsWith('public/videos/')
-      && Array.isArray(ids)
-      && ids.length > 0
-      && new Set(ids).size === ids.length
-      && ids.every((id) => AUDIO_CHECK_IDS.includes(id))
-    ));
-  const baselineMetadataMatches = audio.baseline
-    && audioBaseline
-    && baselineEntriesValid
-    && audio.baseline.source === audioBaseline.source
-    && audio.baseline.adoptedAt === audioBaseline.adoptedAt
-    && audio.baseline.trackedBy === audioBaseline.trackedBy
-    && audio.baseline.filmsWithKnownDefects === Object.keys(baselineFilms).length;
   const audioSummaryConsistent = audioFiles.length > 0
     && audio.summary?.total === audioFiles.length
     && audio.summary?.passed === cleanFiles.length
@@ -105,49 +79,22 @@ export function certifyRelease({ visual, smoke, audio, audioBaseline, audioExpec
     && new Set(actualAudioFiles).size === actualAudioFiles.length
     && actualAudioFiles.length === expectedAudioFiles.length
     && [...actualAudioFiles].sort().every((file, index) => file === expectedAudioFiles[index]);
-  const hasDeclaredBaseline = baselineMetadataMatches
-    && typeof audio.baseline.source === 'string'
-    && audio.baseline.source.trim().length > 0
-    && !['unknown', 'n/a'].includes(audio.baseline.source.trim().toLowerCase())
-    && typeof adoptedAt === 'string'
-    && /^[1-9]\d{3}-\d{2}-\d{2}$/.test(adoptedAt)
-    && Number.isFinite(adoptedAtTimestamp)
-    && new Date(adoptedAtTimestamp).toISOString().slice(0, 10) === adoptedAt
-    && tracker.length > 0
-    && !['unknown', 'n/a'].includes(tracker.toLowerCase())
-    && Number.isInteger(audio.baseline.filmsWithKnownDefects)
-    && audio.baseline.filmsWithKnownDefects > 0;
   const fileStateValid = (file) => {
     if (!Array.isArray(file.checks) || file.checks.length === 0) return false;
     if (!file.checks.every((check) => check.status === 'pass' || check.status === 'fail')) return false;
     const checkIds = file.checks.map((check) => check.id);
     if (new Set(checkIds).size !== AUDIO_CHECK_IDS.length
       || !AUDIO_CHECK_IDS.every((id) => checkIds.includes(id))) return false;
-    if (file.verdict === 'pass') {
-      const markerValid = file.baselinedVerdict == null
-        || (file.baselinedVerdict === 'known-defect'
-          && hasDeclaredBaseline
-          && Array.isArray(baselineFilms[file.file])
-          && baselineFilms[file.file].length > 0);
-      return markerValid && file.checks.every((check) => check.status === 'pass');
-    }
-    if (file.verdict !== 'fail' || file.baselinedVerdict !== 'known-defect' || !hasDeclaredBaseline) return false;
-    const failingChecks = file.checks.filter((check) => check.status === 'fail');
-    const allowed = new Set(Array.isArray(baselineFilms[file.file]) ? baselineFilms[file.file] : []);
-    return failingChecks.length > 0
-      && failingChecks.every((check) => check.baselined === true && allowed.has(check.id));
+    return file.verdict === 'pass'
+      && file.baselinedVerdict == null
+      && file.checks.every((check) => check.status === 'pass' && check.baselined == null);
   };
-  const validCleanFile = (file) => file.verdict === 'pass' && fileStateValid(file);
-  const validKnownDefect = (file) => file.verdict === 'fail' && fileStateValid(file);
-  const blockingFiles = audioFiles.filter((file) => !validCleanFile(file) && !validKnownDefect(file)).length;
-  const knownDefects = failedFiles.filter(validKnownDefect).length;
-  const baselineCountConsistent = knownDefects === 0
-    || (hasDeclaredBaseline && audio.baseline.filmsWithKnownDefects >= knownDefects);
+  const blockingFiles = audioFiles.filter((file) => !fileStateValid(file)).length;
   const audioFilesValid = audioFiles.every(fileStateValid);
   const blockingCountConsistent = audio.blockingFiles == null
     ? failedFiles.length === 0
     : audio.blockingFiles === blockingFiles;
-  if (audio.decision !== 'pass' || !audioSummaryConsistent || !audioInventoryConsistent || !audioFilesValid || !baselineCountConsistent || !blockingCountConsistent || blockingFiles !== 0) {
+  if (audio.decision !== 'pass' || !audioSummaryConsistent || !audioInventoryConsistent || !audioFilesValid || !blockingCountConsistent || blockingFiles !== 0) {
     failures.push('audio suite did not pass');
   }
   if (audio.commitSha !== commitSha) failures.push('audio artifact commit SHA does not match release');
@@ -178,7 +125,6 @@ export function certifyRelease({ visual, smoke, audio, audioBaseline, audioExpec
         artifactUrl: audioArtifactUrl,
         files: audio.summary?.total ?? null,
         failed: audio.summary?.failed ?? null,
-        knownDefects,
         blockingFiles,
       },
     },
@@ -207,7 +153,6 @@ function main(argv = process.argv.slice(2)) {
     visual: readJson(visualPath, 'visual'),
     smoke: readJson(smokePath, 'smoke'),
     audio: readJson(valueAfter('--audio', argv), 'audio'),
-    audioBaseline: readJson(valueAfter('--audio-baseline', argv), 'audio baseline', { requireSchema: false }),
     audioExpectedFiles: mediaFilesRecursively(path.resolve(valueAfter('--audio-directory', argv))),
     commitSha: valueAfter('--sha', argv),
     ciRunUrl: valueAfter('--ci-run-url', argv),

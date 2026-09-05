@@ -12,7 +12,6 @@ import {
   narrationDeadAir,
   parseVtt,
   speechRate,
-  applyBaseline,
 } from '../scripts/audio-release-gate.mjs';
 
 function run(command, args) {
@@ -252,31 +251,13 @@ test('parseVtt retains cue text so speech rate is measurable', () => {
   assert.equal(vtt.cues[0].text, 'hello tagged world');
 });
 
-test('baseline reports known defects but fails closed on anything new', () => {
-  // The retroactive audit found 29 of 32 published films defective. Failing CI on
-  // that whole backlog blocks every unrelated PR, which is how a gate gets
-  // switched off. Known defects are reported; anything new blocks.
-  const report = {
-    decision: 'fail',
-    files: [
-      { file: 'public/videos/known.mp4', verdict: 'fail',
-        checks: [{ id: 'speech-rate-in-band', status: 'fail', severity: 'speech-rate' }] },
-      { file: 'public/videos/clean.mp4', verdict: 'pass', checks: [] },
-    ],
-  };
-  const baseline = { films: { 'public/videos/known.mp4': ['speech-rate-in-band'] }, trackedBy: 'card' };
-  const baselined = applyBaseline(structuredClone(report), baseline);
-  assert.equal(baselined.decision, 'pass', 'a fully-baselined defect must not block');
-  assert.equal(baselined.blockingFiles, 0);
+test('audio gate no longer exports a known-defect baseline waiver', async () => {
+  const gate = await import('../scripts/audio-release-gate.mjs');
+  assert.equal('applyBaseline' in gate, false);
+});
 
-  // A NEW failing check on the same film is not covered and must block.
-  const regressed = structuredClone(report);
-  regressed.files[0].checks.push({ id: 'true-peak-ceiling', status: 'fail', severity: 'clipping' });
-  assert.equal(applyBaseline(regressed, baseline).decision, 'fail', 'a new defect must fail closed');
-
-  // An unlisted film with a defect must block.
-  const unlisted = structuredClone(report);
-  unlisted.files.push({ file: 'public/videos/new.mp4', verdict: 'fail',
-    checks: [{ id: 'speech-rate-in-band', status: 'fail', severity: 'speech-rate' }] });
-  assert.equal(applyBaseline(unlisted, baseline).decision, 'fail', 'an unlisted defective film must fail closed');
+test('CI requires the literal all-PASS audio gate without a baseline waiver', () => {
+  const workflow = fs.readFileSync(new URL('../.github/workflows/ci.yml', import.meta.url), 'utf8');
+  assert.match(workflow, /Fail closed unless every published film passes audio checks/);
+  assert.doesNotMatch(workflow, /--baseline|audio-gate-baseline\.json|known backlog baselined/);
 });
