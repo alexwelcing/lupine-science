@@ -380,9 +380,6 @@ jobs:
       github.event.workflow_run.event == 'push' &&
       github.event.workflow_run.head_branch == 'main'
     runs-on: ubuntu-latest
-    environment:
-      name: production
-      url: ${{ steps.deploy.outputs.url }}
 
     steps:
       - name: Checkout code
@@ -465,7 +462,7 @@ jobs:
           DEPLOY_URL: ${{ steps.deploy.outputs.url }}
           DEPLOYED_SHA: ${{ github.event.workflow_run.head_sha }}
           SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
-          APPROVAL_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          DEPLOY_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           jq -n \
             --arg environment production \
@@ -475,10 +472,10 @@ jobs:
             --arg source_artifact "lupine-science-public-$DEPLOYED_SHA" \
             --arg deployment_url "$DEPLOY_URL" \
             --arg release_certification_artifact "release-gate-records-$DEPLOYED_SHA" \
-            --arg production_approval_record "$APPROVAL_RUN_URL" \
+            --arg deployment_run_record "$DEPLOY_RUN_URL" \
             --arg rollback_evidence_artifact "rollback-evidence-$DEPLOYED_SHA" \
             --arg deployed_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-            '{environment: $environment, branch: $branch, commit_sha: $commit_sha, source_ci_run_id: $source_ci_run_id, source_artifact: $source_artifact, release_certification_artifact: $release_certification_artifact, production_approval_record: $production_approval_record, rollback_evidence_artifact: $rollback_evidence_artifact, deployment_url: $deployment_url, deployed_at: $deployed_at}' \
+            '{environment: $environment, branch: $branch, commit_sha: $commit_sha, source_ci_run_id: $source_ci_run_id, source_artifact: $source_artifact, release_certification_artifact: $release_certification_artifact, deployment_run_record: $deployment_run_record, rollback_evidence_artifact: $rollback_evidence_artifact, deployment_url: $deployment_url, deployed_at: $deployed_at}' \
             > "$RUNNER_TEMP/production-deployment-receipt.json"
 
       - name: Upload production deployment receipt
