@@ -509,6 +509,16 @@ test('water-and-air recovery preserves the reviewed theorem-count exclusion', ()
   assert.match(script.source, /reviewed editorial exclusions applied/);
 });
 
+test('synthesis-film recovery cannot restore the retired failure-cost claim', () => {
+  const root = path.resolve(import.meta.dirname, '..');
+  const slug = 'the-02-percent-synthesis-problem';
+  const script = JSON.parse(fs.readFileSync(path.join(root, `data/narration-scripts/${slug}.json`), 'utf8'));
+  const text = script.paragraphs.join(' ');
+  assert.doesNotMatch(text, /thousands of dollars/i);
+  assert.match(text, /Weeks of lab time disappear/i);
+  assert.match(script.source, /reviewed editorial exclusions applied/);
+});
+
 test('recovery payload validation fails closed on every provenance field', () => {
   const expected = {
     slug: 'film',

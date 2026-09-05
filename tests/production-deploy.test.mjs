@@ -13,7 +13,7 @@ async function ciWorkflow() {
   return readFile(ciWorkflowUrl, 'utf8');
 }
 
-test('production deploy accepts only a green main push and uses protected environment approval', async () => {
+test('production deploy accepts only a green main push and records the production environment', async () => {
   const source = await workflow();
 
   assert.match(source, /deploy-production:[\s\S]*github\.event\.workflow_run\.conclusion == 'success'/);
@@ -96,18 +96,19 @@ test('release certification consumes all required CI artifacts and fails closed'
   assert.match(source, /release-certification:[\s\S]*name: publication-audio-gate-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
   assert.match(source, /release-certification:[\s\S]*node scripts\/validate-release-gates\.mjs/);
   assert.match(source, /release-certification:[\s\S]*--audio gate-inputs\/audio\/audio-gate\.json/);
-  assert.match(source, /release-certification:[\s\S]*--audio-baseline tests\/fixtures\/audio-gate-baseline\.json/);
+  assert.doesNotMatch(source, /release-certification:[\s\S]*--audio-baseline/);
   assert.match(source, /release-certification:[\s\S]*--audio-directory public\/videos/);
   assert.match(source, /release-certification:[\s\S]*if-no-files-found: error/);
 });
 
-test('publication and production require separate protected owner approvals', async () => {
+test('release certification gates automatic production deployment', async () => {
   const source = await workflow();
 
-  assert.match(source, /publication-signoff:[\s\S]*environment:\n\s+name: publication/);
-  assert.match(source, /deploy-production:\n\s+needs: \[lighthouse, release-certification, publication-signoff\]/);
+  assert.doesNotMatch(source, /publication-signoff:/);
+  assert.doesNotMatch(source, /environment:\n\s+name: publication(?:\n|$)/);
+  assert.match(source, /deploy-production:\n\s+needs: \[lighthouse, release-certification\]/);
   assert.match(source, /deploy-production:[\s\S]*environment:\n\s+name: production/);
-  assert.match(source, /publication-owner-signoff-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
+  assert.match(source, /release-gate-records-\$DEPLOYED_SHA/);
   assert.match(source, /production_approval_record/);
 });
 

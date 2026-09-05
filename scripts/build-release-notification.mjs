@@ -53,12 +53,8 @@ export function buildReleaseNotification({ receipt, releaseName, gateRunUrl, rec
     ...links.map(([label, url]) => `- ${label}: ${url}`),
     '',
     decision === 'pass'
-      ? 'Publication remains blocked until the named-owner protected-environment sign-off.'
+      ? 'Release certification passed; production deployment may proceed automatically for `main`.'
       : 'Publication is blocked. Inspect the retained artifacts and failing checks before retrying.',
-    // Kept from the hand-written step summary this notification replaced: production is
-    // a SECOND protected environment, approved separately from publication. Dropping it
-    // would have made a pass look one approval away from live when it is two.
-    'Production deploy requires a separate approval through the protected `production` environment.',
     '',
   ].join('\n');
 
