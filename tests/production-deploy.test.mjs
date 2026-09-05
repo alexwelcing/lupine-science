@@ -13,13 +13,13 @@ async function ciWorkflow() {
   return readFile(ciWorkflowUrl, 'utf8');
 }
 
-test('production deploy accepts only a green main push and records the production environment', async () => {
+test('production deploy accepts only a green main push and runs without a manual environment gate', async () => {
   const source = await workflow();
 
   assert.match(source, /deploy-production:[\s\S]*github\.event\.workflow_run\.conclusion == 'success'/);
   assert.match(source, /deploy-production:[\s\S]*github\.event\.workflow_run\.event == 'push'/);
   assert.match(source, /deploy-production:[\s\S]*github\.event\.workflow_run\.head_branch == 'main'/);
-  assert.match(source, /deploy-production:[\s\S]*environment:\n\s+name: production/);
+  assert.doesNotMatch(source, /deploy-production:[\s\S]*environment:\n\s+name: production/);
   assert.doesNotMatch(source, /workflow_dispatch/);
 });
 
@@ -107,9 +107,10 @@ test('release certification gates automatic production deployment', async () => 
   assert.doesNotMatch(source, /publication-signoff:/);
   assert.doesNotMatch(source, /environment:\n\s+name: publication(?:\n|$)/);
   assert.match(source, /deploy-production:\n\s+needs: \[lighthouse, release-certification\]/);
-  assert.match(source, /deploy-production:[\s\S]*environment:\n\s+name: production/);
+  assert.doesNotMatch(source, /deploy-production:[\s\S]*environment:\n\s+name: production/);
   assert.match(source, /release-gate-records-\$DEPLOYED_SHA/);
-  assert.match(source, /production_approval_record/);
+  assert.match(source, /deployment_run_record/);
+  assert.doesNotMatch(source, /production_approval_record/);
 });
 
 test('production live smoke installs the PDF extractor before verification', async () => {

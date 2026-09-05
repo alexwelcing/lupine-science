@@ -191,17 +191,9 @@ export function certifyRelease({ visual, smoke, audio, audioBaseline, audioExpec
     },
     failures,
     ciRunUrl,
-    ownerSignoff: {
-      requiredEnvironment: 'publication',
-      requiredReviewer: 'alexwelcing',
-      status: 'pending',
-      evidence: 'GitHub deployment review record for the publication environment',
-    },
-    productionApproval: {
-      requiredEnvironment: 'production',
-      requiredReviewer: 'alexwelcing',
-      status: 'pending',
-      evidence: 'GitHub deployment review record for the production environment',
+    deploymentPolicy: {
+      mode: 'automatic-after-certification',
+      evidence: 'successful release certification for the exact main-branch artifact',
     },
   };
 }
