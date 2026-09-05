@@ -9,6 +9,13 @@ function valueAfter(flag, argv) {
   return argv[index + 1];
 }
 
+function optionalValueAfter(flag, argv) {
+  const index = argv.indexOf(flag);
+  if (index === -1) return null;
+  if (!argv[index + 1]) throw new Error(`missing value for ${flag}`);
+  return argv[index + 1];
+}
+
 function readJson(file, label, { requireSchema = true } = {}) {
   let parsed;
   try {
@@ -203,11 +210,14 @@ function main(argv = process.argv.slice(2)) {
   const visualPath = valueAfter('--visual', argv);
   const smokePath = valueAfter('--smoke', argv);
   const outputPath = valueAfter('--output', argv);
+  const audioBaselinePath = optionalValueAfter('--audio-baseline', argv);
   const receipt = certifyRelease({
     visual: readJson(visualPath, 'visual'),
     smoke: readJson(smokePath, 'smoke'),
     audio: readJson(valueAfter('--audio', argv), 'audio'),
-    audioBaseline: readJson(valueAfter('--audio-baseline', argv), 'audio baseline', { requireSchema: false }),
+    audioBaseline: audioBaselinePath
+      ? readJson(audioBaselinePath, 'audio baseline', { requireSchema: false })
+      : undefined,
     audioExpectedFiles: mediaFilesRecursively(path.resolve(valueAfter('--audio-directory', argv))),
     commitSha: valueAfter('--sha', argv),
     ciRunUrl: valueAfter('--ci-run-url', argv),
