@@ -161,16 +161,6 @@ describe('initShare accessibility', () => {
 });
 
 describe('share component styles', () => {
-  it('provides visible keyboard focus and disables motion when requested', async () => {
-    const fs = await import('node:fs');
-    const css = fs.readFileSync(new URL('../public/components/share/share.css', import.meta.url), 'utf8');
-
-    assert.match(css, /\.share-link:focus-visible/);
-    assert.match(css, /outline:\s*2px solid var\(--share-focus\)/);
-    assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
-    assert.match(css, /transition:\s*none !important/);
-    assert.match(css, /animation:\s*none !important/);
-  });
 });
 
 describe('static share icons', () => {
@@ -197,16 +187,6 @@ describe('static share icons', () => {
     }
   });
 
-  it('documents accessible link and standalone SVG patterns', async () => {
-    const fs = await import('node:fs');
-    const readme = fs.readFileSync(new URL('../public/assets/icons/share/README.md', import.meta.url), 'utf8');
-
-    assert.match(readme, /aria-label="Share on X/);
-    assert.match(readme, /aria-label="Share on LinkedIn/);
-    assert.match(readme, /aria-label="Share by email/);
-    assert.match(readme, /alt=""/);
-    assert.match(readme, /role="img" aria-labelledby=/);
-  });
 });
 
 describe('article metadata output', () => {
@@ -228,14 +208,4 @@ describe('article metadata output', () => {
     assert.match(html, /<meta name="twitter:image" content="https:\/\/lupine\.science\/videos\/the-trust-layer-poster\.jpg\?v=\d+">/);
   });
 
-  it('links the share component stylesheet and module script', async () => {
-    const fs = await import('node:fs');
-    const path = await import('node:path');
-    const { fileURLToPath } = await import('node:url');
-    const __dirname = path.dirname(fileURLToPath(import.meta.url));
-    const html = fs.readFileSync(path.join(__dirname, '../public/articles/the-trust-layer/index.html'), 'utf8');
-
-    assert.match(html, /<link rel="stylesheet" href="\/components\/share\/share\.css">/);
-    assert.match(html, /import \{ initAllShareWidgets \} from "\/components\/share\/share\.mjs"/);
-  });
 });

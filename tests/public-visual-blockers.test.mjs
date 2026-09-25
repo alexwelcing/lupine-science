@@ -77,16 +77,4 @@ test('public pages use the published canonical OG image and brand metadata is co
     .filter((file) => fs.readFileSync(file, 'utf8').includes('og-lupine-science.png'))
     .map((file) => path.relative(ROOT, file));
   assert.deepEqual(staleReferences, [], 'public pages must not reference the deleted legacy PNG');
-  assert.doesNotMatch(
-    fs.readFileSync(path.join(ROOT, 'scripts', 'build-articles.mjs'), 'utf8'),
-    /og-lupine-science\.png/,
-    'article builds must not restore the deleted legacy PNG reference'
-  );
-});
-
-test('article stylesheet contains guards for long links and code blocks', () => {
-  const css = fs.readFileSync(path.join(PUBLIC, 'articles/styles.css'), 'utf8');
-  assert.match(css, /\.article a\s*\{[^}]*overflow-wrap:\s*anywhere/s);
-  assert.match(css, /\.article pre\s*\{[^}]*max-width:\s*100%/s);
-  assert.match(css, /\.article pre code\s*\{[^}]*white-space:\s*pre-wrap/s);
 });

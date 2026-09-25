@@ -31,7 +31,7 @@ const valid = {
   audioExpectedFiles: ['public/videos/film.mp4'],
 };
 
-test('certification passes only with green visual and smoke artifacts', () => {
+test('certification passes only with green visual, smoke, and audio artifacts', () => {
   const result = certifyRelease(valid);
   assert.equal(result.decision, 'pass');
   assert.deepEqual(result.failures, []);

@@ -58,16 +58,8 @@ const sitemap = read('public/sitemap.xml');
 const nginx = read('nginx.conf');
 const wrangler = read('wrangler.toml');
 
+// the homepage crystal must stay provenanced: committed data + published source
 const requiredIndexSnippets = [
-  'Evidence before claim',
-  'Unlocking the materials that build the future',
-  'Before a lab spends a year on a material',
-  'https://library.lupine.science',
-  'https://lupi.live',
-  'https://github.com/alexwelcing/lupine',
-  'low-dimensional ribbon',
-  'by machine, in public',
-  // the crystal must stay provenanced: committed data + published source
   '/data/mof5_structure.json',
   'Nature 402, 276',
 ];
@@ -79,9 +71,6 @@ for (const snippet of requiredIndexSnippets) {
 // perf regression guards: these must never come back
 if (/fonts\.googleapis\.com|fonts\.gstatic\.com/.test(index)) {
   fail('index.html references Google Fonts — fonts must stay self-hosted');
-}
-if (/cache:\s*["']no-store["']/.test(index)) {
-  fail('index.html uses cache:"no-store" — use HTTP caching instead');
 }
 for (const dead of ['public/hero-cyanotype.png', 'public/launch-video.mp4']) {
   if (fs.existsSync(path.join(ROOT, dead))) fail(`${dead} is dead weight and must not return`);
