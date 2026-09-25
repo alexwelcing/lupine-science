@@ -1,40 +1,93 @@
-# Lupine Science — unlocking the materials that build the future
+# Lupine Science
 
-Lupine Science is accelerating materials discovery. AI is learning to design
-matter — the batteries, catalysts, alloys and chips a civilization runs on —
-but on simulations that are wrong in structured ways. We make those predictions
-trustworthy so discovery accelerates instead of stalling on guesswork. The
-mathematics (the error geometry of interatomic potentials) is how; the materials
-are why.
+> Lupine Science makes AI predictions for new materials trustworthy before a lab spends a year on them. It is an early-stage deep-tech company building a verification layer for AI-driven materials discovery. It measures the structured error of machine-learned interatomic potentials (MLIPs), corrects that error at runtime as a physical field beside the model, and seals its quantitative claims as machine-checked Lean 4 theorems over provenance-hashed data, in public.
 
-Public entry point for the Lupine Library research corpus, LUPI evidence viewer,
-and open repository.
+Updated: 2026-09-05
 
-Canonical surfaces:
+## Company facts
 
+- Stage: Early stage, founder-led
+- Funding: Independent. No outside capital raised to date.
+- Looking for: Talking with deep-tech investors, materials labs, and MLIP builders ahead of TMS2027.
+- Founder: Alex Welcing
+- Contact: alex@lupinesci.com
+- Focus: Materials discovery; AI for science; Machine-learned interatomic potentials (MLIPs); Foundation models for atomistic simulation; Uncertainty quantification; Error correction for atomistic simulation; Density functional theory (DFT); Formal verification with Lean 4; Metal-organic frameworks; Battery materials and solid electrolytes; Climate and environmental materials
+- Next public appearance: TMS2027 Annual Meeting & Exhibition, Orlando, 14–18 March 2027; poster presentation in Accelerating Innovation in Materials and Manufacturing: https://lupine.science/articles/tms-2027-measuring-what-we-can-trust/
+- Company fact sheet: https://lupine.science/about/
+
+## Approach
+
+- Measure: Prediction errors of interatomic potentials are not random. In the committed benchmark they collapse onto a low-dimensional ribbon, and the dominant error directions are largely shared across potentials.
+- Correct: A measured error field runs beside an existing MLIP as an additive energy term with analytic forces. No fine-tuning, no retraining.
+- Prove: Quantitative claims are sealed as Lean 4 theorems over provenance-hashed data. Corrections are licensed only where evidence supports them; unsupported cases abstain.
+- Lean library: 899 build-locked theorems, zero sorry (counted 2026-08-08).
+
+## Milestones
+
+- 2026-08-31: Poster abstract accepted for TMS2027, Orlando: https://lupine.science/articles/tms-2027-measuring-what-we-can-trust/
+- 2026-08-03: Small-cell MLIP elastic benchmark release archived; DOI registration pending: https://lupine.science/articles/the-small-cell-held-mlip-elastic-benchmark/
+- 2026-08-03: Shared DFT anchors proof pack published: https://lupine.science/articles/shared-dft-anchors/
+- 2026-07-21: The Savings Stack: free 16-page booklet with a hashable data pack: https://lupine.science/articles/the-savings-stack/
+- 2026-07-19: Four preregistered Round-4 campaigns reported, failures included: https://lupine.science/articles/four-gates-three-honest-failures-one-live-experiment/
+- 2026-07-16: Environmental series and climate proof pack released: https://lupine.science/articles/beyond-carbon-the-error-geometry-of-environmental-materials/
+- 2026-07-05: The Trust Layer: the founding thesis: https://lupine.science/articles/the-trust-layer/
+- 2026-07-02: Live evidence: MLIP rankings hold across 36 model–material cells: https://lupine.science/articles/the-order-is-right-the-size-is-wrong/
+- 2026-06-30: Why LUPI: the browser-native evidence viewer, explained: https://lupine.science/articles/why-lupi/
+
+## Articles
+
+Newest first. Status labels are the article's own; drafts are marked as drafts.
+
+- [Lupine Science is heading to TMS2027](https://lupine.science/articles/tms-2027-measuring-what-we-can-trust/) (2026-09-05, Poster abstract accepted): Lupine Science will attend TMS2027 in Orlando, March 14–18, 2027. Alex Welcing will present an accepted poster on measuring the errors of interatomic potentials.
+- [What the Cap Was Hiding](https://lupine.science/articles/what-the-cap-was-hiding/) (2026-08-04, Draft for discussion): A preregistered correction trial failed. Reopening the mathematics rather than the conclusion showed the gate was mis-tuned, the confirmatory test could not have passed even in principle, an escape statistic proposed as an input to the next round had no physical content, and the replacement gate carries a rounding hazard of its own. The license results are theorems in Lean 4; the rest is arithmetic replayed from the hash-locked records.
+- [Sharing DFT anchors reduces projected evaluations by 72.4%](https://lupine.science/articles/shared-dft-anchors/) (2026-08-03, Published): Under the preregistered sparse-anchor rule, the locked Z1 records require 558 projected DFT evaluations when four model-specific anchor sets are counted separately and 154 when duplicate image indices are shared: 72.4% fewer DFT evaluations.
+- [The Small Cell Held: A 16-Element MLIP Elastic Benchmark](https://lupine.science/articles/the-small-cell-held-mlip-elastic-benchmark/) (2026-08-03, In review): On this benchmark, the 1×1×1 TensorNet/PBE arm and the 3×3×3 reference arm have nearly identical elastic-constant error, while the tested global correction operator makes the result substantially worse.
+- [The Union Verdict: A De-brief on the Z1 Campaign](https://lupine.science/articles/z1-union-debrief/) (2026-07-24, FOR EDITOR REVIEW): All four models scored strong-win on the same-engine gate, at a measured $14.65. The interesting parts are not the wins — they're the guidance split, the cost collapse, and what broke along the way.
+- [The Savings Stack: A Booklet on Doing Less, and the Commons That Makes Everyone Faster](https://lupine.science/articles/the-savings-stack/) (2026-07-21, Final): The Savings Stack v1 release: a 16-page booklet on compute-savings in atomistic simulation — 72.4% fewer DFT evaluations when four models share anchors (558 naive vs 154 union, 29 paths, 3.62×), 163 citations verified, every number hashable and reproducible.
+- [An Order of Effort: Where Correction Laws Hold, and Where the Boundary Begins](https://lupine.science/articles/an-order-of-effort/) (2026-07-20, Final): We mapped the hard end first on purpose. Now the ladder is drawn: where our correction layer already wins, where only boundary theorems can speak, and the order of effort for the rounds ahead — each with its price list.
+- [The Z1 Barrier Panel: Evaluating Foundation MLIPs on 42 Solid-State Electrolyte Chemistries](https://lupine.science/articles/the-materials-we-test-against/) (2026-07-20, Final): Our barrier campaigns run on 42 published Li-ion electrolyte materials: 30 frozen test chemistries and 12 disjoint training chemistries. Here is what is in the panels and why these materials decide whether solid-state batteries ever ship.
+- [Four Gates, Three Honest Failures, One Live Experiment](https://lupine.science/articles/four-gates-three-honest-failures-one-live-experiment/) (2026-07-19, Final): Three of our four campaign gates have reported in, and all three are failures or abstentions — recorded, hash-locked, and explained. The fourth is running right now. This is what open-science instrumentation looks like when the answers are no.
+- [Beyond Carbon: The Error Geometry of Environmental Materials](https://lupine.science/articles/beyond-carbon-the-error-geometry-of-environmental-materials/) (2026-07-16, Draft): The environmental-expansion series opens by establishing the correction-and-verification layer as a platform for any material whose function is controlled by under-coordinated environments.
+- [Cement, Concrete, and the Weight of the Built World](https://lupine.science/articles/cement-concrete-and-the-weight-of-the-built-world/) (2026-07-16, Draft): Cement decarbonization is a prediction-trust problem. Corrected universal machine-learning interatomic potentials apply directly to the disordered, under-coordinated materials in alternative binders, alternative clinkers, and CO₂-cured concrete.
+- [Critical Minerals, PFAS, and the Remediation Imperative](https://lupine.science/articles/critical-minerals-pfas-and-the-remediation-imperative/) (2026-07-16, Published): Critical-mineral recycling, direct lithium extraction, and PFAS destruction share a common materials-discovery problem: accurate binding and activation energies in under-coordinated environments, addressable by corrected uMLIPs and machine-checked verification.
+- [Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers](https://lupine.science/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/) (2026-07-16, Draft): Methane and hydrofluorocarbon refrigerants are the largest non-CO₂ climate levers; both are materials-limited, and the correction-and-verification layer changes the discovery geometry.
+- [Water and Air: Correcting the Molecules Humans Drink and Breathe](https://lupine.science/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/) (2026-07-16, Draft): Water and air quality depend on materials that separate and transform molecules in under-coordinated environments; the correction layer fixes the uMLIP errors that corrupt discovery of those materials.
+- [The Correction That Hurt, and the Theorem That Stopped It](https://lupine.science/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/) (2026-07-13, Draft for discussion): Our first correction arm made alloy predictions worse; we turned the failure into a machine-checked law, explored a direction-gated rule that cut lattice errors 3–5×, and then let an adversarial review find where our own claims outran their licenses — those corrections are in this draft.
+- [Lupi Gains HFC Refrigerant Research Payloads](https://lupine.science/articles/lupi-hfc-refrigerant-research-payloads/) (2026-07-12, Live): The latest Lupi viewer release adds R32 and R125 NVT simulations from the Maginn group force fields, a fix ave/chunk profile parser, vector glyph views, and billion-atom brick LOD.
+- [Non-CO₂ Climate Forcers, Now Formalized in Lean](https://lupine.science/articles/rhizo-non-co2-climate-forcers-lean/) (2026-07-12, Live): The latest lupine-rhizo build adds ClimateForcers.lean and a validation module that machine-checks non-CO₂ warming potentials, lifetimes, and substitution savings — 899 theorems, zero sorry.
+- [A Field, Not a Neural Net](https://lupine.science/articles/a-field-not-a-neural-net/) (2026-07-09, Draft): The largest errors in computational materials discovery have a low-dimensional geometry, and Lupine measures and corrects them at runtime with machine-checked proof.
+- [Five Materials That Could Unlock 5–12 GtCO₂/Year](https://lupine.science/articles/five-materials-for-5-to-12-gtco2-year/) (2026-07-09, Draft): Five computationally intractable materials—cobalt-free cathodes, halide solid electrolytes, MOF sorbents, ammonia catalysts, and lead-free perovskites—could unlock 5–12 GtCO₂/year, but only if the predictions sent to labs are corrected and verified first.
+- [From Predicted Crystal to Commercial Cell](https://lupine.science/articles/from-predicted-crystal-to-commercial-cell/) (2026-07-09, Draft): A rigorous, partner-by-partner map from predicted crystal to commercial cell for batteries, carbon removal, ammonia, and solar absorbers.
+- [Investing in the Trust Layer](https://lupine.science/articles/investing-in-the-trust-layer/) (2026-07-09, Draft): Why trust, not raw prediction volume, is the binding constraint in computational materials discovery, and how the Lupine Science correction-and-verification layer builds it.
+- [The 0.2% Synthesis Problem](https://lupine.science/articles/the-02-percent-synthesis-problem/) (2026-07-09, Draft): A review of the 0.2% validation rate of structure-generation campaigns, the four structural filters that cause it, and the gigatonne-scale cost of leaving the problem unsolved.
+- [The Trust Layer](https://lupine.science/articles/the-trust-layer/) (2026-07-05, Published): AI made imagination and simulation nearly free. Belief is now the bottleneck. The proof infrastructure for designed matter is being built in the open.
+- [A smooth, environment-resolved error field underlies the systematic property errors of universal machine-learned interatomic potentials](https://lupine.science/articles/a-smooth-environment-resolved-error-field/) (2026-07-02, Published): For fcc metals, uMLIP errors project onto a smooth field over local atomic environments. The field predicts a never-fitted property with r = 0.906, converts into a run-time correction, and carries machine-checked applicability boundaries.
+- [The Order Is Right, the Size Is Wrong](https://lupine.science/articles/the-order-is-right-the-size-is-wrong/) (2026-07-02, Live evidence): Foundation machine-learned interatomic potentials (CHGNet, MACE-MP, MACE-MPA-0) measured across 21 materials and up to 9 properties against 228 published reference values
+- [Why LUPI?](https://lupine.science/articles/why-lupi/) (2026-06-30, Published): LUPI as a live, install-free window into molecular structures and its implications for research, teaching, and public trust.
+- [Why Lupine Science?](https://lupine.science/articles/why-lupine-science/) (2026-06-30, Published): Generative AI produces countless material candidates, but its simulations are wrong in structured ways; the bottleneck is not more models but makeability, and the response is machine-checkable certificates of synthesis, stability, and performance.
+- [From Fantasy Frameworks to Makeable Materials: A Prospectus for Formalized MOF Discovery](https://lupine.science/articles/from-fantasy-frameworks-to-makeable-materials/) (2026-06-25, Draft for discussion): Theorem-proved certificates of synthesizability for AI-generated metal–organic frameworks, and a lab partnership to close the generate–test–learn loop.
+
+## Canonical surfaces
+
+- Website: https://lupine.science/
 - Articles: https://lupine.science/articles/
-- Library: https://library.lupine.science
-- LUPI: https://lupi.live
+- Films: https://lupine.science/videos/
+- Atlas of claims: https://lupine.science/atlas/
+- Atom feed: https://lupine.science/feed.xml
+- Library (research corpus): https://library.lupine.science
+- LUPI (browser evidence viewer): https://lupi.live
 - Repository: https://github.com/alexwelcing/lupine
-- Hyper-Ribbon theorem demo: https://library.lupine.science/reports/hyper-ribbon-theorem.html
 
-Articles:
-
-- The Trust Layer (2026-07-05) — the founding thesis:
-  https://lupine.science/articles/the-trust-layer/
-- The Order Is Right, the Size Is Wrong (2026-07-02):
-  https://lupine.science/articles/the-order-is-right-the-size-is-wrong/
-- Why Lupine Science? (2026-06-30):
-  https://lupine.science/articles/why-lupine-science/
-- From Fantasy Frameworks to Makeable Materials (2026-06-25):
-  https://lupine.science/articles/from-fantasy-frameworks-to-makeable-materials/
-
-The homepage renders one cavity of MOF-5 (Zn4O(BDC)3) live from the committed
-crystal structure at /data/mof5_structure.json (COD 1516287; Li, Eddaoudi,
-O'Keeffe & Yaghi, Nature 402, 276 (1999)), and computes its benchmark figures
-in the browser from /data/benchmark_manifold.json.
+## Publication status
 
 Public paper status: working draft in preparation; no peer review, no
-acceptance, and no journal or venue assignment. Prefer Library and repository
+acceptance, and no journal or venue assignment. The TMS2027 poster abstract
+is a conference presentation, not a paper. Prefer Library and repository
 pages for current claim labels, Lean status, and evidence details.
 
+## Homepage data
+
+The homepage renders one cavity of MOF-5 (Zn4O(BDC)3) live from the committed
+crystal structure at https://lupine.science/data/mof5_structure.json (COD 1516287; Li, Eddaoudi,
+O'Keeffe & Yaghi, Nature 402, 276 (1999)), and computes its benchmark figures
+in the browser from https://lupine.science/data/benchmark_manifold.json.

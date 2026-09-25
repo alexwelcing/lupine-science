@@ -1,0 +1,74 @@
+{
+  "_comment": "Single source of truth for public company facts. Feeds the homepage JSON-LD and 'Now' strip, /about/, /llms.txt and /feed.xml (scripts/lib/discovery.mjs). Every field here is public. Keep it to verifiable facts: dates, links, and plain descriptions. No counters, valuations, or publication-status claims for our own papers.",
+  "name": "Lupine Science",
+  "url": "https://lupine.science/",
+  "email": { "user": "alex", "domain": "lupinesci.com" },
+  "tagline": "Unlocking the materials that build the future.",
+  "oneLiner": "Lupine Science makes AI predictions for new materials trustworthy before a lab spends a year on them.",
+  "description": "Lupine Science is an early-stage deep-tech company building a verification layer for AI-driven materials discovery. It measures the structured error of machine-learned interatomic potentials (MLIPs), corrects that error at runtime as a physical field beside the model, and seals its quantitative claims as machine-checked Lean 4 theorems over provenance-hashed data, in public.",
+  "stage": "Early stage, founder-led",
+  "funding": "Independent. No outside capital raised to date.",
+  "seeking": "Talking with deep-tech investors, materials labs, and MLIP builders ahead of TMS2027.",
+  "founder": {
+    "name": "Alex Welcing",
+    "role": "Founder",
+    "sameAs": ["https://github.com/alexwelcing"]
+  },
+  "sameAs": [
+    "https://github.com/alexwelcing/lupine",
+    "https://library.lupine.science",
+    "https://lupi.live"
+  ],
+  "knowsAbout": [
+    "Materials discovery",
+    "AI for science",
+    "Machine-learned interatomic potentials (MLIPs)",
+    "Foundation models for atomistic simulation",
+    "Uncertainty quantification",
+    "Error correction for atomistic simulation",
+    "Density functional theory (DFT)",
+    "Formal verification with Lean 4",
+    "Metal-organic frameworks",
+    "Battery materials and solid electrolytes",
+    "Climate and environmental materials"
+  ],
+  "approach": [
+    { "term": "Measure", "text": "Prediction errors of interatomic potentials are not random. In the committed benchmark they collapse onto a low-dimensional ribbon, and the dominant error directions are largely shared across potentials." },
+    { "term": "Correct", "text": "A measured error field runs beside an existing MLIP as an additive energy term with analytic forces. No fine-tuning, no retraining." },
+    { "term": "Prove", "text": "Quantitative claims are sealed as Lean 4 theorems over provenance-hashed data. Corrections are licensed only where evidence supports them; unsupported cases abstain." }
+  ],
+  "audiences": [
+    { "who": "Deep-tech investors", "text": "Start with the founding thesis, the Savings Stack booklet, and the environmental-series proof pack. Every number links to the committed data it was computed from.", "href": "/articles/the-trust-layer/" },
+    { "who": "Materials scientists", "text": "Start with the live evidence and the benchmark it is computed from, including the corrections that failed.", "href": "/articles/the-order-is-right-the-size-is-wrong/" },
+    { "who": "MLIP and simulation teams", "text": "Start with the instrument: inspect structures and error fields in the browser.", "href": "https://lupi.live" }
+  ],
+  "upcoming": [
+    {
+      "name": "TMS2027 Annual Meeting & Exhibition",
+      "role": "Poster presentation",
+      "session": "Accelerating Innovation in Materials and Manufacturing",
+      "title": "Measuring the errors of interatomic potentials",
+      "startDate": "2027-03-14",
+      "endDate": "2027-03-18",
+      "venue": "Orlando World Center Marriott",
+      "locality": "Orlando",
+      "region": "FL",
+      "country": "US",
+      "organizer": { "name": "The Minerals, Metals & Materials Society (TMS)", "url": "https://www.tms.org/" },
+      "eventUrl": "https://www.tms.org/TMS2027",
+      "href": "/articles/tms-2027-measuring-what-we-can-trust/",
+      "cta": "Meet us at TMS2027"
+    }
+  ],
+  "milestones": [
+    { "date": "2026-08-31", "text": "Poster abstract accepted for TMS2027, Orlando", "href": "/articles/tms-2027-measuring-what-we-can-trust/" },
+    { "date": "2026-08-03", "text": "Small-cell MLIP elastic benchmark release archived; DOI registration pending", "href": "/articles/the-small-cell-held-mlip-elastic-benchmark/" },
+    { "date": "2026-08-03", "text": "Shared DFT anchors proof pack published", "href": "/articles/shared-dft-anchors/" },
+    { "date": "2026-07-21", "text": "The Savings Stack: free 16-page booklet with a hashable data pack", "href": "/articles/the-savings-stack/" },
+    { "date": "2026-07-19", "text": "Four preregistered Round-4 campaigns reported, failures included", "href": "/articles/four-gates-three-honest-failures-one-live-experiment/" },
+    { "date": "2026-07-16", "text": "Environmental series and climate proof pack released", "href": "/articles/beyond-carbon-the-error-geometry-of-environmental-materials/" },
+    { "date": "2026-07-05", "text": "The Trust Layer: the founding thesis", "href": "/articles/the-trust-layer/" },
+    { "date": "2026-07-02", "text": "Live evidence: MLIP rankings hold across 36 model–material cells", "href": "/articles/the-order-is-right-the-size-is-wrong/" },
+    { "date": "2026-06-30", "text": "Why LUPI: the browser-native evidence viewer, explained", "href": "/articles/why-lupi/" }
+  ]
+}

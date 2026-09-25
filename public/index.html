@@ -3,23 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lupine Science — Unlocking the materials that build the future</title>
-  <meta name="description" content="Verified predictions for new materials: machine-checked claims, provenance-locked data, and a public ledger of evidence.">
+  <title>Lupine Science — Verified AI predictions for materials discovery</title>
+  <meta name="description" content="Lupine Science is an early-stage deep-tech company making AI materials predictions trustworthy: measured MLIP error fields, runtime correction, and machine-checked claims.">
   <meta name="robots" content="index,follow">
-  <meta property="og:title" content="Lupine Science — Unlocking the materials that build the future">
-  <meta property="og:description" content="Verified predictions for new materials: machine-checked claims, provenance-locked data, and a public ledger of evidence.">
+  <meta property="og:title" content="Lupine Science — Verified AI predictions for materials discovery">
+  <meta property="og:description" content="Lupine Science is an early-stage deep-tech company making AI materials predictions trustworthy: measured MLIP error fields, runtime correction, and machine-checked claims.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lupine.science/">
   <meta property="og:image" content="https://lupine.science/og-lupine-science.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Lupine Science — Unlocking the materials that build the future">
-  <meta name="twitter:description" content="Verified predictions for new materials: machine-checked claims, provenance-locked data, and a public ledger of evidence.">
+  <meta name="twitter:title" content="Lupine Science — Verified AI predictions for materials discovery">
+  <meta name="twitter:description" content="Lupine Science is an early-stage deep-tech company making AI materials predictions trustworthy: measured MLIP error fields, runtime correction, and machine-checked claims.">
   <meta name="twitter:image" content="https://lupine.science/og-lupine-science.jpg">
   <meta name="theme-color" content="#faf9f6">
   <link rel="canonical" href="https://lupine.science/">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://lupine.science/#org","name":"Lupine Science","url":"https://lupine.science/","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png"},"founder":{"@type":"Person","name":"Alex Welcing","email":"alex@lupinesci.com"},"description":"Verified predictions for new materials: machine-checked claims, provenance-locked data, and a public ledger of evidence.","sameAs":["https://github.com/alexwelcing/lupine","https://library.lupine.science","https://lupi.live"]},{"@type":"WebSite","@id":"https://lupine.science/#site","url":"https://lupine.science/","name":"Lupine Science","publisher":{"@id":"https://lupine.science/#org"}}]}</script>
+  <!-- discovery:jsonld --><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://lupine.science/#org","name":"Lupine Science","url":"https://lupine.science/","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png"},"image":"https://lupine.science/og-lupine-science.jpg","slogan":"Unlocking the materials that build the future.","description":"Lupine Science is an early-stage deep-tech company building a verification layer for AI-driven materials discovery. It measures the structured error of machine-learned interatomic potentials (MLIPs), corrects that error at runtime as a physical field beside the model, and seals its quantitative claims as machine-checked Lean 4 theorems over provenance-hashed data, in public.","email":"alex@lupinesci.com","founder":{"@id":"https://lupine.science/about/#founder"},"knowsAbout":["Materials discovery","AI for science","Machine-learned interatomic potentials (MLIPs)","Foundation models for atomistic simulation","Uncertainty quantification","Error correction for atomistic simulation","Density functional theory (DFT)","Formal verification with Lean 4","Metal-organic frameworks","Battery materials and solid electrolytes","Climate and environmental materials"],"sameAs":["https://github.com/alexwelcing/lupine","https://library.lupine.science","https://lupi.live"],"contactPoint":{"@type":"ContactPoint","contactType":"Investor relations and research partnerships","email":"alex@lupinesci.com","url":"https://lupine.science/about/#contact"}},{"@type":"Person","@id":"https://lupine.science/about/#founder","name":"Alex Welcing","jobTitle":"Founder","worksFor":{"@id":"https://lupine.science/#org"},"url":"https://lupine.science/about/","sameAs":["https://github.com/alexwelcing"]},{"@type":"WebSite","@id":"https://lupine.science/#site","url":"https://lupine.science/","name":"Lupine Science","description":"Lupine Science makes AI predictions for new materials trustworthy before a lab spends a year on them.","publisher":{"@id":"https://lupine.science/#org"}},{"@type":"Event","name":"Lupine Science at TMS2027 Annual Meeting & Exhibition: poster presentation","description":"Poster presentation by Alex Welcing in Accelerating Innovation in Materials and Manufacturing: Measuring the errors of interatomic potentials.","startDate":"2027-03-14","endDate":"2027-03-18","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","location":{"@type":"Place","name":"Orlando World Center Marriott","address":{"@type":"PostalAddress","addressLocality":"Orlando","addressRegion":"FL","addressCountry":"US"}},"organizer":{"@type":"Organization","name":"The Minerals, Metals & Materials Society (TMS)","url":"https://www.tms.org/"},"performer":{"@id":"https://lupine.science/about/#founder"},"url":"https://lupine.science/articles/tms-2027-measuring-what-we-can-trust/","sameAs":"https://www.tms.org/TMS2027"}]}</script><!-- /discovery:jsonld -->
+  <link rel="alternate" type="application/atom+xml" title="Lupine Science" href="/feed.xml">
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
   <link rel="icon" type="image/png" href="/lupine-science-icon.png">
   <link rel="apple-touch-icon" href="/lupine-science-icon.png">
@@ -412,6 +413,46 @@
     .series-cta a { font-family: var(--mono); font-size: 13px; color: var(--indigo); }
     @media (max-width: 860px) { .series-cards { grid-template-columns: 1fr; } }
 
+    /* ════════ NOW — dated momentum: next, shipped, the way in ════════ */
+    .now { padding-bottom: 0; }
+    .now .b-label { display: flex; align-items: center; gap: 10px; }
+    .now-pulse { position: relative; width: 7px; height: 7px; border-radius: 50%; background: var(--verified); flex: none; }
+    .now-pulse::after {
+      content: ""; position: absolute; inset: -4px; border-radius: 50%;
+      border: 1px solid var(--verified); opacity: 0; animation: now-ping 2.8s var(--ease) infinite;
+    }
+    @keyframes now-ping { 0% { transform: scale(0.5); opacity: 0.7; } 80%, 100% { transform: scale(1.8); opacity: 0; } }
+    .now-grid {
+      display: grid; grid-template-columns: 1.15fr 1.25fr 1fr;
+      gap: clamp(28px, 4vw, 64px); border-top: 1px solid var(--rule); padding-top: 32px;
+    }
+    .now .now-k { font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); margin: 0 0 12px; }
+    .now .now-when { font-family: var(--mono); font-size: 13.5px; color: var(--ochre); margin: 0 0 6px; }
+    .now-next h2 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); font-weight: 500; line-height: 1.16; letter-spacing: -0.01em; margin: 0 0 10px; }
+    .now-next h2 a { color: var(--ink); }
+    .now-next h2 a:hover { color: var(--indigo); }
+    .now-next p, .now-door p { font-size: 1rem; line-height: 1.58; color: var(--ink-soft); margin: 0 0 16px; }
+    .now-next em { color: var(--indigo); }
+    .now-list { list-style: none; margin: 0; padding: 0; }
+    .now-list li { display: grid; grid-template-columns: 7.2em 1fr; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--rule-soft); font-size: 0.98rem; line-height: 1.4; }
+    .now-list li:first-child { padding-top: 0; }
+    .now-list time { font-family: var(--mono); font-size: 12.5px; color: var(--ink-faint); padding-top: 2px; font-feature-settings: "tnum"; }
+    .now-list a { color: var(--ink); }
+    .now-list a:hover { color: var(--indigo); }
+    .now-log .b-all { margin-top: 16px; }
+    .now-door { border-left: 1px solid var(--rule); padding-left: clamp(20px, 2.6vw, 40px); }
+    .now-cta {
+      display: inline-block; font-family: var(--mono); font-size: 13.5px; color: var(--paper); background: var(--indigo);
+      padding: 10px 16px; margin: 0 14px 10px 0; transition: background 200ms var(--ease);
+    }
+    .now-cta:hover { background: var(--indigo-deep); }
+    .now-cta .ar, .now-sub .ar { display: inline-block; transition: transform 200ms var(--ease); }
+    .now-cta:hover .ar, .now-sub:hover .ar { transform: translateX(4px); }
+    .now-sub { font-family: var(--mono); font-size: 13px; color: var(--indigo); white-space: nowrap; }
+    @media (max-width: 1100px) { .now-grid { grid-template-columns: 1fr 1fr; } .now-door { grid-column: 1 / -1; border-left: 0; padding-left: 0; border-top: 1px solid var(--rule); padding-top: 24px; } }
+    @media (max-width: 860px) { .now-grid { grid-template-columns: 1fr; gap: 30px; } }
+    @media (prefers-reduced-motion: reduce) { .now-pulse::after { animation: none; } }
+
     /* ════════ FOOT — colophon ════════ */
     .foot {
       display: flex; justify-content: space-between; gap: 14px 32px; flex-wrap: wrap; align-items: baseline;
@@ -634,6 +675,41 @@
 
   </main>
 
+  <!-- ════ NOW — what is scheduled, what just shipped, the way in.
+       Generated from data/company.json by scripts/build-articles.mjs;
+       edit the data, not this region. ════ -->
+  <!-- discovery:now -->
+  <section class="beneath now" id="now" aria-labelledby="now-title">
+    <p class="b-label" id="now-title"><span class="now-pulse" aria-hidden="true"></span>Now · updated <time datetime="2026-09-05">September 2026</time></p>
+    <div class="now-grid">
+      <div class="now-next">
+        <p class="now-k">Next</p>
+        <p class="now-when"><time datetime="2027-03-14">14–18 March 2027</time> · Orlando</p>
+        <h2><a href="/articles/tms-2027-measuring-what-we-can-trust/">TMS2027 Annual Meeting &amp; Exhibition</a></h2>
+        <p>Poster presentation in <em>Accelerating Innovation in Materials and Manufacturing</em>: measuring the errors of interatomic potentials.</p>
+        <a class="now-cta mail" href="/about/#contact" data-u="alex" data-d="lupinesci.com" data-subject="Meet us at TMS2027 — Lupine Science" data-keep-text>Meet us at TMS2027 <span class="ar">→</span></a>
+      </div>
+      <div class="now-log">
+        <p class="now-k">Recently shipped</p>
+        <ol class="now-list">
+          <li><time datetime="2026-08-31">Aug 31, 2026</time><a href="/articles/tms-2027-measuring-what-we-can-trust/">Poster abstract accepted for TMS2027, Orlando</a></li>
+          <li><time datetime="2026-08-03">Aug 3, 2026</time><a href="/articles/the-small-cell-held-mlip-elastic-benchmark/">Small-cell MLIP elastic benchmark release archived; DOI registration pending</a></li>
+          <li><time datetime="2026-08-03">Aug 3, 2026</time><a href="/articles/shared-dft-anchors/">Shared DFT anchors proof pack published</a></li>
+          <li><time datetime="2026-07-21">Jul 21, 2026</time><a href="/articles/the-savings-stack/">The Savings Stack: free 16-page booklet with a hashable data pack</a></li>
+          <li><time datetime="2026-07-19">Jul 19, 2026</time><a href="/articles/four-gates-three-honest-failures-one-live-experiment/">Four preregistered Round-4 campaigns reported, failures included</a></li>
+        </ol>
+        <p class="b-all"><a href="/about/#milestones">Full record <span class="ar">→</span></a></p>
+      </div>
+      <div class="now-door">
+        <p class="now-k">For investors &amp; research partners</p>
+        <p>Talking with deep-tech investors, materials labs, and MLIP builders ahead of TMS2027. Independent. No outside capital raised to date.</p>
+        <a class="now-cta mail" href="/about/#contact" data-u="alex" data-d="lupinesci.com" data-subject="Briefing request — Lupine Science" data-keep-text>Request a briefing <span class="ar">→</span></a>
+        <a class="now-sub" href="/about/">Company facts <span class="ar">→</span></a>
+      </div>
+    </div>
+  </section>
+  <!-- /discovery:now -->
+
   <!-- ════ BENEATH THE INSTRUMENT — the substance, one scroll down ════ -->
   <section class="beneath manifesto" aria-label="The gap">
     <p class="b-label">The gap</p>
@@ -752,9 +828,9 @@
 
   <!-- ════ COLOPHON ════ -->
   <footer class="foot">
-    <span class="creed">Evidence before claim.</span>
+    <span class="creed">Unlocking the materials that build the future. Evidence before claim.</span>
     <span><b>Lupine Science</b> · <a class="mail" href="mailto:alex@lupinesci.com" data-u="alex" data-d="lupinesci.com">alex@lupinesci.com</a></span>
-    <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
+    <span><a href="/about/">About</a> · <a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a> · <a href="/feed.xml">Feed</a></span>
   </footer>
 
   <div class="tip" id="tip" role="status" aria-live="polite"></div>
@@ -1398,7 +1474,7 @@
        have nothing to find. JS-off visitors see the [at] spelling. ── */
     document.querySelectorAll("a.mail").forEach((a) => {
       const addr = `${a.dataset.u}@${a.dataset.d}`;
-      a.href = `mailto:${addr}`;
+      a.href = `mailto:${addr}` + (a.dataset.subject ? `?subject=${encodeURIComponent(a.dataset.subject)}` : "");
       if (!("keepText" in a.dataset)) a.textContent = addr;
     });
 

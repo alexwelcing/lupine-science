@@ -11,6 +11,10 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { renderArticleMarkdown } from './lib/article-markdown.mjs';
 import { readProofPackMetadata } from './lib/proof-pack-metadata.mjs';
+import {
+  loadCompany, normalizeArticles, asOfDate, aboutJsonLd, renderAboutMain,
+  renderLlmsTxt, renderAtomFeed, renderNowStrip, organizationGraph, jsonLdScript, injectBetween,
+} from './lib/discovery.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = path.join(ROOT, 'articles');
@@ -423,8 +427,8 @@ import { initAllShareWidgets } from "/components/share/share.mjs";
 (() => {
   document.querySelectorAll("a.mail").forEach((a) => {
     const addr = a.dataset.u + "@" + a.dataset.d;
-    a.href = "mailto:" + addr;
-    a.textContent = addr;
+    a.href = "mailto:" + addr + (a.dataset.subject ? "?subject=" + encodeURIComponent(a.dataset.subject) : "");
+    if (!("keepText" in a.dataset)) a.textContent = addr;
   });
   const vids = document.querySelectorAll("video[data-autoplay]");
   if (vids.length) {
@@ -465,6 +469,7 @@ export function renderHead({ title, description, url, ogTitle = title, ogDescrip
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
   <link rel="icon" type="image/png" href="/lupine-science-icon.png">
   <link rel="apple-touch-icon" href="/lupine-science-icon.png">
+  <link rel="alternate" type="application/atom+xml" title="Lupine Science" href="/feed.xml">
   <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
 ${videoUrl ? `  <link rel="alternate" type="video/mp4" href="${esc(videoUrl)}">\n` : ''}${preloadImage ? `  <link rel="preload" href="${esc(preloadImage)}" as="image" fetchpriority="high">\n` : ''}${math ? '  <link rel="stylesheet" href="/katex/katex.min.css">\n' : ''}  <link rel="stylesheet" href="/articles/styles.css">
@@ -483,6 +488,7 @@ function chrome(inner, { current = 'articles' } = {}) {
       <a href="/">Home</a>
       <a href="/articles/"${current === 'articles' ? ' aria-current="page"' : ''}>Articles</a>
       <a href="/videos/"${current === 'videos' ? ' aria-current="page"' : ''}>Videos</a>
+      <a href="/about/"${current === 'about' ? ' aria-current="page"' : ''}>About</a>
       <a href="https://library.lupine.science">Library</a>
       <a href="https://lupi.live">LUPI</a>
     </nav>
@@ -491,7 +497,7 @@ ${inner}
   <footer class="foot">
     <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
     <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" href="mailto:alex@lupinesci.com" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
-    <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
+    <span><a href="/about/">About</a> · <a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a> · <a href="/feed.xml">Feed</a></span>
   </footer>`;
 }
 
@@ -1077,4 +1083,53 @@ for (const article of videos) {
 }
 writeAtomic(path.join(videosRoot, 'index.html'), buildVideoIndex(videos));
 writeAtomic(path.join(PUBLIC_ROOT, '404.html'), buildNotFoundPage());
+buildDiscoverySurfaces(articles);
 console.log(`built /videos/index.html (${videos.length} videos)`);
+
+// Company fact sheet, llms.txt, Atom feed, and the homepage's structured data
+// and "Now" strip, all rendered from data/company.json + the articles above
+// (scripts/lib/discovery.mjs). The homepage is hand-authored, so only the
+// regions between its <!-- discovery:* --> markers are regenerated.
+function buildDiscoverySurfaces(builtArticles) {
+  const company = loadCompany(ROOT);
+  const list = normalizeArticles(builtArticles);
+  const asOf = asOfDate(company, list);
+  const leanPath = path.join(PUBLIC_ROOT, 'data', 'lean_count.json');
+  const leanCount = fs.existsSync(leanPath) ? JSON.parse(fs.readFileSync(leanPath, 'utf8')) : null;
+
+  const aboutDir = path.join(PUBLIC_ROOT, 'about');
+  fs.mkdirSync(aboutDir, { recursive: true });
+  const description = `${company.oneLiner} Stage, funding, founder, milestones, and how to get in touch.`;
+  writeAtomic(path.join(aboutDir, 'index.html'), `<!doctype html>
+<html lang="en">
+<head>
+  ${renderHead({
+    title: `About ${company.name} — company facts`,
+    description,
+    url: `${SITE}/about/`,
+    ogImage: `${SITE}/og-lupine-science.jpg`,
+    ogType: 'website',
+    jsonld: aboutJsonLd(company, asOf),
+  })}
+</head>
+<body>
+${chrome(renderAboutMain(company, list, { asOf }), { current: 'about' })}
+${PAGE_SCRIPT}
+</body>
+</html>
+`);
+  console.log('built /about/');
+
+  writeAtomic(path.join(PUBLIC_ROOT, 'llms.txt'), renderLlmsTxt(company, list, { asOf, leanCount }));
+  writeAtomic(path.join(PUBLIC_ROOT, 'feed.xml'), renderAtomFeed(company, list, { asOf }));
+  console.log(`built /llms.txt and /feed.xml (${list.length} articles, as of ${asOf})`);
+
+  // alternate build roots (tests) may not carry the hand-authored homepage
+  const homePath = path.join(PUBLIC_ROOT, 'index.html');
+  if (!fs.existsSync(homePath)) return;
+  let home = fs.readFileSync(homePath, 'utf8');
+  home = injectBetween(home, 'jsonld', jsonLdScript(organizationGraph(company, { asOf })));
+  home = injectBetween(home, 'now', renderNowStrip(company, list, { asOf }));
+  writeAtomic(homePath, home);
+  console.log('refreshed homepage structured data and Now strip');
+}

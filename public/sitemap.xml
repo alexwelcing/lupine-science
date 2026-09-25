@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://lupine.science/</loc>
+    <lastmod>2026-09-05</lastmod>
+  </url>
+  <url>
+    <loc>https://lupine.science/about/</loc>
+    <lastmod>2026-09-05</lastmod>
   </url>
   <url>
     <loc>https://lupine.science/articles/</loc>
@@ -319,5 +324,11 @@
   </url>
   <url>
     <loc>https://lupine.science/proof-pack-climate-series.pdf</loc>
+  </url>
+  <url>
+    <loc>https://lupine.science/booklets/the-savings-stack.pdf</loc>
+  </url>
+  <url>
+    <loc>https://lupine.science/papers/memorandum-correction-boundary-2026-07-20.pdf</loc>
   </url>
 </urlset>
