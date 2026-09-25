@@ -496,6 +496,9 @@
          being veiled on tablets, where it lands in the fade's densest zone) */
       .mark, .horizon, .reading, .rail-ledger, .beneath, .foot { position: relative; z-index: 4; }
       .mark { padding-top: 18px; }
+      /* the descriptor sits under the name instead of wrapping beside it */
+      .mark > span { display: flex; flex-direction: column; gap: 1px; line-height: 1.25; }
+      .mark .tld { font-size: 11.5px; letter-spacing: 0.02em; }
       /* no gradient here on mobile: now that .horizon is positioned, its
          desktop backdrop would veil the hero band; the band's own fade
          (.field::before) already guarantees label legibility */
@@ -934,7 +937,11 @@
       errorvectors: { converge: 0.40, ribbon: 0.5,  vector: 1.0,  ledger: 0.18, ochre: 0.0, spectrum: 0.12, fan: 1.0,  matter: 0.34 },
       ledger:       { converge: 0.7,  ribbon: 0.82, vector: 0.28, ledger: 1.0,  ochre: 1.0, spectrum: 0.18, fan: 0.12, matter: 0.55 },
     };
-    const cur = { ...FOCUS.objective };
+    // first paint opens scattered — loose error vectors, no ribbon, no crystal —
+    // and the loop's easing lets them collapse onto the manifold: the thesis,
+    // played once. Reduced motion starts (and stays) settled.
+    const cur = reduced ? { ...FOCUS.objective }
+      : { ...FOCUS.objective, converge: 0, ribbon: 0.18, vector: 1, fan: 0.7, matter: 0 };
     let tgt = { ...FOCUS.objective };
     let recomputeZones = () => {};   // assigned by the renderer; keeps the mask in sync
 
@@ -1077,7 +1084,11 @@
       }
 
       function resize() {
-        dpr = Math.min(devicePixelRatio || 1, 2);
+        // phones fire resize whenever the address bar collapses; resizing the
+        // backing store wipes the canvas, so only do it when the box changed
+        const nd = Math.min(devicePixelRatio || 1, 2);
+        if (w && canvas.clientWidth === w && canvas.clientHeight === h && nd === dpr) { computeZones(); return; }
+        dpr = nd;
         w = canvas.clientWidth; h = canvas.clientHeight;
         canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0); seed(); computeZones();
@@ -1339,19 +1350,30 @@
         raf = requestAnimationFrame(frame);
       }
 
-      resize(); addEventListener("resize", resize, { passive: true });
+      // reduced motion gets one settled frame; everyone else, phones included,
+      // gets the live instrument (30 fps cap above, paused whenever the hero
+      // is off-screen or the tab is hidden, so scrolling the page costs nothing)
+      const staticCanvas = reduced;
+      const still = () => requestAnimationFrame((ts) => { for (const k in cur) cur[k] = tgt[k]; frame(ts); cancelAnimationFrame(raf); });
+      let onscreen = true, running = false;
+      const run = () => {
+        if (staticCanvas || running || !onscreen || document.hidden) return;
+        running = true; lastPaint = 0; raf = requestAnimationFrame(frame);
+      };
+      const halt = () => { running = false; cancelAnimationFrame(raf); };
+      resize();
+      addEventListener("resize", () => { const bw = canvas.width; resize(); if (staticCanvas && canvas.width !== bw) still(); }, { passive: true });
       // when the structure arrives after the reduced-motion single frame,
       // draw one more so the crystal appears in the still image too
-      const staticCanvas = reduced || mobileMQ.matches;
-      onMatterReady = () => {
-        if (staticCanvas) { t0 = 0; requestAnimationFrame((ts) => { frame(ts); cancelAnimationFrame(raf); }); }
-      };
-      if (staticCanvas) { requestAnimationFrame((ts) => { for (const k in cur) cur[k] = tgt[k]; frame(ts); cancelAnimationFrame(raf); }); }
+      onMatterReady = () => { if (staticCanvas) still(); };
+      if (staticCanvas) still();
       else {
-        raf = requestAnimationFrame(frame);
-        document.addEventListener("visibilitychange", () => {
-          if (document.hidden) cancelAnimationFrame(raf); else { t0 = 0; raf = requestAnimationFrame(frame); }
-        });
+        run();
+        document.addEventListener("visibilitychange", () => { if (document.hidden) halt(); else run(); });
+        if ("IntersectionObserver" in window) {
+          new IntersectionObserver(([e]) => { onscreen = e.isIntersecting; if (onscreen) run(); else halt(); })
+            .observe(canvas);
+        }
       }
 
       /* ── WebGPU tier: the same instrument, volumetrically lit. Loaded lazily,
@@ -1360,7 +1382,8 @@
          as it is, so the user never sees anything change. ── */
       const gpuCanvas = document.getElementById("ribbon-gpu");
       const saveData = navigator.connection && navigator.connection.saveData;
-      if (gpuCanvas && navigator.gpu && !staticCanvas && !saveData) {
+      // desktop only: on phones the 2D instrument is the right trade for battery and heat
+      if (gpuCanvas && navigator.gpu && !staticCanvas && !saveData && !mobileMQ.matches) {
         const bridge = {
           canvas: gpuCanvas,
           getData: () => M,

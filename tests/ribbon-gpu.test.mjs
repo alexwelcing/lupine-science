@@ -54,8 +54,8 @@ test('module composites premultiplied and never claims before presenting', () =>
 });
 
 test('index.html gates the GPU tier correctly', () => {
-  const gate = index.match(/if \(gpuCanvas && navigator\.gpu && !staticCanvas && !saveData\)/);
-  assert.ok(gate, 'tier gate requires navigator.gpu, non-static canvas, and no save-data');
+  const gate = index.match(/if \(gpuCanvas && navigator\.gpu && !staticCanvas && !saveData && !mobileMQ\.matches\)/);
+  assert.ok(gate, 'tier gate requires navigator.gpu, non-static canvas, no save-data, and a desktop viewport');
   assert.match(index, /import\("\/assets\/ribbon-gpu\.js\?v=\d+"\)/);
   assert.match(index, /requestIdleCallback/);
   // the versioned import must point at the file that actually ships
