@@ -865,3 +865,17 @@ body.format-tutorial h2::before {
   .atlas-claims-grid { grid-template-columns: 1fr; }
   .atlas-claims-grid li { border-right: 0; }
 }
+
+/* ── /about/ company fact sheet (scripts/lib/discovery.mjs) ── */
+.about .about-facts { margin: 1.6em 0 0; border-top: 1px solid var(--rule); }
+.about .about-facts > div { display: grid; grid-template-columns: 11em 1fr; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--rule-soft); }
+.about .about-facts dt { font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); padding-top: 4px; }
+.about .about-facts dd { margin: 0; }
+.about .about-log { list-style: none; padding: 0; }
+.about .about-log li { padding: 6px 0; border-bottom: 1px solid var(--rule-soft); }
+.about .about-log time { font-family: var(--mono); font-size: 13px; color: var(--ink-faint); }
+.about .about-status { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); }
+.about h3 { font-size: 1.15rem; margin: 1.6em 0 0.3em; }
+@media (max-width: 640px) {
+  .about .about-facts > div { grid-template-columns: 1fr; gap: 4px; }
+}
