@@ -84,7 +84,7 @@ In blind tests across 36 model-material pairs, predicted corrections correlated 
 
 21
 00:02:01.200 --> 00:02:08.700
-Then 77 build-locked Lean 4 theorems mark what is supported, out of domain, or synthesis-dependent.
+The machine-generated Lean inventory marks what is supported, out of domain, or synthesis-dependent.
 
 22
 00:02:09.000 --> 00:02:10.710

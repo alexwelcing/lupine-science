@@ -514,7 +514,7 @@ test('narration recovery cannot restore retired economics claims', () => {
   const cases = [
     {
       slug: 'investing-in-the-trust-layer',
-      forbidden: /123 to 270 billion dollars|3\.2 million dollars/i,
+      forbidden: /123 to 270 billion dollars|3\.2 million dollars|190 build-locked theorems/i,
       retained: /shared correction-and-verification layer/i,
     },
     {

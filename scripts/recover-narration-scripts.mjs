@@ -116,6 +116,10 @@ const words = (s) => s.trim().split(/\s+/).filter(Boolean).length;
 const EDITORIAL_EXCLUSIONS = new Map([
   ['investing-in-the-trust-layer', new Map([
     [
+      'Quantitative claims are then sealed as Lean 4 theorems with hash-locked provenance. The proof layer has 190 build-locked theorems and zero unfinished proofs. It once rejected a rounded success count, changing 27 improvements to 26.',
+      'Quantitative claims are then sealed as Lean 4 theorems with hash-locked provenance. The machine-generated proof inventory records zero unfinished proofs. It once rejected a rounded success count, changing 27 improvements to 26.',
+    ],
+    [
       'On a blind nickel surface, relative error fell from 9.7 percent to 1.5 percent. Users keep their simulators. The correction makes them more trustworthy. Better materials infrastructure is estimated to create 123 to 270 billion dollars in annual value for United States industry.',
       'On a blind nickel surface, relative error fell from 9.7 percent to 1.5 percent. Users keep their simulators. The correction makes them more trustworthy.',
     ],

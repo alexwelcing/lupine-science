@@ -1,131 +1,131 @@
 WEBVTT
 
-NOTE Narration transcript. Text is the script synthesized by minimax (speech-2.8-hd, voice English_expressive_narrator); each cue was synthesized as its own audio file and is timed by that file's measured duration. Verified at 115.1% of expected length, 125.9 wpm (median cue 127.1 wpm). Script source: public/videos/investing-in-the-trust-layer.vtt at commit 4641d96 (pre-overwrite narration prose; reviewed editorial exclusions applied)
+NOTE Narration transcript. Text is the script synthesized by minimax (speech-2.8-hd, voice English_expressive_narrator); each cue was synthesized as its own audio file and is timed by that file's measured duration. Verified at 115.9% of expected length, 125.2 wpm (median cue 122.8 wpm). Script source: public/videos/investing-in-the-trust-layer.vtt at commit 4641d96 (pre-overwrite narration prose; reviewed editorial exclusions applied)
 
 1
-00:00:00.000 --> 00:00:03.620
+00:00:00.000 --> 00:00:03.540
 Materials discovery can now imagine millions of crystals.
 
 2
-00:00:03.920 --> 00:00:08.130
+00:00:03.840 --> 00:00:07.770
 Google DeepMind's GNoME proposed 2.2 million.
 
 3
-00:00:08.430 --> 00:00:14.530
+00:00:08.070 --> 00:00:14.760
 But by late 2023, only 736 had been independently synthesized.
 
 4
-00:00:14.830 --> 00:00:17.590
+00:00:15.060 --> 00:00:17.410
 The scarce resource is no longer prediction.
 
 5
-00:00:17.890 --> 00:00:19.300
+00:00:17.710 --> 00:00:18.770
 It is trust.
 
 6
-00:00:19.600 --> 00:00:21.340
+00:00:19.070 --> 00:00:20.730
 Every stage leaks.
 
 7
-00:00:21.640 --> 00:00:24.710
+00:00:21.030 --> 00:00:24.220
 Generators omit complex material classes.
 
 8
-00:00:25.010 --> 00:00:31.060
+00:00:24.520 --> 00:00:31.300
 Universal machine-learned potentials are least reliable at surfaces, vacancies, and defects.
 
 9
-00:00:31.360 --> 00:00:34.510
+00:00:31.600 --> 00:00:34.540
 And laboratories inherit every upstream error.
 
 10
-00:00:34.810 --> 00:00:39.250
+00:00:34.840 --> 00:00:39.230
 More activity does not automatically produce more validated materials.
 
 11
-00:00:39.550 --> 00:00:43.250
+00:00:39.530 --> 00:00:42.900
 The correction layer sits between prediction and synthesis.
 
 12
-00:00:43.550 --> 00:00:54.770
+00:00:43.200 --> 00:00:54.110
 It measures a predictor's systematic error as a physical field over local atomic environments, corrects that error at runtime, and proves which claims remain inside the evidence boundary.
 
 13
-00:00:55.070 --> 00:00:58.220
+00:00:54.410 --> 00:00:57.480
 The field is fixed by three standard observables.
 
 14
-00:00:58.520 --> 00:01:01.710
+00:00:57.780 --> 00:01:01.230
 A fourth surface is held back as a blind test.
 
 15
-00:01:02.010 --> 00:01:11.770
+00:01:01.530 --> 00:01:12.440
 Across 36 model-and-material combinations, predicted and measured errors correlate at zero point nine oh six, with zero adjustable parameters.
 
 16
-00:01:12.070 --> 00:01:17.320
+00:01:12.740 --> 00:01:18.320
 Quantitative claims are then sealed as Lean 4 theorems with hash-locked provenance.
 
 17
-00:01:17.620 --> 00:01:23.510
-The proof layer has 190 build-locked theorems and zero unfinished proofs.
+00:01:18.620 --> 00:01:23.220
+The machine-generated proof inventory records zero unfinished proofs.
 
 18
-00:01:23.810 --> 00:01:29.440
+00:01:23.520 --> 00:01:29.920
 It once rejected a rounded success count, changing 27 improvements to 26.
 
 19
-00:01:29.740 --> 00:01:32.600
+00:01:30.220 --> 00:01:33.160
 Trust means being able to say no to yourself.
 
 20
-00:01:32.900 --> 00:01:39.080
+00:01:33.460 --> 00:01:39.860
 The correction deploys beside existing CHGNet or MACE calculators as a LAMMPS overlay.
 
 21
-00:01:39.380 --> 00:01:43.590
+00:01:40.160 --> 00:01:43.990
 In Python, measured overhead is 15.6 percent.
 
 22
-00:01:43.890 --> 00:01:50.160
+00:01:44.290 --> 00:01:51.240
 On a blind nickel surface, relative error fell from 9.7 percent to 1.5 percent.
 
 23
-00:01:50.460 --> 00:01:52.420
+00:01:51.540 --> 00:01:53.330
 Users keep their simulators.
 
 24
-00:01:52.720 --> 00:01:55.320
+00:01:53.630 --> 00:01:55.850
 The correction makes them more trustworthy.
 
 25
-00:01:55.620 --> 00:01:58.600
+00:01:56.150 --> 00:01:59.220
 The investment is not a bet on one material.
 
 26
-00:01:58.900 --> 00:02:02.650
+00:01:59.520 --> 00:02:03.010
 It is infrastructure for every materials-discovery program.
 
 27
-00:02:02.950 --> 00:02:13.050
+00:02:03.310 --> 00:02:13.760
 Generators, databases, autonomous labs, manufacturers, and national labs keep their own tools while gaining a shared correction-and-verification layer.
 
 28
-00:02:13.350 --> 00:02:16.080
+00:02:14.060 --> 00:02:16.790
 The face-centered-cubic field is established.
 
 29
-00:02:16.380 --> 00:02:23.540
+00:02:17.090 --> 00:02:23.610
 Other structure families and industrial validation remain open work, with explicit go-or-no-go gates.
 
 30
-00:02:23.840 --> 00:02:25.930
+00:02:23.910 --> 00:02:26.130
 That honesty is the product.
 
 31
-00:02:26.230 --> 00:02:29.720
+00:02:26.430 --> 00:02:29.410
 The world does not need more predicted crystals.
 
 32
-00:02:30.020 --> 00:02:32.697
+00:02:29.710 --> 00:02:32.163
 It needs predictions laboratories can act on.

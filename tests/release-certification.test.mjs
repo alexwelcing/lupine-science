@@ -35,8 +35,9 @@ test('certification passes only with green visual and smoke artifacts', () => {
   const result = certifyRelease(valid);
   assert.equal(result.decision, 'pass');
   assert.deepEqual(result.failures, []);
-  assert.equal(result.ownerSignoff.status, 'pending');
-  assert.equal(result.productionApproval.status, 'pending');
+  assert.equal(result.deploymentPolicy.mode, 'automatic-after-certification');
+  assert.equal(result.ownerSignoff, undefined);
+  assert.equal(result.productionApproval, undefined);
 });
 
 test('a failing visual artifact rejects publication', () => {

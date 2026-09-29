@@ -339,6 +339,21 @@ function heroFigure(slug) {
   const dir = path.join(OUT, slug);
   const hasJpg = fs.existsSync(path.join(dir, 'hero.jpg'));
   const hasMp4 = fs.existsSync(path.join(dir, 'hero.mp4'));
+  const hasSvg = fs.existsSync(path.join(dir, 'hero.svg'));
+  if (hasSvg) {
+    if (!hasJpg || !fs.existsSync(path.join(dir, 'hero-still.svg'))) {
+      throw new Error(`SVG hero for ${slug} requires hero-still.svg and hero.jpg fallbacks`);
+    }
+    const caption = HERO_CAPTIONS[slug] || 'Conceptual illustration; no plotted data.';
+    const alt = slug === 'tms-2027-measuring-what-we-can-trust'
+      ? 'A surveyed landscape: scattered traces connect through reference landmarks toward a flowering lupine and an unfinished path.'
+      : caption;
+    return `<figure class="article-hero article-hero--motion" data-svg-hero aria-labelledby="hero-caption">
+  <img src="${bust(`/articles/${slug}/hero-still.svg`, slug)}" data-animated-src="${bust(`/articles/${slug}/hero.svg`, slug)}" width="1200" height="700" loading="eager" fetchpriority="high" decoding="async" alt="${esc(alt)}">
+  <div class="svg-motion-toolbar"><span>Measure · Test · Learn</span><button type="button" hidden>Pause animation</button></div>
+  <figcaption id="hero-caption">${esc(caption)}</figcaption>
+</figure>`;
+  }
   if (!hasJpg && !hasMp4) return '';
   const caption = HERO_CAPTIONS[slug] || '';
   if (hasMp4 && hasJpg) {
@@ -716,13 +731,13 @@ async function buildArticle(raw, slug) {
     videoUrl,
   })}
 </head>
-<body>
+<body${meta.type?.toLowerCase() === 'conference announcement' ? ' class="conference-announcement"' : ''}>
 ${chrome(`  <main id="content" class="article-shell">
     <article class="article">
       ${body}
     </article>
   </main>`)}
-${PAGE_SCRIPT}
+${PAGE_SCRIPT}${hero.includes('data-svg-hero') ? '\n<script type="module" src="/assets/svg-motion.js"></script>' : ''}
 </body>
 </html>
 `;

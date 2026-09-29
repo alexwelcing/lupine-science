@@ -627,6 +627,25 @@ export function renderPackHtml(slug, manifest, articleMeta) {
   return renderTemplate(template, view);
 }
 
+export async function waitForPageImages(page) {
+  await page.evaluate(async () => {
+    const images = Array.from(document.images);
+    for (const image of images) image.loading = 'eager';
+
+    await Promise.all(images.map(async (image) => {
+      if (!image.complete) {
+        await new Promise((resolve) => {
+          image.addEventListener('load', resolve, { once: true });
+          image.addEventListener('error', resolve, { once: true });
+        });
+      }
+      if (typeof image.decode === 'function') {
+        await image.decode().catch(() => {});
+      }
+    }));
+  });
+}
+
 async function renderPdf(browser, { url, output, title, deterministicDate }) {
   const page = await browser.newPage();
   try {
@@ -640,14 +659,7 @@ async function renderPdf(browser, { url, output, title, deterministicDate }) {
     });
     await page.goto(url, { waitUntil: 'networkidle' });
     await page.evaluate(() => document.fonts.ready).catch(() => {});
-    // Wait for images to decode.
-    await page.evaluate(() =>
-      Promise.all(
-        Array.from(document.images)
-          .filter((img) => !img.complete)
-          .map((img) => new Promise((resolve) => { img.onload = img.onerror = resolve; }))
-      )
-    ).catch(() => {});
+    await waitForPageImages(page);
     await page.waitForTimeout(200);
     await page.pdf({
       path: output,
@@ -943,7 +955,7 @@ function legacyCoverHtml({ title, date, url, baseUrl }) {
 </html>`;
 }
 
-async function legacyRenderPdf(browser, { url, html, output }) {
+export async function legacyRenderPdf(browser, { url, html, output }) {
   const page = await browser.newPage();
   try {
     if (html) {
@@ -971,6 +983,7 @@ async function legacyRenderPdf(browser, { url, html, output }) {
     ` });
     await page.evaluate(() => document.fonts.ready).catch(() => {});
     await page.waitForSelector('.katex', { timeout: 5000 }).catch(() => {});
+    await waitForPageImages(page);
     await page.waitForTimeout(300);
     await page.pdf({
       path: output,
