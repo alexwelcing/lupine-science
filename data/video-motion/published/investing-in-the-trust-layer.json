@@ -1,0 +1,11 @@
+{
+  "slug": "investing-in-the-trust-layer",
+  "mp4": "public/videos/investing-in-the-trust-layer.mp4",
+  "mp4_sha256": "d7b8be7b6a54a70d6cfe1e1787363b3af1a2895ea14c59276c1c46cc30f6d9f1",
+  "vtt": "public/videos/investing-in-the-trust-layer.vtt",
+  "vtt_sha256": "28cff11cf442fc22b22191fa735568f01294726e015cd3b52404d3e0d6355ebd",
+  "narration_wpm": 125.2,
+  "length_ratio": 1.1586,
+  "audio_gate": "media/projects/article-videos/investing-in-the-trust-layer/audio-gate/audio-gate.json",
+  "tts_provider": "minimax"
+}

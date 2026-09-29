@@ -33,6 +33,7 @@ import {
 } from '../scripts/lib/audio-normalize.mjs';
 import { parseVtt, narrationDeadAir } from '../scripts/audio-release-gate.mjs';
 import { recoveredPayloadMatches } from '../scripts/recover-narration-scripts.mjs';
+import { artifactSha256, publishedRecordMatches } from '../scripts/publish-all-motion-videos.mjs';
 
 const FFMPEG = process.env.FFMPEG || 'ffmpeg';
 
@@ -509,14 +510,39 @@ test('water-and-air recovery preserves the reviewed theorem-count exclusion', ()
   assert.match(script.source, /reviewed editorial exclusions applied/);
 });
 
-test('synthesis-film recovery cannot restore the retired failure-cost claim', () => {
+test('narration recovery cannot restore retired economics claims', () => {
   const root = path.resolve(import.meta.dirname, '..');
-  const slug = 'the-02-percent-synthesis-problem';
-  const script = JSON.parse(fs.readFileSync(path.join(root, `data/narration-scripts/${slug}.json`), 'utf8'));
-  const text = script.paragraphs.join(' ');
-  assert.doesNotMatch(text, /thousands of dollars/i);
-  assert.match(text, /Weeks of lab time disappear/i);
-  assert.match(script.source, /reviewed editorial exclusions applied/);
+  const cases = [
+    {
+      slug: 'investing-in-the-trust-layer',
+      forbidden: /123 to 270 billion dollars|3\.2 million dollars|190 build-locked theorems/i,
+      retained: /shared correction-and-verification layer/i,
+    },
+    {
+      slug: 'the-02-percent-synthesis-problem',
+      forbidden: /thousands of dollars/i,
+      retained: /Weeks of lab time disappear/i,
+    },
+  ];
+
+  for (const { slug, forbidden, retained } of cases) {
+    const script = JSON.parse(fs.readFileSync(path.join(
+      root,
+      `data/narration-scripts/${slug}.json`,
+    ), 'utf8'));
+    const text = script.paragraphs.join(' ');
+    assert.doesNotMatch(text, forbidden);
+    assert.match(text, retained);
+    assert.match(script.source, /reviewed editorial exclusions applied/);
+
+    const motion = JSON.parse(fs.readFileSync(path.join(
+      root,
+      `data/video-motion/${slug}.json`,
+    ), 'utf8'));
+    const visualText = JSON.stringify(motion);
+    assert.doesNotMatch(visualText, /economics-leverage|failure-economics/i);
+    assert.doesNotMatch(visualText, /trillion-dollar|123B|270B|\$3\.2M/i);
+  }
 });
 
 test('recovery payload validation fails closed on every provenance field', () => {
@@ -581,6 +607,27 @@ test('reusing a cached narration requires the same script and the same cue split
 
   assert.equal(cachedNarrationMatches(null, paragraphs).ok, false);
   assert.equal(cachedNarrationMatches({ words: 6 }, paragraphs).ok, false);
+});
+
+test('post-gate marker is bound to both the rendered media and narration timeline', () => {
+  const dir = tmpdir();
+  const mp4 = path.join(dir, 'film.mp4');
+  const vtt = path.join(dir, 'film.vtt');
+  const originalVtt = 'WEBVTT\n\n00:00:00.000 --> 00:00:01.000\nNarration.\n';
+  fs.writeFileSync(mp4, 'rendered media');
+  fs.writeFileSync(vtt, originalVtt);
+  const record = {
+    mp4_sha256: artifactSha256(mp4),
+    vtt_sha256: artifactSha256(vtt),
+  };
+
+  assert.equal(publishedRecordMatches(record, mp4, vtt), true);
+  fs.appendFileSync(vtt, '\nChanged cue.\n');
+  assert.equal(publishedRecordMatches(record, mp4, vtt), false);
+  fs.writeFileSync(vtt, originalVtt);
+  fs.appendFileSync(mp4, 'changed');
+  assert.equal(publishedRecordMatches(record, mp4, vtt), false);
+  assert.equal(publishedRecordMatches({ mp4_sha256: record.mp4_sha256 }, mp4, vtt), false);
 });
 
 test('the true-peak target leaves room for the AAC overshoot', () => {
