@@ -35,6 +35,17 @@ const TARGET_FPS = 30;
 const LOUDNESS_TARGET = -16;
 const LOUDNESS_TOLERANCE = 2;
 const LRA_MAX = 8;
+// These five published campaign cuts are intentionally short, descriptive
+// brand films rather than narrated article videos (see VIDEO_KIND in
+// build-articles.mjs). Keep the exception slug-bound so an arbitrary short or
+// 48 kHz article video cannot pass by resembling their media properties.
+const BRAND_FILM_SLUGS = new Set([
+  'an-order-of-effort',
+  'the-materials-we-test-against',
+  'the-savings-stack',
+  'the-trust-layer',
+  'z1-union-debrief',
+]);
 const SAMPLE_STD_THRESHOLD = 12;
 
 export function isBlankFrameStats(avgStd, avgMean, stdThreshold = SAMPLE_STD_THRESHOLD) {
@@ -425,8 +436,16 @@ export function technicalVideoNotes(stream) {
   return notes;
 }
 
+export function technicalMediaProfile(slug) {
+  if (BRAND_FILM_SLUGS.has(slug)) {
+    return { sampleRate: 48000, minDuration: 20, maxDuration: 35, label: 'brand film' };
+  }
+  return { sampleRate: 44100, minDuration: 60, maxDuration: 240, label: 'article video' };
+}
+
 async function reviewVideo(file, dictionary, corpus, bigram, worker, flags) {
   const slug = flags.slug || path.basename(file, '.mp4');
+  const mediaProfile = technicalMediaProfile(slug);
   const videoPath = flags.videoPath || path.join(VIDEOS_DIR, file);
   const posterPath = flags.posterPath || path.join(VIDEOS_DIR, `${slug}-poster.jpg`);
   const vttPath = flags.vttPath || path.join(VIDEOS_DIR, `${slug}.vtt`);
@@ -458,15 +477,19 @@ async function reviewVideo(file, dictionary, corpus, bigram, worker, flags) {
   else {
     if (aStream.codec_name !== 'aac') report.technical.notes.push(`audio codec ${aStream.codec_name}`);
     const sampleRate = Number(aStream.sample_rate);
-    if (sampleRate !== 44100) report.technical.notes.push(`sample rate ${sampleRate}`);
+    if (sampleRate !== mediaProfile.sampleRate) {
+      report.technical.notes.push(`sample rate ${sampleRate} (expected ${mediaProfile.sampleRate} for ${mediaProfile.label})`);
+    }
     const channels = Number(aStream.channels);
     if (channels !== 1) report.technical.notes.push(`channels ${channels} (expected mono)`);
   }
 
   const duration = fmt.duration ? Number(fmt.duration) : null;
   const totalBitrate = fmt.bit_rate ? Number(fmt.bit_rate) : null;
-  if (duration && (duration < 60 || duration > 240)) {
-    report.technical.notes.push(`duration ${duration.toFixed(1)}s (target 90-120s)`);
+  if (duration && (duration < mediaProfile.minDuration || duration > mediaProfile.maxDuration)) {
+    report.technical.notes.push(
+      `duration ${duration.toFixed(1)}s (expected ${mediaProfile.minDuration}-${mediaProfile.maxDuration}s for ${mediaProfile.label})`,
+    );
   }
   if (totalBitrate && totalBitrate < 200_000) {
     report.technical.notes.push(`total bitrate ${(totalBitrate / 1000).toFixed(0)} kbps (low)`);

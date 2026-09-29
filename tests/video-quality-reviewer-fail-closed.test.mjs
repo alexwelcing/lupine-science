@@ -5,7 +5,13 @@ import path from 'node:path';
 import test from 'node:test';
 import sharp from 'sharp';
 
-import { classifyP0, frameStats, sampleTimes, technicalVideoNotes } from '../scripts/video-quality-reviewer.mjs';
+import {
+  classifyP0,
+  frameStats,
+  sampleTimes,
+  technicalMediaProfile,
+  technicalVideoNotes,
+} from '../scripts/video-quality-reviewer.mjs';
 
 test('frameStats reads the current Sharp channels[].stdev API', async () => {
   const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'lupine-video-frame-'));
@@ -75,6 +81,30 @@ test('technical video conformance requires exact 30 fps and BT.709 metadata', ()
   assert.ok(technicalVideoNotes({ ...conforming, color_space: 'bt2020nc' }).includes('color space bt2020nc'));
   assert.ok(technicalVideoNotes({ ...conforming, color_primaries: 'bt2020' }).includes('color primaries bt2020'));
   assert.ok(technicalVideoNotes({ ...conforming, color_transfer: 'smpte2084' }).includes('color transfer smpte2084'));
+});
+
+test('short 48 kHz brand-film profile is limited to the five declared campaign slugs', () => {
+  const brandSlugs = [
+    'an-order-of-effort',
+    'the-materials-we-test-against',
+    'the-savings-stack',
+    'the-trust-layer',
+    'z1-union-debrief',
+  ];
+  for (const slug of brandSlugs) {
+    assert.deepEqual(technicalMediaProfile(slug), {
+      sampleRate: 48000,
+      minDuration: 20,
+      maxDuration: 35,
+      label: 'brand film',
+    });
+  }
+  assert.deepEqual(technicalMediaProfile('unrecognized-short-video'), {
+    sampleRate: 44100,
+    minDuration: 60,
+    maxDuration: 240,
+    label: 'article video',
+  });
 });
 
 test('production brand builder has no partial-publication escape hatch', async () => {
