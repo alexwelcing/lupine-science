@@ -37,9 +37,9 @@ MONO_BOLD = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf"
 COMPOSITION_TEXT = {
     "01-z1-campaign-story": [
         ("Four models.\nOne evidence bill.", "Four guidance traces share one union of DFT anchors.", "Bounded result: one panel · one Li-migration chemistry family · one engine"),
-        ("430 naive\nevaluations.", "Four duplicated execution lanes make the baseline legible.", "Recorded same-engine campaign"),
-        ("129 executed\nanchors.", "70% fewer DFT evaluations on the recorded campaign.", "Recorded campaign · not a general transfer claim"),
-        ("The receipt.", "129/129 anchors evaluated · zero failures\n61.0 wall-hours · $14.65 cloud-equivalent\nSame-engine strong-win gate met by all four", "One functional · seven large paths deferred"),
+        ("Duplicated\nevaluations.", "Four execution lanes make repeated work legible.", "Recorded same-engine campaign"),
+        ("Shared\nanchors.", "72.4% fewer DFT evaluations.", "Reviewed public result · bounded panel"),
+        ("The receipt.", "$14.65 per 129 anchors\nZero evaluation failures\nSame-engine strong-win gate met by all four", "One functional · seven large paths deferred"),
         ("The split is\nthe result.", "Two models meet the true extrema.\nTwo miss saddles on some paths: 6.8 meV deficit.", "CAUTION · short-path sparsity is not stress-tested"),
         ("Models guide.\nDFT measures.", "Proof keeps the score.", "FOR EDITOR REVIEW · one chemistry family · one engine"),
     ],
@@ -47,7 +47,7 @@ COMPOSITION_TEXT = {
         ("The expensive part\nis the call.", "One evaluation pulse crosses the evidence field.", "Seven families reduce different kinds of work"),
         ("Seven layers.\nDifferent savings.", "Surrogate search · active learning · multi-fidelity\nabstention · faster DFT · electronic surrogates\npath and sampling algorithms", "The layers are not independent multipliers"),
         ("Signals are not\ncertificates.", "The gaps align into one shared evidence void.", "Hashable research release · not peer review"),
-        ("Reuse the\nevidence.", "558 naive · 154 union · 72.4% fewer · 3.62×\non 29 analyzable Z1 paths", "Four-model union cost ≈10% above one-model union on this curve"),
+        ("Reuse the\nevidence.", "72.4% fewer DFT evaluations\non 29 analyzable Z1 paths", "Reviewed public result · no substitute economics"),
         ("Keep the limits.", "Shared anchors feed independent test bays.", "One panel · four models · one engine · one chemistry family"),
     ],
     "03-trust-layer": [
@@ -465,17 +465,28 @@ def duration_from_tc(timecode: str) -> tuple[float, float]:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--qa-attempt-1",
-        action="store_true",
-        help="Write immutable *-qa-attempt-1.mp4 replacements; refuse overwrite.",
+        "--qa-attempt",
+        type=int,
+        help="Write immutable *-qa-attempt-N.mp4 evidence; refuse overwrite.",
+    )
+    parser.add_argument(
+        "--film-id",
+        action="append",
+        help="Render only this film id (repeatable); defaults to all five.",
     )
     args = parser.parse_args()
+    if args.qa_attempt is not None and args.qa_attempt < 1:
+        parser.error("--qa-attempt must be a positive integer")
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     manifest = json.loads(STORYBOARDS.read_text())
     if manifest["film_count"] != 5:
         raise ValueError("Storyboard manifest must contain exactly five films")
-    attempt = 1 if args.qa_attempt_1 else None
-    results = [render_film(film, qa_attempt=attempt) for film in manifest["films"]]
+    selected_ids = set(args.film_id or [])
+    films = [film for film in manifest["films"] if not selected_ids or film["id"] in selected_ids]
+    missing_ids = selected_ids.difference(film["id"] for film in films)
+    if missing_ids:
+        parser.error(f"unknown --film-id: {', '.join(sorted(missing_ids))}")
+    results = [render_film(film, qa_attempt=args.qa_attempt) for film in films]
     storyboard_sha = hashlib.sha256(STORYBOARDS.read_bytes()).hexdigest()
     print(json.dumps({"storyboard_sha256": storyboard_sha, "renders": results}, indent=2))
 

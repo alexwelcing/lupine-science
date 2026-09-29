@@ -1,0 +1,26 @@
+{
+  "schema": "lupine.public-economics-video-receipts.v1",
+  "sources": {
+    "media/brand-campaign-2026-07-27/render_campaign_videos.py": "767819293b8920360646b454a7ecb04084e25587cbbfb653f7ababe2ad3b7c8a",
+    "media/brand-campaign-2026-07-27/campaign-video-storyboards.json": "dda6317a1c1e29e94bb77693689a4ce7246acdfb89facd8d0f4e49cf49bcc8b2"
+  },
+  "promotions": [
+    {
+      "film_id": "01-z1-campaign-story",
+      "public": "public/videos/z1-union-debrief.mp4",
+      "sha256": "c7da8e7ccdbde5d32059fa3b41635377f4ef47fc420d0179b27f50465a48f186",
+      "verified_frame_text": [
+        "72.4% fewer DFT evaluations",
+        "$14.65 per 129 anchors"
+      ]
+    },
+    {
+      "film_id": "02-savings-stack",
+      "public": "public/videos/the-savings-stack.mp4",
+      "sha256": "51ac0922192dd2cfeff447c10913233bd82fe101d3deeb53479bab9ba22f1c73",
+      "verified_frame_text": [
+        "72.4% fewer DFT evaluations"
+      ]
+    }
+  ]
+}

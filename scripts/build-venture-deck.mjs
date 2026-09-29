@@ -20,6 +20,7 @@ const ASSET_LOCK = path.join(PROJECT, 'asset-lock.json');
 const PROJECT_PDF = path.join(PROJECT, 'lupine-science-venture-deck.pdf');
 const PUBLIC_PDF = path.join(PUBLIC_VENTURE, 'lupine-science-venture-deck.pdf');
 const PUBLIC_DECK = path.join(PUBLIC_VENTURE, 'deck.html');
+const PROJECT_DECK = path.join(PROJECT, 'deck.html');
 const PUBLIC_LANDING = path.join(PUBLIC_VENTURE, 'index.html');
 const BUILD_MANIFEST = path.join(PROJECT, 'build-manifest.json');
 const FIXED_DATE = new Date('2026-07-28T00:00:00.000Z');
@@ -90,6 +91,7 @@ async function main() {
   const slideCount = [...html.matchAll(/<section class="slide(?: is-active)?"(?=\s|>)/g)].length;
   assertSupportedSlideCount(slideCount);
   fs.writeFileSync(PUBLIC_DECK, html);
+  fs.writeFileSync(PROJECT_DECK, html);
   copy(LANDING, PUBLIC_LANDING);
   copy(EVIDENCE, path.join(PUBLIC_VENTURE, 'evidence-manifest.json'));
   copy(ASSET_LOCK, path.join(PUBLIC_VENTURE, 'asset-lock.json'));
