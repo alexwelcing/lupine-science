@@ -83,19 +83,21 @@ function articleMetadata(markdown) {
   return { title, status };
 }
 
-async function validVisualReviews() {
+async function validVisualReviews(videoDigests) {
   const latest = new Map();
   if (!existsSync(REPORTS)) return latest;
   const files = (await fs.readdir(REPORTS)).filter((name) => name.endsWith('-smart-review.json')).sort();
   for (const name of files) {
     const report = await readJson(path.join(REPORTS, name));
     for (const video of report.videos ?? []) {
+      if (!video.videoSha256 || video.videoSha256 !== videoDigests.get(video.slug)) continue;
       const samples = video.sample?.samples ?? [];
       const errors = samples.filter((sample) => sample.error);
       if (samples.length === 0 || errors.length > 0) continue;
       latest.set(video.slug, {
         report: path.relative(ROOT, path.join(REPORTS, name)),
         generatedAt: report.generatedAt,
+        videoSha256: video.videoSha256,
         score: video.total,
         p0: video.p0 ?? [],
         sampleCount: samples.length,
@@ -111,9 +113,10 @@ const contract = await readJson(CONTRACT);
 const knownDefects = (await readJson(DEFECTS)).articles;
 const audio = await readJson(AUDIO_REPORT);
 const baseline = await readJson(AUDIO_BASELINE);
-const visualReviews = await validVisualReviews();
 const audioByFile = new Map(audio.files.map((record) => [record.file, record]));
 const videoNames = (await fs.readdir(VIDEOS)).filter((name) => name.endsWith('.mp4')).sort();
+const videoDigests = new Map(await Promise.all(videoNames.map(async (name) => [name.replace(/\.mp4$/, ''), await sha256(path.join(VIDEOS, name))])));
+const visualReviews = await validVisualReviews(videoDigests);
 const entries = [];
 
 for (const videoName of videoNames) {

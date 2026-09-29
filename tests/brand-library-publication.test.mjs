@@ -41,3 +41,16 @@ test('accepted brand asset paths cannot escape the public root', () => {
     /public path escapes public root/,
   );
 });
+
+test('accepted brand assets cannot be symlinks to files outside the public root', () => {
+  const { publicRoot, record } = fixture();
+  const outside = path.join(os.tmpdir(), `lupine-brand-outside-${process.pid}.webp`);
+  fs.writeFileSync(outside, 'master bytes');
+  fs.unlinkSync(path.join(publicRoot, 'assets', 'master.webp'));
+  fs.symlinkSync(outside, path.join(publicRoot, 'assets', 'master.webp'));
+  assert.throws(
+    () => verifyAcceptedRecord(record, publicRoot),
+    /public asset must be a regular file, not a symlink/,
+  );
+  fs.rmSync(outside, { force: true });
+});

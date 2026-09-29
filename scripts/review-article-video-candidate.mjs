@@ -209,6 +209,9 @@ async function main() {
   check('video-resolution', videoStream?.width === 1920 && videoStream?.height === 1080, `${videoStream?.width}x${videoStream?.height}`);
   check('video-pixel-format', videoStream?.pix_fmt === 'yuv420p', `pix_fmt=${videoStream?.pix_fmt}`);
   check('video-frame-rate', videoStream?.avg_frame_rate === '30/1', `fps=${videoStream?.avg_frame_rate}`);
+  check('video-color-space', videoStream?.color_space === 'bt709', `color_space=${videoStream?.color_space}`);
+  check('video-color-primaries', videoStream?.color_primaries === 'bt709', `color_primaries=${videoStream?.color_primaries}`);
+  check('video-color-transfer', videoStream?.color_transfer === 'bt709', `color_transfer=${videoStream?.color_transfer}`);
   check('audio-codec', audioStream?.codec_name === 'aac', `codec=${audioStream?.codec_name}`);
   check('audio-sample-rate', Number(audioStream?.sample_rate) === 44100, `sample_rate=${audioStream?.sample_rate}`);
   check('audio-channels', Number(audioStream?.channels) === 1, `channels=${audioStream?.channels}`);

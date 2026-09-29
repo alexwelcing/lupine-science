@@ -8,6 +8,7 @@
  * report and a markdown summary.
  */
 import { createWorker } from 'tesseract.js';
+import { createHash } from 'node:crypto';
 import { readFile, readdir, writeFile, mkdir, stat } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
@@ -407,6 +408,23 @@ export function classifyP0(report, sample) {
   return p0;
 }
 
+export function technicalVideoNotes(stream) {
+  const notes = [];
+  if (stream.width !== TARGET_WIDTH || stream.height !== TARGET_HEIGHT) {
+    notes.push(`resolution ${stream.width}x${stream.height}`);
+  }
+  if (stream.avg_frame_rate !== `${TARGET_FPS}/1`) notes.push(`frame rate ${stream.avg_frame_rate}`);
+  if (stream.codec_name !== 'h264') notes.push(`video codec ${stream.codec_name}`);
+  if (stream.pix_fmt !== 'yuv420p') notes.push(`pixel format ${stream.pix_fmt}`);
+  // Older reviewed assets do not all declare color metadata. When metadata is
+  // present, reject any non-BT.709 declaration; project-scoped candidate
+  // review separately requires all three fields to be explicitly present.
+  if (stream.color_space && stream.color_space !== 'bt709') notes.push(`color space ${stream.color_space}`);
+  if (stream.color_primaries && stream.color_primaries !== 'bt709') notes.push(`color primaries ${stream.color_primaries}`);
+  if (stream.color_transfer && stream.color_transfer !== 'bt709') notes.push(`color transfer ${stream.color_transfer}`);
+  return notes;
+}
+
 async function reviewVideo(file, dictionary, corpus, bigram, worker, flags) {
   const slug = flags.slug || path.basename(file, '.mp4');
   const videoPath = flags.videoPath || path.join(VIDEOS_DIR, file);
@@ -417,6 +435,7 @@ async function reviewVideo(file, dictionary, corpus, bigram, worker, flags) {
   const report = {
     slug,
     file,
+    videoSha256: createHash('sha256').update(await readFile(videoPath)).digest('hex'),
     technical: { score: 0, max: 25, notes: [] },
     poster: { score: 0, max: 25, notes: [] },
     captions: { score: 0, max: 20, notes: [] },
@@ -432,18 +451,7 @@ async function reviewVideo(file, dictionary, corpus, bigram, worker, flags) {
 
   if (!vStream) report.technical.notes.push('no video stream');
   else {
-    if (vStream.width !== TARGET_WIDTH || vStream.height !== TARGET_HEIGHT) {
-      report.technical.notes.push(`resolution ${vStream.width}x${vStream.height}`);
-    }
-    if (!vStream.avg_frame_rate?.includes('30')) {
-      report.technical.notes.push(`frame rate ${vStream.avg_frame_rate}`);
-    }
-    if (vStream.codec_name !== 'h264') {
-      report.technical.notes.push(`video codec ${vStream.codec_name}`);
-    }
-    if (vStream.pix_fmt !== 'yuv420p') {
-      report.technical.notes.push(`pixel format ${vStream.pix_fmt}`);
-    }
+    report.technical.notes.push(...technicalVideoNotes(vStream));
   }
 
   if (!aStream) report.technical.notes.push('no audio stream');

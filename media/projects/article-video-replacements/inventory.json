@@ -18,23 +18,23 @@
     "audioReport": {
       "path": "release/audio-gate/audio-gate.json",
       "exists": true,
-      "bytes": 83260,
-      "sha256": "14e2eddcdcb94cd88d7619bdda29a997c7cbf6c75ce799db4ec2f6402cbacbbd"
+      "bytes": 58829,
+      "sha256": "fdbbed1e2237f03d0ebb10a31400bc837894369123fb73ba8f911b7cc5bb5c96"
     },
     "audioBaseline": {
       "path": "tests/fixtures/audio-gate-baseline.json",
       "exists": true,
-      "bytes": 6665,
-      "sha256": "3336a285d41ac82571cb884957344cf9b95d3e46d1ea8ac0d84cc860ff5078d4"
+      "bytes": 4509,
+      "sha256": "2b5e13efce93fa37d6479400b30481228ba1f3ddc6848a1da0317a6eca69b7ee"
     }
   },
   "summary": {
     "publishedArticleVideos": 22,
-    "audioPassingIndependently": 13,
-    "audioFailing": 9,
+    "audioPassingIndependently": 22,
+    "audioFailing": 0,
     "knownHumanVisualDefects": 4,
-    "freshErrorFreeTargetedVisualReviews": 2,
-    "technicalRemasters": 9,
+    "freshErrorFreeTargetedVisualReviews": 0,
+    "technicalRemasters": 0,
     "authoredHyperFramesReplacements": 4,
     "generatedMotionApproved": 0,
     "publicationEligible": 0
@@ -107,7 +107,7 @@
         },
         "articleVideoProject": {
           "path": "media/projects/article-videos/a-field-not-a-neural-net",
-          "exists": true
+          "exists": false
         }
       },
       "audit": {
@@ -119,22 +119,19 @@
           "independentlyPassing": true
         },
         "visual": {
-          "report": "media/projects/video-review/reports/2026-08-11-21-09-51-smart-review.json",
-          "generatedAt": "2026-08-11T21:09:51.651Z",
-          "score": 100,
-          "p0": [],
-          "sampleCount": 53,
-          "blankFrameCount": 0,
-          "ocrHitCount": 32
+          "report": null,
+          "score": null,
+          "p0": null,
+          "sampleCount": 0,
+          "status": "no-fresh-error-free-targeted-review"
         },
         "knownHumanDefects": null
       },
       "replacement": {
         "recommendedTier": "deterministic-motion-rebuild",
-        "readiness": "automated-gates-pass-human-review-required",
+        "readiness": "targeted-frame-review-required",
         "reasons": [
-          "automated-audio-pass",
-          "targeted-visual-pass"
+          "fresh-targeted-visual-review-missing"
         ],
         "sceneContractRequired": false,
         "eligibleForGeneration": false,
@@ -155,10 +152,10 @@
         "video": {
           "path": "public/videos/a-smooth-environment-resolved-error-field.mp4",
           "exists": true,
-          "bytes": 3740511,
-          "sha256": "6f0281ad6ff6d8cf8ed0194e1945173fd955edba67680022d2e04de203fa284f",
+          "bytes": 4220501,
+          "sha256": "d923c7e668678d342547705e8fb4b327815c71740bfbc20c71cbe981e6782226",
           "probe": {
-            "durationSeconds": 111.255011,
+            "durationSeconds": 111.27,
             "video": {
               "codec": "h264",
               "width": 1920,
@@ -207,14 +204,12 @@
       "audit": {
         "audio": {
           "report": "release/audio-gate/audio-gate.json",
-          "decision": "fail",
-          "failures": [
-            "true-peak-ceiling"
-          ],
+          "decision": "pass",
+          "failures": [],
           "baselinedFailures": [
             "true-peak-ceiling"
           ],
-          "independentlyPassing": false
+          "independentlyPassing": true
         },
         "visual": {
           "report": null,
@@ -226,10 +221,10 @@
         "knownHumanDefects": null
       },
       "replacement": {
-        "recommendedTier": "technical-remaster",
-        "readiness": "technical-remaster-required",
+        "recommendedTier": "deterministic-motion-rebuild",
+        "readiness": "targeted-frame-review-required",
         "reasons": [
-          "audio:true-peak-ceiling"
+          "fresh-targeted-visual-review-missing"
         ],
         "sceneContractRequired": false,
         "eligibleForGeneration": false,
@@ -250,10 +245,10 @@
         "video": {
           "path": "public/videos/an-order-of-effort.mp4",
           "exists": true,
-          "bytes": 1264498,
-          "sha256": "2d2a796f96506471cfadfdf2e27c81d85d044f290e18bdd8c00207e801fce420",
+          "bytes": 1291329,
+          "sha256": "82b22ea94387f54261e46baf5d0a79ac8fa7a5066f4ace273a025c87fdf882d1",
           "probe": {
-            "durationSeconds": 28,
+            "durationSeconds": 28.01,
             "video": {
               "codec": "h264",
               "width": 1920,
@@ -302,14 +297,12 @@
       "audit": {
         "audio": {
           "report": "release/audio-gate/audio-gate.json",
-          "decision": "fail",
-          "failures": [
-            "integrated-loudness-band"
-          ],
+          "decision": "pass",
+          "failures": [],
           "baselinedFailures": [
             "integrated-loudness-band"
           ],
-          "independentlyPassing": false
+          "independentlyPassing": true
         },
         "visual": {
           "report": null,
@@ -321,10 +314,10 @@
         "knownHumanDefects": null
       },
       "replacement": {
-        "recommendedTier": "technical-remaster",
-        "readiness": "technical-remaster-required",
+        "recommendedTier": "deterministic-motion-rebuild",
+        "readiness": "targeted-frame-review-required",
         "reasons": [
-          "audio:integrated-loudness-band"
+          "fresh-targeted-visual-review-missing"
         ],
         "sceneContractRequired": false,
         "eligibleForGeneration": false,
@@ -372,8 +365,8 @@
         "captions": {
           "path": "public/videos/beyond-carbon-the-error-geometry-of-environmental-materials.vtt",
           "exists": true,
-          "bytes": 3434,
-          "sha256": "ed51c010dbbe532c5c5378c4fadd67342005a808c191242b6994e20edc7f0194"
+          "bytes": 3435,
+          "sha256": "59dd9d37f7d6eb4d8707230a70d52811cd02d256f1e5a7122976293e4cb86da6"
         }
       },
       "inputs": {
@@ -386,12 +379,12 @@
         "narrationScript": {
           "path": "data/narration-scripts/beyond-carbon-the-error-geometry-of-environmental-materials.json",
           "exists": true,
-          "bytes": 2461,
-          "sha256": "c5af62781f71623671bbd914e94a5495c8b6660a2c15b9669d9e2376635a27d8"
+          "bytes": 2585,
+          "sha256": "92c78e477c212f4c76e98849cc5471c550717065d1060a94dec9839c353ee2d2"
         },
         "articleVideoProject": {
           "path": "media/projects/article-videos/beyond-carbon-the-error-geometry-of-environmental-materials",
-          "exists": true
+          "exists": false
         }
       },
       "audit": {
@@ -503,7 +496,7 @@
         },
         "articleVideoProject": {
           "path": "media/projects/article-videos/cement-concrete-and-the-weight-of-the-built-world",
-          "exists": true
+          "exists": false
         }
       },
       "audit": {
@@ -537,21 +530,21 @@
     {
       "slug": "critical-minerals-pfas-and-the-remediation-imperative",
       "title": "Critical Minerals, PFAS, and the Remediation Imperative",
-      "status": "Draft",
+      "status": "Published",
       "source": {
         "path": "articles/critical-minerals-pfas-and-the-remediation-imperative.md",
         "exists": true,
-        "bytes": 25034,
-        "sha256": "ea61c3fd4f4b91f0bad91be0c09c58d8c5c1fe922df20cae9088fa4601ac91a4"
+        "bytes": 26058,
+        "sha256": "714cd516f5c10896066ec979375b9f45875c29d9ba442554ba76a9a93c69019d"
       },
       "published": {
         "video": {
           "path": "public/videos/critical-minerals-pfas-and-the-remediation-imperative.mp4",
           "exists": true,
-          "bytes": 12007553,
-          "sha256": "1305c1ebf22974631fa0f68cd018a8eb3a6367c91cbce1f6d1247b9897f0afa0",
+          "bytes": 5362853,
+          "sha256": "49c720aacc5b64cafab3ed9fceb978ebddd148621aa7110392c693d9cf424213",
           "probe": {
-            "durationSeconds": 147.689002,
+            "durationSeconds": 147.7,
             "video": {
               "codec": "h264",
               "width": 1920,
@@ -569,8 +562,8 @@
         "poster": {
           "path": "public/videos/critical-minerals-pfas-and-the-remediation-imperative-poster.jpg",
           "exists": true,
-          "bytes": 43174,
-          "sha256": "76624e438b6119ec66d69ff60522469de5779d244f0fb8a7b6de81f3900e90a4"
+          "bytes": 49736,
+          "sha256": "25b9cf182207096f93d28fc9d99e831c9bab617e8af07c012fde9e694cfe4e3b"
         },
         "captions": {
           "path": "public/videos/critical-minerals-pfas-and-the-remediation-imperative.vtt",
@@ -594,7 +587,7 @@
         },
         "articleVideoProject": {
           "path": "media/projects/article-videos/critical-minerals-pfas-and-the-remediation-imperative",
-          "exists": true
+          "exists": false
         }
       },
       "audit": {
@@ -685,7 +678,7 @@
         },
         "articleVideoProject": {
           "path": "media/projects/article-videos/five-materials-for-5-to-12-gtco2-year",
-          "exists": true
+          "exists": false
         }
       },
       "audit": {
@@ -883,7 +876,7 @@
         },
         "articleVideoProject": {
           "path": "media/projects/article-videos/from-predicted-crystal-to-commercial-cell",
-          "exists": true
+          "exists": false
         }
       },
       "audit": {
@@ -955,8 +948,8 @@
         "captions": {
           "path": "public/videos/investing-in-the-trust-layer.vtt",
           "exists": true,
-          "bytes": 3630,
-          "sha256": "ce81d87b0775db5413d05a7235145f3d22788a95bde54b04032e92d88b791f78"
+          "bytes": 3626,
+          "sha256": "e501ebfb66169cc01e99ee3568e02ca7b45246765b40d9c0cc0c124d57c957b6"
         }
       },
       "inputs": {
@@ -969,12 +962,12 @@
         "narrationScript": {
           "path": "data/narration-scripts/investing-in-the-trust-layer.json",
           "exists": true,
-          "bytes": 2422,
-          "sha256": "af71b6017115df54f5381947758cc01c129701581d552aa85c9a09f06c5cdd4e"
+          "bytes": 2546,
+          "sha256": "82f362e134953229ed72794a151f2903768cdf216918d8bf853d59c7800cc958"
         },
         "articleVideoProject": {
           "path": "media/projects/article-videos/investing-in-the-trust-layer",
-          "exists": true
+          "exists": false
         }
       },
       "audit": {
@@ -1183,7 +1176,7 @@
         },
         "articleVideoProject": {
           "path": "media/projects/article-videos/methane-and-refrigerants-cutting-the-non-co2-climate-forcers",
-          "exists": true
+          "exists": false
         }
       },
       "audit": {
@@ -1228,10 +1221,10 @@
         "video": {
           "path": "public/videos/rhizo-non-co2-climate-forcers-lean.mp4",
           "exists": true,
-          "bytes": 4234591,
-          "sha256": "e1d2843ebe3697a22f9b211a1adcd67c092058e56b65033f8939f0f6ce29bb15",
+          "bytes": 4768448,
+          "sha256": "f561d56d0b83035b00f55ddc831b2342a3adde9180d8bf55a86db758e652b1b4",
           "probe": {
-            "durationSeconds": 123.062993,
+            "durationSeconds": 123.065011,
             "video": {
               "codec": "h264",
               "width": 1920,
@@ -1280,14 +1273,12 @@
       "audit": {
         "audio": {
           "report": "release/audio-gate/audio-gate.json",
-          "decision": "fail",
-          "failures": [
-            "true-peak-ceiling"
-          ],
+          "decision": "pass",
+          "failures": [],
           "baselinedFailures": [
             "true-peak-ceiling"
           ],
-          "independentlyPassing": false
+          "independentlyPassing": true
         },
         "visual": {
           "report": null,
@@ -1299,10 +1290,10 @@
         "knownHumanDefects": null
       },
       "replacement": {
-        "recommendedTier": "technical-remaster",
-        "readiness": "technical-remaster-required",
+        "recommendedTier": "deterministic-motion-rebuild",
+        "readiness": "targeted-frame-review-required",
         "reasons": [
-          "audio:true-peak-ceiling"
+          "fresh-targeted-visual-review-missing"
         ],
         "sceneContractRequired": false,
         "eligibleForGeneration": false,
@@ -1323,10 +1314,10 @@
         "video": {
           "path": "public/videos/the-02-percent-synthesis-problem.mp4",
           "exists": true,
-          "bytes": 8428089,
-          "sha256": "049fe47b6d80b2c054f5f7d4150e0d725a899da7e8b1905d203ba5996aa6cb26",
+          "bytes": 8758205,
+          "sha256": "c11c445ceac6c2fe77577453da0358bd660985878b40812945d33e6dd0251ce4",
           "probe": {
-            "durationSeconds": 124.412993,
+            "durationSeconds": 127.12,
             "video": {
               "codec": "h264",
               "width": 1920,
@@ -1350,26 +1341,26 @@
         "captions": {
           "path": "public/videos/the-02-percent-synthesis-problem.vtt",
           "exists": true,
-          "bytes": 3077,
-          "sha256": "8d93fa56317ea96a5524b0fb50d8420bed80c42e4d0f4a5ebaf34a227845b8e5"
+          "bytes": 3179,
+          "sha256": "2bc61ba55736382245ca20e5a7b09a9d535935e779fa2a4d9e35c500492b6d6c"
         }
       },
       "inputs": {
         "motionManifest": {
           "path": "data/video-motion/the-02-percent-synthesis-problem.json",
           "exists": true,
-          "bytes": 3133,
-          "sha256": "543dd4524b5537502d2b7779e0c54194837a453ba4eeef2ecf302818e85759c8"
+          "bytes": 3142,
+          "sha256": "50edc1734b749a37c2f811ec055e97c31834c7bd25f47c6d22f35b2231682eff"
         },
         "narrationScript": {
           "path": "data/narration-scripts/the-02-percent-synthesis-problem.json",
           "exists": true,
-          "bytes": 2104,
-          "sha256": "25913fd969976958b8d956b75d8c1ec205f2ac3095636807f3e0dc230652b819"
+          "bytes": 2206,
+          "sha256": "501bae428e140331bc1c702f5d98e1d198dcabceadc49c9215b85e99a0eb3f5a"
         },
         "articleVideoProject": {
           "path": "media/projects/article-videos/the-02-percent-synthesis-problem",
-          "exists": true
+          "exists": false
         }
       },
       "audit": {
@@ -1414,10 +1405,10 @@
         "video": {
           "path": "public/videos/the-materials-we-test-against.mp4",
           "exists": true,
-          "bytes": 1161903,
-          "sha256": "3845a7de90db3a6432e489bdf76922b924f18def96a999a5d668f57a7330f69d",
+          "bytes": 1190312,
+          "sha256": "936295d4e5b00cecb269e1e16bdf1eceb92cead80127ce300c3f25b5eafdd188",
           "probe": {
-            "durationSeconds": 30,
+            "durationSeconds": 30.016,
             "video": {
               "codec": "h264",
               "width": 1920,
@@ -1466,14 +1457,12 @@
       "audit": {
         "audio": {
           "report": "release/audio-gate/audio-gate.json",
-          "decision": "fail",
-          "failures": [
-            "integrated-loudness-band"
-          ],
+          "decision": "pass",
+          "failures": [],
           "baselinedFailures": [
             "integrated-loudness-band"
           ],
-          "independentlyPassing": false
+          "independentlyPassing": true
         },
         "visual": {
           "report": null,
@@ -1485,10 +1474,10 @@
         "knownHumanDefects": null
       },
       "replacement": {
-        "recommendedTier": "technical-remaster",
-        "readiness": "technical-remaster-required",
+        "recommendedTier": "deterministic-motion-rebuild",
+        "readiness": "targeted-frame-review-required",
         "reasons": [
-          "audio:integrated-loudness-band"
+          "fresh-targeted-visual-review-missing"
         ],
         "sceneContractRequired": false,
         "eligibleForGeneration": false,
@@ -1509,8 +1498,8 @@
         "video": {
           "path": "public/videos/the-order-is-right-the-size-is-wrong.mp4",
           "exists": true,
-          "bytes": 4934030,
-          "sha256": "49562e5b3459c245ebf88180ffdbb1326eda4d926060424439999c0fcbcdfd3f",
+          "bytes": 5518584,
+          "sha256": "dec2778c15ae982cc2ffeef478043e87820b233fe41c07332bf1f8663c8e2e75",
           "probe": {
             "durationSeconds": 134.933333,
             "video": {
@@ -1561,14 +1550,12 @@
       "audit": {
         "audio": {
           "report": "release/audio-gate/audio-gate.json",
-          "decision": "fail",
-          "failures": [
-            "true-peak-ceiling"
-          ],
+          "decision": "pass",
+          "failures": [],
           "baselinedFailures": [
             "true-peak-ceiling"
           ],
-          "independentlyPassing": false
+          "independentlyPassing": true
         },
         "visual": {
           "report": null,
@@ -1580,10 +1567,10 @@
         "knownHumanDefects": null
       },
       "replacement": {
-        "recommendedTier": "technical-remaster",
-        "readiness": "technical-remaster-required",
+        "recommendedTier": "deterministic-motion-rebuild",
+        "readiness": "targeted-frame-review-required",
         "reasons": [
-          "audio:true-peak-ceiling"
+          "fresh-targeted-visual-review-missing"
         ],
         "sceneContractRequired": false,
         "eligibleForGeneration": false,
@@ -1604,10 +1591,10 @@
         "video": {
           "path": "public/videos/the-savings-stack.mp4",
           "exists": true,
-          "bytes": 1101244,
-          "sha256": "48ed48f919b3e12ec06fcc84d355279921404c1a96c1526b33fea2b00e41996e",
+          "bytes": 1128075,
+          "sha256": "25042198667dd0ce6171a469378b3d84ac22e39fc1add78404f40b439d93cb9f",
           "probe": {
-            "durationSeconds": 28,
+            "durationSeconds": 28.01,
             "video": {
               "codec": "h264",
               "width": 1920,
@@ -1656,14 +1643,12 @@
       "audit": {
         "audio": {
           "report": "release/audio-gate/audio-gate.json",
-          "decision": "fail",
-          "failures": [
-            "integrated-loudness-band"
-          ],
+          "decision": "pass",
+          "failures": [],
           "baselinedFailures": [
             "integrated-loudness-band"
           ],
-          "independentlyPassing": false
+          "independentlyPassing": true
         },
         "visual": {
           "report": null,
@@ -1675,10 +1660,10 @@
         "knownHumanDefects": null
       },
       "replacement": {
-        "recommendedTier": "technical-remaster",
-        "readiness": "technical-remaster-required",
+        "recommendedTier": "deterministic-motion-rebuild",
+        "readiness": "targeted-frame-review-required",
         "reasons": [
-          "audio:integrated-loudness-band"
+          "fresh-targeted-visual-review-missing"
         ],
         "sceneContractRequired": false,
         "eligibleForGeneration": false,
@@ -1699,8 +1684,8 @@
         "video": {
           "path": "public/videos/the-trust-layer.mp4",
           "exists": true,
-          "bytes": 933070,
-          "sha256": "b3e3657062ccb36327c1e313923c04f37f7d9c3e89483bb4c6697c227f1b6049",
+          "bytes": 958144,
+          "sha256": "296b506bf28371c1a49f4fec59688ed8c95c2c4eac2ccf269749e5ad03c029e8",
           "probe": {
             "durationSeconds": 24,
             "video": {
@@ -1751,14 +1736,12 @@
       "audit": {
         "audio": {
           "report": "release/audio-gate/audio-gate.json",
-          "decision": "fail",
-          "failures": [
-            "integrated-loudness-band"
-          ],
+          "decision": "pass",
+          "failures": [],
           "baselinedFailures": [
             "integrated-loudness-band"
           ],
-          "independentlyPassing": false
+          "independentlyPassing": true
         },
         "visual": {
           "report": null,
@@ -1770,10 +1753,10 @@
         "knownHumanDefects": null
       },
       "replacement": {
-        "recommendedTier": "technical-remaster",
-        "readiness": "technical-remaster-required",
+        "recommendedTier": "deterministic-motion-rebuild",
+        "readiness": "targeted-frame-review-required",
         "reasons": [
-          "audio:integrated-loudness-band"
+          "fresh-targeted-visual-review-missing"
         ],
         "sceneContractRequired": false,
         "eligibleForGeneration": false,
@@ -1794,10 +1777,10 @@
         "video": {
           "path": "public/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe.mp4",
           "exists": true,
-          "bytes": 10185282,
-          "sha256": "0afd1968c677370eb0cb14de118562696503fcfcc96f97919c369c7598b070b7",
+          "bytes": 11411150,
+          "sha256": "7d587757dbd9586a8a8531e873a2ee6278ed116086c6c88d8da08d4622cf978a",
           "probe": {
-            "durationSeconds": 139.402993,
+            "durationSeconds": 131.52,
             "video": {
               "codec": "h264",
               "width": 1920,
@@ -1815,14 +1798,14 @@
         "poster": {
           "path": "public/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe-poster.jpg",
           "exists": true,
-          "bytes": 43796,
-          "sha256": "695f98d0ac1bfbef40202b03f300309373eb0c754c8f91a0caf0a21ec649ad7e"
+          "bytes": 96973,
+          "sha256": "59b59cc6f62555919c7f3c2e06181f59f2fd1aa514f88ca01f6680d185bfc9c5"
         },
         "captions": {
           "path": "public/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe.vtt",
           "exists": true,
-          "bytes": 3177,
-          "sha256": "4d1711f9adcd620489c2f2afe052a4a5e9d212ce6b225f22a62aa0c5209788a2"
+          "bytes": 2766,
+          "sha256": "792cde488cdf88ccc6a7b06b904ad970c7e0a76162dbf2d21cf252af45555e6b"
         }
       },
       "inputs": {
@@ -1835,12 +1818,12 @@
         "narrationScript": {
           "path": "data/narration-scripts/water-and-air-correcting-the-molecules-we-drink-and-breathe.json",
           "exists": true,
-          "bytes": 2457,
-          "sha256": "10dbe5d29891604725b322dafd9fd121481e7dd950b79eb27bdfa60bcba421eb"
+          "bytes": 2382,
+          "sha256": "cefaf5e2a3374a3faa8156e10338a61145d9cc951c39b46f9d87dafef373be5a"
         },
         "articleVideoProject": {
           "path": "media/projects/article-videos/water-and-air-correcting-the-molecules-we-drink-and-breathe",
-          "exists": true
+          "exists": false
         }
       },
       "audit": {
@@ -1852,13 +1835,11 @@
           "independentlyPassing": true
         },
         "visual": {
-          "report": "media/projects/video-review/reports/2026-08-11-22-55-39-smart-review.json",
-          "generatedAt": "2026-08-11T22:55:39.213Z",
-          "score": 95,
-          "p0": [],
-          "sampleCount": 38,
-          "blankFrameCount": 0,
-          "ocrHitCount": 11
+          "report": null,
+          "score": null,
+          "p0": null,
+          "sampleCount": 0,
+          "status": "no-fresh-error-free-targeted-review"
         },
         "knownHumanDefects": {
           "defectClasses": [
@@ -1908,8 +1889,8 @@
         "video": {
           "path": "public/videos/why-lupi.mp4",
           "exists": true,
-          "bytes": 4526023,
-          "sha256": "ecfa1d2c59bdb7dee67938c30f2a5328cd3fe9eb38bbe05658b8f4d61c386a97",
+          "bytes": 5012181,
+          "sha256": "e6952ee7d2efd34bd09a403e7963397758344ba3094bf0e92335bfc3a538d8a7",
           "probe": {
             "durationSeconds": 112.733333,
             "video": {
@@ -1960,14 +1941,12 @@
       "audit": {
         "audio": {
           "report": "release/audio-gate/audio-gate.json",
-          "decision": "fail",
-          "failures": [
-            "true-peak-ceiling"
-          ],
+          "decision": "pass",
+          "failures": [],
           "baselinedFailures": [
             "true-peak-ceiling"
           ],
-          "independentlyPassing": false
+          "independentlyPassing": true
         },
         "visual": {
           "report": null,
@@ -1979,10 +1958,10 @@
         "knownHumanDefects": null
       },
       "replacement": {
-        "recommendedTier": "technical-remaster",
-        "readiness": "technical-remaster-required",
+        "recommendedTier": "deterministic-motion-rebuild",
+        "readiness": "targeted-frame-review-required",
         "reasons": [
-          "audio:true-peak-ceiling"
+          "fresh-targeted-visual-review-missing"
         ],
         "sceneContractRequired": false,
         "eligibleForGeneration": false,
@@ -2094,10 +2073,10 @@
         "video": {
           "path": "public/videos/z1-union-debrief.mp4",
           "exists": true,
-          "bytes": 1064842,
-          "sha256": "5ace393923af277227916ee6bc786b5da63bebd5742ae385f0b3a5b5e5be1b27",
+          "bytes": 1091673,
+          "sha256": "24ed4bc09b1d12e8ed3d99b366d50efb692a94b9413a9b10d0dbc17095145917",
           "probe": {
-            "durationSeconds": 28,
+            "durationSeconds": 28.01,
             "video": {
               "codec": "h264",
               "width": 1920,
@@ -2146,14 +2125,12 @@
       "audit": {
         "audio": {
           "report": "release/audio-gate/audio-gate.json",
-          "decision": "fail",
-          "failures": [
-            "integrated-loudness-band"
-          ],
+          "decision": "pass",
+          "failures": [],
           "baselinedFailures": [
             "integrated-loudness-band"
           ],
-          "independentlyPassing": false
+          "independentlyPassing": true
         },
         "visual": {
           "report": null,
@@ -2165,10 +2142,10 @@
         "knownHumanDefects": null
       },
       "replacement": {
-        "recommendedTier": "technical-remaster",
-        "readiness": "technical-remaster-required",
+        "recommendedTier": "deterministic-motion-rebuild",
+        "readiness": "targeted-frame-review-required",
         "reasons": [
-          "audio:integrated-loudness-band"
+          "fresh-targeted-visual-review-missing"
         ],
         "sceneContractRequired": false,
         "eligibleForGeneration": false,

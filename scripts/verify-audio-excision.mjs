@@ -4,6 +4,11 @@ import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 
+// AAC priming and container rounding can change a decoded edge by a small
+// amount. More than 4096 samples at 44.1 kHz (about 93 ms) is not an edge
+// effect and must never be hidden by correlation over the shorter input.
+const MAX_SAMPLE_COUNT_DELTA = 4096;
+
 function parseArgs() {
   const args = process.argv.slice(2);
   const flags = { source: null, candidate: null, remove: null, output: null, minCorrelation: 0.99 };
@@ -81,7 +86,11 @@ async function main() {
       if (score.correlation > best.correlation) best = { correlation: score.correlation, shift };
     }
     const whole = correlationAt(expected, actual, best.shift);
-    const decision = whole.correlation >= flags.minCorrelation ? 'pass' : 'fail';
+    const sampleCountDelta = Math.abs(expected.length - actual.length);
+    const decision = whole.correlation >= flags.minCorrelation
+      && sampleCountDelta <= MAX_SAMPLE_COUNT_DELTA
+      ? 'pass'
+      : 'fail';
     const report = {
       schemaVersion: 1,
       decision,
@@ -91,6 +100,8 @@ async function main() {
       removedDurationSeconds: end - start,
       expectedSamples: expected.length,
       actualSamples: actual.length,
+      sampleCountDelta,
+      maximumSampleCountDelta: MAX_SAMPLE_COUNT_DELTA,
       bestAlignmentSamples: best.shift,
       decodedPcmCorrelation: whole.correlation,
       meanSquaredError: whole.meanSquaredError,
@@ -98,7 +109,7 @@ async function main() {
     };
     await fs.mkdir(path.dirname(flags.output), { recursive: true });
     await fs.writeFile(flags.output, `${JSON.stringify(report, null, 2)}\n`);
-    console.log(`Audio excision ${decision.toUpperCase()}: correlation ${whole.correlation.toFixed(8)} (minimum ${flags.minCorrelation})`);
+    console.log(`Audio excision ${decision.toUpperCase()}: correlation ${whole.correlation.toFixed(8)} (minimum ${flags.minCorrelation}); sample delta ${sampleCountDelta} (maximum ${MAX_SAMPLE_COUNT_DELTA})`);
     if (decision !== 'pass') process.exitCode = 1;
   } finally {
     await fs.rm(temporary, { recursive: true, force: true });

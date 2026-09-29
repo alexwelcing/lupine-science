@@ -9,7 +9,6 @@ const MANIFEST = path.join(ROOT, 'media', 'projects', 'midwest-2076-library', 'r
 const PAGE = path.join(ROOT, 'public', 'brand-assets', 'index.html');
 const START = '<!-- MIDWEST_2076_LIBRARY_START -->';
 const END = '<!-- MIDWEST_2076_LIBRARY_END -->';
-const allowPartial = process.argv.includes('--allow-partial');
 
 const esc = (value) => String(value)
   .replaceAll('&', '&amp;')
@@ -30,11 +29,8 @@ if (manifest.requestedCount !== 100 || manifest.requests?.length !== 100) {
 if (manifest.assetClasses?.length !== 10) throw new Error('expected exactly 10 asset classes');
 
 const accepted = manifest.requests.filter(isAccepted);
-if (!allowPartial && accepted.length !== 100) {
+if (accepted.length !== 100) {
   throw new Error(`publication refuses incomplete library: ${accepted.length}/100 QA-accepted`);
-}
-if (allowPartial && accepted.length === 0) {
-  throw new Error('partial preview requires at least one QA-accepted output');
 }
 
 for (const record of accepted) {
@@ -43,7 +39,7 @@ for (const record of accepted) {
 
 const sections = manifest.assetClasses.map((assetClass) => {
   const records = accepted.filter((record) => record.assetClass === assetClass.id);
-  if (!allowPartial && records.length !== 10) {
+  if (records.length !== 10) {
     throw new Error(`${assetClass.id} has ${records.length}/10 accepted outputs`);
   }
   if (!records.length) return '';
@@ -85,4 +81,4 @@ html = html.replace(new RegExp(`${START}[\\s\\S]*?${END}`), section);
 html = html.replace(/<p class="lede">[^<]*<\/p>/, `<p class="lede">${200 + accepted.length} generated stills: the Midwest 2076 world library, research motifs, abstract textures, and standalone iconography. Select an image to download it.</p>`);
 html = html.replace(/<p class="stats">[^<]*<\/p>/, `<p class="stats">${200 + accepted.length} image assets · ${accepted.length} Midwest 2076 studies · 10 speculative asset classes · 4 procedural patterns · 7 result graphics · 1 deck token system</p>`);
 fs.writeFileSync(PAGE, html);
-console.log(JSON.stringify({ page: path.relative(ROOT, PAGE), accepted: accepted.length, classes: manifest.assetClasses.length, allowPartial }, null, 2));
+console.log(JSON.stringify({ page: path.relative(ROOT, PAGE), accepted: accepted.length, classes: manifest.assetClasses.length }, null, 2));

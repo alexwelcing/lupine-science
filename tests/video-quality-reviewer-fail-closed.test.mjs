@@ -5,7 +5,7 @@ import path from 'node:path';
 import test from 'node:test';
 import sharp from 'sharp';
 
-import { classifyP0, frameStats, sampleTimes } from '../scripts/video-quality-reviewer.mjs';
+import { classifyP0, frameStats, sampleTimes, technicalVideoNotes } from '../scripts/video-quality-reviewer.mjs';
 
 test('frameStats reads the current Sharp channels[].stdev API', async () => {
   const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'lupine-video-frame-'));
@@ -58,6 +58,31 @@ test('every technical conformance failure is P0', () => {
   );
 });
 
+test('technical video conformance requires exact 30 fps and BT.709 metadata', () => {
+  const conforming = {
+    width: 1920,
+    height: 1080,
+    avg_frame_rate: '30/1',
+    codec_name: 'h264',
+    pix_fmt: 'yuv420p',
+    color_space: 'bt709',
+    color_primaries: 'bt709',
+    color_transfer: 'bt709',
+  };
+  assert.deepEqual(technicalVideoNotes(conforming), []);
+  assert.ok(technicalVideoNotes({ ...conforming, avg_frame_rate: '300/1' }).includes('frame rate 300/1'));
+  assert.ok(technicalVideoNotes({ ...conforming, avg_frame_rate: '30/2' }).includes('frame rate 30/2'));
+  assert.ok(technicalVideoNotes({ ...conforming, color_space: 'bt2020nc' }).includes('color space bt2020nc'));
+  assert.ok(technicalVideoNotes({ ...conforming, color_primaries: 'bt2020' }).includes('color primaries bt2020'));
+  assert.ok(technicalVideoNotes({ ...conforming, color_transfer: 'smpte2084' }).includes('color transfer smpte2084'));
+});
+
+test('production brand builder has no partial-publication escape hatch', async () => {
+  const source = await fs.readFile(new URL('../scripts/build-midwest-2076-brand-library.mjs', import.meta.url), 'utf8');
+  assert.doesNotMatch(source, /allow-partial|allowPartial/);
+  assert.match(source, /accepted\.length !== 100/);
+});
+
 test('content samples settle inside cues instead of treating exact dark cut frames as blank scenes', () => {
   const times = sampleTimes(12, [
     { start: 2, end: 5 },
@@ -73,6 +98,7 @@ test('video reviewer exposes a targeted slug option', async () => {
   const source = await fs.readFile(new URL('../scripts/video-quality-reviewer.mjs', import.meta.url), 'utf8');
   assert.match(source, /if \(a === '--slug'\) flags\.slug = args\[\+\+i\]/);
   assert.match(source, /f === `\$\{flags\.slug\}\.mp4`/);
+  assert.match(source, /videoSha256: createHash\('sha256'\)/);
 });
 
 test('video reviewer accepts explicit private candidate assets without changing canonical placement names', async () => {

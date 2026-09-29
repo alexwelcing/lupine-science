@@ -16,6 +16,7 @@ test('audio-excision verifier is valid JavaScript and fails closed on correlatio
   assert.equal(result.status, 0, result.stderr);
   const source = await fs.readFile(audioExcisionUrl, 'utf8');
   assert.match(source, /whole\.correlation >= flags\.minCorrelation/);
+  assert.match(source, /sampleCountDelta <= MAX_SAMPLE_COUNT_DELTA/);
   assert.match(source, /if \(decision !== 'pass'\) process\.exitCode = 1/);
 });
 
@@ -32,6 +33,9 @@ test('candidate reviewer keeps publication disabled and requires exactly 37 deco
   assert.match(source, /if \(entries\.length !== 37\)/);
   assert.match(source, /check\('full-decode'/);
   assert.match(source, /check\('no-sustained-black'/);
+  assert.match(source, /check\('video-color-space'.*color_space === 'bt709'/s);
+  assert.match(source, /check\('video-color-primaries'.*color_primaries === 'bt709'/s);
+  assert.match(source, /check\('video-color-transfer'.*color_transfer === 'bt709'/s);
   assert.match(source, /scripts\/verify-audio-excision\.mjs/);
   assert.match(source, /scripts\/audio-release-gate\.mjs/);
   assert.match(source, /scripts\/video-quality-reviewer\.mjs/);
@@ -47,4 +51,10 @@ test('candidate reviewer covers exact scene boundaries and settled scene content
   assert.match(source, /kind: 'exact-boundary'/);
   assert.match(source, /scenes\.slice\(1\)/);
   assert.match(source, /scene\.reviewTimesSeconds/);
+});
+
+test('replacement inventory binds visual review evidence to current video bytes', async () => {
+  const source = await fs.readFile(new URL('../scripts/build-article-video-replacement-inventory.mjs', import.meta.url), 'utf8');
+  assert.match(source, /video\.videoSha256 !== videoDigests\.get\(video\.slug\)/);
+  assert.match(source, /videoSha256: video\.videoSha256/);
 });
