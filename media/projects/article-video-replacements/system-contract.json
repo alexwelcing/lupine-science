@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "project": "article-video-replacements",
+  "status": "preparation",
+  "purpose": "Prepare deterministic, claim-grounded replacements for broken Lupine Science article videos without treating generative video as evidence.",
+  "sourceOfTruth": {
+    "article": "articles/<slug>.md",
+    "motionManifest": "data/video-motion/<slug>.json when present",
+    "narration": "data/narration-scripts/<slug>.json when present",
+    "publishedMedia": "public/videos/<slug>.*",
+    "reviewStandard": "docs/video-review-playbook.md",
+    "knownDefects": "reviews/p0-unblock-directive.md and article-videos board"
+  },
+  "productionTiers": [
+    {
+      "id": "technical-remaster",
+      "useWhen": "The visual and narrative package remains valid but audio, encode, caption, poster, or packaging gates fail.",
+      "allowedMethods": ["ffmpeg remaster", "verified narration remux", "caption regeneration", "poster regeneration"],
+      "generationAllowed": false
+    },
+    {
+      "id": "deterministic-motion-rebuild",
+      "useWhen": "Existing article images and code graphics can communicate the approved article without synthetic motion footage.",
+      "allowedMethods": ["declared camera motion", "code-built diagrams", "SVG overlays", "HyperFrames composition"],
+      "generationAllowed": false
+    },
+    {
+      "id": "authored-hyperframes-replacement",
+      "useWhen": "The current film fails mechanism specificity, hierarchy, typography, transitions, or scene structure.",
+      "allowedMethods": ["HyperFrames", "code-built scientific graphics", "authored still sequences", "structured composites"],
+      "generationAllowed": "still images only after a demonstrated gap and with non-evidence classification"
+    },
+    {
+      "id": "structured-generative-motion",
+      "useWhen": "A specific approved scene cannot be produced from existing media, deterministic graphics, authored stills, compositing, or structured 3D.",
+      "allowedMethods": ["image-conditioned motion", "shot-conditioned video generation"],
+      "generationAllowed": "requires owner approval per shot and may not depict quantitative evidence, frozen economics, measured results, or unverified claims"
+    }
+  ],
+  "sceneContractRequiredFields": [
+    "sceneId",
+    "articleSlug",
+    "sourceExcerpt",
+    "sourceSha256",
+    "epistemicStatus",
+    "narrationCue",
+    "dominantProof",
+    "visibleRelationships",
+    "visualMethod",
+    "motionPurpose",
+    "durationSeconds",
+    "rejectionRules"
+  ],
+  "sceneRules": {
+    "dominantProofCount": 1,
+    "visibleRelationshipMinimum": 1,
+    "visibleRelationshipMaximum": 3,
+    "claimsMustBeTraceableToArticleSource": true,
+    "missingOrContradictoryEvidence": "refuse",
+    "generatedTextOrLabels": "prohibited",
+    "quantitativeEvidenceWithGenerativeMedia": "prohibited",
+    "frozenEconomics": ["72.4% fewer DFT evaluations", "$14.65 per 129 anchors"],
+    "economicDerivationOrSubstitution": "prohibited",
+    "speculativeVisuals": "must be explicitly classified as illustration and may not impersonate results, instruments, simulations, deployments, or forecasts"
+  },
+  "colorDirection": {
+    "requiredCandidateArtifacts": ["frame.md", "production-contract.json", "index.html"],
+    "requiredSemanticRoles": ["background", "foreground", "correction", "warning"],
+    "domainRoles": "Candidates may add article-specific domain colors, but every added role must have one declared scientific meaning.",
+    "sceneRule": "Every scene declares at least one semantic color role used by its dominant proof.",
+    "textContrast": "WCAG AA with zero strict HyperFrames contrast warnings.",
+    "nonColorRedundancy": "Labels, geometry, position, or motion must preserve every distinction without color.",
+    "prohibitions": [
+      "color may not encode unsupported magnitude, probability, confidence, or epistemic state",
+      "no decorative rainbow accenting",
+      "no undeclared per-element colors",
+      "no paper-and-indigo fallback"
+    ]
+  },
+  "delivery": {
+    "reviewMaster": "1920x1080, 30 fps, H.264, yuv420p, bt709",
+    "audio": "AAC mono 44.1 kHz, -16 LUFS target, LRA <= 8 LU, true peak <= -1 dBTP",
+    "captions": "UTF-8 WebVTT, monotonic, non-overlapping, synchronized to verified narration",
+    "poster": "1920x1080 review poster; publication derivative per repository builder",
+    "accessibility": ["captions", "download link", "poster", "reduced-motion-safe article fallback"],
+    "reviewPackage": ["versioned master", "SHA-256 and ffprobe metadata", "full decode", "zero-finding HyperFrames evidence", "37+ decoded frames", "contact sheets", "VTT spelling and timing evidence", "reviewer scorecard", "director silent watch", "director audio watch"]
+  },
+  "publicationGate": "No replacement may overwrite public/videos, merge, deploy, or be called final until repository gates, independent reviewer PASS, director APPROVE, owner approval, PR, and CI all pass."
+}

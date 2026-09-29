@@ -30,3 +30,11 @@ __pycache__/
 
 # gate run artifacts (regenerated)
 release/audio-gate/
+
+# Out-of-tree media archives (loop-health 2026-08-17): heavy source/masters stay out of git
+# like the existing media/projects ignores above; contract JSONs remain tracked.
+media/projects/midwest-2076-library/
+media/projects/article-video-replacements/*/
+!media/projects/article-video-replacements/inventory.json
+!media/projects/article-video-replacements/known-defects.json
+!media/projects/article-video-replacements/system-contract.json
