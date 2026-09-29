@@ -35,13 +35,13 @@ Two honest notes before the headline goes further. First, the split inside that 
 - Approved public sharing result: **72.4% fewer DFT evaluations.** The reviewed basis and scope are preserved in the [union-anchor record](https://library.lupine.science/#/read/z1-union-anchor-economics).
 - Measured execution cost: **$14.65 per 129 anchors.** The full ledger is in the [cost record](https://library.lupine.science/#/read/z1-union-cost-ledger).
 - Other campaign-specific ratios, comparisons, and local-energy estimates remain outside approved public copy pending review.
-- The best illustration: path-16 consumed **62 CPU-hours** at the old frozen settings and never produced a receipt. At the adopted settings it ran at **about five minutes an anchor.**
+- The best illustration: path-16 consumed substantial compute at the old frozen settings and never produced a receipt. The adopted settings materially reduced turnaround; detailed runtime measurements remain outside approved public copy pending review.
 
 ## The journey, honestly
 
 This did not go straight. **Path-7 failed** at 118.8 meV and the failure turned out to be the most valuable datapoint of the campaign: the GPAW↔VASP offset isn't constant, it *wanders* — 139 meV on path-7, up to 4.2 eV on path-0 — and barriers difference energies, so wander lands on the verdict. That became amendment 01 (same-engine basis), the T1 wander gate, and eventually a machine-checked theorem: barrier error is bounded by offset wander, never by the offset's size. The measured MAE (693–706 meV) sits under the mean wander (952 meV), as the law requires.
 
-**Path-16's 62 CPU-hours** forced your call: frozen runs are investment-grade. The escape was a 12-anchor revalidation — Gamma k-points and a looser grid, each gated against a pre-agreed 5 meV criterion. Both passed, and the combined profile passed (−4.36 meV) after a code-review bot caught *my* invalid adoption of the untested combination 40 minutes after I wrote it. The fix cost 18 minutes of compute.
+**Path-16's expensive frozen run** forced your call: frozen runs are investment-grade. The escape was a 12-anchor revalidation — Gamma k-points and a looser grid, each gated against a pre-agreed 5 meV criterion. Both passed, and the combined profile passed (−4.36 meV) after a code-review bot caught *my* invalid adoption of the untested combination. The detailed runtime economics remain outside approved public copy pending review.
 
 The wander itself then got a mechanism: the extreme cases are **metallic transition states** (0.018 eV gap at path-0's saddle) where the two engines converge to different electronic descriptions on exactly that image. And when GPAW warned that a 34.4° skewed cell might corrupt its own results, we audited instead of hoping: [barrier shifted 3.5 meV](https://library.lupine.science/#/read/t1-niggli-audit), valid. That is the third instance of the pattern this campaign produced — convention offsets, settings offsets, cell offsets: barriers cancel constants; only wander matters.
 
@@ -65,10 +65,10 @@ The [BarrierTransfer theorem family](https://library.lupine.science/#/read/z1-un
 
 ## The questions for our conversation
 
-1. Commission a **longer-path panel** (the real sparsity test), or first re-attack the **deferred big-7** at adopted settings (now plausibly ~2–4 h/path locally)?
+1. Commission a **longer-path panel** (the real sparsity test), or first re-attack the **deferred big-7** at adopted settings?
 2. **Engine-equivalence repair** (smearing/occupation policy at metallic saddles) to reclaim the VASP basis — or declare same-engine permanent and re-baseline panels to GPAW-computed references?
 3. Characterize the **mace-small / mace-mpa-0 guidance misses** (which chemistries) before anyone quotes 6.8 meV.
-4. **Wavefunction reuse between neighboring anchors** — an unclaimed 20–33% lever the literature review surfaced; implement before the next campaign?
+4. **Wavefunction reuse between neighboring anchors** — an unquantified lever the literature review surfaced; implement before the next campaign?
 5. Z2: the Tiwari fix failed review twice — small physics fix; do I take it directly, or leave it with the team?
 
 ![A next-campaign staging area: reusable anchors and preserved evidence supporting a smaller, more focused solid-state battery experiment](images/z1-union-debrief-spread--retry-1.jpg)

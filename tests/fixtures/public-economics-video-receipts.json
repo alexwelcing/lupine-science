@@ -8,7 +8,7 @@
     {
       "film_id": "01-z1-campaign-story",
       "public": "public/videos/z1-union-debrief.mp4",
-      "sha256": "6ec54815e0d1197a97f0fc80b235ec26b7edea45ea5b68fd56ebe019bfb4c225",
+      "sha256": "c7da8e7ccdbde5d32059fa3b41635377f4ef47fc420d0179b27f50465a48f186",
       "verified_frame_text": [
         "72.4% fewer DFT evaluations",
         "$14.65 per 129 anchors"
@@ -17,7 +17,7 @@
     {
       "film_id": "02-savings-stack",
       "public": "public/videos/the-savings-stack.mp4",
-      "sha256": "4b73e18191e0c476b7d7abe345370a479a226248c19664c174018a9f6fc7c8e8",
+      "sha256": "51ac0922192dd2cfeff447c10913233bd82fe101d3deeb53479bab9ba22f1c73",
       "verified_frame_text": [
         "72.4% fewer DFT evaluations"
       ]

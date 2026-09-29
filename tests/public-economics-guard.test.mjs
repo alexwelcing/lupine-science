@@ -50,6 +50,10 @@ describe('unapproved economics stay off public surfaces', () => {
       'Sharing anchors delivered a 4.2× reduction in DFT evaluations.',
       'The comparison used 777 naive evaluations versus 111 shared anchors.',
       '558 naive vs 154 union',
+      'The frozen run consumed 62 CPU-hours.',
+      'The adopted settings ran at about five minutes an anchor.',
+      'The next panel is plausibly ~2–4 h/path locally.',
+      'Wavefunction reuse is a 20–33% lever.',
     ];
     for (const mutation of mutations) {
       assert.notEqual(failureText(mutation), '', mutation);
