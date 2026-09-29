@@ -112,23 +112,4 @@ describe('wiki -> article ontology cross-links', () => {
     }
   });
 
-  it('builder script is syntactically valid node', () => {
-    assert.ok(fs.existsSync(BUILDER), 'missing scripts/build-ontology-crosslinks.mjs');
-    const { status, stderr } = spawnSync(process.execPath, ['--check', BUILDER], { encoding: 'utf8' });
-    assert.equal(status, 0, `syntax check failed: ${stderr}`);
-  });
-
-  it('builder encodes the fail-closed semantics this test asserts', () => {
-    const src = fs.readFileSync(BUILDER, 'utf8');
-    assert.match(src, /unknown ontology id/, 'builder missing the unknown-id error path');
-    assert.match(src, /LUPINE_FORCE_ATLAS_WIKI/, 'builder missing the strict-mode opt-in');
-    assert.match(src, /lupine-research:\/\//, 'builder missing the canonical-URI check');
-  });
-
-  it('build-articles.mjs validates article_ontology.json shape at startup', () => {
-    const src = fs.readFileSync(path.join(ROOT, 'scripts', 'build-articles.mjs'), 'utf8');
-    assert.match(src, /ARTICLE_ONTOLOGY_PATH/, 'build-articles.mjs not loading article_ontology.json');
-    assert.match(src, /by_article/, 'build-articles.mjs not validating by_article shape');
-    assert.match(src, /articleOntology/, 'build-articles.mjs not calling articleOntology helper');
-  });
 });

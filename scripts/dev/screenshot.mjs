@@ -8,8 +8,7 @@
 // WEBGPU=1 additionally launches with SwiftShader WebGPU flags and waits for
 // the GPU ribbon tier to go live on the homepage. Best-effort evidence only:
 // sandboxed SwiftShader crashes on canvas present, so "tier fell back" is an
-// expected note here, not a failure — the fallback chain is the tested path
-// (tests/hero-fallback-chain.test.mjs). On real GPUs it verifies activation.
+// expected note here, not a failure. On real GPUs it verifies activation.
 import fs from 'node:fs';
 import path from 'node:path';
 import { chromium } from 'playwright-core';

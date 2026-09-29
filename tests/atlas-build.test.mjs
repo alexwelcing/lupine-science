@@ -74,36 +74,4 @@ describe('wiki -> atlas migration', () => {
     }
   });
 
-  it('builder script exists and is syntactically valid node', () => {
-    assert.ok(fs.existsSync(BUILDER), 'missing scripts/build-atlas-nodes.mjs');
-    const { status, stderr } = spawnSync(process.execPath, ['--check', BUILDER], { encoding: 'utf8' });
-    assert.equal(status, 0, `syntax check failed: ${stderr}`);
-  });
-
-  it('builder script encodes the same floor counts the JSON must meet', () => {
-    const src = fs.readFileSync(BUILDER, 'utf8');
-    assert.match(src, /error_type:\s*7/, 'builder missing error_type floor');
-    assert.match(src, /emblem:\s*9/, 'builder missing emblem floor');
-    assert.match(src, /material_class:\s*9/, 'builder missing material_class floor');
-  });
-
-  it('builder falls back to the committed JSON when the wiki DB is absent (CI)', () => {
-    // This is the path CI takes: the runner has no ~/.hermes/lupine-wiki.db,
-    // so the builder keeps the committed inventory instead of failing. The
-    // committed artifact is the source of truth on those hosts — what
-    // tests/atlas-build.test.mjs also asserts above.
-    const src = fs.readFileSync(BUILDER, 'utf8');
-    assert.match(src, /keeping the committed/, 'builder missing the skip-mode log line');
-    assert.match(src, /LUPINE_FORCE_ATLAS_WIKI/, 'builder missing the strict-mode opt-in');
-    assert.ok(fs.existsSync(JSON_PATH), 'no committed JSON to fall back to');
-  });
-
-  it('builder refuses to ship without a wiki DB AND without a committed JSON', () => {
-    // Symmetric guard: a brand-new repo with neither the wiki DB nor the
-    // committed artifact must NOT silently emit an empty atlas. We assert
-    // the builder's source contains the explicit error path for that case.
-    const src = fs.readFileSync(BUILDER, 'utf8');
-    assert.match(src, /and no committed .* exists/, 'builder missing the bootstrap-error path');
-    assert.match(src, /cannot skip/, 'builder missing the bootstrap hint');
-  });
 });

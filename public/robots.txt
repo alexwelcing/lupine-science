@@ -1,5 +1,44 @@
+# Lupine Science publishes in the open. Search engines, answer engines, and
+# research crawlers are all welcome: every page, dataset, and proof pack here
+# is meant to be read, cited, and checked.
+#
+# The AI crawlers are named explicitly so the intent survives any default
+# "block AI bots" setting upstream. Company facts: /about/ · brief: /llms.txt
+
 User-agent: *
 Allow: /
 
-Sitemap: https://lupine.science/sitemap.xml
+User-agent: GPTBot
+Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://lupine.science/sitemap.xml

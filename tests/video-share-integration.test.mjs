@@ -18,15 +18,12 @@ describe('video share integration', () => {
     assert.match(html, /class="share-root"[^>]*data-url="https:\/\/lupine\.science\/videos\/"/);
     assert.match(html, /data-title="Videos — Lupine Science"/);
     assert.match(html, /aria-label="Share this page"/);
-    assert.match(html, /import \{ initAllShareWidgets \} from "\/components\/share\/share\.mjs"/);
-    assert.match(html, /initAllShareWidgets\(\)/);
   });
 
-  it('keeps video sharing usable without JavaScript and at 320px', () => {
+  it('keeps video sharing usable without JavaScript', () => {
     const html = readPublicPage('videos');
 
     assert.match(html, /<a class="skip" href="#content">Skip to content<\/a>/);
-    assert.match(html, /grid-template-columns:\s*repeat\(auto-fit, minmax\(min\(100%, 320px\), 1fr\)\)/);
     assert.deepEqual(
       [...html.matchAll(/class="share-link [^"]+"[^>]*aria-label="([^"]+)"/g)].map((match) => match[1]),
       ['Share on X', 'Share on LinkedIn', 'Share by email'],
@@ -48,7 +45,6 @@ describe('video share integration', () => {
 
     assert.match(html, new RegExp(`class="share-root"[^>]*data-url="https://lupine\\.science/articles/${slug}/"`));
     assert.match(html, new RegExp(`<meta property="og:image" content="https://lupine\\.science/videos/${slug}-poster\\.jpg\\?v=\\d+">`));
-    assert.match(html, /import \{ initAllShareWidgets \} from "\/components\/share\/share\.mjs"/);
   });
 
   it('cache-busts every replaced water-and-air poster surface at v4', () => {

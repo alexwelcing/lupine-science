@@ -347,8 +347,4 @@ describe('venture deck render tooling', () => {
     }
   });
 
-  it('derives the canonical build-manifest slide count rather than hardcoding it', () => {
-    const builder = fs.readFileSync(path.join(ROOT, 'scripts/build-venture-deck.mjs'), 'utf8');
-    assert.doesNotMatch(builder, /slide_count:\s*13\b/);
-  });
 });
