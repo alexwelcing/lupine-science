@@ -33,6 +33,7 @@ import {
 } from '../scripts/lib/audio-normalize.mjs';
 import { parseVtt, narrationDeadAir } from '../scripts/audio-release-gate.mjs';
 import { recoveredPayloadMatches } from '../scripts/recover-narration-scripts.mjs';
+import { artifactSha256, publishedRecordMatches } from '../scripts/publish-all-motion-videos.mjs';
 
 const FFMPEG = process.env.FFMPEG || 'ffmpeg';
 
@@ -606,6 +607,27 @@ test('reusing a cached narration requires the same script and the same cue split
 
   assert.equal(cachedNarrationMatches(null, paragraphs).ok, false);
   assert.equal(cachedNarrationMatches({ words: 6 }, paragraphs).ok, false);
+});
+
+test('post-gate marker is bound to both the rendered media and narration timeline', () => {
+  const dir = tmpdir();
+  const mp4 = path.join(dir, 'film.mp4');
+  const vtt = path.join(dir, 'film.vtt');
+  const originalVtt = 'WEBVTT\n\n00:00:00.000 --> 00:00:01.000\nNarration.\n';
+  fs.writeFileSync(mp4, 'rendered media');
+  fs.writeFileSync(vtt, originalVtt);
+  const record = {
+    mp4_sha256: artifactSha256(mp4),
+    vtt_sha256: artifactSha256(vtt),
+  };
+
+  assert.equal(publishedRecordMatches(record, mp4, vtt), true);
+  fs.appendFileSync(vtt, '\nChanged cue.\n');
+  assert.equal(publishedRecordMatches(record, mp4, vtt), false);
+  fs.writeFileSync(vtt, originalVtt);
+  fs.appendFileSync(mp4, 'changed');
+  assert.equal(publishedRecordMatches(record, mp4, vtt), false);
+  assert.equal(publishedRecordMatches({ mp4_sha256: record.mp4_sha256 }, mp4, vtt), false);
 });
 
 test('the true-peak target leaves room for the AAC overshoot', () => {
