@@ -23,6 +23,17 @@ const STATIC_COUNT_SURFACES = [
   path.join(ROOT, 'public', 'presentations', 'climate-investor-value', 'index.html'),
 ];
 const inventory = JSON.parse(fs.readFileSync(path.join(ROOT, 'public', 'data', 'lean_count.json'), 'utf8'));
+const STATIC_THEOREM_COUNT = /(?<!Lean )\b(?:\d+\+?|(?:seventy[ -]seven))\s+(?:build-locked\s+)?(?:Lean\s+4\s+)?theorems?\b/i;
+const PFAS_CONTRACT = path.join(ROOT, 'media', 'projects', 'article-video-replacements', 'critical-minerals-pfas', 'production-contract.json');
+
+function narrativeSource(file, source) {
+  if (file !== PFAS_CONTRACT) return source;
+  // This exact contract records examples that must never be published. Keep
+  // scanning every other field, including any copy that repeats those examples.
+  const contract = JSON.parse(source);
+  if (contract.rules) delete contract.rules.prohibitedClaimPatterns;
+  return JSON.stringify(contract);
+}
 
 function narrativeFiles(root) {
   return fs.readdirSync(root, { withFileTypes: true }).flatMap((entry) => {
@@ -35,7 +46,7 @@ function narrativeFiles(root) {
 test('narrative theorem counts come from the generated Lean inventory', () => {
   assert.ok(Number.isSafeInteger(inventory.count) && inventory.count > 0);
   for (const file of [...NARRATIVE_ROOTS.flatMap(narrativeFiles), ...NARRATIVE_FILES]) {
-    const source = fs.readFileSync(file, 'utf8').replaceAll(
+    const source = narrativeSource(file, fs.readFileSync(file, 'utf8')).replaceAll(
       `<strong data-lean-count>${inventory.count}</strong>`,
       '<strong data-lean-count>generated</strong>',
     );
@@ -44,10 +55,25 @@ test('narrative theorem counts come from the generated Lean inventory', () => {
     }
     assert.doesNotMatch(
       source,
-      /(?<!Lean )\b(?:\d+\+?|(?:seventy[ -]seven))\s+(?:build-locked\s+)?(?:Lean\s+4\s+)?theorems?\b/i,
+      STATIC_THEOREM_COUNT,
       `${path.relative(ROOT, file)} contains a hand-typed theorem count`,
     );
   }
+});
+
+test('prohibited examples in the PFAS contract are not narrative claims', () => {
+  const source = fs.readFileSync(PFAS_CONTRACT, 'utf8');
+  const contract = JSON.parse(source);
+  assert.ok(contract.rules.prohibitedClaimPatterns.some((pattern) => STATIC_THEOREM_COUNT.test(pattern)));
+  assert.doesNotMatch(narrativeSource(PFAS_CONTRACT, source), STATIC_THEOREM_COUNT);
+  // An arbitrary narrative file cannot claim the contract's exemption.
+  assert.match(narrativeSource(path.join(ARTICLES, 'claim.json'), source), STATIC_THEOREM_COUNT);
+});
+
+test('the contract still rejects a prohibited count repeated as narrative copy', () => {
+  const contract = JSON.parse(fs.readFileSync(PFAS_CONTRACT, 'utf8'));
+  contract.narration = contract.rules.prohibitedClaimPatterns.find((pattern) => STATIC_THEOREM_COUNT.test(pattern));
+  assert.match(narrativeSource(PFAS_CONTRACT, JSON.stringify(contract)), STATIC_THEOREM_COUNT);
 });
 
 test('static theorem-count surfaces keep a generated numeric fallback', () => {
