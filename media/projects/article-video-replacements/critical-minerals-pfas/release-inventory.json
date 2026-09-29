@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "slug": "critical-minerals-pfas-and-the-remediation-imperative",
+  "title": "Critical Minerals, PFAS, and the Remediation Imperative",
+  "editorial": {
+    "status": "published-with-labeled-evidence-gaps",
+    "originalDate": "2026-07-16",
+    "updatedDate": "2026-08-12",
+    "evidenceStatus": "Cited context; independent validation gaps labeled",
+    "publicationEligible": true
+  },
+  "canonicalRelease": {
+    "manifest": "release/video-replacements/critical-minerals-pfas-and-the-remediation-imperative.json",
+    "video": {
+      "path": "public/videos/critical-minerals-pfas-and-the-remediation-imperative.mp4",
+      "bytes": 5362853,
+      "sha256": "49c720aacc5b64cafab3ed9fceb978ebddd148621aa7110392c693d9cf424213"
+    },
+    "captions": {
+      "path": "public/videos/critical-minerals-pfas-and-the-remediation-imperative.vtt",
+      "bytes": 3522,
+      "sha256": "e6b108d0432824f172162bc6de16032e6e83922abc9db5165e90ebdac32f7b20"
+    },
+    "poster": {
+      "path": "public/videos/critical-minerals-pfas-and-the-remediation-imperative-poster.jpg",
+      "bytes": 49736,
+      "sha256": "25b9cf182207096f93d28fc9d99e831c9bab617e8af07c012fde9e694cfe4e3b"
+    },
+    "posterAvif": {
+      "path": "public/videos/critical-minerals-pfas-and-the-remediation-imperative-poster.avif",
+      "bytes": 31791,
+      "sha256": "4c1001b46cff4046ca898d8995c289890daa90f5a9884791519d0869fad3bf5a"
+    },
+    "posterWebp": {
+      "path": "public/videos/critical-minerals-pfas-and-the-remediation-imperative-poster.webp",
+      "bytes": 44118,
+      "sha256": "fa7817e070423c87261e73edd73d27d22de3ea9c213e15d7a7631c8ac860ef66"
+    }
+  },
+  "evidence": {
+    "claimMap": "media/projects/article-video-replacements/critical-minerals-pfas/claim-evidence-map.json",
+    "runtimeProvenance": "media/projects/article-video-replacements/critical-minerals-pfas/reports/runtime-provenance.json",
+    "independentReview": "media/projects/article-video-replacements/critical-minerals-pfas/reviews/private-candidate-review.json",
+    "retainedGapCount": 3,
+    "unreviewedNarratedQuantitativeClaimCount": 5
+  },
+  "proceduralState": {
+    "technicalAndEditorialPublicationGates": "pass",
+    "ownerApproval": "approved-in-chat-2026-08-13",
+    "pullRequestAndCi": "pending",
+    "protectedDeployment": "pending",
+    "liveVerification": "pending"
+  }
+}

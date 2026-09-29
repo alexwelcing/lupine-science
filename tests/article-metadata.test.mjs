@@ -42,7 +42,25 @@ describe('article top-line metadata', () => {
     const html = readArticle('from-fantasy-frameworks-to-makeable-materials');
     assert.match(html, /<ul class="article-byline" aria-label="Publication details">/);
     assert.match(html, /<time datetime="2026-06-25">June 25, 2026<\/time>/);
+    assert.doesNotMatch(html, /Originally published <time datetime="2026-06-25"/);
     assert.match(html, /<span class="article-status">Draft<\/span>/);
+  });
+
+  it('preserves the original date and renders a separate update date', () => {
+    const html = readArticle('critical-minerals-pfas-and-the-remediation-imperative');
+    assert.match(html, /Originally published <time datetime="2026-07-16">July 16, 2026<\/time>/);
+    assert.match(html, /Updated <time datetime="2026-08-12">August 12, 2026<\/time>/);
+    const nodes = jsonLdFrom(html).flatMap((data) => data['@graph'] || [data]);
+    const article = nodes.find((node) => node['@type'] === 'Article');
+    assert.equal(article.datePublished, '2026-07-16');
+    assert.equal(article.dateModified, '2026-08-12');
+  });
+
+  it('renders explicit evidence-gap metadata without claiming validation', () => {
+    const html = readArticle('critical-minerals-pfas-and-the-remediation-imperative');
+    assert.match(html, /class="callout warning article-evidence-status"/);
+    assert.match(html, /unresolved verification gaps/i);
+    assert.match(html, /not demonstrated Lupine outcomes/i);
   });
 
   it('normalizes published status to a single public label', () => {
@@ -115,8 +133,24 @@ describe('published article video discovery metadata', () => {
       assert.ok(video.description, `expected VideoObject.description for ${slug}`);
       assert.equal(video.contentUrl, `https://lupine.science/videos/${slug}.mp4`);
       assert.equal(video.embedUrl, `https://lupine.science/videos/${slug}/`);
-      assert.equal(video.uploadDate, nodes.find((node) => node['@type'] === 'Article')?.datePublished);
+      const article = nodes.find((node) => node['@type'] === 'Article');
+      assert.equal(video.uploadDate, article?.dateModified || article?.datePublished);
       assert.match(video.thumbnailUrl, /^https:\/\/lupine\.science\//);
+    }
+  });
+
+  it('propagates the PFAS replacement date to article/video discovery records', () => {
+    const slug = 'critical-minerals-pfas-and-the-remediation-imperative';
+    const articleNodes = jsonLdFrom(readArticle(slug)).flatMap((data) => data['@graph'] || [data]);
+    assert.equal(articleNodes.find((node) => node['@type'] === 'VideoObject')?.uploadDate, '2026-08-12');
+
+    const videoHtml = fs.readFileSync(path.join(VIDEOS, slug, 'index.html'), 'utf8');
+    const videoNodes = jsonLdFrom(videoHtml).flatMap((data) => data['@graph'] || [data]);
+    assert.equal(videoNodes.find((node) => node['@type'] === 'VideoObject')?.uploadDate, '2026-08-12');
+
+    const sitemap = fs.readFileSync(path.join(ROOT, 'public', 'sitemap.xml'), 'utf8');
+    for (const route of [`articles/${slug}`, `videos/${slug}`]) {
+      assert.match(sitemap, new RegExp(`<loc>https://lupine\\.science/${route}/</loc>\\s*<lastmod>2026-08-12</lastmod>`));
     }
   });
 

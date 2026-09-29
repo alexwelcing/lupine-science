@@ -1,0 +1,163 @@
+project: critical-minerals-pfas-replacement
+article_slug: critical-minerals-pfas-and-the-remediation-imperative
+status: treatment-authored
+method: fal-first-with-deterministic-evidence-overlays
+resolution: [1920, 1080]
+fps: 30
+target_duration_seconds: 147.689
+source_article_sha256: ea61c3fd4f4b91f0bad91be0c09c58d8c5c1fe922df20cae9088fa4601ac91a4
+source_narration_sha256: 1d0acb2af42b19026a2e1be1725f32255621ca944e8b7175edc682415e86d824
+scenes:
+  - id: 01-opposite-streams
+    time_start: 0.0
+    time_end: 16.88
+    caption_cues: [1, 2, 3, 4]
+    narration_paragraphs: [1]
+    source_excerpt: "These two problems look unrelated... They converge, however, on the same computational challenge."
+    epistemic_status: illustrative
+    dominant_proof: Two physically separate waterborne burdens enter one serviceable public-works hall and leave by opposite disposition paths.
+    visible_relationships:
+      - mineral-rich feed to recovery vessel
+      - contaminated feed to sealed treatment line
+      - shared measurement spine without mixed flows
+    visual_method: fal-authored-still-with-deterministic-flow-overlay
+    motion_purpose: Reveal topology and establish opposite material directions.
+    semantic_color_roles: [field, evidence, water, correction]
+    rejection_rules: [no generated text, no merged streams, no commercial-deployment implication, no dramatic clouds]
+    status: specified
+  - id: 02-selective-cartridges
+    time_start: 16.88
+    time_end: 39.95
+    caption_cues: [5, 6, 7, 8]
+    narration_paragraphs: [2, 3]
+    source_excerpt: "Both require accurate predictions of binding... in flexible, under-coordinated environments."
+    epistemic_status: illustrative
+    dominant_proof: Parallel cartridge lines perform selective capture under accessible maintenance conditions.
+    visible_relationships:
+      - complex feed enters cartridge
+      - selected fraction exits separately
+      - cartridge can be removed and regenerated
+    visual_method: fal-authored-still-with-deterministic-channel-highlight
+    motion_purpose: Track feed, capture, and cartridge removal as one causal sequence.
+    semantic_color_roles: [evidence, water, regeneration]
+    rejection_rules: [no labels from generator, no invisible plumbing, no portrait subject, no molecular decoration]
+    status: specified
+  - id: 03-bind-release-break
+    time_start: 39.95
+    time_end: 64.34
+    caption_cues: [9, 10, 11, 12, 13]
+    narration_paragraphs: [4]
+    source_excerpt: "The selectivity problem is a binding-energy problem... The C–F bond dissociation energy is approximately 485 kJ mol⁻¹."
+    epistemic_status: source-bound-explanatory
+    dominant_proof: Binding, release, and bond activation are different barrier shapes and therefore different design obligations.
+    visible_relationships:
+      - Li-like ion fits and releases from a pocket
+      - competing ion is geometrically excluded
+      - C–F activation crosses a distinct barrier
+    visual_method: deterministic-2d-3d-composite
+    motion_purpose: Compare three exact relationships without implying measured candidate performance.
+    semantic_color_roles: [field, evidence, water, warning]
+    rejection_rules: [no generated mechanism, no extra numerical claim, no color-only distinction]
+    status: specified
+  - id: 04-softened-landscape
+    time_start: 64.34
+    time_end: 88.17
+    caption_cues: [14, 15, 16]
+    narration_paragraphs: [5]
+    source_excerpt: "uMLIPs soften the potential energy surface by fifteen to sixty percent in these under-coordinated regions."
+    epistemic_status: source-bound-explanatory
+    dominant_proof: Raw fast-model barriers flatten specifically at under-coordinated sites and invert candidate order.
+    visible_relationships:
+      - raw barrier lower than reference at the critical site
+      - two candidate ranks invert
+      - bulk reference remains anchored
+    visual_method: deterministic-motion-graphic
+    motion_purpose: Make the failure class visible before introducing correction.
+    semantic_color_roles: [field, evidence, warning]
+    rejection_rules: [no unsupported magnitude beyond source range, no decorative particles, no generated charts]
+    status: specified
+  - id: 05-measure-correct-bound
+    time_start: 88.17
+    time_end: 109.16
+    caption_cues: [17, 18]
+    narration_paragraphs: [6]
+    source_excerpt: "The error is not random noise. It has a smooth, measurable structure... That regularity is what makes correction possible."
+    epistemic_status: source-bound-explanatory
+    dominant_proof: A measured correction restores ranking only inside its supported local-environment domain.
+    visible_relationships:
+      - anchor observations constrain the correction
+      - corrected ranking differs from raw ranking
+      - outside-domain candidate is explicitly withheld
+    visual_method: deterministic-motion-graphic
+    motion_purpose: Transform raw ranking into corrected and bounded disposition.
+    semantic_color_roles: [field, evidence, correction, warning]
+    rejection_rules: [no theorem count, no probability encoding, no implied universal coverage]
+    status: specified
+  - id: 06-return-scarce-atoms
+    time_start: 109.16
+    time_end: 115.89
+    caption_cues: [19]
+    narration_paragraphs: [7]
+    source_excerpt: "For critical-mineral recovery... corrected insertion and site-selectivity energies... rank selective sorbents for Li+ recovery."
+    epistemic_status: illustrative
+    dominant_proof: A pilot recovery loop separates a selected fraction and regenerates its cartridge for another cycle.
+    visible_relationships:
+      - feed passes through removable cartridge
+      - recovered fraction enters a dedicated vessel
+      - washed cartridge returns to service
+    visual_method: fal-authored-still-sequence-with-deterministic-flow-overlay
+    motion_purpose: Follow one complete recovery and regeneration loop.
+    semantic_color_roles: [evidence, water, correction, regeneration]
+    rejection_rules: [no claimed yield, no industrial-scale success, no black-box machinery, no generated labels]
+    status: specified
+  - id: 07-destroy-dont-relocate
+    time_start: 115.89
+    time_end: 123.53
+    caption_cues: [20]
+    narration_paragraphs: [7, 8]
+    source_excerpt: "Current treatment technologies concentrate PFAS but do not destroy it... No such catalyst is commercial today."
+    epistemic_status: illustrative-proposed-pilot
+    dominant_proof: Captured contaminant moves from a sorbent column into a sealed destructive-treatment pilot rather than to landfill.
+    visible_relationships:
+      - capture column concentrates contaminant
+      - sealed transfer prevents release
+      - destructive-treatment pilot remains explicitly unvalidated
+    visual_method: fal-authored-still-sequence-with-deterministic-status-overlay
+    motion_purpose: Contrast relocation with a contained proposed destruction pathway.
+    semantic_color_roles: [field, evidence, warning, correction]
+    rejection_rules: [must not imply commercial catalyst, no visible emissions, no landfill-as-solution, no generated instrumentation]
+    status: specified
+  - id: 08-common-test-discipline
+    time_start: 123.53
+    time_end: 134.78
+    caption_cues: [21, 22]
+    narration_paragraphs: [8, 9]
+    source_excerpt: "Treating critical-mineral recovery and PFAS remediation as one program makes sense because the computational primitives are shared."
+    epistemic_status: illustrative
+    dominant_proof: Two cartridge classes enter the same controlled flow-and-regeneration fixture while remaining physically and procedurally distinct.
+    visible_relationships:
+      - identical controlled test conditions
+      - separate cartridge identities and outputs
+      - shared measurement spine
+    visual_method: fal-authored-still-with-deterministic-fixture-overlay
+    motion_purpose: Reveal the shared test discipline, not a shared material.
+    semantic_color_roles: [field, evidence, water, regeneration]
+    rejection_rules: [no mixed samples, no invented readouts, no portrait subject, no dramatic laboratory lighting]
+    status: specified
+  - id: 09-supported-disposition
+    time_start: 134.78
+    time_end: 147.689
+    caption_cues: [23, 24, 25, 26, 27]
+    narration_paragraphs: [9]
+    source_excerpt: "Predictions inside the domain are supported. Predictions outside the domain are either bounded by uncertainty proofs or flagged as unsupported."
+    epistemic_status: source-bound-explanatory
+    dominant_proof: Supported candidates advance to physical test; unsupported ones stop at the measured boundary.
+    visible_relationships:
+      - supported path advances
+      - unsupported path stops without disappearance
+      - closing material loops remain distinct
+    visual_method: deterministic-motion-graphic-over-authored-final-environment
+    motion_purpose: Resolve the argument and hold the final line long enough to read.
+    semantic_color_roles: [field, evidence, correction, warning, regeneration]
+    rejection_rules: [no CTA clutter, no unsupported success claim, no color-only status, no terminal-frame truncation]
+    status: specified

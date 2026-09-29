@@ -67,7 +67,7 @@
       "rhythm": "hook-hold-build-evidence-caution-resolve",
       "source_articles": [
         {"path": "articles/z1-union-debrief.md", "status": "FOR EDITOR REVIEW", "use": "Primary campaign verdict, economics, failures, and caveats; external publication requires clearance."},
-        {"path": "public/data/savings-stack-v1/z1-union-anchor-economics.md", "status": "recorded analysis", "use": "Supporting evidence for the frozen approved public result; detailed arithmetic is not video-facing copy."}
+        {"path": "evidence/withheld/savings-stack-v1/z1-union-anchor-economics.md", "status": "withheld pending ledger verification", "use": "Preserved supporting evidence for audit only; detailed arithmetic is not public or video-facing copy."}
       ],
       "approved_source_assets": [
         {"asset_id": "B6-A01-01", "path": "public/brand-assets/campaign-2026-07-27/B6/z1-union-debrief-hero.jpg", "role": "opening multi-model anchor field"},
@@ -102,7 +102,7 @@
       "rhythm": "provocation-build-build-gap-foundation-hold",
       "source_articles": [
         {"path": "articles/the-savings-stack.md", "status": "Final", "use": "Primary release summary, seven-layer taxonomy, union economics, and evidence status."},
-        {"path": "public/data/savings-stack-v1/z1-union-anchor-economics.md", "status": "recorded analysis", "use": "Backing for the frozen approved public result."}
+        {"path": "evidence/withheld/savings-stack-v1/z1-union-anchor-economics.md", "status": "withheld pending ledger verification", "use": "Preserved supporting evidence for audit only; not approved for publication."}
       ],
       "approved_source_assets": [
         {"asset_id": "B1-A03-01", "path": "public/brand-assets/campaign-2026-07-27/B1/the-savings-stack-hero.jpg", "role": "shared evaluation backbone"},

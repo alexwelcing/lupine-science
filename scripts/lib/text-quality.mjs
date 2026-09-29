@@ -10,6 +10,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const MINIMUM_DICTIONARY_WORDS = 10000;
 
 export function tokenize(text) {
   return String(text)
@@ -19,13 +20,18 @@ export function tokenize(text) {
     .filter((t) => t.length >= 3);
 }
 
-export async function loadDictionary() {
+export async function loadDictionary(dictionaryPath = '/usr/share/dict/words') {
+  let raw;
   try {
-    const raw = await readFile('/usr/share/dict/words', 'utf8');
-    return new Set(raw.split(/\r?\n/).map((w) => w.trim().toLowerCase()).filter(Boolean));
-  } catch {
-    return new Set();
+    raw = await readFile(dictionaryPath, 'utf8');
+  } catch (error) {
+    throw new Error(`Required OCR dictionary unavailable at ${dictionaryPath}: ${error.message}`);
   }
+  const dictionary = new Set(raw.split(/\r?\n/).map((w) => w.trim().toLowerCase()).filter(Boolean));
+  if (dictionary.size < MINIMUM_DICTIONARY_WORDS) {
+    throw new Error(`Required OCR dictionary at ${dictionaryPath} has ${dictionary.size} words; expected at least ${MINIMUM_DICTIONARY_WORDS}`);
+  }
+  return dictionary;
 }
 
 async function addJsonText(corpus, file, keys) {
@@ -196,6 +202,9 @@ export function bigramScore(token, model) {
 export function findSuspectWords(words, dictionary, corpus, bigram) {
   const unknown = [];
   for (const { text, confidence } of words) {
+    // Tesseract uses zero confidence for non-text geometry it could not
+    // recognize. Treating those guesses as words turns pipes/icons into P0s.
+    if (Number.isFinite(confidence) && confidence <= 0) continue;
     const raw = String(text).toLowerCase();
     const hyphenated = raw.replace(/[^a-z0-9-]/g, '').replace(/-+/g, '-').replace(/^-|-$/g, '');
     const clean = hyphenated.replace(/-/g, '');

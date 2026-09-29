@@ -114,6 +114,12 @@ const words = (s) => s.trim().split(/\s+/).filter(Boolean).length;
 // narration source. This preserves provenance while preventing a routine rebuild
 // from restoring claims that have since failed evidence reconciliation.
 const EDITORIAL_EXCLUSIONS = new Map([
+  ['the-02-percent-synthesis-problem', new Map([
+    [
+      'And four: what does failure cost? Usually weeks of lab time and thousands of dollars. This is not a tiny accuracy problem. Miss an ion-migration barrier by one hundred milli-electronvolts, and the predicted hopping rate changes about fifty-fold at room temperature.',
+      'And four: what happens when a candidate that passed the screen fails in synthesis? Weeks of lab time disappear while each filter compounds the next. This is not a tiny accuracy problem. Miss an ion-migration barrier by one hundred milli-electronvolts, and the predicted hopping rate changes about fifty-fold at room temperature.',
+    ],
+  ])],
   ['water-and-air-correcting-the-molecules-we-drink-and-breathe', new Map([
     [
       'One hundred ninety build-locked Lean 4 theorems mark which claims are supported, bounded, or synthesis-dependent. A membrane ranking is supported only when its local environments fall inside the measured domain, and a metastable sorbent phase is flagged honestly rather than sold as predicted.',

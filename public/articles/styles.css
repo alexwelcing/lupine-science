@@ -55,6 +55,41 @@
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Conference announcement: a generous illustration with a compact event record. */
+.conference-announcement .article-shell { max-width: 940px; }
+.conference-announcement .article > p,
+.conference-announcement .article > h2,
+.conference-announcement .article > ul { max-width: 700px; margin-left: auto; margin-right: auto; }
+.conference-announcement .article h1 { max-width: 780px; font-size: clamp(2.6rem, 6vw, 4.4rem); }
+.conference-announcement .article > .article-kicker,
+.conference-announcement .article > .article-deck,
+.conference-announcement .article > .article-byline { margin-left: 0; }
+.conference-announcement .article-hero--motion { margin: 2.2rem 0 2.5rem; }
+.article-hero--motion img { display: block; width: 100%; height: auto; }
+.svg-motion-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 0 6px; font: 11px/1.5 var(--mono); color: var(--ink-soft); }
+.svg-motion-toolbar button { min-height: 44px; padding: 8px 12px; border: 1px solid var(--indigo-line); border-radius: 4px; background: var(--paper); color: var(--indigo-deep); font: inherit; cursor: pointer; }
+.svg-motion-toolbar button:hover { background: var(--indigo-wash); }
+.svg-motion-toolbar button:focus-visible { outline: 2px solid var(--indigo); outline-offset: 4px; }
+.conference-facts { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 20px; padding: 20px 0; margin: 0 0 2.5rem; border-top: 1px solid var(--indigo-line); border-bottom: 1px solid var(--indigo-line); }
+.conference-facts p { margin: 0; }
+.conference-facts strong { font-size: 1.05rem; }
+.conference-label { display: block; font: 10px/1.6 var(--mono); text-transform: uppercase; letter-spacing: .12em; color: var(--indigo-deep); margin-bottom: 8px; }
+.conference-question { margin: 3rem 0; border-left: 3px solid var(--indigo); padding: 16px 28px; background: var(--indigo-wash); }
+.article .conference-question p { font-size: clamp(1.55rem, 3.5vw, 2.25rem); line-height: 1.25; max-width: 660px; margin: 12px 0 0; }
+@media (max-width: 560px) {
+  .conference-facts { grid-template-columns: 1fr; gap: 18px; }
+  .conference-facts p { display: grid; grid-template-columns: 105px 1fr; align-items: baseline; }
+  .conference-label { margin-bottom: 0; }
+  .conference-question { padding: 18px; }
+  .svg-motion-toolbar { font-size: 10px; }
+}
+@media print {
+  .svg-motion-toolbar { display: none; }
+  .conference-announcement .article-hero--motion,
+  .conference-facts,
+  .conference-question { break-inside: avoid; }
+}
+
 * { box-sizing: border-box; }
 html, body { margin: 0; min-height: 100%; }
 html { scroll-behavior: smooth; }

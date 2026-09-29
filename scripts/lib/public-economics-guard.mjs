@@ -22,7 +22,7 @@ const BLOCKED_PATTERNS = [
   { label: 'blocked 4.65 per anchors', pattern: /\b4\.65\s+per\s+\d+\s+anchors/i },
   { label: 'blocked cloud-equivalent', pattern: /\$\s?\d+(?:\.\d+)?\s+cloud-equivalent/i },
   { label: 'blocked wall-hours cost', pattern: /\d+(?:\.\d+)?\s+wall-hours\s+of\s+execution\s+cost/i },
-  { label: 'blocked naive-vs-shared counts', pattern: /\d+\s+naive\s+(?:evaluations?|anchors?)[\s\S]{0,80}\d+\s+(?:shared|union|executed)\s+(?:evaluations?|anchors?)/i },
+  { label: 'blocked naive-vs-shared counts', pattern: /\b\d+(?:\.\d+)?\s+naive(?:\s+(?:evaluations?|anchors?))?\s+(?:vs\.?|versus|[-–—])\s+\d+(?:\.\d+)?\s+(?:shared|union|executed)(?:\s+(?:evaluations?|anchors?))?\b/i },
   { label: 'blocked reduction multiplier', pattern: /\d+(?:\.\d+)?\s*[×x]\s+(?:(?:reduction|decrease)\s+in\s+|fewer\s+)?DFT\s+evaluations/i },
   { label: 'blocked local electricity', pattern: /sixty\s+cents\s+of\s+local\s+electricity/i },
   { label: 'blocked ~10% more', pattern: /about\s+10%\s+more\s+DFT/i },
@@ -87,14 +87,9 @@ export function publicText(relative, raw) {
   return [document.body?.textContent || '', ...metadata, ...imageText, ...structured].join('\n');
 }
 
-export function validatePublicEconomics(text) {
+export function validatePublicEconomics(text, { relative = '' } = {}) {
   const normalized = text.replace(/\s+/g, ' ').trim();
   const failures = [];
-
-  for (const approved of APPROVED_PUBLIC_ECONOMICS) {
-    if (normalized.includes(approved)) continue;
-    failures.push({ approved, reason: 'approved claim missing from publication surface' });
-  }
 
   for (const { label, pattern } of BLOCKED_PATTERNS) {
     const match = normalized.match(pattern);
@@ -107,14 +102,36 @@ export function validatePublicEconomics(text) {
     failures.push({ label: 'unapproved cost claim', match: match[0] });
   }
 
-  for (const match of normalized.matchAll(/\d+(?:\.\d+)?\s*%?\s*[-–—]\s*\d+(?:\.\d+)?\s+naive\s+(?:evaluations?|anchors?)[\s\S]{0,80}\d+(?:\.\d+)?\s+(?:shared|union|executed)\s+(?:evaluations?|anchors?)/i)) {
-    failures.push({ label: 'count comparison', match: match[0] });
+  if (!isReviewedPrimaryRecord(relative)) {
+    const approvedSavings = APPROVED_PUBLIC_ECONOMICS.find((claim) => claim.includes('%'));
+    for (const match of normalized.matchAll(/\d+(?:\.\d+)?\s*%\s+fewer\s+(?:DFT\s+)?evaluations\b/gi)) {
+      if (approvedSavings && match[0] === approvedSavings) continue;
+      failures.push({ label: 'unapproved savings claim', match: match[0] });
+    }
   }
 
-  for (const match of normalized.matchAll(/\b\d+(?:\.\d+)?\s*[×x]\s+(?:(?:reduction|decrease)\s+in\s+|fewer\s+)?DFT\s+evaluations\b/i)) {
-    if (match[0].includes('72.4')) continue;
+  for (const match of normalized.matchAll(/\b\d+(?:\.\d+)?\s*[×x]\s+(?:(?:reduction|decrease)\s+in\s+|fewer\s+)?DFT\s+evaluations\b/gi)) {
     failures.push({ label: 'multiplier claim', match: match[0] });
   }
 
   return failures;
+}
+
+export function assertPublicEconomics(relative, raw) {
+  const failures = validatePublicEconomics(publicText(relative, raw), { relative });
+  if (failures.length === 0) return;
+  const details = failures.map(({ label, match }) => `${label}: ${match}`).join('; ');
+  throw new Error(`${relative}: ${details} is not approved public economics`);
+}
+
+export function validatePublicSurfaceInventory(root) {
+  const surfaces = scanPublicSurfaces(root);
+  for (const relative of surfaces) {
+    const absolute = path.join(root, relative);
+    const raw = relative.endsWith('.pdf')
+      ? execFileSync('pdftotext', ['-layout', absolute, '-'], { encoding: 'utf8' })
+      : fs.readFileSync(absolute, 'utf8');
+    assertPublicEconomics(relative, raw);
+  }
+  return surfaces;
 }

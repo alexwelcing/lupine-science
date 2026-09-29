@@ -1,107 +1,107 @@
 WEBVTT
 
-NOTE Narration transcript. Text is the script synthesized by minimax (speech-2.8-hd, voice English_expressive_narrator); each cue was synthesized as its own audio file and is timed by that file's measured duration. Verified at 103.9% of expected length, 139.6 wpm (median cue 142.2 wpm). Script source: public/videos/the-02-percent-synthesis-problem.vtt at commit 4641d96 (pre-overwrite narration prose)
+NOTE Narration transcript. Text is the script synthesized by minimax (speech-2.8-hd, voice English_expressive_narrator); each cue was synthesized as its own audio file and is timed by that file's measured duration. Verified at 102.5% of expected length, 141.4 wpm (median cue 142.4 wpm). Script source: public/videos/the-02-percent-synthesis-problem.vtt at commit 4641d96 (pre-overwrite narration prose; reviewed editorial exclusions applied)
 
 1
-00:00:00.000 --> 00:00:05.380
+00:00:00.000 --> 00:00:05.150
 Okay, so AI predicted three hundred eighty thousand stable new materials.
 
 2
-00:00:05.680 --> 00:00:07.290
+00:00:05.450 --> 00:00:06.510
 Huge, right?
 
 3
-00:00:07.590 --> 00:00:13.510
+00:00:06.810 --> 00:00:12.600
 But by late 2023, only seven hundred thirty-six had actually been synthesized.
 
 4
-00:00:13.810 --> 00:00:16.030
+00:00:12.900 --> 00:00:14.820
 That’s zero point two percent.
 
 5
-00:00:16.330 --> 00:00:19.400
+00:00:15.120 --> 00:00:18.360
 And no, this isn’t just labs moving slowly.
 
 6
-00:00:19.700 --> 00:00:25.800
+00:00:18.660 --> 00:00:24.450
 A crystal can look perfect on a computer and still have no practical chemical path into existence.
 
 7
-00:00:26.100 --> 00:00:28.060
+00:00:24.750 --> 00:00:26.490
 Prediction is scaling.
 
 8
-00:00:28.360 --> 00:00:30.660
+00:00:26.790 --> 00:00:28.960
 Synthesizability isn’t.
 
 9
-00:00:30.960 --> 00:00:33.430
+00:00:29.260 --> 00:00:31.900
 Most screens skip four brutal filters.
 
 10
-00:00:33.730 --> 00:00:38.630
+00:00:32.200 --> 00:00:38.380
 One: can real precursors reach the target instead of some competing phase?
 
 11
-00:00:38.930 --> 00:00:44.050
+00:00:38.680 --> 00:00:43.120
 Two: are the forces accurate away from a tidy, equilibrium crystal?
 
 12
-00:00:44.350 --> 00:00:51.690
+00:00:43.420 --> 00:00:50.500
 Three: what happens when the material has vacancies, disorder, or stacking faults—like real materials do?
 
 13
-00:00:51.990 --> 00:00:54.850
-And four: what does failure cost?
+00:00:50.800 --> 00:00:56.720
+And four: what happens when a candidate that passed the screen fails in synthesis?
 
 14
-00:00:55.150 --> 00:00:58.300
-Usually weeks of lab time and thousands of dollars.
+00:00:57.020 --> 00:01:01.280
+Weeks of lab time disappear while each filter compounds the next.
 
 15
-00:00:58.600 --> 00:01:00.950
+00:01:01.580 --> 00:01:04.520
 This is not a tiny accuracy problem.
 
 16
-00:01:01.250 --> 00:01:09.230
+00:01:04.820 --> 00:01:12.670
 Miss an ion-migration barrier by one hundred milli-electronvolts, and the predicted hopping rate changes about fifty-fold at room temperature.
 
 17
-00:01:09.530 --> 00:01:12.420
+00:01:12.970 --> 00:01:15.440
 You can literally call a conductor an insulator.
 
 18
-00:01:12.720 --> 00:01:15.150
+00:01:15.740 --> 00:01:18.170
 The answer isn’t a bigger generator.
 
 19
-00:01:15.450 --> 00:01:25.770
+00:01:18.470 --> 00:01:28.490
 It’s a correction and verification layer: an environment error field that measures where universal potentials go wrong, then corrects them at runtime with proper forces.
 
 20
-00:01:26.070 --> 00:01:27.940
+00:01:28.790 --> 00:01:30.750
 Better candidates rise.
 
 21
-00:01:28.240 --> 00:01:31.220
+00:01:31.050 --> 00:01:33.780
 Bad ones get flagged before the furnace turns on.
 
 22
-00:01:31.520 --> 00:01:38.350
+00:01:34.080 --> 00:01:40.810
 That matters because batteries are tied directly to roughly twenty percent of the emissions cuts needed by 2030.
 
 23
-00:01:38.650 --> 00:01:47.140
+00:01:41.110 --> 00:01:49.720
 Cobalt-free cathodes could also break a supply chokepoint: about seventy percent of cobalt comes from the Democratic Republic of Congo.
 
 24
-00:01:47.440 --> 00:01:51.400
+00:01:50.020 --> 00:01:53.950
 And every decade of delay locks in emissions we cannot recover later.
 
 25
-00:01:51.700 --> 00:01:59.200
+00:01:54.250 --> 00:02:01.800
 The goal is simple: predictions that flow to synthesis, characterization, and scale—not another generation cycle.
 
 26
-00:01:59.500 --> 00:02:04.413
+00:02:02.100 --> 00:02:07.120
 Read the full article to see how the zero-point-two-percent gap closes.

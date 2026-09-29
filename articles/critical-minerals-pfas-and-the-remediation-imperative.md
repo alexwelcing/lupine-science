@@ -1,10 +1,16 @@
 > **Date:** 2026-07-16
+> **Updated:** 2026-08-12
 > **Deck:** Critical-mineral recovery and PFAS remediation share the same computational bottleneck — accurate binding and activation energies in under-coordinated environments — and the correction layer addresses both.
 > **Summary:** Critical-mineral recycling, direct lithium extraction, and PFAS destruction share a common materials-discovery problem: accurate binding and activation energies in under-coordinated environments, addressable by corrected uMLIPs and machine-checked verification.
-> **Status:** Draft
+> **Status:** Published
+> **Evidence Status:** Scientific mechanisms are source-cited. Quantitative market, demand, site-count, cost, and performance figures are contextual estimates with unresolved verification gaps; proposed recovery and PFAS-destruction applications are research directions, not demonstrated Lupine outcomes.
 
 
 # Critical Minerals, PFAS, and the Remediation Imperative
+
+<div class="callout warning">
+<strong>Evidence gaps.</strong> This article distinguishes established mechanisms from planning context and proposed applications. Quantitative market, demand, site-count, remediation-cost, and performance figures are retained as attributed contextual estimates but have not received independent Lupine evidence review. Statements about corrected models enabling mineral recovery or PFAS destruction describe research directions; they are not evidence of a validated catalyst, sorbent, commercial process, deployment, or forecast. The accompanying film uses illustrative environments and deterministic explanatory graphics, not experimental evidence.
+</div>
 
 The energy transition is sometimes framed as a carbon problem, but it is equally a atoms problem. Every gigawatt-hour of batteries, every turbine, and every grid-scale storage installation requires lithium, cobalt, nickel, manganese, and rare-earth elements in quantities that primary mining cannot supply cleanly or quickly. By 2040, clean-energy technologies are expected to drive a four- to six-fold increase in mineral demand[^1]. Recycling, direct lithium extraction, and urban mining are therefore not peripheral sustainability gestures; they are load-bearing parts of the transition. Yet the materials that would make them economical — selective sorbents, selective extractants, direct-recycling reconstruction conditions — are still discovered largely by trial and error.
 

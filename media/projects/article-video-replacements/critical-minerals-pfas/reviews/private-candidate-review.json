@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 2,
+  "reviewedAt": "2026-08-12",
+  "status": "suitable-for-private-owner-visual-review",
+  "supersededPrototype": {
+    "sha256": "fb24344ac7c177ad8dd05b2143d281ae3c4f824873bcdc6a45ac0e06834b4c10",
+    "decision": "fail",
+    "reason": "Independent review found static whole-frame zoompan, underscoped validation, unresolved claim provenance, and same-host-only reproducibility."
+  },
+  "candidate": {
+    "path": "build/critical-minerals-pfas-and-the-remediation-imperative-candidate.mp4",
+    "sha256": "49c720aacc5b64cafab3ed9fceb978ebddd148621aa7110392c693d9cf424213",
+    "bytes": 5362853,
+    "containerDurationSeconds": 147.7,
+    "videoDurationSeconds": 147.7,
+    "audioDurationSeconds": 147.689002,
+    "fps": 30,
+    "decodedFrames": 4431,
+    "resolution": [1920, 1080],
+    "audioPacketIdentity": true,
+    "integratedLUFS": -16.4,
+    "loudnessRangeLU": 3.1,
+    "truePeakDbfs": -2.8
+  },
+  "changesSinceFailedPrototype": [
+    "Removed whole-frame zoompan.",
+    "Added 27 deterministic semantic states with crossfades and explicit withheld intermediate regions.",
+    "Authored scene 4 as reference-only, then raw softened curve at the under-coordinated site, then rank inversion.",
+    "Expanded validation to all nine composites, all 27 motion states, reports, candidate hash/decode/frame inventory, audio identity, prohibited claims, and publication-false state.",
+    "Added a five-claim evidence map with source citations and unresolved independent-review status.",
+    "Recorded runtime, dependency, font, renderer, validator, and candidate hashes while explicitly retaining clean-checkout reproduction as false."
+  ],
+  "localVerification": {
+    "twoIdenticalStateRenders": true,
+    "twoIdenticalCandidateBuilds": true,
+    "fullDecode": "pass",
+    "stratifiedFrames": 61,
+    "blankFrames": 0,
+    "projectValidator": "pass-integrity-not-publication",
+    "repositoryTests": "306/306 pass",
+    "repositoryLint": "pass",
+    "repositoryBuild": "pass",
+    "typecheck": "skipped-no-typescript-files"
+  },
+  "publication": {
+    "eligible": false,
+    "blockers": [
+      "All five quantitative claims require independent evidence review.",
+      "The source article remains Draft.",
+      "Clean-checkout reproducibility is not yet established because the project subtree is untracked.",
+      "Poster, caption release package, PR, CI review, owner approval, and protected deployment gates remain incomplete."
+    ]
+  },
+  "independentReview": {
+    "delegationId": "deleg_f1bd41d2",
+    "status": "complete",
+    "boundCandidateSha256": "49c720aacc5b64cafab3ed9fceb978ebddd148621aa7110392c693d9cf424213",
+    "privateOwnerVisualReview": "suitable",
+    "publicationEligible": false,
+    "severityCounts": {
+      "p0": 0,
+      "p1PublicationReleaseBlockers": 3,
+      "p2": 3
+    },
+    "formerStaticSlideFinding": "resolved",
+    "validatorScope": "partial-sufficient-for-private-review-not-release",
+    "claimProvenanceGating": "partial-correctly-fail-closed",
+    "cleanTreeReproducibility": "partial-publication-blocker",
+    "scene04CausalProgression": "verified-reference-to-softening-to-ranking-inversion",
+    "reportPath": "/home/alex/.hermes/profiles/director/cache/delegation/subagent-summary-0-20260812_140221_342159.txt"
+  },
+  "decision": "suitable-for-private-owner-visual-review-not-publication"
+}

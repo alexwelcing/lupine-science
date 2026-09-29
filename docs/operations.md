@@ -91,12 +91,18 @@ Deploy path:
 4. verify its commit, branch, and required entry points
 5. wait for approval on the protected GitHub `production` environment
 6. authenticate to Cloudflare and deploy the approved artifact
-7. record a 90-day `production-deployment-receipt-<commit>` artifact containing
-   the source CI run, source artifact, commit, deployment URL, and timestamp
-8. smoke-test the Pages deployment URL and the `lupine.science` custom domain
-9. upload production live-verification logs as a GitHub Actions artifact
-10. notify the team via `glim-think` `/ops/report` with pass/fail status,
-   log excerpts, the workflow URL, and the rollback command shape
+7. before mutation, capture the current production deployment id, commit, and URL
+8. deploy, then prove the captured deployment still exists and serves its health
+   endpoint and expected homepage; retain the exact rollback command in the
+   90-day `rollback-evidence-<commit>` artifact
+9. record a 90-day `production-deployment-receipt-<commit>` artifact containing
+   the source CI run, source artifact, commit, deployment URL, rollback-evidence
+   artifact, and timestamp
+10. smoke-test the Pages deployment URL and the `lupine.science` custom domain
+11. upload production live-verification logs as a GitHub Actions artifact
+12. open an assigned GitHub issue for every release-gate and live-verification
+    pass/fail decision, optionally mirror it to Slack, and report non-blocking
+    telemetry to `glim-think` `/ops/report`
 
 Preview deploys run for pull requests after the `CI` workflow completes
 successfully. Production deploys run only from a
@@ -113,16 +119,25 @@ The preview job does not check out or execute PR code. It downloads the
 points, and passes that artifact directly to Wrangler. This keeps Cloudflare
 credentials and the write-capable GitHub token away from untrusted PR scripts.
 
-Production deploys emit a live-verification notification whether the checks pass
-or fail. The notification is also written to the GitHub Actions run summary and
-includes:
+Release certification and production live verification emit a notification
+whether the decision is pass or fail. The guaranteed channel is a GitHub issue
+assigned to `alexwelcing`; repository notification settings can additionally
+deliver that assignment by email. Slack is an optional mirror. Each notification
+is written to the Actions run summary and retained for 90 days as an artifact.
+It includes:
 
 - the deployment URL and workflow URL
 - the `production-live-verification-<run_id>` artifact name
 - tails of the Wrangler deploy, deployment-URL smoke, custom-domain smoke, and
   security-header logs when those steps reached execution
-- the Cloudflare Pages rollback API command with placeholders for the target
-  deployment id and credentials
+- the exact retained Cloudflare Pages rollback command when capture completed,
+  or an explicit unavailable state when deployment stopped before capture
+
+Release-gate notifications name the release, decision, every failing check, the
+source visual/smoke artifacts, the source CI run, and the retained gate record.
+Production notifications use the exact deployment id from the retained rollback
+evidence when capture completed; they explicitly say evidence was unavailable if
+deployment stopped before that fail-closed step.
 
 ### Production approval gate
 
@@ -212,3 +227,9 @@ curl -fsS -X POST \
 ```
 
 After rollback, verify `https://lupine.science/` itself, not only the `*.pages.dev` deployment URL.
+
+Every successful production deploy retains `rollback-evidence-<commit>` for 90
+days. Read `rollbackTarget.deploymentId`, `rollbackTarget.commitSha`, and
+`rollback.command` from that record rather than guessing. Its
+`postDeployVerification` object proves the target was still retrievable and
+served both `/health` and the expected homepage after the new deployment.

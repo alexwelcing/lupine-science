@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 1,
+  "slug": "critical-minerals-pfas-and-the-remediation-imperative",
+  "releaseState": "replacement-active",
+  "purpose": "canonical-public-video-replacement-editorial-update-and-rollback-evidence",
+  "sourceMainCommit": "e0cccacca7e8050d6fb6d208cce3248689653532",
+  "editorial": {
+    "originalDate": "2026-07-16",
+    "updatedDate": "2026-08-12",
+    "status": "published-with-labeled-evidence-gaps",
+    "articlePath": "articles/critical-minerals-pfas-and-the-remediation-imperative.md",
+    "previousArticleSha256": "ea61c3fd4f4b91f0bad91be0c09c58d8c5c1fe922df20cae9088fa4601ac91a4",
+    "replacementArticleSha256": "714cd516f5c10896066ec979375b9f45875c29d9ba442554ba76a9a93c69019d",
+    "evidenceMap": {
+      "path": "media/projects/article-video-replacements/critical-minerals-pfas/claim-evidence-map.json",
+      "sha256": "53362b7d9695bc53d611ec9626bb4200e26abc1e12dcba1c53dbccd171b0d2ef"
+    },
+    "retainedEvidenceGaps": [
+      "All five narrated quantitative claims remain source-cited but not independently evidence-reviewed.",
+      "Additional market, demand, site-count, remediation-cost, and performance estimates remain attributed contextual estimates.",
+      "Proposed mineral-recovery and PFAS-destruction applications remain research directions rather than demonstrated outcomes.",
+      "Generated environments are illustrative and deterministic graphics are explanatory; neither is experimental evidence."
+    ]
+  },
+  "previous": {
+    "video": {
+      "path": "public/videos/critical-minerals-pfas-and-the-remediation-imperative.mp4",
+      "sha256": "1305c1ebf22974631fa0f68cd018a8eb3a6367c91cbce1f6d1247b9897f0afa0",
+      "bytes": 12007553,
+      "durationSeconds": 147.689002
+    },
+    "captions": {
+      "path": "public/videos/critical-minerals-pfas-and-the-remediation-imperative.vtt",
+      "sha256": "e6b108d0432824f172162bc6de16032e6e83922abc9db5165e90ebdac32f7b20",
+      "bytes": 3522
+    },
+    "poster": {
+      "path": "public/videos/critical-minerals-pfas-and-the-remediation-imperative-poster.jpg",
+      "sha256": "76624e438b6119ec66d69ff60522469de5779d244f0fb8a7b6de81f3900e90a4",
+      "bytes": 43174,
+      "width": 1280,
+      "height": 720
+    },
+    "posterAvif": {
+      "path": "public/videos/critical-minerals-pfas-and-the-remediation-imperative-poster.avif",
+      "sha256": "a2e285611c1d431e44765d17bd2875a11b391f351c08765465afe438a257cc98",
+      "bytes": 16702,
+      "width": 1280,
+      "height": 720
+    },
+    "posterWebp": {
+      "path": "public/videos/critical-minerals-pfas-and-the-remediation-imperative-poster.webp",
+      "sha256": "e7f9bf1cb33362e3e90dc23b70f09bec954a8806595f5e0aa3382878df7281ff",
+      "bytes": 27914,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "replacement": {
+    "video": {
+      "path": "public/videos/critical-minerals-pfas-and-the-remediation-imperative.mp4",
+      "sha256": "49c720aacc5b64cafab3ed9fceb978ebddd148621aa7110392c693d9cf424213",
+      "bytes": 5362853,
+      "durationSeconds": 147.7,
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": "30/1",
+      "pixelFormat": "yuv420p",
+      "color": "bt709",
+      "audioCodec": "aac",
+      "audioSampleRate": 44100,
+      "audioChannels": 1,
+      "decodedFrames": 4431
+    },
+    "captions": {
+      "path": "public/videos/critical-minerals-pfas-and-the-remediation-imperative.vtt",
+      "sha256": "e6b108d0432824f172162bc6de16032e6e83922abc9db5165e90ebdac32f7b20",
+      "bytes": 3522,
+      "cueCount": 27,
+      "changed": false
+    },
+    "poster": {
+      "path": "public/videos/critical-minerals-pfas-and-the-remediation-imperative-poster.jpg",
+      "sha256": "25b9cf182207096f93d28fc9d99e831c9bab617e8af07c012fde9e694cfe4e3b",
+      "bytes": 49736,
+      "width": 1280,
+      "height": 720
+    },
+    "posterAvif": {
+      "path": "public/videos/critical-minerals-pfas-and-the-remediation-imperative-poster.avif",
+      "sha256": "4c1001b46cff4046ca898d8995c289890daa90f5a9884791519d0869fad3bf5a",
+      "bytes": 31791,
+      "width": 1280,
+      "height": 720
+    },
+    "posterWebp": {
+      "path": "public/videos/critical-minerals-pfas-and-the-remediation-imperative-poster.webp",
+      "sha256": "fa7817e070423c87261e73edd73d27d22de3ea9c213e15d7a7631c8ac860ef66",
+      "bytes": 44118,
+      "width": 1280,
+      "height": 720
+    },
+    "cacheRevision": 4
+  },
+  "reviewEvidence": {
+    "runtimeProvenance": {
+      "path": "media/projects/article-video-replacements/critical-minerals-pfas/reports/runtime-provenance.json",
+      "sha256": "e662fe7f2bdc731635b8f38608690bc03a3356cc65826f9437a5927f3ff8d185",
+      "twoCleanCheckoutReproduction": true,
+      "sourceTreeSha": "b1b058ed1ed66d882d12752751332f613c278a7d",
+      "candidateSha256ByCheckout": [
+        "49c720aacc5b64cafab3ed9fceb978ebddd148621aa7110392c693d9cf424213",
+        "49c720aacc5b64cafab3ed9fceb978ebddd148621aa7110392c693d9cf424213"
+      ]
+    },
+    "independentExactShaReview": {
+      "path": "media/projects/article-video-replacements/critical-minerals-pfas/reviews/private-candidate-review.json",
+      "sha256": "d04c35a5cb1e1f8bc89059364bcd11035ffc8bef80d70123a7367b7895f9888c",
+      "role": "exact-sha-private-owner-visual-suitability-review-not-publication-approval",
+      "decision": "suitable-for-private-owner-visual-review-not-publication",
+      "publicationEligibleAtReviewTime": false,
+      "publicationBlockersAtReviewTime": 4,
+      "p0": 0,
+      "candidateSha256": "49c720aacc5b64cafab3ed9fceb978ebddd148621aa7110392c693d9cf424213"
+    },
+    "editorialPublicationPolicy": {
+      "path": "media/projects/article-video-replacements/critical-minerals-pfas/claim-evidence-map.json",
+      "sha256": "53362b7d9695bc53d611ec9626bb4200e26abc1e12dcba1c53dbccd171b0d2ef",
+      "decision": "publication-eligible-with-labeled-evidence-gaps",
+      "unreviewedQuantitativeClaimCount": 5,
+      "releaseBlockerCount": 0,
+      "note": "This later editorial policy does not supersede or rewrite the private visual review. It permits attributed context only while preserving conspicuous unresolved-evidence labels and proposed-outcome disclaimers."
+    },
+    "visualSampling": {
+      "path": "media/projects/article-video-replacements/critical-minerals-pfas/reviews/stratified-contact-sheet-final.jpg",
+      "sha256": "c72bf201661f93af4bcea79a123329b389358a2445451495a85ebc46f49005f4",
+      "sampledFrames": 61,
+      "blankFrames": 0
+    },
+    "posterReview": {
+      "decision": "pass",
+      "p0": 0,
+      "p1": 0,
+      "p2": 1,
+      "notes": "Matter streams are separated by geometry and labels; the measurement spine is informational; the destruction concept remains labeled proposed pilot. The 1280x720 MozJPEG fallback has slight small-text edge softening but all required qualifiers remain legible and the release performance budget passes."
+    },
+    "audioGateForReplacement": {
+      "decision": "pass",
+      "checksPassed": 9,
+      "checksTotal": 9,
+      "integratedLufs": -16.46,
+      "truePeakDbtp": -2.78,
+      "audioVideoDurationDeltaMs": 10.998,
+      "captionCues": 27,
+      "narrationWpm": 138.1095011044471,
+      "deadAirDefects": 0,
+      "note": "The repository-wide audit also reports unrelated pre-existing corpus failures; this record is the exact per-file result for the replacement."
+    }
+  },
+  "proceduralGates": {
+    "projectPublicationIntegrity": "pass",
+    "twoCleanCheckoutReproduction": "pass",
+    "independentPrePrReview": "pass",
+    "ownerApproval": "approved-in-chat-2026-08-13",
+    "pullRequestAndCi": "pending",
+    "publicationEnvironmentApproval": "pending",
+    "productionEnvironmentApproval": "pending",
+    "liveHashAndBrowserVerification": "pending"
+  },
+  "rollback": {
+    "method": "run the repository helper to restore the pinned baseline article and five canonical media assets, set baseline-rollback state, and rebuild the owned article/video/sitemap/header surfaces; require npm run verify to validate baseline bytes; commit and redeploy only through protected environments",
+    "command": "node scripts/rollback-pfas-replacement.mjs && npm run verify",
+    "script": "scripts/rollback-pfas-replacement.mjs",
+    "cacheRevision": 5
+  }
+}

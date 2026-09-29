@@ -12,7 +12,7 @@ from pathlib import Path
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[2]
-OUTPUT_DIR = ROOT / "public/videos/campaign-2026-07-27"
+OUTPUT_DIR = ROOT / "media/brand-campaign-2026-07-27/quarantine"
 MANIFEST_PATH = OUTPUT_DIR / "video-manifest.json"
 STORYBOARDS_PATH = ROOT / "media/brand-campaign-2026-07-27/campaign-video-storyboards.json"
 REPORT_PATH = OUTPUT_DIR / "qa-attempt-1-probe-report.json"

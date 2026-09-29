@@ -40,3 +40,51 @@ test('Slack notification is conditional and uses only the repository secret', as
   assert.match(source, /if \[ -n "\$SLACK_DEPLOY_WEBHOOK_URL" \]/);
   assert.doesNotMatch(source, /hooks\.slack\.com\/services\//);
 });
+
+test('every release gate decision creates an assigned GitHub notification and retains its record', async () => {
+  const source = await workflow();
+
+  assert.match(source, /name: Build release gate notification\n\s+if: always\(\)/);
+  assert.match(source, /node scripts\/build-release-notification\.mjs/);
+  assert.match(source, /name: Send loud release gate notification\n\s+if: always\(\)/);
+  assert.match(source, /repos\/\$GITHUB_REPOSITORY\/issues/);
+  assert.match(source, /assignees: \["alexwelcing"\]/);
+  assert.match(source, /if issue_result=[\s\S]*gh api --method POST[\s\S]*WARNING: assigned release notification FAILED/);
+  assert.match(source, /name: Retain release decision and notification/);
+  assert.match(source, /release-gate-records-\$\{\{ github\.event\.workflow_run\.head_sha \}\}/);
+  assert.match(source, /retention-days: 90/);
+});
+
+test('failed source CI or Lighthouse still enters a fail-closed release notification path', async () => {
+  const source = await workflow();
+
+  assert.match(
+    source,
+    /release-certification:[\s\S]*if: \|\n\s+always\(\) &&\n\s+github\.event\.workflow_run\.event == 'push' &&\n\s+github\.event\.workflow_run\.head_branch == 'main'\n/,
+  );
+  assert.match(source, /name: Fail closed on unsuccessful release prerequisite\n\s+if: github\.event\.workflow_run\.conclusion != 'success' \|\| needs\.lighthouse\.result != 'success'/);
+  assert.match(source, /Source CI concluded: \$source_result[\s\S]*Lighthouse concluded: \$lighthouse_result[\s\S]*release-certification\.json/);
+});
+
+test('production live verification creates an assigned GitHub notification and retains it', async () => {
+  const source = await workflow();
+  const notifyStart = source.indexOf('      - name: Notify team of live verification result');
+  const notifyEnd = source.indexOf('      - name: Retain live verification notification', notifyStart);
+  const notifyStep = source.slice(notifyStart, notifyEnd);
+
+  assert.match(notifyStep, /rollback-evidence\.json[\s\S]*rollback-target-capture\.json[\s\S]*\.rollback\.command/);
+  assert.match(notifyStep, /RECEIPT_UPLOAD_OUTCOME: \$\{\{ steps\.receipt_upload\.outcome \}\}/);
+  assert.match(notifyStep, /ROLLBACK_VERIFICATION_OUTCOME: \$\{\{ steps\.rollback_verification\.outcome \}\}/);
+  assert.match(notifyStep, /LIVE_LOGS_UPLOAD_OUTCOME: \$\{\{ steps\.live_logs_upload\.outcome \}\}/);
+  assert.match(notifyStep, /rollback target verification/);
+  assert.match(notifyStep, /deployment receipt retention/);
+  assert.match(notifyStep, /rollback evidence retention/);
+  assert.match(notifyStep, /live-verification log retention/);
+  assert.match(notifyStep, /\[ "\$RECEIPT_UPLOAD_OUTCOME" = "failure" \]/);
+  assert.match(source, /Notify team of live verification result[\s\S]*GH_TOKEN: \$\{\{ github\.token \}\}/);
+  assert.match(source, /Notify team of live verification result[\s\S]*repos\/\$GITHUB_REPOSITORY\/issues/);
+  assert.match(source, /Artifact: \$RUN_URL#artifacts/);
+  assert.match(source, /name: Retain live verification notification/);
+  assert.match(source, /production-live-notification-\$\{\{ github\.run_id \}\}/);
+  assert.match(source, /production-live-verification-\$\{\{ github\.run_id \}\}[\s\S]*retention-days: 90/);
+});

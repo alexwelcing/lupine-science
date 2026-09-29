@@ -58,6 +58,14 @@ python -m http.server 8080 -d public
 - [ ] `/ops/report` receives non-blocking deploy telemetry.
 - [ ] Production live-verification pass/fail notifications include workflow URL,
       log excerpts, live-verification artifact name, and rollback command.
+- [ ] Every release-certification pass/fail decision opens a GitHub issue assigned
+      to `alexwelcing` naming the release, decision, failing checks, and source and
+      retained artifact links; the notification artifact is retained for 90 days.
+- [ ] Before production mutation, capture the prior Pages deployment id, commit,
+      and URL; after deploy, prove the target still exists and serves `/health`
+      and the expected homepage.
+- [ ] Retain `rollback-evidence-<commit>` for 90 days with an exact rollback API
+      command and the custom-domain post-rollback smoke procedure.
 
 ## Live Verification
 

@@ -15,7 +15,7 @@
       "media/brand-campaign-2026-07-27/final-qa-evidence/B4-candidate-contact-sheet.jpg",
       "media/brand-campaign-2026-07-27/final-qa-evidence/B5-candidate-contact-sheet.jpg",
       "media/brand-campaign-2026-07-27/final-qa-evidence/B6-candidate-contact-sheet.jpg",
-      "public/videos/campaign-2026-07-27/qa-attempt-1-probe-report.json",
+      "media/brand-campaign-2026-07-27/quarantine/qa-attempt-1-probe-report.json",
       "media/brand-campaign-2026-07-27/render_campaign_videos.py"
     ]
   },
@@ -9493,7 +9493,7 @@
       {
         "film_id": "01-z1-campaign-story",
         "attempt": 1,
-        "replacement": "public/videos/campaign-2026-07-27/01-z1-union-verdict-qa-attempt-1.mp4",
+        "replacement": "media/brand-campaign-2026-07-27/quarantine/01-z1-union-verdict-qa-attempt-1.mp4",
         "sha256": "5ace393923af277227916ee6bc786b5da63bebd5742ae385f0b3a5b5e5be1b27",
         "bytes": 1064842,
         "duration_seconds": 28.0,
@@ -9587,7 +9587,7 @@
             "temporally_distinct": true
           }
         ],
-        "visual_evidence": "public/videos/campaign-2026-07-27/01-z1-union-verdict-qa-attempt-1-contact-sheet.png",
+        "visual_evidence": "media/brand-campaign-2026-07-27/quarantine/01-z1-union-verdict-qa-attempt-1-contact-sheet.png",
         "editorial_review": {
           "decision": "accept",
           "basis": "Contact-sheet inspection confirms deterministic paper/ink/indigo composition, warning-only ochre, title-safe text, no forbidden source imagery, and bounded claims. Renderer reconciliation confirms distinct storyboard-specific procedural motion for every shot.",
@@ -9598,7 +9598,7 @@
       {
         "film_id": "02-savings-stack",
         "attempt": 1,
-        "replacement": "public/videos/campaign-2026-07-27/02-savings-stack-qa-attempt-1.mp4",
+        "replacement": "media/brand-campaign-2026-07-27/quarantine/02-savings-stack-qa-attempt-1.mp4",
         "sha256": "48ed48f919b3e12ec06fcc84d355279921404c1a96c1526b33fea2b00e41996e",
         "bytes": 1101244,
         "duration_seconds": 28.0,
@@ -9682,7 +9682,7 @@
             "temporally_distinct": true
           }
         ],
-        "visual_evidence": "public/videos/campaign-2026-07-27/02-savings-stack-qa-attempt-1-contact-sheet.png",
+        "visual_evidence": "media/brand-campaign-2026-07-27/quarantine/02-savings-stack-qa-attempt-1-contact-sheet.png",
         "editorial_review": {
           "decision": "accept",
           "basis": "Contact-sheet inspection confirms deterministic paper/ink/indigo composition, warning-only ochre, title-safe text, no forbidden source imagery, and bounded claims. Renderer reconciliation confirms distinct storyboard-specific procedural motion for every shot.",
@@ -9693,7 +9693,7 @@
       {
         "film_id": "03-trust-layer",
         "attempt": 1,
-        "replacement": "public/videos/campaign-2026-07-27/03-trust-layer-qa-attempt-1.mp4",
+        "replacement": "media/brand-campaign-2026-07-27/quarantine/03-trust-layer-qa-attempt-1.mp4",
         "sha256": "b3e3657062ccb36327c1e313923c04f37f7d9c3e89483bb4c6697c227f1b6049",
         "bytes": 933070,
         "duration_seconds": 24.0,
@@ -9777,7 +9777,7 @@
             "temporally_distinct": true
           }
         ],
-        "visual_evidence": "public/videos/campaign-2026-07-27/03-trust-layer-qa-attempt-1-contact-sheet.png",
+        "visual_evidence": "media/brand-campaign-2026-07-27/quarantine/03-trust-layer-qa-attempt-1-contact-sheet.png",
         "editorial_review": {
           "decision": "accept",
           "basis": "Contact-sheet inspection confirms deterministic paper/ink/indigo composition, warning-only ochre, title-safe text, no forbidden source imagery, and bounded claims. Renderer reconciliation confirms distinct storyboard-specific procedural motion for every shot.",
@@ -9788,7 +9788,7 @@
       {
         "film_id": "04-order-of-effort",
         "attempt": 1,
-        "replacement": "public/videos/campaign-2026-07-27/04-order-of-effort-qa-attempt-1.mp4",
+        "replacement": "media/brand-campaign-2026-07-27/quarantine/04-order-of-effort-qa-attempt-1.mp4",
         "sha256": "2d2a796f96506471cfadfdf2e27c81d85d044f290e18bdd8c00207e801fce420",
         "bytes": 1264498,
         "duration_seconds": 28.0,
@@ -9872,7 +9872,7 @@
             "temporally_distinct": true
           }
         ],
-        "visual_evidence": "public/videos/campaign-2026-07-27/04-order-of-effort-qa-attempt-1-contact-sheet.png",
+        "visual_evidence": "media/brand-campaign-2026-07-27/quarantine/04-order-of-effort-qa-attempt-1-contact-sheet.png",
         "editorial_review": {
           "decision": "accept",
           "basis": "Contact-sheet inspection confirms deterministic paper/ink/indigo composition, warning-only ochre, title-safe text, no forbidden source imagery, and bounded claims. Renderer reconciliation confirms distinct storyboard-specific procedural motion for every shot.",
@@ -9883,7 +9883,7 @@
       {
         "film_id": "05-materials-in-society",
         "attempt": 1,
-        "replacement": "public/videos/campaign-2026-07-27/05-materials-for-society-qa-attempt-1.mp4",
+        "replacement": "media/brand-campaign-2026-07-27/quarantine/05-materials-for-society-qa-attempt-1.mp4",
         "sha256": "3845a7de90db3a6432e489bdf76922b924f18def96a999a5d668f57a7330f69d",
         "bytes": 1161903,
         "duration_seconds": 30.0,
@@ -9977,7 +9977,7 @@
             "temporally_distinct": true
           }
         ],
-        "visual_evidence": "public/videos/campaign-2026-07-27/05-materials-for-society-qa-attempt-1-contact-sheet.png",
+        "visual_evidence": "media/brand-campaign-2026-07-27/quarantine/05-materials-for-society-qa-attempt-1-contact-sheet.png",
         "editorial_review": {
           "decision": "accept",
           "basis": "Contact-sheet inspection confirms deterministic paper/ink/indigo composition, warning-only ochre, title-safe text, no forbidden source imagery, and bounded claims. Renderer reconciliation confirms distinct storyboard-specific procedural motion for every shot.",

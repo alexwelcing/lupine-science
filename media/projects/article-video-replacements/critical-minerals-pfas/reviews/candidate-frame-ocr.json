@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "sampleCount": 19,
+  "blankCount": 0,
+  "rows": [
+    {
+      "file": "01-0000.00.png",
+      "avgStd": 66.84,
+      "blank": false,
+      "ocrText": "A “-~ 4 /4 A e— me Ee - —— ONE TEST DISCIPLINE - TWO MATERIAL DIRECTIONS | CONTAINMENT BEFORE CLAIM - ’ Recover what we need. Destroy what we don’t. — — = eM — ND / AN MEASUREMENT | gy 5 ( Be ENN SPINE a + ~ TE | & TT | ea L — - = 1 | Rl ©) S | tC) — @- 1 = parse io i = | 4 [1 separate flows | © PROPOSED PILOT SE p | RECOVERED Fibs | conTaineD Ta po FRACTION b i. DESTRUCTION : SELECTIVE By Wi CAPTURE CARTRIDGE ” 1 CARTRIDGE 1 MINERAL-RICH FEED -» RECOVERED FRACTION 1 PFAS-CONTAMINATED FEED -» CO",
+      "confidence": 60
+    },
+    {
+      "file": "02-0008.00.png",
+      "avgStd": 67.05,
+      "blank": false,
+      "ocrText": "A e— me =| [——— a ONE TEST DISCIPLINE - TWO MATERIAL DIRECTIONS | E CONTAINMENT BEFORE CLAIM » Recover what we need. Destroy what we don’t. ON SE i — F- - a I | N — = ” L r— ( 2 \\ | E 7) J Ed AN MEASUREMENT 4 ¥ ere A\\ SPINE /§ 4 ¥ | = : fy | | 3 - a | | ® —_— o- | 4 pr ? PA same test [| —— = - separate flows | PROPOSED PILOT — - E = Al - | = — P= x RECOVERED Fins \\ | Dae Ba rr FRACTION : DESTRUCTION = =i SELECTIVE Be Wii CAPTURE CARTRIDGE 5 Te 2 CARTRIDGE { § MINERAL-RICH FEED -» RECOVERED FRACT",
+      "confidence": 58
+    },
+    {
+      "file": "03-0016.80.png",
+      "avgStd": 67.53,
+      "blank": false,
+      "ocrText": "| en | ——— Te— ae —_— 2 e— me = f— fo — ONE TEST DISCIPLINE - TWO MATERIAL DIRECTIONS | CONTAINMENT BEFORE CLAIM - ’ Recover what we need. Destroy what we don’t. | N — p— = : — | NE ‘ / \\ - — ~~ A MEASUREMENT | cm # 7 ( ~~ AN SPINE 4 4 | 3 = ea | BE i | | E | S | I — |eo- pr T same test H = separate flows H PROPOSED PILOT ; 4 > g dl) l >. > Kx A1Y . A Ju, ~Zovm gm > a RECOVERED [i 5 = | CONTAINED Ba ka FRACTION = = | DESTRUCTION : SELECTIVE re > CAPTURE CARTRIDGE f 5% CARTRIDGE 1 MINERAL-RICH FE",
+      "confidence": 59
+    },
+    {
+      "file": "04-0016.93.png",
+      "avgStd": 61.37,
+      "blank": false,
+      "ocrText": "4 || = / \" SCENE 02 - SELECTIVITY IS THE MACHINE i i i Accessible cartridges separate one fraction - — ——m 7 = = Zi TIRN Nu EE zl (1 ] COMPLEX FEED (2 ] SELECTIVE CAPTURE (5 ] REMOVE + REGENERATE BRINE - MIXED IONS SELECTED FRACTION (] (1. separate outlet 1 | service return — as \\ gE pr a. N = = WE —— N RELATIONSHIPS: complex feed enters - selected fraction exits separately - cartridge returns to service p77 Sm te 7) ET Te ga SANE \\ a Sy REA",
+      "confidence": 65
+    },
+    {
+      "file": "05-0030.00.png",
+      "avgStd": 61.35,
+      "blank": false,
+      "ocrText": "|. — / Ly SCENE 02 - SELECTIVITY IS THE MACHINE i i i Accessible cartridges separate one fraction m1 E TN -— 7 7 = dl | hi NN Nem = Sw | po rl (1 ] COMPLEX FEED (2 ] SELECTIVE CAPTURE (3 ] REMOVE + REGENERATE BRINE - MIXED IONS SELECTED FRACTION © OS separate outlet 1 = service return —— a. —N RELATIONSHIPS: complex feed enters - selected fraction exits separately - cartridge returns to service §7 Ae pr nf PI. RT fe 5 HOA \\ a RAG",
+      "confidence": 65
+    },
+    {
+      "file": "06-0040.00.png",
+      "avgStd": 44.03,
+      "blank": false,
+      "ocrText": "= 03 - BIND - RELEASE - BREAK ( zounce souno exeuauaron | le barriers, different obligations BIND + RELEASE GEOMETRIC EXCLUSION C-F ACTIVATION ACTIVATION BARRIER 4+ n [| n L] n L} ~ 485 kJ mol-1 source value - not candidate performance fits pocket - release remains required excluded ‘geometry capture is not destruction THREE DISTINCT RELATIONSHIPS - no measured candidate performance implied",
+      "confidence": 82
+    },
+    {
+      "file": "07-0055.00.png",
+      "avgStd": 44.08,
+      "blank": false,
+      "ocrText": "SCENE 03 - BIND - RELEASE - BREAK (‘sounce somo cxsumrons | Different barriers, different obligations BIND + RELEASE GEOMETRIC EXCLUSION C-F ACTIVATION ACTIVATION BARRIER + n [] [1] [] [] [ \\ J =~ 485 kJ mol? source value - not candidate performance fits pocket - release remains required \\_/ capture is not destruction THREE DISTINCT RELATIONSHIPS - no measured candidate performance implied",
+      "confidence": 78
+    },
+    {
+      "file": "08-0064.40.png",
+      "avgStd": 48.7,
+      "blank": false,
+      "ocrText": "SCENE 04 - WHY FAST MODELS FAIL HERE i i i Raw barriers soften at under-coordinated sites CANDIDATE ORDER ENERGY LANDSCAPE - SCHEMATIC || 0 ete || [ RAW REFERENCE i= [ [2] =n REFERENCE \\W FAST MODEL BULK REFERENCE REMAINS ANCHORED } } ordering is not support reaction coordinate RAW uMLIP SOFTENING: 15-60% IN SOURCE-BOUND UNDER-COORDINATED REGIONS - schematic, not new data",
+      "confidence": 80
+    },
+    {
+      "file": "09-0076.00.png",
+      "avgStd": 48.64,
+      "blank": false,
+      "ocrText": "SCENE 04 - WHY FAST MODELS FAIL HERE i i i Raw barriers soften at under-coordinated sites CANDIDATE ORDER ENERGY LANDSCAPE : SCHEMATIC | 0 rte | | RAW REFERENCE [er |] [2] =n REFERENCE \\W FAST MODEL BULK REFERENCE REMAINS ANCHORED deri t i reaction coordinate HEE ER RAW uMLIP SOFTENING: 15-60% IN SOURCE-BOUND UNDER-COORDINATED REGIONS - schematic, not new data",
+      "confidence": 78
+    },
+    {
+      "file": "10-0088.20.png",
+      "avgStd": 46.95,
+      "blank": false,
+      "ocrText": "= 05 - MEASURE - CORRECT - BOUND i i i i == applies only inside measured support | 1: ANCHOR OBSERVATIONS [ 2: CORRECTED RANKING ] 3 - DOMAIN DECISION anchors constrain the field B | - — | BB | I : error . —_— ranking restored within support local environment NO UNIVERSAL COVERAGE CLAIM - outside-domain state remains visible and does not advance",
+      "confidence": 77
+    },
+    {
+      "file": "11-0100.00.png",
+      "avgStd": 47.14,
+      "blank": false,
+      "ocrText": "SCENE 05 * MEASURE - CORRECT - BOUND i i i i Correction applies only inside measured support 1: ANCHOR OBSERVATIONS I 2 :- CORRECTED RANKING I 3 - DOMAIN DECISION | anchors constrain the field l RAW CORRECTED I | l I - error _— ranking restored within support local environment NO UNIVERSAL COVERAGE CLAIM - outside-domain state remains visible and does not advance",
+      "confidence": 86
+    },
+    {
+      "file": "12-0109.20.png",
+      "avgStd": 59.63,
+      "blank": false,
+      "ocrText": "q | 8 : / . SCENE 06 - RETURN SCARCE ATOMS i wafsrasme vor sexromunce ok One recovery and regeneration loop Bes. — wr... / 7 Zo [ER ~ a / COMPLEX FEED SERVICEABLE CAPTURE DEDICATED FRACTION MINERAL-RICH FEED 0) RECOVERED FRACTION 0 a - AR 0 FEED » REMOVABLE CARTRIDGE — DEDICATED VESSEL - WASHED CARTRIDGE RETURNS TO SERVICE B77 ET I aT fe HPN, \\ i NN",
+      "confidence": 62
+    },
+    {
+      "file": "13-0115.93.png",
+      "avgStd": 67.51,
+      "blank": false,
+      "ocrText": "j= Bi | SCENE 07 - DESTROY - DON'T RELOCATE | i i i i Contained proposed pathway; validation is unresolved ENE Wee —y fa . / py. PFAS CAPTURE COLUMN STATUS SEALED DOUBLE-CONTAINED TRANSFER X SEALED CHAMBER UNVALIDATED meen CAPTURE ALONE RELOCATES - PROPOSED DESTRUCTION REQUIRES VALIDATION NO VISIBLE EMISSIONS - NO LANDFILL-AS-SOLUTION - unsupported pilot status remains explicit",
+      "confidence": 80
+    },
+    {
+      "file": "14-0120.00.png",
+      "avgStd": 67.5,
+      "blank": false,
+      "ocrText": "|! L | SCENE 07 - DESTROY - DON'T RELOCATE i i i i Contained proposed pathway; validation is unresolved Ss = — — PFAS CAPTURE COLUMN STATUS SEALED DOUBLE-CONTAINED TRANSFER X SEALED CHAMBER UNVALIDATED a CAPTURE ALONE RELOCATES - PROPOSED DESTRUCTION REQUIRES VALIDATION NO VISIBLE EMISSIONS - NO LANDFILL-AS-SOLUTION - unsupported pilot status remains explicit",
+      "confidence": 86
+    },
+    {
+      "file": "15-0123.57.png",
+      "avgStd": 64.04,
+      "blank": false,
+      "ocrText": ") 1 JL | SCENE 08 - ONE SHARED TEST DISCIPLINE i iti Same fixture conditions; samples and outputs stay separate TR A y Vi - _ [dl CONTROLLED FLOW + REGENERATION FIXTURE shared measurement spine - no invented readout SEALED EE OUTPUT B EE distinct path SEPARATE OUTPUT A IDENTICAL CONTROL DISCIPLINE # IDENTICAL MATERIAL - cartridge identities and outputs remain distinct > p 7k ad N",
+      "confidence": 79
+    },
+    {
+      "file": "16-0130.00.png",
+      "avgStd": 64.58,
+      "blank": false,
+      "ocrText": ") - | | SCENE 08 - ONE SHARED TEST DISCIPLINE i iti Same fixture conditions; samples and outputs stay separate ll | » hi ; \\ : V/i & . A | CONTROLLED FLOW + REGENERATION FIXTURE shared measurement spine 0 invented readout SEALED | —] OUTPUT B | EE — distinct path SEPARATE OUTPUT A IDENTICAL CONTROL DISCIPLINE # IDENTICAL MATERIAL - cartridge identities and outputs remain distinct 72 7 Su \\&3 / 7/4 A\\",
+      "confidence": 75
+    },
+    {
+      "file": "17-0134.83.png",
+      "avgStd": 40.66,
+      "blank": false,
+      "ocrText": "SCENE 09 - SUPPORTED DISPOSITION i i 1] i i Advance inside support; stop visibly outside it INSIDE MEASURED DOMAIN OUTSIDE MEASURED DOMAIN PHYSICAL O O EEEEEE» | sTOoP RECOVER WHAT WE NEED. DESTROY WHAT WE DON'T. - no success claim beyond the support boundary",
+      "confidence": 89
+    },
+    {
+      "file": "18-0145.00.png",
+      "avgStd": 40.17,
+      "blank": false,
+      "ocrText": "SCENE 09 - SUPPORTED DISPOSITION i i isi i i Advance inside support; stop visibly outside it INSIDE MEASURED DOMAIN OUTSIDE MEASURED DOMAIN PHYSICAL O O EEEEEE BD | STOP RECOVER WHAT WE NEED. DESTROY WHAT WE DON’T. - no success claim beyond the support boundary",
+      "confidence": 91
+    },
+    {
+      "file": "final-decoded.png",
+      "avgStd": 40.94,
+      "blank": false,
+      "ocrText": "= 09 - SUPPORTED DISPOSITION i i isi i i = inside support; stop visibly outside it Cf INSIDE MEASURED DOMAIN OUTSIDE MEASURED DOMAIN PHYSICAL IB O O EEEEEE BD» | STOP RECOVER WHAT WE NEED. DESTROY WHAT WE DON'T. - no success claim beyond the support boundary",
+      "confidence": 84
+    }
+  ]
+}

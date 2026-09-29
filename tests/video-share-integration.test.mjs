@@ -69,4 +69,23 @@ describe('video share integration', () => {
       assert.ok(references.some((match) => match[1] === extension), `missing ${extension} poster`);
     }
   });
+
+  it('cache-busts every replaced PFAS poster surface at v4', () => {
+    const slug = 'critical-minerals-pfas-and-the-remediation-imperative';
+    const pages = [
+      readPublicPage('articles', slug),
+      readPublicPage('videos', slug),
+      readPublicPage('videos'),
+    ].join('\n');
+
+    const references = [...pages.matchAll(new RegExp(
+      `${slug}-poster\\.(jpg|avif|webp)\\?v=(\\d+)`,
+      'g',
+    ))];
+    assert.ok(references.length > 0, 'expected PFAS poster references');
+    assert.deepEqual(new Set(references.map((match) => match[2])), new Set(['4']));
+    for (const extension of ['jpg', 'avif', 'webp']) {
+      assert.ok(references.some((match) => match[1] === extension), `missing ${extension} poster`);
+    }
+  });
 });

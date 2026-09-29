@@ -215,7 +215,7 @@ async function main() {
 
   const dictionary = await loadDictionary();
   const corpus = await buildDomainCorpus();
-  const bigram = trainBigramModel(dictionary.size > 0 ? dictionary : corpus);
+  const bigram = trainBigramModel(dictionary);
   console.error(`Dictionary ${dictionary.size}, corpus ${corpus.size}`);
   console.error(`Auditing ${images.length} raster images + ${svgs.length} SVG charts`);
 

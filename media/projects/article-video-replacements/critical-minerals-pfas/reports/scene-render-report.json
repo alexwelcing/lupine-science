@@ -1,0 +1,145 @@
+{
+  "constraints": {
+    "economicClaimsIntroduced": false,
+    "falPlateRole": "background atmosphere only",
+    "generatedMeasurements": false,
+    "generatedText": false,
+    "generatedTopology": false,
+    "publicationEligible": false,
+    "unsupportedStatesRemainVisible": true
+  },
+  "deterministic": true,
+  "inputs": [
+    {
+      "path": "brief.md",
+      "sha256": "d209c2e597a9d39cf1fd10357c746279eacbff3d6c46fc59439904b1331477a4"
+    },
+    {
+      "path": "treatment.md",
+      "sha256": "c7325bce659b633ea0d3c9234c86fa8d84884deadad683108e9a5403104a21ba"
+    },
+    {
+      "path": "production-contract.json",
+      "sha256": "c86c98bf47f4329a2493652dc8465a44ce38359125f7c00f0b868723684550dd"
+    },
+    {
+      "path": "storyboard.yaml",
+      "sha256": "6dc6417498f6f622de99db5c99916a76686c2ce68112f4eb0c0ca983d775b310"
+    },
+    {
+      "path": "assets/plates/plate-01-civic-hall.png",
+      "sha256": "1830137ad7aadb0ba8fb54beba0b409735c28cf7917316331ece595208d9be16"
+    },
+    {
+      "path": "overlays/01-opposite-streams.svg",
+      "sha256": "2f7c5724f8014ccfe456189fffc05a22618b0573fcdc19eb722ebad37a55429f"
+    },
+    {
+      "path": "assets/composites/01-opposite-streams.png",
+      "sha256": "fbadaef92bd8e049a156506324e0fd3ff85857c248a44aed3489a1c1d19500ec"
+    },
+    {
+      "path": "/var/lib/agentdata/workspaces/lupine-science-pfas-replacement/public/videos/critical-minerals-pfas-and-the-remediation-imperative.vtt",
+      "sha256": "e6b108d0432824f172162bc6de16032e6e83922abc9db5165e90ebdac32f7b20"
+    }
+  ],
+  "outputFormat": "PNG RGBA",
+  "palette": {
+    "black": "#090C0B",
+    "correction": "#C97745",
+    "evidence": "#F2EFE6",
+    "field": "#101513",
+    "muted": "#87908A",
+    "regeneration": "#B4BE92",
+    "warning": "#D36B61",
+    "water": "#76A9C3"
+  },
+  "renderer": "scripts/render_scenes.py",
+  "resolution": [
+    1920,
+    1080
+  ],
+  "scenes": [
+    {
+      "epistemicStatus": "illustrative",
+      "height": 1080,
+      "mode": "RGBA",
+      "path": "assets/composites/02-selective-cartridges.png",
+      "sceneId": "02-selective-cartridges",
+      "sha256": "7123b2c94e0be83a525e9c9400000d71a255d4b888d86b6da8202947060d8853",
+      "visualMethod": "accepted plate-01 atmosphere + deterministic topology",
+      "width": 1920
+    },
+    {
+      "epistemicStatus": "source-bound-explanatory",
+      "height": 1080,
+      "mode": "RGBA",
+      "path": "assets/composites/03-bind-release-break.png",
+      "sceneId": "03-bind-release-break",
+      "sha256": "563f37f90e82fe4a8736285d4b486824f15e07da71b7aaad34ddb713ca31bd17",
+      "visualMethod": "deterministic mineral-black environment",
+      "width": 1920
+    },
+    {
+      "epistemicStatus": "source-bound-explanatory",
+      "height": 1080,
+      "mode": "RGBA",
+      "path": "assets/composites/04-softened-landscape.png",
+      "sceneId": "04-softened-landscape",
+      "sha256": "4124dff3454740a57cda08b096af4d48330cf4877019e3e907fa1f858d3d436c",
+      "visualMethod": "deterministic mineral-black environment",
+      "width": 1920
+    },
+    {
+      "epistemicStatus": "source-bound-explanatory",
+      "height": 1080,
+      "mode": "RGBA",
+      "path": "assets/composites/05-measure-correct-bound.png",
+      "sceneId": "05-measure-correct-bound",
+      "sha256": "a985fe9b8c838f1473ac463b83331425c933135fb51a2c36936556187b97aa44",
+      "visualMethod": "deterministic mineral-black environment",
+      "width": 1920
+    },
+    {
+      "epistemicStatus": "illustrative",
+      "height": 1080,
+      "mode": "RGBA",
+      "path": "assets/composites/06-return-scarce-atoms.png",
+      "sceneId": "06-return-scarce-atoms",
+      "sha256": "5d3b7dbf8db5f40c1611f435595a7c8d111d32b43b98dfd0fa38012c8f00ed46",
+      "visualMethod": "accepted plate-01 atmosphere + deterministic topology",
+      "width": 1920
+    },
+    {
+      "epistemicStatus": "illustrative-proposed-pilot",
+      "height": 1080,
+      "mode": "RGBA",
+      "path": "assets/composites/07-destroy-dont-relocate.png",
+      "sceneId": "07-destroy-dont-relocate",
+      "sha256": "63c822fe1db0ead872a35d6e8f4f4cc0e427f4c605bbf0b8c1ce95ec8f06dcf7",
+      "visualMethod": "accepted plate-01 atmosphere + deterministic topology",
+      "width": 1920
+    },
+    {
+      "epistemicStatus": "illustrative",
+      "height": 1080,
+      "mode": "RGBA",
+      "path": "assets/composites/08-common-test-discipline.png",
+      "sceneId": "08-common-test-discipline",
+      "sha256": "e2d47b430f955e1ebf0e77ece18d5adf5feb6fd0269ae913079e399b9b273158",
+      "visualMethod": "accepted plate-01 atmosphere + deterministic topology",
+      "width": 1920
+    },
+    {
+      "epistemicStatus": "source-bound-explanatory",
+      "height": 1080,
+      "mode": "RGBA",
+      "path": "assets/composites/09-supported-disposition.png",
+      "sceneId": "09-supported-disposition",
+      "sha256": "210d2e4b604a7aa8cad49ad3f66f85e8239b761aff25a9785abe1e6cf2e8f45e",
+      "visualMethod": "deterministic mineral-black environment",
+      "width": 1920
+    }
+  ],
+  "schemaVersion": 1
+}

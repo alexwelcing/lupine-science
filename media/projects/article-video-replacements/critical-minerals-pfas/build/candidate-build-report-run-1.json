@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "decision": "pass",
+  "candidate": "build/critical-minerals-pfas-and-the-remediation-imperative-candidate.mp4",
+  "sha256": "fb24344ac7c177ad8dd05b2143d281ae3c4f824873bcdc6a45ac0e06834b4c10",
+  "bytes": 13416526,
+  "durationSeconds": 147.7,
+  "targetDurationSeconds": 147.689,
+  "fps": 30,
+  "totalFramesRequested": 4431,
+  "decodedVideoFrames": 4431,
+  "videoDurationSeconds": 147.7,
+  "audioDurationSeconds": 147.689,
+  "sourceAudio": "public/videos/critical-minerals-pfas-and-the-remediation-imperative.mp4",
+  "sourceAudioContainerSha256": "1305c1ebf22974631fa0f68cd018a8eb3a6367c91cbce1f6d1247b9897f0afa0",
+  "sourceAudioStreamSha256": "9bc128d216709b27d87c596fd900e0c3761efd441432f84d745e7e62829a20a8",
+  "candidateAudioStreamSha256": "9bc128d216709b27d87c596fd900e0c3761efd441432f84d745e7e62829a20a8",
+  "audioPacketIdentity": true,
+  "videoStream": {
+    "index": 0,
+    "codec_name": "h264",
+    "codec_type": "video",
+    "width": 1920,
+    "height": 1080,
+    "pix_fmt": "yuv420p",
+    "color_space": "bt709",
+    "r_frame_rate": "30/1"
+  },
+  "audioStream": {
+    "index": 1,
+    "codec_name": "aac",
+    "codec_type": "audio",
+    "sample_rate": "44100",
+    "channels": 1,
+    "r_frame_rate": "0/0"
+  },
+  "scenes": [
+    {
+      "id": "01-opposite-streams",
+      "path": "assets/composites/01-opposite-streams.png",
+      "sha256": "fbadaef92bd8e049a156506324e0fd3ff85857c248a44aed3489a1c1d19500ec",
+      "startFrame": 0,
+      "endFrameExclusive": 506,
+      "frames": 506,
+      "durationSecondsOnGrid": 16.866666666666667,
+      "captionCues": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "02-selective-cartridges",
+      "path": "assets/composites/02-selective-cartridges.png",
+      "sha256": "7123b2c94e0be83a525e9c9400000d71a255d4b888d86b6da8202947060d8853",
+      "startFrame": 506,
+      "endFrameExclusive": 1198,
+      "frames": 692,
+      "durationSecondsOnGrid": 23.066666666666666,
+      "captionCues": [
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "id": "03-bind-release-break",
+      "path": "assets/composites/03-bind-release-break.png",
+      "sha256": "563f37f90e82fe4a8736285d4b486824f15e07da71b7aaad34ddb713ca31bd17",
+      "startFrame": 1198,
+      "endFrameExclusive": 1930,
+      "frames": 732,
+      "durationSecondsOnGrid": 24.4,
+      "captionCues": [
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "id": "04-softened-landscape",
+      "path": "assets/composites/04-softened-landscape.png",
+      "sha256": "4124dff3454740a57cda08b096af4d48330cf4877019e3e907fa1f858d3d436c",
+      "startFrame": 1930,
+      "endFrameExclusive": 2645,
+      "frames": 715,
+      "durationSecondsOnGrid": 23.833333333333332,
+      "captionCues": [
+        14,
+        15,
+        16
+      ]
+    },
+    {
+      "id": "05-measure-correct-bound",
+      "path": "assets/composites/05-measure-correct-bound.png",
+      "sha256": "a985fe9b8c838f1473ac463b83331425c933135fb51a2c36936556187b97aa44",
+      "startFrame": 2645,
+      "endFrameExclusive": 3275,
+      "frames": 630,
+      "durationSecondsOnGrid": 21.0,
+      "captionCues": [
+        17,
+        18
+      ]
+    },
+    {
+      "id": "06-return-scarce-atoms",
+      "path": "assets/composites/06-return-scarce-atoms.png",
+      "sha256": "5d3b7dbf8db5f40c1611f435595a7c8d111d32b43b98dfd0fa38012c8f00ed46",
+      "startFrame": 3275,
+      "endFrameExclusive": 3477,
+      "frames": 202,
+      "durationSecondsOnGrid": 6.733333333333333,
+      "captionCues": [
+        19
+      ]
+    },
+    {
+      "id": "07-destroy-dont-relocate",
+      "path": "assets/composites/07-destroy-dont-relocate.png",
+      "sha256": "63c822fe1db0ead872a35d6e8f4f4cc0e427f4c605bbf0b8c1ce95ec8f06dcf7",
+      "startFrame": 3477,
+      "endFrameExclusive": 3706,
+      "frames": 229,
+      "durationSecondsOnGrid": 7.633333333333334,
+      "captionCues": [
+        20
+      ]
+    },
+    {
+      "id": "08-common-test-discipline",
+      "path": "assets/composites/08-common-test-discipline.png",
+      "sha256": "e2d47b430f955e1ebf0e77ece18d5adf5feb6fd0269ae913079e399b9b273158",
+      "startFrame": 3706,
+      "endFrameExclusive": 4043,
+      "frames": 337,
+      "durationSecondsOnGrid": 11.233333333333333,
+      "captionCues": [
+        21,
+        22
+      ]
+    },
+    {
+      "id": "09-supported-disposition",
+      "path": "assets/composites/09-supported-disposition.png",
+      "sha256": "210d2e4b604a7aa8cad49ad3f66f85e8239b761aff25a9785abe1e6cf2e8f45e",
+      "startFrame": 4043,
+      "endFrameExclusive": 4431,
+      "frames": 388,
+      "durationSecondsOnGrid": 12.933333333333334,
+      "captionCues": [
+        23,
+        24,
+        25,
+        26,
+        27
+      ]
+    }
+  ],
+  "blockers": []
+}
