@@ -7,7 +7,7 @@
   "oneLiner": "Lupine Science makes AI predictions for new materials trustworthy before a lab spends a year on them.",
   "description": "Lupine Science is an early-stage deep-tech company building a verification layer for AI-driven materials discovery. It measures the structured error of machine-learned interatomic potentials (MLIPs), corrects that error at runtime as a physical field beside the model, and seals its quantitative claims as machine-checked Lean 4 theorems over provenance-hashed data, in public.",
   "stage": "Early stage, founder-led",
-  "funding": "Closed to further investors as of October 2026.",
+  "funding": "Funded and not raising. Closed to further investors as of October 2026.",
   "seeking": "Talking with materials labs, MLIP builders, and research partners ahead of TMS2027.",
   "founder": {
     "name": "Alex Welcing",
