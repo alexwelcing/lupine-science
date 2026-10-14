@@ -48,6 +48,7 @@ export const LOUDNESS_RANGE_LU = 7;
 // pulling down overall gain: critical-minerals measured -16.1 LUFS at TP=-2.0 and
 // -16.5 LUFS at TP=-3.0, both comfortably inside the gate's -18..-14 LUFS band.
 export const TRUE_PEAK_TARGET_DBTP = -3.0;
+const MONO_BEFORE_LOUDNESS = 'aformat=channel_layouts=mono';
 
 function ff(args, { capture = false } = {}) {
   const r = spawnSync(FFMPEG, ['-hide_banner', '-nostats', ...args], {
@@ -66,7 +67,9 @@ export function measureLoudness(inPath, {
 } = {}) {
   const out = ff([
     '-i', inPath,
-    '-af', `loudnorm=I=${targetLufs}:TP=${targetTp}:LRA=${lra}:print_format=json`,
+    // The release master is mono. Downmix before measurement so a stereo source
+    // cannot change loudness when `-ac 1` is applied after normalization.
+    '-af', `${MONO_BEFORE_LOUDNESS},loudnorm=I=${targetLufs}:TP=${targetTp}:LRA=${lra}:print_format=json`,
     '-f', 'null', '-',
   ], { capture: true });
 
@@ -97,7 +100,7 @@ export function normalizeLoudness({
 } = {}) {
   const stats = measureLoudness(inPath, { targetLufs, targetTp, lra });
   const filter = [
-    `loudnorm=I=${targetLufs}`,
+    `${MONO_BEFORE_LOUDNESS},loudnorm=I=${targetLufs}`,
     `TP=${targetTp}`,
     `LRA=${lra}`,
     `measured_I=${stats.input_i}`,

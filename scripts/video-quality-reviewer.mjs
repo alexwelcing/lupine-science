@@ -8,6 +8,7 @@
  * report and a markdown summary.
  */
 import { createWorker } from 'tesseract.js';
+import { createHash } from 'node:crypto';
 import { readFile, readdir, writeFile, mkdir, stat } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import path from 'node:path';
@@ -26,7 +27,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const VIDEOS_DIR = path.join(ROOT, 'public', 'videos');
 const ARTICLES_DIR = path.join(ROOT, 'public', 'articles');
 const ARTICLE_SOURCES_DIR = path.join(ROOT, 'articles');
-const REPORT_DIR = path.join(ROOT, 'media', 'projects', 'video-review', 'reports');
+let REPORT_DIR = path.join(ROOT, 'media', 'projects', 'video-review', 'reports');
 
 const TARGET_WIDTH = 1920;
 const TARGET_HEIGHT = 1080;
@@ -34,6 +35,17 @@ const TARGET_FPS = 30;
 const LOUDNESS_TARGET = -16;
 const LOUDNESS_TOLERANCE = 2;
 const LRA_MAX = 8;
+// These five published campaign cuts are intentionally short, descriptive
+// brand films rather than narrated article videos (see VIDEO_KIND in
+// build-articles.mjs). Keep the exception slug-bound so an arbitrary short or
+// 48 kHz article video cannot pass by resembling their media properties.
+const BRAND_FILM_SLUGS = new Set([
+  'an-order-of-effort',
+  'the-materials-we-test-against',
+  'the-savings-stack',
+  'the-trust-layer',
+  'z1-union-debrief',
+]);
 const SAMPLE_STD_THRESHOLD = 12;
 
 export function isBlankFrameStats(avgStd, avgMean, stdThreshold = SAMPLE_STD_THRESHOLD) {
@@ -146,6 +158,11 @@ function parseArgs() {
     failOnP0: true,
     sampleFrames: true,
     sampleStdThreshold: 12,
+    slug: null,
+    videoPath: null,
+    vttPath: null,
+    posterPath: null,
+    reportDir: null,
   };
   for (let i = 0; i < args.length; i++) {
     const a = args[i];
@@ -153,11 +170,16 @@ function parseArgs() {
     if (a === '--no-fail-on-p0') flags.failOnP0 = false;
     if (a === '--no-sample-frames') flags.sampleFrames = false;
     if (a === '--sample-std-threshold') flags.sampleStdThreshold = Number(args[++i]);
+    if (a === '--slug') flags.slug = args[++i];
+    if (a === '--video') flags.videoPath = path.resolve(args[++i]);
+    if (a === '--vtt') flags.vttPath = path.resolve(args[++i]);
+    if (a === '--poster') flags.posterPath = path.resolve(args[++i]);
+    if (a === '--report-dir') flags.reportDir = path.resolve(args[++i]);
   }
   return flags;
 }
 
-function sampleTimes(duration, cues) {
+export function sampleTimes(duration, cues) {
   const times = new Set();
   if (duration && duration > 0) {
     times.add(Math.max(0.5, duration * 0.25));
@@ -165,7 +187,11 @@ function sampleTimes(duration, cues) {
     times.add(Math.min(duration - 0.5, duration * 0.75));
   }
   for (const cue of cues) {
-    if (cue.start > 0.2) times.add(cue.start);
+    // Cue starts often coincide with a deliberate single dark cut frame. Sample
+    // just inside the cue for content analysis; release review separately keeps
+    // exact boundaries plus their neighbours in the 37-frame package.
+    const settledStart = Math.min(cue.end - 0.1, cue.start + 0.4);
+    if (settledStart > 0.2) times.add(settledStart);
     if (cue.end < duration - 0.2) times.add(Math.max(0, cue.end - 0.1));
   }
   return Array.from(times).filter((t) => t > 0 && t < duration).sort((a, b) => a - b);
@@ -193,10 +219,17 @@ async function extractFrame(videoPath, time, outPath) {
   if (r.status !== 0) throw new Error(r.stderr);
 }
 
-async function frameStats(framePath) {
-  const { channels } = await sharp(framePath).stats();
-  const deviations = channels.map((channel) => channel.stdev);
-  const means = channels.map((channel) => channel.mean);
+export async function frameStats(framePath) {
+  const result = await sharp(framePath).stats();
+  const channels = result.channels;
+  if (!Array.isArray(channels) || channels.length === 0) {
+    throw new Error('Sharp returned no channel statistics');
+  }
+  const deviations = channels.map((channel) => Number(channel.stdev));
+  const means = channels.map((channel) => Number(channel.mean));
+  if ([...deviations, ...means].some((value) => !Number.isFinite(value))) {
+    throw new Error('Sharp returned invalid channel statistics');
+  }
   const avgStd = deviations.reduce((a, b) => a + b, 0) / deviations.length;
   const avgMean = means.reduce((a, b) => a + b, 0) / means.length;
   return { avgStd, avgMean };
@@ -343,10 +376,10 @@ export function sampleFrameErrors(samples) {
   return samples.filter((sample) => sample.error);
 }
 
-function classifyP0(report, sample) {
+export function classifyP0(report, sample) {
   const p0 = [];
   for (const n of report.technical.notes) {
-    if (/no video stream|no audio stream|video codec|pixel format/.test(n)) p0.push(`technical:${n}`);
+    p0.push(`technical:${n}`);
   }
   for (const n of report.poster.notes) {
     if (/poster missing/.test(n)) {
@@ -386,16 +419,42 @@ function classifyP0(report, sample) {
   return p0;
 }
 
+export function technicalVideoNotes(stream) {
+  const notes = [];
+  if (stream.width !== TARGET_WIDTH || stream.height !== TARGET_HEIGHT) {
+    notes.push(`resolution ${stream.width}x${stream.height}`);
+  }
+  if (stream.avg_frame_rate !== `${TARGET_FPS}/1`) notes.push(`frame rate ${stream.avg_frame_rate}`);
+  if (stream.codec_name !== 'h264') notes.push(`video codec ${stream.codec_name}`);
+  if (stream.pix_fmt !== 'yuv420p') notes.push(`pixel format ${stream.pix_fmt}`);
+  // Older reviewed assets do not all declare color metadata. When metadata is
+  // present, reject any non-BT.709 declaration; project-scoped candidate
+  // review separately requires all three fields to be explicitly present.
+  if (stream.color_space && stream.color_space !== 'bt709') notes.push(`color space ${stream.color_space}`);
+  if (stream.color_primaries && stream.color_primaries !== 'bt709') notes.push(`color primaries ${stream.color_primaries}`);
+  if (stream.color_transfer && stream.color_transfer !== 'bt709') notes.push(`color transfer ${stream.color_transfer}`);
+  return notes;
+}
+
+export function technicalMediaProfile(slug) {
+  if (BRAND_FILM_SLUGS.has(slug)) {
+    return { sampleRate: 48000, minDuration: 20, maxDuration: 35, label: 'brand film' };
+  }
+  return { sampleRate: 44100, minDuration: 60, maxDuration: 240, label: 'article video' };
+}
+
 async function reviewVideo(file, dictionary, corpus, bigram, worker, flags) {
-  const slug = path.basename(file, '.mp4');
-  const videoPath = path.join(VIDEOS_DIR, file);
-  const posterPath = path.join(VIDEOS_DIR, `${slug}-poster.jpg`);
-  const vttPath = path.join(VIDEOS_DIR, `${slug}.vtt`);
+  const slug = flags.slug || path.basename(file, '.mp4');
+  const mediaProfile = technicalMediaProfile(slug);
+  const videoPath = flags.videoPath || path.join(VIDEOS_DIR, file);
+  const posterPath = flags.posterPath || path.join(VIDEOS_DIR, `${slug}-poster.jpg`);
+  const vttPath = flags.vttPath || path.join(VIDEOS_DIR, `${slug}.vtt`);
 
   const probe = ffprobeJson(videoPath);
   const report = {
     slug,
     file,
+    videoSha256: createHash('sha256').update(await readFile(videoPath)).digest('hex'),
     technical: { score: 0, max: 25, notes: [] },
     poster: { score: 0, max: 25, notes: [] },
     captions: { score: 0, max: 20, notes: [] },
@@ -411,33 +470,26 @@ async function reviewVideo(file, dictionary, corpus, bigram, worker, flags) {
 
   if (!vStream) report.technical.notes.push('no video stream');
   else {
-    if (vStream.width !== TARGET_WIDTH || vStream.height !== TARGET_HEIGHT) {
-      report.technical.notes.push(`resolution ${vStream.width}x${vStream.height}`);
-    }
-    if (!vStream.avg_frame_rate?.includes('30')) {
-      report.technical.notes.push(`frame rate ${vStream.avg_frame_rate}`);
-    }
-    if (vStream.codec_name !== 'h264') {
-      report.technical.notes.push(`video codec ${vStream.codec_name}`);
-    }
-    if (vStream.pix_fmt !== 'yuv420p') {
-      report.technical.notes.push(`pixel format ${vStream.pix_fmt}`);
-    }
+    report.technical.notes.push(...technicalVideoNotes(vStream));
   }
 
   if (!aStream) report.technical.notes.push('no audio stream');
   else {
     if (aStream.codec_name !== 'aac') report.technical.notes.push(`audio codec ${aStream.codec_name}`);
     const sampleRate = Number(aStream.sample_rate);
-    if (sampleRate !== 44100) report.technical.notes.push(`sample rate ${sampleRate}`);
+    if (sampleRate !== mediaProfile.sampleRate) {
+      report.technical.notes.push(`sample rate ${sampleRate} (expected ${mediaProfile.sampleRate} for ${mediaProfile.label})`);
+    }
     const channels = Number(aStream.channels);
     if (channels !== 1) report.technical.notes.push(`channels ${channels} (expected mono)`);
   }
 
   const duration = fmt.duration ? Number(fmt.duration) : null;
   const totalBitrate = fmt.bit_rate ? Number(fmt.bit_rate) : null;
-  if (duration && (duration < 60 || duration > 240)) {
-    report.technical.notes.push(`duration ${duration.toFixed(1)}s (target 90-120s)`);
+  if (duration && (duration < mediaProfile.minDuration || duration > mediaProfile.maxDuration)) {
+    report.technical.notes.push(
+      `duration ${duration.toFixed(1)}s (expected ${mediaProfile.minDuration}-${mediaProfile.maxDuration}s for ${mediaProfile.label})`,
+    );
   }
   if (totalBitrate && totalBitrate < 200_000) {
     report.technical.notes.push(`total bitrate ${(totalBitrate / 1000).toFixed(0)} kbps (low)`);
@@ -507,7 +559,10 @@ async function reviewVideo(file, dictionary, corpus, bigram, worker, flags) {
   }
   report.captions.score = Math.max(0, report.captions.max - report.captions.notes.length * 4);
 
-  const integration = await checkArticleIntegration(slug, file, `${slug}-poster.jpg`);
+  // A private candidate may live outside public/videos. Placement still checks
+  // the canonical filenames the approved replacement would occupy; it must not
+  // require a public-media overwrite merely to run pre-publication review.
+  const integration = await checkArticleIntegration(slug, `${slug}.mp4`, `${slug}-poster.jpg`);
   if (!integration.found) {
     report.integration.notes.push(...integration.errors);
   } else {
@@ -598,13 +653,19 @@ function formatReport(reports, dateStamp) {
 
 async function main() {
   const flags = parseArgs();
+  if (flags.reportDir) REPORT_DIR = flags.reportDir;
   await ensureReportDir();
-  const files = (await readdir(VIDEOS_DIR))
-    .filter((f) => f.endsWith('.mp4'))
-    .sort();
+  const files = flags.videoPath
+    ? [path.basename(flags.videoPath)]
+    : (await readdir(VIDEOS_DIR))
+      .filter((f) => f.endsWith('.mp4'))
+      .filter((f) => !flags.slug || f === `${flags.slug}.mp4`)
+      .sort();
 
   if (files.length === 0) {
-    console.error('No MP4s found in', VIDEOS_DIR);
+    console.error(flags.videoPath
+      ? `No MP4 found at ${flags.videoPath}`
+      : flags.slug ? `No MP4 found for slug ${flags.slug}` : `No MP4s found in ${VIDEOS_DIR}`);
     process.exit(1);
   }
 

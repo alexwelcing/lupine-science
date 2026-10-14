@@ -13,7 +13,7 @@
     },
     "articleHtml": {
       "path": "public/articles/shared-dft-anchors/index.html",
-      "sha256": "e5cea9f4b5d940791e2f0d9f64aee12e489ffaea15160d7f6b39508c7fa6a82f"
+      "sha256": "5bbb17ce8c06acd170a676ba41b6f6b589f2c9a9c447ce59b48e4a88669bd068"
     },
     "figures": {
       "images/projected-evaluation-counts.png": "1db5981ce922739f621eb641dc46315554ab06f730969377ebaf41ce273c8988"
