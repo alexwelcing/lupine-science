@@ -7,8 +7,8 @@
   "oneLiner": "Lupine Science makes AI predictions for new materials trustworthy before a lab spends a year on them.",
   "description": "Lupine Science is an early-stage deep-tech company building a verification layer for AI-driven materials discovery. It measures the structured error of machine-learned interatomic potentials (MLIPs), corrects that error at runtime as a physical field beside the model, and seals its quantitative claims as machine-checked Lean 4 theorems over provenance-hashed data, in public.",
   "stage": "Early stage, founder-led",
-  "funding": "Independent. No outside capital raised to date.",
-  "seeking": "Talking with deep-tech investors, materials labs, and MLIP builders ahead of TMS2027.",
+  "funding": "Closed to further investors as of October 2026.",
+  "seeking": "Talking with materials labs, MLIP builders, and research partners ahead of TMS2027.",
   "founder": {
     "name": "Alex Welcing",
     "role": "Founder",
@@ -38,7 +38,7 @@
     { "term": "Prove", "text": "Quantitative claims are sealed as Lean 4 theorems over provenance-hashed data. Corrections are licensed only where evidence supports them; unsupported cases abstain." }
   ],
   "audiences": [
-    { "who": "Deep-tech investors", "text": "Start with the founding thesis, the Savings Stack booklet, and the environmental-series proof pack. Every number links to the committed data it was computed from.", "href": "/articles/the-trust-layer/" },
+    { "who": "Analysts and investors following the field", "text": "Start with the founding thesis, the Savings Stack booklet, and the environmental-series proof pack. Every number links to the committed data it was computed from.", "href": "/articles/the-trust-layer/" },
     { "who": "Materials scientists", "text": "Start with the live evidence and the benchmark it is computed from, including the corrections that failed.", "href": "/articles/the-order-is-right-the-size-is-wrong/" },
     { "who": "MLIP and simulation teams", "text": "Start with the instrument: inspect structures and error fields in the browser.", "href": "https://lupi.live" }
   ],

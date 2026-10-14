@@ -120,7 +120,7 @@ export function organizationGraph(company, { asOf } = {}) {
     sameAs: company.sameAs,
     contactPoint: {
       '@type': 'ContactPoint',
-      contactType: 'Investor relations and research partnerships',
+      contactType: 'Research partnerships and press',
       email,
       url: `${SITE}/about/#contact`,
     },
@@ -199,7 +199,7 @@ export function renderNowStrip(company, articles, { asOf = asOfDate(company, art
         <p class="b-all"><a href="/about/#milestones">Full record <span class="ar">→</span></a></p>
       </div>
       <div class="now-door">
-        <p class="now-k">For investors &amp; research partners</p>
+        <p class="now-k">For research partners &amp; press</p>
         <p>${escapeHtml(company.seeking)} ${escapeHtml(company.funding)}</p>
         <a class="now-cta mail" href="/about/#contact" data-u="${escapeHtml(company.email.user)}" data-d="${escapeHtml(company.email.domain)}" data-subject="${escapeHtml(`Briefing request — ${company.name}`)}" data-keep-text>Request a briefing <span class="ar">→</span></a>
         <a class="now-sub" href="/about/">Company facts <span class="ar">→</span></a>
@@ -333,7 +333,7 @@ ${latest}
       </ul>
       <p><a href="/articles/">All articles →</a> · <a href="/feed.xml">Subscribe to the feed →</a></p>
 
-      <h2 id="faq">Questions investors and scientists ask</h2>
+      <h2 id="faq">Common questions</h2>
 ${faq}
 
       <h2 id="contact">Contact</h2>

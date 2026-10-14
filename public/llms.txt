@@ -7,8 +7,8 @@ Updated: 2026-09-05
 ## Company facts
 
 - Stage: Early stage, founder-led
-- Funding: Independent. No outside capital raised to date.
-- Looking for: Talking with deep-tech investors, materials labs, and MLIP builders ahead of TMS2027.
+- Funding: Closed to further investors as of October 2026.
+- Looking for: Talking with materials labs, MLIP builders, and research partners ahead of TMS2027.
 - Founder: Alex Welcing
 - Contact: alex@lupinesci.com
 - Focus: Materials discovery; AI for science; Machine-learned interatomic potentials (MLIPs); Foundation models for atomistic simulation; Uncertainty quantification; Error correction for atomistic simulation; Density functional theory (DFT); Formal verification with Lean 4; Metal-organic frameworks; Battery materials and solid electrolytes; Climate and environmental materials
