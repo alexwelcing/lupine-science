@@ -4,27 +4,27 @@
 container remains available for local/container smoke tests, but production and
 branch previews are served by Pages.
 
-## CI: watch, don't paste
+## CI
 
-CI results are part of the system, not something to copy out of the Actions
-tab by hand.
+One workflow, `.github/workflows/ci.yml`, a few minutes end to end:
 
-- **After any push:** `npm run ci` — finds the newest run for your branch,
-  polls it to completion, and prints a per-job breakdown with the exact
-  failed steps (and, with `GITHUB_TOKEN` set, the tail of each failing
-  job's log). Exit code mirrors the run, so it can gate follow-up commands.
-  One-shot status without waiting: `npm run ci -- --once`; other branches:
-  `npm run ci -- --branch main`; a specific commit: `npm run ci -- --sha <sha>`.
-- **On failure, read the run summary first.** Both gate jobs write a
-  first-line diagnosis to the GitHub run summary page: the verify job shows
-  rebuild drift (`git diff --stat`) and the verifier's `[error]`/`[over]`
-  lines; the Lighthouse job shows the failed assertions JSON. The summary
-  is designed to make the fix obvious without opening step logs.
-- **Determinism contract:** CI rebuilds everything (`npm run build`) and
-  fails if the committed output differs. If the summary shows drift, the
-  fix is always the same: `npm run build` locally and commit the result.
-  Anything that would make a rebuild non-reproducible (timestamps, clock
-  dates, randomness) belongs in source metadata, not in build steps.
+1. **Build site**: `npm ci`, `npm run build`, `npm run lint`, `npm run verify`
+   (static checks and the perf budget), then upload `public/` as the `site`
+   artifact.
+2. **Deploy**: ships that exact artifact to Cloudflare Pages. Pull requests from
+   this repository get a preview URL (in the run summary and the PR's
+   deployments); a push to `main` deploys production, purges the
+   `lupine.science` cache, and checks `/health`. Fork and bot pull requests
+   never reach deploy credentials, and the deploy job never runs repository
+   code.
+
+Film, narration-audio and image-text review is `.github/workflows/media-review.yml`.
+It runs only when a pull request touches media, and it never blocks merging or
+deploying. Run it on demand from the Actions tab.
+
+`npm run ci` polls the newest run for your branch and prints a per-job
+breakdown (`--once`, `--branch main`, `--sha <sha>`). Unit tests are not part of
+CI; run `npm test` locally when it helps.
 
 ## Local Checks
 
@@ -65,119 +65,23 @@ page before deploy.
 
 ## Deploy
 
-Workflow:
-
-```text
-.github/workflows/deploy.yml
-```
+Deploys are the `Deploy` job in `.github/workflows/ci.yml` (see CI above).
 
 Required secrets:
 
 - `CLOUDFLARE_API_TOKEN`
 - `CLOUDFLARE_ACCOUNT_ID`
 
-Store both as GitHub Actions secrets (repository secrets or secrets scoped to
+Store both as GitHub Actions secrets (repository secrets, or secrets scoped to
 the `preview` and `production` environments). Never place their values in
 `wrangler.toml`, workflow YAML, checked-in `.env` files, comments, or logs. The
 Cloudflare token needs only the Pages permission required to deploy the
-`lupine-science` project in the configured account. The Pages project must
-already exist; `wrangler.toml` declares `public/` as its build output.
+`lupine-science` project. The `production` environment allows deployments from
+`main` only; there is no approval gate.
 
-Deploy path:
-
-1. receive a successful `CI` `workflow_run` for a push to `main`
-2. set up Node 22
-3. download the exact `lupine-science-public-<commit>` artifact from that CI run
-4. verify its commit, branch, and required entry points
-5. wait for approval on the protected GitHub `production` environment
-6. authenticate to Cloudflare and deploy the approved artifact
-7. before mutation, capture the current production deployment id, commit, and URL
-8. deploy, then prove the captured deployment still exists and serves its health
-   endpoint and expected homepage; retain the exact rollback command in the
-   90-day `rollback-evidence-<commit>` artifact
-9. record a 90-day `production-deployment-receipt-<commit>` artifact containing
-   the source CI run, source artifact, commit, deployment URL, rollback-evidence
-   artifact, and timestamp
-10. smoke-test the Pages deployment URL and the `lupine.science` custom domain
-11. upload production live-verification logs as a GitHub Actions artifact
-12. open an assigned GitHub issue for every release-gate and live-verification
-    pass/fail decision, optionally mirror it to Slack, and report non-blocking
-    telemetry to `glim-think` `/ops/report`
-
-Preview deploys run for pull requests after the `CI` workflow completes
-successfully. Production deploys run only from a
-successful `CI` `workflow_run` for a `main` push; there is no manual production
-deploy path that bypasses CI.
-Preview deploys publish the Cloudflare Pages URL back to the pull request using
-a sticky `<!-- lupine-science-preview -->` comment and to the Actions check
-summary. The job resolves the PR by commit SHA when `workflow_run` does not
-include PR metadata, which also covers fork PRs. It includes the preview URL,
-PR number, and kanban task id in the non-blocking `/ops/report` payload.
-
-The preview job does not check out or execute PR code. It downloads the
-`public/` artifact from the exact successful `CI` run, validates expected entry
-points, and passes that artifact directly to Wrangler. This keeps Cloudflare
-credentials and the write-capable GitHub token away from untrusted PR scripts.
-
-Release certification and production live verification emit a notification
-whether the decision is pass or fail. The guaranteed channel is a GitHub issue
-assigned to `alexwelcing`; repository notification settings can additionally
-deliver that assignment by email. Slack is an optional mirror. Each notification
-is written to the Actions run summary and retained for 90 days as an artifact.
-It includes:
-
-- the deployment URL and workflow URL
-- the `production-live-verification-<run_id>` artifact name
-- tails of the Wrangler deploy, deployment-URL smoke, custom-domain smoke, and
-  security-header logs when those steps reached execution
-- the exact retained Cloudflare Pages rollback command when capture completed,
-  or an explicit unavailable state when deployment stopped before capture
-
-Release-gate notifications name the release, decision, every failing check, the
-source visual/smoke artifacts, the source CI run, and the retained gate record.
-Production notifications use the exact deployment id from the retained rollback
-evidence when capture completed; they explicitly say evidence was unavailable if
-deployment stopped before that fail-closed step.
-
-### Production approval gate
-
-The `deploy-production` job targets the GitHub Actions `production` environment.
-That environment requires an explicit approval before Cloudflare receives the
-production deploy command.
-
-Configure the environment in GitHub → repository **Settings** → **Environments**
-→ `production` with:
-
-- required reviewer: `alexwelcing`
-- administrator bypass disabled
-- deployment branches: explicit `main` rule
-- environment secrets: `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`
-- optional notification secret: `SLACK_DEPLOY_WEBHOOK_URL`
-
-GitHub notifies the required reviewer when a production job reaches the gate.
-The job remains in `Waiting` without access to environment secrets until an
-approval is recorded. A rejection fails the job without running its deployment
-steps; an unreviewed job automatically fails after GitHub's 30-day approval
-timeout. Administrator bypass is disabled, so every production deployment must
-have an approval record.
-
-The workflow itself also rejects every source except a successful push CI run
-whose `head_branch` is exactly `main`; environment branch policy is defense in
-depth. Repository branch protection for `main` should require the CI jobs before
-merge so only reviewed, green commits can reach this gate.
-
-Current production approver:
-
-- `alexwelcing` — repository owner/maintainer
-
-This is the initial reviewer because `alexwelcing` is currently the repository's
-only collaborator. Self-review remains enabled so the sole authorized maintainer
-can release; add a second maintainer before enabling "Prevent self-review."
-
-To audit or update the gate, open GitHub → repository **Settings** →
-**Environments** → `production`. The protection rules must keep required
-reviewers enabled, and any additional approver should be a repository maintainer
-who is authorized to release `lupine.science` publicly.
+`public/_worker.js` (scoped by `public/_routes.json` to `/venture/*`) puts the
+venture deck behind a password: the `VENTURE_DECK_PASSWORD` environment variable
+on the Pages project, or a placeholder until one is set.
 
 ## Live Checks
 
@@ -227,9 +131,3 @@ curl -fsS -X POST \
 ```
 
 After rollback, verify `https://lupine.science/` itself, not only the `*.pages.dev` deployment URL.
-
-Every successful production deploy retains `rollback-evidence-<commit>` for 90
-days. Read `rollbackTarget.deploymentId`, `rollbackTarget.commitSha`, and
-`rollback.command` from that record rather than guessing. Its
-`postDeployVerification` object proves the target was still retrievable and
-served both `/health` and the expected homepage after the new deployment.

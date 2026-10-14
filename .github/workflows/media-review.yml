@@ -1,0 +1,74 @@
+name: Media review
+
+# Film, narration-audio and image-text review. Slow (minutes per film), so it
+# runs only when a pull request touches media, and it never blocks merging or
+# deploying: read the reports, fix what they flag. Run it on demand from the
+# Actions tab with "Run workflow".
+
+on:
+  pull_request:
+    paths:
+      - 'public/videos/**'
+      - 'public/articles/**/*.jpg'
+      - 'public/articles/**/*.png'
+      - 'public/articles/**/*.webp'
+      - 'public/articles/**/*.avif'
+      - 'public/articles/**/*.mp4'
+      - 'public/result-graphics/**'
+      - 'media/**'
+      - 'data/narration-scripts/**'
+      - 'data/video-motion/**'
+      - 'data/video-posters.json'
+  workflow_dispatch:
+
+concurrency:
+  group: media-review-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  review:
+    name: ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Narration audio
+            apt: ffmpeg
+            run: node scripts/audio-release-gate.mjs --directory public/videos --sha "$GITHUB_SHA" --output media-review-report/audio-gate.json --summary media-review-report/audio-gate.md
+            report: media-review-report/
+          - name: Video review
+            apt: ffmpeg wamerican
+            run: npm run review:videos -- --min-score 85
+            report: media/projects/video-review/reports/
+          - name: Image text audit
+            apt: tesseract-ocr wamerican
+            run: npm run review:images
+            report: media/projects/image-review/reports/
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+      - run: sudo apt-get update && sudo apt-get install --yes ${{ matrix.apt }}
+      - run: npx --yes playwright@1.61.1 install chromium
+      - run: npm run build
+
+      - name: ${{ matrix.name }}
+        run: ${{ matrix.run }}
+
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.name }} report
+          path: ${{ matrix.report }}
+          if-no-files-found: ignore
+          retention-days: 14

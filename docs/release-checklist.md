@@ -33,39 +33,10 @@ python -m http.server 8080 -d public
 
 ## Deploy Verification
 
-- [ ] GitHub workflow includes all files that should trigger deploys.
-- [ ] Production deploy is triggered only by a successful `CI` workflow run on
-      `main`.
-- [ ] Production deploy targets the GitHub `production` environment and waits
-      for approval before running Cloudflare deployment commands.
-- [ ] Production deploy downloads the exact `lupine-science-public-<commit>`
-      artifact from the successful CI run rather than rebuilding deploy output.
-- [ ] The workflow uploads a 90-day `production-deployment-receipt-<commit>`
-      containing the commit, source CI run/artifact, deployment URL, and time.
-- [ ] The `production` environment required reviewers list includes
-      `alexwelcing` (repository owner/maintainer); add only maintainers who are
-      authorized to publish `lupine.science`.
-- [ ] The `production` environment disables administrator bypass and limits
-      deployment branches to the explicit `main` rule.
-- [ ] Approval-gate verification covers `Waiting` plus reviewer notification,
-      successful continuation after approval, failure on rejection, and GitHub's
-      automatic failure after the 30-day approval timeout.
-- [ ] Workflow runs `npm run verify`.
-- [ ] Every pull request creates a Cloudflare Pages preview after successful CI,
-      and the URL appears in both a sticky PR comment and the check summary.
-- [ ] `main` deploys to the `lupine-science` Pages production branch.
-- [ ] `lupine.science` is attached as a Pages custom domain.
-- [ ] `/ops/report` receives non-blocking deploy telemetry.
-- [ ] Production live-verification pass/fail notifications include workflow URL,
-      log excerpts, live-verification artifact name, and rollback command.
-- [ ] Every release-certification pass/fail decision opens a GitHub issue assigned
-      to `alexwelcing` naming the release, decision, failing checks, and source and
-      retained artifact links; the notification artifact is retained for 90 days.
-- [ ] Before production mutation, capture the prior Pages deployment id, commit,
-      and URL; after deploy, prove the target still exists and serves `/health`
-      and the expected homepage.
-- [ ] Retain `rollback-evidence-<commit>` for 90 days with an exact rollback API
-      command and the custom-domain post-rollback smoke procedure.
+- [ ] The pull request's `Build site` job is green and its preview URL looks right.
+- [ ] After merge, the `Deploy` job on `main` finished and `/health` answered `ok`.
+- [ ] If the change touched films, audio or images, the Media review reports are
+      clean (or their findings are understood).
 
 ## Live Verification
 

@@ -1,426 +1,110 @@
 name: CI
 
+# One path from commit to site: build, check, deploy. Pull requests get a
+# preview; main goes straight to production. Film, audio and image review
+# lives in media-review.yml and runs only when media changes.
+
 on:
   push:
     branches: [main]
   pull_request:
 
 concurrency:
-  group: lupine-science-ci-${{ github.ref }}
+  group: lupine-science-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 permissions:
   contents: read
 
+env:
+  CF_PAGES_PROJECT: lupine-science
+
 jobs:
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js 22
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Lint source
-        run: npm run lint
-
-      - name: Report lint failure
-        if: failure()
-        run: echo '### Lint failed — run `npm run lint` locally.' >> "$GITHUB_STEP_SUMMARY"
-
-  typecheck:
-    name: Type check
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js 22
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Type check
-        run: npm run typecheck
-
-      - name: Report type-check failure
-        if: failure()
-        run: echo '### Type check failed — run `npm run typecheck` locally.' >> "$GITHUB_STEP_SUMMARY"
-
-  unit-tests:
-    name: Unit tests
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js 22
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Fetch the narration-script provenance commit
-        # tests/narration-verification.test.mjs re-derives data/narration-scripts/
-        # from public/videos/*.vtt as they stood at 4641d96 and fails if they have
-        # drifted. That prose exists nowhere else — a later commit overwrote the
-        # working-tree copies with scene titles — so the check needs that one
-        # commit. Fetched at depth 1 rather than with fetch-depth: 0, because full
-        # history here is a 1.28 GiB pack. The full SHA is required: fetching an
-        # abbreviated one fails with "couldn't find remote ref".
-        run: git fetch --depth=1 origin 4641d96269617a365346b4ff7feead54f026c6a9
-
-      - name: Install system PDF/QA and audio tools
-        # ffmpeg/ffprobe are required, not optional: tests/narration-verification.test.mjs
-        # measures real decoded audio durations, which is the check that was missing
-        # while ten films published with 29-67% of their narration script. Without
-        # ffmpeg those tests fail loudly rather than skipping, so the gate cannot
-        # quietly stop being enforced.
-        run: sudo apt-get update && sudo apt-get install --yes poppler-utils ffmpeg
-
-      - name: Install Playwright browser
-        # Pin to the playwright-core version in package.json: an unpinned
-        # `npx playwright` fetches the latest release, whose browser build
-        # drifts out of sync with what playwright-core expects at runtime.
-        run: npx --yes playwright@1.61.1 install chromium
-
-      - name: Build site
-        run: npm run build
-
-      - name: Run unit tests
-        run: npm test
-
-      - name: Report unit-test failure
-        if: failure()
-        run: echo '### Unit tests failed — run `npm test` locally.' >> "$GITHUB_STEP_SUMMARY"
-
-  publication-visual-checks:
-    name: Publication visual checks
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js 22
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: npm
-          cache-dependency-path: release/visual-checks/package-lock.json
-
-      - name: Install visual-check harness
-        working-directory: release/visual-checks
-        run: npm ci
-
-      - name: Install pinned Playwright browser
-        working-directory: release/visual-checks
-        run: npx playwright install --with-deps chromium
-
-      - name: Run deterministic component, R3F, and video-frame checks
-        working-directory: release/visual-checks
-        run: npm run visual:selftest
-
-      - name: Upload visual gate decision and evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: publication-visual-gate-${{ github.sha }}
-          path: release/visual-checks/visual-results/
-          if-no-files-found: error
-          retention-days: 90
-
-  publication-smoke-checks:
-    name: Publication route, media, PDF, and OG smoke checks
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js 22
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: npm
-
-      - name: Install dependencies and PDF validator
-        run: |
-          npm ci
-          sudo apt-get update
-          sudo apt-get install --yes poppler-utils
-
-      - name: Download exact built site
-        uses: actions/download-artifact@v4
-        with:
-          name: lupine-science-public-${{ github.event.pull_request.head.sha || github.sha }}
-          path: public/
-
-      - name: Run full smoke suite against release artifact
-        env:
-          SMOKE_BASE_URL: http://127.0.0.1:4174
-          SMOKE_REPORT_PATH: ${{ runner.temp }}/publication-smoke-gate.json
-          SMOKE_ATTEMPTS: '1'
-          SMOKE_DELAY_MS: '0'
-        run: |
-          python3 -m http.server 4174 --directory public >"$RUNNER_TEMP/publication-smoke-server.log" 2>&1 &
-          server_pid=$!
-          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
-          for attempt in 1 2 3 4 5; do
-            curl --fail --silent http://127.0.0.1:4174/health >/dev/null && break
-            sleep 1
-          done
-          curl --fail --silent http://127.0.0.1:4174/health >/dev/null
-          npm run smoke
-
-      - name: Upload smoke gate decision and evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: publication-smoke-gate-${{ github.sha }}
-          path: |
-            ${{ runner.temp }}/publication-smoke-gate.json
-            ${{ runner.temp }}/publication-smoke-server.log
-          if-no-files-found: error
-          retention-days: 90
-
-  publication-audio-checks:
-    name: Publication audio gate
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout exact source
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js 22
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-
-      - name: Install pinned audio inspection tools
-        run: |
-          sudo apt-get update
-          sudo apt-get install --yes ffmpeg
-
-      - name: Download exact built site
-        uses: actions/download-artifact@v4
-        with:
-          name: lupine-science-public-${{ github.event.pull_request.head.sha || github.sha }}
-          path: public/
-
-      - name: Fail closed unless every published film passes audio checks
-        env:
-          AUDIO_GATE_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
-        run: |
-          node scripts/audio-release-gate.mjs \
-            --directory public/videos \
-            --sha "$AUDIO_GATE_SHA" \
-            --output "$RUNNER_TEMP/audio-gate/audio-gate.json" \
-            --summary "$RUNNER_TEMP/audio-gate/audio-gate.md"
-
-      - name: Upload audio gate decision and evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: publication-audio-gate-${{ github.event.pull_request.head.sha || github.sha }}
-          path: ${{ runner.temp }}/audio-gate/
-          if-no-files-found: error
-          retention-days: 90
-
   build:
     name: Build site
-    needs: [lint, typecheck, unit-tests]
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0   # sitemap lastmod dates come from git history
+      - uses: actions/checkout@v4
 
-      - name: Set up Node.js 22
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '22'
           cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+      - run: npm ci
 
-      - name: Install chrome-headless-shell for HyperFrames checks
-        run: |
-          npx @puppeteer/browsers install chrome-headless-shell | tee /tmp/chrome-install.log
-          CHROME_PATH="$(grep -o '/[^ ]*/chrome-headless-shell[^ ]*' /tmp/chrome-install.log | head -1)"
-          echo "HYPERFRAMES_BROWSER_PATH=${CHROME_PATH}" >> "$GITHUB_ENV"
+      # the venture-deck step of the build renders its PDF in Chromium
+      - run: npx --yes playwright@1.61.1 install chromium
 
-      - name: Check article-video compositions
+      - run: npm run build
+      - run: npm run lint
+      - run: npm run verify
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: public/
+          include-hidden-files: true
+          retention-days: 7
+
+  deploy:
+    name: Deploy
+    needs: build
+    # Deploy credentials never reach fork or bot pull requests, and this job
+    # never runs repository code: it ships the artifact the build job made.
+    if: >-
+      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'pull_request' &&
+       github.event.pull_request.head.repo.full_name == github.repository &&
+       github.event.pull_request.user.type != 'Bot')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: ${{ github.event_name == 'push' && 'production' || 'preview' }}
+      url: ${{ steps.deploy.outputs.url }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: public
+
+      - name: Deploy to Cloudflare Pages
+        id: deploy
         env:
-          HYPERFRAMES_BROWSER_PATH: ${{ env.HYPERFRAMES_BROWSER_PATH }}
-        timeout-minutes: 8
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          BRANCH: ${{ github.event_name == 'push' && 'main' || github.head_ref }}
+          SHA: ${{ github.event.pull_request.head.sha || github.sha }}
         run: |
-          if [ -d media/projects/article-videos ]; then
-            cd media/projects/article-videos
-            npm run check
-          else
-            echo "media/projects/article-videos is archived on the wip branch; skipping composition check on main."
-          fi
+          log="$(mktemp)"
+          npx --yes wrangler@latest pages deploy public \
+            --project-name "$CF_PAGES_PROJECT" --branch "$BRANCH" \
+            --commit-hash "$SHA" --commit-dirty=true | tee "$log"
+          url="$(grep -Eo 'https://[^[:space:]]+\.pages\.dev' "$log" | tail -n 1)"
+          [ -n "$url" ] || { echo "::error::no Pages URL in wrangler output"; exit 1; }
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+          echo "### Deployed: $url" >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Install system PDF/QA tools before tests
-        run: sudo apt-get update && sudo apt-get install --yes poppler-utils
-
-      - name: Install Playwright browsers for proof-pack tests and PDF rendering
-        # Pinned for the same reason as the unit-tests job above.
-        run: npx --yes playwright@1.61.1 install chromium
-
-      - name: Build site
-        run: npm run build
-
-      - name: Verify static files, article images, and performance budget
-        run: npm run verify
-
-      - name: Generate proof pack
-        run: npm run proofpack
-
-      - name: Verify generated PDF
-        run: npm run pdf:check
-
-      - name: Upload built site artifact
-        uses: actions/upload-artifact@v4
-        with:
-          # pull_request runs build a synthetic merge SHA, but workflow_run
-          # exposes the reviewed head SHA to the credentialed deploy workflow.
-          name: lupine-science-public-${{ github.event.pull_request.head.sha || github.sha }}
-          path: public/
-          if-no-files-found: error
-          retention-days: 14
-
-  video-review:
-    name: Smart video review
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js 22
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Install ffmpeg for technical/frame checks
-        run: sudo apt-get update && sudo apt-get install --yes ffmpeg wamerican
-
-      - name: Download built site artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: lupine-science-public-${{ github.event.pull_request.head.sha || github.sha }}
-          path: public/
-
-      - name: Run smart video reviewer
-        run: npm run review:videos -- --min-score 85
-
-      - name: Upload video review report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: video-review-report-${{ github.sha }}
-          path: media/projects/video-review/reports/
-          if-no-files-found: ignore
-          retention-days: 14
-
-  image-review:
-    name: Adversarial image-text audit
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js 22
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Install tesseract for OCR
-        run: sudo apt-get update && sudo apt-get install --yes tesseract-ocr wamerican
-
-      - name: Download built site artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: lupine-science-public-${{ github.event.pull_request.head.sha || github.sha }}
-          path: public/
-
-      - name: Run adversarial image-text audit
-        run: npm run review:images
-
-      - name: Upload image audit report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: image-audit-report-${{ github.sha }}
-          path: media/projects/image-review/reports/
-          if-no-files-found: ignore
-          retention-days: 14
-
-  visual-regression:
-    name: Article-video component visual regression
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js 22
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Install chrome-headless-shell for HyperFrames snapshots
-        run: |
-          npx @puppeteer/browsers install chrome-headless-shell | tee /tmp/chrome-install.log
-          CHROME_PATH="$(grep -o '/[^ ]*/chrome-headless-shell[^ ]*' /tmp/chrome-install.log | head -1)"
-          echo "HYPERFRAMES_BROWSER_PATH=${CHROME_PATH}" >> "$GITHUB_ENV"
-
-      - name: Verify component snapshots against baselines
+      - name: Purge lupine.science cache
+        if: github.event_name == 'push'
         env:
-          HYPERFRAMES_BROWSER_PATH: ${{ env.HYPERFRAMES_BROWSER_PATH }}
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          if [ -d media/projects/article-videos ]; then
-            cd media/projects/article-videos
-            npm run vreg
-          else
-            echo "media/projects/article-videos is archived on the wip branch; skipping visual regression on main."
-          fi
+          zone="$(curl -fsS "https://api.cloudflare.com/client/v4/zones?name=lupine.science&account.id=$CF_ACCOUNT" \
+            -H "Authorization: Bearer $CF_TOKEN" | jq -r '.result[0].id // empty')" || true
+          [ -n "$zone" ] || { echo "::warning::zone lookup failed; cache not purged"; exit 0; }
+          curl -fsS -X POST "https://api.cloudflare.com/client/v4/zones/$zone/purge_cache" \
+            -H "Authorization: Bearer $CF_TOKEN" -H "Content-Type: application/json" \
+            -d '{"purge_everything":true}' >/dev/null || echo "::warning::cache purge failed"
 
-      - name: Upload visual regression diffs
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: article-video-visual-regression-diffs-${{ github.sha }}
-          path: media/projects/article-videos/components/**/diffs/
-          if-no-files-found: ignore
-          retention-days: 14
+      - name: Check the deployment responds
+        env:
+          URL: ${{ github.event_name == 'push' && 'https://lupine.science' || steps.deploy.outputs.url }}
+        run: |
+          for i in 1 2 3 4 5 6; do
+            [ "$(curl -fsS -m 10 "$URL/health" || true)" = "ok" ] && { echo "$URL is up"; exit 0; }
+            sleep 10
+          done
+          echo "::error::$URL/health did not answer ok"; exit 1
