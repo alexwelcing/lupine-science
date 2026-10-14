@@ -60,9 +60,9 @@ jobs:
        github.event.pull_request.user.type != 'Bot')
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    environment:
-      name: ${{ github.event_name == 'push' && 'production' || 'preview' }}
-      url: ${{ steps.deploy.outputs.url }}
+    # No GitHub environment on purpose: the `production` environment carries a
+    # required-reviewer rule, and production deploys are fully automatic
+    # (see PR #103). The `if:` above is what limits production to main.
     steps:
       - uses: actions/download-artifact@v4
         with:
