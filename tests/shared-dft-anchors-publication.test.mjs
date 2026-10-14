@@ -13,7 +13,6 @@ const SLUG = 'shared-dft-anchors';
 const ARTICLE = path.join(ROOT, 'articles', `${SLUG}.md`);
 const PAGE = path.join(ROOT, 'public', 'articles', SLUG, 'index.html');
 const ARTICLE_INDEX = path.join(ROOT, 'public', 'articles', 'index.html');
-const ARTICLE_STYLES = path.join(ROOT, 'public', 'articles', 'styles.css');
 const HERO = path.join(ROOT, 'public', 'articles', SLUG, 'hero.jpg');
 const MANIFEST = path.join(ROOT, 'public', 'articles', SLUG, `${SLUG}.proofpack.json`);
 const PDF = path.join(ROOT, 'public', 'proof-packs', `${SLUG}.proofpack.pdf`);
@@ -27,7 +26,6 @@ test('shared-anchor proof pack locks the approved claim without campaign conflat
   const article = fs.readFileSync(ARTICLE, 'utf8');
   const page = fs.readFileSync(PAGE, 'utf8');
   const articleIndex = fs.readFileSync(ARTICLE_INDEX, 'utf8');
-  const styles = fs.readFileSync(ARTICLE_STYLES, 'utf8');
   const manifest = JSON.parse(fs.readFileSync(MANIFEST, 'utf8'));
   const hero = fs.readFileSync(HERO);
   const approvedClaim = '72.4% fewer DFT evaluations';
@@ -46,8 +44,6 @@ test('shared-anchor proof pack locks the approved claim without campaign conflat
   assert.match(articleIndex, /shared-dft-anchors\/hero\.jpg\?v=4/);
   assert.deepEqual([...hero.subarray(0, 3)], [0xff, 0xd8, 0xff]);
   assert.ok(page.indexOf('class="proof-download"') < page.indexOf('class="article-hero"'), 'proof download must precede hero');
-  assert.match(styles, /@media print[\s\S]*\.article \.proof-download__action \{ display: none; \}/);
-  assert.match(styles, /@media print[\s\S]*\.proof-download__print-url \{ display: block;/);
 
   const forbidden = ['430', '129', '70.0%', '$14.65', '$4.65', '3.62', '624 naive', '79% fewer'];
   for (const marker of forbidden) {

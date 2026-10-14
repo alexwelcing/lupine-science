@@ -9,7 +9,6 @@ dist/
 .verify-artifacts/
 .wrangler/
 *.log
-.lighthouseci/
 public/.proofpack-render/
 public/proof-packs/*
 !public/proof-packs/shared-dft-anchors.proofpack.pdf

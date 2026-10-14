@@ -45,6 +45,35 @@
 /articles/styles.css
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
+# Scripts and components are not content-hashed, so they revalidate daily;
+# stale-while-revalidate keeps repeat views instant while a deploy propagates.
+/assets/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/components/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# KaTeX is pinned in package.json; its fonts and CSS change only on upgrade.
+/katex/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=2592000
+
+/videos/*.mp4
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+
+/videos/*.vtt
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/*.pdf
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/feed.xml
+  Content-Type: application/atom+xml; charset=utf-8
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
 /*.png
   Cache-Control: public, max-age=604800
 

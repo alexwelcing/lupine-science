@@ -15,7 +15,7 @@ Owns:
 - `public/index.html`
 - `public/robots.txt`, `public/sitemap.xml`, `public/llms.txt`
 - Open Graph image and static visual assets
-- `Dockerfile`, `nginx.conf`, `.github/workflows/deploy.yml`
+- `Dockerfile`, `nginx.conf`, `.github/workflows/` (CI, deploy, media review)
 - a tiny static verifier in `scripts/check-static.mjs`
 
 Does not own:

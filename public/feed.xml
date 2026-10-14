@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Lupine Science</title>
+  <subtitle>Lupine Science makes AI predictions for new materials trustworthy before a lab spends a year on them.</subtitle>
+  <link rel="self" type="application/atom+xml" href="https://lupine.science/feed.xml"/>
+  <link rel="alternate" type="text/html" href="https://lupine.science/"/>
+  <id>https://lupine.science/</id>
+  <updated>2026-09-05T00:00:00Z</updated>
+  <author><name>Alex Welcing</name><uri>https://lupine.science/about/</uri></author>
+  <icon>https://lupine.science/lupine-science-icon.png</icon>
+  <entry>
+    <title>Lupine Science is heading to TMS2027</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/tms-2027-measuring-what-we-can-trust/"/>
+    <id>https://lupine.science/articles/tms-2027-measuring-what-we-can-trust/</id>
+    <published>2026-09-05T00:00:00Z</published>
+    <updated>2026-09-05T00:00:00Z</updated>
+    <summary>Lupine Science will attend TMS2027 in Orlando, March 14–18, 2027. Alex Welcing will present an accepted poster on measuring the errors of interatomic potentials.</summary>
+    <category term="Poster abstract accepted"/>
+  </entry>
+  <entry>
+    <title>What the Cap Was Hiding</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/what-the-cap-was-hiding/"/>
+    <id>https://lupine.science/articles/what-the-cap-was-hiding/</id>
+    <published>2026-08-04T00:00:00Z</published>
+    <updated>2026-08-04T00:00:00Z</updated>
+    <summary>A preregistered correction trial failed. Reopening the mathematics rather than the conclusion showed the gate was mis-tuned, the confirmatory test could not have passed even in principle, an escape statistic proposed as an input to the next round had no physical content, and the replacement gate carries a rounding hazard of its own. The license results are theorems in Lean 4; the rest is arithmetic replayed from the hash-locked records.</summary>
+    <category term="Draft for discussion"/>
+  </entry>
+  <entry>
+    <title>Sharing DFT anchors reduces projected evaluations by 72.4%</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/shared-dft-anchors/"/>
+    <id>https://lupine.science/articles/shared-dft-anchors/</id>
+    <published>2026-08-03T00:00:00Z</published>
+    <updated>2026-08-03T00:00:00Z</updated>
+    <summary>Under the preregistered sparse-anchor rule, the locked Z1 records require 558 projected DFT evaluations when four model-specific anchor sets are counted separately and 154 when duplicate image indices are shared: 72.4% fewer DFT evaluations.</summary>
+    <category term="Published"/>
+  </entry>
+  <entry>
+    <title>The Small Cell Held: A 16-Element MLIP Elastic Benchmark</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/the-small-cell-held-mlip-elastic-benchmark/"/>
+    <id>https://lupine.science/articles/the-small-cell-held-mlip-elastic-benchmark/</id>
+    <published>2026-08-03T00:00:00Z</published>
+    <updated>2026-08-03T00:00:00Z</updated>
+    <summary>On this benchmark, the 1×1×1 TensorNet/PBE arm and the 3×3×3 reference arm have nearly identical elastic-constant error, while the tested global correction operator makes the result substantially worse.</summary>
+    <category term="In review"/>
+  </entry>
+  <entry>
+    <title>The Union Verdict: A De-brief on the Z1 Campaign</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/z1-union-debrief/"/>
+    <id>https://lupine.science/articles/z1-union-debrief/</id>
+    <published>2026-07-24T00:00:00Z</published>
+    <updated>2026-07-24T00:00:00Z</updated>
+    <summary>All four models scored strong-win on the same-engine gate, at a measured $14.65. The interesting parts are not the wins — they're the guidance split, the cost collapse, and what broke along the way.</summary>
+    <category term="FOR EDITOR REVIEW"/>
+  </entry>
+  <entry>
+    <title>The Savings Stack: A Booklet on Doing Less, and the Commons That Makes Everyone Faster</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/the-savings-stack/"/>
+    <id>https://lupine.science/articles/the-savings-stack/</id>
+    <published>2026-07-21T00:00:00Z</published>
+    <updated>2026-07-21T00:00:00Z</updated>
+    <summary>The Savings Stack v1 release: a 16-page booklet on compute-savings in atomistic simulation — 72.4% fewer DFT evaluations when four models share anchors (558 naive vs 154 union, 29 paths, 3.62×), 163 citations verified, every number hashable and reproducible.</summary>
+    <category term="Final"/>
+  </entry>
+  <entry>
+    <title>An Order of Effort: Where Correction Laws Hold, and Where the Boundary Begins</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/an-order-of-effort/"/>
+    <id>https://lupine.science/articles/an-order-of-effort/</id>
+    <published>2026-07-20T00:00:00Z</published>
+    <updated>2026-07-20T00:00:00Z</updated>
+    <summary>We mapped the hard end first on purpose. Now the ladder is drawn: where our correction layer already wins, where only boundary theorems can speak, and the order of effort for the rounds ahead — each with its price list.</summary>
+    <category term="Final"/>
+  </entry>
+  <entry>
+    <title>The Z1 Barrier Panel: Evaluating Foundation MLIPs on 42 Solid-State Electrolyte Chemistries</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/the-materials-we-test-against/"/>
+    <id>https://lupine.science/articles/the-materials-we-test-against/</id>
+    <published>2026-07-20T00:00:00Z</published>
+    <updated>2026-07-20T00:00:00Z</updated>
+    <summary>Our barrier campaigns run on 42 published Li-ion electrolyte materials: 30 frozen test chemistries and 12 disjoint training chemistries. Here is what is in the panels and why these materials decide whether solid-state batteries ever ship.</summary>
+    <category term="Final"/>
+  </entry>
+  <entry>
+    <title>Four Gates, Three Honest Failures, One Live Experiment</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/four-gates-three-honest-failures-one-live-experiment/"/>
+    <id>https://lupine.science/articles/four-gates-three-honest-failures-one-live-experiment/</id>
+    <published>2026-07-19T00:00:00Z</published>
+    <updated>2026-07-19T00:00:00Z</updated>
+    <summary>Three of our four campaign gates have reported in, and all three are failures or abstentions — recorded, hash-locked, and explained. The fourth is running right now. This is what open-science instrumentation looks like when the answers are no.</summary>
+    <category term="Final"/>
+  </entry>
+  <entry>
+    <title>Beyond Carbon: The Error Geometry of Environmental Materials</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/beyond-carbon-the-error-geometry-of-environmental-materials/"/>
+    <id>https://lupine.science/articles/beyond-carbon-the-error-geometry-of-environmental-materials/</id>
+    <published>2026-07-16T00:00:00Z</published>
+    <updated>2026-07-16T00:00:00Z</updated>
+    <summary>The environmental-expansion series opens by establishing the correction-and-verification layer as a platform for any material whose function is controlled by under-coordinated environments.</summary>
+    <category term="Draft"/>
+  </entry>
+  <entry>
+    <title>Cement, Concrete, and the Weight of the Built World</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/cement-concrete-and-the-weight-of-the-built-world/"/>
+    <id>https://lupine.science/articles/cement-concrete-and-the-weight-of-the-built-world/</id>
+    <published>2026-07-16T00:00:00Z</published>
+    <updated>2026-07-16T00:00:00Z</updated>
+    <summary>Cement decarbonization is a prediction-trust problem. Corrected universal machine-learning interatomic potentials apply directly to the disordered, under-coordinated materials in alternative binders, alternative clinkers, and CO₂-cured concrete.</summary>
+    <category term="Draft"/>
+  </entry>
+  <entry>
+    <title>Critical Minerals, PFAS, and the Remediation Imperative</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/critical-minerals-pfas-and-the-remediation-imperative/"/>
+    <id>https://lupine.science/articles/critical-minerals-pfas-and-the-remediation-imperative/</id>
+    <published>2026-07-16T00:00:00Z</published>
+    <updated>2026-08-12T00:00:00Z</updated>
+    <summary>Critical-mineral recycling, direct lithium extraction, and PFAS destruction share a common materials-discovery problem: accurate binding and activation energies in under-coordinated environments, addressable by corrected uMLIPs and machine-checked verification.</summary>
+    <category term="Published"/>
+  </entry>
+  <entry>
+    <title>Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/"/>
+    <id>https://lupine.science/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/</id>
+    <published>2026-07-16T00:00:00Z</published>
+    <updated>2026-07-16T00:00:00Z</updated>
+    <summary>Methane and hydrofluorocarbon refrigerants are the largest non-CO₂ climate levers; both are materials-limited, and the correction-and-verification layer changes the discovery geometry.</summary>
+    <category term="Draft"/>
+  </entry>
+  <entry>
+    <title>Water and Air: Correcting the Molecules Humans Drink and Breathe</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/"/>
+    <id>https://lupine.science/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/</id>
+    <published>2026-07-16T00:00:00Z</published>
+    <updated>2026-07-16T00:00:00Z</updated>
+    <summary>Water and air quality depend on materials that separate and transform molecules in under-coordinated environments; the correction layer fixes the uMLIP errors that corrupt discovery of those materials.</summary>
+    <category term="Draft"/>
+  </entry>
+  <entry>
+    <title>The Correction That Hurt, and the Theorem That Stopped It</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/"/>
+    <id>https://lupine.science/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/</id>
+    <published>2026-07-13T00:00:00Z</published>
+    <updated>2026-07-13T00:00:00Z</updated>
+    <summary>Our first correction arm made alloy predictions worse; we turned the failure into a machine-checked law, explored a direction-gated rule that cut lattice errors 3–5×, and then let an adversarial review find where our own claims outran their licenses — those corrections are in this draft.</summary>
+    <category term="Draft for discussion"/>
+  </entry>
+  <entry>
+    <title>Lupi Gains HFC Refrigerant Research Payloads</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/lupi-hfc-refrigerant-research-payloads/"/>
+    <id>https://lupine.science/articles/lupi-hfc-refrigerant-research-payloads/</id>
+    <published>2026-07-12T00:00:00Z</published>
+    <updated>2026-07-12T00:00:00Z</updated>
+    <summary>The latest Lupi viewer release adds R32 and R125 NVT simulations from the Maginn group force fields, a fix ave/chunk profile parser, vector glyph views, and billion-atom brick LOD.</summary>
+    <category term="Live"/>
+  </entry>
+  <entry>
+    <title>Non-CO₂ Climate Forcers, Now Formalized in Lean</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/rhizo-non-co2-climate-forcers-lean/"/>
+    <id>https://lupine.science/articles/rhizo-non-co2-climate-forcers-lean/</id>
+    <published>2026-07-12T00:00:00Z</published>
+    <updated>2026-07-12T00:00:00Z</updated>
+    <summary>The latest lupine-rhizo build adds ClimateForcers.lean and a validation module that machine-checks non-CO₂ warming potentials, lifetimes, and substitution savings — 899 theorems, zero sorry.</summary>
+    <category term="Live"/>
+  </entry>
+  <entry>
+    <title>A Field, Not a Neural Net</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/a-field-not-a-neural-net/"/>
+    <id>https://lupine.science/articles/a-field-not-a-neural-net/</id>
+    <published>2026-07-09T00:00:00Z</published>
+    <updated>2026-07-09T00:00:00Z</updated>
+    <summary>The largest errors in computational materials discovery have a low-dimensional geometry, and Lupine measures and corrects them at runtime with machine-checked proof.</summary>
+    <category term="Draft"/>
+  </entry>
+  <entry>
+    <title>Five Materials That Could Unlock 5–12 GtCO₂/Year</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/five-materials-for-5-to-12-gtco2-year/"/>
+    <id>https://lupine.science/articles/five-materials-for-5-to-12-gtco2-year/</id>
+    <published>2026-07-09T00:00:00Z</published>
+    <updated>2026-07-09T00:00:00Z</updated>
+    <summary>Five computationally intractable materials—cobalt-free cathodes, halide solid electrolytes, MOF sorbents, ammonia catalysts, and lead-free perovskites—could unlock 5–12 GtCO₂/year, but only if the predictions sent to labs are corrected and verified first.</summary>
+    <category term="Draft"/>
+  </entry>
+  <entry>
+    <title>From Predicted Crystal to Commercial Cell</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/from-predicted-crystal-to-commercial-cell/"/>
+    <id>https://lupine.science/articles/from-predicted-crystal-to-commercial-cell/</id>
+    <published>2026-07-09T00:00:00Z</published>
+    <updated>2026-07-09T00:00:00Z</updated>
+    <summary>A rigorous, partner-by-partner map from predicted crystal to commercial cell for batteries, carbon removal, ammonia, and solar absorbers.</summary>
+    <category term="Draft"/>
+  </entry>
+  <entry>
+    <title>Investing in the Trust Layer</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/investing-in-the-trust-layer/"/>
+    <id>https://lupine.science/articles/investing-in-the-trust-layer/</id>
+    <published>2026-07-09T00:00:00Z</published>
+    <updated>2026-07-09T00:00:00Z</updated>
+    <summary>Why trust, not raw prediction volume, is the binding constraint in computational materials discovery, and how the Lupine Science correction-and-verification layer builds it.</summary>
+    <category term="Draft"/>
+  </entry>
+  <entry>
+    <title>The 0.2% Synthesis Problem</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/the-02-percent-synthesis-problem/"/>
+    <id>https://lupine.science/articles/the-02-percent-synthesis-problem/</id>
+    <published>2026-07-09T00:00:00Z</published>
+    <updated>2026-07-09T00:00:00Z</updated>
+    <summary>A review of the 0.2% validation rate of structure-generation campaigns, the four structural filters that cause it, and the gigatonne-scale cost of leaving the problem unsolved.</summary>
+    <category term="Draft"/>
+  </entry>
+  <entry>
+    <title>The Trust Layer</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/the-trust-layer/"/>
+    <id>https://lupine.science/articles/the-trust-layer/</id>
+    <published>2026-07-05T00:00:00Z</published>
+    <updated>2026-07-05T00:00:00Z</updated>
+    <summary>AI made imagination and simulation nearly free. Belief is now the bottleneck. The proof infrastructure for designed matter is being built in the open.</summary>
+    <category term="Published"/>
+  </entry>
+  <entry>
+    <title>A smooth, environment-resolved error field underlies the systematic property errors of universal machine-learned interatomic potentials</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/a-smooth-environment-resolved-error-field/"/>
+    <id>https://lupine.science/articles/a-smooth-environment-resolved-error-field/</id>
+    <published>2026-07-02T00:00:00Z</published>
+    <updated>2026-07-02T00:00:00Z</updated>
+    <summary>For fcc metals, uMLIP errors project onto a smooth field over local atomic environments. The field predicts a never-fitted property with r = 0.906, converts into a run-time correction, and carries machine-checked applicability boundaries.</summary>
+    <category term="Published"/>
+  </entry>
+  <entry>
+    <title>The Order Is Right, the Size Is Wrong</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/the-order-is-right-the-size-is-wrong/"/>
+    <id>https://lupine.science/articles/the-order-is-right-the-size-is-wrong/</id>
+    <published>2026-07-02T00:00:00Z</published>
+    <updated>2026-07-02T00:00:00Z</updated>
+    <summary>Foundation machine-learned interatomic potentials (CHGNet, MACE-MP, MACE-MPA-0) measured across 21 materials and up to 9 properties against 228 published reference values</summary>
+    <category term="Live evidence"/>
+  </entry>
+  <entry>
+    <title>Why LUPI?</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/why-lupi/"/>
+    <id>https://lupine.science/articles/why-lupi/</id>
+    <published>2026-06-30T00:00:00Z</published>
+    <updated>2026-06-30T00:00:00Z</updated>
+    <summary>LUPI as a live, install-free window into molecular structures and its implications for research, teaching, and public trust.</summary>
+    <category term="Published"/>
+  </entry>
+  <entry>
+    <title>Why Lupine Science?</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/why-lupine-science/"/>
+    <id>https://lupine.science/articles/why-lupine-science/</id>
+    <published>2026-06-30T00:00:00Z</published>
+    <updated>2026-06-30T00:00:00Z</updated>
+    <summary>Generative AI produces countless material candidates, but its simulations are wrong in structured ways; the bottleneck is not more models but makeability, and the response is machine-checkable certificates of synthesis, stability, and performance.</summary>
+    <category term="Published"/>
+  </entry>
+  <entry>
+    <title>From Fantasy Frameworks to Makeable Materials: A Prospectus for Formalized MOF Discovery</title>
+    <link rel="alternate" type="text/html" href="https://lupine.science/articles/from-fantasy-frameworks-to-makeable-materials/"/>
+    <id>https://lupine.science/articles/from-fantasy-frameworks-to-makeable-materials/</id>
+    <published>2026-06-25T00:00:00Z</published>
+    <updated>2026-06-25T00:00:00Z</updated>
+    <summary>Theorem-proved certificates of synthesizability for AI-generated metal–organic frameworks, and a lab partnership to close the generate–test–learn loop.</summary>
+    <category term="Draft for discussion"/>
+  </entry>
+</feed>

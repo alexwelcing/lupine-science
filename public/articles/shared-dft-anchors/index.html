@@ -22,6 +22,7 @@
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
   <link rel="icon" type="image/png" href="/lupine-science-icon.png">
   <link rel="apple-touch-icon" href="/lupine-science-icon.png">
+  <link rel="alternate" type="application/atom+xml" title="Lupine Science" href="/feed.xml">
   <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/articles/styles.css">
@@ -66,6 +67,7 @@
       <a href="/">Home</a>
       <a href="/articles/" aria-current="page">Articles</a>
       <a href="/videos/">Videos</a>
+      <a href="/about/">About</a>
       <a href="https://library.lupine.science">Library</a>
       <a href="https://lupi.live">LUPI</a>
     </nav>
@@ -81,7 +83,7 @@
     <p class="eyebrow">Evidence proof pack</p>
     <h2 id="proof-download-title-shared-dft-anchors">Download the evidence behind this article</h2>
     <p class="description">Locked figure, method, boundaries, bibliography, and audit links in one publication-ready document.</p>
-    <p class="metadata">PDF · 5 pages · 182 KB · updated August 3, 2026</p>
+    <p class="metadata">PDF · 5 pages · 231 KB · updated August 3, 2026</p>
   </div>
   <a class="proof-download__action" href="/proof-packs/shared-dft-anchors.proofpack.pdf" download aria-label="Download PDF for Sharing DFT anchors reduces projected evaluations by 72.4%">Download PDF</a>
   <span class="proof-download__print-url">https://lupine.science/proof-packs/shared-dft-anchors.proofpack.pdf</span>
@@ -194,15 +196,15 @@
   <footer class="foot">
     <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
     <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" href="mailto:alex@lupinesci.com" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
-    <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
+    <span><a href="/about/">About</a> · <a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a> · <a href="/feed.xml">Feed</a></span>
   </footer>
 <script type="module">
 import { initAllShareWidgets } from "/components/share/share.mjs";
 (() => {
   document.querySelectorAll("a.mail").forEach((a) => {
     const addr = a.dataset.u + "@" + a.dataset.d;
-    a.href = "mailto:" + addr;
-    a.textContent = addr;
+    a.href = "mailto:" + addr + (a.dataset.subject ? "?subject=" + encodeURIComponent(a.dataset.subject) : "");
+    if (!("keepText" in a.dataset)) a.textContent = addr;
   });
   const vids = document.querySelectorAll("video[data-autoplay]");
   if (vids.length) {

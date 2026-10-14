@@ -155,9 +155,8 @@ describe('published article video discovery metadata', () => {
   });
 
   it('does not advertise a video for an article without a published MP4', () => {
-    // All current articles have published MP4s, so this invariant is checked
-    // positively above. The negative case is preserved as a guardrail for
-    // future articles that may not have videos.
+    // several articles (e.g. shared-dft-anchors, the TMS2027 announcement)
+    // ship without a film; none of them may advertise one
     const published = new Set(publishedVideoSlugs());
     for (const entry of fs.readdirSync(OUT, { withFileTypes: true })) {
       if (!entry.isDirectory()) continue;

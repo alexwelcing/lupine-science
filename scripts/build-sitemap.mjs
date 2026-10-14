@@ -11,6 +11,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadCompany, asOfDate } from './lib/discovery.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC = path.join(ROOT, 'public');
@@ -25,8 +26,17 @@ function articleDate(slug) {
   return updated?.[1] || published?.[1] || null;
 }
 
+// The homepage and /about/ carry the newest dated fact on the site (the same
+// "as of" scripts/lib/discovery.mjs stamps on them): deterministic, and it
+// tells crawlers the front door moves whenever anything ships.
+const company = loadCompany(ROOT);
+const siteAsOf = asOfDate(company, fs.readdirSync(path.join(ROOT, 'articles'))
+  .filter((f) => f.endsWith('.md'))
+  .map((f) => ({ date: articleDate(f.replace(/\.md$/, '')) || '' })));
+
 const urls = [
-  { loc: `${SITE}/`, lastmod: null },
+  { loc: `${SITE}/`, lastmod: siteAsOf || null },
+  { loc: `${SITE}/about/`, lastmod: siteAsOf || null },
   { loc: `${SITE}/articles/`, lastmod: null },
   { loc: `${SITE}/videos/`, lastmod: null },
   // /atlas/ is the wiki-driven ontology page (see scripts/build-atlas-nodes.mjs).
@@ -84,7 +94,11 @@ if (fs.existsSync(claimsDir)) {
 }
 
 // Static assets that are not directories but should be discoverable.
-for (const file of ['proof-pack-climate-series.pdf']) {
+for (const file of [
+  'proof-pack-climate-series.pdf',
+  'booklets/the-savings-stack.pdf',
+  'papers/memorandum-correction-boundary-2026-07-20.pdf',
+]) {
   if (fs.existsSync(path.join(PUBLIC, file))) urls.push({ loc: `${SITE}/${file}`, lastmod: null });
 }
 
