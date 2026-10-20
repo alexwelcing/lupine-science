@@ -6,6 +6,7 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import zlib from 'node:zlib';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const PUBLIC = path.join(ROOT, 'public');
@@ -31,6 +32,7 @@ const MIME = {
   '.xml': 'application/xml; charset=utf-8',
   '.ico': 'image/x-icon',
 };
+const COMPRESSIBLE = /^(text\/|application\/(json|xml)|image\/svg)/;
 
 // Parse public/_headers (Cloudflare Pages format): rule lines are URL
 // patterns at column 0, header lines are indented "Name: value".
@@ -100,7 +102,19 @@ const server = http.createServer((req, res) => {
   const ext = path.extname(filePath).toLowerCase();
   res.setHeader('content-type', MIME[ext] || 'application/octet-stream');
   for (const [k, v] of headersFor(urlPath, rules)) res.setHeader(k, v);
-  const body = fs.readFileSync(filePath);
+  let body = fs.readFileSync(filePath);
+  // Compress text like Cloudflare does (it serves Brotli), so local transfer
+  // sizes and Lighthouse timings match production instead of overstating them.
+  const accept = String(req.headers['accept-encoding'] || '');
+  if (COMPRESSIBLE.test(MIME[ext] || '') && /\bbr\b/.test(accept)) {
+    body = zlib.brotliCompressSync(body, { params: { [zlib.constants.BROTLI_PARAM_QUALITY]: 5 } });
+    res.setHeader('content-encoding', 'br');
+    res.setHeader('vary', 'accept-encoding');
+  } else if (COMPRESSIBLE.test(MIME[ext] || '') && /\bgzip\b/.test(accept)) {
+    body = zlib.gzipSync(body);
+    res.setHeader('content-encoding', 'gzip');
+    res.setHeader('vary', 'accept-encoding');
+  }
   res.setHeader('content-length', body.length);
   res.writeHead(200);
   res.end(body);

@@ -944,6 +944,7 @@
       : { ...FOCUS.objective, converge: 0, ribbon: 0.18, vector: 1, fan: 0.7, matter: 0 };
     let tgt = { ...FOCUS.objective };
     let recomputeZones = () => {};   // assigned by the renderer; keeps the mask in sync
+    let wake = () => {};             // assigned by the renderer; resumes a settled canvas
 
     function setFocus(name) {
       if (!FOCUS[name]) name = "objective";
@@ -957,6 +958,7 @@
       });
       // the active evidence panel changes height → re-measure the type zones
       requestAnimationFrame(() => recomputeZones());
+      wake();
     }
 
     /* tooltip */
@@ -1086,7 +1088,8 @@
       function resize() {
         // phones fire resize whenever the address bar collapses; resizing the
         // backing store wipes the canvas, so only do it when the box changed
-        const nd = Math.min(devicePixelRatio || 1, 2);
+        // phones draw at 1.5x: ~45% fewer pixels per frame than 2x, still crisp
+        const nd = Math.min(devicePixelRatio || 1, mobileMQ.matches ? 1.5 : 2);
         if (w && canvas.clientWidth === w && canvas.clientHeight === h && nd === dpr) { computeZones(); return; }
         dpr = nd;
         w = canvas.clientWidth; h = canvas.clientHeight;
@@ -1273,21 +1276,23 @@
           ctx.fillStyle = bg; ctx.beginPath(); ctx.arc(fx, fy, R, 0, 6.2832); ctx.fill();
         }
         // (b) fine parallel curves — the "many wrong simulations" texture
-        const bands = 26;
+        // phones: half the curves at fewer points; the band reads the same at that width
+        const bands = mobileMQ.matches ? 13 : 26, segs = mobileMQ.matches ? 64 : 96;
         for (let b = -bands; b <= bands; b++) {
           const env = 1 - Math.abs(b / bands);
           const off = (b / bands) * bandW;
           ctx.strokeStyle = `rgba(${IND},${(0.04 + env * 0.17 * cur.ribbon * breath)})`;
           ctx.lineWidth = 0.7; ctx.beginPath();
-          for (let s = 0; s <= 96; s++) {
-            const u = s / 96, x = u * w, y = spineY(u, time, amp) + off * (0.5 + 0.5 * env);
+          for (let s = 0; s <= segs; s++) {
+            const u = s / segs, x = u * w, y = spineY(u, time, amp) + off * (0.5 + 0.5 * env);
             s === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
           }
           ctx.stroke();
         }
         // (c) luminous core thread — emerges from behind the hero text, dissolves toward the rail
         ctx.save();
-        ctx.shadowColor = `rgba(${IND},${0.55 * cur.ribbon * breath})`; ctx.shadowBlur = 9;
+        // shadow blur is the costliest canvas op; phones skip the glow on the thread
+        if (!mobileMQ.matches) { ctx.shadowColor = `rgba(${IND},${0.55 * cur.ribbon * breath})`; ctx.shadowBlur = 9; }
         const a0 = STAGE.x0 / w, a1 = STAGE.x1 / w;
         const cg = ctx.createLinearGradient(0, 0, w, 0);
         cg.addColorStop(clamp01(a0 - 0.05), `rgba(${IND},0)`);
@@ -1347,6 +1352,13 @@
             ctx.beginPath(); ctx.arc(x, y, 1.3, 0, 6.2832); ctx.fill();
           }
         }
+        // phones animate only while something is moving (the opening collapse,
+        // a tapped term), then hold the settled picture: no idle frame cost.
+        // wake() resumes on the next tap; desktop keeps its ambient breath.
+        if (mobileMQ.matches && !Object.keys(cur).some((k) => Math.abs(tgt[k] - cur[k]) > 0.004)) {
+          running = false;
+          return;
+        }
         raf = requestAnimationFrame(frame);
       }
 
@@ -1358,14 +1370,22 @@
       let onscreen = true, running = false;
       const run = () => {
         if (staticCanvas || running || !onscreen || document.hidden) return;
+        // start after the page has loaded, so the canvas never competes with
+        // the first paint of the headline and evidence text
+        if (document.readyState !== "complete") { addEventListener("load", run, { once: true }); return; }
         running = true; lastPaint = 0; raf = requestAnimationFrame(frame);
       };
       const halt = () => { running = false; cancelAnimationFrame(raf); };
+      wake = run;
       resize();
-      addEventListener("resize", () => { const bw = canvas.width; resize(); if (staticCanvas && canvas.width !== bw) still(); }, { passive: true });
-      // when the structure arrives after the reduced-motion single frame,
-      // draw one more so the crystal appears in the still image too
-      onMatterReady = () => { if (staticCanvas) still(); };
+      addEventListener("resize", () => {
+        const bw = canvas.width; resize();
+        if (canvas.width === bw) return;
+        if (staticCanvas) still(); else if (!running) requestAnimationFrame((ts) => { frame(ts); cancelAnimationFrame(raf); });
+      }, { passive: true });
+      // when the structure arrives after the reduced-motion single frame (or
+      // after a phone's canvas settled), draw again so the crystal appears
+      onMatterReady = () => { if (staticCanvas) still(); else run(); };
       if (staticCanvas) still();
       else {
         run();

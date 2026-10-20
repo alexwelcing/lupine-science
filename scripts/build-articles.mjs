@@ -24,6 +24,14 @@ const PUBLIC_ROOT = process.env.LUPINE_BUILD_PUBLIC_ROOT
 const OUT = path.join(PUBLIC_ROOT, 'articles');
 const SITE = 'https://lupine.science';
 const LEAN_COUNT_PATH = path.join(PUBLIC_ROOT, 'data', 'lean_count.json');
+// The share widget's 3 KB of CSS is inlined into every page head: as its own
+// <link> it was a second render-blocking request (~300 ms on a slow phone).
+// public/components/share/share.css stays the one source to edit.
+const SHARE_CSS = fs.readFileSync(path.join(ROOT, 'public', 'components', 'share', 'share.css'), 'utf8')
+  .replace(/\/\*[\s\S]*?\*\//g, '')
+  .replace(/\s+/g, ' ')
+  .replace(/\s*([{}:;,>])\s*/g, '$1')
+  .trim();
 const LEAN_COUNT = JSON.parse(fs.readFileSync(LEAN_COUNT_PATH, 'utf8')).count;
 
 if (!Number.isSafeInteger(LEAN_COUNT) || LEAN_COUNT < 1) {
@@ -374,6 +382,19 @@ ${caption ? `  <figcaption id="hero-caption">${caption}</figcaption>\n` : ''}</f
 ${caption ? `  <figcaption id="hero-caption">${caption}</figcaption>\n` : ''}</figure>`;
 }
 
+// Every article opens with its hero (inserted ahead of the body), so no body
+// image is ever the first thing on screen. Uncaptioned images skipped
+// wrapInlineFigures' lazy attributes and downloaded with the hero, competing
+// for a phone's bandwidth (~200 KB on The Trust Layer). Lazy-load them all.
+function lazyBodyImages(html) {
+  return html.replace(/<img\s+[^>]*>/g, (tag) => {
+    const extras = [];
+    if (!/\bloading\s*=/.test(tag)) extras.push('loading="lazy"');
+    if (!/\bdecoding\s*=/.test(tag)) extras.push('decoding="async"');
+    return extras.length ? tag.replace(/^<img\s+/, `<img ${extras.join(' ')} `) : tag;
+  });
+}
+
 function wrapInlineFigures(html) {
   return html.replace(
     /<p>\s*(<img\s+[^>]*src="([^"]*)"[^>]*>)\s*<em>([\s\S]*?)<\/em>\s*<\/p>/g,
@@ -473,7 +494,7 @@ export function renderHead({ title, description, url, ogTitle = title, ogDescrip
   <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
 ${videoUrl ? `  <link rel="alternate" type="video/mp4" href="${esc(videoUrl)}">\n` : ''}${preloadImage ? `  <link rel="preload" href="${esc(preloadImage)}" as="image" fetchpriority="high">\n` : ''}${math ? '  <link rel="stylesheet" href="/katex/katex.min.css">\n' : ''}  <link rel="stylesheet" href="/articles/styles.css">
-  <link rel="stylesheet" href="/components/share/share.css">
+  <style>${SHARE_CSS}</style>
   <script type="application/ld+json">${JSON.stringify(jsonld)}</script>`;
 }
 
@@ -572,6 +593,7 @@ async function buildArticle(raw, slug) {
   raw = hydrateGeneratedFacts(raw);
   let body = renderArticleMarkdown(raw);
   body = wrapInlineFigures(body);
+  body = lazyBodyImages(body);
   body = bustInlineImages(body, slug);
   body = body.replace('<div class="footnote">', '<div class="footnotes">');
   body = body.replace(/<hr class="footnotes-sep">\n?/g, '');
