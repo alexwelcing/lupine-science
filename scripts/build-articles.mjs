@@ -175,6 +175,8 @@ function ensureKatexAssets() {
 // Per-article hero captions. A hero figure is emitted only when the media
 // files actually exist next to the article.
 const HERO_CAPTIONS = {
+  'what-error-patterns-can-tell-us':
+    'Retrospective prioritization on two archived panels: selecting five of 25 groups by model disagreement captured 35.53% and 47.05% of total group error, versus 20% expected from uniform random selection. Fixed group count; no measured retraining gain.',
   'water-and-air-correcting-the-molecules-we-drink-and-breathe':
     'A municipal water-treatment line and an urban air-filtration system sharing one civic cross-section, with the critical membrane and catalyst surfaces highlighted in indigo.',
   'methane-and-refrigerants-cutting-the-non-co2-climate-forcers':
