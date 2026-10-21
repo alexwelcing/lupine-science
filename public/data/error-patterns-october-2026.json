@@ -1,0 +1,345 @@
+{
+  "schema": "lupine.public_article_evidence.v1",
+  "article": "what-error-patterns-can-tell-us",
+  "reviewedAt": "2026-10-21T18:49:46.338Z",
+  "evidenceThrough": "2026-10-21T18:10:20.272Z",
+  "scope": "Reviewed selected numerical summaries and arithmetic inputs, not raw archive release or a full archive reproduction package. No new simulation, external replication, physical validation or Lean build performed for this article.",
+  "corpus": {
+    "observedAt": "2026-10-21T18:10:20.272Z",
+    "comparisonRows": 3397,
+    "comparisonStudyKeys": 70,
+    "unpairedObservations": 1810,
+    "mixedNumericalSourceKeys": 137,
+    "quarantinedComparisons": 1,
+    "quarantinedObservations": 13,
+    "pendingPanels": 62,
+    "pendingStudyKeys": 7,
+    "qualification": "Rows and source keys are not independent validations. Pending panels excluded from admitted counts. Analysis inclusion does not establish cross-row compatibility."
+  },
+  "ribbon": {
+    "observedAt": "2026-10-18T01:55:46.058851+00:00",
+    "results": [
+      {
+        "panel": "matpes-pbe-2025.2",
+        "metric": "raw",
+        "learnedCapturePercent": 66.15026237171729,
+        "commonCapturePercent": 64.12851725728015,
+        "upliftPercentagePoints": 2.0217451144371346
+      },
+      {
+        "panel": "matpes-pbe-2025.2",
+        "metric": "source_rms_scaled",
+        "learnedCapturePercent": 65.3781399298944,
+        "commonCapturePercent": 65.28756701445315,
+        "upliftPercentagePoints": 0.09057291544126711
+      },
+      {
+        "panel": "omat24-validation-aimd-pbe-1000-nvt",
+        "metric": "raw",
+        "learnedCapturePercent": 62.93655709976117,
+        "commonCapturePercent": 65.98016888777396,
+        "upliftPercentagePoints": -3.04361178801279
+      },
+      {
+        "panel": "omat24-validation-aimd-pbe-1000-nvt",
+        "metric": "source_rms_scaled",
+        "learnedCapturePercent": 65.02842804756136,
+        "commonCapturePercent": 68.96600941801134,
+        "upliftPercentagePoints": -3.937581370449983
+      }
+    ],
+    "scope": [
+      "Historical800configurations,100groups across two panels; no new model execution or heldout claim.",
+      "Within-panel 25source/25target groups; distinct references never pooled.",
+      "Three model-channel axes, not atomic configuration coordinates or a physical PES manifold.",
+      "Paired uplift bootstrap added after outcomes as a descriptive contrast; no target-selected direction or hypothesis-test claim.",
+      "Original source-refit bootstrap conditions on full-source RMS scales; not variability of the full scaling-plus-direction pipeline.",
+      "Residual projection uses target reference labels and describes oracle compressibility; no deployed predictor for correction amplitudes or measured force improvement.",
+      "High shared error could be correlated model bias, reference discrepancy, shared training or another cause. This pass cannot distinguish those causes."
+    ],
+    "recordSHA256": "3742483d568dfa408bf44fe07df473dc88ee510de14894f86cc3b3201681f668"
+  },
+  "triage": {
+    "observedAt": "2026-10-18T02:03:28.666740+00:00",
+    "publicRecord": "https://library.lupine.science/#/activity/disagreement-triage-20261017-completed-v1",
+    "panels": [
+      {
+        "panel": "matpes-pbe-2025.2",
+        "selectedGroups": 5,
+        "targetGroups": 25,
+        "capturedErrorFraction": 0.35526210451916235,
+        "randomExpectedFraction": 0.2,
+        "errorSumUnit": "Sum over group-average force-component MSE, (eV/angstrom)^2",
+        "throughOriginMAERatio": 0.730161966130437,
+        "throughOriginPredictionMSERatio": 1.0856471800673135
+      },
+      {
+        "panel": "omat24-validation-aimd-pbe-1000-nvt",
+        "selectedGroups": 5,
+        "targetGroups": 25,
+        "capturedErrorFraction": 0.4705146666163343,
+        "randomExpectedFraction": 0.2,
+        "errorSumUnit": "Sum over group-average force-component MSE, (eV/angstrom)^2",
+        "throughOriginMAERatio": 0.7264456794819285,
+        "throughOriginPredictionMSERatio": 0.26073387929471026
+      }
+    ],
+    "limitations": [
+      "Previously examined800configuration archive; no sealed heldout claim.",
+      "Group-level source-relative thresholds, not physical tolerances.",
+      "All paired descriptive loss-change ranges crosszero.",
+      "Labelpriority is retrospective fixedgroupcount, not equal compute cost or measured retraining gain.",
+      "No theorem novelty or new physical/model execution."
+    ],
+    "recordSHA256": "2e0b2e81b15e1178aa2b0dde4b3c92aa4ae5b3636bfb3605f425c275e119793b"
+  },
+  "update": {
+    "observedAt": "2026-10-18T02:13:51.433445+00:00",
+    "identity": "For fixed quadratic L_T(theta)=1/2(A theta-y)^T W(A theta-y), displacement s gives gain=-g_T^T s-1/2*s^T H_T*s. For s=-eta*g_S this is eta*g_T^T*g_S-eta^2/2*g_S^T*H_T*g_S.",
+    "fixtures": [
+      {
+        "case": "pass27-orthogonal-high-error",
+        "lossBefore": "1/2",
+        "lossAfter": "1",
+        "improvement": "-1/2"
+      },
+      {
+        "case": "pass27-opposing-high-error",
+        "lossBefore": "1/2",
+        "lossAfter": "2",
+        "improvement": "-3/2"
+      },
+      {
+        "case": "pass27-aligned-low-error",
+        "lossBefore": "1/2",
+        "lossAfter": "9801/20000",
+        "improvement": "199/20000"
+      },
+      {
+        "case": "pass27-aligned-overshoot",
+        "lossBefore": "1/2",
+        "lossAfter": "2",
+        "improvement": "-3/2"
+      },
+      {
+        "case": "pass27-zero-jacobian",
+        "lossBefore": "1/2",
+        "lossAfter": "1/2",
+        "improvement": "0"
+      },
+      {
+        "case": "pass27-aligned-unknown-reference",
+        "lossBefore": "1/2",
+        "lossAfter": "9801/20000",
+        "improvement": "199/20000"
+      }
+    ],
+    "scope": "Synthetic fixed outputs and corrections with explicit reference boxes. Half squared loss; units synthetic squared.",
+    "novelty": "Standard quadratic/descent-lemma and robust-support reasoning; not a novel theorem or Lean proof.",
+    "recordSHA256": "52742de436c60f146dba0251d2470d58e65872115877944b66b226810d41929c"
+  },
+  "groupProtection": {
+    "observedAt": "2026-10-18T02:47:24.196806+00:00",
+    "assumptions": [
+      "Declared fixed PSD group Grams, exact decimal interpretation; common force-component MSE units.",
+      "x=3w, baseline x0=(1,1,1), x>=0 and sumx=3; B columns e1-e3,e2-e3.",
+      "Nonnegative lambda_g sum1 and exactly cancel tangent gradients; H=sum lambda_g B^T G_g B/9 is positive definite."
+    ],
+    "theorem": "For every nonzero z, max_g Delta L_g >= z^T H z >= mu ||z||^2 >0, mu=det(H)/trace(H). Thus uniform weights alone weakly improve all declared groups.",
+    "physicalScope": "No target metrics evaluated in this pass, no new simulations, no inference that all physical corrections must harm some material. Fixed roster, grouping, references and metric define this obstruction.",
+    "novelty": "Unestablished; proof uses standard convex quadratic scalarization. Contribution candidate is source-bound obstruction and system decision criterion.",
+    "checking": "Exact arithmetic and internal review; not a new Lean build",
+    "recordSHA256": "d25703395bd60ab71d058545dab4d55e6001e0fa4279c03886057edc8efdcdb9"
+  },
+  "diffusion": {
+    "observedAt": "2026-10-21T18:10:20.272Z",
+    "source": "https://arxiv.org/pdf/2410.07886",
+    "citation": "Homogeneous Nucleation of Undercooled Al-Ni melts via a Machine-Learned Interaction Potential",
+    "version": "2410.07886v1",
+    "locator": "PDF p7 Table1; methods and diffusion discussion",
+    "columns": [
+      "species",
+      "xNi",
+      "T_K",
+      "D_HDNNP",
+      "D_AIMD"
+    ],
+    "unit": "1e-9 m2/s",
+    "rows": [
+      [
+        "Ni",
+        0.25,
+        1800,
+        5.108,
+        5.578
+      ],
+      [
+        "Al",
+        0.25,
+        1800,
+        7.598,
+        7.414
+      ],
+      [
+        "Ni",
+        0.5,
+        2000,
+        5.003,
+        4.858
+      ],
+      [
+        "Al",
+        0.5,
+        2000,
+        4.527,
+        4.316
+      ],
+      [
+        "Ni",
+        0.75,
+        1800,
+        3.884,
+        3.64
+      ],
+      [
+        "Al",
+        0.75,
+        1800,
+        2.646,
+        3.043
+      ],
+      [
+        "Ni",
+        1,
+        2000,
+        4.98,
+        4.977
+      ]
+    ],
+    "contract": "256 atoms at matched T; HDNNP starts from end of AIMD trajectories,100ps equilibration,200ps sampling. AIMD VASP PAW/PBE,300eV,1.5fs,NVT Nose-Hoover; training trajectories60-90ps.",
+    "limits": "AIMD builds training data; held-out exposure/trajectory independence unestablished. Table has no uncertainty; sampling error unknown. Experimental figure data not digitized. This read-only extraction does not resume parked NiAl simulations.",
+    "analysis": {
+      "specification": "r_i=D_HDNNP/D_AIMD>0; E(a)=max_i abs(a*r_i-1), a>0.",
+      "derivation": "With m=min r and M=max r, extremes determine envelope. Balancing1-a*m=a*M-1 gives a*=2/(m+M),E*=(M-m)/(M+m).",
+      "optimalScale": 1.0327539951139493,
+      "minimumMaxRelativeError": 0.10198255962158749,
+      "exactFraction": "546893/5362613",
+      "rounding": {
+        "assumption": "Independent nearest.001 rounding; each halfwidth .0005 table units.",
+        "optimistic_high_ratio": "7767/7281",
+        "optimistic_low_ratio": "5293/6085",
+        "lower_bound_fraction": "484659/4766696",
+        "lower_bound": 0.10167608758771267,
+        "meaning": "Two extreme rows imply all-row bound; not a confidence interval."
+      }
+    },
+    "verification": "Primary preprint text reviewed; page image check failed. Conditional arithmetic checked, sampling uncertainty unknown."
+  },
+  "observableWitness": {
+    "observedAt": "2026-10-21T16:06:17.198Z",
+    "model": "Non-exchanging Brownian subpopulations with isotropic Gaussian displacements and identical scattering weights. Synthetic, not fitted propane data.",
+    "equations": [
+      "D_MSD=sum_i f_i D_i",
+      "F_s(q,t)=sum_i f_i exp(-q^2 D_i t)",
+      "D_log(q,t)=-log(F_s)/(q^2 t)"
+    ],
+    "parameters": {
+      "A": {
+        "fractions": [
+          0.8,
+          0.2
+        ],
+        "D_over_D0": [
+          0.1,
+          10
+        ]
+      },
+      "B": {
+        "fractions": [
+          1
+        ],
+        "D_over_D0": [
+          1
+        ]
+      },
+      "dimensionless_x": "q^2*D0*t"
+    },
+    "witness": {
+      "D_MSD_A_over_D0": 2.0799999999999996,
+      "D_MSD_B_over_D0": 1,
+      "rows": [
+        {
+          "x": 0.01,
+          "F_A": 0.9801678834738919,
+          "F_B": 0.9900498337491681,
+          "Dlog_A_over_D0": 2.0031412322108224,
+          "Dlog_B_over_D0": 1
+        },
+        {
+          "x": 0.1,
+          "F_A": 0.865615755233623,
+          "F_B": 0.9048374180359595,
+          "Dlog_A_over_D0": 1.4431416953797895,
+          "Dlog_B_over_D0": 1
+        },
+        {
+          "x": 0.2,
+          "F_A": 0.8112259952927268,
+          "F_B": 0.8187307530779818,
+          "Dlog_A_over_D0": 1.0460430058973202,
+          "Dlog_B_over_D0": 1
+        },
+        {
+          "x": 1,
+          "F_A": 0.7238790144147201,
+          "F_B": 0.36787944117144233,
+          "Dlog_A_over_D0": 0.3231310077223669,
+          "Dlog_B_over_D0": 1
+        },
+        {
+          "x": 2,
+          "F_A": 0.6549846028746162,
+          "F_B": 0.1353352832366127,
+          "Dlog_A_over_D0": 0.2115717753424175,
+          "Dlog_B_over_D0": 1
+        }
+      ],
+      "at_x1_rank_reversed": true,
+      "illustrative_units": {
+        "D0_m2_per_s": 1e-9,
+        "q_inverse_angstrom": 1,
+        "t_at_x1_ps": 10
+      }
+    },
+    "limits": [
+      "D_log is a single-point log-decay summary, not a fitted QENS linewidth or a newly defined measured diffusion coefficient.",
+      "No exchange between populations, non-Gaussian single-population motion, rotation, resolution convolution or confinement plateau included.",
+      "The numerical witness does not explain the cited experiment quantitatively and is not a new corpus observation."
+    ],
+    "scope": "Synthetic mathematical example; not a literature observation."
+  },
+  "phaseComparison": {
+    "observedAt": "2026-10-21T17:07:16.152Z",
+    "source": "https://doi.org/10.1063/1.474881",
+    "citation": "Quasielastic neutron scattering and molecular dynamics simulation studies of the melting transition in butane and hexane monolayers adsorbed on graphite",
+    "rows": [
+      {
+        "material": "butane monolayer on graphite",
+        "observable": "melting temperature",
+        "simulation": 152,
+        "reference": 116,
+        "unit": "K",
+        "qualification": "Exact coverage/model-condition equivalence unverified"
+      },
+      {
+        "material": "hexane monolayer on graphite",
+        "observable": "melting temperature",
+        "simulation": 221,
+        "reference": 170,
+        "unit": "K",
+        "qualification": "Exact coverage/model-condition equivalence unverified"
+      }
+    ],
+    "scope": "Text extraction; not same-state transport validation. Source discusses phase alignment."
+  }
+}
