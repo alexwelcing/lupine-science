@@ -15,7 +15,7 @@
     "verify": "node scripts/check-static.mjs && node scripts/verify-article-images.mjs && node scripts/verify-motion-manifests.mjs && node scripts/perf-budget.mjs",
     "verify:pfas-release": "node scripts/verify-pfas-replacement-manifest.mjs",
     "smoke": "node scripts/smoke-live.mjs",
-    "proofpack": "node scripts/build-proofpack.mjs --consolidated",
+    "proofpack": "node scripts/build-proofpack.mjs --all",
     "proofpack:all": "node scripts/build-proofpack.mjs --all",
     "proofpack:slug": "node scripts/build-proofpack.mjs --slug",
     "proofpack:update-goldens": "node scripts/update-proofpack-goldens.mjs",

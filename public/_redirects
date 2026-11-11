@@ -1,8 +1,10 @@
 # Cloudflare Pages redirects. Retired pages answer with a permanent redirect
-# to the company facts page; see /corrections/ for what was retired and why.
+# to the company facts page or the corrections log; see /corrections/ for what
+# was retired and why.
 /one-pager                                 /about/  301
 /one-pager.html                            /about/  301
 /one-pager/                                /about/  301
 /presentations/climate-investor-value      /about/  301
 /presentations/climate-investor-value/     /about/  301
 /presentations/climate-investor-value/*    /about/  301
+/proof-pack-climate-series.pdf             /corrections/  301

@@ -6,10 +6,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { chromium } from 'playwright-core';
-import { chromiumExecutablePath } from '../scripts/lib/chromium-executable.mjs';
 import {
-  legacyRenderPdf,
   renderPackHtml,
   verifyArtifactIntegrity,
   verifyFigureIntegrity,
@@ -30,12 +27,14 @@ import {
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SCRIPT = path.join(ROOT, 'scripts', 'build-proofpack.mjs');
 const OUT_DIR = path.join(ROOT, 'public', 'proof-packs');
-const SLUG = 'five-materials-for-5-to-12-gtco2-year';
+// A real Unicode article with an eligible evidence record (the July 2026
+// five-materials pack was retired with the climate-series PDF on 2026-11-11).
+const SLUG = 'the-materials-we-test-against';
 const PDF_PATH = path.join(OUT_DIR, `${SLUG}.proofpack.pdf`);
 const MANIFEST_PATH = path.join(OUT_DIR, `${SLUG}.proofpack.json`);
 const REPRESENTATIVE_SLUGS = [
   'a-smooth-environment-resolved-error-field',
-  'five-materials-for-5-to-12-gtco2-year',
+  'shared-dft-anchors',
   'the-materials-we-test-against',
 ];
 
@@ -74,7 +73,7 @@ describe('proof-pack builder CLI', () => {
   it('shows help with --help', () => {
     const result = run(['--help']);
     assert.equal(result.status, 0);
-    assert.match(result.stdout, /--consolidated/);
+    assert.doesNotMatch(result.stdout, /--consolidated/);
     assert.match(result.stdout, /--all/);
     assert.match(result.stdout, /--slug/);
   });
@@ -193,7 +192,7 @@ describe('proof-pack generator API', () => {
       );
       assert.deepEqual(validateProofPackOutput(result.manifestPath), []);
       const manifest = JSON.parse(fs.readFileSync(result.manifestPath, 'utf8'));
-      assert.equal(manifest.generatedAt, '2026-07-09T00:00:00.000Z');
+      assert.equal(manifest.generatedAt, '2026-07-20T00:00:00.000Z');
       assert.equal(Object.hasOwn(manifest.inputs, 'renderedHtml'), false);
       assert.equal(manifest.output.pdf.path, `${SLUG}.proofpack.pdf`);
     } finally {
@@ -519,84 +518,6 @@ describe('proof-pack determinism', () => {
     );
     // Byte identity is not guaranteed because Chromium may vary object IDs;
     // the manifest documents the normalized semantic comparison above.
-  });
-});
-
-describe('proof-pack consolidated mode', () => {
-  it('awaits lazy-image decode before printing the legacy PDF', async () => {
-    const browser = await chromium.launch({
-      headless: true,
-      executablePath: chromiumExecutablePath(),
-    });
-    const page = await browser.newPage();
-    const output = path.join(os.tmpdir(), `proofpack-lazy-image-${process.pid}.pdf`);
-
-    try {
-      await page.setContent(`
-        <!doctype html>
-        <img id="lazy-sentinel" loading="lazy"
-          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E">
-        <script>
-          window.lazyImageDecoded = false;
-          document.querySelector('#lazy-sentinel').decode = () => new Promise((resolve) => {
-            setTimeout(() => {
-              window.lazyImageDecoded = true;
-              resolve();
-            }, 750);
-          });
-        </script>
-      `, { waitUntil: 'networkidle' });
-
-      page.pdf = async () => {
-        const state = await page.evaluate(() => {
-          const image = document.querySelector('#lazy-sentinel');
-          return { loading: image.loading, decoded: window.lazyImageDecoded };
-        });
-        assert.equal(state.loading, 'eager', 'lazy image was not activated before printing');
-        assert.equal(state.decoded, true, 'image decode was not awaited before printing');
-      };
-
-      await legacyRenderPdf({ newPage: async () => page }, {
-        url: 'http://127.0.0.1/',
-        html: await page.content(),
-        output,
-      });
-    } finally {
-      await browser.close();
-      fs.rmSync(output, { force: true });
-    }
-  });
-
-  it('produces a byte-identical legacy climate-series PDF on repeated builds', () => {
-    const consolidatedPath = path.join(ROOT, 'public', 'proof-pack-climate-series.pdf');
-    const run1 = run(['--consolidated']);
-    assert.equal(run1.status, 0, run1.stderr);
-    const hash1 = sha256(consolidatedPath);
-
-    const run2 = run(['--consolidated']);
-    assert.equal(run2.status, 0, run2.stderr);
-    assert.equal(sha256(consolidatedPath), hash1, 'PDF bytes differ between builds');
-  });
-
-  it('produces the legacy climate-series PDF without Type 3 fonts', async () => {
-    const consolidatedPath = path.join(ROOT, 'public', 'proof-pack-climate-series.pdf');
-    const before = fs.existsSync(consolidatedPath);
-    const result = run(['--consolidated']);
-    assert.equal(result.status, 0, result.stderr);
-    assert.ok(fs.existsSync(consolidatedPath), 'consolidated PDF should exist');
-    const report = await inspectPdf(
-      consolidatedPath,
-      path.join(ROOT, 'tests', 'fixtures', 'pdf-qa-expectations.json')
-    );
-    assert.deepEqual(
-      report.fonts.type3,
-      [],
-      `Type 3 fonts can render incorrectly in print engines: ${report.fonts.type3.join(', ')}`
-    );
-    assert.equal(report.annotations.localUris.length, 0, 'found localhost link annotations');
-    if (!before) {
-      // Leave the file in the expected production location.
-    }
   });
 });
 

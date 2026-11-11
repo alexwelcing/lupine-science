@@ -2,7 +2,6 @@
 // Generalized proof-pack builder.
 //
 // Modes:
-//   --consolidated          Build the legacy climate-series combined PDF.
 //   --all                   Build one PDF + JSON manifest per eligible article.
 //   --slug <slug>           Build one article only.
 //   --out-dir <dir>         Output directory for per-article packs (default: public/proof-packs/).
@@ -24,17 +23,12 @@ import { validateProofPack, validateProofPackFiles, formatIssues } from './valid
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC = path.join(ROOT, 'public');
 const DEFAULT_OUT_DIR = path.join(PUBLIC, 'proof-packs');
-const CONSOLIDATED_OUT = path.join(PUBLIC, 'proof-pack-climate-series.pdf');
 const TEMPLATE_PATH = path.join(PUBLIC, 'proof-pack-template', 'index.html');
 const TMP = path.join(ROOT, '.proofpack');
 
-const CLIMATE_SLUGS = [
-  'the-02-percent-synthesis-problem',
-  'a-field-not-a-neural-net',
-  'five-materials-for-5-to-12-gtco2-year',
-  'from-predicted-crystal-to-commercial-cell',
-  'investing-in-the-trust-layer',
-];
+// The consolidated climate-series PDF (--consolidated) was retired on
+// 2026-11-11: its title implied partners and it bundled an investor pitch.
+// See /corrections/. Only per-article evidence records are built here.
 
 const UNICODE_COVERAGE_STRING =
   'CO₂ · CH₄ · GtCO₂/year · en dash – · em dash — · “curly quotes” · α β γ Δ μ σ ∑ ∂ ≈ ≤ ≥ ± × · José García · Zoë Šimůnková · François L’Écuyer';
@@ -842,212 +836,6 @@ function prepareArticleOutput(slug, outDir) {
   }
 }
 
-// --------------------------------------------------------------------------
-// Consolidated (legacy climate-series) mode
-// --------------------------------------------------------------------------
-
-function legacyCoverHtml({ title, date, url, baseUrl }) {
-  return `<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>${title}</title>
-  <link rel="stylesheet" href="${baseUrl}/articles/styles.css">
-  <style>
-    @page { size: letter; margin: 0; }
-    body {
-      margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      background: #faf9f6;
-      font-family: var(--serif), Georgia, serif;
-    }
-    .cover {
-      width: 100%;
-      max-width: 6.5in;
-      padding: 0.75in;
-      text-align: center;
-    }
-    .cover .mark {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 48px;
-      color: var(--ink);
-      text-decoration: none;
-      font-family: var(--sans);
-      font-size: 16px;
-    }
-    .cover .mark svg { width: 48px; height: auto; }
-    .cover h1 {
-      font-size: clamp(32px, 6vw, 52px);
-      line-height: 1.15;
-      margin: 0 0 24px;
-      color: var(--ink);
-    }
-    .cover .meta {
-      font-family: var(--mono);
-      font-size: 13px;
-      color: var(--ink-soft);
-      margin: 0 0 12px;
-    }
-    .cover .url {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--ink-faint);
-      word-break: break-all;
-    }
-    .cover .series {
-      display: inline-block;
-      margin-top: 48px;
-      padding: 6px 12px;
-      border: 1px solid var(--rule-strong);
-      border-radius: 4px;
-      font-family: var(--mono);
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--ink-muted);
-    }
-  </style>
-</head>
-<body>
-  <div class="cover">
-    <a class="mark" href="${baseUrl}/" aria-label="Lupine Science">
-      <svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
-        <defs>
-          <linearGradient id="bb" x1="190" y1="74" x2="324" y2="356" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stop-color="#88a7d8"/><stop offset=".35" stop-color="#475b9c"/><stop offset=".78" stop-color="#102f47"/><stop offset="1" stop-color="#071a2a"/>
-          </linearGradient>
-          <linearGradient id="bl" x1="150" y1="330" x2="360" y2="470" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stop-color="#7f907c"/><stop offset="1" stop-color="#4c653d"/>
-          </linearGradient>
-          <radialGradient id="bc" cx="48%" cy="30%" r="68%">
-            <stop offset="0" stop-color="#fffdf3"/><stop offset=".7" stop-color="#f1e8c9"/><stop offset="1" stop-color="#d4c58f"/>
-          </radialGradient>
-        </defs>
-        <g fill="none" stroke="#4c653d" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M256 148 C252 224 258 312 254 448"/><path d="M252 402 C222 372 178 354 124 348"/><path d="M260 402 C290 372 334 354 388 348"/>
-        </g>
-        <g fill="url(#bl)" opacity=".96">
-          <ellipse cx="139" cy="348" rx="18" ry="62" transform="rotate(-78 139 348)"/><ellipse cx="167" cy="384" rx="18" ry="62" transform="rotate(-48 167 384)"/><ellipse cx="214" cy="410" rx="17" ry="58" transform="rotate(-20 214 410)"/><ellipse cx="373" cy="348" rx="18" ry="62" transform="rotate(78 373 348)"/><ellipse cx="345" cy="384" rx="18" ry="62" transform="rotate(48 345 384)"/><ellipse cx="298" cy="410" rx="17" ry="58" transform="rotate(20 298 410)"/>
-        </g>
-        <g fill="none" stroke="#fef8f5" stroke-width="5" stroke-linecap="round" opacity=".66">
-          <path d="M132 348 C170 356 205 373 236 405"/><path d="M380 348 C342 356 307 373 276 405"/>
-        </g>
-        <g fill="url(#bb)" stroke="#fef8f5" stroke-width="5" stroke-linejoin="round">
-          <ellipse cx="256" cy="86" rx="22" ry="34"/><ellipse cx="232" cy="122" rx="23" ry="35" transform="rotate(-24 232 122)"/><ellipse cx="280" cy="122" rx="23" ry="35" transform="rotate(24 280 122)"/><ellipse cx="256" cy="150" rx="30" ry="40"/><ellipse cx="211" cy="182" rx="26" ry="38" transform="rotate(-34 211 182)"/><ellipse cx="301" cy="182" rx="26" ry="38" transform="rotate(34 301 182)"/><ellipse cx="256" cy="216" rx="37" ry="48"/><ellipse cx="204" cy="256" rx="30" ry="43" transform="rotate(-42 204 256)"/><ellipse cx="308" cy="256" rx="30" ry="43" transform="rotate(42 308 256)"/><ellipse cx="256" cy="306" rx="40" ry="52"/>
-        </g>
-        <g fill="url(#bc)">
-          <path d="M244 142 C251 124 261 124 268 142 C262 136 250 136 244 142Z"/><path d="M244 207 C252 186 263 186 271 207 C263 199 252 199 244 207Z"/><path d="M242 296 C252 272 265 272 274 296 C264 286 252 286 242 296Z"/>
-        </g>
-      </svg>
-      <span><b>Lupine Science</b></span>
-    </a>
-    <p class="meta">${date || 'Climate partnerships series'}</p>
-    <h1>${title}</h1>
-    <p class="url">${url}</p>
-    <p class="series">Climate Partnerships Proof Pack</p>
-  </div>
-</body>
-</html>`;
-}
-
-export async function legacyRenderPdf(browser, { url, html, output }) {
-  const page = await browser.newPage();
-  try {
-    if (html) {
-      await page.setContent(html, { waitUntil: 'networkidle', baseURL: url });
-    } else {
-      await page.goto(url, { waitUntil: 'networkidle' });
-    }
-    await page.addStyleTag({ content: `
-      @font-face {
-        font-family: "Proof Unicode";
-        src: url("${new URL('/fonts/proof-unicode.ttf', url)}") format("truetype");
-        font-style: normal;
-        font-weight: 100 900;
-        font-display: block;
-      }
-      :root { --serif: "Proof Unicode", serif; }
-
-      /* Print/PDF: video players carry no value on paper. Remove the player
-         and its meta chrome entirely (owner decision 2026-07-20); hero
-         figures that are video-only collapse too. */
-      video, .video-player, .video-player-meta, .article-hero:has(video),
-      .article-video-player, .video-player-label, .video-player-frame {
-        display: none !important;
-      }
-    ` });
-    await page.evaluate(() => document.fonts.ready).catch(() => {});
-    await page.waitForSelector('.katex', { timeout: 5000 }).catch(() => {});
-    await waitForPageImages(page);
-    await page.waitForTimeout(300);
-    await page.pdf({
-      path: output,
-      format: 'Letter',
-      printBackground: true,
-      preferCSSPageSize: true,
-    });
-  } finally {
-    await page.close();
-  }
-}
-
-async function mergePdfs(paths, output) {
-  const merged = await PDFDocument.create();
-  for (const p of paths) {
-    const src = await PDFDocument.load(fs.readFileSync(p));
-    const pages = await merged.copyPages(src, src.getPageIndices());
-    pages.forEach((page) => merged.addPage(page));
-  }
-  fs.writeFileSync(output, await merged.save());
-}
-
-async function buildConsolidated(browser, baseUrl) {
-  const perArticlePaths = [];
-  let generatedAt = null;
-  for (const slug of CLIMATE_SLUGS) {
-    const articlePath = path.join(PUBLIC, 'articles', slug, 'index.html');
-    if (!fs.existsSync(articlePath)) throw new Error(`missing ${articlePath}`);
-    const html = fs.readFileSync(articlePath, 'utf8');
-    const meta = extractArticleMeta(html, slug);
-    // Reproducibility law for certified evidence: derive generated_at from
-    // the canonical source metadata, never from the wall clock. The first
-    // article is canonical because CLIMATE_SLUGS is a reviewed fixed order.
-    if (generatedAt === null && /^\d{4}-\d{2}-\d{2}$/.test(meta.date)) {
-      generatedAt = new Date(`${meta.date}T00:00:00Z`);
-    }
-    console.log(`rendering: ${meta.title}`);
-
-    const coverFile = path.join(TMP, `${slug}-cover.pdf`);
-    const articleFile = path.join(TMP, `${slug}.pdf`);
-    await legacyRenderPdf(browser, {
-      url: baseUrl,
-      html: legacyCoverHtml({ ...meta, baseUrl }),
-      output: coverFile,
-    });
-    await legacyRenderPdf(browser, {
-      url: `${baseUrl}/articles/${slug}/`,
-      output: articleFile,
-    });
-    perArticlePaths.push(coverFile, articleFile);
-  }
-
-  await mergePdfs(perArticlePaths, CONSOLIDATED_OUT);
-  await normalizePdf(CONSOLIDATED_OUT, {
-    title: 'Lupine Science Climate Partnerships Proof Pack',
-    deterministicDate: generatedAt ?? new Date('1970-01-01T00:00:00Z'),
-  });
-  const sizeMB = fs.statSync(CONSOLIDATED_OUT).size / (1024 * 1024);
-  console.log(`consolidated proof pack written: ${CONSOLIDATED_OUT} (${sizeMB.toFixed(2)} MB)`);
-  if (sizeMB >= 20) {
-    throw new Error(`PDF is ${sizeMB.toFixed(2)} MB, above the 20 MB budget`);
-  }
-}
-
 /**
  * Build one eligible article's proof pack entirely from repository-local inputs.
  *
@@ -1093,8 +881,7 @@ function parseArgs(argv) {
   const args = [...argv];
   while (args.length) {
     const arg = args.shift();
-    if (arg === '--consolidated') options.mode = 'consolidated';
-    else if (arg === '--all') options.mode = 'all';
+    if (arg === '--all') options.mode = 'all';
     else if (arg === '--slug') {
       options.mode = 'slug';
       options.slug = args.shift();
@@ -1104,7 +891,6 @@ function parseArgs(argv) {
       console.log(`usage: node scripts/build-proofpack.mjs [options]
 
 options:
-  --consolidated          Build public/proof-pack-climate-series.pdf (legacy mode).
   --all                   Build one PDF + JSON manifest for every eligible article.
   --slug <slug>           Build one article only.
   --out-dir <dir>         Output directory for per-article packs (default: public/proof-packs/).
@@ -1115,7 +901,7 @@ options:
     }
   }
   if (!options.mode) {
-    throw new Error('no mode selected; use --consolidated, --all, or --slug <slug> (see --help)');
+    throw new Error('no mode selected; use --all or --slug <slug> (see --help)');
   }
   if (options.mode === 'slug' && !options.slug) {
     throw new Error('--slug requires a value');
@@ -1130,34 +916,27 @@ async function main() {
   if (fs.existsSync(TMP)) fs.rmSync(TMP, { recursive: true, force: true });
   fs.mkdirSync(TMP, { recursive: true });
 
-  let eligible = null;
-  if (options.mode !== 'consolidated') {
-    fs.mkdirSync(options.outDir, { recursive: true });
-    eligible = options.mode === 'all' ? findEligibleSlugs() : [options.slug];
-    if (options.mode === 'all') cleanStaleOutputs(options.outDir, eligible);
-    for (const slug of eligible) prepareArticleOutput(slug, options.outDir);
-  }
+  fs.mkdirSync(options.outDir, { recursive: true });
+  const eligible = options.mode === 'all' ? findEligibleSlugs() : [options.slug];
+  if (options.mode === 'all') cleanStaleOutputs(options.outDir, eligible);
+  for (const slug of eligible) prepareArticleOutput(slug, options.outDir);
 
   const { server, baseUrl } = await startServer();
   let browser;
   try {
     browser = await chromium.launch({ headless: true, executablePath: chromiumExecutablePath() });
 
-    if (options.mode === 'consolidated') {
-      await buildConsolidated(browser, baseUrl);
-    } else {
-      for (const slug of eligible) {
-        console.log(`building proof pack: ${slug}`);
-        let result;
-        try {
-          result = await buildPerArticle(browser, slug, options.outDir, baseUrl);
-        } catch (error) {
-          cleanupArticleOutputs(slug, options.outDir);
-          throw error;
-        }
-        console.log(`  PDF: ${result.pdfPath}`);
-        console.log(`  manifest: ${result.manifestPath}`);
+    for (const slug of eligible) {
+      console.log(`building proof pack: ${slug}`);
+      let result;
+      try {
+        result = await buildPerArticle(browser, slug, options.outDir, baseUrl);
+      } catch (error) {
+        cleanupArticleOutputs(slug, options.outDir);
+        throw error;
       }
+      console.log(`  PDF: ${result.pdfPath}`);
+      console.log(`  manifest: ${result.manifestPath}`);
     }
 
     console.log(`finished in ${Date.now() - startedAt} ms`);

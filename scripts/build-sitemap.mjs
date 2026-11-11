@@ -106,8 +106,8 @@ if (fs.existsSync(claimsDir)) {
 }
 
 // Static assets that are not directories but should be discoverable.
-// The climate-series proof pack is retired (see /corrections/) and is no
-// longer listed, even while the file is still served.
+// The climate-series proof pack was retired on 2026-11-11 (see /corrections/);
+// its URL now redirects there (public/_redirects).
 for (const file of [
   'booklets/the-savings-stack.pdf',
   'papers/memorandum-correction-boundary-2026-07-20.pdf',

@@ -12,17 +12,6 @@
   ],
   "pdfs": [
     {
-      "path": "/proof-pack-climate-series.pdf",
-      "minimumBytes": 100000,
-      "requiredSections": [
-        "The 0.2% Synthesis Problem",
-        "A Field, Not a Neural Net",
-        "Five Materials That Could Unlock",
-        "From Predicted Crystal to Commercial Cell",
-        "Investing in the Trust Layer"
-      ]
-    },
-    {
       "path": "/booklets/the-savings-stack.pdf",
       "minimumBytes": 100000,
       "requiredSections": [

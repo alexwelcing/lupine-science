@@ -82,7 +82,7 @@ The link's accessible name should include the article title when ambiguity is po
 2. Copy only selected figures and their original captions/alt text; resolve image URLs against the local static server.
 3. Render with the existing local HTTP server and Chromium; wait for images and `document.fonts.ready`; fail on any network request outside `127.0.0.1`.
 4. Add PDF metadata (title, author, subject, creation tool) and deterministic document/version identifiers. Avoid embedding wall-clock timestamps unless supplied by source metadata.
-5. Run `npm run proofpack`, `npm run pdf:check`, `pdftotext -layout`, and a raster snapshot/visual check at 100% scale. Spot-check Letter and A4 print dialogs with scaling disabled.
+5. Run `npm run proofpack:slug -- <slug>`, `npm run pdf:check -- <pdf> <expectations.json>`, `pdftotext -layout`, and a raster snapshot/visual check at 100% scale. Spot-check Letter and A4 print dialogs with scaling disabled.
 6. Confirm no clipped figures/tables, blank pages, local link annotations, missing glyphs, placeholder credits, or unsupported claims.
 7. Generate the download-card metadata from the final artifact and verify the href resolves with `application/pdf` and a stable filename.
 
@@ -92,7 +92,7 @@ A proof pack is now produced per eligible article from a sibling manifest file:
 
 - Author the content schema in `public/articles/<slug>/<slug>.proofpack.json`. It extends the manifest schema in `schemas/proof-pack.schema.json` (metadata, summary, figures, data tables, methodology, credits, bibliography, audit links).
 - Run the builder:
-  - `npm run proofpack` — legacy consolidated climate-series PDF (`public/proof-pack-climate-series.pdf`).
+  - The consolidated climate-series PDF (`public/proof-pack-climate-series.pdf`) and its `--consolidated` mode were retired on 2026-11-11 (see /corrections/); `npm run proofpack` is now an alias of `--all`.
   - `npm run proofpack:all` — one PDF + JSON manifest per eligible article.
   - `npm run proofpack:slug -- <slug>` — one article only.
   - `npm run proofpack:validate -- <manifest.json>` — validate a manifest.
@@ -113,7 +113,7 @@ A proof pack is now produced per eligible article from a sibling manifest file:
 | Article | Content class | Evidence posture |
 |---|---|---|
 | `a-smooth-environment-resolved-error-field` | Published scientific proof pack | Internal blind-test and correction results remain explicitly `needs-verification`; peer-reviewed prior art is separated from those results. |
-| `five-materials-for-5-to-12-gtco2-year` | Draft climate-materials portfolio | Aggregate scenarios, target thresholds, and internal results remain explicitly `needs-verification`; background sources are not used to launder those values. |
+| `shared-dft-anchors` | Results note (projected accounting) | The 72.4% figure is projected, no DFT was run, and the baseline is four separate runs; the realized pilot is reported on the article page. |
 | `the-materials-we-test-against` | Campaign field note | Panel identity is pinned to exact lock-file digests; campaign-result and economics claims are excluded and remain `needs-verification`. |
 
 Every selected figure carries a SHA-256 digest in its authoritative sibling manifest. The builder fails closed before rendering when a digest is absent, an asset is missing, a path escapes the article directory, or the current bytes do not match the manifest. Output manifests independently record the article HTML, input-manifest, figure, and PDF digests.
