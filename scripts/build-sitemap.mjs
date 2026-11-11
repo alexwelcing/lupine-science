@@ -26,6 +26,12 @@ function articleDate(slug) {
   return updated?.[1] || published?.[1] || null;
 }
 
+function correctionsUpdated() {
+  const page = path.join(PUBLIC, 'corrections', 'index.html');
+  if (!fs.existsSync(page)) return null;
+  return fs.readFileSync(page, 'utf8').match(/Corrections log · updated <time datetime="(\d{4}-\d{2}-\d{2})"/)?.[1] || null;
+}
+
 // The homepage and /about/ carry the newest dated fact on the site (the same
 // "as of" scripts/lib/discovery.mjs stamps on them): deterministic, and it
 // tells crawlers the front door moves whenever anything ships.
@@ -37,6 +43,10 @@ const siteAsOf = asOfDate(company, fs.readdirSync(path.join(ROOT, 'articles'))
 const urls = [
   { loc: `${SITE}/`, lastmod: siteAsOf || null },
   { loc: `${SITE}/about/`, lastmod: siteAsOf || null },
+  // the corrections log carries its own "updated" date in its kicker
+  ...(fs.existsSync(path.join(PUBLIC, 'corrections', 'index.html'))
+    ? [{ loc: `${SITE}/corrections/`, lastmod: correctionsUpdated() }]
+    : []),
   { loc: `${SITE}/articles/`, lastmod: null },
   { loc: `${SITE}/videos/`, lastmod: null },
   // /atlas/ is the wiki-driven ontology page (see scripts/build-atlas-nodes.mjs).
