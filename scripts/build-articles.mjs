@@ -1171,7 +1171,7 @@ function buildDiscoverySurfaces(builtArticles) {
 
   const aboutDir = path.join(PUBLIC_ROOT, 'about');
   fs.mkdirSync(aboutDir, { recursive: true });
-  const description = `${company.oneLiner} Stage, funding, founder, milestones, and how to get in touch.`;
+  const description = `${company.oneLiner} Stage, founder, milestones, and how to get in touch.`;
   writeAtomic(path.join(aboutDir, 'index.html'), `<!doctype html>
 <html lang="en">
 <head>
