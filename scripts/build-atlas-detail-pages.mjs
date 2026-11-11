@@ -84,9 +84,9 @@ const KIND_TITLE = {
 };
 
 const KIND_BLURB = {
-  error_type: 'A class of failure mode the correction layer has to defend against. Each error type names a recurring pathology in machine-learned interatomic potentials and the materials-discovery workflows that depend on them.',
-  emblem: 'A measured cluster of closely related physical phenomena the correction layer treats as one regime. Each emblem groups observables that move together under the same correction.',
-  material_class: 'A family of materials whose discovery and verification problem shapes share enough structure that the correction layer is designed to address all of them together.',
+  error_type: 'A recurring way machine-learned interatomic potentials, and the workflows that use them, go wrong.',
+  emblem: 'A cluster of closely related physical phenomena whose observables we group and measure together.',
+  material_class: 'A family of materials whose prediction and verification problems share enough structure to be studied together.',
 };
 
 

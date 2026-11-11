@@ -70,7 +70,7 @@ export function renderSiteHeader({
     { href: 'https://lupi.live', label: 'LUPI' },
   ],
   brandLabel = 'Lupine Science',
-  brandTagline = 'accelerating materials discovery',
+  brandTagline = 'measuring where AI models of materials go wrong',
 } = {}) {
   const navItems = links.map((link) => {
     const isCurrent = ariaCurrentPath

@@ -91,19 +91,10 @@ if (fs.existsSync(atlasDir)) {
   }
 }
 
-// Curated claim facets under /atlas/claims/<facet>/. Built by
-// scripts/build-claim-facets.mjs. The facets index lives at /atlas/claims/.
-const claimsDir = path.join(atlasDir, 'claims');
-if (fs.existsSync(claimsDir)) {
-  if (fs.existsSync(path.join(claimsDir, 'index.html'))) {
-    urls.push({ loc: `${SITE}/atlas/claims/`, lastmod: null });
-  }
-  for (const entry of fs.readdirSync(claimsDir, { withFileTypes: true })) {
-    if (!entry.isDirectory()) continue;
-    if (!fs.existsSync(path.join(claimsDir, entry.name, 'index.html'))) continue;
-    urls.push({ loc: `${SITE}/atlas/claims/${entry.name}/`, lastmod: null });
-  }
-}
+// The curated claim facets that lived under /atlas/claims/ were retired on
+// 2026-11-11: their blurbs restated retired claims, and their claim names came
+// from a private wiki database that cannot be rebuilt from committed data.
+// /atlas/claims/* redirects to /atlas/ (public/_redirects, nginx.conf).
 
 // Static assets that are not directories but should be discoverable.
 // The climate-series proof pack was retired on 2026-11-11 (see /corrections/);
