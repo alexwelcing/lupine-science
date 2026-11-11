@@ -3,21 +3,31 @@
 // public site never runs this code.
 //
 // The password is the VENTURE_DECK_PASSWORD environment variable set on the
-// Cloudflare Pages project, falling back to a placeholder until one is set.
-const PLACEHOLDER_PASSWORD = 'createFuture';
+// Cloudflare Pages project. There is no fallback: if the variable is unset or
+// empty, the deck fails closed with 503 instead of opening to a default.
 const REALM = 'Lupine Science venture deck';
+
+const PRIVATE_HEADERS = {
+  'Content-Type': 'text/plain; charset=utf-8',
+  'Cache-Control': 'no-store',
+  'X-Robots-Tag': 'noindex, nofollow',
+};
 
 export default {
   async fetch(request, env) {
-    const expected = env.VENTURE_DECK_PASSWORD || PLACEHOLDER_PASSWORD;
+    const expected = typeof env?.VENTURE_DECK_PASSWORD === 'string' ? env.VENTURE_DECK_PASSWORD : '';
+    if (!expected) {
+      return new Response('Deck temporarily unavailable.\n', {
+        status: 503,
+        headers: { ...PRIVATE_HEADERS, 'Retry-After': '3600' },
+      });
+    }
     if (!authorized(request.headers.get('Authorization'), expected)) {
       return new Response('This page is password protected.\n', {
         status: 401,
         headers: {
+          ...PRIVATE_HEADERS,
           'WWW-Authenticate': `Basic realm="${REALM}", charset="UTF-8"`,
-          'Content-Type': 'text/plain; charset=utf-8',
-          'Cache-Control': 'no-store',
-          'X-Robots-Tag': 'noindex, nofollow',
         },
       });
     }

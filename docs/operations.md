@@ -81,7 +81,9 @@ Cloudflare token needs only the Pages permission required to deploy the
 
 `public/_worker.js` (scoped by `public/_routes.json` to `/venture/*`) puts the
 venture deck behind a password: the `VENTURE_DECK_PASSWORD` environment variable
-on the Pages project, or a placeholder until one is set.
+on the Pages project. There is no fallback password. If the variable is unset or
+empty, the worker fails closed and answers 503 "Deck temporarily unavailable"
+(`tests/venture-worker.test.mjs`).
 
 ## Live Checks
 
