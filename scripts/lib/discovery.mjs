@@ -235,7 +235,7 @@ export function renderTestedTable(company) {
   return `
   <section class="beneath tested" id="tested" aria-labelledby="tested-title">
     <p class="b-label" id="tested-title">Where it has been tested</p>
-    <p class="tested-lede">Results we have published, failures beside passes, each with the scope it holds in. They are not yet peer-reviewed. Earlier rounds and our self-corrections are in the <a href="https://github.com/alexwelcing/lupine-rhizo/blob/main/docs/conjectures/ledger.md">hypothesis ledger</a>.</p>
+    <p class="tested-lede">Results we have published, failures beside passes, each with the scope it holds in. They are not yet peer-reviewed. Other rounds, including Round 3, and our self-corrections are in the <a href="https://github.com/alexwelcing/lupine-rhizo/blob/main/docs/conjectures/ledger.md">hypothesis ledger</a>.</p>
     <div class="tested-wrap">
       <table class="tested-table">
         <thead>
@@ -325,7 +325,7 @@ export function faqEntries(company, asOf) {
     },
     {
       q: 'Will the newest universal potentials, with their own uncertainty estimates, make this unnecessary?',
-      a: 'They may change what needs testing, and we have not tested them yet. Our tests so far cover earlier universal potentials, not the newest multi-head or multi-fidelity models or their confidence heads. What they do not replace is an outside, preregistered measurement against published references: that is what a model\'s own uncertainty can be checked against, and agreement among models trained on similar data cannot certify accuracy. Our own record is a reason for care: in a preregistered test, our 90% conformal intervals reached only 86.7% coverage (Projection Law Round 2). We intend to preregister a head-to-head on our locked panels with a training-overlap audit, abstaining wherever overlap cannot be ruled out, and to publish the result either way.',
+      a: 'They may change what needs testing, and we have not tested them yet. Our tests so far cover earlier universal potentials, not the newest multi-head or multi-fidelity models or their confidence heads. What they do not replace is an outside, preregistered measurement against published references: that is what a model\'s own uncertainty can be checked against, and agreement among models trained on similar data cannot certify accuracy. Our own record is a reason for care: in a preregistered test, our 90% conformal intervals reached only 86.7% coverage (Projection Law Round 2). We have not run a head-to-head on these newer models; a fair one would need a training-overlap audit against our locked panels.',
     },
     {
       q: 'Who does the work?',
@@ -426,7 +426,7 @@ ${claimItems(company.claims.cannot, 'See')}
       <p>Public claims we have retired are listed, with dates and reasons, in the <a href="/corrections/">corrections log</a>.</p>
 
       <h2 id="how-lupine-works">How Lupine works</h2>
-      <p>${escapeHtml(op.summary)} These rules are enforced in code:</p>
+      <p>${escapeHtml(op.summary)} The rules, and how far each reaches:</p>
       <ul>
 ${rules}
       </ul>
@@ -505,7 +505,7 @@ export function renderLlmsTxt(company, articles, { asOf = asOfDate(company, arti
   for (const s of company.approach) lines.push(`- ${s.term}: ${s.text}`);
   lines.push('');
   lines.push('## Where it has been tested', '');
-  lines.push('Results we have published, failures beside passes, each with its scope. Status is one of Supported, Open, Failed, Abstained. They are not yet peer-reviewed. Earlier rounds and self-corrections: https://github.com/alexwelcing/lupine-rhizo/blob/main/docs/conjectures/ledger.md', '');
+  lines.push('Results we have published, failures beside passes, each with its scope. Status is one of Supported, Open, Failed, Abstained. They are not yet peer-reviewed. Other rounds, including Round 3, and self-corrections: https://github.com/alexwelcing/lupine-rhizo/blob/main/docs/conjectures/ledger.md', '');
   for (const r of testedRows(company)) lines.push(`- ${r.status}: ${r.what}. ${r.scope} ${llmsHref(r.href)}`);
   lines.push('');
   lines.push('## What we can and cannot claim', '');

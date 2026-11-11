@@ -56,7 +56,7 @@
       "href": "/articles/the-order-is-right-the-size-is-wrong/"
     },
     {
-      "what": "Shared error direction across models",
+      "what": "Shared error direction across models (21-material benchmark)",
       "scope": "Apparent cross-model alignment sat inside a coupling-aware null, so we do not count it as a result.",
       "status": "Failed",
       "href": "/articles/the-order-is-right-the-size-is-wrong/"
@@ -108,6 +108,18 @@
       "scope": "No available model had the spin physics the test needed.",
       "status": "Abstained",
       "href": "/articles/four-gates-three-honest-failures-one-live-experiment/"
+    },
+    {
+      "what": "Round 5: direction-gated barrier correction",
+      "scope": "On the 30-path Li-ion panel, fitted on 12 disjoint training paths: all four models abstained at the direction gate, so no correction was applied.",
+      "status": "Abstained",
+      "href": "/articles/the-materials-we-test-against/"
+    },
+    {
+      "what": "Sparse-DFT anchor pilot (GPAW), 23 of 30 paths",
+      "scope": "The preregistered 40 meV gate against published VASP barriers failed on path 7 (118.8 meV). An amendment written after that failure moved the gate to a same-engine check, which passed; against the published references the error was 693.0–705.7 meV. Same-engine only.",
+      "status": "Open",
+      "href": "/articles/shared-dft-anchors/"
     }
   ],
   "claims": {
@@ -119,7 +131,7 @@
     ],
     "cannot": [
       { "text": "That any correction we have tested is ready to deploy. In four preregistered campaigns in July 2026 (Round 4), no gate passed: three failed and one abstained. On the 16-metal elastic panel, 17.84 → 10.36 GPa is a ceiling that needs the held-out answer, not a deployable correction.", "href": "/articles/four-gates-three-honest-failures-one-live-experiment/" },
-      { "text": "That different models share one error direction. Apparent cross-model alignment sat inside a coupling-aware null.", "href": "/articles/the-order-is-right-the-size-is-wrong/" },
+      { "text": "That different models share one error direction on surface energies. In our 21-material benchmark, apparent cross-model alignment sat inside a coupling-aware null.", "href": "/articles/the-order-is-right-the-size-is-wrong/" },
       { "text": "That a Lean check confirms the physics. Lean 4 checks the arithmetic and stated inequalities behind published numbers; it does not check the physics, the reference data or the pipeline.", "href": "#approach" },
       { "text": "Anything about the newest multi-head or multi-fidelity models or their confidence heads. We have not tested them.", "href": "#faq" },
       { "text": "Peer review. No Lupine paper has been peer-reviewed or accepted yet.", "href": "#faq" }
@@ -128,7 +140,7 @@
   "operatingModel": {
     "summary": "Lupine Science is founder-led (Alex Welcing, founder). The work is done with AI coding and research agents under rules that live in code. AI assistance is disclosed, and a human author is responsible for every public summary.",
     "rules": [
-      "In the machine registry, a pull request that changes a claim's status in registry/, snapshots/ or evidence/ must bring new evidence-bundle hashes, or CI fails.",
+      "In the research workbench, a pull request that changes a status in the assumption registry, the status-event snapshot or the locked ontology must bring a new evidence-bundle hash, or CI fails. The check does not read claim files, the Markdown ledgers or article status lines; those are reviewed by hand.",
       "Public research-activity records pass a reviewed import that rejects local paths, emails, private URLs and credential-shaped strings; failed or stopped work cannot be relabelled completed.",
       "The model review stage runs with an explicit tool list: packet critiques run without tools, and literature jobs can search and fetch public web pages. It cannot start experiments, publish or schedule runs.",
       "A model's score is a recommendation, not evidence.",

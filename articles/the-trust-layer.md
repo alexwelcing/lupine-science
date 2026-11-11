@@ -45,7 +45,7 @@ This is the opposite of caution. The slow part of science is re-checking: every 
 
 A company whose thesis is measurement cannot ask to be taken on faith. Here is where the work stands, checkable today:
 
-- What holds so far is narrow: errors on fcc-metal surfaces and vacancies follow a measurable field ([the fcc error field](/articles/a-smooth-environment-resolved-error-field/)); our barrier and adsorption tests failed and the magnetism test abstained ([Round 4](/articles/four-gates-three-honest-failures-one-live-experiment/)).
+- What holds so far is narrow: errors on fcc-metal surfaces and vacancies follow a measurable field (nine metals; three of four models) ([the fcc error field](/articles/a-smooth-environment-resolved-error-field/)); our barrier and adsorption tests failed and the magnetism test abstained ([Round 4](/articles/four-gates-three-honest-failures-one-live-experiment/)).
 - The mathematics of the error-geometry result lives in working papers. No Lupine paper has been peer-reviewed or accepted yet. The record is in the [open repositories](https://github.com/alexwelcing/lupine-rhizo).
 - The benchmark data behind our results is committed and public, with the scripts that produce the numbers.
 - The crystal drawn on the [front page](https://lupine.science/) is rendered from published crystallography (MOF-5), from a committed structure file anyone can open.
