@@ -1,19 +1,21 @@
 # Sharing DFT anchors reduces projected evaluations by 72.4%
 
-> **Type:** proof-pack
+> **Type:** Results note
 > **Date:** 2026-08-03
+> **Updated:** 2026-11-11
 > **Deck:** A frozen, artifact-backed analysis of 29 analyzable diffusion paths compares four separately evaluated sparse-anchor sets with their shared union.
-> **Summary:** Under the preregistered sparse-anchor rule, the locked Z1 records require 558 projected DFT evaluations when four model-specific anchor sets are counted separately and 154 when duplicate image indices are shared: 72.4% fewer DFT evaluations.
+> **Summary:** Projected accounting, no new DFT: 154 instead of 558 projected DFT evaluations on 29 analyzable paths (72.4% fewer DFT evaluations, projected). The baseline is four separate runs; paths have 5–7 images, so the union covers most images and deduplication alone caps the saving near 73%. When we ran the pilot, it was about 700 meV off the published references; see "What happened when we ran it".
 > **Status:** Published
+> **Evidence Status:** Projected accounting from recorded campaign artifacts; no DFT was run to produce the 72.4% figure, and it is not an accuracy result. Internally reviewed (AI-assisted) and approved for publication 2026-08-03; not peer-reviewed. The realized pilot is reported separately below: its preregistered accuracy gate failed, and its passing check is a same-engine self-consistency check adopted by an amendment written after that failure.
 > **OG Image:** /articles/shared-dft-anchors/hero.jpg
 > **Proof Pack:** /proof-packs/shared-dft-anchors.proofpack.pdf
 > **Ontology:** T6, E4, MC4
 
 <div class="callout claim">
-  <strong>Claim.</strong> On the locked Z1 panel’s 29 analyzable paths, sharing identical sparse-anchor image indices across four universal interatomic-potential guides reduces the projected DFT evaluation count from 558 to 154: 72.4% fewer DFT evaluations.
+  <strong>Claim (projected).</strong> On the locked Z1 panel’s 29 analyzable paths, sharing identical sparse-anchor image indices across four universal interatomic-potential guides reduces the projected DFT evaluation count from 558 to 154: 72.4% fewer DFT evaluations. The baseline is four separate runs, and on these short paths deduplication alone caps the saving at 73.1%.
 </div>
 
-<p class="lead">Reference calculations are the scarce part of many atomistic workflows. This proof pack asks a narrow accounting question: if four models nominate sparse images on the same paths, how many distinct reference evaluations remain after identical image indices are evaluated once and shared?</p>
+<p class="lead">Reference calculations are the scarce part of many atomistic workflows. This evidence record asks a narrow accounting question: if four models nominate sparse images on the same paths, how many distinct reference evaluations remain after identical image indices are evaluated once and shared?</p>
 
 ## Abstract
 
@@ -31,7 +33,11 @@ We analyze recorded prediction profiles from four universal machine-learned inte
 | Four model-specific anchor sets, counted separately | 29 | 558 |
 | Within-path union of identical image indices | 29 | 154 |
 
-The percentage is reported exactly as the reviewed public claim. No dollar amount, wall-time conversion, annualization, or additional economic multiplier is inferred in this paper.
+No dollar amount, wall-time conversion, annualization, or additional economic multiplier is inferred in this paper.
+
+## What the number does and does not measure
+
+The baseline is four separate runs: each model pays for its own sparse anchors. The 29 analyzable paths are short — 18 have 5 images and 11 have 7, 167 images in all — so the 154-anchor union already covers 154 of the 167 images. If all four models had picked identical anchors, the union would be 150, so deduplication alone caps the saving at 73.1%. The 72.4% sits within 0.7 points of that ceiling. On paths this short, "sparse" is close to dense, and most of the saving is simply not evaluating the same image four times. The figure says nothing about whether sparse anchors give accurate barriers; the pilot below is the test of that.
 
 ## Method
 
@@ -43,7 +49,7 @@ The analysis reads the locked panel and four recorded campaign artifacts. It doe
 
 The panel contains 30 paths, but the primary denominator is 29 analyzable paths. One path lacks a converged prediction profile in every model artifact and is excluded rather than imputed. Three paths have partial model coverage; their available profiles are included and their missing profiles remain missing. The record preserves per-model failure entries.
 
-The result is deliberately separate from any realized execution record. This paper does not combine projected and realized denominators, does not substitute one anchor count for another, and does not infer a new percentage from a different campaign.
+The projection is deliberately separate from the realized execution record reported below. This paper does not combine projected and realized denominators, does not substitute one anchor count for another, and does not infer a new percentage from a different campaign.
 
 ## What the result establishes
 
@@ -61,7 +67,7 @@ The result is deliberately separate from any realized execution record. This pap
 
 ## Historical context
 
-The nudged elastic band method made a discrete chain of images a standard way to optimize minimum-energy paths. Later surrogate-assisted NEB work reduced the number of expensive evaluations required inside a single search. The present result addresses a different reuse boundary: multiple model guides nominate images on the same path, and identical reference-evaluation sites are shared across those guides. The context is established by independent literature; the 558-to-154 measurement itself is supported by the internal auditable record linked below, not by those papers.
+The nudged elastic band method made a discrete chain of images a standard way to optimize minimum-energy paths. Later surrogate-assisted NEB work reduced the number of expensive evaluations required inside a single search. The present result addresses a different reuse boundary: multiple model guides nominate images on the same path, and identical reference-evaluation sites are shared across those guides. The context is established by independent literature; the 558-to-154 count itself is supported by the internal auditable record linked below, not by those papers.
 
 ## Reproduction and audit
 
@@ -69,7 +75,21 @@ From the released data pack, verify all file digests with:
 
 `sha256sum -c MANIFEST.sha256`
 
-Recompute the union-anchor JSON with the released `union_anchor_economics.py`, the recorded local inputs, and the pinned `--recorded-at` timestamp documented in the pack README. Compare the resulting JSON against its SHA-256 sidecar. The proof-pack manifest separately locks the figure input and generated PDF.
+Recompute the union-anchor JSON with the released `union_anchor_economics.py`, the recorded local inputs, and the pinned `--recorded-at` timestamp documented in the pack README. Compare the resulting JSON against its SHA-256 sidecar. The evidence-record manifest separately locks the figure input and generated PDF.
+
+## What happened when we ran it
+
+*Added 2026-11-11. Sources: lupine-rhizo `data/candidates/z1-union-campaign.json` (recorded 2026-07-24), the pilot preregistration `docs/plans/2026-07-20-sparse-dft-pilot-preregistration.md`, and amendments 01 and 02 (`docs/plans/2026-07-21-sparse-dft-pilot-amendment-0{1,2}.md`). These are realized results on a different set of paths from the projection above; the two are not combined.*
+
+In July 2026 we ran the sparse-anchor pilot with GPAW on the same 30-path panel.
+
+- **The preregistered accuracy gate failed.** The pilot was preregistered on 2026-07-20 with a gate of 40 meV against the panel's published VASP reference barriers. The first completed path (path 7) missed it at 118.8 meV.
+- **The gate was moved after that failure.** Amendment 01, dated 2026-07-21 and written after the path-7 result, made the primary gate a same-engine comparison: sparse GPAW barriers against a dense GPAW profile of the same images. The VASP comparison stayed as a secondary, non-gating line. Amendment 02, the same day, loosened two GPAW settings (Γ-point only, grid spacing 0.20 Å) after a one-path revalidation; one of the two settings cleared its pre-agreed 5 meV criterion by 0.28 meV. Because amendment 01 came after an outcome was seen, everything that passed under it is outcome-dependent.
+- **The same-engine result is a self-consistency check, not an accuracy result.** On the 23 paths that ran, every image was evaluated, because these paths have 5–7 images and the amendment extended the anchor set to the full path. Sparse barriers then matched the dense same-engine profile to within 0.0–6.8 meV for all four models. With every image evaluated, that agreement is close to guaranteed by construction. Our record labels it a self-consistency check, and we count it as Open (same-engine only).
+- **Against the published references the pilot was about 700 meV off.** The mean absolute error against the VASP references was 693.0 meV for CHGNet and MACE-MP-0 medium and 705.7 meV for MACE-MP-0 small and MACE-MPA-0 medium, larger than the raw models' own Round-4 barrier errors. The GPAW–VASP energy offset varied from image to image on 22 of the 23 paths (mean variation 952 meV), so on this panel the two engines' barriers cannot be compared directly.
+- **Seven large-cell paths were deferred** and have no verdict.
+
+What this leaves: the 72.4% above is an accounting result on short paths, and the one realized test of sparse anchors did not show accuracy against published references. A fair test needs longer paths and a reference the engine can match. The same pilot is recorded as Open (same-engine only) in the [hypothesis ledger](https://github.com/alexwelcing/lupine-rhizo/blob/main/docs/conjectures/ledger.md).
 
 ## Bibliography
 
@@ -89,4 +109,4 @@ Recompute the union-anchor JSON with the released `union_anchor_economics.py`, t
 
 ---
 
-**Author:** Alex Welcing · **Institution:** Lupine Science · **Evidence cutoff:** 2026-07-21 · **Editorial status:** Independently reviewed and approved for publication 2026-08-03.
+**Author:** Alex Welcing · **Institution:** Lupine Science · **Evidence cutoff:** 2026-07-21 for the projection; the realized-pilot section uses the campaign record of 2026-07-24 · **Editorial status:** Internally reviewed (AI-assisted) and approved for publication 2026-08-03; not peer-reviewed.

@@ -24,13 +24,15 @@ Modern "foundation" machine-learning potentials — in our panel, MACE-MP-0 smal
 
 **The question.** Can off-the-shelf models predict how fast ions move through solid battery electrolytes? That motion is controlled by *migration barriers* — the energy hill an ion must climb between stable sites. We set the gate at a mean error of **40 millielectronvolts (meV)** against published quantum-chemical (DFT-NEB) references, across 30 paths the benchmark holds out by chemistry. (We have not audited the models' training data for overlap with these paths.)
 
-![A solid-electrolyte migration rig with one ink ridge formed by measurement pins and a lower indigo trajectory passing beneath it — The rig exposes systematic underestimation of the ion migration barrier](images/four-gates-three-honest-failures-one-live-experiment-inline-01.jpg)
+![A solid-electrolyte migration rig with one ink ridge formed by measurement pins and a lower indigo trajectory passing beneath it — The rig measures the ion migration barrier](images/four-gates-three-honest-failures-one-live-experiment-inline-01.jpg)
 
 **The answer.** Not close — and interestingly not close:
 
 ![Z1: all four models miss the 40 meV barrier gate](images/four-gates-three-honest-failures-one-live-experiment-02-z1-barrier-mae-vs-gate.jpg)
 
-The best model missed by 3.4×, the worst by 6×. More telling than the size of the miss is its *shape*: for the model with full per-path data, **all 26 completed paths under-predict the barrier**. Random noise scatters in both directions; a one-sided miss is a systematic bias. That model, on this panel, consistently underestimates how hard it is for an ion to squeeze through a transition state. We have per-path signs for that one model only, so we do not extend the direction to the other three. The pattern matches, at 30-path scale, a smaller five-compound result we reported (and retracted the corresponding claim for) last round.
+The best model missed by 3.4×, the worst by 6×. The *shape* of the miss differs by model. On completed paths, CHGNet under-predicted 25 of 28 barriers and MACE-MP-0 medium 21 of 29, while MACE-MP-0 small (17 of 26) and MACE-MPA-0 medium (13 of 28) were mixed. So this is a model-dependent bias toward under-prediction in some models, not a universal one: the gate fails on the size of the error for all four.
+
+*Correction, 2026-11-11: an earlier version of this paragraph said that all 26 completed paths of one model under-predicted the barrier and treated that as the panel's systematic direction. The locked per-path records show 17 of 26 for that model (MACE-MP-0 small); the counts above are from the float64 records.*
 
 Two honesty notes. First, 1–4 of the 30 paths per model failed to converge under the frozen protocol; the pipeline records them as failures rather than estimating around them, so the MAEs above are computed only on completed paths. Second, our first execution ran the models at reduced numerical precision (float32) against the vendor's guidance for geometry optimization. We caught it, fixed it, and re-ran the full panel at float64 — the first run stays on record as executed; the re-run is a separate measurement chain, and we report both. **The float64 verdicts are identical to within 0.1 meV (135.0 / 151.9 / 174.7 / 242.5 meV): the miss is not a numerical-precision artifact.**
 
