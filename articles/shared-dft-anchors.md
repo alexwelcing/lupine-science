@@ -25,7 +25,7 @@ We analyze recorded prediction profiles from four universal machine-learned inte
 
 <figure>
   <img src="images/projected-evaluation-counts.png" alt="Horizontal comparison of 558 projected separate-model DFT evaluations and 154 projected shared-union evaluations, labeled 72.4 percent fewer across 29 analyzable paths.">
-  <figcaption><strong>Figure 1.</strong> Frozen evaluation-count comparison on the 29 analyzable Z1 paths. The two bars report the separate-model anchor count and the deduplicated within-path union count. <span class="figure-source">Source: committed machine-readable analysis record; figure checksum is locked in the proof-pack manifest.</span></figcaption>
+  <figcaption><strong>Figure 1.</strong> Frozen evaluation-count comparison on the 29 analyzable Z1 paths. The two bars report the separate-model anchor count and the deduplicated within-path union count. <span class="figure-source">Source: committed machine-readable analysis record; figure checksum is locked in the evidence-record manifest.</span></figcaption>
 </figure>
 
 | Accounting basis | Analyzable paths | Projected DFT evaluations |
