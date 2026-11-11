@@ -1,40 +1,37 @@
 # lupine.science
 
-Static public front door for Lupine Science.
+Lupine Science measures where machine-learned models of atoms go wrong, against
+published references and pass/fail gates set in advance, and publishes every
+verdict, failures included.
 
-This repo owns the small public entry page at `lupine.science`: the first
-impression, canonical links, public metadata, nginx container, and deploy
-workflow. It should stay intentionally small. The research corpus currently
-lives at `library.lupine.science`, the molecular viewer lives in `lupi.live`, and the
-science/control-plane repo owns claims, proofs, experiments, and evidence.
+This repository is the source for the public website at
+<https://lupine.science>, deployed to Cloudflare Pages from `public/`.
 
-## Boundary
+## What is here
 
-Owns:
+- `data/company.json`: company facts, the "Where it has been tested" table and
+  the list of what we can and cannot claim. It feeds `/about/`, `/llms.txt`,
+  `/feed.xml` and the generated regions of the homepage through
+  `scripts/lib/discovery.mjs`. Edit the data, not the generated output.
+- `articles/*.md`: articles, built into `public/articles/` by
+  `scripts/build-articles.mjs`.
+- `public/index.html`: the homepage, hand-written outside its
+  `<!-- discovery:* -->` regions.
+- `public/corrections/`: the corrections log of public claims we have retired,
+  with dates and reasons.
+- `public/venture/`: the venture deck, behind a password wall
+  (`public/_worker.js`) that fails closed when no password is configured.
 
-- `public/index.html`
-- `public/robots.txt`, `public/sitemap.xml`, `public/llms.txt`
-- Open Graph image and static visual assets
-- `Dockerfile`, `nginx.conf`, `.github/workflows/` (CI, deploy, media review)
-- a tiny static verifier in `scripts/check-static.mjs`
-
-Does not own:
-
-- article content or status labels
-- papers, proof ledgers, Lean code, MLIP experiments, or distillation policy
-- LUPI viewer code
-- Library reader UI
-
-## Local Smoke
-
-Use Git Bash for Node commands on Windows.
+## Build and check
 
 ```bash
-npm run verify
-python -m http.server 8080 -d public
+npm ci
+npm run build     # regenerates articles, /about/, llms.txt, feed, sitemap, headers
+npm run lint
+npm run verify    # static checks, article images, motion manifests, perf budget
+npm test
+npm run dev       # local preview
 ```
-
-Open `http://localhost:8080`.
 
 Container smoke:
 
@@ -44,33 +41,51 @@ docker run --rm -p 8080:8080 lupine-science
 curl -fsS http://localhost:8080/health
 ```
 
-## Public Posture
+## Public posture
 
-Public paper status on this page must stay minimal:
+- No Lupine paper has been peer-reviewed or accepted yet. Say so plainly.
+- Quote a number only with the scope and qualifiers its evidence file attaches
+  to it, and keep failures beside passes.
+- Counts of theorems, commits or articles are not evidence and do not appear
+  as headlines. Lean 4 checks the arithmetic and stated inequalities behind
+  published numbers; it does not check the physics, the reference data or the
+  pipeline.
+- No funding statements. Investors appear only in the contact line.
+- Correction is a research question here, not a product: it has held only in
+  narrow, stated cases.
+- When a public claim is retired, add it to `/corrections/` with the date and
+  the reason.
 
-- working draft in preparation
-- no peer review
-- no acceptance
-- no journal or venue assignment
+The full rules, including status labels and retired wording, are in
+[docs/messaging-canon.md](docs/messaging-canon.md).
 
-Do not add counters, submission claims, or scientific verdicts here. Link to the
-Library and repository for current claim labels and evidence.
+## Related surfaces
 
-## Canonical Surfaces
+- Research code, data and the hypothesis ledger:
+  <https://github.com/alexwelcing/lupine-rhizo>
+- Library: <https://library.lupine.science>
+- LUPI, the browser structure viewer: <https://lupi.live>
+- Earlier monorepo history: <https://github.com/alexwelcing/lupine>
 
-- Library: `https://library.lupine.science`
-- LUPI viewer: `https://lupi.live`
-- Repository: `https://github.com/alexwelcing/lupine`
-- MLIP progress API:
-  `https://glim-think-v1.aw-ab5.workers.dev/research/mlip-discovery/progress`
+## Contact
 
-The intended Library migration target remains `library.lupine.site`, but public
-links should stay on `library.lupine.science` until that DNS/TLS cutover is live.
+Research partners, model builders, press and investors: alex@lupinesci.com.
+
+## Licences
+
+You can reuse our code (MIT) and our first-party text and data (CC BY 4.0)
+with attribution and no share-alike obligations. See `LICENSE`,
+`LICENSE-CONTENT.md`, `LICENSE-DATA.md` and `NOTICE.md`; third-party material
+keeps its own terms.
 
 ## Docs
 
-- [LUPINE.md](LUPINE.md): how this repo fits the Lupine constellation
-- [docs/extraction-packet.md](docs/extraction-packet.md): original split plan
-- [docs/boundaries.md](docs/boundaries.md): ownership rules
-- [docs/operations.md](docs/operations.md): local, deploy, and live checks
+- [docs/messaging-canon.md](docs/messaging-canon.md): mission, claims, voice
+  and status labels
+- [docs/brand-book.md](docs/brand-book.md): visual system
+- [docs/content-design-system.md](docs/content-design-system.md): article
+  types and templates
+- [docs/operations.md](docs/operations.md): local, deploy and live checks
 - [docs/release-checklist.md](docs/release-checklist.md): public release gate
+- [docs/boundaries.md](docs/boundaries.md): what this repo owns
+- [LUPINE.md](LUPINE.md): how this repo fits with the other Lupine repositories

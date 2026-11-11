@@ -6,44 +6,44 @@
 
 ## 1. Brand Identity
 
+Words on every surface follow [messaging-canon.md](messaging-canon.md): the
+mission, one-liner, claims with their qualifiers, retired wording and status
+labels live there. Where this book and the canon disagree, the canon wins.
+
 ### 1.1 Mission
 
-Lupine Science is the trust layer for the age of AI-designed matter. AI is crossing from bits to atoms; every prediction of matter still rests on interatomic potentials that are wrong in structured ways. Lupine measures that wrongness, proves it, corrects it, and makes the evidence inspectable.
+Make AI predictions of new materials checkable before a lab commits to them.
+
+Lupine Science measures where machine-learned models of atoms go wrong,
+against published references and pass/fail gates set in advance, and
+publishes every verdict, failures included. Tagline: **Evidence before
+claim.**
 
 ### 1.2 Positioning
 
-**Category:** error geometry for interatomic potentials
+Lupine Science is an early-stage, founder-led research company doing
+independent, preregistered measurement of MLIP error. Correction is a research
+question here, not a product: it has held only in narrow, stated cases.
 
-**Winning thesis:** Own the trust question for interatomic potentials — what does this model get wrong, is the wrongness structured, can the evidence be inspected, and what correction target follows?
-
-**Primary wedges:**
-- MLIP Failure Geometry Audit
-- Evidence Pack for a paper, dataset, or benchmark
-- Potential Trust Report for a material family
-- Ledger-backed research loop for model evaluation
+Audiences, in order: MLIP builders and benchmark maintainers; computational
+materials scientists and lab directors; HPC, security and legal reviewers;
+press and analysts. Investors are reached through the contact line only.
 
 ### 1.3 Voice
 
 | Attribute | Do | Don't |
 |---|---|---|
-| **Proof-first** | Lead with measured numbers and machine-checked claims | "Revolutionary," "game-changing," hype adjectives |
-| **Confident, not arrogant** | State what is proven plainly; name what is still open | Overclaim or hide uncertainty |
-| **Frontier-technical but legible** | Make a hard idea understandable to a smart non-expert | Jargon-wall the reader |
-| **Category-defining** | Speak as the one creating "error geometry for interatomic potentials" | Sound like a generic simulation SaaS |
+| **Scope first** | Say what was tested, on what, against which reference, then what it showed | Lead with a number and leave its scope for later |
+| **Failures beside passes** | Put failed and abstained results next to the ones that held | Show only the passes |
+| **Plain words** | Make a hard idea understandable to a careful non-expert | Jargon walls, hype adjectives, "category-defining" framing |
+| **Results, not counters** | Quote results with their qualifiers | Counts of theorems, commits, articles or films as evidence |
 
-**Preferred phrases:** error geometry · field evidence · science spine · claim lifecycle · inspectable evidence · lab-facing research corpus · MLIP Failure Geometry Audit · agentic research control plane
+**Numbers rule:** quote a figure only if it appears in a linked article or
+data file, with its scope in the same sentence; never quote counts of
+commits, articles or theorems as evidence.
 
-**Retired phrases:** atom-logo framing · legacy Atlas labels · "materials organization" generics · unsupported claims that the science is settled
-
-### 1.4 Narrative spine for pitches
-
-1. **Inflection:** AI is leaving the screen and entering matter
-2. **Catch:** It is designing matter on predictions that are wrong
-3. **Insight:** The wrongness has a shape — a low-dimensional error geometry
-4. **Proof:** We mapped it, tested it across classical and foundation MLIPs, and machine-checked the map in Lean 4
-5. **Product:** A correction layer (floor) and a materials-IP discovery engine (ceiling)
-6. **Moat:** Proof-grade rigor + self-refutation discipline + compounding manifold coverage
-7. **Vision:** The validation substrate for a real-world Replicator
+Retired wording and its replacements are listed in
+[messaging-canon.md](messaging-canon.md) §5–§6.
 
 ---
 
@@ -64,7 +64,8 @@ Lupine Science is the trust layer for the age of AI-designed matter. AI is cross
 | **Indigo line** | `rgba(61,77,179,0.24)` | Borders, underlines |
 | **Ochre** | `#8a5e1f` | Rare third accent (caution, distinction) |
 | **Ochre wash** | `rgba(168,119,43,0.10)` | Caution backgrounds |
-| **Verified** | `#3a8f5b` | Status badges only |
+| **Green** | `#3a8f5b` (text: `#2f7449`) | The "Supported" result label only |
+| **Red** | `#a3402f` | The "Failed" result label only |
 
 **Rule:** Every generated image is paper + indigo + ink. If it drifts, palette-lock it to a warm-white→indigo duotone.
 
@@ -83,23 +84,17 @@ Lupine Science is the trust layer for the age of AI-designed matter. AI is cross
 - The mark is an atom-orbit + petal system
 - **Do not** add flowers, literal lupine blooms, or photographic nature imagery
 
-### 2.4 The ownable hero motif: "the shape of wrongness"
+### 2.4 Background motifs
 
-The central, repeatable image is the **hyper-ribbon manifold**: scattered faint error vectors resolving onto a single luminous indigo ribbon on warm paper. It is the thesis made visible.
+The ribbon-and-particles motif on the homepage is decoration, drawn from error
+statistics of four classical potentials. Caption it as an illustration
+wherever it appears; never present it as a result about machine-learned
+potentials, and do not call it a "hyper-ribbon", a "manifold" or "the shape
+of wrongness" in public copy.
 
-**Where it repeats:**
-- Cover / OG image
-- Site hero background
-- Proof slide
-- Moat / vision slides
-
-**Secondary motifs:**
-- **Bits → atoms:** pixels/glyphs dissolving into a crystalline lattice
-- **Error vectors aligning:** many near-parallel arrows collapsing to one direction
-- **Compounding geometry:** a crystal/flywheel growing outward
-- **Upstream cascade:** a single point of indigo light rippling through a sparse lattice
-- **Crystalline form:** abstract mineral-like structures rendered in paper and indigo
-- **Diffraction:** wave interference patterns suggesting measured fields and correction layers
+Other decorative motifs (crystalline forms, diffraction-like interference,
+sparse lattices) follow the same rule: a picture may not imply a measurement
+it does not encode.
 
 **No-go visuals:** flowers, people, text baked into images, dark neon backgrounds, glowing-circuit AI tropes, stock 3D renders
 
@@ -135,7 +130,7 @@ The central, repeatable image is the **hyper-ribbon manifold**: scattered faint 
 - **Hero:** image or video, 16:9 or 3:2
 
 #### White paper
-- **Purpose:** Definitive document for investors, reviewers, or collaborators
+- **Purpose:** Definitive document for reviewers, collaborators and labs
 - **Structure:** title → abstract → metadata → table of contents → sections → conclusion → references
 - **Tone:** formal, proof-forward, exhaustive
 - **Special:** page numbers in print; numbered sections; equation support
@@ -152,8 +147,8 @@ The central, repeatable image is the **hyper-ribbon manifold**: scattered faint 
 - **Tone:** friendly but minimal; every step is actionable
 - **Special:** step counters; terminal/code blocks; `tip` and `warning` callouts
 
-#### Proof pack
-- **Purpose:** Compact evidence bundle attached to a claim
+#### Evidence record (type value `proof-pack`)
+- **Purpose:** Compact evidence bundle attached to a claim. In prose call it an "evidence record"; it checks the integrity and provenance of files and does not prove the claim
 - **Structure:** claim statement → status badge → evidence summary → methods → data → conclusion → audit links
 - **Tone:** sparse, courtroom-like; every sentence is verifiable
 - **Special:** `claim`, `evidence`, and `refuted` callouts; linked artifacts; status badges
@@ -175,11 +170,11 @@ The first blockquote in any `.md` file is treated as metadata:
 >
 > **Date:** 2026-06-30
 >
-> **Scope:** Trustworthy AI for materials discovery
+> **Scope:** Measuring where machine-learned potentials go wrong
 >
 > **Description:** One-line summary for cards and meta tags.
 >
-> **Audience:** Investors, materials scientists, AI-for-science teams
+> **Audience:** Materials scientists, MLIP teams
 >
 > **Status:** Published
 ```
@@ -211,19 +206,28 @@ Variants: `.info`, `.warning`, `.proof`, `.todo`, `.claim`, `.refuted`
 
 ```markdown
 <span class="status published">Published</span>
-<span class="status draft">Draft</span>
-<span class="status verified">Verified</span>
-<span class="status refuted">Refuted</span>
+<span class="status draft">Working draft</span>
+<span class="status direction">Direction</span>
+<span class="status archived">Archived</span>
 ```
+
+Document status is one of Published, Working draft, Direction or Archived.
+Result labels (Supported, Open, Failed, Abstained, Refuted by us,
+Self-corrected, Withdrawn) go inline next to the result they describe.
+"Lean-checked arithmetic" is a badge, never a status. There is no "Verified"
+badge.
 
 #### Stat row
 
 ```markdown
 <div class="stat-row">
-  <div class="stat"><span class="num">14/15</span><span class="caption">Elements transfer</span></div>
-  <div class="stat"><span class="num">&gt;0.8</span><span class="caption">Cross-MLIP cosine</span></div>
+  <div class="stat"><span class="num">14.55 vs 14.61 GPa</span><span class="caption">1×1×1 vs 3×3×3 elastic MAE, 16 cubic metals</span></div>
+  <div class="stat"><span class="num">0/4</span><span class="caption">Round-4 ionics correction: failed</span></div>
 </div>
 ```
+
+A stat row holds results with their scope, failures included. Never put a
+counter (theorems, commits, articles) in a stat row.
 
 #### CTA box
 
@@ -268,11 +272,13 @@ Start every prompt with the shared style suffix:
 
 For brand-vibe iteration we run a **make → evaluate → mutate** loop:
 
-1. **Generate** a controlled matrix of stills across motifs and variants with `media/projects/brand-exploration/scripts/generate_matrix.py`
-2. **Review** in `media/projects/brand-exploration/renders/gallery.html` with palette / composition / on-brand / hero-usable scoring and a shortlist
-3. **Explore** live combinations in `media/projects/brand-exploration/renders/playground.html`: procedural hyper-ribbon overlaid with any still, tunable density, curve, opacity, and speed
-4. **Mutate** the shortlist into next-generation prompts with `scripts/mutate_prompts.py`
-5. **Regenerate** and repeat
+1. **Generate** a controlled matrix of stills across motifs and variants
+2. **Review** them for palette, composition and fit, and keep a short list
+3. **Mutate** the short list into next-generation prompts
+4. **Regenerate** and repeat
+
+Exploration tooling and raw generations stay out of this public repository;
+only assets that a published page uses are committed.
 
 ### 4.3 Curation rules
 
@@ -312,7 +318,7 @@ Current motifs:
 - **Motion over static:** Prefer subtle motion (parallax, slow zoom, ribbon animation) over static images
 - **No baked-in text:** All text rendered as overlays or captions, never baked into the image
 - **Palette lock:** Every frame is paper + indigo + ink. If a generated frame drifts, palette-lock it in post
-- **Hero motif:** The hyper-ribbon manifold is the recurring visual anchor
+- **Background motif:** the ribbon motif may recur as decoration; caption it as an illustration and never let it stand in for a result
 
 ### 5.3 Production pipeline
 
@@ -334,11 +340,11 @@ Many frames that came through were not usable. The bar is:
 
 ---
 
-## 6. Proof Pack Design
+## 6. Evidence Record Design
 
 ### 6.1 Purpose
 
-Each proof pack is a compact scientific dossier, not a printout of the article. The hierarchy is deliberately editorial: claim first, evidence second, audit trail always visible.
+Each evidence record (file type "proof pack" in the build tooling) is a compact scientific dossier, not a printout of the article. The hierarchy is deliberately editorial: claim first, evidence second, audit trail always visible.
 
 ### 6.2 Pack anatomy
 
@@ -386,7 +392,7 @@ Place the card after the article deck/byline and before the hero figure on deskt
 **Visual specification:**
 - Full article-column width; paper-deep background; 1 px rule border; 3 px indigo left rule; 6 px radius
 - Internal layout: `minmax(0, 1fr) auto`, 20–24 px gap, 18–20 px padding
-- Left stack: mono eyebrow `EVIDENCE PROOF PACK`, serif title `Download the evidence behind this article`, one two-line description, then mono metadata
+- Left stack: mono eyebrow `EVIDENCE RECORD`, serif title `Download the evidence behind this article`, one two-line description, then mono metadata
 - Right action: native `<a download>` styled as a compact button, minimum 44 × 44 px target, indigo fill, paper text
 - Print: replace the button with the canonical PDF URL in plain mono text or hide the card
 
@@ -449,10 +455,10 @@ Location: `lupine-science/public/brand-assets/assets/images/`
 
 Location: `lupine-science/public/brand-assets/patterns/`
 
-- `hyper-ribbon.svg` — the central "shape of wrongness" motif on paper
-- `error-vectors.svg` — scattered vectors converging toward alignment
+- `hyper-ribbon.svg` — the ribbon background motif on paper (decoration, not data)
+- `error-vectors.svg` — scattered strokes for backgrounds (decoration, not data)
 - `lattice-dots.svg` — subtle crystalline texture for backgrounds
-- `dark-ribbon.svg` — hyper-ribbon on a deep ink ground for dark slides
+- `dark-ribbon.svg` — the ribbon motif on a deep ink ground for dark slides
 
 Regenerate with `npm run build` or `node scripts/build-brand-patterns.mjs`.
 
@@ -494,7 +500,7 @@ Before any asset goes public, check:
 1. **Palette** — paper + indigo + ink, no drift
 2. **Typography** — Newsreader for headlines/body, IBM Plex Mono for labels/code
 3. **Imagery** — no text baked in, no people, no flowers, no neon, no dark backgrounds
-4. **Voice** — proof-first, confident, legible, category-defining
+4. **Voice** — scope first, failures beside passes, plain words, results not counters (see `messaging-canon.md`)
 5. **Claims** — every claim has a citation, figure, or link
 6. **Accessibility** — alt text, semantic HTML, readable font sizes
 
@@ -502,11 +508,11 @@ Before any asset goes public, check:
 
 | Area | Owner | Contact |
 |---|---|---|
-| Brand identity | Alex Welcing | founders@lupine.science |
-| Visual system | Alex Welcing | founders@lupine.science |
-| Content design | Alex Welcing | founders@lupine.science |
-| Video production | Alex Welcing | founders@lupine.science |
-| Website | Alex Welcing | founders@lupine.science |
+| Brand identity | Alex Welcing | alex@lupinesci.com |
+| Visual system | Alex Welcing | alex@lupinesci.com |
+| Content design | Alex Welcing | alex@lupinesci.com |
+| Video production | Alex Welcing | alex@lupinesci.com |
+| Website | Alex Welcing | alex@lupinesci.com |
 
 ### 9.3 Change control
 
@@ -517,9 +523,10 @@ Before any asset goes public, check:
 ### 9.4 Handoff checklist for new team members
 
 - [ ] Read this brand book
-- [ ] Review `brand-guidelines.md` for the pitch-ready summary
+- [ ] Read `messaging-canon.md` for mission, claims and status labels
+- [ ] Review `brand-guidelines.md` for the short summary
 - [ ] Review `content-design-system.md` for the component reference
-- [ ] Review `proof-pack-design.md` for the proof pack specification
+- [ ] Review `proof-pack-design.md` for the evidence-record specification
 - [ ] Browse the image gallery at `public/brand-assets/index.html`
 - [ ] Browse the article components at `public/articles/components.html`
 - [ ] Run the brand pattern builder: `node scripts/build-brand-patterns.mjs`
@@ -530,21 +537,18 @@ Before any asset goes public, check:
 
 ## 10. Production Files
 
-- **Brand narrative:** `lupine/docs/brand/narrative.md`
-- **Market strategy:** `lupine/docs/brand/market-strategy.json`
-- **Company profile:** `lupine/fundraise/company-profile.md`
-- **Deck content:** `lupine/fundraise/lupine-science-deck.md`
-- **Art direction:** `lupine/fundraise/art-direction.md`
+- **Messaging canon:** `lupine-science/docs/messaging-canon.md`
+- **Company facts and claims:** `lupine-science/data/company.json`
 - **Generated brand stills:** `lupine-science/public/brand-assets/`
 - **Brand asset manifest:** `lupine-science/data/brand-asset-pack.json`
 - **Procedural brand patterns:** `lupine-science/public/brand-assets/patterns/`
 - **Dark deck design tokens:** `lupine-science/public/brand-assets/deck-dark.css`
 - **Dark deck sample:** `lupine-science/public/brand-assets/deck-dark-sample.html`
 - **Content design system:** `lupine-science/docs/content-design-system.md`
-- **Brand guidelines (pitch-ready):** `lupine-science/docs/brand-guidelines.md`
+- **Brand guidelines:** `lupine-science/docs/brand-guidelines.md`
 - **Proof pack design:** `lupine-science/docs/proof-pack-design.md`
 - **This brand book:** `lupine-science/docs/brand-book.md`
 
 ---
 
-*Last updated: 2026-07-18. This document is the source of truth for the Lupine Science brand. If anything conflicts with an older document, this book wins.*
+*Last updated: 2026-11-11. Visual and production rules live here; words, claims and status labels follow `messaging-canon.md`, which takes precedence.*

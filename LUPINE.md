@@ -1,33 +1,29 @@
-# Lupine Constellation
+# Lupine repositories
 
-Lupine is a connected open-science system for making materials prediction
-inspectable: public claims, public evidence, public instruments, and public
-research machinery.
+Lupine Science measures where machine-learned models of atoms go wrong and
+publishes every verdict, failures included. The work is spread across a few
+public repositories.
 
-## This Repo
+## This repository
 
-**Lupine Science** is the public signal at `https://lupine.science`.
+**lupine-science** is the source for <https://lupine.science>: the homepage,
+company facts, articles, the corrections log, films and the venture deck
+behind its password wall.
 
-It owns the small public front door and routes people to the right surface. It
-does not adjudicate claims or host the research corpus.
+## Related repositories
 
-## Sibling Repos
-
-- **Lupine Ledger**: `https://github.com/alexwelcing/lupine-ledger`
-  - Public evidence record and Library reader.
-  - Site: `https://library.lupine.science`
-- **Lupi**: `https://github.com/alexwelcing/Lupi`
-  - Browser-native molecular viewer and agent-driven inspection surface.
-  - Site: `https://lupi.live`
-- **Lupine Rhizo**: `https://github.com/alexwelcing/lupine-rhizo`
-  - Deep science workbench: Lean, Rust, MLIP loops, evidence generation,
-    agents, and export contracts.
+- **lupine-rhizo**: <https://github.com/alexwelcing/lupine-rhizo>. Research
+  code, benchmark data, preregistrations, the hypothesis ledger and the Lean
+  sources.
+- **lupine-ledger**: <https://github.com/alexwelcing/lupine-ledger>. The
+  Library reader at <https://library.lupine.science>.
+- **Lupi**: <https://github.com/alexwelcing/Lupi>. LUPI, the browser structure
+  viewer at <https://lupi.live>.
+- **lupine**: <https://github.com/alexwelcing/lupine>. The earlier monorepo,
+  kept for history.
 
 ## Contract
 
-This repo should link outward rather than copy inward. Scientific claims,
-evidence status, and paper/proof details should stay canonical in Ledger and
-Rhizo.
-
-Historical development lives in `https://github.com/alexwelcing/lupine` during
-the transition.
+Claims and their evidence live with the research code and data in
+lupine-rhizo. This site quotes them with their qualifiers and links back;
+it does not create new results.
