@@ -39,11 +39,13 @@ const handWritten = {
 const BLOCKLIST = Buffer.from('dGFpbGQ2ZjhjYgoudHMubmV0CmFsZWRldgovLmhlcm1lcwpIZXJtaXRhZ2UKQ292ZW5hbnQKQ2hyb21lIFJlbW90ZSBEZXNrdG9wCkBnbWFpbC5jb20KY3JlYXRlRnV0dXJlCkNvbmZpZGVudGlhbApETyBOT1QgRElTVFJJQlVURQpSYWlzaW5nIH4Kbm90IHJhaXNpbmcKQ2xvc2VkIHRvIGZ1cnRoZXIgaW52ZXN0b3JzCmltbWVkaWF0ZSBwYXJ0bmVycwpYLUFtei0KU2lnbmF0dXJlPQpjbGF1ZGUuYWkvY2hhdApjaGF0Z3B0LmNvbS9jLwpnZW1pbmkuZ29vZ2xlLmNvbS9hcHAv', 'base64')
   .toString('utf8').split('\n')
   .map((term) => new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'));
-const LEAK_TOKEN = /[?&]token=/;
+// signed-URL query parameter, assembled so the literal is not in this file
+const LEAK_TOKEN = new RegExp(`[?&]${['tok', 'en'].join('')}=`);
 // Funding statements are not published anywhere; only the neutral contact
 // line may name investors. The corrections page records that a funding line
 // was retired without repeating it.
-const FUNDING = [/\bnot raising\b/i, /closed to further investors/i, /\bfunded\b/i, /\braising\b/i, /\bthe ask\b/i];
+// (the encoded blocklist above already covers the exact retired funding lines)
+const FUNDING = [/\bfunded\b/i, /\braising\b/i, /\bthe ask\b/i];
 // Retired headline claims (docs/messaging-canon.md, "Retired").
 const RETIRED = [
   /Verified AI predictions/i, /makes AI predictions[^.]*trustworthy/i, /~\s?70\s?%/, /cos\s*(θ\s*)?≈\s*0\.69/,
