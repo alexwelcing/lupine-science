@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Builds public/data/atlas_nodes.json from the Lupine knowledge wiki DB.
 //
-// Source: SQLite at $LUPINE_WIKI_DB (default ~/.hermes/lupine-wiki.db),
+// Source: the knowledge-wiki SQLite file named by $LUPINE_WIKI_DB,
 // the same DB the lupine-science plugin's lupine_wiki_search /
 // lupine_wiki_get read. We pull exactly the three ontology kinds the
 // public site needs to surface today (error_type, emblem, material_class)
@@ -26,8 +26,9 @@ import { DatabaseSync } from 'node:sqlite';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'public', 'data', 'atlas_nodes.json');
-const DB = process.env.LUPINE_WIKI_DB
-  || path.join(process.env.HOME || '/root', '.hermes', 'lupine-wiki.db');
+// No default location: local agent-tool paths do not belong in this public
+// repository. Without LUPINE_WIKI_DB the committed inventory is kept (below).
+const DB = process.env.LUPINE_WIKI_DB || '';
 
 // Floor counts below which we refuse to ship — see the comment on
 // ONT-1 / SPH-1 / KG-2 in the kanban, and the lupine-ledger ontology
@@ -48,14 +49,14 @@ function fail(message) {
 // artifact cannot ship unnoticed. Set LUPINE_FORCE_ATLAS_WIKI=1 to opt back
 // into the strict (DB-required) mode for hosts that DO run the timer.
 const STRICT = process.env.LUPINE_FORCE_ATLAS_WIKI === '1';
-if (!fs.existsSync(DB)) {
+if (!DB || !fs.existsSync(DB)) {
   if (STRICT) {
     fail(`wiki DB not found at ${DB}; is lupine-wiki-refresh.timer healthy? (LUPINE_FORCE_ATLAS_WIKI=1)`);
   }
   if (!fs.existsSync(OUT)) {
     fail(`wiki DB not found at ${DB} and no committed ${path.relative(ROOT, OUT)} exists; cannot skip — bootstrap by running once on a host with the wiki DB, or set LUPINE_FORCE_ATLAS_WIKI=1`);
   }
-  console.log(`wiki DB absent at ${DB} — keeping the committed ${path.relative(ROOT, OUT)}`);
+  console.log(`wiki DB absent at ${DB || "(LUPINE_WIKI_DB unset)"} — keeping the committed ${path.relative(ROOT, OUT)}`);
   process.exit(0);
 }
 
@@ -103,7 +104,7 @@ for (const kind of KINDS) {
 }
 
 const payload = {
-  source: 'lupine-research sphere of ~/.hermes/lupine-wiki.db',
+  source: 'the lupine-research sphere of the Lupine knowledge wiki',
   generated_at_build: true,
   kinds: buckets,
   counts: Object.fromEntries(KINDS.map((k) => [k, buckets[k].length])),

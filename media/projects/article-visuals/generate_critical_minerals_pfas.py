@@ -33,7 +33,7 @@ MUTED = '#aaaaaa'
 SLUG = 'critical-minerals-pfas-and-the-remediation-imperative'
 REPO_ROOT = Path(__file__).resolve().parents[3]
 OUT_DIR = REPO_ROOT / 'public/articles' / SLUG / 'images'
-MINIMAX_CLIENT = Path('/home/alex/.hermes/skills/lupine-media-director/scripts/minimax_client.py')
+MINIMAX_CLIENT = Path(os.environ['LUPINE_MINIMAX_CLIENT'])
 
 DPI = 150
 W, H = 1280, 720

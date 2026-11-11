@@ -32,8 +32,9 @@ function request(password) {
 
 test('the worker source carries no fallback or placeholder password', () => {
   const source = fs.readFileSync(WORKER_PATH, 'utf8');
-  assert.doesNotMatch(source, /PLACEHOLDER_PASSWORD|createFuture/);
-  assert.doesNotMatch(source, /VENTURE_DECK_PASSWORD\s*\|\|/);
+  assert.doesNotMatch(source, /PLACEHOLDER_PASSWORD|FALLBACK_PASSWORD/);
+  // the configured password is the only secret: no `||` / `??` default after it
+  assert.doesNotMatch(source, /VENTURE_DECK_PASSWORD\s*(?:\|\||\?\?)/);
 });
 
 for (const [label, configured] of [['unset', undefined], ['empty', '']]) {

@@ -33,13 +33,13 @@ const handWritten = {
   'public/corrections/index.html': fs.readFileSync(path.join(ROOT, 'public', 'corrections', 'index.html'), 'utf8'),
 };
 
-// Phrases that must not appear anywhere we publish from these sources.
-const BLOCKLIST = [
-  /taild6f8cb/i, /\.ts\.net\b/i, /aledev/i, /\/\.hermes\b|~\/\.hermes/i, /\bHermitage\b/, /\bCovenant\b/,
-  /Chrome Remote Desktop/i, /@gmail\.com/i, /createFuture/, /\bConfidential\b/i, /DO NOT DISTRIBUTE/i,
-  /Raising ~/i, /not raising/i, /Closed to further investors/i, /immediate partners/i, /X-Amz-|Signature=|[?&]token=/,
-  /claude\.ai\/chat|chatgpt\.com\/c\/|gemini\.google\.com\/app\//i,
-];
+// Leak blocklist (host names, local agent paths, credential and signed-URL
+// markers, internal labels). Stored encoded so this guard does not itself
+// carry the strings it forbids; matched case-insensitively as plain text.
+const BLOCKLIST = Buffer.from('dGFpbGQ2ZjhjYgoudHMubmV0CmFsZWRldgovLmhlcm1lcwpIZXJtaXRhZ2UKQ292ZW5hbnQKQ2hyb21lIFJlbW90ZSBEZXNrdG9wCkBnbWFpbC5jb20KY3JlYXRlRnV0dXJlCkNvbmZpZGVudGlhbApETyBOT1QgRElTVFJJQlVURQpSYWlzaW5nIH4Kbm90IHJhaXNpbmcKQ2xvc2VkIHRvIGZ1cnRoZXIgaW52ZXN0b3JzCmltbWVkaWF0ZSBwYXJ0bmVycwpYLUFtei0KU2lnbmF0dXJlPQpjbGF1ZGUuYWkvY2hhdApjaGF0Z3B0LmNvbS9jLwpnZW1pbmkuZ29vZ2xlLmNvbS9hcHAv', 'base64')
+  .toString('utf8').split('\n')
+  .map((term) => new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'));
+const LEAK_TOKEN = /[?&]token=/;
 // Funding statements are not published anywhere; only the neutral contact
 // line may name investors. The corrections page records that a funding line
 // was retired without repeating it.
@@ -54,7 +54,7 @@ const RETIRED = [
 
 for (const [name, text] of Object.entries({ ...generated, ...handWritten })) {
   test(`${name}: no leak-blocklist strings`, () => {
-    for (const pattern of BLOCKLIST) assert.doesNotMatch(text, pattern, `${name} matches ${pattern}`);
+    for (const pattern of [...BLOCKLIST, LEAK_TOKEN]) assert.ok(!pattern.test(text), `${name} contains a blocklisted string`);
   });
 }
 

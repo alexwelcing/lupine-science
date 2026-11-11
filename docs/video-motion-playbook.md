@@ -171,7 +171,7 @@ Credentials, first match wins:
 
 | Provider | Sources |
 | --- | --- |
-| `minimax` | `MINIMAX_API_KEY`, `.keys/minimax-key`, `~/.hermes/auth.json` (`minimax-oauth`) |
+| `minimax` | `MINIMAX_API_KEY`, `.keys/minimax-key`, or a local OAuth record named by `MINIMAX_OAUTH_FILE` (`minimax-oauth`) |
 | `fal` | `FAL_KEY`, `.keys/fal-key` |
 
 ### Every track is verified, never trusted

@@ -604,7 +604,7 @@ def make_10():
     out_path = OUT_DIR / 'investing-in-the-trust-layer-10-trust-loop-cta.jpg'
     subprocess.run([
         sys.executable,
-        '/home/alex/.hermes/skills/lupine-media-director/scripts/minimax_client.py',
+        os.environ['LUPINE_MINIMAX_CLIENT'],
         'image',
         '--prompt', prompt,
         '--aspect', '16:9',
