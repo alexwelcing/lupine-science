@@ -102,25 +102,25 @@ async function staticChecks() {
   else pass('three owner-controlled financing fields preserved');
   if (!visibleHtml.includes('One 30-path panel. One chemistry family. Not peer-reviewed.')) fail('mandatory risk headline is missing');
   else pass('mandatory risk headline is exact');
-  const currencyClaims = visibleHtml.match(/\$\d+(?:\.\d+)?/g) || [];
-  if (!currencyClaims.length || currencyClaims.some((claim) => claim !== '$14.65')) fail(`deck contains economics outside the frozen cost claim: ${currencyClaims.join(', ') || 'missing $14.65'}`);
-  else if (!visibleHtml.includes('$14.65 per 129 anchors')) fail('deck does not preserve the frozen $14.65 per 129 anchors basis');
-  else pass('public cost economics are frozen to $14.65 per 129 anchors');
+  // Financing belongs to the owner and lives on slide 13 only. No other slide
+  // may carry a currency figure (an earlier per-anchor cost came from an
+  // editor-review memo and was retired).
+  const financingSlide = visibleHtml.match(/<section class="slide" id="slide-13"[\s\S]*?<\/section>/)?.[0] || '';
+  const currencyClaims = visibleHtml.replace(financingSlide, '').match(/\$\d+(?:\.\d+)?/g) || [];
+  if (currencyClaims.length) fail(`deck contains cost figures outside the owner's financing slide: ${currencyClaims.join(', ')}`);
+  else pass('no cost figures outside the owner-controlled financing slide');
   const economicsSlide = visibleHtml.match(/<section class="slide" id="slide-07"[\s\S]*?<\/section>/)?.[0] || '';
   const economicsSlideText = economicsSlide.replace(/<[^>]*>/g, ' ');
   const economicsPercentages = economicsSlideText.match(/\d+(?:\.\d+)?%/g) || [];
-  if (!economicsPercentages.length || economicsPercentages.some((claim) => claim !== '72.4%')) fail(`slide 7 contains economics outside the frozen savings claim: ${economicsPercentages.join(', ') || 'missing 72.4%'}`);
+  if (!economicsPercentages.includes('72.4%') || economicsPercentages.some((claim) => !['72.4%', '73%'].includes(claim))) fail(`slide 7 contains economics outside the projected savings claim and its cap: ${economicsPercentages.join(', ') || 'missing 72.4%'}`);
+  else if (!/Projected/.test(economicsSlideText) || !/no new DFT/.test(economicsSlideText) || !/four separate runs/.test(economicsSlideText)) fail('slide 7 must label 72.4% as projected, with no new DFT and its four-separate-runs baseline');
   else if (/\b(?:558|154|139\.5|430|3\.62|3\.33|61\.0)\b/.test(visibleHtml)) fail('deck preserves superseded or derived economics outside the frozen allowlist');
-  else pass('public savings economics are frozen to 72.4% fewer DFT evaluations');
-  const scopedStillClaim = '100/100 unique still slots';
-  const scopedStillClaimCount = visibleHtml.split(scopedStillClaim).length - 1;
-  const otherHundredClaims = visibleHtml.replaceAll(scopedStillClaim, '').match(/100\/100/gi) || [];
-  if (scopedStillClaimCount !== 1) fail(`deck must contain exactly one precisely scoped "${scopedStillClaim}" claim`);
-  else if (otherHundredClaims.length) fail('deck contains an unscoped 100/100 claim');
-  else if (!visibleHtml.includes('33 certified baseline stills + 67 independently certified Wave-4 replacements')) fail('deck is missing the certified 33 + 67 still-slot arithmetic');
-  else if (!visibleHtml.includes('Closure gate t_c2a1f8e3')) fail('deck is missing the visible closure-gate citation');
-  else if (!visibleHtml.includes('five certified films excluded from the denominator')) fail('deck does not keep the five films outside the still denominator');
-  else pass('100/100 claim is precisely scoped to unique still slots with visible gate citation and films excluded');
+  else pass('public savings economics are limited to the projected 72.4%, with its baseline and 73% cap');
+  // Retired wording (docs/messaging-canon.md) and production statistics stay off the slides.
+  const retired = [/GtCO/i, /\btrust layer\b/, /FOR EDITOR REVIEW/i, /not for citation/i, /partners can/i, /experimental partners/i, /100\/100/, /t_[0-9a-f]{8}/, /\blicens(?:e|es|ed)\b/i, /proof layer/i];
+  const retiredHits = retired.filter((pattern) => pattern.test(visibleHtml.replace(financingSlide, '')));
+  if (retiredHits.length) fail(`deck slides 1–12 carry retired wording: ${retiredHits.join(', ')}`);
+  else pass('slides 1–12 carry no retired wording or production statistics');
 
   const closureClaim = evidence.claims['C-STILL-CLOSURE-01'];
   const closureDecision = evidence.discrepancies_and_exclusions['D-100-CHAIN'];

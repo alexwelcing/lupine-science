@@ -8,6 +8,7 @@ import { afterEach, describe, it } from 'node:test';
 import { PDFDocument } from 'pdf-lib';
 import { chromium } from 'playwright-core';
 import { renderDeckPdf, validateClosureCertification, validateDeckArtifacts } from '../scripts/venture-deck-tools.mjs';
+import { chromiumExecutablePath } from '../scripts/lib/chromium-executable.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const PROJECT = path.join(ROOT, 'media/projects/venture-deck');
@@ -120,10 +121,9 @@ function assertCanonicalBuildIntegrity() {
   const extracted = runCommand('pdftotext', ['-layout', projectPdf, '-']);
   assert.equal(extracted.status, 0, extracted.stderr);
   const pdfText = extracted.stdout.replace(/\s+/g, ' ');
-  assert.match(pdfText, /100\/100 unique still slots/);
-  assert.match(pdfText, /33 certified baseline stills \+ 67 independently certified Wave-4 replacements/);
-  assert.match(pdfText, /Closure gate t_c2a1f8e3/);
-  assert.match(pdfText, /five certified films excluded from the denominator/);
+  assert.match(pdfText, /Projected, no new DFT/);
+  assert.match(pdfText, /One 30-path panel\. One chemistry family\. Not peer-reviewed\./);
+  assert.doesNotMatch(pdfText, /100\/100|GtCO|FOR EDITOR REVIEW/);
   return sha256(projectPdf);
 }
 
@@ -238,7 +238,7 @@ describe('venture deck render tooling', () => {
     const files = workspace();
     const template = fs.readFileSync(path.resolve(import.meta.dirname, '../media/projects/venture-deck/index.html'), 'utf8');
     fs.writeFileSync(files.htmlPath, template.replace('__EVIDENCE_MANIFEST__', '{}'));
-    const browser = await chromium.launch({ headless: true });
+    const browser = await chromium.launch({ headless: true, executablePath: chromiumExecutablePath() });
 
     try {
       for (const viewport of [{ width: 1280, height: 800 }, { width: 1280, height: 577 }]) {
@@ -273,50 +273,55 @@ describe('venture deck render tooling', () => {
     }
   });
 
-  it('scopes the certified closure to 100/100 unique still slots and excludes films from the denominator', () => {
+  it('keeps the still-slot certification as asset provenance, off the slides', () => {
     const template = fs.readFileSync(path.join(PROJECT, 'index.html'), 'utf8');
     const narrative = fs.readFileSync(path.join(PROJECT, 'narrative-script.md'), 'utf8');
-    const artDirection = fs.readFileSync(path.join(PROJECT, 'art-direction.md'), 'utf8');
     const evidence = JSON.parse(fs.readFileSync(path.join(PROJECT, 'evidence-manifest.json'), 'utf8'));
-    const exactClaim = '100/100 unique still slots';
-    const exactBoundary = 'The five certified films are separate and remain outside the 100-still denominator.';
 
-    assert.match(template, new RegExp(exactClaim.replace('/', '\\/')));
-    assert.match(template, /Closure gate t_c2a1f8e3/);
-    assert.doesNotMatch(template, /100\/100 (?:models|campaigns|films|certification chain)/i);
-    assert.match(narrative, new RegExp(exactClaim.replace('/', '\\/')));
-    assert.match(narrative, new RegExp(exactBoundary.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
-    assert.match(artDirection, /only as `100\/100 unique still slots`/);
+    // production statistics are not evidence for the deck's argument
+    assert.doesNotMatch(template, /100\/100/);
+    assert.doesNotMatch(template, /Closure gate t_c2a1f8e3/);
+    assert.doesNotMatch(narrative, /100\/100/);
 
     const claim = evidence.claims['C-STILL-CLOSURE-01'];
     assert.equal(claim.claim, '33 certified baseline stills + 67 independently certified Wave-4 replacements = 100/100 unique still slots.');
     assert.equal(claim.films_outside_denominator, 5);
     assert.equal(claim.closure_gate_task, 't_c2a1f8e3');
+    assert.deepEqual(claim.slides, []);
     assert.equal(evidence.discrepancies_and_exclusions['D-100-CHAIN'].decision, 'Use only the precisely scoped 100/100 unique still slots closure claim; do not imply models, campaigns, films, or generic certification.');
-    assert.doesNotMatch(JSON.stringify(evidence.discrepancies_and_exclusions['D-100-CHAIN']), /100\/100 certification chain/i);
   });
 
-  it('fails closed to the two frozen public economics claims', () => {
+  it('labels the only savings figure as projected and shows no cost figure outside the owner financing slide', () => {
     const template = fs.readFileSync(path.join(PROJECT, 'index.html'), 'utf8');
     const evidence = JSON.parse(fs.readFileSync(path.join(PROJECT, 'evidence-manifest.json'), 'utf8'));
     const visibleTemplate = template.replace(/<script type="application\/json" id="evidence-manifest">[\s\S]*?<\/script>/, '');
+    const financingSlide = visibleTemplate.match(/<section class="slide" id="slide-13"[\s\S]*?<\/section>/)?.[0] || '';
     const economicsSlide = visibleTemplate.match(/<section class="slide" id="slide-07"[\s\S]*?<\/section>/)?.[0] || '';
-    const currencyClaims = visibleTemplate.match(/\$\d+(?:\.\d+)?/g) || [];
-    const economicsPercentages = economicsSlide.replace(/<[^>]*>/g, ' ').match(/\d+(?:\.\d+)?%/g) || [];
+    const economicsText = economicsSlide.replace(/<[^>]*>/g, ' ');
+    const economicsPercentages = economicsText.match(/\d+(?:\.\d+)?%/g) || [];
 
-    assert.deepEqual(evidence.policy.frozen_public_economics, [
-      '72.4% fewer DFT evaluations',
-      '$14.65 per 129 anchors',
-    ]);
-    assert.ok(currencyClaims.length > 0);
-    assert.ok(currencyClaims.every((claim) => claim === '$14.65'));
-    assert.match(visibleTemplate, /\$14\.65 per 129 anchors/);
-    assert.ok(economicsPercentages.length > 0);
-    assert.ok(economicsPercentages.every((claim) => claim === '72.4%'));
+    assert.deepEqual(evidence.policy.frozen_public_economics, ['72.4% fewer DFT evaluations (projected, no new DFT)']);
+    assert.deepEqual(visibleTemplate.replace(financingSlide, '').match(/\$\d+(?:\.\d+)?/g) || [], []);
+    assert.ok(economicsPercentages.includes('72.4%'));
+    assert.ok(economicsPercentages.every((claim) => ['72.4%', '73%'].includes(claim)));
+    assert.match(economicsText, /Projected/);
+    assert.match(economicsText, /no new DFT/);
+    assert.match(economicsText, /four separate runs/);
     assert.doesNotMatch(visibleTemplate, /\b(?:558|154|139\.5|430|3\.62|3\.33|61\.0)\b/);
     assert.deepEqual(evidence.slide_claim_ids['7'], ['C-ECON-01']);
     assert.equal(evidence.claims['C-ECON-02'], undefined);
     assert.equal(evidence.claims['C-ECON-DISTINCTION'], undefined);
+  });
+
+  it('frames climate as one lane and names no organisation as a partner', () => {
+    const template = fs.readFileSync(path.join(PROJECT, 'index.html'), 'utf8');
+    const visibleTemplate = template.replace(/<script type="application\/json" id="evidence-manifest">[\s\S]*?<\/script>/, '');
+    const financingSlide = visibleTemplate.match(/<section class="slide" id="slide-13"[\s\S]*?<\/section>/)?.[0] || '';
+    const slides = visibleTemplate.replace(financingSlide, '');
+    assert.doesNotMatch(slides, /GtCO|climate-critical|climate scale|climate-scale/i);
+    assert.doesNotMatch(slides, /partners can|experimental partners|FOR EDITOR REVIEW/i);
+    assert.match(slides, /batteries, catalysts, frameworks, climate materials(?:,| and) alloys/i);
+    assert.equal((financingSlide.match(/\[OWNER DECISION\]/g) || []).length, 3);
   });
 
   it('rejects closure evidence unless every Wave-4 group and aggregate certification passes', () => {

@@ -4,6 +4,7 @@ Status: executable handoff for web-integrator
 Format: 13 slides, 16:9, source-locked  
 Content authority: `media/projects/venture-deck/narrative-script.md`  
 Evidence authority: `media/projects/venture-deck/evidence-manifest.json`  
+Copy update (2026-11-11): slide copy now follows `docs/messaging-canon.md`; where a per-slide note below names older copy, claim IDs or figures, `index.html` and `narrative-script.md` win and the note governs layout only.  
 Asset authority: `media/projects/venture-deck/asset-lock.json`
 
 ## 1. Creative decision
@@ -85,8 +86,8 @@ Slides 1 and 13 may omit the top eyebrow only if the Lupine Science wordmark is 
 - Import or transcribe headline, body, ask, close, and source-footer strings exactly from `narrative-script.md`. The art spec never authorizes rewriting.
 - Claim tags remain implementation metadata (`data-claim-id`) and are not rendered.
 - Do not add chart values, tick values, dates, TAM, revenue, customers, partners, valuation, round size, runway, allocation percentages, hiring counts, or milestones.
-- Preserve exactly `$14.65 per 129 anchors`; never derive or substitute another cost basis.
-- Display the closure result only as `100/100 unique still slots`, supported by closure gate `t_c2a1f8e3`: 33 certified baseline stills + 67 independently certified Wave-4 replacements. Keep the five certified films explicitly outside the 100-still denominator. Never imply 100/100 models, campaigns, films, or generic certification.
+- Show no cost figure; never derive or substitute a cost basis.
+- Image-certification results (still-slot closure) are asset provenance recorded in `evidence-manifest.json`; they are not shown on slides.
 - The only approved public savings economics are `72.4% fewer DFT evaluations`. Do not derive, round, extrapolate, annualize, or substitute another economic quantity.
 - Slide 12 is mandatory and must say exactly: `One 30-path panel. One chemistry family. Not peer-reviewed.`
 - Slide 13 financing fields remain visibly unresolved `[OWNER DECISION]` slots.
@@ -109,11 +110,11 @@ Never recolor, mask with a gradient, add a shadow, place on a dark panel, or cro
 
 ## 5. Slide-by-slide direction
 
-### 01 — Five materials. A climate-scale trust problem.
+### 01 — Before the lab commits.
 
-- **Narrative copy:** render slide 1 headline and body verbatim; headline carries `data-claim-id="C-CLIMATE-01"`.
-- **Layout:** editorial cover. Headline at `x=112, y=124, w=1140`; emphasize only `5–12 GtCO₂/year` in indigo. Body at `x=112, y=330, w=930`. Asset spans `x=930, y=392, w=878, h=500` and may overlap the body column only after its last line.
-- **Visual role:** a sequence of increasingly specialized test bays stands for the five material-class opportunity and the verification burden without privileging a single class.
+- **Narrative copy:** render slide 1 headline and body verbatim; headline carries `data-claim-id="C-MISSION-01"`.
+- **Layout:** editorial cover. Headline at `x=112, y=124, w=1140`; emphasize only the second clause of the headline in indigo. Body at `x=112, y=330, w=930`. Asset spans `x=930, y=392, w=878, h=500` and may overlap the body column only after its last line.
+- **Visual role:** a sequence of increasingly specialized test bays stands for several materials lanes and the verification burden without privileging a single lane.
 - **Locked asset:** `SW1-B6-A02-01`, specialized test-bay sequence.
 - **Chart/form:** none. Do not create five icons or allocate new values per material.
 - **Footer:** exact slide 1 source footer.
@@ -154,13 +155,13 @@ Never recolor, mask with a gradient, add a shadow, place on a dark panel, or cro
 - **Honesty proof:** a 20px mono note above footer must retain that the first correction made predictions worse and the Lean law blocks wrong-direction correction. Do not promote `9.1%` or `16.9%` unless copied verbatim from the locked narrative; the narrative currently does not show them.
 - **Footer:** exact slide 5 source footer.
 
-### 06 — Proof today: one completed Z1 execution campaign.
+### 06 — Executed: the barrier gate failed.
 
-- **Narrative copy:** render slide 6 headline and body verbatim; claim metadata `C-Z1-EXEC-01`, `C-Z1-PANEL-01`, `C-Z1-MODELS-01`, `C-Z1-SPLIT-01`.
-- **Layout:** two KPI cells across `x=112–1808, y=280–460`: `129 anchors` and `$14.65`, preserving the approved `$14.65 per 129 anchors` basis. Below, asset occupies `x=112, y=500, w=1050, h=400`; panel description occupies `x=1220, y=520, w=588`.
+- **Narrative copy:** render slide 6 headline and body verbatim; claim metadata `C-ROUND4-Z1-01`, `C-Z1-PANEL-01`.
+- **Layout:** two KPI cells across `x=112–1808, y=280–460`: the measured MAE range and the 40 meV gate it failed. Below, asset occupies `x=112, y=500, w=1050, h=400`; panel description occupies `x=1220, y=520, w=588`.
 - **Chart/form:** KPI strip plus shared-anchor apparatus; no progress rings.
 - **Locked asset:** `SW1-B6-A01-01`, shared-reference diffusion rigs.
-- **Qualification:** if the two/two model split is shown, render the complete sentence from the speaker note including `6.8 meV undercoverage deficit`; never show only the successful half. Keep `FOR EDITOR REVIEW; not peer-reviewed` in the source/qualification zone.
+- **Qualification:** keep "Executed measurement; not peer-reviewed" in the qualification zone.
 - **Footer:** exact slide 6 source footer.
 
 ### 07 — Economics: the expensive oracle becomes shared infrastructure.
@@ -178,13 +179,13 @@ Never recolor, mask with a gradient, add a shadow, place on a dark panel, or cro
 - **Layout:** chain architecture from left to right across lower two-thirds: `reference anchor` → `provenance hash` → `Lean theorem` → `licensed gate`. All are live labels. The physical chain asset fills `x=450, y=300, w=1358, h=600`; body occupies `x=112, y=330, w=550` on paper whitespace. The closure rail occupies `x=112, y=640, w=590, h=232` with a live `t_c2a1f8e3` citation.
 - **Chart/form:** immutable provenance chain, not a network cloud. Use indigo for the single verified route only.
 - **Locked asset:** `SW1-B4-A04-02`, calibration traceability chain.
-- **Scope lock:** use only `100/100 unique still slots`; show 33 + 67 arithmetic and state that five certified films are excluded from the denominator. No blockchain imagery, padlock icon, or proprietary-chemistry disclosure claim beyond the narrative.
+- **Scope lock:** show the record chain (reference, provenance hash, gate, verdict) and the corrections log; no production statistics, blockchain imagery, padlock icon, or proprietary-chemistry disclosure claim.
 - **Footer:** exact slide 8 source footer.
 
 ### 09 — Market: correction-as-acceleration for the discovery stack.
 
 - **Narrative copy:** render slide 9 headline and body verbatim; `data-claim-id="C-MARKET-01"`.
-- **Layout:** categorical value-chain rail: `model generation` → `Lupine trust layer` → `laboratory validation`. The center stage is outlined in indigo; both neighbors remain ink. Body sits below at `x=112, y=680, w=900`.
+- **Layout:** categorical value-chain rail: `model generation` → `independent measurement` → `laboratory validation`. The center stage is outlined in indigo; both neighbors remain ink. Body sits below at `x=112, y=680, w=900`.
 - **Asset:** `x=690, y=300, w=1118, h=560`; asset acts as the measured-result-to-pilot physical bridge.
 - **Locked asset:** `SW1-B3-A01-04`, calibrated holder / filtration skid.
 - **Chart/form:** ecosystem rail only. No market-size circle, logo cloud, target-customer logos, named partner marks, or signed-status implication.
@@ -264,8 +265,8 @@ for (const img of document.images) {
 - [ ] Only Newsreader and IBM Plex Mono are used.
 - [ ] All 13 asset paths and SHA-256 values pass the lock file.
 - [ ] No people, stock 3D, neon, dark fields, gradients, shadows, or baked text.
-- [ ] Public economics are limited to `72.4% fewer DFT evaluations` and `$14.65 per 129 anchors`.
-- [ ] The only visible `100/100` phrase is `100/100 unique still slots`, with five films outside the denominator.
+- [ ] Public economics are limited to `72.4% fewer DFT evaluations`, labelled projected with its baseline.
+- [ ] No production statistic (such as image-certification counts) appears on a slide.
 - [ ] Slide 12 risk language is exact and visually unavoidable.
 - [ ] Slide 13 retains all three `[OWNER DECISION]` fields with no inserted financing values.
 - [ ] Overflow, font-load, image-load, and 1920×1080 capture checks pass.

@@ -1,160 +1,121 @@
 # Lupine Science venture deck — source-locked narrative
 
-Status: downstream content foundation; not a finished deck. Every bracketed `C-*` tag resolves in `evidence-manifest.json`. Do not remove source footers in design. Do not turn roadmap items into completed claims.
+Status: downstream content foundation for the password-walled deck. Every bracketed `C-*` tag resolves in `evidence-manifest.json`. Words follow `docs/messaging-canon.md`: climate is one lane among several, no organisation is presented as a partner, projected figures are labelled projected, and the slide 13 financing fields are the owner's alone.
 
-## Slide 1 — Five materials. A climate-scale trust problem.
+## Slide 1 — Before the lab commits.
 
 **Headline**  
-Five material classes could unlock **5–12 GtCO₂/year** — if the predictions sent to laboratories are corrected and verified first. [C-CLIMATE-01]
+**Before a lab spends a year on a material, know whether to trust the prediction.** [C-MISSION-01]
 
 **Body**  
-Cobalt-free cathodes. Halide solid electrolytes. Direct-air-capture sorbents. Ammonia catalysts. Lead-free perovskites. The opportunity is climate-scale; the bottleneck is whether simulation results are reliable enough to spend scarce laboratory time on. [C-CLIMATE-01]
-
-**Speaker note**  
-Lead with consequence, not model architecture. The 5–12 figure is a contingent portfolio estimate, not achieved abatement.
+Batteries, catalysts, frameworks, climate materials, alloys. Machine-learned potentials screen them faster than labs can test them. We measure where these models go wrong, against published references and gates set in advance, and publish every verdict.
 
 **Source footer**  
-Lupine Science, “Five Materials That Could Unlock 5–12 GtCO₂/Year,” lines 2–16.
+Lupine Science, company facts (lupine.science/about/), data/company.json.
 
 ## Slide 2 — The pipeline leaks before matter is made.
 
 **Headline**  
-**380,000** computationally stable structures; **736** independently synthesized by late 2023: a reported **0.2% validation rate**. [C-SYNTHESIS-01]
+**380,000 computationally stable structures; 736 independently synthesized by late 2023: a reported 0.2% validation rate .** [C-SYNTHESIS-01]
 
 **Body**  
-Generation now outruns validation. At climate scale, more candidates do not help if errors survive generation, prediction, synthesis, and validation.
-
-**Speaker note**  
-The exact ratio is 0.1937%, rounded to 0.2%. This is a validation-rate indicator, not a claim that only 0.2% are synthesizable.
+Generation now outruns validation. More candidates do not help if errors survive generation, prediction, synthesis, and validation. Validation-rate indicator; not a universal synthesizability probability.
 
 **Source footer**  
 Lupine Science, “The 0.2% Synthesis Problem,” lines 7–16; Merchant et al., Nature 624 (2023), DOI 10.1038/s41586-023-06735-9.
 
-## Slide 3 — The accuracy wall: fast near equilibrium, wrong where decisions live.
+## Slide 3 — Rankings hold; magnitudes miss.
 
 **Headline**  
-Foundation MLIPs were measured across **21 materials**, **up to 9 properties**, and **228 published reference values**. [C-ACCURACY-01]
+**Foundation MLIPs were measured across 21 materials , up to 9 properties , and 228 published reference values .** [C-ACCURACY-01] [C-ACCURACY-02]
 
 **Body**  
-Bulk predictions can look close while surfaces, vacancies, faults, and transition states drift. In the measured benchmark, real-material rankings often survive even when magnitudes miss by tens of percent. [C-ACCURACY-02]
-
-**Speaker note**  
-This is the wedge: the universal model remains useful, but its confidence is not a certificate.
+In the measured benchmark, rankings often survive even when hard-property magnitudes miss by tens of percent. Bounded to the measured benchmark domain.
 
 **Source footer**  
 Lupine Science, “The Order Is Right, the Size Is Wrong,” lines 5–18 and 41–63.
 
-## Slide 4 — Correct the simulation at runtime. Do not retrain the model.
+## Slide 4 — Correction is a research question.
 
 **Headline**  
-A measured physical error field runs beside the live MLIP as an additive energy term with analytic forces. **No fine-tuning. No retraining.** [C-PRODUCT-01]
-
-**Body**  
-The workflow measures systematic error from reference anchors, applies a bounded correction during simulation, and preserves the customer’s existing simulator. The commercial boundary is deliberate: Lupine does not enter a per-material retraining loop. [C-PRODUCT-01]
-
-**Speaker note**  
-Say “measured field,” not “another neural net.” Do not claim universal transfer; transfer is licensed only inside a supported structure family.
+**Correction is a research question here, not a product. One narrow correction has held blind.** [C-CORRECTION-01]
 
 **Source footer**  
-Lupine Science, “Investing in the Trust Layer,” lines 51–63; “The Order Is Right, the Size Is Wrong,” lines 67–81.
+Lupine Science, “A smooth, environment-resolved error field…,” line 27.
 
-## Slide 5 — Certified inference: correct, bound, or abstain.
+## Slide 5 — Pass, fail or abstain.
 
 **Headline**  
-Every prediction takes one of three routes: **measured correction, bounded claim, or abstention** when evidence is insufficient. [C-PRODUCT-02]
+**Every test ends in one of three verdicts against a gate written down in advance: pass, fail or abstain.** [C-VERDICT-01] [C-HONESTY-01]
 
 **Body**  
-The proof layer licenses corrections only where evidence supports them. The honesty proof is preserved in public: the first correction made alloy predictions worse; the resulting Lean law now blocks wrong-direction correction, and unsupported cases abstain. [C-HONESTY-01]
-
-**Speaker note**  
-The product is not “always more accurate.” It is a decision system that knows when correction is allowed and when refusal is safer.
+In four preregistered campaigns in July 2026 (Round 4), no gate passed: three failed and one abstained. Our first correction made alloy predictions worse, and that record stays public too. Amendments made after results are seen are labelled; the original verdict stays beside them.
 
 **Source footer**  
-Lupine Science, “The Correction That Hurt, and the Theorem That Stopped It,” lines 19–35 and 49–55.
+Lupine Science, “Four Gates, Three Honest Failures…,” lines 14–60; “The Correction That Hurt…,” lines 19–35.
 
-## Slide 6 — Proof today: one completed Z1 execution campaign.
+## Slide 6 — Executed: the barrier gate failed.
 
 **Headline**  
-**$14.65 per 129 anchors. A completed, source-locked execution record.** [C-Z1-EXEC-01]
+**Executed: on a 30-path Li-ion barrier panel, four foundation MLIPs missed our 40 meV gate.** [C-ROUND4-Z1-01] [C-Z1-PANEL-01]
 
 **Body**  
-The evidence program spans **42 published Li-ion electrolyte chemistries**: a **30-path frozen test panel** plus **12 disjoint training chemistries**, evaluated with guidance from **4 foundation MLIPs**. [C-Z1-PANEL-01] [C-Z1-MODELS-01]
-
-**Speaker note**  
-This is same-engine evidence, not a universal accuracy claim. Two guidance models found the true extrema on every guided path; two recorded a 6.8 meV undercoverage deficit. Keep that qualification if the model-level split is shown. [C-Z1-SPLIT-01]
+The evidence program spans 42 published Li-ion electrolyte chemistries : a 30-path frozen test panel plus 12 disjoint training chemistries , measured with MACE-MP-0 small and medium, MACE-MPA-0 medium and CHGNet. Round 4, July 2026. Executed measurement; not peer-reviewed.
 
 **Source footer**  
-Lupine Science, “The Union Verdict,” lines 17–35 (FOR EDITOR REVIEW; not peer-reviewed); “The Z1 Barrier Panel,” lines 1–17 and 23–66.
+Lupine Science, “Four Gates, Three Honest Failures…,” lines 20–32; “The Z1 Barrier Panel,” lines 1–17 and 23–66.
 
-## Slide 7 — Economics: the expensive oracle becomes shared infrastructure.
+## Slide 7 — Projected savings, with the baseline.
 
 **Headline**  
-Across the locked panel, sharing anchors across guided models required **72.4% fewer DFT evaluations**. [C-ECON-01]
+**Projected, no new DFT: sharing anchors across four guided models would need 72.4% fewer DFT evaluations on 29 paths.** [C-ECON-01]
 
 **Body**  
-This bounded result applies to the locked evidence record. It is not a universal savings claim, and no additional economics are inferred from it.
-
-**Speaker note**  
-The frozen public economics permit only the stated reduction. Do not derive, round, extrapolate, annualize, or substitute another economic quantity.
+The baseline is four separate runs. Paths have 5–7 images, so the union covers most images and deduplication alone caps the saving near 73%.
 
 **Source footer**  
-Lupine Science, “The Savings Stack,” lines 26–40; “The Union Verdict,” lines 32–35.
+Lupine Science, “Sharing DFT anchors…,” lines 13–46; z1-union-anchor-economics.json (per-path image counts).
 
-## Slide 8 — Moat: a theorem commons with a hash-locked evidence chain.
+## Slide 8 — Every verdict keeps its record.
 
 **Headline**  
-Physical-law theorems are non-rival: partners can contribute verified laws without disclosing proprietary chemistry, and every participant’s gates sharpen. [C-MOAT-01]
+**Every verdict keeps its record: the reference, the data hashes, the gate, any amendment, and the result.** [C-RECORD-01] [C-LEAN-01]
 
 **Body**  
-The evidence chain ties quantitative claims to provenance-hashed data and machine-checked Lean theorems. Each failed correction and impossibility result sharpens the boundary rather than disappearing from the record. [C-MOAT-02]
-
-**Certified still closure rail**  
-**100/100 unique still slots** — 33 certified baseline stills + 67 independently certified Wave-4 replacements. Closure gate `t_c2a1f8e3`. [C-STILL-CLOSURE-01]
-
-**Speaker note**  
-The five certified films are separate and remain outside the 100-still denominator. This is a still-slot closure claim only: do not imply 100/100 models, campaigns, films, or generic certification. [D-100-CHAIN]
+Failed corrections stay in the record. Lean 4 checks the arithmetic and stated inequalities behind published numbers; it does not check the physics, the reference data or the pipeline.
 
 **Source footer**  
-Lupine Science, “The Savings Stack,” lines 38–46; “The Order Is Right, the Size Is Wrong,” lines 88–120.
+Lupine Science, company facts and corrections log (lupine.science/about/, /corrections/).
 
-## Slide 9 — Market: correction-as-acceleration for the discovery stack.
+## Slide 9 — Independent measurement between builders and labs.
 
 **Headline**  
-Lupine sits between model generation and laboratory validation: model builders get external verification; laboratories get shortlists with characterized failure modes. [C-MARKET-01]
+**Independent measurement between model builders and labs: builders get an outside check; labs see where a model has already failed.** [C-MARKET-01]
 
 **Body**  
-The first market wedge is teams already running MLIP simulation in climate-critical materials. The product complements generators, databases, simulators, autonomous labs, and experimental partners rather than replacing them.
-
-**Speaker note**  
-No TAM, revenue, customer, contract, or partner-status number is source-locked in the verified card list. Keep this slide categorical. Do not present named target collaborators as signed partners.
+Initial market: teams already running MLIP simulation, across batteries, catalysts, frameworks, climate materials and alloys. We complement generators, databases, simulators and autonomous labs rather than replacing them.
 
 **Source footer**  
-Lupine Science, “The Trust Layer,” lines 64–78; “Investing in the Trust Layer,” lines 23–43.
+Lupine Science, “The Trust Layer” (Direction: where the work is aimed), lines 64–78; company facts.
 
-## Slide 10 — Traction: the public record is already operating.
+## Slide 10 — Executed and projected, labelled.
 
 **Headline**  
-A frozen public panel, guided-model evidence, a completed execution record, and a reproducible savings analysis are inspectable now. [C-TRACTION-01]
+**Inspectable now, each labelled for what it is: executed measurements, published failures, and one projected savings analysis.** [C-TRACTION-01]
 
 **Body**  
-The record includes locked panel hashes, campaign receipts, correction failures, source articles, and Lean-checked boundaries. Traction here means completed evidence infrastructure — not commercial revenue or peer-reviewed validation.
-
-**Speaker note**  
-Use links or QR codes to the public article routes and Library. Avoid “production-ready,” “customers,” or “validated by market.”
+Research records — not commercial revenue, customers or peer-reviewed validation.
 
 **Source footer**  
-Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “The Union Verdict,” lines 17–35 and 75–82 (FOR EDITOR REVIEW — not for citation); “The Savings Stack,” lines 26–56.
+Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “Four Gates, Three Honest Failures…”; “The Small Cell Held”; “Sharing DFT anchors…,” lines 13–46.
 
-## Slide 11 — Roadmap: climb from proven corrections to harder boundaries.
+## Slide 11 — Roadmap: measure first, extend behind gates.
 
 **Headline**  
-Advance by order of effort: statics → elastic response → surfaces → defects → transition states → interfaces → abstention-only domains. [C-ROADMAP-01]
+**Advance by order of effort: statics → elastic response → surfaces → defects → transition states → interfaces → abstention-only domains.** [C-ROADMAP-01] [C-ROADMAP-02]
 
 **Body**  
-Instrument the easiest proven runtime lane; extend structure-family jurisdiction only behind explicit gates; use sparse DFT anchors where correction laws cannot act; abstain where no supported measurement path exists. [C-ROADMAP-02]
-
-**Speaker note**  
-This is a staged research roadmap, not a delivery schedule. Do not add dates or milestones without owner approval.
+Measure first where references are solid; extend to harder families only behind gates set in advance; use sparse DFT anchors where no correction holds; abstain where no supported measurement path exists.
 
 **Source footer**  
 Lupine Science, “An Order of Effort,” lines 19–55.
@@ -162,13 +123,13 @@ Lupine Science, “An Order of Effort,” lines 19–55.
 ## Slide 12 — What is not proven yet.
 
 **Headline**  
-**One 30-path panel. One chemistry family. Not peer-reviewed.** [C-RISK-01]
+**One 30-path panel. One chemistry family. Not peer-reviewed.** [C-RISK-01] [C-RISK-02]
 
-**Body**  
-Also preserve the source-level limits: one DFT engine and functional in the executed Z1 record; short paths make sparsity easier; seven large paths remain deferred; two models recorded guidance misses; no GPAW↔VASP equivalence claim. [C-RISK-02]
+**Limits**  
+one DFT engine and functional in the executed Z1 record; short paths make sparsity easier; seven large paths remain deferred; two models recorded guidance misses; no GPAW↔VASP equivalence claim.
 
 **Speaker note**  
-This slide is mandatory. Keep warning accents ochre-only. Never soften “not peer-reviewed” into “pre-publication.”
+This slide is mandatory. Never soften “not peer-reviewed” into “pre-publication.”
 
 **Source footer**  
 Lupine Science, “The Savings Stack,” lines 38–42; “The Union Verdict,” lines 47–57.

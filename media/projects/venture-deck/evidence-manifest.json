@@ -1,7 +1,7 @@
 {
   "schema_version": "2.0",
   "artifact": "VENTURE evidence, source-footer, palette, and certified asset manifest",
-  "repository_root": "/home/alex/Dev/lupine/lupine-science",
+  "repository_root": ".",
   "source_revision_observed": "ba75f0b736673264215f490c9917e100ed880bb0",
   "generated_for_task": "t_5fa3bdbd",
   "upstream_tasks": [
@@ -25,8 +25,7 @@
       "not peer-reviewed"
     ],
     "frozen_public_economics": [
-      "72.4% fewer DFT evaluations",
-      "$14.65 per 129 anchors"
+      "72.4% fewer DFT evaluations (projected, no new DFT)"
     ],
     "funding_ask_amount": "[OWNER DECISION]",
     "funding_ask_rule": "The funding ask amount and all financing terms MUST NOT be fabricated or inferred.",
@@ -119,25 +118,58 @@
       "sha256": "ca6805dfb4324f0c0f6ebb5504503eb13bc7a3e7de70cd08f0623436b70e9245",
       "closure_gate_sha256": "59fae8812a4aa53ee51a9bc331ed9be10c89cae551464dbbededda9ed97f5d10",
       "status_in_source": "67-slot independently certified Wave-4 aggregate; closure arithmetic independently audited by t_c2a1f8e3"
+    },
+    "S-COMPANY": {
+      "path": "data/company.json",
+      "public_route": "/about/",
+      "sha256": "f90dc47e424166fd59a14496e871ccce573cb6dd32237081a9a5c7f9791da1f6",
+      "git_blob": "7fd0762ac456510b3d1a13501ea3fb51504330ae",
+      "status_in_source": "Company facts (single source for the front door)"
+    },
+    "S-SMOOTH": {
+      "path": "articles/a-smooth-environment-resolved-error-field.md",
+      "public_route": "/articles/a-smooth-environment-resolved-error-field/",
+      "sha256": "71a94bf87d3b02889759c33ed566e55ddd7f738b5796f24b4a22d883a6059787",
+      "git_blob": "1a6fb08b5511d9a7a57e6df29fcccbe339f072f4",
+      "status_in_source": "Published"
+    },
+    "S-ROUND4": {
+      "path": "articles/four-gates-three-honest-failures-one-live-experiment.md",
+      "public_route": "/articles/four-gates-three-honest-failures-one-live-experiment/",
+      "sha256": "04857ee54b44476a5ef1d0f92d0781fc247a47d01880aba53a9d7f4938c962a9",
+      "git_blob": "f4416f7f9f7b15dc9e1afabdd9cbc087b99d6ae9",
+      "status_in_source": "Final"
+    },
+    "S-SHARED": {
+      "path": "articles/shared-dft-anchors.md",
+      "public_route": "/articles/shared-dft-anchors/",
+      "sha256": "fc7236e9460801c69db56be765b36e5cc47cc29d1a36c6070b67edd226be404a",
+      "git_blob": "ec403e14daf1c8cc7c85e2d937ed9711c6818a0f",
+      "status_in_source": "Published"
+    },
+    "S-Z1-ECON": {
+      "path": "public/data/savings-stack-v1/z1-union-anchor-economics.json",
+      "public_route": "/data/savings-stack-v1/z1-union-anchor-economics.json",
+      "sha256": "22c0ba51d0c798c282076cdb10c416222ff504b8120d2e0d974a4efa2a662491",
+      "git_blob": "cd01fc0f0fe12cf96c9f9081388861291840088b",
+      "status_in_source": "Committed data record"
+    },
+    "S-SMALL": {
+      "path": "articles/the-small-cell-held-mlip-elastic-benchmark.md",
+      "public_route": "/articles/the-small-cell-held-mlip-elastic-benchmark/",
+      "sha256": "01433316a6cb91be746955a9b9878bf58c3d6028fa974ac9be995884e4dcf210",
+      "git_blob": "9d21a9bd58ba5499682e8e016768c89ff875526b",
+      "status_in_source": "In review"
+    },
+    "S-CORRECTIONS": {
+      "path": "public/corrections/index.html",
+      "public_route": "/corrections/",
+      "sha256": "dce7f0b0a1c9f6788d253738cc0141975ad5578d5ec0837edc6ac79ba91bbd14",
+      "git_blob": "ea64a7420abf43592debefa0bad31dac5a9f461d",
+      "status_in_source": "Published"
     }
   },
   "claims": {
-    "C-CLIMATE-01": {
-      "claim": "Five material classes have a contingent combined climate potential of 5–12 GtCO2/year.",
-      "slides": [
-        1
-      ],
-      "evidence": [
-        {
-          "source": "S-FIVE",
-          "lines": "2-16"
-        }
-      ],
-      "qualification": "Portfolio estimate contingent on solving target material problems and deployment; not achieved abatement.",
-      "visible_source_footer_by_slide": {
-        "1": "Lupine Science, “Five Materials That Could Unlock 5–12 GtCO₂/Year,” lines 2–16."
-      }
-    },
     "C-SYNTHESIS-01": {
       "claim": "Of 380,000 computationally stable GNoME structures, 736 had been independently synthesized by late 2023, reported as a 0.2% validation rate.",
       "slides": [
@@ -191,47 +223,8 @@
         "3": "Lupine Science, “The Order Is Right, the Size Is Wrong,” lines 5–18 and 41–63."
       }
     },
-    "C-PRODUCT-01": {
-      "claim": "The measured error-field correction is applied at runtime with analytic forces beside an existing MLIP, without retraining or fine-tuning the underlying model.",
-      "slides": [
-        4
-      ],
-      "evidence": [
-        {
-          "source": "S-INVEST",
-          "lines": "51-63"
-        },
-        {
-          "source": "S-ORDER",
-          "lines": "67-81"
-        }
-      ],
-      "qualification": "No universal-transfer claim; correction requires a supported field and family.",
-      "visible_source_footer_by_slide": {
-        "4": "Lupine Science, “Investing in the Trust Layer,” lines 51–63; “The Order Is Right, the Size Is Wrong,” lines 67–81."
-      }
-    },
-    "C-PRODUCT-02": {
-      "claim": "Certified inference routes supported cases through correction and bounds, and unsupported cases through abstention.",
-      "slides": [
-        5
-      ],
-      "evidence": [
-        {
-          "source": "S-HURT",
-          "lines": "27-35"
-        },
-        {
-          "source": "S-EFFORT",
-          "lines": "39-55"
-        }
-      ],
-      "visible_source_footer_by_slide": {
-        "5": "Lupine Science, “The Correction That Hurt, and the Theorem That Stopped It,” lines 19–35 and 49–55."
-      }
-    },
     "C-HONESTY-01": {
-      "claim": "A first correction worsened alloy bulk-modulus error from 9.1% to 16.9%; the resulting wrong-direction theorem licenses correction only with supporting evidence and otherwise abstains.",
+      "claim": "A first correction made alloy predictions worse, and the failure is kept in the public record.",
       "slides": [
         5
       ],
@@ -243,32 +236,13 @@
       ],
       "qualification": "The later Round-2 rule was exploratory; the source records its limitations.",
       "visible_source_footer_by_slide": {
-        "5": "Lupine Science, “The Correction That Hurt, and the Theorem That Stopped It,” lines 19–35 and 49–55."
-      }
-    },
-    "C-Z1-EXEC-01": {
-      "claim": "The source-locked execution record cost $14.65 per 129 anchors.",
-      "slides": [
-        6,
-        10
-      ],
-      "evidence": [
-        {
-          "source": "S-Z1",
-          "lines": "17-35"
-        }
-      ],
-      "qualification": "Source is marked FOR EDITOR REVIEW and not for citation; not peer-reviewed.",
-      "visible_source_footer_by_slide": {
-        "6": "Lupine Science, “The Union Verdict,” lines 17–35 (FOR EDITOR REVIEW; not peer-reviewed); “The Z1 Barrier Panel,” lines 1–17 and 23–66.",
-        "10": "Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “The Union Verdict,” lines 17–35 and 75–82 (FOR EDITOR REVIEW — not for citation); “The Savings Stack,” lines 26–56."
+        "5": "Lupine Science, “Four Gates, Three Honest Failures…,” lines 14–60; “The Correction That Hurt…,” lines 19–35."
       }
     },
     "C-Z1-PANEL-01": {
       "claim": "The evidence program uses 42 published Li-ion electrolyte chemistries: 30 frozen test paths and 12 disjoint training chemistries.",
       "slides": [
-        6,
-        10
+        6
       ],
       "evidence": [
         {
@@ -283,108 +257,32 @@
       ],
       "qualification": "The executed union campaign uses the test-panel campaign record; do not imply all 42 were execution anchors in the same run.",
       "visible_source_footer_by_slide": {
-        "6": "Lupine Science, “The Union Verdict,” lines 17–35 (FOR EDITOR REVIEW; not peer-reviewed); “The Z1 Barrier Panel,” lines 1–17 and 23–66.",
-        "10": "Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “The Union Verdict,” lines 17–35 and 75–82 (FOR EDITOR REVIEW — not for citation); “The Savings Stack,” lines 26–56."
-      }
-    },
-    "C-Z1-MODELS-01": {
-      "claim": "Four foundation MLIPs supplied guidance in the Z1 union campaign.",
-      "slides": [
-        6,
-        7,
-        10
-      ],
-      "evidence": [
-        {
-          "source": "S-Z1",
-          "lines": "13-26"
-        },
-        {
-          "source": "S-SAVINGS",
-          "lines": "30-40"
-        }
-      ],
-      "visible_source_footer_by_slide": {
-        "6": "Lupine Science, “The Union Verdict,” lines 17–35 (FOR EDITOR REVIEW; not peer-reviewed); “The Z1 Barrier Panel,” lines 1–17 and 23–66.",
-        "7": "Lupine Science, “The Savings Stack,” lines 26–40; “The Union Verdict,” lines 32–35.",
-        "10": "Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “The Union Verdict,” lines 17–35 and 75–82 (FOR EDITOR REVIEW — not for citation); “The Savings Stack,” lines 26–56."
-      }
-    },
-    "C-Z1-SPLIT-01": {
-      "claim": "Two guidance models found true extrema on every guided path, while two recorded a 6.8 meV undercoverage deficit.",
-      "slides": [
-        6
-      ],
-      "evidence": [
-        {
-          "source": "S-Z1",
-          "lines": "17-30"
-        }
-      ],
-      "qualification": "Same-engine result; short paths weaken the sparsity stress test.",
-      "visible_source_footer_by_slide": {
-        "6": "Lupine Science, “The Union Verdict,” lines 17–35 (FOR EDITOR REVIEW; not peer-reviewed); “The Z1 Barrier Panel,” lines 1–17 and 23–66."
+        "6": "Lupine Science, “Four Gates, Three Honest Failures…,” lines 20–32; “The Z1 Barrier Panel,” lines 1–17 and 23–66."
       }
     },
     "C-ECON-01": {
-      "claim": "Across the locked evidence record, shared anchors required 72.4% fewer DFT evaluations.",
+      "claim": "Projected accounting, no new DFT: sharing anchors across four guided models would need 154 instead of 558 projected DFT evaluations on 29 analyzable paths (72.4% fewer). The baseline is four separate runs; paths have 5-7 images, so the union covers most images and deduplication alone caps the saving near 73%.",
       "slides": [
-        7,
-        10
+        7
       ],
       "evidence": [
         {
-          "source": "S-SAVINGS",
-          "lines": "26-32"
-        }
-      ],
-      "qualification": "Bounded to the locked evidence record; no rounding, extrapolation, annualization, or substitute economics are authorized.",
-      "visible_source_footer_by_slide": {
-        "7": "Lupine Science, “The Savings Stack,” lines 26–40; “The Union Verdict,” lines 32–35.",
-        "10": "Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “The Union Verdict,” lines 17–35 and 75–82 (FOR EDITOR REVIEW — not for citation); “The Savings Stack,” lines 26–56."
-      }
-    },
-    "C-MOAT-01": {
-      "claim": "The theorem commons is non-rival: partners can contribute formally verified physical-law theorems so shared gates sharpen without disclosing chemistry.",
-      "slides": [
-        8
-      ],
-      "evidence": [
-        {
-          "source": "S-SAVINGS",
-          "lines": "38-40"
-        }
-      ],
-      "visible_source_footer_by_slide": {
-        "8": "Lupine Science, “The Savings Stack,” lines 38–46; “The Order Is Right, the Size Is Wrong,” lines 88–120."
-      }
-    },
-    "C-MOAT-02": {
-      "claim": "Quantitative claims are tied to provenance-hashed data and machine-checked Lean theorems; failures and impossibility results remain in the record.",
-      "slides": [
-        8,
-        10
-      ],
-      "evidence": [
-        {
-          "source": "S-ORDER",
-          "lines": "88-120"
+          "source": "S-SHARED",
+          "lines": "13-46"
         },
         {
-          "source": "S-TRUST",
-          "lines": "35-60"
+          "source": "S-Z1-ECON",
+          "json_pointer": "/per_path/*/image_count"
         }
       ],
+      "qualification": "Projected, not measured; slide shows only 72.4% and the 73% deduplication cap.",
       "visible_source_footer_by_slide": {
-        "8": "Lupine Science, “The Savings Stack,” lines 38–46; “The Order Is Right, the Size Is Wrong,” lines 88–120.",
-        "10": "Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “The Union Verdict,” lines 17–35 and 75–82 (FOR EDITOR REVIEW — not for citation); “The Savings Stack,” lines 26–56."
+        "7": "Lupine Science, “Sharing DFT anchors…,” lines 13–46; z1-union-anchor-economics.json (per-path image counts)."
       }
     },
     "C-STILL-CLOSURE-01": {
       "claim": "33 certified baseline stills + 67 independently certified Wave-4 replacements = 100/100 unique still slots.",
-      "slides": [
-        8
-      ],
+      "slides": [],
       "evidence": [
         {
           "source": "S-STILL-BASELINE",
@@ -401,10 +299,12 @@
       "qualification": "Still slots only. The five certified films are a separate class and do not enter the 100-still denominator. Do not imply 100/100 models, campaigns, films, or generic certification.",
       "visible_citation_by_slide": {
         "8": "Closure gate t_c2a1f8e3 · five certified films excluded from the denominator"
-      }
+      },
+      "note": "Asset provenance for the deck's locked images; not shown on any slide.",
+      "visible_source_footer_by_slide": {}
     },
     "C-MARKET-01": {
-      "claim": "The trust layer sits between model builders and laboratories, complementing generation and synthesis rather than replacing them.",
+      "claim": "Independent measurement sits between model builders and labs and complements generators, databases, simulators and autonomous labs; the initial market is teams already running MLIP simulation across several materials lanes.",
       "slides": [
         9
       ],
@@ -414,16 +314,16 @@
           "lines": "64-78"
         },
         {
-          "source": "S-INVEST",
-          "lines": "23-43"
+          "source": "S-COMPANY",
+          "json_pointer": "/audiences"
         }
       ],
       "visible_source_footer_by_slide": {
-        "9": "Lupine Science, “The Trust Layer,” lines 64–78; “Investing in the Trust Layer,” lines 23–43."
+        "9": "Lupine Science, “The Trust Layer” (Direction: where the work is aimed), lines 64–78; company facts."
       }
     },
     "C-TRACTION-01": {
-      "claim": "The public evidence infrastructure includes a frozen panel, guided-model evidence, a completed execution record, and a reproducible savings analysis.",
+      "claim": "Inspectable now: a frozen 30-path barrier panel, the Round-4 verdicts, the fcc field and elastic benchmarks (executed), and one shared-anchor savings analysis (projected).",
       "slides": [
         10
       ],
@@ -433,17 +333,21 @@
           "lines": "40-66"
         },
         {
-          "source": "S-Z1",
-          "lines": "17-35"
+          "source": "S-ROUND4",
+          "lines": "14-60"
         },
         {
-          "source": "S-SAVINGS",
-          "lines": "30-56"
+          "source": "S-SMALL",
+          "lines": "12-29"
+        },
+        {
+          "source": "S-SHARED",
+          "lines": "13-46"
         }
       ],
-      "qualification": "Scientific/evidence traction only; no customer, revenue, or peer-review claim. The Z1 execution source is FOR EDITOR REVIEW and not for citation.",
+      "qualification": "Research records, not commercial revenue, customers or peer-reviewed validation.",
       "visible_source_footer_by_slide": {
-        "10": "Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “The Union Verdict,” lines 17–35 and 75–82 (FOR EDITOR REVIEW — not for citation); “The Savings Stack,” lines 26–56."
+        "10": "Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “Four Gates, Three Honest Failures…”; “The Small Cell Held”; “Sharing DFT anchors…,” lines 13–46."
       }
     },
     "C-ROADMAP-01": {
@@ -462,7 +366,7 @@
       }
     },
     "C-ROADMAP-02": {
-      "claim": "The roadmap instruments proven runtime lanes, expands only behind gates, uses sparse DFT where correction laws cannot act, and abstains where unsupported.",
+      "claim": "Measure first where references are solid, extend to harder families only behind gates set in advance, use sparse DFT anchors where no correction holds, and abstain where unsupported.",
       "slides": [
         11
       ],
@@ -505,24 +409,113 @@
       "visible_source_footer_by_slide": {
         "12": "Lupine Science, “The Savings Stack,” lines 38–42; “The Union Verdict,” lines 47–57."
       }
+    },
+    "C-MISSION-01": {
+      "claim": "Lupine Science measures where machine-learned models of atoms go wrong, against published references and pass/fail gates set in advance, and publishes every verdict, failures included; climate materials are one lane among batteries, catalysts, frameworks and alloys.",
+      "slides": [
+        1
+      ],
+      "evidence": [
+        {
+          "source": "S-COMPANY",
+          "json_pointer": "/oneLiner"
+        }
+      ],
+      "qualification": "Positioning statement; no numbers.",
+      "visible_source_footer_by_slide": {
+        "1": "Lupine Science, company facts (lupine.science/about/), data/company.json."
+      }
+    },
+    "C-CORRECTION-01": {
+      "claim": "Used as an energy-only correction beside CHGNet, the field cut blind (110) surface-energy error from 9.7% to 1.5% on nickel and from 28.0% to 13.7% on copper: one model, two metals, one facet.",
+      "slides": [
+        4
+      ],
+      "evidence": [
+        {
+          "source": "S-SMOOTH",
+          "lines": "27"
+        }
+      ],
+      "qualification": "Correction is a research question, not a product; this is the one narrow blind case that held.",
+      "visible_source_footer_by_slide": {
+        "4": "Lupine Science, “A smooth, environment-resolved error field…,” line 27."
+      }
+    },
+    "C-VERDICT-01": {
+      "claim": "In four preregistered campaigns in July 2026 (Round 4), no gate passed: three failed and one abstained.",
+      "slides": [
+        5
+      ],
+      "evidence": [
+        {
+          "source": "S-ROUND4",
+          "lines": "14-60"
+        }
+      ],
+      "qualification": "Amendments made after results were seen are labelled in the record.",
+      "visible_source_footer_by_slide": {
+        "5": "Lupine Science, “Four Gates, Three Honest Failures…,” lines 14–60; “The Correction That Hurt…,” lines 19–35."
+      }
+    },
+    "C-ROUND4-Z1-01": {
+      "claim": "On a 30-path Li-ion migration-barrier panel, MACE-MP-0 small and medium, MACE-MPA-0 medium and CHGNet missed a 40 meV gate (MAE 135.0-242.5 meV on completed paths).",
+      "slides": [
+        6
+      ],
+      "evidence": [
+        {
+          "source": "S-ROUND4",
+          "lines": "20-32"
+        }
+      ],
+      "qualification": "Executed measurement; MAE on completed paths only; not peer-reviewed.",
+      "visible_source_footer_by_slide": {
+        "6": "Lupine Science, “Four Gates, Three Honest Failures…,” lines 20–32; “The Z1 Barrier Panel,” lines 1–17 and 23–66."
+      }
+    },
+    "C-RECORD-01": {
+      "claim": "Verdicts are published with their reference, data hashes, gate, any amendment and result; failed corrections stay in the record and retired public claims are listed in the corrections log.",
+      "slides": [
+        8
+      ],
+      "evidence": [
+        {
+          "source": "S-COMPANY",
+          "json_pointer": "/approach"
+        },
+        {
+          "source": "S-CORRECTIONS",
+          "lines": "1-200"
+        }
+      ],
+      "visible_source_footer_by_slide": {
+        "8": "Lupine Science, company facts and corrections log (lupine.science/about/, /corrections/)."
+      }
+    },
+    "C-LEAN-01": {
+      "claim": "Lean 4 checks the arithmetic and stated inequalities behind published numbers; it does not check the physics, the reference data or the pipeline.",
+      "slides": [
+        8
+      ],
+      "evidence": [
+        {
+          "source": "S-COMPANY",
+          "json_pointer": "/approach/2/text"
+        }
+      ],
+      "visible_source_footer_by_slide": {
+        "8": "Lupine Science, company facts and corrections log (lupine.science/about/, /corrections/)."
+      }
     }
   },
   "discrepancies_and_exclusions": {
     "D-COST": {
-      "repository_evidence": "$14.65 per 129 anchors",
-      "decision": "Use only the frozen $14.65 per 129 anchors public cost claim; no alternate cost or basis is authorized.",
+      "decision": "No cost figure is shown. The earlier per-anchor cost came from an editor-review memo with an unresolved cost-provenance conflict and is not used.",
       "evidence": [
         {
           "source": "S-Z1",
           "lines": "5-6"
-        },
-        {
-          "source": "S-Z1",
-          "lines": "32-35"
-        },
-        {
-          "source": "S-Z1",
-          "lines": "75-79"
         }
       ]
     },
@@ -553,14 +546,9 @@
       "result": "completed"
     },
     {
-      "check": "Frozen economics allowlist",
-      "result": "completed; public economics limited to 72.4% fewer DFT evaluations and $14.65 per 129 anchors"
-    },
-    {
       "check": "Source status review",
       "result": "completed; draft/editor-review and non-peer-reviewed qualifications preserved"
     },
-
     {
       "check": "Round/terms fabrication check",
       "result": "completed; all financing fields remain [OWNER DECISION]"
@@ -584,6 +572,10 @@
     {
       "check": "Selected asset file hash verification",
       "result": "completed; 13/13 on-disk SHA-256 hashes match"
+    },
+    {
+      "check": "Messaging canon review (2026-11-11)",
+      "result": "completed; climate framed as one lane, partner implications removed, projected vs executed labelled, retired claims removed"
     }
   ],
   "generated_for_tasks": [
@@ -608,23 +600,23 @@
     "constraint": "Use only these four solid colors; no white, black, gray, gradients, shadows, glows, opacity, blend modes, or dark fields."
   },
   "slide_source_footers": {
-    "1": "Lupine Science, “Five Materials That Could Unlock 5–12 GtCO₂/Year,” lines 2–16.",
+    "1": "Lupine Science, company facts (lupine.science/about/), data/company.json.",
     "2": "Lupine Science, “The 0.2% Synthesis Problem,” lines 7–16; Merchant et al., Nature 624 (2023), DOI 10.1038/s41586-023-06735-9.",
     "3": "Lupine Science, “The Order Is Right, the Size Is Wrong,” lines 5–18 and 41–63.",
-    "4": "Lupine Science, “Investing in the Trust Layer,” lines 51–63; “The Order Is Right, the Size Is Wrong,” lines 67–81.",
-    "5": "Lupine Science, “The Correction That Hurt, and the Theorem That Stopped It,” lines 19–35 and 49–55.",
-    "6": "Lupine Science, “The Union Verdict,” lines 17–35 (FOR EDITOR REVIEW; not peer-reviewed); “The Z1 Barrier Panel,” lines 1–17 and 23–66.",
-    "7": "Lupine Science, “The Savings Stack,” lines 26–40; “The Union Verdict,” lines 32–35.",
-    "8": "Lupine Science, “The Savings Stack,” lines 38–46; “The Order Is Right, the Size Is Wrong,” lines 88–120.",
-    "9": "Lupine Science, “The Trust Layer,” lines 64–78; “Investing in the Trust Layer,” lines 23–43.",
-    "10": "Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “The Union Verdict,” lines 17–35 and 75–82 (FOR EDITOR REVIEW — not for citation); “The Savings Stack,” lines 26–56.",
+    "4": "Lupine Science, “A smooth, environment-resolved error field…,” line 27.",
+    "5": "Lupine Science, “Four Gates, Three Honest Failures…,” lines 14–60; “The Correction That Hurt…,” lines 19–35.",
+    "6": "Lupine Science, “Four Gates, Three Honest Failures…,” lines 20–32; “The Z1 Barrier Panel,” lines 1–17 and 23–66.",
+    "7": "Lupine Science, “Sharing DFT anchors…,” lines 13–46; z1-union-anchor-economics.json (per-path image counts).",
+    "8": "Lupine Science, company facts and corrections log (lupine.science/about/, /corrections/).",
+    "9": "Lupine Science, “The Trust Layer” (Direction: where the work is aimed), lines 64–78; company facts.",
+    "10": "Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “Four Gates, Three Honest Failures…”; “The Small Cell Held”; “Sharing DFT anchors…,” lines 13–46.",
     "11": "Lupine Science, “An Order of Effort,” lines 19–55.",
     "12": "Lupine Science, “The Savings Stack,” lines 38–42; “The Union Verdict,” lines 47–57.",
-    "13": null
+    "13": ""
   },
   "slide_claim_ids": {
     "1": [
-      "C-CLIMATE-01"
+      "C-MISSION-01"
     ],
     "2": [
       "C-SYNTHESIS-01"
@@ -634,25 +626,22 @@
       "C-ACCURACY-02"
     ],
     "4": [
-      "C-PRODUCT-01"
+      "C-CORRECTION-01"
     ],
     "5": [
       "C-HONESTY-01",
-      "C-PRODUCT-02"
+      "C-VERDICT-01"
     ],
     "6": [
-      "C-Z1-EXEC-01",
-      "C-Z1-MODELS-01",
-      "C-Z1-PANEL-01",
-      "C-Z1-SPLIT-01"
+      "C-ROUND4-Z1-01",
+      "C-Z1-PANEL-01"
     ],
     "7": [
       "C-ECON-01"
     ],
     "8": [
-      "C-MOAT-01",
-      "C-MOAT-02",
-      "C-STILL-CLOSURE-01"
+      "C-LEAN-01",
+      "C-RECORD-01"
     ],
     "9": [
       "C-MARKET-01"
