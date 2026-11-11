@@ -5,15 +5,24 @@ import path from 'node:path';
 import { before, describe, it } from 'node:test';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
+import { documentStatus } from '../scripts/lib/discovery.mjs';
+import { filmListed } from '../scripts/lib/film-listing.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC = path.join(ROOT, 'public');
 const VIDEOS = path.join(PUBLIC, 'videos');
 
+// Listed films only: unlisted films (scripts/lib/film-listing.mjs) and films of
+// Archived articles keep their files but get no page, card or embed.
 function videoSlugs() {
   return fs.readdirSync(VIDEOS)
     .filter((name) => name.endsWith('.mp4'))
     .map((name) => name.replace(/\.mp4$/, ''))
+    .filter((slug) => {
+      const source = fs.readFileSync(path.join(ROOT, 'articles', `${slug}.md`), 'utf8');
+      const status = documentStatus(source.match(/^> \*\*Status:\*\*\s*(.+?)\s*$/m)?.[1]);
+      return filmListed(slug, status);
+    })
     .sort();
 }
 
@@ -77,7 +86,8 @@ describe('article and video publication routes', () => {
   });
 
   it('refreshes stale article, video detail, and video index route outputs', () => {
-    const slug = 'methane-and-refrigerants-cutting-the-non-co2-climate-forcers';
+    // a listed film; unlisted films get no video detail page at all
+    const slug = 'the-savings-stack';
     const publicRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'article-route-refresh-'));
     const videosRoot = path.join(publicRoot, 'videos');
     const files = [
@@ -114,7 +124,7 @@ describe('article and video publication routes', () => {
       for (const file of files) {
         const refreshed = fs.readFileSync(file, 'utf8');
         assert.doesNotMatch(refreshed, /stale-output-sentinel/, path.relative(ROOT, file));
-        assert.match(refreshed, /Non-CO₂/, `${path.relative(ROOT, file)} must preserve Unicode on rebuild`);
+        assert.match(refreshed, /Savings Stack[^<]*—|—[^<]*Savings Stack|limits of both — a free booklet/, `${path.relative(ROOT, file)} must preserve Unicode on rebuild`);
       }
     } finally {
       fs.rmSync(publicRoot, { recursive: true, force: true });

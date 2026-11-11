@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, it } from 'node:test';
+import { UNLISTED_FILMS } from '../scripts/lib/film-listing.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -14,7 +15,8 @@ describe('video share integration', () => {
   it('integrates the share component into the video index', () => {
     const html = readPublicPage('videos');
 
-    assert.match(html, /<link rel="stylesheet" href="\/components\/share\/share\.css">/);
+    // the share widget's CSS is inlined into every page head (scripts/build-articles.mjs)
+    assert.match(html, /<style>[^<]*\.share-root[^<]*<\/style>/);
     assert.match(html, /class="share-root"[^>]*data-url="https:\/\/lupine\.science\/videos\/"/);
     assert.match(html, /data-title="Videos — Lupine Science"/);
     assert.match(html, /aria-label="Share this page"/);
@@ -30,58 +32,37 @@ describe('video share integration', () => {
     );
   });
 
-  it('uses a released-film thumbnail for the video index social preview', () => {
-    // the index previews a film from the released two-film slate
-    // (why-lupine-science / why-lupi), never declined inventory
+  it('uses a listed film thumbnail for the video index social preview', () => {
+    // the index previews a listed film, never unlisted or declined inventory
     const html = readPublicPage('videos');
-
-    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/videos\/why-lupine-science-poster\.jpg\?v=\d+">/);
-    assert.match(html, /<meta name="twitter:image" content="https:\/\/lupine\.science\/videos\/why-lupine-science-poster\.jpg\?v=\d+">/);
+    const image = html.match(/<meta property="og:image" content="https:\/\/lupine\.science\/videos\/([a-z0-9-]+)-poster\.jpg\?v=\d+">/);
+    assert.ok(image, 'expected a film poster as the video index social image');
+    assert.equal(UNLISTED_FILMS.has(image[1]), false, `${image[1]} is unlisted`);
+    assert.ok(fs.existsSync(path.join(ROOT, 'public', 'videos', image[1], 'index.html')), `${image[1]} has no video page`);
+    assert.match(html, new RegExp(`<meta name="twitter:image" content="https://lupine\\.science/videos/${image[1]}-poster\\.jpg\\?v=\\d+">`));
   });
 
-  it('integrates sharing and the video thumbnail into published video article pages', () => {
-    const slug = 'the-02-percent-synthesis-problem';
+  it('integrates sharing and the video thumbnail into listed-film article pages', () => {
+    const slug = 'an-order-of-effort';
     const html = readPublicPage('articles', slug);
 
     assert.match(html, new RegExp(`class="share-root"[^>]*data-url="https://lupine\\.science/articles/${slug}/"`));
     assert.match(html, new RegExp(`<meta property="og:image" content="https://lupine\\.science/videos/${slug}-poster\\.jpg\\?v=\\d+">`));
   });
 
-  it('cache-busts every replaced water-and-air poster surface at v4', () => {
-    const slug = 'water-and-air-correcting-the-molecules-we-drink-and-breathe';
-    const pages = [
-      readPublicPage('articles', slug),
-      readPublicPage('videos', slug),
-      readPublicPage('videos'),
-    ].join('\n');
-
-    const references = [...pages.matchAll(new RegExp(
-      `${slug}-poster\\.(jpg|avif|webp)\\?v=(\\d+)`,
-      'g',
-    ))];
-    assert.ok(references.length > 0, 'expected water-and-air poster references');
-    assert.deepEqual(new Set(references.map((match) => match[2])), new Set(['4']));
-    for (const extension of ['jpg', 'avif', 'webp']) {
-      assert.ok(references.some((match) => match[1] === extension), `missing ${extension} poster`);
-    }
-  });
-
-  it('cache-busts every replaced PFAS poster surface at v4', () => {
-    const slug = 'critical-minerals-pfas-and-the-remediation-imperative';
-    const pages = [
-      readPublicPage('articles', slug),
-      readPublicPage('videos', slug),
-      readPublicPage('videos'),
-    ].join('\n');
-
-    const references = [...pages.matchAll(new RegExp(
-      `${slug}-poster\\.(jpg|avif|webp)\\?v=(\\d+)`,
-      'g',
-    ))];
-    assert.ok(references.length > 0, 'expected PFAS poster references');
-    assert.deepEqual(new Set(references.map((match) => match[2])), new Set(['4']));
-    for (const extension of ['jpg', 'avif', 'webp']) {
-      assert.ok(references.some((match) => match[1] === extension), `missing ${extension} poster`);
-    }
-  });
+  // The water-and-air and PFAS films were re-cut in August 2026 (poster cache
+  // revision v4) and unlisted on 2026-11-11 (scripts/lib/film-listing.mjs):
+  // their narration states correction capabilities our results do not support.
+  for (const slug of [
+    'water-and-air-correcting-the-molecules-we-drink-and-breathe',
+    'critical-minerals-pfas-and-the-remediation-imperative',
+  ]) {
+    it(`leaves no page, card or poster reference for the unlisted ${slug} film`, () => {
+      assert.ok(UNLISTED_FILMS.has(slug));
+      assert.equal(fs.existsSync(path.join(ROOT, 'public', 'videos', slug, 'index.html')), false);
+      const pages = [readPublicPage('articles', slug), readPublicPage('videos')].join('\n');
+      assert.doesNotMatch(pages, new RegExp(`${slug}-poster\\.`));
+      assert.doesNotMatch(pages, new RegExp(`/videos/${slug}\\.mp4`));
+    });
+  }
 });

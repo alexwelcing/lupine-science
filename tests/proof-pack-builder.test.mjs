@@ -26,7 +26,12 @@ import {
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SCRIPT = path.join(ROOT, 'scripts', 'build-proofpack.mjs');
-const OUT_DIR = path.join(ROOT, 'public', 'proof-packs');
+// Build into a scratch directory: the published evidence record
+// (public/proof-packs/shared-dft-anchors.proofpack.{pdf,json}) is tracked, and
+// rebuilding it here used to rewrite it mid-suite, so later tests that read its
+// size and date saw different bytes from the ones the article page was built with.
+const OUT_DIR = fs.mkdtempSync(path.join(os.tmpdir(), 'proofpack-out-'));
+process.on('exit', () => fs.rmSync(OUT_DIR, { recursive: true, force: true }));
 // A real Unicode article with an eligible evidence record (the July 2026
 // five-materials pack was retired with the climate-series PDF on 2026-11-11).
 const SLUG = 'the-materials-we-test-against';
@@ -89,7 +94,8 @@ describe('proof-pack builder CLI', () => {
         {
           cwd: ROOT,
           encoding: 'utf8',
-          env: { ...process.env, PLAYWRIGHT_BROWSERS_PATH: path.join(outDir, 'missing-browsers') },
+          // clear CHROME_PATH too, or a system browser on the host makes startup succeed
+          env: { ...process.env, CHROME_PATH: '', PLAYWRIGHT_BROWSERS_PATH: path.join(outDir, 'missing-browsers') },
         }
       );
       assert.notEqual(result.status, 0);
@@ -494,7 +500,7 @@ describe('proof-pack output validation', () => {
 
 describe('proof-pack determinism', () => {
   it('produces semantically identical output on repeated builds', () => {
-    const outDir = path.join(ROOT, 'public', 'proof-packs');
+    const outDir = OUT_DIR;
     const run1 = run(['--slug', SLUG, '--out-dir', outDir]);
     assert.equal(run1.status, 0, run1.stderr);
     const text1 = execFileSync('pdftotext', ['-layout', PDF_PATH, '-'], { encoding: 'utf8' });
