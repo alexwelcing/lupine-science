@@ -83,13 +83,9 @@ Inherited from `docs/content-design-system.md`:
 - `funnel` — descending horizontal bars with share labels.
 - `line` — simple time-series or progression line.
 
-## MLIP Failure Geometry series
+## Retired graphics
 
-Three charts derived from the brand fact lock:
-
-- `participation-ratio.svg` — participation-ratio ranges for classical potentials and foundation MLIPs.
-- `cross-mlip-cosine.svg` — cross-MLIP cosine similarity by element.
-- `elements-transfer-geometry.svg` — proportion of elements that preserve error-geometry shape from classical to MLIP.
+The MLIP Failure Geometry series (`participation-ratio.svg`, `cross-mlip-cosine.svg`, `elements-transfer-geometry.svg`) and `lean-theorem-growth.svg` were removed on 2026-11-11. They showed claims we have retired (shared error directions, participation ratio as headline evidence, theorem counts as evidence); see lupine.science/corrections/. They remain in git history.
 
 ## Roadmap
 
