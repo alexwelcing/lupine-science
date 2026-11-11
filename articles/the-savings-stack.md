@@ -4,7 +4,7 @@
 > **Date:** 2026-07-21  
 > **Deck:** Seven savings layers from the literature, one measured sharing economy, and the theorem commons — as a free, designed booklet with a hashable data pack  
 > **Summary:** The Savings Stack v1 release: a 16-page booklet on compute-savings in atomistic simulation — 72.4% fewer DFT evaluations when four models share anchors (558 naive vs 154 union, 29 paths, 3.62×), 163 citations verified, every number hashable and reproducible.  
-> **Status:** Final
+> **Status:** Published
 > **OG Image:** /articles/the-savings-stack/hero.jpg
 > **Artifacts:** [the booklet (PDF)](/booklets/the-savings-stack.pdf), [the v1 data pack](/data/savings-stack-v1/README.md) with sha256 manifest, and full scientific detail in the [Library](https://library.lupine.science) (group “savings-stack”)
 > **Ontology:** T6, MC4

@@ -4,7 +4,8 @@
 > **Date:** 2026-07-13  
 > **Deck:** A pre-registered, two-round trial of raw vs. Lupine-corrected uMLIPs on two of the five portfolio targets, with a LAMMPS classical leg and kernel-checked correction licenses  
 > **Summary:** Our first correction arm made alloy predictions worse; we turned the failure into a machine-checked law, explored a direction-gated rule that cut lattice errors 3–5×, and then let an adversarial review find where our own claims outran their licenses — those corrections are in this draft.  
-> **Status:** Draft for discussion — revised after adversarial internal review (see errata, rhizo `docs/plans/2026-07-13-errata-and-red-team-dispositions.md`)
+> **Status:** Published
+> **Evidence Status:** Revised after an internal adversarial review (AI-assisted); the errata are in lupine-rhizo docs/plans/2026-07-13-errata-and-red-team-dispositions.md. Round 2 was exploratory rule selection, and the kill condition registered for Round 3 fired. Not peer-reviewed.
 > **Ontology:** T2, T6
 
 ---

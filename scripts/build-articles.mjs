@@ -14,7 +14,9 @@ import { readProofPackMetadata } from './lib/proof-pack-metadata.mjs';
 import {
   loadCompany, normalizeArticles, asOfDate, aboutJsonLd, renderAboutMain,
   renderLlmsTxt, renderAtomFeed, renderNowStrip, organizationGraph, jsonLdScript, injectBetween,
+  documentStatus, DOCUMENT_STATUS_MEANING,
 } from './lib/discovery.mjs';
+import { filmListed } from './lib/film-listing.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = path.join(ROOT, 'articles');
@@ -280,6 +282,13 @@ function extractMeta(raw) {
     ['ogUrl', 'OG URL'],
     ['ogType', 'OG Type'],
     ['proofPack', 'Proof Pack'],
+    // Archived pages: the date the piece was archived, where its current
+    // version lives, and one plain sentence on why.
+    ['archived', 'Archived'],
+    ['supersededBy', 'Superseded By'],
+    ['archiveNote', 'Archive Note'],
+    // Pinned "Start here" order on /articles/ (1 = first).
+    ['featured', 'Featured'],
   ]) {
     const m = raw.match(new RegExp(`^> \\\*\\*${name}:\\\*\\*\\s*(.+?)\\s*$`, 'm'));
     if (m) meta[key] = m[1];
@@ -288,15 +297,18 @@ function extractMeta(raw) {
   return meta;
 }
 
-function formatStatus(status) {
-  if (!status) return '';
-  // Normalize common editorial states into a restrained public label.
-  const lower = status.toLowerCase();
-  if (lower.includes('draft')) return 'Draft';
-  if (lower.includes('published') || lower.includes('final')) return 'Published';
-  if (lower.includes('review') || lower.includes('revision')) return 'In review';
-  return status;
+// One plain label per article, from the closed list in scripts/lib/discovery.mjs.
+// An article without a Status, or with any other label, fails the build.
+function articleStatus(meta, slug) {
+  if (!meta.status) throw new Error(`articles/${slug}.md has no Status line`);
+  try {
+    return documentStatus(meta.status);
+  } catch (error) {
+    throw new Error(`articles/${slug}.md: ${error.message}`);
+  }
 }
+
+const statusClass = (status) => `status-${status.toLowerCase().replace(/[^a-z]+/g, '-')}`;
 
 
 
@@ -470,12 +482,12 @@ import { initAllShareWidgets } from "/components/share/share.mjs";
 initAllShareWidgets();
 </script>`;
 
-export function renderHead({ title, description, url, ogTitle = title, ogDescription = description, ogUrl = url, ogImage, ogType, jsonld, preloadImage, math, videoUrl }) {
+export function renderHead({ title, description, url, ogTitle = title, ogDescription = description, ogUrl = url, ogImage, ogType, jsonld, preloadImage, math, videoUrl, robots = 'index,follow' }) {
   return `<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(description)}">
-  <meta name="robots" content="index,follow">
+  <meta name="robots" content="${esc(robots)}">
   <link rel="canonical" href="${esc(url)}">
   <meta property="og:title" content="${esc(ogTitle)}">
   <meta property="og:description" content="${esc(ogDescription)}">
@@ -505,7 +517,7 @@ function chrome(inner, { current = 'articles' } = {}) {
   <header class="site-header">
     <a class="mark" href="/" aria-label="Lupine Science">
       ${MARK_SVG}
-      <span><b>Lupine Science</b> <span class="tld">accelerating materials discovery</span></span>
+      <span><b>Lupine Science</b> <span class="tld">measuring where AI models of materials go wrong</span></span>
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/">Home</a>
@@ -518,9 +530,10 @@ function chrome(inner, { current = 'articles' } = {}) {
   </header>
 ${inner}
   <footer class="foot">
-    <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
+    <span class="creed">Evidence before claim.</span>
     <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" href="mailto:alex@lupinesci.com" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
-    <span><a href="/about/">About</a> · <a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a> · <a href="/feed.xml">Feed</a></span>
+    <span><a href="/about/">About</a> · <a href="/articles/">Articles</a> · <a href="/corrections/">Corrections</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a> · <a href="/feed.xml">Feed</a></span>
+    <span class="licence">Code MIT · our text and data CC BY 4.0 unless noted · third-party material keeps its own licence</span>
   </footer>`;
 }
 
@@ -581,7 +594,7 @@ async function proofDownloadCard(meta, slug, title) {
   const headingId = `proof-download-title-${slug}`;
   return `<aside class="proof-download" aria-labelledby="${headingId}">
   <div>
-    <p class="eyebrow">Evidence proof pack</p>
+    <p class="eyebrow">Evidence record</p>
     <h2 id="${headingId}">Download the evidence behind this article</h2>
     <p class="description">Locked figure, method, boundaries, bibliography, and audit links in one publication-ready document.</p>
     <p class="metadata">PDF · ${pageCount} ${pageCount === 1 ? 'page' : 'pages'} · ${size} · updated ${updated}</p>
@@ -625,10 +638,15 @@ async function buildArticle(raw, slug) {
   if (deck) {
     headerParts.push(`<p class="article-deck">${esc(deck)}</p>`);
   }
+  const status = articleStatus(meta, slug);
+  if (status === 'Archived') {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(meta.archived || '')) throw new Error(`articles/${slug}.md is Archived but has no "> **Archived:** YYYY-MM-DD" line`);
+    if (!meta.supersededBy || !meta.archiveNote) throw new Error(`articles/${slug}.md is Archived but lacks "Superseded By" or "Archive Note"`);
+  }
   if (meta.date || meta.updated || meta.status) {
     const datePart = meta.date ? `${meta.updated ? 'Originally published ' : ''}<time datetime="${esc(meta.date)}">${formatDate(meta.date)}</time>` : '';
     const updatedPart = meta.updated ? `Updated <time datetime="${esc(meta.updated)}">${formatDate(meta.updated)}</time>` : '';
-    const statusPart = meta.status ? `<span class="article-status">${esc(formatStatus(meta.status))}</span>` : '';
+    const statusPart = `<span class="article-status ${statusClass(status)}">${esc(status)}</span>`;
     if (meta.updated) {
       const parts = [datePart, updatedPart, statusPart].filter(Boolean);
       headerParts.push(`<ul class="article-byline" aria-label="Publication details">${parts.map((part, index) => `${index ? '<li aria-hidden="true"><span class="byline-sep">·</span></li>' : ''}<li>${part}</li>`).join('')}</ul>`);
@@ -637,11 +655,17 @@ async function buildArticle(raw, slug) {
       headerParts.push(`<ul class="article-byline" aria-label="Publication details">${datePart ? `<li>${datePart}</li>` : ''}${sep ? ` <li aria-hidden="true">${sep}</li>` : ''}${statusPart ? ` <li>${statusPart}</li>` : ''}</ul>`);
     }
   }
+  if (status === 'Archived') {
+    headerParts.unshift(`<aside class="callout warning article-archived" role="note" aria-label="Archived"><strong>Archived <time datetime="${esc(meta.archived)}">${formatDate(meta.archived)}</time>.</strong> ${esc(meta.archiveNote)} <a href="${esc(meta.supersededBy)}">Read the current version →</a></aside>`);
+  } else if (status === 'Direction') {
+    headerParts.push(`<aside class="callout info article-direction" aria-label="Document status"><strong>Direction.</strong> ${esc(DOCUMENT_STATUS_MEANING.Direction)}</aside>`);
+  }
   if (meta.evidenceStatus) {
     headerParts.push(`<aside class="callout warning article-evidence-status" aria-label="Evidence status"><strong>Evidence status:</strong> ${esc(meta.evidenceStatus)}</aside>`);
   }
   const hero = heroFigure(slug);
-  const video = inlineVideoPlayer(slug, title);
+  const listedFilm = filmListed(slug, status);
+  const video = listedFilm ? inlineVideoPlayer(slug, title) : '';
   const proofDownload = await proofDownloadCard(meta, slug, title);
   if (headerParts.length || proofDownload || hero || video) {
     const inserted = [...headerParts, proofDownload, hero, video].filter(Boolean).join('\n');
@@ -695,8 +719,8 @@ async function buildArticle(raw, slug) {
   const ogImageWidth = 1200;
   const ogImageHeight = 630;
   const twitterCard = 'summary_large_image';
-  const videoUrl = publishedVideoUrl(slug);
-  const videoPoster = fs.existsSync(path.join(PUBLIC_ROOT, 'videos', `${slug}-poster.jpg`))
+  const videoUrl = listedFilm ? publishedVideoUrl(slug) : undefined;
+  const videoPoster = listedFilm && fs.existsSync(path.join(PUBLIC_ROOT, 'videos', `${slug}-poster.jpg`))
     ? bustVideoPoster(`${SITE}/videos/${slug}-poster.jpg`, slug)
     : undefined;
   const socialTitle = meta.ogTitle || `${title} — Lupine Science`;
@@ -759,6 +783,7 @@ async function buildArticle(raw, slug) {
     preloadImage,
     math: hasMath,
     videoUrl,
+    robots: status === 'Archived' ? 'noindex,follow' : 'index,follow',
   })}
 </head>
 <body${meta.type?.toLowerCase() === 'conference announcement' ? ' class="conference-announcement"' : ''}>
@@ -771,27 +796,21 @@ ${PAGE_SCRIPT}${hero.includes('data-svg-hero') ? '\n<script type="module" src="/
 </body>
 </html>
 `;
-  return { page, title, description, meta, slug, ogImage, ogImageWidth, ogImageHeight, twitterCard };
+  return { page, title, description, meta, status, slug, ogImage, ogImageWidth, ogImageHeight, twitterCard };
 }
 
-function buildIndex(articles) {
-  const cards = articles.map((a, index) => {
-    // cards use dedicated 640w thumbs; full-size heroes stay on the article
-    const base = fs.existsSync(path.join(OUT, a.slug, 'thumb.jpg')) ? 'thumb'
-      : fs.existsSync(path.join(OUT, a.slug, 'hero.jpg')) ? 'hero' : null;
-    const thumb = base
-      ? pictureSources(a.slug, base, { eager: index === 0 })
-          .replace('width="1280" height="720"', 'class="card-thumb" width="640" height="360"')
-      : '<span class="card-thumb card-thumb-empty" aria-hidden="true"><i></i><i></i><i></i></span>';
-    // status renders as its own span so settled work (Published/Live/Final)
-    // can carry the verified green while drafts stay quiet; long editorial
-    // statuses keep only their leading clause — the card is a label, not a memo
-    const statusLabel = (a.meta.status ? formatStatus(a.meta.status) : '').split(/[—;]/)[0].trim();
-    const statusHtml = statusLabel
-      ? `<span class="card-status${/^(published|live|final)/i.test(statusLabel) ? ' is-published' : ''}">${esc(statusLabel)}</span>`
-      : '';
-    const metaLine = [a.meta.date ? esc(formatDate(a.meta.date)) : '', statusHtml].filter(Boolean).join(' · ');
-    return `<li>
+function articleCard(a, index) {
+  // cards use dedicated 640w thumbs; full-size heroes stay on the article
+  const base = fs.existsSync(path.join(OUT, a.slug, 'thumb.jpg')) ? 'thumb'
+    : fs.existsSync(path.join(OUT, a.slug, 'hero.jpg')) ? 'hero' : null;
+  const thumb = base
+    ? pictureSources(a.slug, base, { eager: index === 0 })
+        .replace('width="1280" height="720"', 'class="card-thumb" width="640" height="360"')
+    : '<span class="card-thumb card-thumb-empty" aria-hidden="true"><i></i><i></i><i></i></span>';
+  // the card carries the plain document status; scope lives on the article
+  const statusHtml = `<span class="card-status ${statusClass(a.status)}">${esc(a.status)}</span>`;
+  const metaLine = [a.meta.date ? esc(formatDate(a.meta.date)) : '', statusHtml].filter(Boolean).join(' · ');
+  return `<li>
   <a class="article-card" href="/articles/${a.slug}/">
     ${thumb}
     <span class="d8">${metaLine}</span>
@@ -799,7 +818,27 @@ function buildIndex(articles) {
     <p>${esc(a.meta.deck || a.meta.summary || a.meta.scope || a.description)}</p>
   </a>
 </li>`;
-  }).join('\n');
+}
+
+// /articles/ lists results and methods (Published, Working draft) apart from
+// Direction pieces, and never lists an Archived page. A short "Start here"
+// list is pinned from the `> **Featured:** N` front-matter field.
+function buildIndex(articles) {
+  const listed = articles.filter((a) => a.status !== 'Archived');
+  const results = listed.filter((a) => a.status === 'Published' || a.status === 'Working draft');
+  const direction = listed.filter((a) => a.status === 'Direction');
+  const featured = listed
+    .filter((a) => /^\d+$/.test(a.meta.featured || ''))
+    .sort((a, b) => Number(a.meta.featured) - Number(b.meta.featured) || a.slug.localeCompare(b.slug));
+  const resultCards = results.map((a, index) => articleCard(a, index)).join('\n');
+  const directionCards = direction.map((a) => articleCard(a, 1)).join('\n');
+  const startHere = featured.length ? `
+    <section class="start-here" aria-labelledby="start-here-title">
+      <h2 class="b-label" id="start-here-title">Start here</h2>
+      <ol class="start-here-list">
+${featured.map((a) => `        <li><a href="/articles/${a.slug}/">${esc(a.title)}</a> <span class="card-status ${statusClass(a.status)}">${esc(a.status)}</span></li>`).join('\n')}
+      </ol>
+    </section>` : '';
 
   const jsonld = {
     '@context': 'https://schema.org',
@@ -814,7 +853,7 @@ function buildIndex(articles) {
 <head>
   ${renderHead({
     title: 'Articles — Lupine Science',
-    description: 'Articles, prospectuses, and research notes on formalized, machine-checked materials discovery.',
+    description: 'Research notes from Lupine Science: preregistered results, the failures among them, and the methods behind them.',
     url: `${SITE}/articles/`,
     ogImage: `${SITE}/og-lupine-science.jpg`,
     ogType: 'website',
@@ -823,16 +862,22 @@ function buildIndex(articles) {
 </head>
 <body>
 ${chrome(`  <main id="content" class="article-index">
-    <p class="b-label">Recent notes</p>
-    <h1>Research notes, prospectuses, and formalization roadmaps.</h1>
-    <div class="cta proof-pack-cta">
-      <p><strong>Environmental series — download the proof pack</strong></p>
-      <p>A single PDF with all five environmental-series articles: cover pages, printable layout, and source URLs.</p>
-      <a href="/proof-pack-climate-series.pdf" download>Download proof-pack-climate-series.pdf</a>
-    </div>
-    <ul class="article-list">
-${cards}
-    </ul>
+    <p class="b-label">Articles</p>
+    <h1>Results, failures, and methods, newest first.</h1>
+    <p class="index-lede">Nothing here is peer-reviewed yet. Each article carries one status: <strong>Published</strong> (our current statement; corrections dated in the body) or <strong>Working draft</strong> (may change; not for citation). Pieces that describe where the work is aimed are listed separately under Direction. Claims we have retired are in the <a href="/corrections/">corrections log</a>.</p>${startHere}
+    <section aria-labelledby="results-title">
+      <h2 class="b-label" id="results-title">Results and methods</h2>
+      <ul class="article-list">
+${resultCards}
+      </ul>
+    </section>
+    <section class="direction-section" aria-labelledby="direction-title">
+      <h2 class="b-label" id="direction-title">Direction</h2>
+      <p class="index-lede">${esc(DOCUMENT_STATUS_MEANING.Direction)} These pieces say what we would like to build toward and why; any capability they describe is a hypothesis we have not yet shown, and each says what has been tested so far.</p>
+      <ul class="article-list">
+${directionCards}
+      </ul>
+    </section>
   </main>`)}
 ${PAGE_SCRIPT}
 </body>
@@ -853,6 +898,8 @@ function videoArticles(articles) {
     const { slug } = article;
     const mp4 = path.join(PUBLIC_ROOT, 'videos', `${slug}.mp4`);
     if (!fs.existsSync(mp4)) return false;
+    // Unlisted films keep their files but get no page, card or embed.
+    if (!filmListed(slug, article.status)) return false;
     for (const suffix of ['-poster.jpg', '.vtt']) {
       const required = path.join(PUBLIC_ROOT, 'videos', `${slug}${suffix}`);
       if (!fs.existsSync(required)) {
@@ -968,11 +1015,9 @@ function buildVideoIndex(articles) {
     title: 'Videos — Lupine Science',
     description: 'Narrated motion versions and short films from Lupine Science articles.',
     url,
-    // The index previews a film from the released two-film slate
-    // (why-lupine-science / why-lupi), never declined inventory. Restored from
-    // main: this branch predates the declined-film-promotion fix and its
-    // hardcoded poster would reintroduce that regression.
-    ogImage: bust(`${SITE}/videos/why-lupine-science-poster.jpg`),
+    // The index previews the newest listed film, never unlisted or declined
+    // inventory; with no listed film it falls back to the site card.
+    ogImage: articles[0] ? bustVideoPoster(`${SITE}/videos/${articles[0].slug}-poster.jpg`, articles[0].slug) : `${SITE}/og-lupine-science.jpg`,
     ogType: 'website',
     jsonld,
   })}
@@ -993,9 +1038,9 @@ function buildVideoIndex(articles) {
 </head>
 <body>
 ${chrome(`  <main id="content" class="videos-index">
-    <p class="b-label">Narrated motion and short films</p>
+    <p class="b-label">Short films</p>
     <h1>Article videos.</h1>
-    <p class="lead">Watch the research in motion, return to the full source article, or download the reviewed video and captions.</p>
+    <p class="lead">Short films that accompany our articles. The article is the record; read it for the numbers and their scope. Films whose narration no longer matches our published results are not listed here.</p>
     ${shareBar('/videos/', 'Videos — Lupine Science')}
     <ul class="video-list">
 ${cards}
@@ -1061,6 +1106,7 @@ for (const file of sources) {
 }
 articles.sort((a, b) => (b.meta.date || '').localeCompare(a.meta.date || ''));
 writeAtomic(path.join(OUT, 'index.html'), buildIndex(articles));
+const listedArticles = articles.filter((a) => a.status !== 'Archived');
 console.log('built /articles/index.html');
 
 const videos = videoArticles(articles);
@@ -1107,7 +1153,7 @@ for (const article of videos) {
 }
 writeAtomic(path.join(videosRoot, 'index.html'), buildVideoIndex(videos));
 writeAtomic(path.join(PUBLIC_ROOT, '404.html'), buildNotFoundPage());
-buildDiscoverySurfaces(articles);
+buildDiscoverySurfaces(listedArticles);
 console.log(`built /videos/index.html (${videos.length} videos)`);
 
 // Company fact sheet, llms.txt, Atom feed, and the homepage's structured data

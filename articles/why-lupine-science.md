@@ -4,7 +4,7 @@
 > **Date:** 2026-06-30  
 > **Deck:** Trustworthy AI for materials discovery  
 > **Summary:** Generative AI produces countless material candidates, but its simulations are wrong in structured ways; the bottleneck is not more models but makeability, and the response is machine-checkable certificates of synthesis, stability, and performance.  
-> **Status:** Published
+> **Status:** Direction
 
 ---
 

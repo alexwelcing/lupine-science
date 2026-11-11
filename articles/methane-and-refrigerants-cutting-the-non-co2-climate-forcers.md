@@ -1,7 +1,7 @@
 > **Date:** 2026-07-16
 > **Deck:** How corrected atomistic predictions can accelerate low-temperature methane conversion and the discovery of low-GWP refrigerants.
 > **Summary:** Methane and hydrofluorocarbon refrigerants are the largest non-CO₂ climate levers; both are materials-limited, and the correction-and-verification layer changes the discovery geometry.
-> **Status:** Draft
+> **Status:** Direction
 
 
 # Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers

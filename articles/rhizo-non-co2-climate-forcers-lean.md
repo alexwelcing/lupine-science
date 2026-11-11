@@ -1,7 +1,10 @@
 > **Date:** 2026-07-12
 > **Deck:** Lupine Rhizo now formally accounts for methane, N₂O, HFCs, and SF₆ inside its Lean 4 climate library.
 > **Summary:** The latest `lupine-rhizo` build adds `ClimateForcers.lean` and a validation module that machine-checks non-CO₂ warming potentials, lifetimes, and substitution savings — {{LEAN_THEOREM_COUNT}} theorems, zero `sorry`.
-> **Status:** Live
+> **Status:** Archived
+> **Archived:** 2026-11-11
+> **Superseded By:** /corrections/
+> **Archive Note:** This July 2026 release note presented a library-wide Lean theorem count beside climate claims. We no longer use theorem counts as evidence; the corrections log explains why.
 
 
 # Non-CO₂ Climate Forcers, Now Formalized in Lean

@@ -1,7 +1,7 @@
 > **Date:** 2026-07-16
 > **Deck:** How corrected universal machine-learning interatomic potentials can accelerate low-CO₂ binders, alternative clinkers, and CO₂-cured concrete by taming amorphous and metastable phase chemistry.
 > **Summary:** Cement decarbonization is a prediction-trust problem. Corrected universal machine-learning interatomic potentials apply directly to the disordered, under-coordinated materials in alternative binders, alternative clinkers, and CO₂-cured concrete.
-> **Status:** Draft
+> **Status:** Direction
 
 
 # Cement, Concrete, and the Weight of the Built World

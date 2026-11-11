@@ -4,7 +4,10 @@
 > **Date:** 2026-07-24  
 > **Deck:** The full account you asked for before we talk — the verdict, the economics, the failures, the catches, and where I'd push back  
 > **Summary:** All four models scored strong-win on the same-engine gate, at a measured $14.65. The interesting parts are not the wins — they're the guidance split, the cost collapse, and what broke along the way.  
-> **Status:** FOR EDITOR REVIEW — draft for the lead, pre-conversation; not for citation
+> **Status:** Archived
+> **Archived:** 2026-11-11
+> **Superseded By:** /articles/shared-dft-anchors/
+> **Archive Note:** This July 2026 de-brief was a working draft published before editing. Its "strong win" is a same-engine self-consistency check written in after a failure, not an accuracy result: against the published references the pilot was about 700 meV off. The current account is the dated section "What happened when we ran it" in Sharing DFT Anchors.
 > **Ontology:** T6, E4, MC4
 
 ---

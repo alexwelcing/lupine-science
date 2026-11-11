@@ -1,7 +1,10 @@
 > **Date:** 2026-07-09
 > **Deck:** The environment error field as a measured physical correction layer for universal machine-learning interatomic potentials.
 > **Summary:** The largest errors in computational materials discovery have a low-dimensional geometry, and Lupine measures and corrects them at runtime with machine-checked proof.
-> **Status:** Draft
+> **Status:** Archived
+> **Archived:** 2026-11-11
+> **Superseded By:** /articles/a-smooth-environment-resolved-error-field/
+> **Archive Note:** This July 2026 draft restated the fcc error-field result with claims that went beyond it (barrier transfer, "provable accuracy" for screening campaigns). The current, scoped statement of that result is the fcc error-field results note.
 
 
 # A Field, Not a Neural Net

@@ -11,7 +11,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { loadCompany, asOfDate } from './lib/discovery.mjs';
+import { loadCompany, asOfDate, documentStatus } from './lib/discovery.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC = path.join(ROOT, 'public');
@@ -26,6 +26,14 @@ function articleDate(slug) {
   return updated?.[1] || published?.[1] || null;
 }
 
+// Archived articles keep their URL (noindex) but are not offered to crawlers.
+function articleArchived(slug) {
+  const md = path.join(ROOT, 'articles', `${slug}.md`);
+  if (!fs.existsSync(md)) return false;
+  const status = fs.readFileSync(md, 'utf8').match(/^> \*\*Status:\*\*\s*(.+?)\s*$/m)?.[1];
+  return documentStatus(status) === 'Archived';
+}
+
 function correctionsUpdated() {
   const page = path.join(PUBLIC, 'corrections', 'index.html');
   if (!fs.existsSync(page)) return null;
@@ -37,7 +45,7 @@ function correctionsUpdated() {
 // tells crawlers the front door moves whenever anything ships.
 const company = loadCompany(ROOT);
 const siteAsOf = asOfDate(company, fs.readdirSync(path.join(ROOT, 'articles'))
-  .filter((f) => f.endsWith('.md'))
+  .filter((f) => f.endsWith('.md') && !articleArchived(f.replace(/\.md$/, '')))
   .map((f) => ({ date: articleDate(f.replace(/\.md$/, '')) || '' })));
 
 const urls = [
@@ -57,6 +65,7 @@ for (const entry of fs.readdirSync(path.join(PUBLIC, 'articles'), { withFileType
   if (!entry.isDirectory()) continue;
   const slug = entry.name;
   if (!fs.existsSync(path.join(PUBLIC, 'articles', slug, 'index.html'))) continue;
+  if (articleArchived(slug)) continue;
   urls.push({ loc: `${SITE}/articles/${slug}/`, lastmod: articleDate(slug) });
 }
 

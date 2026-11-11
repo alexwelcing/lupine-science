@@ -5,7 +5,7 @@
 > **Deck:** How measuring simulation error can help us choose the next experiment.
 > **Summary:** Lupine Science will attend TMS2027 in Orlando, March 14–18, 2027. Alex Welcing will present an accepted poster on measuring the errors of interatomic potentials.
 > **Audience:** Anyone curious about how better simulations can support materials discovery
-> **Status:** Poster abstract accepted
+> **Status:** Published
 > **OG Image:** /articles/tms-2027-measuring-what-we-can-trust/hero.jpg
 
 <div class="conference-facts">

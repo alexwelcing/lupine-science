@@ -60,20 +60,52 @@ export function formatRange(start, end) {
   return `${d1} ${MONTHS[m1 - 1]} – ${d2} ${MONTHS[m2 - 1]} ${y2}`;
 }
 
-// Normalize build-articles' article objects (or plain test fixtures) into the
-// flat shape the renderers use. Status keeps only its leading clause — the
-// same rule the article index cards use.
+// Document status: one plain label per article (docs/messaging-canon.md).
+// Scope, caveats and review state belong in the "Evidence Status" line, never
+// in Status. Every surface (article byline, index cards, /about/, llms.txt and
+// the feed) reads the label through documentStatus(), so they cannot disagree.
+//   Published      current statement on this site; not peer-reviewed;
+//                  corrections are dated in the body
+//   Working draft  public for discussion; may change; not for citation
+//   Direction      where the work is aimed; not a result
+//   Archived       superseded; keeps its URL behind a dated banner and noindex,
+//                  and is left out of every index, the feed, llms.txt and the
+//                  sitemap
+export const DOCUMENT_STATUSES = ['Published', 'Working draft', 'Direction', 'Archived'];
+export const DOCUMENT_STATUS_MEANING = {
+  Published: 'Current statement on this site. Not peer-reviewed; corrections are dated in the body.',
+  'Working draft': 'Public for discussion. It may change and is not for citation.',
+  Direction: 'Describes where this work is aimed. Not a result.',
+  Archived: 'Superseded. Kept at this address for the record.',
+};
+
+export function documentStatus(raw) {
+  const label = String(raw ?? '').replace(/[*_`]/g, '').trim();
+  const match = DOCUMENT_STATUSES.find((status) => status.toLowerCase() === label.toLowerCase());
+  if (!match) {
+    throw new Error(`article Status "${raw}" is not one of ${DOCUMENT_STATUSES.join(' / ')}; put scope and caveats in Evidence Status`);
+  }
+  return match;
+}
+
+export function isArchived(meta) {
+  return documentStatus(meta?.status) === 'Archived';
+}
+
 // Frontmatter prose may carry inline markdown (`code`, **bold**, *em*);
 // feeds and plain-text briefs want the words only.
 function plain(s) {
   return String(s || '').replace(/`([^`]*)`/g, '$1').replace(/\*\*([^*]+)\*\*/g, '$1').replace(/(^|[\s(])\*([^*\s][^*]*)\*/g, '$1$2');
 }
 
+// Normalize build-articles' article objects (or plain test fixtures) into the
+// flat shape the renderers use. Archived articles are dropped here, so no
+// listing surface can carry one.
 export function normalizeArticles(articles) {
   return articles
     .map((a) => {
       const meta = a.meta || {};
-      const status = String(meta.status || '').replace(/[*_`]/g, '').split(/[—;]/)[0].trim();
+      const status = documentStatus(meta.status);
       return {
         slug: a.slug,
         title: a.title,
@@ -81,12 +113,12 @@ export function normalizeArticles(articles) {
         date: meta.date || '',
         updated: meta.updated || meta.date || '',
         status,
-        settled: /^(published|live|final)/i.test(status),
+        direction: status === 'Direction',
         summary: plain(meta.summary || meta.deck || a.description),
         deck: plain(meta.deck || meta.summary || a.description),
       };
     })
-    .filter((a) => a.slug && a.title)
+    .filter((a) => a.slug && a.title && a.status !== 'Archived')
     .sort((a, b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug));
 }
 
@@ -490,10 +522,16 @@ export function renderLlmsTxt(company, articles, { asOf = asOfDate(company, arti
     lines.push(`- ${m.date}: ${m.text}: ${absolute(m.href)}`);
   }
   lines.push('');
-  lines.push('## Articles', '');
-  lines.push('Newest first. Status labels are the article\'s own; drafts are marked as drafts.', '');
-  for (const a of articles) {
-    lines.push(`- [${a.title}](${a.url}) (${a.date}${a.status ? `, ${a.status}` : ''}): ${a.summary}`);
+  lines.push('## Results and methods', '');
+  lines.push('Newest first. Status is Published (current statement on this site, not peer-reviewed) or Working draft (may change, not for citation).', '');
+  for (const a of articles.filter((x) => !x.direction)) {
+    lines.push(`- [${a.title}](${a.url}) (${a.date}, ${a.status}): ${a.summary}`);
+  }
+  lines.push('');
+  lines.push('## Direction (where the work is aimed; not results)', '');
+  lines.push('These pieces describe where the work is aimed. They are not results, and any capability they describe is a hypothesis to test.', '');
+  for (const a of articles.filter((x) => x.direction)) {
+    lines.push(`- [${a.title}](${a.url}) (${a.date}, Direction): ${a.summary}`);
   }
   lines.push('');
   lines.push('## Canonical surfaces', '');

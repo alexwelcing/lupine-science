@@ -1,7 +1,7 @@
 > **Date:** 2026-07-09
 > **Deck:** A portfolio-level view of five material classes targeted for gigatonne-scale climate impact.
 > **Summary:** Five computationally intractable materials—cobalt-free cathodes, halide solid electrolytes, MOF sorbents, ammonia catalysts, and lead-free perovskites—could unlock 5–12 GtCO₂/year, but only if the predictions sent to labs are corrected and verified first.
-> **Status:** Draft
+> **Status:** Direction
 
 
 # Five Materials That Could Unlock 5–12 GtCO₂/Year

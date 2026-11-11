@@ -1,7 +1,7 @@
 > **Date:** 2026-07-12
 > **Deck:** Lupi now streams real hydrofluorocarbon refrigerant trajectories with full research payloads: charges, velocities, forces, thermo, and temperature profiles.
 > **Summary:** The latest Lupi viewer release adds R32 and R125 NVT simulations from the Maginn group force fields, a `fix ave/chunk` profile parser, vector glyph views, and billion-atom brick LOD.
-> **Status:** Live
+> **Status:** Published
 
 
 # Lupi Gains HFC Refrigerant Research Payloads

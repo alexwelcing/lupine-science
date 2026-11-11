@@ -1,7 +1,7 @@
 > **Date:** 2026-07-09
 > **Deck:** Why most computationally predicted materials never reach a synthesis vessel, and why that matters for climate-critical materials.
 > **Summary:** A review of the 0.2% validation rate of structure-generation campaigns, the four structural filters that cause it, and the gigatonne-scale cost of leaving the problem unsolved.
-> **Status:** Draft
+> **Status:** Direction
 
 
 # The 0.2% Synthesis Problem

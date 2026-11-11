@@ -2,7 +2,7 @@
 > **Updated:** 2026-08-12
 > **Deck:** Critical-mineral recovery and PFAS remediation share the same computational bottleneck — accurate binding and activation energies in under-coordinated environments — and the correction layer addresses both.
 > **Summary:** Critical-mineral recycling, direct lithium extraction, and PFAS destruction share a common materials-discovery problem: accurate binding and activation energies in under-coordinated environments, addressable by corrected uMLIPs and machine-checked verification.
-> **Status:** Published
+> **Status:** Direction
 > **Evidence Status:** Scientific mechanisms are source-cited. Quantitative market, demand, site-count, cost, and performance figures are contextual estimates with unresolved verification gaps; proposed recovery and PFAS-destruction applications are research directions, not demonstrated Lupine outcomes.
 
 

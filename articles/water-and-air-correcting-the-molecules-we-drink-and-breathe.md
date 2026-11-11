@@ -1,7 +1,7 @@
 > **Date:** 2026-07-16
 > **Deck:** How corrected uMLIPs recover accurate binding and barrier predictions for water desalination, atmospheric harvesting, lithium-selective extraction, and air-quality catalysts.
 > **Summary:** Water and air quality depend on materials that separate and transform molecules in under-coordinated environments; the correction layer fixes the uMLIP errors that corrupt discovery of those materials.
-> **Status:** Draft
+> **Status:** Direction
 
 
 # Water and Air: Correcting the Molecules Humans Drink and Breathe

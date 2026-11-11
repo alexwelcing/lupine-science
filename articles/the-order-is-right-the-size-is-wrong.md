@@ -3,7 +3,8 @@
 > **Field note from the live lab**
 > **Date:** 2026-07-02  
 > **Deck:** Foundation machine-learned interatomic potentials (CHGNet, MACE-MP, MACE-MPA-0) measured across 21 materials and up to 9 properties against 228 published reference values  
-> **Status:** Live evidence — every number reported is sealed as a machine-checked theorem over provenance-hashed data; kills and corrections are preserved in the record  
+> **Status:** Published
+> **Evidence Status:** Four uMLIPs, 21 materials, 228 published reference values. The arithmetic and stated inequalities are checked in Lean over hashed data; the physics is tested against the references, not by Lean. Not peer-reviewed.
 > **Artifacts:** manuscript, pre-registration with amendments, 100+ Lean theorems, and the full evidence corpus in the [repository](https://github.com/alexwelcing/lupine-rhizo/pull/14) and [Library](https://library.lupine.science)  
 
 ---

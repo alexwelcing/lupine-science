@@ -1,7 +1,7 @@
 > **Date:** 2026-07-09
 > **Deck:** How Lupine Science turns computational predictions into commercial climate materials through a sequenced partner chain.
 > **Summary:** A rigorous, partner-by-partner map from predicted crystal to commercial cell for batteries, carbon removal, ammonia, and solar absorbers.
-> **Status:** Draft
+> **Status:** Direction
 
 
 # From Predicted Crystal to Commercial Cell

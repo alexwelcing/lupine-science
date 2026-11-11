@@ -4,7 +4,8 @@
 > **Date:** 2026-07-19  
 > **Deck:** A plain-language status report on our four preregistered Round-4 campaigns — what we measured, what failed, what is still running, and how you can check every number  
 > **Summary:** Three of our four campaign gates have reported in, and all three are failures or abstentions — recorded, hash-locked, and explained. The fourth is running right now. This is what open-science instrumentation looks like when the answers are no.  
-> **Status:** Final — updated 2026-07-20 with the Z3 verdict and the Z1 float64 confirmation
+> **Status:** Published
+> **Evidence Status:** Four preregistered Round-4 campaigns, July 2026; updated 2026-07-20 with the Z3 verdict and the Z1 float64 confirmation. Verdicts are hash-locked. The Round-4 analysis tool was committed after the measurements existed; the amendment that records this is listed under Sources. Not peer-reviewed.
 > **Ontology:** T2, T6, E4
 
 ---

@@ -4,7 +4,8 @@
 > **Date:** 2026-08-03
 > **Deck:** A preserved 16-element comparison of 1×1×1 and 3×3×3 MatPES elastic calculations, with the correction failure reported alongside the result that survived
 > **Summary:** On this benchmark, the 1×1×1 TensorNet/PBE arm and the 3×3×3 reference arm have nearly identical elastic-constant error, while the tested global correction operator makes the result substantially worse.
-> **Status:** In review — release archived; DOI registration pending
+> **Status:** Published
+> **Evidence Status:** One recorded run on 16 cubic metals. Release v1.0.0 is archived; no DOI has been registered yet. Not peer-reviewed.
 > **Ontology:** T4, E5, MC9
 
 ---
