@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Small Cell Held: A 16-Element MLIP Elastic Benchmark — Lupine Science</title>
-  <meta name="description" content="On this benchmark, the 1×1×1 TensorNet/PBE arm and the 3×3×3 reference arm have nearly identical elastic-constant error, while the tested global correction operator makes the result substantially worse.">
+  <meta name="description" content="On a 16-metal panel, 1×1×1 TensorNet/PBE cells matched 3×3×3 cells for elastic-constant error (14.55 vs 14.61 GPa MAE), while a global correction made the result worse (63.40 GPa).">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://lupine.science/articles/the-small-cell-held-mlip-elastic-benchmark/">
   <meta property="og:title" content="The Small Cell Held: A 16-Element MLIP Elastic Benchmark — Lupine Science">
-  <meta property="og:description" content="On this benchmark, the 1×1×1 TensorNet/PBE arm and the 3×3×3 reference arm have nearly identical elastic-constant error, while the tested global correction operator makes the result substantially worse.">
+  <meta property="og:description" content="On a 16-metal panel, 1×1×1 TensorNet/PBE cells matched 3×3×3 cells for elastic-constant error (14.55 vs 14.61 GPa MAE), while a global correction made the result worse (63.40 GPa).">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://lupine.science/articles/the-small-cell-held-mlip-elastic-benchmark/">
   <meta property="og:image" content="https://lupine.science/og-lupine-science.jpg?v=3">
@@ -16,7 +16,7 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="The Small Cell Held: A 16-Element MLIP Elastic Benchmark — Lupine Science">
-  <meta name="twitter:description" content="On this benchmark, the 1×1×1 TensorNet/PBE arm and the 3×3×3 reference arm have nearly identical elastic-constant error, while the tested global correction operator makes the result substantially worse.">
+  <meta name="twitter:description" content="On a 16-metal panel, 1×1×1 TensorNet/PBE cells matched 3×3×3 cells for elastic-constant error (14.55 vs 14.61 GPa MAE), while a global correction made the result worse (63.40 GPa).">
   <meta name="twitter:image" content="https://lupine.science/og-lupine-science.jpg?v=3">
   <meta name="theme-color" content="#faf9f6">
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
@@ -27,7 +27,7 @@
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/articles/styles.css">
   <style>:root{--share-ink:var(--ink-soft,#4c4e58);--share-ink-hover:var(--indigo,#3d4db3);--share-border:var(--rule,#e2dfd4);--share-bg:var(--paper,#faf9f6);--share-bg-hover:var(--indigo-wash,rgba(61,77,179,0.08));--share-focus:var(--indigo,#3d4db3);--share-gap:8px;--share-icon-size:18px;}.share-root{display:flex;flex-wrap:wrap;align-items:center;gap:var(--share-gap);margin:2.4em 0 0;padding:16px 0 0;border-top:1px solid var(--share-border);font-family:var(--mono,'IBM Plex Mono',ui-monospace,monospace);font-size:13px;position:relative;}.share-label{color:var(--ink-faint,#6e707a);margin-right:4px;}.share-list{display:flex;flex-wrap:wrap;gap:var(--share-gap);list-style:none;margin:0;padding:0;}.share-list[hidden]{display:none;}.share-list li,.share-menu li{margin:0;padding:0;}.share-link,.share-toggle{display:inline-flex;align-items:center;gap:6px;min-width:44px;min-height:44px;padding:6px 12px;border-radius:4px;border:1px solid var(--share-border);background:var(--share-bg);color:var(--share-ink);text-decoration:none;font-family:inherit;font-size:inherit;cursor:pointer;transition:background 180ms,border-color 180ms,color 180ms;}.share-link svg,.share-toggle svg{width:var(--share-icon-size);height:var(--share-icon-size);flex-shrink:0;}.share-link:hover,.share-link:focus,.share-toggle:hover,.share-toggle:focus{background:var(--share-bg-hover);border-color:var(--share-focus);color:var(--share-ink-hover);}.share-link:focus-visible,.share-toggle:focus-visible{outline:2px solid var(--share-focus);outline-offset:2px;}.share-live{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}@media (max-width:600px){.share-root{flex-wrap:wrap;}.share-toggle{min-width:44px;min-height:44px;padding:8px 12px;justify-content:center;}.share-toggle-text{margin-left:4px;}.share-menu{position:static;flex-basis:100%;list-style:none;margin:6px 0 0;padding:6px;border:1px solid var(--share-border);border-radius:6px;background:var(--share-bg);box-shadow:0 8px 24px rgba(22,23,29,0.08);}.share-menu[hidden]{display:none;}.share-menu .share-link{width:100%;justify-content:flex-start;min-height:44px;border:none;border-radius:4px;background:transparent;}.share-menu .share-link:hover,.share-menu .share-link:focus{background:var(--share-bg-hover);}}@media print{.share-root{display:none;}}@media (prefers-reduced-motion:reduce){.share-link,.share-toggle,.share-menu,.article .share-link,.article .share-toggle{transition:none !important;animation:none !important;}}</style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Small Cell Held: A 16-Element MLIP Elastic Benchmark","description":"On this benchmark, the 1×1×1 TensorNet/PBE arm and the 3×3×3 reference arm have nearly identical elastic-constant error, while the tested global correction operator makes the result substantially worse.","datePublished":"2026-08-03","url":"https://lupine.science/articles/the-small-cell-held-mlip-elastic-benchmark/","mainEntityOfPage":"https://lupine.science/articles/the-small-cell-held-mlip-elastic-benchmark/","image":"https://lupine.science/articles/the-small-cell-held-mlip-elastic-benchmark/hero.jpg?v=3","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png?v=3"}}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Small Cell Held: A 16-Element MLIP Elastic Benchmark","description":"On a 16-metal panel, 1×1×1 TensorNet/PBE cells matched 3×3×3 cells for elastic-constant error (14.55 vs 14.61 GPa MAE), while a global correction made the result worse (63.40 GPa).","datePublished":"2026-08-03","dateModified":"2026-11-11","url":"https://lupine.science/articles/the-small-cell-held-mlip-elastic-benchmark/","mainEntityOfPage":"https://lupine.science/articles/the-small-cell-held-mlip-elastic-benchmark/","image":"https://lupine.science/articles/the-small-cell-held-mlip-elastic-benchmark/hero.jpg?v=3","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png?v=3"}}}</script>
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
@@ -61,7 +61,7 @@
     <path d="M244 142 C251 124 261 124 268 142 C262 136 250 136 244 142Z"/><path d="M244 207 C252 186 263 186 271 207 C263 199 252 199 244 207Z"/><path d="M242 296 C252 272 265 272 274 296 C264 286 252 286 242 296Z"/>
   </g>
 </svg>
-      <span><b>Lupine Science</b> <span class="tld">accelerating materials discovery</span></span>
+      <span><b>Lupine Science</b> <span class="tld">measuring where AI models of materials go wrong</span></span>
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/">Home</a>
@@ -77,7 +77,8 @@
       <p class="article-kicker" aria-label="Article type">Results note</p>
 <h1>The Small Cell Held: A 16-Element MLIP Elastic Benchmark</h1>
 <p class="article-deck">A preserved 16-element comparison of 1×1×1 and 3×3×3 MatPES elastic calculations, with the correction failure reported alongside the result that survived</p>
-<ul class="article-byline" aria-label="Publication details"><li><time datetime="2026-08-03">August 3, 2026</time></li> <li aria-hidden="true"><span class="byline-sep" aria-hidden="true">·</span></li> <li><span class="article-status">In review</span></li></ul>
+<ul class="article-byline" aria-label="Publication details"><li>Originally published <time datetime="2026-08-03">August 3, 2026</time></li><li aria-hidden="true"><span class="byline-sep">·</span></li><li>Updated <time datetime="2026-11-11">November 11, 2026</time></li><li aria-hidden="true"><span class="byline-sep">·</span></li><li><span class="article-status status-published">Published</span></li></ul>
+<aside class="callout warning article-evidence-status" aria-label="Evidence status"><strong>Evidence status:</strong> One recorded run on 16 cubic metals. Release v1.0.0 is archived; no DOI has been registered yet. Not peer-reviewed.</aside>
 <figure class="article-hero" aria-labelledby="hero-caption">
   <picture>
     <source srcset="/articles/the-small-cell-held-mlip-elastic-benchmark/hero.avif?v=3" type="image/avif">
@@ -88,7 +89,7 @@
 </figure>
 
 <hr>
-<p class="lead">A larger supercell did not buy better elastic-constant accuracy on this 16-element cubic-metal panel. The preserved aggregate reports 14.55 GPa mean absolute error for the 1×1×1 TensorNet/PBE arm and 14.61 GPa for the 3×3×3 reference arm. The recorded runtime ratio is 3.86× in favor of the smaller cell.</p>
+<p class="lead">A larger supercell did not buy better elastic-constant accuracy on this 16-element cubic-metal panel. The preserved aggregate reports 14.55 GPa mean absolute error for the 1×1×1 TensorNet/PBE arm and 14.61 GPa for the 3×3×3 reference arm. The recorded runtime ratio is 3.86× in favor of the smaller cell. The global correction we tested alongside it made the error worse, not better: 63.40 GPa.</p>
 <h2>The result</h2>
 <p>The benchmark compares five pre-defined arms against the <code>TPBE_0K</code> target reference. The central comparison is deliberately narrow:</p>
 <table>
@@ -130,7 +131,9 @@
 <p>The provenance boundary remains explicit. The canonical aggregate records MatPES release <code>2025.2</code> and run time <code>2026-06-27T03:44:17.276718+00:00</code>, but its generation-time <code>git_sha</code> and <code>host</code> fields are <code>unknown</code>. The release binds the preserved files together; it does not retroactively infer those missing fields.</p>
 <h2>Scope</h2>
 <p>This is a cost–accuracy benchmark, not a claim of new physics or universal supercell independence. It covers 16 cubic metals, one recorded run, cache-warm single-relax timings, and a CPU-equivalent cost convention with one core. The headline target is PBE; r2SCAN values are a sensitivity check built from an approximated scalar bulk-modulus shift. Gold uses a PW91-GGA fallback. The raw directory in the package is not a complete 192-case rerun: some aggregate inputs came from the external Lupine data directories named in the configuration.</p>
-<p>Use the release manifest to verify files, <code>scripts/verify.py</code> to validate the aggregate, and the DOI record once registration is complete to cite this exact version.</p>
+<p>Use the release manifest to verify files and <code>scripts/verify.py</code> to validate the aggregate. No DOI has been registered yet; cite release v1.0.0.</p>
+<h2>Related result: a correction ceiling, not a correction</h2>
+<p>A separate Round-2 analysis on the same 16 cubic metals used a different operator, and its headline is easy to misread next to this one. On 16 elemental cubic metals with four MatPES MLIPs (128 cases; r2SCAN targets approximate), one bias direction per functional transfers out of sample. When the held-out reference sets how far to correct, MAE falls from 17.84 to 10.36 GPa: a ceiling, not a deployable correction. A correction that works without seeing the answer is still open, and derived moduli are uncertified. The global operator above is the kind that does not see the answer, and it made the error worse. Source: lupine-rhizo <code>paper/lupine-layer2-3x3x3-final-paper.md</code>.</p>
 
 <div class="share-root" data-url="https://lupine.science/articles/the-small-cell-held-mlip-elastic-benchmark/" data-title="The Small Cell Held: A 16-Element MLIP Elastic Benchmark" role="group" aria-label="Share this page">
   <ul class="share-list" role="list" aria-label="Share options">
@@ -151,9 +154,10 @@
     </article>
   </main>
   <footer class="foot">
-    <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
+    <span class="creed">Evidence before claim.</span>
     <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" href="mailto:alex@lupinesci.com" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
-    <span><a href="/about/">About</a> · <a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a> · <a href="/feed.xml">Feed</a></span>
+    <span><a href="/about/">About</a> · <a href="/articles/">Articles</a> · <a href="/corrections/">Corrections</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a> · <a href="/feed.xml">Feed</a></span>
+    <span class="licence">Code MIT · our text and data CC BY 4.0 unless noted · third-party material keeps its own licence</span>
   </footer>
 <script type="module">
 import { initAllShareWidgets } from "/components/share/share.mjs";

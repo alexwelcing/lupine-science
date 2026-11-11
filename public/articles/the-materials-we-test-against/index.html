@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Z1 Barrier Panel: Evaluating Foundation MLIPs on 42 Solid-State Electrolyte Chemistries — Lupine Science</title>
-  <meta name="description" content="Our barrier campaigns run on 42 published Li-ion electrolyte materials: 30 frozen test chemistries and 12 disjoint training chemistries. Here is what is in the panels and why these materials decide whether solid-state batteries ever ship.">
+  <title>The Z1 Barrier Panel: 42 Li-ion Migration Paths from a Published DFT-NEB Benchmark — Lupine Science</title>
+  <meta name="description" content="Our barrier campaigns run on 42 published Li-ion migration paths from the LiTraj nebDFT2k benchmark: 30 frozen test paths and 12 disjoint training paths. In Round 4, four foundation MLIPs missed a 40 meV gate on the test panel; in Round 5, a direction-gated correction abstained for all four models, so none was applied.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://lupine.science/articles/the-materials-we-test-against/">
-  <meta property="og:title" content="The Z1 Barrier Panel: Evaluating Foundation MLIPs on 42 Solid-State Electrolyte Chemistries — Lupine Science">
-  <meta property="og:description" content="Our barrier campaigns run on 42 published Li-ion electrolyte materials: 30 frozen test chemistries and 12 disjoint training chemistries. Here is what is in the panels and why these materials decide whether solid-state batteries ever ship.">
+  <meta property="og:title" content="The Z1 Barrier Panel: 42 Li-ion Migration Paths from a Published DFT-NEB Benchmark — Lupine Science">
+  <meta property="og:description" content="Our barrier campaigns run on 42 published Li-ion migration paths from the LiTraj nebDFT2k benchmark: 30 frozen test paths and 12 disjoint training paths. In Round 4, four foundation MLIPs missed a 40 meV gate on the test panel; in Round 5, a direction-gated correction abstained for all four models, so none was applied.">
   <meta property="og:type" content="video.other">
   <meta property="og:url" content="https://lupine.science/articles/the-materials-we-test-against/">
   <meta property="og:image" content="https://lupine.science/videos/the-materials-we-test-against-poster.jpg?v=3">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="The Z1 Barrier Panel: Evaluating Foundation MLIPs on 42 Solid-State Electrolyte Chemistries — Lupine Science">
-  <meta name="twitter:description" content="Our barrier campaigns run on 42 published Li-ion electrolyte materials: 30 frozen test chemistries and 12 disjoint training chemistries. Here is what is in the panels and why these materials decide whether solid-state batteries ever ship.">
+  <meta name="twitter:title" content="The Z1 Barrier Panel: 42 Li-ion Migration Paths from a Published DFT-NEB Benchmark — Lupine Science">
+  <meta name="twitter:description" content="Our barrier campaigns run on 42 published Li-ion migration paths from the LiTraj nebDFT2k benchmark: 30 frozen test paths and 12 disjoint training paths. In Round 4, four foundation MLIPs missed a 40 meV gate on the test panel; in Round 5, a direction-gated correction abstained for all four models, so none was applied.">
   <meta name="twitter:image" content="https://lupine.science/videos/the-materials-we-test-against-poster.jpg?v=3">
   <meta name="theme-color" content="#faf9f6">
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
@@ -28,7 +28,7 @@
   <link rel="alternate" type="video/mp4" href="https://lupine.science/videos/the-materials-we-test-against.mp4">
   <link rel="stylesheet" href="/articles/styles.css">
   <style>:root{--share-ink:var(--ink-soft,#4c4e58);--share-ink-hover:var(--indigo,#3d4db3);--share-border:var(--rule,#e2dfd4);--share-bg:var(--paper,#faf9f6);--share-bg-hover:var(--indigo-wash,rgba(61,77,179,0.08));--share-focus:var(--indigo,#3d4db3);--share-gap:8px;--share-icon-size:18px;}.share-root{display:flex;flex-wrap:wrap;align-items:center;gap:var(--share-gap);margin:2.4em 0 0;padding:16px 0 0;border-top:1px solid var(--share-border);font-family:var(--mono,'IBM Plex Mono',ui-monospace,monospace);font-size:13px;position:relative;}.share-label{color:var(--ink-faint,#6e707a);margin-right:4px;}.share-list{display:flex;flex-wrap:wrap;gap:var(--share-gap);list-style:none;margin:0;padding:0;}.share-list[hidden]{display:none;}.share-list li,.share-menu li{margin:0;padding:0;}.share-link,.share-toggle{display:inline-flex;align-items:center;gap:6px;min-width:44px;min-height:44px;padding:6px 12px;border-radius:4px;border:1px solid var(--share-border);background:var(--share-bg);color:var(--share-ink);text-decoration:none;font-family:inherit;font-size:inherit;cursor:pointer;transition:background 180ms,border-color 180ms,color 180ms;}.share-link svg,.share-toggle svg{width:var(--share-icon-size);height:var(--share-icon-size);flex-shrink:0;}.share-link:hover,.share-link:focus,.share-toggle:hover,.share-toggle:focus{background:var(--share-bg-hover);border-color:var(--share-focus);color:var(--share-ink-hover);}.share-link:focus-visible,.share-toggle:focus-visible{outline:2px solid var(--share-focus);outline-offset:2px;}.share-live{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}@media (max-width:600px){.share-root{flex-wrap:wrap;}.share-toggle{min-width:44px;min-height:44px;padding:8px 12px;justify-content:center;}.share-toggle-text{margin-left:4px;}.share-menu{position:static;flex-basis:100%;list-style:none;margin:6px 0 0;padding:6px;border:1px solid var(--share-border);border-radius:6px;background:var(--share-bg);box-shadow:0 8px 24px rgba(22,23,29,0.08);}.share-menu[hidden]{display:none;}.share-menu .share-link{width:100%;justify-content:flex-start;min-height:44px;border:none;border-radius:4px;background:transparent;}.share-menu .share-link:hover,.share-menu .share-link:focus{background:var(--share-bg-hover);}}@media print{.share-root{display:none;}}@media (prefers-reduced-motion:reduce){.share-link,.share-toggle,.share-menu,.article .share-link,.article .share-toggle{transition:none !important;animation:none !important;}}</style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@context":"https://schema.org","@type":"Article","headline":"The Z1 Barrier Panel: Evaluating Foundation MLIPs on 42 Solid-State Electrolyte Chemistries","description":"Our barrier campaigns run on 42 published Li-ion electrolyte materials: 30 frozen test chemistries and 12 disjoint training chemistries. Here is what is in the panels and why these materials decide whether solid-state batteries ever ship.","datePublished":"2026-07-20","url":"https://lupine.science/articles/the-materials-we-test-against/","mainEntityOfPage":"https://lupine.science/articles/the-materials-we-test-against/","image":"https://lupine.science/articles/the-materials-we-test-against/hero.jpg?v=3","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png?v=3"}},"@id":"https://lupine.science/articles/the-materials-we-test-against/#article"},{"@type":"VideoObject","@id":"https://lupine.science/articles/the-materials-we-test-against/#video","name":"The Z1 Barrier Panel: Evaluating Foundation MLIPs on 42 Solid-State Electrolyte Chemistries","description":"Our barrier campaigns run on 42 published Li-ion electrolyte materials: 30 frozen test chemistries and 12 disjoint training chemistries. Here is what is in the panels and why these materials decide whether solid-state batteries ever ship.","thumbnailUrl":"https://lupine.science/videos/the-materials-we-test-against-poster.jpg","uploadDate":"2026-07-20","contentUrl":"https://lupine.science/videos/the-materials-we-test-against.mp4","embedUrl":"https://lupine.science/videos/the-materials-we-test-against/","isPartOf":{"@id":"https://lupine.science/articles/the-materials-we-test-against/#article"}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@context":"https://schema.org","@type":"Article","headline":"The Z1 Barrier Panel: 42 Li-ion Migration Paths from a Published DFT-NEB Benchmark","description":"Our barrier campaigns run on 42 published Li-ion migration paths from the LiTraj nebDFT2k benchmark: 30 frozen test paths and 12 disjoint training paths. In Round 4, four foundation MLIPs missed a 40 meV gate on the test panel; in Round 5, a direction-gated correction abstained for all four models, so none was applied.","datePublished":"2026-07-20","dateModified":"2026-11-11","url":"https://lupine.science/articles/the-materials-we-test-against/","mainEntityOfPage":"https://lupine.science/articles/the-materials-we-test-against/","image":"https://lupine.science/articles/the-materials-we-test-against/hero.jpg?v=3","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png?v=3"}},"@id":"https://lupine.science/articles/the-materials-we-test-against/#article"},{"@type":"VideoObject","@id":"https://lupine.science/articles/the-materials-we-test-against/#video","name":"The Z1 Barrier Panel: 42 Li-ion Migration Paths from a Published DFT-NEB Benchmark","description":"Our barrier campaigns run on 42 published Li-ion migration paths from the LiTraj nebDFT2k benchmark: 30 frozen test paths and 12 disjoint training paths. In Round 4, four foundation MLIPs missed a 40 meV gate on the test panel; in Round 5, a direction-gated correction abstained for all four models, so none was applied.","thumbnailUrl":"https://lupine.science/videos/the-materials-we-test-against-poster.jpg","uploadDate":"2026-11-11","contentUrl":"https://lupine.science/videos/the-materials-we-test-against.mp4","embedUrl":"https://lupine.science/videos/the-materials-we-test-against/","isPartOf":{"@id":"https://lupine.science/articles/the-materials-we-test-against/#article"}}]}</script>
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
@@ -62,7 +62,7 @@
     <path d="M244 142 C251 124 261 124 268 142 C262 136 250 136 244 142Z"/><path d="M244 207 C252 186 263 186 271 207 C263 199 252 199 244 207Z"/><path d="M242 296 C252 272 265 272 274 296 C264 286 252 286 242 296Z"/>
   </g>
 </svg>
-      <span><b>Lupine Science</b> <span class="tld">accelerating materials discovery</span></span>
+      <span><b>Lupine Science</b> <span class="tld">measuring where AI models of materials go wrong</span></span>
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/">Home</a>
@@ -76,9 +76,9 @@
   <main id="content" class="article-shell">
     <article class="article">
       <p class="article-kicker" aria-label="Article type">Research note</p>
-<h1>The Z1 Barrier Panel: Evaluating Foundation MLIPs on 42 Solid-State Electrolyte Chemistries</h1>
-<p class="article-deck">One step in the trust-layer program: the locked Li-ion conductor panels behind our barrier campaigns — what they are, why they are the right adversaries, and what a migration barrier actually is</p>
-<ul class="article-byline" aria-label="Publication details"><li><time datetime="2026-07-20">July 20, 2026</time></li> <li aria-hidden="true"><span class="byline-sep" aria-hidden="true">·</span></li> <li><span class="article-status">Published</span></li></ul>
+<h1>The Z1 Barrier Panel: 42 Li-ion Migration Paths from a Published DFT-NEB Benchmark</h1>
+<p class="article-deck">The locked Li-ion migration-path panels behind our barrier campaigns: what is in them, why we chose them, what a migration barrier is, and what Round 5 found</p>
+<ul class="article-byline" aria-label="Publication details"><li>Originally published <time datetime="2026-07-20">July 20, 2026</time></li><li aria-hidden="true"><span class="byline-sep">·</span></li><li>Updated <time datetime="2026-11-11">November 11, 2026</time></li><li aria-hidden="true"><span class="byline-sep">·</span></li><li><span class="article-status status-published">Published</span></li></ul>
 <figure class="article-hero">
   <picture>
     <source srcset="/articles/the-materials-we-test-against/hero.avif?v=3" type="image/avif">
@@ -87,7 +87,7 @@
   </picture>
 </figure>
 <figure class="article-video-player" aria-labelledby="video-label-the-materials-we-test-against">
-  <figcaption id="video-label-the-materials-we-test-against" class="video-player-label">Brand film: The Z1 Barrier Panel: Evaluating Foundation MLIPs on 42 Solid-State Electrolyte Chemistries</figcaption>
+  <figcaption id="video-label-the-materials-we-test-against" class="video-player-label">Brand film: The Z1 Barrier Panel: 42 Li-ion Migration Paths from a Published DFT-NEB Benchmark</figcaption>
   <div class="video-player-frame">
     <video controls preload="none" width="1920" height="1080" poster="/videos/the-materials-we-test-against-poster.jpg?v=3" aria-describedby="video-label-the-materials-we-test-against">
       <source src="/videos/the-materials-we-test-against.mp4" type="video/mp4">
@@ -100,10 +100,10 @@
 
 <hr>
 <p><img loading="lazy" decoding="async" src="images/the-materials-we-test-against-hero--retry-1.jpg?v=3" alt="The Z1 test range: varied solid-electrolyte sample cells between a charging station and a grid battery, one barrier path crossing each specimen"></p>
-<p class="lead">Every battery is a traffic problem. Ions have to move, and the toll they pay at each crowded passage — the <em>migration barrier</em> — decides whether the battery is fast, safe, and worth building. Our Z1 campaigns measure how well AI models predict those tolls across 42 real materials. This is the tour of what is in the panels, and why these particular materials get a vote on the future of solid-state batteries.</p>
+<p class="lead">Every battery is a traffic problem. Ions have to move, and the toll they pay at each crowded passage — the <em>migration barrier</em> — decides whether the battery is fast, safe, and worth building. Our Z1 campaigns measure how well AI models predict those tolls across 42 real materials. This is the tour of what is in the panels, and why we chose them.</p>
 <h2>Why lithium-ion conductors, and why these</h2>
 <p>The next battery generation — solid-state, safer, denser — needs electrolytes made of ceramic, not liquid. Lithium ions have to hop through a dense crystal lattice, and whether they can do it quickly is the single number that decides if the chemistry works. The materials in our panels come from the published <strong>LiTraj nebDFT2k</strong> benchmark (<em>npj Computational Materials</em>, 2025, <a href="https://doi.org/10.1038/s41524-025-01571-z">DOI 10.1038/s41524-025-01571-z</a>): quantum-chemically computed migration paths through real lithium conductors, with reference barriers from <strong>0.068 eV (barely a speed bump) to 3.25 eV (a wall)</strong>.</p>
-<p>Each path is one specific hop: a lithium ion leaving a comfortable site, squeezing through the narrowest point of its lattice — the transition state — and landing in the next site. The energy at the top of that squeeze, relative to the start, is the barrier. Models that predict barriers accurately can screen thousands of candidate electrolytes on a laptop; models that <em>under</em>-predict them — which is what we measured, systematically, in every model we tested — quietly tell engineers that dead materials look alive.</p>
+<p>Each path is one specific hop: a lithium ion leaving a comfortable site, squeezing through the narrowest point of its lattice — the transition state — and landing in the next site. The energy at the top of that squeeze, relative to the start, is the barrier. Models that predict barriers accurately can screen thousands of candidate electrolytes on a laptop; models that <em>under</em>-predict them make slow materials look fast. In Round 4 all four models we tested missed a 40 meV gate; CHGNet and MACE-MP-0 medium under-predicted most barriers, while the other two were mixed.</p>
 <p><img loading="lazy" decoding="async" src="images/the-materials-we-test-against-inline-01--retry-1.jpg?v=3" alt="An exploded solid-state cell: the electrolyte as the safety-critical bridge between electrodes, rendered in indigo while the casing stays ink linework"></p>
 <h2>The test panel: 30 frozen adversaries</h2>
 <p>The test panel is locked — 30 chemistries, one migration path each, chosen so no single family dominates. It splits into recognizable neighborhoods of the solid-state-battery map:</p>
@@ -113,9 +113,9 @@
 <ul>
 <li><strong>Oxides (10 paths)</strong> — the garnet/NASICON/perovskite families (<code>Al-Li-O</code>, <code>Al-Li-O-Si</code>, <code>Al-Li-O-V</code>, <code>Al-Li-Mn-O</code>, <code>B-Li-O-Ti</code>, <code>B-Li-O-Zn</code>, <code>C-Li-Mn-O</code>, <code>C-Li-O-V</code>, and more). The widest barrier range in the panel, 0.11–3.25 eV: from genuinely promising fast conductors to hopeless ceramics.</li>
 <li><strong>Borates and other mixed polyanions (10)</strong> — borate frameworks and mixed-anion hosts (<code>As-B-Cr-Li-O</code>, <code>B-Bi-Li-O</code>, <code>B-Co-Li-O</code>, <code>B-Li-Ni-O</code>, <code>B-Li-O</code>, <code>B-Li-O-Sn</code>), 0.33–1.14 eV. An under-studied family where models have the least training exposure.</li>
-<li><strong>Phosphates and mixed polyanions (5)</strong> — the LiFePO₄ working horses (<code>C-Fe-Li-O-P</code>, <code>C-Fe-Li-Na-O-P</code>, <code>C-Li-Mn-O-P-V</code>, <code>C-Li-O-P-V</code>), 0.52–0.73 eV — the materials already inside commercial cells.</li>
-<li><strong>Halides (2)</strong> — <code>Ag-F-Li</code> and <code>Cl-Cr-Li</code>, the halide electrolyte class now drawing serious commercial attention, 0.07–1.58 eV.</li>
-<li><strong>Sulfides (2)</strong> — <code>Bi-Li-S</code>, <code>C-Fe-Li-O-S</code>, the soft-lattice family behind several production programs, 0.46–0.64 eV.</li>
+<li><strong>Phosphates and mixed polyanions (5)</strong> — including chemistries from the LiFePO₄ cathode family (<code>C-Fe-Li-O-P</code>, <code>C-Fe-Li-Na-O-P</code>, <code>C-Li-Mn-O-P-V</code>, <code>C-Li-O-P-V</code>), 0.52–0.73 eV. These are cathode-related phosphates rather than electrolytes; the benchmark includes them as Li-ion conductors, which is why this page does not call all 42 paths electrolytes.</li>
+<li><strong>Halides (2)</strong> — <code>Ag-F-Li</code> and <code>Cl-Cr-Li</code>, 0.07–1.58 eV.</li>
+<li><strong>Sulfides (2)</strong> — <code>Bi-Li-S</code>, <code>C-Fe-Li-O-S</code>, the soft-lattice family, 0.46–0.64 eV.</li>
 <li><strong>Nitride (1)</strong> — <code>Ca-Li-N-Si</code>, a nitridosilicate at 2.07 eV.</li>
 </ul>
 <p>Every number comes from published DFT-NEB calculations — not experiment, and we say so. The panel is frozen with a SHA-256 lock (<code>192fe54a…</code>), so the test set cannot quietly change after results come in.</p>
@@ -123,12 +123,14 @@
 <p><img loading="lazy" decoding="async" src="images/electrolyte-class-gallery.png?v=3" alt="Six electrolyte classes, specimen-plate style"></p>
 <p>For the correction pilot (Round-5), a correction model is allowed to <em>learn</em> — but never from test materials. The training panel is 12 chemistries from the same dataset’s training split, with <strong>zero overlap</strong> in chemistry or material identity with the test panel, selected by a deterministic hash order:</p>
 <p><code>Al-Cr-Li-O</code>, <code>B-Cr-Li-O-P</code>, <code>Ba-Li-O</code>, <code>Bi-Li-O-P</code>, <code>Fe-Li-Mn-O-Ti</code>, <code>Fe-Li-Mn-O-V</code>, <code>Fe-Li-O</code>, <code>Fe-Li-O-Ti</code>, <code>In-Li-O-Sc-Si</code>, <code>Li-Na-O-Ti</code>, <code>Li-O-P-Ti</code>, <code>Li-O-V-Zn</code></p>
-<p>This is the honest version of what a real screening loop demands: the correction has to transfer to chemistries it has never seen — if it only works on familiar materials, it is a parlor trick, and the protocol is designed to catch exactly that.</p>
+<p>This is what a real screening loop demands: the correction has to transfer to chemistries it has never seen. If it only works on familiar materials, it is not a correction, and the protocol is designed to catch exactly that.</p>
+<h2>What Round 5 found</h2>
+<p><em>Added 2026-11-11.</em> Round 5 (preregistered 2026-07-20) fitted a direction-gated linear barrier correction for each model on this training panel, to be applied to the frozen Round-4 test predictions. The rule lets the correction act only where every training path errs in the same direction. That condition failed for all four models, so every model abstained and no correction was applied (lupine-rhizo <code>data/candidates/z1r5/correction-score.json</code>). An abstention is not a pass: barrier correction on this panel remains open.</p>
 <h2>Why these are the right adversaries</h2>
 <p>Three reasons this panel fights back:</p>
 <ol>
 <li><strong>It spans the whole decision space.</strong> Barriers from 0.068 to 3.25 eV mean the panel covers “ship it” (under ~0.3 eV), “maybe, with engineering” (0.3–0.7), and “walk away” (&gt;1 eV) — a model that only gets the easy half right will be caught.</li>
-<li><strong>It hits the models’ blind spot.</strong> These are dense ceramics with under-coordinated transition states — exactly the out-of-equilibrium configurations foundation models under-train on. Our Round-4 result (all four models under-predicting, 135–243 meV mean error against a 40 meV gate) is the proof.</li>
+<li><strong>It hits the models’ blind spot.</strong> These are dense ceramics with under-coordinated transition states — out-of-equilibrium configurations that foundation-model training data covers thinly. In Round 4 all four models missed a 40 meV gate, with mean absolute errors of 135.0–242.5 meV on completed paths.</li>
 <li><strong>It is public and reproducible.</strong> Anyone can rebuild the panel from the source archive (<code>tools/build_z1_barrier_panel.py</code>, byte-identical), check the hash, and re-run the comparison — adversaries with receipts.</li>
 </ol>
 <p><img loading="lazy" decoding="async" src="images/the-materials-we-test-against-spread.jpg?v=3" alt="An empty fleet-charging depot with a row of chargers backed by sealed solid-state storage cabinets, two electrolyte coupons lie in a foreground test tray — The storage cabinets discharge into the chargers during a brief demand peak"></p>
@@ -137,14 +139,15 @@
 <li>Test panel: <code>data/candidates/z1_nebdft2k_barriers.lock.json</code> (SHA-256 <code>192fe54a…</code>), 30 paths</li>
 <li>Training panel: <code>data/candidates/z1r5_correction_train.lock.json</code> (SHA-256 <code>4099f4fc…</code>), 12 disjoint paths</li>
 <li>Source: LiTraj nebDFT2k benchmark (<a href="https://doi.org/10.1038/s41524-025-01571-z">DOI 10.1038/s41524-025-01571-z</a>), source revision and archive hash pinned in both locks</li>
-<li>Campaign results: <a href="/articles/four-gates-three-honest-failures-one-live-experiment/">Four Gates, Three Honest Failures, One Live Experiment</a> and the full records at <a href="https://library.lupine.science">library.lupine.science</a></li>
+<li>Round-5 correction outcome: <code>data/candidates/z1r5/correction-score.json</code> (all four models abstained at the direction gate)</li>
+<li>Campaign results: <a href="/articles/four-gates-three-honest-failures-one-live-experiment/">Round 4: Three Failures and One Abstention, Preregistered</a> and the full records at <a href="https://library.lupine.science">library.lupine.science</a></li>
 </ul>
 
-<div class="share-root" data-url="https://lupine.science/articles/the-materials-we-test-against/" data-title="The Z1 Barrier Panel: Evaluating Foundation MLIPs on 42 Solid-State Electrolyte Chemistries" role="group" aria-label="Share this page">
+<div class="share-root" data-url="https://lupine.science/articles/the-materials-we-test-against/" data-title="The Z1 Barrier Panel: 42 Li-ion Migration Paths from a Published DFT-NEB Benchmark" role="group" aria-label="Share this page">
   <ul class="share-list" role="list" aria-label="Share options">
-    <li><a class="share-link share-x" href="https://twitter.com/intent/tweet?text=The%20Z1%20Barrier%20Panel%3A%20Evaluating%20Foundation%20MLIPs%20on%2042%20Solid-State%20Electrolyte%20Chemistries&amp;url=https%3A%2F%2Flupine.science%2Farticles%2Fthe-materials-we-test-against%2F" aria-label="Share on X" target="_blank" rel="noopener noreferrer">X</a></li>
+    <li><a class="share-link share-x" href="https://twitter.com/intent/tweet?text=The%20Z1%20Barrier%20Panel%3A%2042%20Li-ion%20Migration%20Paths%20from%20a%20Published%20DFT-NEB%20Benchmark&amp;url=https%3A%2F%2Flupine.science%2Farticles%2Fthe-materials-we-test-against%2F" aria-label="Share on X" target="_blank" rel="noopener noreferrer">X</a></li>
     <li><a class="share-link share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Flupine.science%2Farticles%2Fthe-materials-we-test-against%2F" aria-label="Share on LinkedIn" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-    <li><a class="share-link share-email" href="mailto:?subject=The%20Z1%20Barrier%20Panel%3A%20Evaluating%20Foundation%20MLIPs%20on%2042%20Solid-State%20Electrolyte%20Chemistries&amp;body=The%20Z1%20Barrier%20Panel%3A%20Evaluating%20Foundation%20MLIPs%20on%2042%20Solid-State%20Electrolyte%20Chemistries%0A%0Ahttps%3A%2F%2Flupine.science%2Farticles%2Fthe-materials-we-test-against%2F" aria-label="Share by email">Email</a></li>
+    <li><a class="share-link share-email" href="mailto:?subject=The%20Z1%20Barrier%20Panel%3A%2042%20Li-ion%20Migration%20Paths%20from%20a%20Published%20DFT-NEB%20Benchmark&amp;body=The%20Z1%20Barrier%20Panel%3A%2042%20Li-ion%20Migration%20Paths%20from%20a%20Published%20DFT-NEB%20Benchmark%0A%0Ahttps%3A%2F%2Flupine.science%2Farticles%2Fthe-materials-we-test-against%2F" aria-label="Share by email">Email</a></li>
   </ul>
 </div>
 <aside class="article-ontology" aria-label="Ontology references">
@@ -159,9 +162,10 @@
     </article>
   </main>
   <footer class="foot">
-    <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
+    <span class="creed">Evidence before claim.</span>
     <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" href="mailto:alex@lupinesci.com" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
-    <span><a href="/about/">About</a> · <a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a> · <a href="/feed.xml">Feed</a></span>
+    <span><a href="/about/">About</a> · <a href="/articles/">Articles</a> · <a href="/corrections/">Corrections</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a> · <a href="/feed.xml">Feed</a></span>
+    <span class="licence">Code MIT · our text and data CC BY 4.0 unless noted · third-party material keeps its own licence</span>
   </footer>
 <script type="module">
 import { initAllShareWidgets } from "/components/share/share.mjs";
