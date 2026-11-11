@@ -6,11 +6,9 @@ const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const REPO_ROOT = path.resolve(path.dirname(SCRIPT_PATH), '..');
 const INVENTORY_PATH = path.join(REPO_ROOT, 'public', 'data', 'lean_count.json');
 
+// The homepage no longer shows a theorem count (a count is not evidence; see
+// docs/messaging-canon.md), so it is not a surface here.
 const SURFACES = [
-  {
-    file: path.join(REPO_ROOT, 'public', 'index.html'),
-    marker: /(<strong id="lean-count">)[^<]*(<\/strong>)/,
-  },
   {
     file: path.join(REPO_ROOT, 'public', 'brand-assets', 'deck-dark-sample.html'),
     marker: /(<strong data-lean-count>)[^<]*(<\/strong>)/,

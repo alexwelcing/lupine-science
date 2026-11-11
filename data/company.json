@@ -1,14 +1,15 @@
 {
-  "_comment": "Single source of truth for public company facts. Feeds the homepage JSON-LD and 'Now' strip, /about/, /llms.txt and /feed.xml (scripts/lib/discovery.mjs). Every field here is public. Keep it to verifiable facts: dates, links, and plain descriptions. No counters, valuations, or publication-status claims for our own papers.",
+  "_comment": "Single source of truth for public company facts. Feeds the homepage JSON-LD, 'Where it has been tested' table and record strip, /about/, /llms.txt and /feed.xml (scripts/lib/discovery.mjs). Every field here is public. Keep it to verifiable facts: dates, links, plain descriptions and claims copied from the cited evidence with their qualifiers. No counters, valuations, funding statements or publication-status claims for our own papers. Messaging rules: docs/messaging-canon.md.",
   "name": "Lupine Science",
   "url": "https://lupine.science/",
   "email": { "user": "alex", "domain": "lupinesci.com" },
-  "tagline": "Unlocking the materials that build the future.",
-  "oneLiner": "Lupine Science makes AI predictions for new materials trustworthy before a lab spends a year on them.",
-  "description": "Lupine Science is an early-stage deep-tech company building a verification layer for AI-driven materials discovery. It measures the structured error of machine-learned interatomic potentials (MLIPs), corrects that error at runtime as a physical field beside the model, and seals its quantitative claims as machine-checked Lean 4 theorems over provenance-hashed data, in public.",
+  "tagline": "Evidence before claim.",
+  "mission": "Make AI predictions of new materials checkable before a lab commits to them.",
+  "oneLiner": "Lupine Science measures where machine-learned models of atoms go wrong, against published references and pass/fail gates set in advance, and publishes every verdict, failures included.",
+  "description": "Lupine Science is an early-stage, founder-led research company. We independently measure the errors of machine-learned interatomic potentials (MLIPs), test corrections against preregistered gates, record any amendment made after results are seen, and publish the verdict: pass, fail or abstain. Correction is a research question here, not a product: it has held only in narrow, stated cases. Nothing we have published is peer-reviewed yet.",
   "stage": "Early stage, founder-led",
-  "funding": "Funded and not raising. Closed to further investors as of October 2026.",
-  "seeking": "Talking with materials labs, MLIP builders, and research partners ahead of TMS2027.",
+  "seeking": "We welcome questions, replication attempts and test proposals from MLIP builders, benchmark maintainers, materials scientists and labs.",
+  "contactLine": "Research partners, model builders, press and investors",
   "founder": {
     "name": "Alex Welcing",
     "role": "Founder",
@@ -16,38 +17,145 @@
   },
   "sameAs": [
     "https://github.com/alexwelcing/lupine",
+    "https://github.com/alexwelcing/lupine-rhizo",
     "https://library.lupine.science",
     "https://lupi.live"
   ],
   "knowsAbout": [
-    "Materials discovery",
-    "AI for science",
     "Machine-learned interatomic potentials (MLIPs)",
-    "Foundation models for atomistic simulation",
-    "Uncertainty quantification",
-    "Error correction for atomistic simulation",
-    "Density functional theory (DFT)",
-    "Formal verification with Lean 4",
-    "Metal-organic frameworks",
-    "Battery materials and solid electrolytes",
-    "Climate and environmental materials"
+    "Benchmarking foundation models for atomistic simulation",
+    "Error analysis for atomistic simulation",
+    "Preregistered evaluation",
+    "Elastic and surface properties of metals",
+    "Density functional theory (DFT) reference data",
+    "Checking arithmetic with Lean 4",
+    "Browser-based molecular visualization"
   ],
   "approach": [
-    { "term": "Measure", "text": "Prediction errors of interatomic potentials are not random. In the committed benchmark they collapse onto a low-dimensional ribbon, and the dominant error directions are largely shared across potentials." },
-    { "term": "Correct", "text": "A measured error field runs beside an existing MLIP as an additive energy term with analytic forces. No fine-tuning, no retraining." },
-    { "term": "Prove", "text": "Quantitative claims are sealed as Lean 4 theorems over provenance-hashed data. Corrections are licensed only where evidence supports them; unsupported cases abstain." }
+    { "term": "Measure", "text": "Compare MLIP predictions with published reference values and record where, and in which direction, they miss." },
+    { "term": "Test against gates", "text": "Write the pass/fail gate down before a test or a correction runs, and label any amendment made after results are seen. Correction is a research question here, not a product: it has held only in narrow, stated cases. In four preregistered campaigns in July 2026 (Round 4), no gate passed: three failed and one abstained." },
+    { "term": "Publish verdicts", "text": "Release the data, the gate and the verdict together: pass, fail or abstain. Lean 4 checks the arithmetic and stated inequalities behind published numbers; it does not check the physics, the reference data or the pipeline." }
   ],
+  "tested": [
+    {
+      "what": "Blind prediction of fcc (110) surface-energy error",
+      "scope": "Nine fcc metals, four foundation MLIPs: an error field fitted to three other observables predicted the never-fitted (110) error at r = 0.906 across 36 model–material cells (material-clustered 95% CI 0.82–0.96; permutation null centred near 0.44; significant for three of the four models).",
+      "status": "Supported",
+      "href": "/articles/a-smooth-environment-resolved-error-field/"
+    },
+    {
+      "what": "Energy-only correction beside CHGNet",
+      "scope": "Blind (110) surface-energy error fell from 9.7% to 1.5% on nickel and from 28.0% to 13.7% on copper: one model, two metals, one facet.",
+      "status": "Supported",
+      "href": "/articles/a-smooth-environment-resolved-error-field/"
+    },
+    {
+      "what": "Surface-energy rankings",
+      "scope": "Across 21 materials and 228 published reference values, four foundation MLIPs ranked surface energies almost correctly (Spearman 0.88–1.00) while missing magnitudes by tens of percent.",
+      "status": "Supported",
+      "href": "/articles/the-order-is-right-the-size-is-wrong/"
+    },
+    {
+      "what": "Shared error direction across models",
+      "scope": "Apparent cross-model alignment sat inside a coupling-aware null, so we do not count it as a result.",
+      "status": "Failed",
+      "href": "/articles/the-order-is-right-the-size-is-wrong/"
+    },
+    {
+      "what": "Elastic-constant bias direction, 16 cubic metals",
+      "scope": "Four MatPES MLIPs, 128 cases, r2SCAN targets approximate: one bias direction per functional transfers out of sample. When the held-out reference sets how far to correct, MAE falls from 17.84 to 10.36 GPa: a ceiling, not a deployable correction. A correction that works without seeing the answer is still open, and derived moduli are uncertified.",
+      "status": "Open",
+      "href": "https://github.com/alexwelcing/lupine-rhizo/blob/main/paper/lupine-layer2-3x3x3-final-paper.md"
+    },
+    {
+      "what": "Small cells for elastic benchmarks",
+      "scope": "On the same 16-metal panel, 1×1×1 TensorNet/PBE cells matched 3×3×3 cells for elastic-constant error (14.55 vs 14.61 GPa MAE).",
+      "status": "Supported",
+      "href": "/articles/the-small-cell-held-mlip-elastic-benchmark/"
+    },
+    {
+      "what": "Global elastic correction on that panel",
+      "scope": "A global correction made the result worse: 63.40 GPa MAE.",
+      "status": "Failed",
+      "href": "/articles/the-small-cell-held-mlip-elastic-benchmark/"
+    },
+    {
+      "what": "Round 4: Li-ion migration barriers",
+      "scope": "30-path panel; MACE-MP-0 small and medium, MACE-MPA-0 medium and CHGNet missed a 40 meV gate (MAE 135.0–242.5 meV on completed paths).",
+      "status": "Failed",
+      "href": "/articles/four-gates-three-honest-failures-one-live-experiment/"
+    },
+    {
+      "what": "Round 4: lattice- and elastic-constant correction",
+      "scope": "Rocksalt ionics and perovskites: ionics 0/4; perovskites 0/1 after a post-measurement amendment.",
+      "status": "Failed",
+      "href": "/articles/four-gates-three-honest-failures-one-live-experiment/"
+    },
+    {
+      "what": "Round 4: catalyst-adsorption Δ-correction",
+      "scope": "Every selected Δ-correction made holdout error worse.",
+      "status": "Failed",
+      "href": "/articles/four-gates-three-honest-failures-one-live-experiment/"
+    },
+    {
+      "what": "Projection Law Round 2: registered predictions",
+      "scope": "Four of seven registered predictions across two experiments failed and are reported as failures.",
+      "status": "Failed",
+      "href": "https://github.com/alexwelcing/lupine/blob/main/paper2/ProjectionLaw_Round2.md"
+    },
+    {
+      "what": "Round 4: magnetism",
+      "scope": "No available model had the spin physics the test needed.",
+      "status": "Abstained",
+      "href": "/articles/four-gates-three-honest-failures-one-live-experiment/"
+    }
+  ],
+  "claims": {
+    "can": [
+      { "text": "For nine fcc metals, an error field fitted to three other observables predicted the never-fitted (110) surface-energy error of four foundation MLIPs at r = 0.906 across 36 model–material cells (material-clustered 95% CI 0.82–0.96; permutation null centred near 0.44; significant for three of the four models).", "href": "/articles/a-smooth-environment-resolved-error-field/" },
+      { "text": "Used as an energy-only correction beside CHGNet, the field cut blind (110) surface-energy error from 9.7% to 1.5% on nickel and from 28.0% to 13.7% on copper: one model, two metals, one facet.", "href": "/articles/a-smooth-environment-resolved-error-field/" },
+      { "text": "Across 21 materials and 228 published reference values, four foundation MLIPs ranked surface energies almost correctly (Spearman 0.88–1.00) while missing magnitudes by tens of percent.", "href": "/articles/the-order-is-right-the-size-is-wrong/" },
+      { "text": "On 16 elemental cubic metals, 1×1×1 TensorNet/PBE cells matched 3×3×3 cells for elastic-constant error (14.55 vs 14.61 GPa MAE).", "href": "/articles/the-small-cell-held-mlip-elastic-benchmark/" }
+    ],
+    "cannot": [
+      { "text": "That any correction we have tested is ready to deploy. In four preregistered campaigns in July 2026 (Round 4), no gate passed: three failed and one abstained. On the 16-metal elastic panel, 17.84 → 10.36 GPa is a ceiling that needs the held-out answer, not a deployable correction.", "href": "/articles/four-gates-three-honest-failures-one-live-experiment/" },
+      { "text": "That different models share one error direction. Apparent cross-model alignment sat inside a coupling-aware null.", "href": "/articles/the-order-is-right-the-size-is-wrong/" },
+      { "text": "That a Lean check confirms the physics. Lean 4 checks the arithmetic and stated inequalities behind published numbers; it does not check the physics, the reference data or the pipeline.", "href": "#approach" },
+      { "text": "Anything about the newest multi-head or multi-fidelity models or their confidence heads. We have not tested them.", "href": "#faq" },
+      { "text": "Peer review. No Lupine paper has been peer-reviewed or accepted yet.", "href": "#faq" }
+    ]
+  },
+  "operatingModel": {
+    "summary": "Lupine Science is founder-led (Alex Welcing, founder). The work is done with AI coding and research agents under rules that live in code. AI assistance is disclosed, and a human author is responsible for every public summary.",
+    "rules": [
+      "In the machine registry, a pull request that changes a claim's status in registry/, snapshots/ or evidence/ must bring new evidence-bundle hashes, or CI fails.",
+      "Public research-activity records pass a reviewed import that rejects local paths, emails, private URLs and credential-shaped strings; failed or stopped work cannot be relabelled completed.",
+      "The model review stage runs with an explicit tool list: packet critiques run without tools, and literature jobs can search and fetch public web pages. It cannot start experiments, publish or schedule runs.",
+      "A model's score is a recommendation, not evidence.",
+      "Lean must build with no sorry, and theorem counts are generated, never typed.",
+      "Partner-facing evaluation is designed to run in an offline HPC lane on the partner's own hardware: local manifests in, local JSON out, no outbound connections at runtime, telemetry off by default. That container has not yet been built on a facility cluster."
+    ],
+    "dataFlow": "Agent model calls go to commercial model providers, through API keys and the providers' own signed-in command-line tools. Agent traces go to an Arize Phoenix tracing project. Benchmark runs use Lupine's cloud project or a local workstation.",
+    "keyPerson": "Key-person risk is real: the program depends on one founder. Public data, code and the failure ledger mean the results can be checked without us.",
+    "href": "https://github.com/alexwelcing/lupine-rhizo/blob/main/docs/ai-and-data.md"
+  },
+  "licence": {
+    "text": "You can reuse our code (MIT) and our first-party text and data (CC BY 4.0) with attribution and no share-alike obligations.",
+    "href": "https://github.com/alexwelcing/lupine-science/blob/main/NOTICE.md"
+  },
   "audiences": [
-    { "who": "Analysts and investors following the field", "text": "Start with the founding thesis, the Savings Stack booklet, and the environmental-series proof pack. Every number links to the committed data it was computed from.", "href": "/articles/the-trust-layer/" },
-    { "who": "Materials scientists", "text": "Start with the live evidence and the benchmark it is computed from, including the corrections that failed.", "href": "/articles/the-order-is-right-the-size-is-wrong/" },
-    { "who": "MLIP and simulation teams", "text": "Start with the instrument: inspect structures and error fields in the browser.", "href": "https://lupi.live" }
+    { "who": "MLIP builders and benchmark maintainers", "text": "Start with the benchmark code, data and gates, including the tests that failed.", "href": "https://github.com/alexwelcing/lupine-rhizo" },
+    { "who": "Computational materials scientists and lab directors", "text": "Start with what passed and what failed: four preregistered campaigns in July 2026, in which no gate passed.", "href": "/articles/four-gates-three-honest-failures-one-live-experiment/" },
+    { "who": "HPC, security and legal reviewers", "text": "Start with how the work is done: AI agents under rules in code, where data goes, and the licences.", "href": "/about/#how-lupine-works" },
+    { "who": "Press and analysts", "text": "Start with the October research explainer, then the corrections log of public claims we have retired and why.", "href": "/articles/what-error-patterns-can-tell-us/" }
   ],
   "upcoming": [
     {
       "name": "TMS2027 Annual Meeting & Exhibition",
       "role": "Poster presentation",
       "session": "Accelerating Innovation in Materials and Manufacturing",
-      "title": "Measuring the errors of interatomic potentials",
+      "title": "From Transferability to Prediction: The Error Geometry of Interatomic Potentials",
+      "note": "A poster abstract was accepted for TMS2027 (Orlando, 14–18 March 2027). It is a conference presentation, not a paper. The accepted abstract described a universal error 'hyper-ribbon'; our record no longer supports that, and the proceedings manuscript replaces it with narrower measurement claims.",
       "startDate": "2027-03-14",
       "endDate": "2027-03-18",
       "venue": "Orlando World Center Marriott",
@@ -61,14 +169,16 @@
     }
   ],
   "milestones": [
-    { "date": "2026-08-31", "text": "Poster abstract accepted for TMS2027, Orlando", "href": "/articles/tms-2027-measuring-what-we-can-trust/" },
-    { "date": "2026-08-03", "text": "Small-cell MLIP elastic benchmark release archived; DOI registration pending", "href": "/articles/the-small-cell-held-mlip-elastic-benchmark/" },
-    { "date": "2026-08-03", "text": "Shared DFT anchors proof pack published", "href": "/articles/shared-dft-anchors/" },
+    { "date": "2026-11-11", "text": "Corrections log published: retired public claims, with dates and reasons", "href": "/corrections/" },
+    { "date": "2026-10-21", "text": "Research explainer: what error patterns can and cannot tell us", "href": "/articles/what-error-patterns-can-tell-us/" },
+    { "date": "2026-08-31", "text": "Poster abstract accepted for TMS2027, Orlando (a conference presentation, not a paper)", "href": "/articles/tms-2027-measuring-what-we-can-trust/" },
+    { "date": "2026-08-03", "text": "Small-cell MLIP elastic benchmark release archived (no DOI yet)", "href": "/articles/the-small-cell-held-mlip-elastic-benchmark/" },
+    { "date": "2026-08-03", "text": "Shared DFT anchors evidence record: projected accounting, no new DFT", "href": "/articles/shared-dft-anchors/" },
     { "date": "2026-07-21", "text": "The Savings Stack: free 16-page booklet with a hashable data pack", "href": "/articles/the-savings-stack/" },
-    { "date": "2026-07-19", "text": "Four preregistered Round-4 campaigns reported, failures included", "href": "/articles/four-gates-three-honest-failures-one-live-experiment/" },
-    { "date": "2026-07-16", "text": "Environmental series and climate proof pack released", "href": "/articles/beyond-carbon-the-error-geometry-of-environmental-materials/" },
-    { "date": "2026-07-05", "text": "The Trust Layer: the founding thesis", "href": "/articles/the-trust-layer/" },
-    { "date": "2026-07-02", "text": "Live evidence: MLIP rankings hold across 36 model–material cells", "href": "/articles/the-order-is-right-the-size-is-wrong/" },
+    { "date": "2026-07-19", "text": "Four preregistered Round-4 campaigns reported: no gate passed (three failed, one abstained)", "href": "/articles/four-gates-three-honest-failures-one-live-experiment/" },
+    { "date": "2026-07-05", "text": "The Trust Layer: founding-thesis essay (Direction: where the work is aimed, not a result)", "href": "/articles/the-trust-layer/" },
+    { "date": "2026-07-02", "text": "Foundation MLIPs rank surface energies nearly right while missing magnitudes (21 materials)", "href": "/articles/the-order-is-right-the-size-is-wrong/" },
+    { "date": "2026-07-02", "text": "An environment-resolved error field for nine fcc metals, tested on a never-fitted surface energy", "href": "/articles/a-smooth-environment-resolved-error-field/" },
     { "date": "2026-06-30", "text": "Why LUPI: the browser-native evidence viewer, explained", "href": "/articles/why-lupi/" }
   ]
 }

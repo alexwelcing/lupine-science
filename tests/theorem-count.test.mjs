@@ -94,7 +94,10 @@ test('generated articles hydrate the current theorem count token', () => {
   assert.doesNotMatch(output, /\{\{LEAN_THEOREM_COUNT\}\}/);
 });
 
-test('homepage has a generated static theorem-count fallback', () => {
+test('homepage shows no theorem count and says what a Lean check covers', () => {
   const homepage = fs.readFileSync(path.join(ROOT, 'public', 'index.html'), 'utf8');
-  assert.match(homepage, new RegExp(`<strong id="lean-count">${inventory.count}</strong>`));
+  assert.doesNotMatch(homepage, /id="lean-count"/);
+  assert.doesNotMatch(homepage, new RegExp(`\\b${inventory.count}\\b`));
+  assert.doesNotMatch(homepage, STATIC_THEOREM_COUNT);
+  assert.match(homepage, /it does not check the physics, the reference data or the pipeline/);
 });

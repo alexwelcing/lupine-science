@@ -4,10 +4,15 @@
 // the article frontmatter build-articles.mjs already parses.
 //
 //   homepage  <!-- discovery:jsonld -->  Organization / founder / Event graph
-//   homepage  <!-- discovery:now -->     the dated "Now" strip
+//   homepage  <!-- discovery:now -->     "Where it has been tested" table and
+//                                        the dated record strip
 //   /about/                              company fact sheet + FAQ
 //   /llms.txt                            plain-text brief for LLM crawlers
 //   /feed.xml                            Atom feed of every article
+//
+// Messaging rules for every string here: docs/messaging-canon.md. No funding
+// statements, no bare counters, every number with the qualifier its evidence
+// file attaches to it.
 //
 // Everything here is pure and deterministic: "as of" is the newest dated fact
 // in the inputs, never the wall clock, so CI rebuilds are byte-identical.
@@ -120,7 +125,7 @@ export function organizationGraph(company, { asOf } = {}) {
     sameAs: company.sameAs,
     contactPoint: {
       '@type': 'ContactPoint',
-      contactType: 'Research partnerships and press',
+      contactType: company.contactLine,
       email,
       url: `${SITE}/about/#contact`,
     },
@@ -168,11 +173,55 @@ export function jsonLdScript(data) {
   return `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
 }
 
-// ── homepage "Now" strip ────────────────────────────────────────────────────
+// ── homepage "Where it has been tested" + record strip ──────────────────────
 
-// The strip carries three honest signals: what is scheduled next, a dated run
-// of what already shipped, and a way in. Dates do the persuading; there are no
-// counters and no adjectives the record cannot back.
+// Result statuses come from a closed list (docs/messaging-canon.md). A row with
+// any other label is a data error, not a styling choice.
+export const RESULT_STATUSES = ['Supported', 'Open', 'Failed', 'Abstained', 'Refuted by us', 'Self-corrected', 'Withdrawn'];
+
+function statusSlug(status) {
+  return String(status).toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '');
+}
+
+export function testedRows(company) {
+  const rows = company.tested || [];
+  for (const row of rows) {
+    if (!RESULT_STATUSES.includes(row.status)) {
+      throw new Error(`company.json tested row "${row.what}" has status "${row.status}", outside ${RESULT_STATUSES.join(' / ')}`);
+    }
+  }
+  return rows;
+}
+
+export function renderTestedTable(company) {
+  const rows = testedRows(company).map((r) => `
+          <tr>
+            <th scope="row"><a href="${escapeHtml(r.href)}">${escapeHtml(r.what)}</a></th>
+            <td>${escapeHtml(r.scope)}</td>
+            <td><span class="result result-${statusSlug(r.status)}">${escapeHtml(r.status)}</span></td>
+          </tr>`).join('');
+  return `
+  <section class="beneath tested" id="tested" aria-labelledby="tested-title">
+    <p class="b-label" id="tested-title">Where it has been tested</p>
+    <p class="tested-lede">Results we have published, failures beside passes, each with the scope it holds in. They are not yet peer-reviewed. Earlier rounds and our self-corrections are in the <a href="https://github.com/alexwelcing/lupine-rhizo/blob/main/docs/conjectures/ledger.md">hypothesis ledger</a>.</p>
+    <div class="tested-wrap">
+      <table class="tested-table">
+        <thead>
+          <tr><th scope="col">What we tested</th><th scope="col">Scope and numbers</th><th scope="col">Result</th></tr>
+        </thead>
+        <tbody>${rows}
+        </tbody>
+      </table>
+    </div>
+    <p class="b-all"><a href="/corrections/">Claims we have retired, and why <span class="ar">→</span></a></p>
+  </section>`;
+}
+
+// The record strip carries three honest signals: what is scheduled next, a
+// dated run of what already shipped, and a way in. Dates do the persuading;
+// there are no counters, no funding lines and no adjectives the record cannot
+// back. The homepage's <!-- discovery:now --> region holds the tested table
+// followed by this strip, so both regenerate from data/company.json.
 export function renderNowStrip(company, articles, { asOf = asOfDate(company, articles), limit = 5 } = {}) {
   const next = upcomingEvents(company, asOf)[0];
   const shipped = [...(company.milestones || [])]
@@ -183,25 +232,27 @@ export function renderNowStrip(company, articles, { asOf = asOfDate(company, art
         <p class="now-k">Next</p>
         <p class="now-when"><time datetime="${escapeHtml(next.startDate)}">${escapeHtml(formatRange(next.startDate, next.endDate))}</time> · ${escapeHtml(next.locality)}</p>
         <h2><a href="${escapeHtml(next.href)}">${escapeHtml(next.name)}</a></h2>
-        <p>${escapeHtml(next.role)} in <em>${escapeHtml(next.session)}</em>: ${escapeHtml(next.title.charAt(0).toLowerCase() + next.title.slice(1))}.</p>
+        <p>${escapeHtml(next.role)} in <em>${escapeHtml(next.session)}</em>: “${escapeHtml(next.title)}.”</p>${next.note ? `
+        <p class="now-note">${escapeHtml(next.note)}</p>` : ''}
         <a class="now-cta mail" href="/about/#contact" data-u="${escapeHtml(company.email.user)}" data-d="${escapeHtml(company.email.domain)}" data-subject="${escapeHtml(`${next.cta} — ${company.name}`)}" data-keep-text>${escapeHtml(next.cta)} <span class="ar">→</span></a>
       </div>` : '';
   const items = shipped.map((m) => `
           <li><time datetime="${escapeHtml(m.date)}">${escapeHtml(formatShortDate(m.date))}</time><a href="${escapeHtml(m.href)}">${escapeHtml(m.text)}</a></li>`).join('');
-  return `
+  return `${renderTestedTable(company)}
+
   <section class="beneath now" id="now" aria-labelledby="now-title">
-    <p class="b-label" id="now-title"><span class="now-pulse" aria-hidden="true"></span>Now · updated <time datetime="${escapeHtml(asOf)}">${escapeHtml(formatMonth(asOf))}</time></p>
+    <p class="b-label" id="now-title">Record · updated <time datetime="${escapeHtml(asOf)}">${escapeHtml(formatMonth(asOf))}</time></p>
     <div class="now-grid">${nextHtml}
       <div class="now-log">
-        <p class="now-k">Recently shipped</p>
+        <p class="now-k">Recently published</p>
         <ol class="now-list">${items}
         </ol>
         <p class="b-all"><a href="/about/#milestones">Full record <span class="ar">→</span></a></p>
       </div>
       <div class="now-door">
-        <p class="now-k">For research partners &amp; press</p>
-        <p>${escapeHtml(company.seeking)} ${escapeHtml(company.funding)}</p>
-        <a class="now-cta mail" href="/about/#contact" data-u="${escapeHtml(company.email.user)}" data-d="${escapeHtml(company.email.domain)}" data-subject="${escapeHtml(`Briefing request — ${company.name}`)}" data-keep-text>Request a briefing <span class="ar">→</span></a>
+        <p class="now-k">Questions and replication</p>
+        <p>${escapeHtml(company.seeking)}</p>
+        <a class="now-cta mail" href="/about/#contact" data-u="${escapeHtml(company.email.user)}" data-d="${escapeHtml(company.email.domain)}" data-subject="${escapeHtml(`Question — ${company.name}`)}" data-keep-text>Write to us <span class="ar">→</span></a>
         <a class="now-sub" href="/about/">Company facts <span class="ar">→</span></a>
       </div>
     </div>
@@ -229,23 +280,27 @@ export function faqEntries(company, asOf) {
       a: company.description,
     },
     {
-      q: 'What problem does it solve?',
-      a: 'Generative models and machine-learned potentials now propose and screen far more candidate materials than any lab can synthesize. The bottleneck has moved from generating candidates to knowing which predictions to trust. A prediction checked before the bench saves the year a lab would otherwise spend finding out.',
+      q: 'What problem does it address?',
+      a: 'Machine-learned potentials now screen far more candidate materials than any lab can test, and a model can be confident and wrong. Before a lab commits a year to a candidate, it needs to know where the underlying model is likely to miss. We measure that against published references, under gates set in advance, and publish the verdicts.',
     },
     {
       q: 'How is this different from building another interatomic potential?',
-      a: `${company.name} does not compete with model builders. It sits between model generation and laboratory validation: model builders get external verification, and laboratories get shortlists with characterized failure modes. The correction runs beside an existing model, with no fine-tuning or retraining.`,
+      a: `${company.name} does not build a potential and has no correction product. We measure existing models against published references under preregistered gates. Corrections have held only in narrow, stated cases, and both Round-4 correction tests (July 2026) failed.`,
     },
     {
       q: 'Is the work peer-reviewed?',
-      a: 'Not yet. Every article carries its own status label (draft, final, live evidence), and every quantitative claim links to the committed data and the machine-checked Lean theorem it rests on, including the corrections that failed.',
+      a: 'No Lupine paper has been peer-reviewed or accepted yet. The TMS2027 poster abstract was accepted for presentation; it is a conference presentation, not a paper. Each article carries a status label and links the data it uses. Where a Lean check exists, it checks the arithmetic and stated inequalities behind a number, not the physics, the reference data or the pipeline.',
     },
     {
-      q: 'What stage is the company at, and is it raising?',
-      a: `${company.stage}. ${company.funding} ${company.seeking}`,
+      q: 'Will the newest universal potentials, with their own uncertainty estimates, make this unnecessary?',
+      a: 'They may change what needs testing, and we have not tested them yet. Our tests so far cover earlier universal potentials, not the newest multi-head or multi-fidelity models or their confidence heads. What they do not replace is an outside, preregistered measurement against published references: that is what a model\'s own uncertainty can be checked against, and agreement among models trained on similar data cannot certify accuracy. Our own record is a reason for care: in a preregistered test, our 90% conformal intervals reached only 86.7% coverage (Projection Law Round 2). We intend to preregister a head-to-head on our locked panels with a training-overlap audit, abstaining wherever overlap cannot be ruled out, and to publish the result either way.',
+    },
+    {
+      q: 'Who does the work?',
+      a: `${company.name} is founder-led. ${company.founder.name}, the founder, does the work with AI coding and research agents under rules that live in code; a human author is responsible for every public summary. "How Lupine works" on this page lists those rules and where data goes.`,
     },
     ...(next ? [{
-      q: 'Where can I meet the team?',
+      q: `Where can I meet ${company.name} in person?`,
       a: `At ${next.name} in ${next.locality}, ${formatRange(next.startDate, next.endDate)}: ${next.role.toLowerCase()} in ${next.session}. Write ahead to set a time.`,
     }] : []),
   ];
@@ -279,21 +334,32 @@ export function aboutJsonLd(company, asOf) {
   };
 }
 
+function mailLink(company, subject, text) {
+  const { user, domain } = company.email;
+  return `<a class="mail" href="/about/#contact" data-u="${escapeHtml(user)}" data-d="${escapeHtml(domain)}" data-subject="${escapeHtml(subject)}">${text ?? `${escapeHtml(user)} [at] ${escapeHtml(domain)}`}</a>`;
+}
+
 export function renderAboutMain(company, articles, { asOf = asOfDate(company, articles) } = {}) {
   const next = upcomingEvents(company, asOf)[0];
+  // values are escaped here; the last row is trusted link markup
   const facts = [
-    ['Company', company.name],
-    ['What it does', company.oneLiner],
-    ['Stage', company.stage],
-    ['Funding', company.funding],
-    ['Founder', `${company.founder.name}, ${company.founder.role.toLowerCase()}`],
-    ...(next ? [['Next public appearance', `${next.name}, ${next.locality} · ${formatRange(next.startDate, next.endDate)} · ${next.role.toLowerCase()}`]] : []),
-    ['Open surfaces', '<a href="/articles/">Articles</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://lupi.live">LUPI viewer</a> · <a href="https://github.com/alexwelcing/lupine">Source</a> · <a href="/feed.xml">Feed</a>'],
+    ['Company', escapeHtml(company.name)],
+    ['What it does', escapeHtml(company.oneLiner)],
+    ['Mission', escapeHtml(company.mission)],
+    ['Stage', escapeHtml(company.stage)],
+    ['Founder', escapeHtml(`${company.founder.name}, ${company.founder.role.toLowerCase()}`)],
+    ...(next ? [['Next public appearance', escapeHtml(`${next.name}, ${next.locality} · ${formatRange(next.startDate, next.endDate)} · ${next.role.toLowerCase()}`)]] : []),
+    ['Licences', `${escapeHtml(company.licence.text)} <a href="${escapeHtml(company.licence.href)}">Details →</a>`],
+    ['Open surfaces', '<a href="/articles/">Articles</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://lupi.live">LUPI viewer</a> · <a href="https://github.com/alexwelcing/lupine-rhizo">Research code and data</a> · <a href="https://github.com/alexwelcing/lupine">Source</a> · <a href="/corrections/">Corrections</a> · <a href="/feed.xml">Feed</a>'],
   ];
-  const factRows = facts.map(([k, v], i) =>
-    `        <div><dt>${escapeHtml(k)}</dt><dd>${i === facts.length - 1 ? v : escapeHtml(v)}</dd></div>`).join('\n');
+  const factRows = facts.map(([k, v]) =>
+    `        <div><dt>${escapeHtml(k)}</dt><dd>${v}</dd></div>`).join('\n');
   const approach = company.approach.map((s) =>
     `        <div><dt>${escapeHtml(s.term)}</dt><dd>${escapeHtml(s.text)}</dd></div>`).join('\n');
+  const op = company.operatingModel;
+  const rules = op.rules.map((r) => `        <li>${escapeHtml(r)}</li>`).join('\n');
+  const claimItems = (list, label) => list.map((c) =>
+    `        <li>${escapeHtml(c.text)} <a href="${escapeHtml(c.href)}">${label} →</a></li>`).join('\n');
   const audiences = company.audiences.map((a) =>
     `        <li><strong>${escapeHtml(a.who)}.</strong> ${escapeHtml(a.text)} <a href="${escapeHtml(a.href)}">Start here →</a></li>`).join('\n');
   const milestones = [...company.milestones].sort((a, b) => b.date.localeCompare(a.date)).map((m) =>
@@ -302,7 +368,6 @@ export function renderAboutMain(company, articles, { asOf = asOfDate(company, ar
     `        <li><time datetime="${escapeHtml(a.date)}">${escapeHtml(formatLongDate(a.date))}</time> — <a href="/articles/${escapeHtml(a.slug)}/">${escapeHtml(a.title)}</a>${a.status ? ` <span class="about-status">${escapeHtml(a.status)}</span>` : ''}</li>`).join('\n');
   const faq = faqEntries(company, asOf).map(({ q, a }) =>
     `      <h3>${escapeHtml(q)}</h3>\n      <p>${escapeHtml(a)}</p>`).join('\n');
-  const email = company.email;
   return `  <main id="content" class="article-shell about">
     <article class="article">
       <p class="article-kicker">Company facts · updated <time datetime="${escapeHtml(asOf)}">${escapeHtml(formatLongDate(asOf))}</time></p>
@@ -312,10 +377,29 @@ export function renderAboutMain(company, articles, { asOf = asOfDate(company, ar
 ${factRows}
       </dl>
 
-      <h2 id="approach">How it works</h2>
+      <h2 id="approach">How the research works</h2>
       <dl class="about-facts">
 ${approach}
       </dl>
+
+      <h2 id="claims">What we can and cannot claim</h2>
+      <p>We can claim, with the scope attached:</p>
+      <ul>
+${claimItems(company.claims.can, 'Evidence')}
+      </ul>
+      <p>We cannot claim:</p>
+      <ul>
+${claimItems(company.claims.cannot, 'See')}
+      </ul>
+      <p>Public claims we have retired are listed, with dates and reasons, in the <a href="/corrections/">corrections log</a>.</p>
+
+      <h2 id="how-lupine-works">How Lupine works</h2>
+      <p>${escapeHtml(op.summary)} These rules are enforced in code:</p>
+      <ul>
+${rules}
+      </ul>
+      <p><strong>Where data goes.</strong> ${escapeHtml(op.dataFlow)}</p>
+      <p>${escapeHtml(op.keyPerson)} <a href="${escapeHtml(op.href)}">AI and data statement →</a></p>
 
       <h2 id="start">Where to start</h2>
       <ul>
@@ -331,13 +415,14 @@ ${milestones}
       <ul class="about-log">
 ${latest}
       </ul>
-      <p><a href="/articles/">All articles →</a> · <a href="/feed.xml">Subscribe to the feed →</a></p>
+      <p><a href="/articles/">All articles →</a> · <a href="/feed.xml">Subscribe to the feed →</a> · <a href="/corrections/">Corrections log →</a></p>
 
       <h2 id="faq">Common questions</h2>
 ${faq}
 
       <h2 id="contact">Contact</h2>
-      <p>${escapeHtml(company.seeking)} Write to <a class="mail" href="/about/#contact" data-u="${escapeHtml(email.user)}" data-d="${escapeHtml(email.domain)}" data-subject="${escapeHtml(`Briefing request — ${company.name}`)}">${escapeHtml(email.user)} [at] ${escapeHtml(email.domain)}</a>.</p>
+      <p>${escapeHtml(company.seeking)}</p>
+      <p>${escapeHtml(company.contactLine)}: ${mailLink(company, `Question — ${company.name}`)}.</p>
     </article>
   </main>`;
 }
@@ -345,30 +430,60 @@ ${faq}
 // ── /llms.txt ───────────────────────────────────────────────────────────────
 
 // Follows the llms.txt convention: H1 name, blockquote summary, then sections
-// of annotated links. Written for answer engines that are asked things like
-// "which early-stage AI-for-materials companies should I look at?", so the
-// facts an analyst filters on (stage, funding, focus, founder, contact) come
-// first and every link is absolute.
-export function renderLlmsTxt(company, articles, { asOf = asOfDate(company, articles), leanCount } = {}) {
+// of annotated links. Company facts and publication status come first, so an
+// answer engine quoting any one section still carries the scope: what we do,
+// what is not peer-reviewed, and what a Lean check does and does not cover.
+// Every link is absolute. The generated theorem count is deliberately not
+// printed here (a count is not evidence); `leanCount` is accepted for
+// compatibility with the build and ignored.
+function llmsHref(href) {
+  if (String(href).startsWith('#')) return `${SITE}/about/${href}`;
+  return absolute(href);
+}
+
+export function renderLlmsTxt(company, articles, { asOf = asOfDate(company, articles) } = {}) {
   const email = `${company.email.user}@${company.email.domain}`;
   const next = upcomingEvents(company, asOf)[0];
+  const op = company.operatingModel;
   const lines = [];
   lines.push(`# ${company.name}`, '');
   lines.push(`> ${company.oneLiner} ${company.description.replace(/^Lupine Science is /, 'It is ')}`, '');
   lines.push(`Updated: ${asOf}`, '');
   lines.push('## Company facts', '');
+  lines.push(`- Mission: ${company.mission}`);
   lines.push(`- Stage: ${company.stage}`);
-  lines.push(`- Funding: ${company.funding}`);
-  lines.push(`- Looking for: ${company.seeking}`);
   lines.push(`- Founder: ${company.founder.name}`);
-  lines.push(`- Contact: ${email}`);
+  lines.push(`- Contact: ${company.contactLine}: ${email}`);
   lines.push(`- Focus: ${company.knowsAbout.join('; ')}`);
-  if (next) lines.push(`- Next public appearance: ${next.name}, ${next.locality}, ${formatRange(next.startDate, next.endDate)}; ${next.role.toLowerCase()} in ${next.session}: ${absolute(next.href)}`);
+  if (next) lines.push(`- Next public appearance: ${next.name}, ${next.locality}, ${formatRange(next.startDate, next.endDate)}; ${next.role.toLowerCase()} in ${next.session}, "${next.title}": ${absolute(next.href)}`);
+  lines.push(`- Licences: ${company.licence.text}`);
   lines.push(`- Company fact sheet: ${SITE}/about/`);
+  lines.push(`- Corrections log (retired public claims, with dates and reasons): ${SITE}/corrections/`);
+  lines.push('');
+  lines.push('## Publication status', '');
+  lines.push('No Lupine paper has been peer-reviewed or accepted yet. Articles on');
+  lines.push('lupine.science are published on this site only, and each carries its own');
+  lines.push('status label.');
+  if (next?.note) lines.push('', next.note);
+  lines.push('');
+  lines.push('Lean 4 checks the arithmetic and stated inequalities behind published');
+  lines.push('numbers; it does not check the physics, the reference data or the pipeline.');
   lines.push('');
   lines.push('## Approach', '');
   for (const s of company.approach) lines.push(`- ${s.term}: ${s.text}`);
-  if (leanCount) lines.push(`- Lean library: ${leanCount.count} build-locked theorems, zero sorry (counted ${leanCount.counted_at}).`);
+  lines.push('');
+  lines.push('## Where it has been tested', '');
+  lines.push('Results we have published, failures beside passes, each with its scope. Status is one of Supported, Open, Failed, Abstained. They are not yet peer-reviewed. Earlier rounds and self-corrections: https://github.com/alexwelcing/lupine-rhizo/blob/main/docs/conjectures/ledger.md', '');
+  for (const r of testedRows(company)) lines.push(`- ${r.status}: ${r.what}. ${r.scope} ${llmsHref(r.href)}`);
+  lines.push('');
+  lines.push('## What we can and cannot claim', '');
+  for (const c of company.claims.can) lines.push(`- We can claim: ${c.text} ${llmsHref(c.href)}`);
+  for (const c of company.claims.cannot) lines.push(`- We cannot claim: ${c.text} ${llmsHref(c.href)}`);
+  lines.push('');
+  lines.push('## How Lupine works', '');
+  lines.push(op.summary, '');
+  for (const r of op.rules) lines.push(`- ${r}`);
+  lines.push('', `Where data goes: ${op.dataFlow}`, '', op.keyPerson, '', `AI and data statement: ${op.href}`);
   lines.push('');
   lines.push('## Milestones', '');
   for (const m of [...company.milestones].sort((a, b) => b.date.localeCompare(a.date))) {
@@ -383,25 +498,22 @@ export function renderLlmsTxt(company, articles, { asOf = asOfDate(company, arti
   lines.push('');
   lines.push('## Canonical surfaces', '');
   lines.push(`- Website: ${SITE}/`);
+  lines.push(`- Company facts: ${SITE}/about/`);
+  lines.push(`- Corrections log: ${SITE}/corrections/`);
   lines.push(`- Articles: ${SITE}/articles/`);
   lines.push(`- Films: ${SITE}/videos/`);
-  lines.push(`- Atlas of claims: ${SITE}/atlas/`);
   lines.push(`- Atom feed: ${SITE}/feed.xml`);
   lines.push('- Library (research corpus): https://library.lupine.science');
-  lines.push('- LUPI (browser evidence viewer): https://lupi.live');
+  lines.push('- LUPI (browser structure viewer): https://lupi.live');
+  lines.push('- Research code and data: https://github.com/alexwelcing/lupine-rhizo');
   lines.push('- Repository: https://github.com/alexwelcing/lupine');
   lines.push('');
-  lines.push('## Publication status', '');
-  lines.push('Public paper status: working draft in preparation; no peer review, no');
-  lines.push('acceptance, and no journal or venue assignment. The TMS2027 poster abstract');
-  lines.push('is a conference presentation, not a paper. Prefer Library and repository');
-  lines.push('pages for current claim labels, Lean status, and evidence details.');
-  lines.push('');
   lines.push('## Homepage data', '');
-  lines.push('The homepage renders one cavity of MOF-5 (Zn4O(BDC)3) live from the committed');
+  lines.push('The homepage background is an illustration, not a result: it is drawn from');
+  lines.push(`error statistics of four classical (EAM) potentials at ${SITE}/data/benchmark_manifold.json`);
+  lines.push('and from one cavity of MOF-5 (Zn4O(BDC)3), rendered from the committed');
   lines.push(`crystal structure at ${SITE}/data/mof5_structure.json (COD 1516287; Li, Eddaoudi,`);
-  lines.push('O\'Keeffe & Yaghi, Nature 402, 276 (1999)), and computes its benchmark figures');
-  lines.push(`in the browser from ${SITE}/data/benchmark_manifold.json.`);
+  lines.push('O\'Keeffe & Yaghi, Nature 402, 276 (1999)).');
   lines.push('');
   return lines.join('\n');
 }
