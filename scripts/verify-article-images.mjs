@@ -130,6 +130,42 @@ function verifyIndexHasNoEmptyThumbs(errors) {
   }
 }
 
+// Every file in public/articles/<slug>/images/ must be embedded by that
+// article's built page. Files the page no longer uses stay reachable at stable
+// URLs, so retired figures must be removed (git history keeps them), not left
+// behind. The optional images/manifest.json may list only embedded files.
+function verifyNoOrphanArticleImages(errors) {
+  for (const entry of fs.readdirSync(OUT, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    const slug = entry.name;
+    const imagesDir = path.join(OUT, slug, 'images');
+    if (!fs.existsSync(imagesDir)) continue;
+    const htmlPath = path.join(OUT, slug, 'index.html');
+    const html = fs.existsSync(htmlPath) ? fs.readFileSync(htmlPath, 'utf8') : '';
+    for (const file of fs.readdirSync(imagesDir)) {
+      if (file === 'manifest.json') continue;
+      if (!html.includes(`images/${file}`)) {
+        errors.push(`${slug}: images/${file} is not embedded by the article; remove it or embed it`);
+      }
+    }
+    const manifestPath = path.join(imagesDir, 'manifest.json');
+    if (!fs.existsSync(manifestPath)) continue;
+    let manifest;
+    try {
+      manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    } catch (error) {
+      errors.push(`${slug}: images/manifest.json is not valid JSON (${error.message})`);
+      continue;
+    }
+    for (const item of Array.isArray(manifest) ? manifest : []) {
+      const file = item && item.filename;
+      if (file && !html.includes(`images/${file}`)) {
+        errors.push(`${slug}: images/manifest.json lists ${file}, which the article does not embed`);
+      }
+    }
+  }
+}
+
 function verifyEveryBuiltArticleHasHero(errors) {
   // Re-read the built directories in case sources and outputs diverge.
   for (const entry of fs.readdirSync(OUT, { withFileTypes: true })) {
@@ -160,6 +196,7 @@ export function verifyArticleImages() {
   // The build can emit directories that no longer have a source file. Ensure
   // those do not silently lose heroes either.
   verifyEveryBuiltArticleHasHero(errors);
+  verifyNoOrphanArticleImages(errors);
 
   return { ok: errors.length === 0, errors, count: slugs.length };
 }
@@ -172,7 +209,7 @@ function run() {
     process.exit(1);
   }
 
-  console.log(`Article image verification passed: ${count} article(s), all heroes and inline images present.`);
+  console.log(`Article image verification passed: ${count} article(s), all heroes and inline images present, no unembedded article images.`);
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

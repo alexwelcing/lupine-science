@@ -38,14 +38,6 @@
       ]
     },
     {
-      "image": "public/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-05-error-field.jpg",
-      "duration": 13.252,
-      "effect": "pan-up",
-      "text": [
-        "A local error field corrects the landscape at runtime"
-      ]
-    },
-    {
       "image": "public/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-06-cobalt-climate.jpg",
       "duration": 13.252,
       "effect": "pan-left",
@@ -59,30 +51,6 @@
       "effect": "slow-zoom-in",
       "text": [
         "Material discoveries have a use-by date"
-      ]
-    },
-    {
-      "image": "public/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-08-commercial-endpoints.jpg",
-      "duration": 13.252,
-      "effect": "drift",
-      "text": [
-        "From predicted crystal to commercial cell"
-      ]
-    },
-    {
-      "image": "public/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-05-error-field.jpg",
-      "duration": 13.252,
-      "effect": "pan-down",
-      "text": [
-        "Weeks of lab time disappear when a screened candidate fails"
-      ]
-    },
-    {
-      "image": "public/articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-10-predictions-to-partners.jpg",
-      "duration": 13.252,
-      "effect": "slow-zoom-out",
-      "text": [
-        "Lupine routes synthesizable candidates to experimental partners"
       ]
     }
   ]

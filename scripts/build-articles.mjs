@@ -106,6 +106,8 @@ const KATEX_OUT = path.join(PUBLIC_ROOT, 'katex');
 const ASSET_CACHE_BUST = '?v=3';
 const ARTICLE_ASSET_CACHE_BUST = new Map([
   ['shared-dft-anchors', '?v=4'],
+  // v=4: handoff-chain figure re-rendered without the partner wording (2026-11-11).
+  ['from-predicted-crystal-to-commercial-cell', '?v=4'],
 ]);
 const PFAS_SLUG = 'critical-minerals-pfas-and-the-remediation-imperative';
 const PFAS_RELEASE = JSON.parse(fs.readFileSync(
