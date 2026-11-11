@@ -6,13 +6,10 @@ const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const REPO_ROOT = path.resolve(path.dirname(SCRIPT_PATH), '..');
 const INVENTORY_PATH = path.join(REPO_ROOT, 'public', 'data', 'lean_count.json');
 
-// The homepage no longer shows a theorem count (a count is not evidence; see
-// docs/messaging-canon.md), so it is not a surface here.
+// No static page shows a theorem count any more (a count is not evidence; see
+// docs/messaging-canon.md). Add a surface here only for a Lean section that
+// carries the scope sentence beside a generated, dated count.
 const SURFACES = [
-  {
-    file: path.join(REPO_ROOT, 'public', 'brand-assets', 'deck-dark-sample.html'),
-    marker: /(<strong data-lean-count>)[^<]*(<\/strong>)/,
-  },
 ];
 
 export function hydrateLeanCount(count) {

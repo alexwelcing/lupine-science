@@ -17,9 +17,7 @@ const NARRATIVE_ROOTS = [
 const NARRATIVE_FILES = [
   path.join(ROOT, 'public', 'articles', 'from-predicted-crystal-to-commercial-cell', 'images', 'manifest.json'),
 ];
-const STATIC_COUNT_SURFACES = [
-  path.join(ROOT, 'public', 'brand-assets', 'deck-dark-sample.html'),
-];
+const STATIC_COUNT_SURFACES = [];
 const inventory = JSON.parse(fs.readFileSync(path.join(ROOT, 'public', 'data', 'lean_count.json'), 'utf8'));
 const STATIC_THEOREM_COUNT = /(?<!Lean )\b(?:\d+\+?|(?:seventy[ -]seven))\s+(?:build-locked\s+)?(?:Lean\s+4\s+)?theorems?\b/i;
 const PFAS_CONTRACT = path.join(ROOT, 'media', 'projects', 'article-video-replacements', 'critical-minerals-pfas', 'production-contract.json');
