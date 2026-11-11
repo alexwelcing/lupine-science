@@ -15,10 +15,6 @@ const SURFACES = [
     file: path.join(REPO_ROOT, 'public', 'brand-assets', 'deck-dark-sample.html'),
     marker: /(<strong data-lean-count>)[^<]*(<\/strong>)/,
   },
-  {
-    file: path.join(REPO_ROOT, 'public', 'presentations', 'climate-investor-value', 'index.html'),
-    marker: /(<strong data-lean-count>)[^<]*(<\/strong>)/,
-  },
 ];
 
 export function hydrateLeanCount(count) {

@@ -55,15 +55,8 @@ for (const entry of fs.readdirSync(path.join(PUBLIC, 'videos'), { withFileTypes:
   if (!fs.existsSync(path.join(PUBLIC, 'videos', entry.name, 'index.html'))) continue;
   urls.push({ loc: `${SITE}/videos/${entry.name}/`, lastmod: articleDate(entry.name) });
 }
-// Presentations (standalone HTML decks).
-const presentationsDir = path.join(PUBLIC, 'presentations');
-if (fs.existsSync(presentationsDir)) {
-  for (const entry of fs.readdirSync(presentationsDir, { withFileTypes: true })) {
-    if (!entry.isDirectory()) continue;
-    if (!fs.existsSync(path.join(presentationsDir, entry.name, 'index.html'))) continue;
-    urls.push({ loc: `${SITE}/presentations/${entry.name}/`, lastmod: null });
-  }
-}
+// No /presentations/* entries: the only presentation was retired on
+// 2026-11-11 and now redirects to /about/ (public/_redirects).
 
 // Per-node detail pages under /atlas/<id>/. The id matches one of T*, E*,
 // MC* (built by scripts/build-atlas-detail-pages.mjs). Anything else under
@@ -94,8 +87,9 @@ if (fs.existsSync(claimsDir)) {
 }
 
 // Static assets that are not directories but should be discoverable.
+// The climate-series proof pack is retired (see /corrections/) and is no
+// longer listed, even while the file is still served.
 for (const file of [
-  'proof-pack-climate-series.pdf',
   'booklets/the-savings-stack.pdf',
   'papers/memorandum-correction-boundary-2026-07-20.pdf',
 ]) {

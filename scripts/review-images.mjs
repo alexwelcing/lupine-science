@@ -64,10 +64,6 @@ async function collectImages() {
   for (const f of await readdir(posterDir)) {
     if (/-poster\.jpg$/.test(f)) targets.push(path.join(posterDir, f));
   }
-  const onePager = path.join(PUBLIC, 'one-pager-assets');
-  if (existsSync(onePager)) {
-    for (const f of await walk(onePager)) targets.push(f);
-  }
   return targets.sort();
 }
 

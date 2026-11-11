@@ -12,7 +12,6 @@ const NARRATIVE_ROOTS = [
   path.join(ROOT, 'data', 'narration-scripts'),
   path.join(ROOT, 'media'),
   path.join(ROOT, 'public', 'brand-assets'),
-  path.join(ROOT, 'public', 'presentations'),
   path.join(ROOT, 'public', 'videos'),
 ];
 const NARRATIVE_FILES = [
@@ -20,7 +19,6 @@ const NARRATIVE_FILES = [
 ];
 const STATIC_COUNT_SURFACES = [
   path.join(ROOT, 'public', 'brand-assets', 'deck-dark-sample.html'),
-  path.join(ROOT, 'public', 'presentations', 'climate-investor-value', 'index.html'),
 ];
 const inventory = JSON.parse(fs.readFileSync(path.join(ROOT, 'public', 'data', 'lean_count.json'), 'utf8'));
 const STATIC_THEOREM_COUNT = /(?<!Lean )\b(?:\d+\+?|(?:seventy[ -]seven))\s+(?:build-locked\s+)?(?:Lean\s+4\s+)?theorems?\b/i;
