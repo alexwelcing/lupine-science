@@ -3,7 +3,7 @@
 > **Deck:** The hand-offs between a computational screen and a working device, mapped by the kind of organisation that usually does each step, and where a measured model error would matter.
 > **Summary:** A predicted crystal passes through synthesis, coating, cell fabrication, characterization, integration and manufacturing before it becomes a product. This July 2026 piece, rewritten in November 2026, maps those hand-offs by type of organisation for batteries, carbon removal, ammonia and solar absorbers, and says where knowing a model's error would help. A direction, not a result.
 > **Status:** Direction
-> **Evidence Status:** Direction, not a result. The organisations named in earlier versions of this page were described as partners; none is. This version names no organisation as a collaborator and cites published work only as sources. What we have tested: in Round 4 (July 2026) our barrier, adsorption and lattice/elastic correction tests failed and the magnetism test abstained; an error field predicted a never-fitted surface energy for nine fcc metals (three of four models).
+> **Evidence Status:** Direction, not a result. The organisations named in earlier versions of this page were described as partners; none is. This version names no organisation as a collaborator and cites published work only as sources. What we have tested: in Round 4 (July 2026) the raw models missed our barrier gate, our adsorption and lattice/elastic correction tests failed, and the magnetism test abstained; in Round 5 our barrier correction abstained; an error field predicted a never-fitted surface energy for nine fcc metals (three of four models).
 
 # From Predicted Crystal to Commercial Cell
 

@@ -44,7 +44,7 @@ Both proofs are checked by `lake build` with no `sorry` axioms. They check the a
 
 ## Implications for materials discovery
 
-The same forcer accounting was meant to underpin the methane, refrigerant and cement Direction pieces: a candidate material's predicted impact must eventually be expressed in the same climate units as the policy target. We have no verified correction of a catalyst barrier or refrigerant property to propagate; our barrier and adsorption correction tests in Round 4 (July 2026) failed.
+The same forcer accounting was meant to underpin the methane, refrigerant and cement Direction pieces: a candidate material's predicted impact must eventually be expressed in the same climate units as the policy target. We have no verified correction of a catalyst barrier or refrigerant property to propagate; in Round 4 (July 2026) the raw models missed our barrier gate and our adsorption correction tests failed, and in Round 5 our barrier correction abstained.
 
 ![A physical gas-control manifold with three pipes ending at closed valves and one pipe continuing through a measurement vessel — Only the measured branch remains open and carries the restrained indigo flow](images/rhizo-non-co2-climate-forcers-lean-inline-03.jpg)
 

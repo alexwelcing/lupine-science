@@ -3,7 +3,7 @@
 > **Summary:** Five climate-relevant material classes whose performance depends on defects, surfaces and transition states, where machine-learned potentials are least reliable. This July 2026 piece describes the targets, the literature on why they matter, and what we have tested so far. A direction, not a result; it makes no climate-impact claim of its own.
 > **Updated:** 2026-11-11
 > **Status:** Direction
-> **Evidence Status:** Direction, not a result. Capability statements below are hypotheses we have not tested on these materials. What we have tested: in Round 4 (July 2026) our barrier, adsorption and lattice/elastic correction tests failed and the magnetism test abstained; an error field predicted a never-fitted surface energy for nine fcc metals (three of four models). Literature figures are attributed to their sources. An earlier version of this page was titled with a 5–12 GtCO₂/year range; that range was our own sum of literature estimates, not a measured or enabled outcome, and is retired (see the corrections log).
+> **Evidence Status:** Direction, not a result. Capability statements below are hypotheses we have not tested on these materials. What we have tested: in Round 4 (July 2026) the raw models missed our barrier gate, our adsorption and lattice/elastic correction tests failed, and the magnetism test abstained; in Round 5 our barrier correction abstained; an error field predicted a never-fitted surface energy for nine fcc metals (three of four models). Literature figures are attributed to their sources. An earlier version of this page was titled with a 5–12 GtCO₂/year range; that range was our own sum of literature estimates, not a measured or enabled outcome, and is retired (see the corrections log).
 
 # Five Materials Worth Getting Right: Cathodes, Electrolytes, Sorbents, Catalysts and Absorbers
 
@@ -83,7 +83,7 @@ Metastability adds a second layer of difficulty. Many high-efficiency perovskite
 
 ## One failure mode, five targets
 
-The five targets span batteries, carbon removal, industrial chemicals, and solar, but they share a common structure. In every case, functional performance is determined by defect-mediated properties in multi-component spaces. In every case, raw uMLIPs systematically soften the potential energy surface at the under-coordinated configurations that govern those properties. And in every case, brute-force DFT is too slow to screen the required compositional space.
+The five targets span batteries, carbon removal, industrial chemicals, and solar, but they share a common structure. In every case, functional performance is determined by defect-mediated properties in multi-component spaces. In every case, the softening Deng et al. report for universal MLIPs away from equilibrium would fall on the under-coordinated configurations that govern those properties; we have not measured it on these materials. And in every case, brute-force DFT is too slow to screen the required compositional space.
 
 ![A compact ammonia reactor skid with an insulated reaction tube, heat exchanger, and one catalyst cartridge visible through a clean cutaway — The catalyst cartridge enables ammonia conversion inside the single reaction tube](images/five-materials-for-5-to-12-gtco2-year-inline-03.jpg)
 

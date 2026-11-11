@@ -3,7 +3,7 @@
 > **Summary:** A literature review: of 380,000 structures GNoME reported as computationally stable, 736 had been independently synthesized by late 2023 (about 0.2%). It describes four structural filters between a predicted crystal and a made material and the questions they raise for climate-relevant materials. A direction, not a result.
 > **Updated:** 2026-11-11
 > **Status:** Direction
-> **Evidence Status:** Direction, not a result. Capability statements below are hypotheses we have not tested on these materials. What we have tested: in Round 4 (July 2026) our barrier, adsorption and lattice/elastic correction tests failed and the magnetism test abstained; an error field predicted a never-fitted surface energy for nine fcc metals (three of four models). Literature figures are attributed to their sources.
+> **Evidence Status:** Direction, not a result. Capability statements below are hypotheses we have not tested on these materials. What we have tested: in Round 4 (July 2026) the raw models missed our barrier gate, our adsorption and lattice/elastic correction tests failed, and the magnetism test abstained; in Round 5 our barrier correction abstained; an error field predicted a never-fitted surface energy for nine fcc metals (three of four models). Literature figures are attributed to their sources.
 
 # The 0.2% Synthesis Problem
 
@@ -63,7 +63,7 @@ The window is narrow. A material discovered in 2035 can still shape 2040 deploym
 
 ## What we think is missing
 
-Closing the gap requires moving from "stable on paper" to "synthesizable in practice". One part of that, the part we work on, is knowing where the fast models used for screening go wrong. Our hypothesis is that some of those errors are regular enough to measure as a function of local atomic environment, and in narrow cases to correct. On nine fcc metals that held for a never-fitted surface energy (three of four models; see [the fcc error-field note](/articles/a-smooth-environment-resolved-error-field/)). On Li-ion migration barriers, our correction tests failed or abstained ([Round 4](/articles/four-gates-three-honest-failures-one-live-experiment/)). We do not have a method that makes candidates more likely to survive synthesis.
+Closing the gap requires moving from "stable on paper" to "synthesizable in practice". One part of that, the part we work on, is knowing where the fast models used for screening go wrong. Our hypothesis is that some of those errors are regular enough to measure as a function of local atomic environment, and in narrow cases to correct. On nine fcc metals that held for a never-fitted surface energy (three of four models; see [the fcc error-field note](/articles/a-smooth-environment-resolved-error-field/)). On Li-ion migration barriers, the raw models missed our gate in Round 4 ([Round 4](/articles/four-gates-three-honest-failures-one-live-experiment/)) and our barrier correction abstained for all four models in Round 5. We do not have a method that makes candidates more likely to survive synthesis.
 
 ![A single ceramic electrolyte disk clamped inside a transparent-sided pressure-and-heat cycling chamber, with a fine crack beginning at its metal interface — The chamber applies combined manufacturing pressure and heat to reveal interface cracking](images/the-02-percent-synthesis-problem-inline-02.jpg)
 

@@ -2,7 +2,7 @@
 
 > **Date:** 2026-10-21
 > **Deck:** Inside Lupine’s research process: building a broad evidence library, challenging the geometry we hoped to find, and turning simulation errors into better decisions.
-> **Summary:** Shared errors, useful disagreement, and a diffusion correction that reaches its limit: what our October investigations found, how we checked it, and what would change our conclusions.
+> **Summary:** A retrospective analysis of previously examined data: errors stayed concentrated, but a learned shared direction added little or no advantage over a simple common-direction baseline. Also: where model disagreement helped, and a diffusion correction that reaches its limit. No new physical validation is claimed.
 > **Status:** Published
 > **Featured:** 4
 > **Evidence Status:** Research-process explainer and scoped results, reviewed October 21, 2026. Includes retrospective analysis, literature extraction and conditional mathematics; no new physical validation is claimed.

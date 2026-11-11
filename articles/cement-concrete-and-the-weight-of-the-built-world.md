@@ -3,7 +3,7 @@
 > **Summary:** Cement decarbonization depends on disordered, metastable, under-coordinated phases, which are where machine-learned potentials are least reliable. This July 2026 piece sets out where measured model error matters for alternative binders, clinkers and CO₂-cured concrete, and what has been tested so far. A direction, not a result.
 > **Updated:** 2026-11-11
 > **Status:** Direction
-> **Evidence Status:** Direction, not a result. Capability statements below are hypotheses we have not tested on these materials. What we have tested: in Round 4 (July 2026) our barrier, adsorption and lattice/elastic correction tests failed and the magnetism test abstained; an error field predicted a never-fitted surface energy for nine fcc metals (three of four models). Literature figures are attributed to their sources. We have not modelled any cement phase.
+> **Evidence Status:** Direction, not a result. Capability statements below are hypotheses we have not tested on these materials. What we have tested: in Round 4 (July 2026) the raw models missed our barrier gate, our adsorption and lattice/elastic correction tests failed, and the magnetism test abstained; in Round 5 our barrier correction abstained; an error field predicted a never-fitted surface energy for nine fcc metals (three of four models). Literature figures are attributed to their sources. We have not modelled any cement phase.
 
 # Cement, Concrete, and the Weight of the Built World
 
@@ -59,7 +59,7 @@ CO₂ curing is conceptually elegant. Instead of emitting CO₂ during calcinati
 
 The materials challenge is kinetic. Carbonation proceeds through CO₂ dissolution, diffusion through pores and increasingly dense product layers, and reaction at under-coordinated surface sites. As the carbonate layer thickens, CO₂ diffusion becomes rate-limiting. The microstructure and strength of the final product depend on the competition between carbonation depth, carbonate crystal size, and the residual unreacted core. uMLIPs underestimate the barriers for CO₂ insertion and carbonate diffusion at under-coordinated surface sites because those transition states involve reduced coordination relative to bulk carbonate training data[^2].
 
-Carbonate formation and diffusion barriers set the ranking of candidate calcium-silicate compositions. If fast potentials soften those barriers, a composition that appears to carbonate rapidly in a raw screen could be a false positive, and one that looks sluggish could have been penalized by the same error. Measuring those barrier errors would come before any attempt to correct them; our only barrier-correction tests so far (Li-ion migration) failed or abstained.
+Carbonate formation and diffusion barriers set the ranking of candidate calcium-silicate compositions. If fast potentials soften those barriers, a composition that appears to carbonate rapidly in a raw screen could be a false positive, and one that looks sluggish could have been penalized by the same error. Measuring those barrier errors would come before any attempt to correct them; on Li-ion migration, the raw models missed our barrier gate (Round 4) and our barrier correction abstained for all four models (Round 5).
 
 ## Why computation fails, and how it can succeed
 

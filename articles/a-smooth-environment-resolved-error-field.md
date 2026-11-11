@@ -75,7 +75,7 @@ Correction has jurisdiction only where order survives. Where rankings invert —
   <strong>Conclusion.</strong> For fcc metals, the uMLIP errors we measured away from equilibrium are not a collection of independent failures. They behave like the projection of a smooth, environment-resolved error field that can be measured from three observables and predicts a fourth for three of four models. Used as an energy-only correction beside one model, it improved one blind facet on two metals, and Lean-checked inequalities mark where a monotone correction cannot apply.
 </div>
 
-Whether the field extends beyond fcc metals, and whether a correction built on it holds elsewhere, is open. Our Round-4 correction tests on barriers and adsorption (July 2026) failed; see [Round 4](/articles/four-gates-three-honest-failures-one-live-experiment/).
+Whether the field extends beyond fcc metals, and whether a correction built on it holds elsewhere, is open. In Round 4 (July 2026) the raw models missed our barrier gate and our adsorption and lattice/elastic correction tests failed; in Round 5 our barrier correction abstained for all four models. See [Round 4](/articles/four-gates-three-honest-failures-one-live-experiment/) and [the Z1 barrier panel](/articles/the-materials-we-test-against/).
 
 ## Audit links
 

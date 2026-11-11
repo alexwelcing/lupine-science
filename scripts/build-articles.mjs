@@ -598,7 +598,7 @@ async function proofDownloadCard(meta, slug, title) {
   <div>
     <p class="eyebrow">Evidence record</p>
     <h2 id="${headingId}">Download the evidence behind this article</h2>
-    <p class="description">Locked figure, method, boundaries, bibliography, and audit links in one publication-ready document.</p>
+    <p class="description">The August 2026 evidence record (PDF), unrevised; this page supersedes it.</p>
     <p class="metadata">PDF · ${pageCount} ${pageCount === 1 ? 'page' : 'pages'} · ${size} · updated ${updated}</p>
   </div>
   <a class="proof-download__action" href="${esc(meta.proofPack)}" download aria-label="Download PDF for ${esc(title)}">Download PDF</a>

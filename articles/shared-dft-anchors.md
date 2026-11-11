@@ -1,4 +1,4 @@
-# Sharing DFT anchors reduces projected evaluations by 72.4%
+# Shared DFT Anchors: A Projected Saving, and What Happened When We Ran It
 
 > **Type:** Results note
 > **Date:** 2026-08-03
@@ -6,7 +6,7 @@
 > **Deck:** A frozen, artifact-backed analysis of 29 analyzable diffusion paths compares four separately evaluated sparse-anchor sets with their shared union.
 > **Summary:** Projected accounting, no new DFT: 154 instead of 558 projected DFT evaluations on 29 analyzable paths (72.4% fewer DFT evaluations, projected). The baseline is four separate runs; paths have 5–7 images, so the union covers most images and deduplication alone caps the saving near 73%. When we ran the pilot, it was about 700 meV off the published references; see "What happened when we ran it".
 > **Status:** Published
-> **Evidence Status:** Projected accounting from recorded campaign artifacts; no DFT was run to produce the 72.4% figure, and it is not an accuracy result. Internally reviewed (AI-assisted) and approved for publication 2026-08-03; not peer-reviewed. The realized pilot is reported separately below: its preregistered accuracy gate failed, and its passing check is a same-engine self-consistency check adopted by an amendment written after that failure.
+> **Evidence Status:** Projected accounting from recorded campaign artifacts; no DFT was run to produce the 72.4% figure, and it is not an accuracy result. Internally reviewed (AI-assisted) and approved for publication 2026-08-03; not peer-reviewed. The realized pilot is reported separately below: its preregistered accuracy gate failed, and its passing check is a same-engine self-consistency check adopted by an amendment written after that failure. The August 2026 PDF linked below has not been revised: it calls itself a proof pack, says it was independently reviewed (the review was internal and AI-assisted), and predates the realized pilot. This page supersedes it.
 > **OG Image:** /articles/shared-dft-anchors/hero.jpg
 > **Proof Pack:** /proof-packs/shared-dft-anchors.proofpack.pdf
 > **Ontology:** T6, E4, MC4

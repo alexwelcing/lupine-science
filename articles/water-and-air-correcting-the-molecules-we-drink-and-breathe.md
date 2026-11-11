@@ -3,7 +3,7 @@
 > **Summary:** Water and air quality depend on materials that separate and transform molecules in under-coordinated environments, where machine-learned potentials are least reliable. This July 2026 piece sets out where a measured correction might help and what would have to be tested first. A direction, not a result.
 > **Updated:** 2026-11-11
 > **Status:** Direction
-> **Evidence Status:** Direction, not a result. Capability statements below are hypotheses we have not tested on these materials. What we have tested: in Round 4 (July 2026) our barrier, adsorption and lattice/elastic correction tests failed and the magnetism test abstained; an error field predicted a never-fitted surface energy for nine fcc metals (three of four models). Literature figures are attributed to their sources.
+> **Evidence Status:** Direction, not a result. Capability statements below are hypotheses we have not tested on these materials. What we have tested: in Round 4 (July 2026) the raw models missed our barrier gate, our adsorption and lattice/elastic correction tests failed, and the magnetism test abstained; in Round 5 our barrier correction abstained; an error field predicted a never-fitted surface energy for nine fcc metals (three of four models). Literature figures are attributed to their sources.
 
 # Water and Air: The Materials Behind What We Drink and Breathe
 
@@ -20,7 +20,7 @@ The starting point is simple. uMLIPs are trained mostly on bulk, near-equilibriu
 
 If the error has a shape here too, binding energies, diffusion barriers, hydrolysis rates and activation barriers would all be shifted in a regular way that ordinary screens do not correct. The result would be ranking inversion: candidates that look best in a raw screen would not be the candidates that perform best, and experiments would be sent to the wrong priorities.
 
-Our hypothesis is that such errors can be measured on anchor observables and, in some cases, corrected. On fcc metals that has held in a narrow case; on Li-ion migration barriers and catalyst adsorption, our correction tests failed or abstained (see "What we have tested so far" below)[^5]. Whether anything transfers to the water and air targets here is untested.
+Our hypothesis is that such errors can be measured on anchor observables and, in some cases, corrected. On fcc metals that has held in a narrow case; on Li-ion migration barriers the raw models missed our gate and our barrier correction abstained, and on catalyst adsorption our correction tests failed (see "What we have tested so far" below)[^5]. Whether anything transfers to the water and air targets here is untested.
 
 ## Water: separation without energy destruction
 

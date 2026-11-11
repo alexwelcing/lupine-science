@@ -1,9 +1,9 @@
-# Where Corrections Hold: A Seven-Tier Map of MLIP Error (July 2026)
+# A Seven-Tier Map of MLIP Error, by Property Type (July 2026)
 
 > **Type:** Research note
 > **Date:** 2026-07-20  
 > **Updated:** 2026-11-11
-> **Deck:** A map, drawn in July 2026, of where corrections have held and where they have not, by type of property, and the order we planned to test next  
+> **Deck:** A map, drawn in July 2026, of MLIP error by property type: where one correction held in a narrow case, where corrections failed, and the order we planned to test next  
 > **Summary:** A July 2026 map of MLIP error by property type, from lattice constants to magnetism: where a correction has held in a narrow, stated case, where only boundary results apply, and where the honest answer is abstention. Later results that changed the map are dated in the body.  
 > **Status:** Published
 > **Ontology:** T2, E4, E8
@@ -16,7 +16,7 @@
 
 ## Why map the hard end first
 
-Barriers and interfaces are where MLIPs drifted farthest in our tests: 135.0–242.5 meV of barrier error against a 40 meV gate across four foundation models, and adsorption errors up to +25.6 eV. We deliberately ran there first, because a boundary is easiest to see from the hard side. The result, honestly recorded: no low-dimensional correction survived on that error field in our tests. But the same measurement produced something more useful than a win: the complete map of difficulty, from observables where corrections already pass to domains where the only honest answer is abstention.
+Barriers and interfaces are where MLIPs drifted farthest in our tests: 135.0–242.5 meV of barrier error against a 40 meV gate across four foundation models, and adsorption errors up to +25.6 eV. We deliberately ran there first, because a boundary is easiest to see from the hard side. The result, honestly recorded: no low-dimensional correction survived on that error field in our tests. But the same measurement produced something more useful than a win: the complete map of difficulty, from observables where one correction has held in a narrow case to domains where the only honest answer is abstention.
 
 ## The ladder, as measured
 
@@ -24,7 +24,7 @@ Barriers and interfaces are where MLIPs drifted farthest in our tests: 135.0–2
 
 ![A branching sample rail at a quiet allocation station: simple coupons enter a rapid screen while one complex interface coupon is diverted to a reference chamber — The physical switch routes work according to evidence difficulty](images/an-order-of-effort-inline-01.jpg)
 
-**Tier 1 — statics (lattice constants, volumes, relaxed bulk).** In Round 3, a direction-gated correction cut lattice-constant error from 1.60% to 0.33% (ionics) and 1.75% to 0.74% (perovskites) on unseen candidates, inside a trial whose gates failed overall. *Update, 2026-11-11:* in Round 4 the same correction did not reach significance in either group, so this tier is Open. The error structure is small and one-sided, and the runtime cost is trivial.
+**Tier 1 — statics (lattice constants, volumes, relaxed bulk).** In Round 3, a direction-gated correction cut lattice-constant error from 1.60% to 0.33% (ionics) and 1.75% to 0.74% (perovskites) on unseen candidates, inside a trial whose gates failed overall. *Update, 2026-11-11:* in Round 4 the preregistered lattice- and elastic-constant correction failed in both groups (ionics 0/4; perovskites 0/1 after a post-measurement amendment), and its lattice-constant gain did not reach significance; the Tier-1 correction is not established. The error structure is small and one-sided, and the runtime cost is trivial.
 
 **Tier 2 — elastic response (bulk modulus, elastic constants).** Harder, and we mark it honestly: our own kill condition fired on B0. The theorem work here is *boundary* theorems — classification of which cells may correct and which may not — not correction laws.
 
@@ -40,7 +40,7 @@ Barriers and interfaces are where MLIPs drifted farthest in our tests: 135.0–2
 
 ## The rule that keeps the ladder from fighting itself
 
-Non-competition is structural: each correction family may act only where the family below it *provably cannot*. Level shifts are dead everywhere — a theorem kills them (`barrier_shift_invariant`), so they never compete. Slope corrections are licensed only by sign stability. Environment-field corrections apply only where a smooth field exists. Anchors are priced exactly: two extrema, exactness, and the model demoted to geometry guide. And a single wobble bound referees all of it: no information-free correction can beat the model's profile wobble. These are Lean-checked statements about the arithmetic of corrections; whether a given correction helps on real materials is still decided by measurement.
+Non-competition is structural: each correction family may act only where the family below it *provably cannot*. Level shifts are dead everywhere — a theorem kills them (`barrier_shift_invariant`), so they never compete. Slope corrections are cleared only by sign stability. Environment-field corrections apply only where a smooth field exists. Anchors are priced exactly: two extrema, exactness, and the model demoted to geometry guide. And a single wobble bound referees all of it: no information-free correction can beat the model's profile wobble. These are Lean-checked statements about the arithmetic of corrections; whether a given correction helps on real materials is still decided by measurement.
 
 ![A high-pressure material cell enclosed by three nested mechanical containment rings, with the innermost ring carrying a restrained indigo boundary — The nested rings prevent a correction from extending beyond its tested material regime](images/an-order-of-effort-inline-02.jpg)
 
@@ -48,9 +48,9 @@ Non-competition is structural: each correction family may act only where the fam
 
 *As planned in July 2026:*
 
-**Round easy-first:** Tier 1. The goal was a model-independent runtime gain on relaxed-structure observables, with overhead measured per cell. *Update, 2026-11-11:* Round 4 did not confirm the Tier-1 correction; see [Round 4](/articles/four-gates-three-honest-failures-one-live-experiment/).
+**Round easy-first:** Tier 1. The goal was a model-independent runtime gain on relaxed-structure observables, with overhead measured per cell. *Update, 2026-11-11:* Round 4's preregistered test of the Tier-1 correction failed; see [Round 4](/articles/four-gates-three-honest-failures-one-live-experiment/).
 
-**Sparse-DFT pilot:** Tier 5's route — models guide, DFT measures only at model-chosen extrema. In simulation on the locked reference profile, that reproduced barriers at 1.2–9.4 meV mean error at about 7 evaluations per path. The memorandum of theory was frozen before results ([PDF](/papers/memorandum-correction-boundary-2026-07-20.pdf)). *Update, 2026-11-11:* when we ran it with GPAW, the preregistered gate against the published references failed; the check that passed is same-engine only, and the pilot was about 700 meV off the references. See [Sharing DFT anchors](/articles/shared-dft-anchors/).
+**Sparse-DFT pilot:** Tier 5's route — models guide, DFT measures only at model-chosen extrema. In simulation on the locked reference profile, that reproduced barriers at 1.2–9.4 meV mean error at about 7 evaluations per path. The memorandum of theory was frozen before results ([PDF](/papers/memorandum-correction-boundary-2026-07-20.pdf)). *Update, 2026-11-11:* when we ran it with GPAW, the preregistered gate against the published references failed; the check that passed is same-engine only, and the pilot was about 700 meV off the references. See [Shared DFT Anchors](/articles/shared-dft-anchors/).
 
 **The boundary at each step:** when a round hits the tier where its correction family provably can't act, the boundary is already written down — that's what the Lean layer is for.
 

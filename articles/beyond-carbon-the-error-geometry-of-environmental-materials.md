@@ -3,7 +3,7 @@
 > **Summary:** The opening piece of a July 2026 series on environmental materials. It argues that their useful chemistry happens in under-coordinated environments, where machine-learned potentials are least reliable, and sets out what we would need to test. A direction, not a result.
 > **Updated:** 2026-11-11
 > **Status:** Direction
-> **Evidence Status:** Direction, not a result. Capability statements below are hypotheses we have not tested on these materials. What we have tested: in Round 4 (July 2026) our barrier, adsorption and lattice/elastic correction tests failed and the magnetism test abstained; an error field predicted a never-fitted surface energy for nine fcc metals (three of four models). Literature figures are attributed to their sources.
+> **Evidence Status:** Direction, not a result. Capability statements below are hypotheses we have not tested on these materials. What we have tested: in Round 4 (July 2026) the raw models missed our barrier gate, our adsorption and lattice/elastic correction tests failed, and the magnetism test abstained; in Round 5 our barrier correction abstained; an error field predicted a never-fitted surface energy for nine fcc metals (three of four models). Literature figures are attributed to their sources.
 
 # Beyond Carbon: The Error Geometry of Environmental Materials
 
@@ -35,7 +35,7 @@ Water scarcity affects roughly two billion people, and the UN projects a 40% glo
 
 ![A recirculating corrosion-test loop with four metal coupons mounted along one pipe and a single scanning probe moving across their exposed surfaces — The scanning probe measures local surface error against the same flowing environment](images/beyond-carbon-the-error-geometry-of-environmental-materials-inline-02.jpg)
 
-Atmospheric water harvesting sorbents face a different version of the same question. Metal–organic frameworks such as MOF-808 with LiCl reach useful capacities at low relative humidity, but cycle life is limited by hydrolysis of metal–linker bonds at under-coordinated metal centres[^5]. If barrier errors there could be measured and corrected, cycle life could be screened before synthesis; our only barrier-correction tests so far, on Li-ion migration, failed or abstained.
+Atmospheric water harvesting sorbents face a different version of the same question. Metal–organic frameworks such as MOF-808 with LiCl reach useful capacities at low relative humidity, but cycle life is limited by hydrolysis of metal–linker bonds at under-coordinated metal centres[^5]. If barrier errors there could be measured and corrected, cycle life could be screened before synthesis; on Li-ion migration, the raw models missed our barrier gate (Round 4) and our barrier correction abstained for all four models (Round 5).
 
 Air quality is similarly bound by under-coordinated active sites. Outdoor air pollution causes an estimated 4–7 million premature deaths annually, with NOx, PM₂.₅, and volatile organic compounds as the leading contributors[^6]. Low-temperature NH₃-SCR catalysts for diesel and gasoline exhaust need high NOx conversion below 150 °C because cold-start emissions, before the catalyst reaches light-off, can account for 50–80% of trip emissions[^7]. Those conversions depend on activation barriers for N–O bond cleavage and C–H activation at exchanged cations and single-atom sites, where we expect raw uMLIPs to be least reliable.
 

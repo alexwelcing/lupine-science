@@ -24,7 +24,7 @@ The draft's evidence was the fcc error field. Its current, scoped statement: for
 
 - **The investment framing, budget and "the ask".** We do not publish funding statements on this site.
 - **The partner architecture.** The draft listed laboratories, companies and a national laboratory as collaborators. None was, and we do not name organisations as partners unless they have agreed.
-- **Capability claims.** Statements that the correction transfers to barriers, halide electrolytes or other structure families, and that corrected models are "trustworthy", went beyond the evidence. Our barrier and adsorption correction tests in Round 4 (July 2026) failed ([Round 4](/articles/four-gates-three-honest-failures-one-live-experiment/)).
+- **Capability claims.** Statements that the correction transfers to barriers, halide electrolytes or other structure families, and that corrected models are "trustworthy", went beyond the evidence. In Round 4 (July 2026) the raw models missed our barrier gate and our adsorption and lattice/elastic correction tests failed ([Round 4](/articles/four-gates-three-honest-failures-one-live-experiment/)); in Round 5 our barrier correction abstained for all four models.
 - **A misattributed citation.** The draft credited our own 15–60× defect/bulk error ratio to an external benchmark paper.
 - **A theorem count used as evidence.** Lean checks the arithmetic and stated inequalities behind published numbers; it does not check the physics, the reference data or the pipeline.
 

@@ -3,7 +3,7 @@
 > **Deck:** Critical-mineral recovery and PFAS remediation share a computational bottleneck — binding and activation energies in under-coordinated environments — and both would need model error measured before a fast screen could be trusted.
 > **Summary:** Critical-mineral recycling, direct lithium extraction and PFAS destruction share a materials-discovery problem: binding and activation energies in under-coordinated environments, where machine-learned potentials are least reliable. This piece describes where the work is aimed and what has been tested so far. A direction, not a result.
 > **Status:** Direction
-> **Evidence Status:** Direction, not a result. Scientific mechanisms are source-cited. Quantitative market, demand, site-count, cost, and performance figures are contextual estimates with unresolved verification gaps; proposed recovery and PFAS-destruction applications are research directions, not demonstrated Lupine outcomes. What we have tested: in Round 4 (July 2026) our barrier, adsorption and lattice/elastic correction tests failed and the magnetism test abstained; an error field predicted a never-fitted surface energy for nine fcc metals (three of four models).
+> **Evidence Status:** Direction, not a result. Scientific mechanisms are source-cited. Quantitative market, demand, site-count, cost, and performance figures are contextual estimates with unresolved verification gaps; proposed recovery and PFAS-destruction applications are research directions, not demonstrated Lupine outcomes. What we have tested: in Round 4 (July 2026) the raw models missed our barrier gate, our adsorption and lattice/elastic correction tests failed, and the magnetism test abstained; in Round 5 our barrier correction abstained; an error field predicted a never-fitted surface energy for nine fcc metals (three of four models).
 
 # Critical Minerals, PFAS, and the Remediation Imperative
 
@@ -96,7 +96,7 @@ These are other organisations' estimates of the size of the problems, not claims
 
 Critical-mineral recovery and PFAS remediation sit on opposite sides of the industrial metabolism. One puts scarce atoms back into use; the other removes harmful atoms from circulation. Both depend on binding and barrier energies in under-coordinated environments, and both need screens over composition spaces too large for DFT. That makes them good places to measure where fast models go wrong.
 
-We do not have a correction for either. The evidence so far is narrow: an error field that held on fcc-metal surfaces, and barrier and adsorption correction tests that failed. Measuring first, under gates set in advance, is where this would start.
+We do not have a correction for either. The evidence so far is narrow: an error field that held on fcc-metal surfaces; raw models that missed our barrier gate and adsorption and lattice/elastic correction tests that failed (Round 4); and a barrier correction that abstained (Round 5). Measuring first, under gates set in advance, is where this would start.
 
 Cement and concrete — the heaviest industrial material by mass — present another case where amorphous, metastable and under-coordinated phases control both emissions and performance.
 
