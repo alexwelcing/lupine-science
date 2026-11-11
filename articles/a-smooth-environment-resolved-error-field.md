@@ -1,21 +1,23 @@
-# A smooth, environment-resolved error field underlies the systematic property errors of universal machine-learned interatomic potentials
+# A smooth, environment-resolved error field behind uMLIP errors on fcc metals
 
-> **Type:** proof-pack
+> **Type:** Results note
 > **Date:** 2026-07-02
+> **Updated:** 2026-11-11
 > **Deck:** Universal machine-learned interatomic potentials (uMLIPs) err systematically away from equilibrium; the test is whether those errors share a single, measurable shape.
-> **Summary:** For fcc metals, uMLIP errors project onto a smooth field over local atomic environments. The field predicts a never-fitted property with r = 0.906, converts into a run-time correction, and carries machine-checked applicability boundaries.
+> **Summary:** For nine fcc metals, an error field fitted to three other observables predicted the never-fitted (110) surface-energy error of four foundation MLIPs at r = 0.906 across 36 model–material cells (material-clustered 95% CI 0.82–0.96; permutation null centred near 0.44; significant for three of the four models). Used as an energy-only correction beside CHGNet, the field cut blind (110) surface-energy error from 9.7% to 1.5% on nickel and from 28.0% to 13.7% on copper: one model, two metals, one facet.
 > **Status:** Published
+> **Evidence Status:** Internally checked against the hashed records; not independently reproduced and not peer-reviewed. Lean checks the arithmetic and stated inequalities behind these numbers, not the physics, the reference data or the pipeline.
+> **OG Title:** A smooth error field behind uMLIP errors on fcc metals — Lupine Science
+> **Featured:** 3
 > **Ontology:** T2, E1, E5
 
 <div class="callout claim">
-  <strong>Claim.</strong> The systematic errors of universal machine-learned interatomic potentials on fcc metals are projections of a single smooth error field over local atomic environments, with coordination deficit as the leading coordinate.
+  <strong>Claim (scoped).</strong> On fcc metals, the surface and vacancy errors we measured for four universal machine-learned interatomic potentials behave like projections of one smooth error field over local atomic environments, with coordination deficit as the leading coordinate. The blind test below holds for three of the four models.
 </div>
 
 <p class="lead">
-Foundation machine-learned interatomic potentials (uMLIPs) match near-DFT accuracy on bulk properties but fail on the surfaces, vacancies, and planar faults that dominate real materials practice. The evidence shows that those failures are not independent: they follow a smooth field over local atomic environments. The field is measured from three standard observables, predicts a fourth never-fitted observable with zero adjustable parameters, and converts into a run-time correction that runs beside a live calculator.
+Foundation machine-learned interatomic potentials (uMLIPs) match near-DFT accuracy on bulk properties but fail on the surfaces, vacancies, and planar faults that dominate real materials practice. On fcc metals, the evidence here shows that those failures are not independent: they follow a smooth field over local atomic environments. The field is measured from three standard observables and predicts a fourth, never-fitted observable with zero adjustable parameters. Used as an energy-only correction beside one model, it improved one blind facet on two metals.
 </p>
-
-<span class="status published">Published</span>
 
 ---
 
@@ -23,9 +25,9 @@ Foundation machine-learned interatomic potentials (uMLIPs) match near-DFT accura
 
 - **Data.** 21 materials × 4 uMLIPs × up to 9 properties = 228 provenance-annotated reference values. Four models: CHGNet 0.4.2, MACE-MP-0 small, MACE-MP-0 medium, MACE-MPA-0.
 - **Method.** Measure signed errors on γ₁₀₀, γ₁₁₁, and vacancy formation energy; fit a per-(model, material) cubic field over first-shell coordination; predict the blind γ₁₁₀ error at coordination 7.
-- **Result.** Across 36 (model, material) cells, the blind prediction attains **r = 0.906** (material-clustered 95 % CI [0.82, 0.96]), exceeding all 10,000 within-model material permutations (**p = 10⁻⁴**).
-- **Run-time correction.** The field inverts into an additive energy correction beside CHGNet. It recovers fitted observables exactly, improves the blind γ₁₁₀ facet (Ni: 9.7 % → 1.5 %; Cu: 28.0 % → 13.7 %), leaves bulk structure untouched, and runs stable MD at 15.6 % overhead.
-- **Verdict.** Supported for fcc first-shell environments, with explicit machine-checked boundaries where no monotone correction exists.
+- **Result.** Across 36 (model, material) cells — nine fcc metals × four models — the blind prediction attains **r = 0.906** (material-clustered 95 % CI [0.82, 0.96]), exceeding all 10,000 within-model material permutations (**p = 10⁻⁴**). That null is centred at r = 0.44, not zero, because pooling across models shares error scales. Per model the result is significant for CHGNet, MACE-MP-0 small and MACE-MPA-0, but not for MACE-MP-0 medium (r = 0.47, p = 0.10, n = 9). As a blind correction, the median residual improves only marginally (0.066 vs 0.104 J/m², p = 0.036).
+- **Energy-only correction.** The field inverts into an additive energy correction beside CHGNet. It recovers fitted observables exactly, improves the blind γ₁₁₀ facet (Ni: 9.7 % → 1.5 %; Cu: 28.0 % → 13.7 %: one model, two metals, one facet), leaves bulk structure untouched, and runs stable MD at 15.6 % overhead. Force error against a MACE-MPA-0 proxy on rattled Ni(110) slabs is unchanged.
+- **Verdict.** Supported for fcc first-shell environments on three of four models; open beyond fcc metals. Where rankings invert, a Lean-checked inequality shows that no monotone correction can recover both orders.
 
 ## The error landscape
 
@@ -49,7 +51,7 @@ The core hypothesis is simple: the model's energy error is a smooth function of 
 
 > E_model(config) − E_ref(config) ≈ Σᵢ Δε(cᵢ), with Δε(12) ≡ 0 for fcc bulk.
 
-Each property samples the field at its characteristic coordinations: γ₁₀₀ at c = 8, γ₁₁₁ at c = 9, vacancy first neighbors at c = 11. The never-fitted γ₁₁₀ error probes coordination 7. Across 36 cells the prediction is r = 0.906 — not because the model is fitted to γ₁₁₀, but because the field shape is measured elsewhere and extrapolated.
+Each property samples the field at its characteristic coordinations: γ₁₀₀ at c = 8, γ₁₁₁ at c = 9, vacancy first neighbors at c = 11. The never-fitted γ₁₁₀ error probes coordination 7. Across 36 cells the prediction is r = 0.906 — not because the model is fitted to γ₁₁₀, but because the field shape is measured elsewhere and extrapolated. Read it against the permutation null centred at 0.44, and with three of the four models individually significant.
 
 ## From field to run time
 
@@ -57,23 +59,23 @@ Each property samples the field at its characteristic coordinations: γ₁₀₀
 
 Because the field is a function of environments, its inverse is an additive energy with analytic forces. Deployed beside a live CHGNet calculator:
 
-- **Statics.** Fitted observables return exactly; blind γ₁₁₀ errors drop sharply.
-- **Forces (null result).** Near-equilibrium force RMSE is unchanged — the v1 field is an energy-level correction; correcting forces requires a continuous-coordinate extension.
+- **Statics.** Fitted observables return exactly; blind γ₁₁₀ error falls from 9.7 % to 1.5 % on nickel and from 28.0 % to 13.7 % on copper.
+- **Forces (null result).** Force RMSE against a MACE-MPA-0 proxy (not DFT) on twenty rattled Ni(110) slabs is unchanged — the v1 field is an energy-level correction; correcting forces requires a continuous-coordinate extension.
 - **Dynamics.** 1,000 steps of 300 K Langevin NVT on Ni(110) run stably with 15.6 % wall-time overhead.
 
 ## Provable boundaries
 
-Correction has jurisdiction only where order survives. Where rankings invert — for example, MACE-MP-small ordering SFE(Ni) ≤ SFE(Al) while references order the reverse — a machine-checked proof shows that no monotone correction can recover both. The proof kernel certifies data-analysis arithmetic and stated inequalities over SHA-256-provenance data; {{LEAN_THEOREM_COUNT}} build-locked Lean 4 theorems, zero `sorry`.
+Correction has jurisdiction only where order survives. Where rankings invert — for example, MACE-MP-small ordering SFE(Ni) ≤ SFE(Al) while references order the reverse — a machine-checked proof shows that no monotone correction can recover both. Lean 4 checks the arithmetic and stated inequalities behind these numbers, over SHA-256-pinned data; it does not check the physics, the reference data or the pipeline. At the 10⁻⁴ J/m² precision used for checking, one cell's improvement rounds to zero, so we report 26 of 36 cells improved (27 of 36 at float64).
 
 ![A compact correction plate inserted between an interatomic-model cartridge and a finite-element fatigue-test fixture for one turbine-blade coupon — The plate applies a bounded local correction before the coupon simulation reaches the fatigue fixture](images/a-smooth-environment-resolved-error-field-inline-03.jpg)
 
 ## Conclusion
 
 <div class="callout proof">
-  <strong>Conclusion.</strong> For fcc metals, uMLIP errors away from equilibrium are not a collection of independent failures. They are the projection of a smooth, environment-resolved error field that can be measured from three observables, predicts a fourth, and runs as a correction beside a live calculator — with machine-checked boundaries on where it does and does not apply.
+  <strong>Conclusion.</strong> For fcc metals, the uMLIP errors we measured away from equilibrium are not a collection of independent failures. They behave like the projection of a smooth, environment-resolved error field that can be measured from three observables and predicts a fourth for three of four models. Used as an energy-only correction beside one model, it improved one blind facet on two metals, and Lean-checked inequalities mark where a monotone correction cannot apply.
 </div>
 
-The field is the first concrete instance of the larger program: measure the structured wrongness of a predictor, prove it, correct it, and make the evidence inspectable.
+Whether the field extends beyond fcc metals, and whether a correction built on it holds elsewhere, is open. Our Round-4 correction tests on barriers and adsorption (July 2026) failed; see [Round 4](/articles/four-gates-three-honest-failures-one-live-experiment/).
 
 ## Audit links
 
@@ -81,4 +83,4 @@ The field is the first concrete instance of the larger program: measure the stru
 - [Figures and SHA-256 manifest](https://github.com/alexwelcing/lupine-rhizo/tree/main/paper/figures/envfield)
 - [Y-matrix evidence corpus](https://github.com/alexwelcing/lupine-rhizo/tree/main/data/y_matrix_runs)
 - [Lean 4 proof modules](https://github.com/alexwelcing/lupine-rhizo/tree/main/lean-spec/LupineEvidence)
-- [Public ledger](https://glim-think-v1.aw-ab5.workers.dev)
+- [Hypothesis ledger, including our self-corrections](https://github.com/alexwelcing/lupine-rhizo/blob/main/docs/conjectures/ledger.md)
