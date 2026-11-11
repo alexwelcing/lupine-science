@@ -200,7 +200,7 @@ const HERO_CAPTIONS = {
   'investing-in-the-trust-layer':
     'A narrow pilot pipeline from powder hopper through sintering furnace to a pressure-test fixture — one inspection gate admits only measured samples to the pilot press.',
   'why-lupine-science':
-    'The launch film: from fantasy frameworks to makeable materials. Generated with AI tools, composited with open-source software — possibilities made trustworthy by process.',
+    'The June 2026 launch film, generated with AI tools and composited with open-source software.',
   'from-fantasy-frameworks-to-makeable-materials':
     'A porous-framework powder batch moving from synthesis vessel through pellet press and stability chamber into one plain sorbent cartridge — material advances only if it survives every stage.',
   'the-order-is-right-the-size-is-wrong':
@@ -208,7 +208,7 @@ const HERO_CAPTIONS = {
   'the-trust-layer':
     'A load-bearing civic bridge whose hidden indigo layer is made of measurement, evidence, and verification modules: trust as literal infrastructure.',
   'rhizo-non-co2-climate-forcers-lean':
-    'The Lupine Rhizo build status: machine-counted theorems, zero sorry, with non-CO₂ climate forcers now machine-checked in Lean 4.',
+    'IPCC AR6 warming potentials for non-CO₂ forcers, encoded as stated assumptions in a Lean 4 module.',
   'lupi-hfc-refrigerant-research-payloads':
     'A physical refrigeration loop — compressor, heat exchanger, and sealed refrigerant circuit — with indigo measurement traces and no readable interface text.',
   'the-savings-stack':

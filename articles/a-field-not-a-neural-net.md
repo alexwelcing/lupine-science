@@ -1,6 +1,7 @@
 > **Date:** 2026-07-09
+> **Updated:** 2026-11-11
 > **Deck:** The environment error field as a measured physical correction layer for universal machine-learning interatomic potentials.
-> **Summary:** The largest errors in computational materials discovery have a low-dimensional geometry, and Lupine measures and corrects them at runtime with machine-checked proof.
+> **Summary:** Archived. A July 2026 draft describing the fcc environment error field; its claims went beyond the result, which is stated with its scope on the fcc error-field page.
 > **Status:** Archived
 > **Archived:** 2026-11-11
 > **Superseded By:** /articles/a-smooth-environment-resolved-error-field/
@@ -79,7 +80,7 @@ Validation confirms selective correction. The fitted observables recover exactly
 
 ## Machine-Checked Proof
 
-Statistical validation has a well-known limitation: it cannot catch bugs in the analysis code, and it applies only to the samples tested. A formal verification layer is added. Every quantitative claim — ordering relations, correction bounds, and impossibility results — is encoded as a Lean 4 theorem over integer-scaled data carrying SHA-256 provenance of the source files. The formalization currently comprises {{LEAN_THEOREM_COUNT}} build-locked theorems and zero `sorry` proofs — Lean's escape hatch for unproven claims. The count is generated directly from the open Lean source at build time.
+Statistical validation has a well-known limitation: it cannot catch bugs in the analysis code, and it applies only to the samples tested. A formal verification layer is added. Every quantitative claim — ordering relations, correction bounds, and impossibility results — is encoded as a Lean 4 theorem over integer-scaled data carrying SHA-256 provenance of the source files. Lean checks the arithmetic and stated inequalities behind these numbers; it does not check the physics, the reference data or the pipeline.
 
 The theorems fall into three categories. Ordering claims are inequality chains verified by the Lean kernel at fixed precision, not statistical summaries. Isotonic correction theorems implement the log-affine correction as a Lean function whose outputs the kernel checks against expected ordering properties. Impossibility theorems prove, with concrete counterexample witnesses, where no monotone correction can reconcile a model’s ordering with the reference ordering.
 
@@ -129,7 +130,7 @@ The field is not an abstract mathematical device. It maps directly onto the defe
 
 In cobalt-free lithium-manganese-rich cathodes, voltage fade is transition-metal migration from octahedral to tetrahedral sites — a hop whose barrier is underestimated when the transition state is under-coordinated. In earth-abundant halide solid electrolytes, ionic conductivity depends exponentially on the Li$^+$ migration barrier; a 60% barrier error changes predicted conductivity by roughly three orders of magnitude. In MOFs for direct air capture, humidity stability is governed by metal-linker hydrolysis at under-coordinated nodes. In electrochemical ammonia catalysts, N$\equiv$N cleavage occurs at surface defect sites. In lead-free perovskite absorbers, Sn$^{2+}$ oxidation and vacancy formation set the stability ceiling.
 
-Every one of these properties is a coordination-dependent defect property. Every one is therefore within the domain where a measured error field can correct the prediction, or where an impossibility proof can flag the candidate as unsupported. The next part turns from the method to the targets: five material classes where correction plus verification could unlock 5–12 GtCO$_2$/year.
+Every one of these properties is a coordination-dependent defect property. Every one is therefore within the domain where a measured error field can correct the prediction, or where an impossibility proof can flag the candidate as unsupported. (The next part of the July series turned to five target material classes; see the Direction pieces listed on the articles page.)
 
 ![A field, not a neural net](images/a-field-not-a-neural-net-10-field-vs-neural-net.jpg)
 *The measured field and formal verification replace the arms race for bigger models, eliminating per-system retraining while raising the standard of evidence.*

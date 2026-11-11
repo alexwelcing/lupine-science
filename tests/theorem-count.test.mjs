@@ -83,13 +83,25 @@ test('static theorem-count surfaces keep a generated numeric fallback', () => {
   }
 });
 
-test('generated articles hydrate the current theorem count token', () => {
-  const source = fs.readFileSync(path.join(ARTICLES, 'a-field-not-a-neural-net.md'), 'utf8');
-  assert.match(source, /\{\{LEAN_THEOREM_COUNT\}\}/);
+// A bare library-wide theorem count is not evidence (docs/messaging-canon.md):
+// no article may carry the token, so no page can print the count as a headline.
+test('no article prints the library-wide theorem count', () => {
+  for (const file of fs.readdirSync(ARTICLES).filter((name) => name.endsWith('.md'))) {
+    const source = fs.readFileSync(path.join(ARTICLES, file), 'utf8');
+    assert.doesNotMatch(source, /\{\{LEAN_THEOREM_COUNT\}\}/, `${file} still carries the theorem-count token`);
+  }
+});
 
-  const output = fs.readFileSync(path.join(ROOT, 'public', 'articles', 'a-field-not-a-neural-net', 'index.html'), 'utf8');
-  assert.match(output, new RegExp(`\\b${inventory.count} build-locked theorems\\b`));
-  assert.doesNotMatch(output, /\{\{LEAN_THEOREM_COUNT\}\}/);
+// The one generated, dated count that remains (a corrections note) is hydrated
+// at build time, never typed.
+test('generated articles hydrate the theory-artifacts count tokens', () => {
+  const artifacts = JSON.parse(fs.readFileSync(path.join(ROOT, 'public', 'data', 'theory_artifacts_count.json'), 'utf8'));
+  const source = fs.readFileSync(path.join(ARTICLES, 'what-the-cap-was-hiding.md'), 'utf8');
+  assert.match(source, /\{\{TA_NAMED\}\}/);
+
+  const output = fs.readFileSync(path.join(ROOT, 'public', 'articles', 'what-the-cap-was-hiding', 'index.html'), 'utf8');
+  assert.match(output, new RegExp(`\\b${artifacts.named} named results\\b`));
+  assert.doesNotMatch(output, /\{\{TA_[A-Z_]+\}\}/);
 });
 
 test('homepage shows no theorem count and says what a Lean check covers', () => {
