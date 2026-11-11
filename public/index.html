@@ -515,7 +515,7 @@
   <!-- discovery:now -->
   <section class="beneath tested" id="tested" aria-labelledby="tested-title">
     <p class="b-label" id="tested-title">Where it has been tested</p>
-    <p class="tested-lede">Results we have published, failures beside passes, each with the scope it holds in. They are not yet peer-reviewed. Earlier rounds and our self-corrections are in the <a href="https://github.com/alexwelcing/lupine-rhizo/blob/main/docs/conjectures/ledger.md">hypothesis ledger</a>.</p>
+    <p class="tested-lede">Results we have published, failures beside passes, each with the scope it holds in. They are not yet peer-reviewed. Other rounds, including Round 3, and our self-corrections are in the <a href="https://github.com/alexwelcing/lupine-rhizo/blob/main/docs/conjectures/ledger.md">hypothesis ledger</a>.</p>
     <div class="tested-wrap">
       <table class="tested-table">
         <thead>
@@ -538,7 +538,7 @@
             <td><span class="result result-supported">Supported</span></td>
           </tr>
           <tr>
-            <th scope="row"><a href="/articles/the-order-is-right-the-size-is-wrong/">Shared error direction across models</a></th>
+            <th scope="row"><a href="/articles/the-order-is-right-the-size-is-wrong/">Shared error direction across models (21-material benchmark)</a></th>
             <td>Apparent cross-model alignment sat inside a coupling-aware null, so we do not count it as a result.</td>
             <td><span class="result result-failed">Failed</span></td>
           </tr>
@@ -581,6 +581,16 @@
             <th scope="row"><a href="/articles/four-gates-three-honest-failures-one-live-experiment/">Round 4: magnetism</a></th>
             <td>No available model had the spin physics the test needed.</td>
             <td><span class="result result-abstained">Abstained</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="/articles/the-materials-we-test-against/">Round 5: direction-gated barrier correction</a></th>
+            <td>On the 30-path Li-ion panel, fitted on 12 disjoint training paths: all four models abstained at the direction gate, so no correction was applied.</td>
+            <td><span class="result result-abstained">Abstained</span></td>
+          </tr>
+          <tr>
+            <th scope="row"><a href="/articles/shared-dft-anchors/">Sparse-DFT anchor pilot (GPAW), 23 of 30 paths</a></th>
+            <td>The preregistered 40 meV gate against published VASP barriers failed on path 7 (118.8 meV). An amendment written after that failure moved the gate to a same-engine check, which passed; against the published references the error was 693.0–705.7 meV. Same-engine only.</td>
+            <td><span class="result result-open">Open</span></td>
           </tr>
         </tbody>
       </table>

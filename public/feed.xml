@@ -14,7 +14,7 @@
     <id>https://lupine.science/articles/what-error-patterns-can-tell-us/</id>
     <published>2026-10-21T00:00:00Z</published>
     <updated>2026-10-21T00:00:00Z</updated>
-    <summary>Shared errors, useful disagreement, and a diffusion correction that reaches its limit: what our October investigations found, how we checked it, and what would change our conclusions.</summary>
+    <summary>A retrospective analysis of previously examined data: errors stayed concentrated, but a learned shared direction added little or no advantage over a simple common-direction baseline. Also: where model disagreement helped, and a diffusion correction that reaches its limit. No new physical validation is claimed.</summary>
     <category term="Published"/>
   </entry>
   <entry>
@@ -36,7 +36,7 @@
     <category term="Published"/>
   </entry>
   <entry>
-    <title>Sharing DFT anchors reduces projected evaluations by 72.4%</title>
+    <title>Shared DFT Anchors: A Projected Saving, and What Happened When We Ran It</title>
     <link rel="alternate" type="text/html" href="https://lupine.science/articles/shared-dft-anchors/"/>
     <id>https://lupine.science/articles/shared-dft-anchors/</id>
     <published>2026-08-03T00:00:00Z</published>
@@ -63,7 +63,7 @@
     <category term="Published"/>
   </entry>
   <entry>
-    <title>Where Corrections Hold: A Seven-Tier Map of MLIP Error (July 2026)</title>
+    <title>A Seven-Tier Map of MLIP Error, by Property Type (July 2026)</title>
     <link rel="alternate" type="text/html" href="https://lupine.science/articles/an-order-of-effort/"/>
     <id>https://lupine.science/articles/an-order-of-effort/</id>
     <published>2026-07-20T00:00:00Z</published>
@@ -140,7 +140,7 @@
     <id>https://lupine.science/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/</id>
     <published>2026-07-13T00:00:00Z</published>
     <updated>2026-11-11T00:00:00Z</updated>
-    <summary>Our first correction made alloy predictions worse. We turned that failure into a Lean-checked rule about correction direction, explored a direction-gated rule that cut lattice errors in-sample, and registered a kill condition for Round 3. It fired, and we narrowed the claim to same-class lattice constants. Round 4 then did not confirm that lattice result, so it is Open.</summary>
+    <summary>Our first correction made alloy predictions worse. We turned that failure into a Lean-checked rule about correction direction, explored a direction-gated rule that cut lattice errors in-sample, and registered a kill condition for Round 3. It fired, and we narrowed the claim to same-class lattice constants. Round 4's preregistered test of that lattice result then failed, so the claim is not established.</summary>
     <category term="Published"/>
   </entry>
   <entry>

@@ -14,11 +14,11 @@
     },
     "evidence_manifest": {
       "path": "media/projects/venture-deck/evidence-manifest.json",
-      "sha256": "a46d42a4be8af4f32498d14aead76415cd0c6da341c12373292048fcd1f9bff2"
+      "sha256": "e873856d916eb634902f322f5d4381a433d7a782d181eba5fa4f05a0561efec8"
     },
     "asset_lock": {
       "path": "media/projects/venture-deck/asset-lock.json",
-      "sha256": "a8416820a8f12b2bfd3cfdb8122f32c0516885a81e0f6e6d5bea7c3e0cae1d89"
+      "sha256": "dfdec744f74dc78117e417499e8b0e309f43111257cbc52c748716fa00e75d60"
     },
     "art_direction": {
       "path": "media/projects/venture-deck/art-direction.md",
@@ -28,7 +28,7 @@
   "outputs": {
     "html": {
       "path": "public/venture/deck.html",
-      "sha256": "3c39310f548d5f60aba55f099db8263c4e2a8250ca5424ba26cdbda745813e7f"
+      "sha256": "fd302a8a5fa63b77f1265aa86ad6f90797b1fee3998c008839c198523088b373"
     },
     "pdf": {
       "path": "media/projects/venture-deck/lupine-science-venture-deck.pdf",

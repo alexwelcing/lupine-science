@@ -17,9 +17,9 @@ Earlier verification records for superseded builds are in git history.
 
 | File | Bytes | SHA-256 |
 |---|---:|---|
-| `media/projects/venture-deck/deck.html` (self-contained) | 375,600 | `1dc289e5c7ede0575417418f1beb099a167a9a07b74d7fc883ec103fc3754c45` |
-| `public/venture/deck.html` | 67,278 | `3c39310f548d5f60aba55f099db8263c4e2a8250ca5424ba26cdbda745813e7f` |
-| `media/projects/venture-deck/evidence-manifest.json` | 38,778 | `a46d42a4be8af4f32498d14aead76415cd0c6da341c12373292048fcd1f9bff2` |
+| `media/projects/venture-deck/deck.html` (self-contained) | 375,600 | `5a9d77590b5e3f501956c880fa8fbeae9dc7be5ed7b5274442327864bb5a5e7d` |
+| `public/venture/deck.html` | 67,278 | `fd302a8a5fa63b77f1265aa86ad6f90797b1fee3998c008839c198523088b373` |
+| `media/projects/venture-deck/evidence-manifest.json` | 38,778 | `e873856d916eb634902f322f5d4381a433d7a782d181eba5fa4f05a0561efec8` |
 
 The PDF and build manifest are regenerated on every `npm run venture:build`; their current hashes are recorded in `build-manifest.json`.
 
