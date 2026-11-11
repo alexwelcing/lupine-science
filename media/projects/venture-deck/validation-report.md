@@ -1,58 +1,41 @@
-# Venture deck closure and canonical-build validation report
+# Venture deck validation report
 
-Task: `t_f0bda334`  
-Repository: `/home/alex/Dev/lupine/lupine-science`  
-Date: 2026-07-28  
-Deployment: not performed  
-PR: not opened
+Date: 2026-11-11
+Deployment: not performed
 
-## Result
+## What changed
 
-**PASS — implementation complete; independent code review required.** The deck now renders the director-supported closure claim exactly as `100/100 unique still slots`, with visible closure-gate citation and the five certified films explicitly outside the denominator. The historical alternate default builder now delegates to the canonical builder, and every supported final build entry point produces the same PDF bytes and consistent project/public build manifests.
+The deck was brought into line with the messaging canon (`docs/messaging-canon.md`):
 
-## Closure evidence and scope
+- Slide 12 lists the realized sparse-DFT pilot first: its preregistered 40 meV gate against published references failed, the passing check is same-engine only, and against the references the pilot was 693.0–705.7 meV off. The source footer now cites “The Savings Stack,” the “What happened when we ran it” section of “Shared DFT Anchors…,” and the archived Z1 de-brief for the remaining limits.
+- Slide 13 keeps the three `[OWNER DECISION]` fields untouched. Its framing no longer presents correction as a product: “Make measured model error part of the simulation loop materials labs already run.”; “Measurement on the lanes we have tested.”; “Evaluation that runs on a lab’s own hardware, from simulation to synthesis.”; close “Models guide. Evidence measures. Lean checks the arithmetic.” No figures changed.
+- The self-contained copy `deck.html` was rebuilt from the current template. It had been left at the superseded pre-reset draft. `scripts/validate-venture-deck.mjs` now fails if its slides or embedded evidence differ from the served deck.
 
-- Closure gate: `t_c2a1f8e3` — independent PASS.
-- Baseline: 33 certified stills from `media/brand-campaign-2026-07-27/final-acceptance-manifest.json`.
-- Wave 4: 67 independently certified replacements from `public/brand-assets/campaign-2026-07-27/wave-4/aggregate-manifest.json`.
-- Exact result: 33 + 67 = `100/100 unique still slots`.
-- Boundary: five certified films are separate and do not enter the 100-still denominator.
-- Prohibited implications remain absent: no 100/100 models, campaigns, films, certification chain, or generic certification claim.
+Earlier verification records for superseded builds are in git history.
 
-## Regenerated deliverables
+## Outputs
 
-- `media/projects/venture-deck/deck.html` — 377,436-byte self-contained deck, SHA-256 `a6d3faefaa5dfd159ea6f1cf80741e97f06670843303309c24774bf7050f623f`.
-- `public/venture/deck.html` — integrated deck, SHA-256 `00420814760132d0e706d102a4f77a11e2356e7b7eed01feb14baecf9c063d13`.
-- `media/projects/venture-deck/lupine-science-venture-deck.pdf` — 13 pages, 960×540 pt, 414,318 bytes, SHA-256 `9b2074556f758f0bdbf4e23a36706c119d0fea71f143d01f06407b3ac3322efa`.
-- `public/venture/lupine-science-venture-deck.pdf` — byte-identical to project PDF.
-- `media/projects/venture-deck/build-manifest.json` and public copy — identical, SHA-256 `52187170a09aa205e0aa84d93a142867797204353279e35a32313215803dd53c`; both project and public PDF paths are independently content-addressed.
-- `media/projects/venture-deck/evidence-manifest.json` and generated/embedded/public copies — SHA-256 `31ae280842a5d41134de937166dab2cd74a7b3564ba09ca56b09e3029fd12d00` at source.
-- `media/projects/venture-deck/qa/slide-01.png` through `slide-13.png` — regenerated at 1920×1080.
-- `media/projects/venture-deck/qa/contact-sheet.png` — SHA-256 `6d0ae2402537e6bc57ed4d41e0c50293087fa7bc014edd88a84dd7da07a4ae21`.
+| File | Bytes | SHA-256 |
+|---|---:|---|
+| `media/projects/venture-deck/deck.html` (self-contained) | 375,600 | `1dc289e5c7ede0575417418f1beb099a167a9a07b74d7fc883ec103fc3754c45` |
+| `public/venture/deck.html` | 67,278 | `3c39310f548d5f60aba55f099db8263c4e2a8250ca5424ba26cdbda745813e7f` |
+| `media/projects/venture-deck/evidence-manifest.json` | 38,778 | `a46d42a4be8af4f32498d14aead76415cd0c6da341c12373292048fcd1f9bff2` |
 
-## Commands and observed results
+The PDF and build manifest are regenerated on every `npm run venture:build`; their current hashes are recorded in `build-manifest.json`.
 
-| Command / check | Result |
+## Commands and results
+
+| Command | Result |
 |---|---|
-| `npm run venture:build` | PASS — regenerated public HTML, project/public PDF, landing, evidence/asset copies, and project/public build manifests |
-| `npm run venture:validate` | PASS — precise closure scope/arithmetic/hash checks plus static, risk, owner, asset, browser, geometry, overlap, responsive, and screenshot gates |
-| `node media/projects/venture-deck/build-standalone.mjs` | PASS — 13 slides, 377,436-byte self-contained HTML |
-| `node media/projects/venture-deck/validate-standalone.mjs` | PASS — embedded fonts/assets/evidence, four-color palette, 13 slides, no network requests, no overflow |
-| `node --test tests/venture-deck-tooling.test.mjs` | PASS — 15/15 venture tooling tests, including partial fixture-argument rejection |
-| `npm test` | PASS — 87/87 |
-| `npm run lint` | PASS |
-| `npm run typecheck` | PASS — project script reports no TypeScript files and skips |
-| `npm run build` | PASS |
-| `npm run verify` | PASS — static files, article images, motion manifests, and performance budgets |
-| all supported final build entry points | PASS — package script, direct canonical script, and deprecated compatibility default produce one byte-identical PDF and intact manifests |
-| PDF text extraction | PASS — exact still-slot claim, 33 + 67 arithmetic, `t_c2a1f8e3`, and five-film exclusion round-trip |
-| native slide-08 inspection | PASS — closure rail and citation are legible, unclipped, and free of awkward overlap |
+| `node scripts/build-venture-deck.mjs` | PASS: 13 slides, 13-page PDF |
+| `node media/projects/venture-deck/build-standalone.mjs` | PASS: 13 slides, 375,600 bytes |
+| `node media/projects/venture-deck/validate-standalone.mjs` | PASS: embedded fonts, images and evidence; four-color palette; no network requests; no overflow; keyboard navigation |
+| `node scripts/validate-venture-deck.mjs` | PASS: includes the new standalone drift check, the risk headline, the three owner fields, the projected-72.4% rule and the retired-wording check on slides 1–12 |
 
 ## Preserved gates
 
 - Exactly three `[OWNER DECISION]` fields remain on slide 13.
-- Exact risk headline remains: “One 30-path panel. One chemistry family. Not peer-reviewed.”
-- Source-backed `$14.65 cloud-equivalent` remains on slide 6; standalone `4.65` remains absent.
-- The only visible `100/100` phrase is `100/100 unique still slots`.
-- All 13 Wave-4 deck asset hashes and dimensions remain locked.
-- No deployment, commit, push, or PR was performed.
+- Exact risk headline: “One 30-path panel. One chemistry family. Not peer-reviewed.”
+- No cost figure appears outside the owner’s financing slide.
+- 72.4% appears only on slide 7, labelled projected, with no new DFT and its four-separate-runs baseline.
+- All 13 locked deck asset hashes and dimensions match `asset-lock.json`.

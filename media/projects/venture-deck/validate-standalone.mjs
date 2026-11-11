@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { chromium } from 'playwright-core';
+import { chromiumExecutablePath } from '../../../scripts/lib/chromium-executable.mjs';
 
 const PROJECT = path.dirname(fileURLToPath(import.meta.url));
 const HTML_FILE = path.join(PROJECT, 'deck.html');
@@ -88,7 +89,7 @@ else {
 
 let browser;
 try {
-  browser = await chromium.launch({ headless: true });
+  browser = await chromium.launch({ headless: true, executablePath: chromiumExecutablePath() });
   const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
   const consoleErrors = [];
   const network = [];

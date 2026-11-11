@@ -218,7 +218,7 @@ Never recolor, mask with a gradient, add a shadow, place on a dark panel, or cro
 - **Do not soften:** preserve `Not peer-reviewed.` exactly.
 - **Footer:** exact slide 12 source footer.
 
-### 13 — The ask: fund the makeability layer.
+### 13 — The ask.
 
 - **Narrative copy:** render slide 13 headline, three ask fields, use-of-funds frame, close, and speaker-note restrictions verbatim. No claim IDs are required.
 - **Layout:** headline `x=112, y=135, w=1120`. Ask panel `x=112, y=320, w=760, h=350`; three 72px-high rows with an ochre 3px outline and exact live label `[OWNER DECISION]`. Use-of-funds list at `x=1000, y=320, w=808`. Asset spans bottom `x=760, y=650, w=1048, h=270`, preserving the inspection gate. Close at `x=112, y=820, w=650`, Newsreader 42/48.

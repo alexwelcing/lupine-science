@@ -277,7 +277,7 @@
       ],
       "qualification": "Projected, not measured; slide shows only 72.4% and the 73% deduplication cap.",
       "visible_source_footer_by_slide": {
-        "7": "Lupine Science, “Sharing DFT anchors…,” lines 13–46; z1-union-anchor-economics.json (per-path image counts)."
+        "7": "Lupine Science, “Shared DFT Anchors…,” lines 13–46; z1-union-anchor-economics.json (per-path image counts)."
       }
     },
     "C-STILL-CLOSURE-01": {
@@ -347,7 +347,7 @@
       ],
       "qualification": "Research records, not commercial revenue, customers or peer-reviewed validation.",
       "visible_source_footer_by_slide": {
-        "10": "Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “Four Gates, Three Honest Failures…”; “The Small Cell Held”; “Sharing DFT anchors…,” lines 13–46."
+        "10": "Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “Four Gates, Three Honest Failures…”; “The Small Cell Held”; “Shared DFT Anchors…,” lines 13–46."
       }
     },
     "C-ROADMAP-01": {
@@ -392,22 +392,26 @@
         }
       ],
       "visible_source_footer_by_slide": {
-        "12": "Lupine Science, “The Savings Stack,” lines 38–42; “The Union Verdict,” lines 47–57."
+        "12": "Lupine Science, “The Savings Stack,” lines 38–42; “Shared DFT Anchors…,” lines 80–90; Z1 de-brief (archived), lines 31–36."
       }
     },
     "C-RISK-02": {
-      "claim": "Executed Z1 limits include one engine and functional, short-path sparsity limitations, seven deferred large paths, two guidance misses, and no GPAW-VASP equivalence claim.",
+      "claim": "Executed Z1 limits: the preregistered 40 meV gate against published references failed and the passing check is same-engine only (693.0–705.7 meV off the references); one engine and functional, short-path sparsity limitations, seven deferred large paths, two guidance misses, and no GPAW-VASP equivalence claim.",
       "slides": [
         12
       ],
       "evidence": [
         {
+          "source": "S-SHARED",
+          "lines": "80-90"
+        },
+        {
           "source": "S-Z1",
-          "lines": "47-57"
+          "lines": "31-36"
         }
       ],
       "visible_source_footer_by_slide": {
-        "12": "Lupine Science, “The Savings Stack,” lines 38–42; “The Union Verdict,” lines 47–57."
+        "12": "Lupine Science, “The Savings Stack,” lines 38–42; “Shared DFT Anchors…,” lines 80–90; Z1 de-brief (archived), lines 31–36."
       }
     },
     "C-MISSION-01": {
@@ -606,12 +610,12 @@
     "4": "Lupine Science, “A smooth, environment-resolved error field…,” line 27.",
     "5": "Lupine Science, “Four Gates, Three Honest Failures…,” lines 14–60; “The Correction That Hurt…,” lines 19–35.",
     "6": "Lupine Science, “Four Gates, Three Honest Failures…,” lines 20–32; “The Z1 Barrier Panel,” lines 1–17 and 23–66.",
-    "7": "Lupine Science, “Sharing DFT anchors…,” lines 13–46; z1-union-anchor-economics.json (per-path image counts).",
+    "7": "Lupine Science, “Shared DFT Anchors…,” lines 13–46; z1-union-anchor-economics.json (per-path image counts).",
     "8": "Lupine Science, company facts and corrections log (lupine.science/about/, /corrections/).",
     "9": "Lupine Science, “The Trust Layer” (Direction: where the work is aimed), lines 64–78; company facts.",
-    "10": "Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “Four Gates, Three Honest Failures…”; “The Small Cell Held”; “Sharing DFT anchors…,” lines 13–46.",
+    "10": "Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “Four Gates, Three Honest Failures…”; “The Small Cell Held”; “Shared DFT Anchors…,” lines 13–46.",
     "11": "Lupine Science, “An Order of Effort,” lines 19–55.",
-    "12": "Lupine Science, “The Savings Stack,” lines 38–42; “The Union Verdict,” lines 47–57.",
+    "12": "Lupine Science, “The Savings Stack,” lines 38–42; “Shared DFT Anchors…,” lines 80–90; Z1 de-brief (archived), lines 31–36.",
     "13": ""
   },
   "slide_claim_ids": {

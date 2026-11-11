@@ -14,6 +14,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PROJECT = path.join(ROOT, 'media/projects/venture-deck');
 const PUBLIC = path.join(ROOT, 'public');
 const HTML = path.join(PUBLIC, 'venture/deck.html');
+const STANDALONE = path.join(PROJECT, 'deck.html');
 const LANDING = path.join(PUBLIC, 'venture/index.html');
 const PDF = path.join(PROJECT, 'lupine-science-venture-deck.pdf');
 const EVIDENCE = path.join(PROJECT, 'evidence-manifest.json');
@@ -55,7 +56,7 @@ function startServer() {
 }
 
 async function staticChecks() {
-  for (const file of [HTML, LANDING, PDF, EVIDENCE, ASSET_LOCK, STILL_BASELINE, WAVE4_AGGREGATE, ...REQUIRED_QA_REPORTS]) {
+  for (const file of [HTML, STANDALONE, LANDING, PDF, EVIDENCE, ASSET_LOCK, STILL_BASELINE, WAVE4_AGGREGATE, ...REQUIRED_QA_REPORTS]) {
     if (!fs.existsSync(file)) fail(`missing ${path.relative(ROOT, file)}`);
   }
   if (failures.length) return;
@@ -121,6 +122,17 @@ async function staticChecks() {
   const retiredHits = retired.filter((pattern) => pattern.test(visibleHtml.replace(financingSlide, '')));
   if (retiredHits.length) fail(`deck slides 1–12 carry retired wording: ${retiredHits.join(', ')}`);
   else pass('slides 1–12 carry no retired wording or production statistics');
+
+  // The self-contained copy (media/projects/venture-deck/deck.html, built by
+  // build-standalone.mjs) must carry the same slides and evidence as the served
+  // deck, so a superseded draft cannot linger in the repository.
+  const standalone = fs.readFileSync(STANDALONE, 'utf8');
+  const slideMarkup = (source) => [...source.matchAll(/<section class="slide(?: is-active)?"[\s\S]*?<\/section>/g)]
+    .map((match) => match[0].replace(/\s(?:src|data-certified-asset|data-asset-sha256)="[^"]*"/g, ''));
+  const standaloneEvidence = standalone.match(/<script type="application\/json" id="evidence-manifest">([\s\S]*?)<\/script>/)?.[1];
+  if (JSON.stringify(slideMarkup(standalone)) !== JSON.stringify(slideMarkup(html))) fail('standalone deck.html slides differ from the served deck; run node media/projects/venture-deck/build-standalone.mjs');
+  else if (!standaloneEvidence || JSON.stringify(JSON.parse(standaloneEvidence.replace(/<\\\//g, '</'))) !== JSON.stringify(evidence)) fail('standalone deck.html evidence manifest differs from source; rebuild it');
+  else pass('standalone deck.html matches the served deck slide for slide');
 
   const closureClaim = evidence.claims['C-STILL-CLOSURE-01'];
   const closureDecision = evidence.discrepancies_and_exclusions['D-100-CHAIN'];

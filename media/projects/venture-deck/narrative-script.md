@@ -74,7 +74,7 @@ Lupine Science, “Four Gates, Three Honest Failures…,” lines 20–32; “Th
 The baseline is four separate runs. Paths have 5–7 images, so the union covers most images and deduplication alone caps the saving near 73%.
 
 **Source footer**  
-Lupine Science, “Sharing DFT anchors…,” lines 13–46; z1-union-anchor-economics.json (per-path image counts).
+Lupine Science, “Shared DFT Anchors…,” lines 13–46; z1-union-anchor-economics.json (per-path image counts).
 
 ## Slide 8 — Every verdict keeps its record.
 
@@ -107,7 +107,7 @@ Lupine Science, “The Trust Layer” (Direction: where the work is aimed), line
 Research records — not commercial revenue, customers or peer-reviewed validation.
 
 **Source footer**  
-Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “Four Gates, Three Honest Failures…”; “The Small Cell Held”; “Sharing DFT anchors…,” lines 13–46.
+Lupine Science, “The Z1 Barrier Panel,” lines 40–66; “Four Gates, Three Honest Failures…”; “The Small Cell Held”; “Shared DFT Anchors…,” lines 13–46.
 
 ## Slide 11 — Roadmap: measure first, extend behind gates.
 
@@ -126,18 +126,18 @@ Lupine Science, “An Order of Effort,” lines 19–55.
 **One 30-path panel. One chemistry family. Not peer-reviewed.** [C-RISK-01] [C-RISK-02]
 
 **Limits**  
-one DFT engine and functional in the executed Z1 record; short paths make sparsity easier; seven large paths remain deferred; two models recorded guidance misses; no GPAW↔VASP equivalence claim.
+the preregistered 40 meV gate against published references failed; the passing check is same-engine only, and against the references the pilot was 693.0–705.7 meV off; one DFT engine and functional in the executed Z1 record; short paths make sparsity easier; seven large paths remain deferred; two models recorded guidance misses; no GPAW↔VASP equivalence claim.
 
 **Speaker note**  
 This slide is mandatory. Never soften “not peer-reviewed” into “pre-publication.”
 
 **Source footer**  
-Lupine Science, “The Savings Stack,” lines 38–42; “The Union Verdict,” lines 47–57.
+Lupine Science, “The Savings Stack,” lines 38–42; “Shared DFT Anchors…,” lines 80–90; Z1 de-brief (archived), lines 31–36.
 
-## Slide 13 — The ask: fund the makeability layer.
+## Slide 13 — The ask.
 
 **Headline**  
-Build correction-as-acceleration into the simulation loop used by every materials lab.
+Make measured model error part of the simulation loop materials labs already run.
 
 **Ask block**  
 **[OWNER DECISION] Round size**  
@@ -145,12 +145,12 @@ Build correction-as-acceleration into the simulation loop used by every material
 **[OWNER DECISION] Runway and allocation**
 
 **Use-of-funds frame**  
-1. Runtime instrumentation in the proven lane.  
+1. Measurement on the lanes we have tested.  
 2. Gated expansion across harder structure and property families.  
-3. Partner-facing evidence delivery from simulation to synthesis.
+3. Evaluation that runs on a lab’s own hardware, from simulation to synthesis.
 
 **Close**  
-Models guide. Evidence measures. Proof keeps the score.
+Models guide. Evidence measures. Lean checks the arithmetic.
 
 **Speaker note**  
 No amount, valuation, dilution, runway, hiring count, or allocation percentage may be inserted without an explicit owner decision.
