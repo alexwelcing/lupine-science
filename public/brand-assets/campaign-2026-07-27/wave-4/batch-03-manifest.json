@@ -5,7 +5,7 @@
   "wave_id": "wave-4-programmatic-pil",
   "batch_id": "batch-03",
   "source_manifest": "public/brand-assets/campaign-2026-07-27/shortfall-wave-1-manifest.json",
-  "source_manifest_sha256": "d8c6a9cb14cc5803453a5eaf68409966457f40e1f169cc34d32da040b635e383",
+  "source_manifest_sha256": "b26db513d4cd83d71b2ebad950e8ed4d2df7810b3484e13e58deec1437c007af",
   "scene_source": "media/projects/article-visuals/wave4_batch_03_scenes.py",
   "scene_source_sha256": "831b4b0472cd07a79913004d74e5ece244f797be787ab0d01b61ae9fa80a030a",
   "component_source": "media/projects/article-visuals/wave4_scene_components.py",

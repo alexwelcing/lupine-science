@@ -66,8 +66,7 @@
     "validatorScope": "partial-sufficient-for-private-review-not-release",
     "claimProvenanceGating": "partial-correctly-fail-closed",
     "cleanTreeReproducibility": "partial-publication-blocker",
-    "scene04CausalProgression": "verified-reference-to-softening-to-ranking-inversion",
-    "reportPath": "/home/alex/.hermes/profiles/director/cache/delegation/subagent-summary-0-20260812_140221_342159.txt"
+    "scene04CausalProgression": "verified-reference-to-softening-to-ranking-inversion"
   },
   "decision": "suitable-for-private-owner-visual-review-not-publication"
 }

@@ -15,8 +15,8 @@ const canonicalEvidence = {
     sha256: 'e662fe7f2bdc731635b8f38608690bc03a3356cc65826f9437a5927f3ff8d185',
   },
   independentReview: {
-    path: 'media/projects/article-video-replacements/critical-minerals-pfas/reviews/private-candidate-review.json',
-    sha256: 'd04c35a5cb1e1f8bc89059364bcd11035ffc8bef80d70123a7367b7895f9888c',
+    path: 'media/projects/article-video-replacements/critical-minerals-pfas/reviews/candidate-review.json',
+    sha256: 'c0b99c03b0eaddbef88f78270b4de51cb4e1cd14037eeb721aa009185c3a05b6',
   },
   claimMap: {
     path: 'media/projects/article-video-replacements/critical-minerals-pfas/claim-evidence-map.json',

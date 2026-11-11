@@ -7,7 +7,7 @@ import { createWorker } from 'tesseract.js';
 
 const ROOT = '/home/alex/Dev/lupine/lupine-science';
 const MANIFEST_PATH = path.join(ROOT, 'public/brand-assets/campaign-2026-07-27/shortfall-wave-1-manifest.json');
-const EXPECTED_MANIFEST_SHA256 = 'd8c6a9cb14cc5803453a5eaf68409966457f40e1f169cc34d32da040b635e383';
+const EXPECTED_MANIFEST_SHA256 = 'b26db513d4cd83d71b2ebad950e8ed4d2df7810b3484e13e58deec1437c007af';
 const EXPECTED_SCENE_SHA256 = 'bd9333fef20fe2cfe2268fd0a75c7715e67943c6bd55c222619d0df04ef7e70e';
 const OUT = path.join(ROOT, 'media/brand-campaign-2026-07-27/shortfall-wave-1-qa');
 const PAPER = [250, 249, 246];

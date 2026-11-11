@@ -28,8 +28,9 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ARTICLES_DIR = path.join(ROOT, 'articles');
 const OUT = path.join(ROOT, 'public', 'data', 'article_ontology.json');
 const ATLAS_PATH = path.join(ROOT, 'public', 'data', 'atlas_nodes.json');
-const DB = process.env.LUPINE_WIKI_DB
-  || path.join(process.env.HOME || '/root', '.hermes', 'lupine-wiki.db');
+// The wiki DB is a local file outside the repository; set LUPINE_WIKI_DB to
+// use it. Without it the committed atlas inventory validates the IDs (below).
+const DB = process.env.LUPINE_WIKI_DB || '';
 
 function fail(message) {
   console.error(`build-ontology-crosslinks: ${message}`);
@@ -46,14 +47,14 @@ const STRICT = process.env.LUPINE_FORCE_ATLAS_WIKI === '1';
 let validUris;
 let validUrisByShortId;
 
-if (!fs.existsSync(DB)) {
+if (!DB || !fs.existsSync(DB)) {
   if (STRICT) {
     fail(`wiki DB not found at ${DB}; is lupine-wiki-refresh.timer healthy? (LUPINE_FORCE_ATLAS_WIKI=1)`);
   }
   if (!fs.existsSync(ATLAS_PATH)) {
     fail(`wiki DB absent at ${DB} and no committed ${path.relative(ROOT, ATLAS_PATH)} exists; cannot validate article ontology IDs`);
   }
-  console.log(`wiki DB absent at ${DB} — using committed ${path.relative(ROOT, ATLAS_PATH)} as the validator`);
+  console.log(`wiki DB absent at ${DB || '(LUPINE_WIKI_DB unset)'} — using committed ${path.relative(ROOT, ATLAS_PATH)} as the validator`);
   const atlas = JSON.parse(fs.readFileSync(ATLAS_PATH, 'utf8'));
   if (!atlas?.kinds || typeof atlas.kinds !== 'object') {
     fail(`atlas_nodes.json has no .kinds object`);

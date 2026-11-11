@@ -40,7 +40,7 @@
   "evidence": {
     "claimMap": "media/projects/article-video-replacements/critical-minerals-pfas/claim-evidence-map.json",
     "runtimeProvenance": "media/projects/article-video-replacements/critical-minerals-pfas/reports/runtime-provenance.json",
-    "independentReview": "media/projects/article-video-replacements/critical-minerals-pfas/reviews/private-candidate-review.json",
+    "independentReview": "media/projects/article-video-replacements/critical-minerals-pfas/reviews/candidate-review.json",
     "retainedGapCount": 3,
     "unreviewedNarratedQuantitativeClaimCount": 5
   },

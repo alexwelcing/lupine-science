@@ -115,8 +115,8 @@
       ]
     },
     "independentExactShaReview": {
-      "path": "media/projects/article-video-replacements/critical-minerals-pfas/reviews/private-candidate-review.json",
-      "sha256": "d04c35a5cb1e1f8bc89059364bcd11035ffc8bef80d70123a7367b7895f9888c",
+      "path": "media/projects/article-video-replacements/critical-minerals-pfas/reviews/candidate-review.json",
+      "sha256": "c0b99c03b0eaddbef88f78270b4de51cb4e1cd14037eeb721aa009185c3a05b6",
       "role": "exact-sha-private-owner-visual-suitability-review-not-publication-approval",
       "decision": "suitable-for-private-owner-visual-review-not-publication",
       "publicationEligibleAtReviewTime": false,

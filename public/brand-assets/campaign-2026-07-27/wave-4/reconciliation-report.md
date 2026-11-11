@@ -15,8 +15,8 @@ Status: PASS
 - Paper-only upper 45%: 67/67
 - Indigo ratio in (0, 12%): 67/67; range 0.000607-0.014222
 - Exact canonical scene/mechanism/spec hashes: 67/67
-- Canonical source SHA-256: `d8c6a9cb14cc5803453a5eaf68409966457f40e1f169cc34d32da040b635e383`
-- Aggregate manifest SHA-256: `ca6805dfb4324f0c0f6ebb5504503eb13bc7a3e7de70cd08f0623436b70e9245`
+- Canonical source SHA-256: `b26db513d4cd83d71b2ebad950e8ed4d2df7810b3484e13e58deec1437c007af`
+- Aggregate manifest SHA-256: `9868279dbbfbc9f2e25bccd9977a6a532520ff6f94ad143f126045fb664c468a`
 
 Pilot manifest note: left immutable; the completed reviewer gate is recorded as separate evidence in the aggregate manifest.
 
