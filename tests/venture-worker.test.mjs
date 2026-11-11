@@ -72,3 +72,14 @@ test('rejects malformed authorization headers', async () => {
   const response = await worker.fetch(new Request(DECK_URL, { headers }), env('correct horse'));
   assert.equal(response.status, 401);
 });
+
+test('the nginx container image fails closed on /venture', () => {
+  // nginx.conf serves the same public/ tree without the Pages worker, so it
+  // must refuse the deck rather than serve it without a password.
+  const conf = fs.readFileSync(path.join(ROOT, 'nginx.conf'), 'utf8');
+  const block = conf.match(/location \^~ \/venture \{([^}]*)\}/);
+  assert.ok(block, 'nginx.conf has a location ^~ /venture block');
+  assert.match(block[1], /return 503 "Deck temporarily unavailable\.\\n";/);
+  assert.match(block[1], /add_header X-Robots-Tag "noindex, nofollow" always;/);
+  assert.ok(conf.indexOf('location ^~ /venture') < conf.indexOf('location / {'), '/venture block precedes the catch-all');
+});
