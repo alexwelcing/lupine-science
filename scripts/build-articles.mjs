@@ -108,6 +108,8 @@ const ARTICLE_ASSET_CACHE_BUST = new Map([
   ['shared-dft-anchors', '?v=4'],
   // v=4: handoff-chain figure re-rendered without the partner wording (2026-11-11).
   ['from-predicted-crystal-to-commercial-cell', '?v=4'],
+  // v=4: booklet spreads re-rendered from Savings Stack v1.1 (2026-11-12).
+  ['the-savings-stack', '?v=4'],
 ]);
 // Per-film poster cache-bust revisions, for a re-cut film whose poster changed
 // at a stable URL. Empty since the re-cut water-and-air and PFAS films were
