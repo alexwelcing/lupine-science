@@ -1,8 +1,8 @@
 {
   "count": 927,
   "zero_sorry": true,
-  "counted_at": "2026-11-05",
+  "counted_at": "2026-11-12",
   "source": "lupine-rhizo/lean-spec (OpenDistillationFactory tree, vendored packages excluded)",
-  "source_sha256": "635b2a543bfe8f5bd336e8b7896224a2952ad58d48303f04222acd8b8974e2f1",
+  "source_sha256": "93d829157cda5be1bfb2d01216b6dbc9486996519483f1112c733453d4009ff7",
   "rule": "theorem/lemma declarations after stripping nested comments and strings; supports attributes, whitespace, and declaration modifiers; every active sorry token fails; regenerate with scripts/generate-lean-count.mjs — never hand-edit"
 }
