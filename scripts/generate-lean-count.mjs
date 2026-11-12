@@ -1,23 +1,23 @@
-// Generates public/data/lean_count.json — the single source of truth for the
-// "build-locked theorems" figure shown on public surfaces.
+// Generates public/data/lean_count.json: a generated, dated inventory of the
+// Lean declarations in lupine-rhizo/lean-spec. A count is not evidence. No page
+// shows it as a headline or stat; if a page shows it at all, it shows it once,
+// dated, in a Lean section beside the sentence "Lean 4 checks the arithmetic and
+// stated inequalities behind published numbers; it does not check the physics,
+// the reference data or the pipeline." (scripts/hydrate-lean-count.mjs lists
+// such pages; today there are none.)
 //
-// COUNTING RULE (do not change silently — the homepage cites this number):
-//   count = lines matching /^(theorem|lemma)\s/ (top-level declarations only,
-//   no indentation) across all *.lean files under OpenDistillationFactory/
-//   and OpenDistillationFactory.lean in the lupine-rhizo/lean-spec checkout,
-//   excluding vendored dependencies (any path containing /packages/ or /.lake/).
-//   Equivalent shell check:
-//     grep -rE '^(theorem|lemma) ' OpenDistillationFactory OpenDistillationFactory.lean \
-//       --include='*.lean' | grep -v '/packages/' | wc -l
+// COUNTING RULE (the same rule as lupine-rhizo/lean-spec/theorem-count.json):
+//   theorem/lemma declarations (attributes, indentation and modifiers allowed)
+//   after stripping nested comments and strings, across OpenDistillationFactory/
+//   and OpenDistillationFactory.lean, excluding vendored dependencies (any path
+//   containing /packages/ or /.lake/).
 //
-// ZERO-SORRY RULE: proof code must contain no `sorry` terms; occurrences inside
-//   line comments (--) or block-comment/doc-string lines are ignored.
+// ZERO-SORRY RULE: every active `sorry` token outside comments and strings fails.
 //
 // REGENERATE with:
 //   node scripts/generate-lean-count.mjs [path-to-lean-spec]
 //   (default path: ../lupine-rhizo/lean-spec relative to this repository)
-// then commit the updated inventory and static fallback surfaces. Never hand-edit
-// the generated count in any of those files.
+// then commit the updated inventory. Never hand-edit the generated count.
 
 import fs from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -138,18 +138,23 @@ for (const f of files) {
 }
 
 const sourceSha256 = sourceHash.digest('hex');
-let countedAt = '';
-try {
-  countedAt = execSync(
-    'git log -1 --format=%cs -- OpenDistillationFactory OpenDistillationFactory.lean',
-    { cwd: LEAN_SPEC, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
-  ).trim();
-} catch {
-  const sourceInventory = path.join(LEAN_SPEC, 'theorem-count.json');
-  const prior = fs.existsSync(sourceInventory) ? JSON.parse(fs.readFileSync(sourceInventory, 'utf8')) : {};
-  if (prior.source_sha256 === sourceSha256) countedAt = prior.counted_at;
-  else if (process.env.SOURCE_DATE_EPOCH) {
-    countedAt = new Date(Number(process.env.SOURCE_DATE_EPOCH) * 1000).toISOString().slice(0, 10);
+// When lupine-rhizo's own generated inventory (lean-spec/theorem-count.json)
+// describes exactly these files, take its date, so this site, the Library and
+// the rhizo export agree. Otherwise use the last commit date of the Lean tree
+// in UTC (git's %cs is in the committer's zone, which can be a day earlier).
+const sourceInventory = path.join(LEAN_SPEC, 'theorem-count.json');
+const prior = fs.existsSync(sourceInventory) ? JSON.parse(fs.readFileSync(sourceInventory, 'utf8')) : {};
+let countedAt = prior.source_sha256 === sourceSha256 && prior.count === count ? String(prior.counted_at ?? '') : '';
+if (!countedAt) {
+  try {
+    countedAt = execSync(
+      'git log -1 --date=format-local:%Y-%m-%d --format=%cd -- OpenDistillationFactory OpenDistillationFactory.lean',
+      { cwd: LEAN_SPEC, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], env: { ...process.env, TZ: 'UTC' } },
+    ).trim();
+  } catch {
+    if (process.env.SOURCE_DATE_EPOCH) {
+      countedAt = new Date(Number(process.env.SOURCE_DATE_EPOCH) * 1000).toISOString().slice(0, 10);
+    }
   }
 }
 if (!/^\d{4}-\d{2}-\d{2}$/.test(countedAt)) throw new Error('could not derive Lean source as-of date');
