@@ -40,8 +40,6 @@ const kb = (p) => `${(fs.statSync(p).size / 1024).toFixed(0)} KB`;
 
 // ── videos ──────────────────────────────────────────────────────────
 const VIDEOS = [
-  // narrated launch film: keep audio, it is the article's controls-embed too
-  { file: 'articles/why-lupine-science/hero.mp4', audio: true, crf: 27 },
   // ambience loop, played muted everywhere: strip audio
   { file: 'articles/from-fantasy-frameworks-to-makeable-materials/hero.mp4', audio: false, crf: 27 },
 ];

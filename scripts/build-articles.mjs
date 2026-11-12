@@ -191,7 +191,7 @@ const HERO_CAPTIONS = {
   'investing-in-the-trust-layer':
     'A narrow pilot pipeline from powder hopper through sintering furnace to a pressure-test fixture — one inspection gate admits only measured samples to the pilot press.',
   'why-lupine-science':
-    'The June 2026 launch film, generated with AI tools and composited with open-source software.',
+    'A single seedling rising from a mound of fine granular material.',
   'from-fantasy-frameworks-to-makeable-materials':
     'A porous-framework powder batch moving from synthesis vessel through pellet press and stability chamber into one plain sorbent cartridge — material advances only if it survives every stage.',
   'the-order-is-right-the-size-is-wrong':
