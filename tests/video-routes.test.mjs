@@ -136,3 +136,45 @@ describe('article and video publication routes', () => {
     }
   });
 });
+
+// Film detail pages that were once published (and indexed) redirect to their
+// articles. Each retired slug is listed explicitly, in public/_redirects for
+// Cloudflare Pages and in nginx.conf for the container image, so the rule never
+// shadows the /videos/ index, the media files or a film page published later.
+describe('retired film detail pages', () => {
+  const ROUTE = /^\/videos\/([a-z0-9-]+)\/\s+\/articles\/([a-z0-9-]+)\/\s+301$/;
+  function redirectedSlugs() {
+    return fs.readFileSync(path.join(PUBLIC, '_redirects'), 'utf8')
+      .split('\n')
+      .filter((line) => line.startsWith('/videos/'))
+      .map((line) => {
+        const match = line.trim().match(ROUTE);
+        assert.ok(match, `unexpected /videos/ redirect: ${line}`);
+        assert.equal(match[1], match[2], `/videos/${match[1]}/ must redirect to its own article`);
+        return match[1];
+      });
+  }
+
+  it('redirect each retired /videos/<slug>/ to an existing article', () => {
+    const slugs = redirectedSlugs();
+    assert.ok(slugs.length >= 22, `expected the 22 retired film pages, found ${slugs.length}`);
+    assert.equal(new Set(slugs).size, slugs.length, 'duplicate /videos/ redirect');
+    for (const slug of slugs) {
+      assert.ok(fs.existsSync(path.join(PUBLIC, 'articles', slug, 'index.html')), `no article for /videos/${slug}/`);
+      assert.equal(fs.existsSync(path.join(VIDEOS, slug, 'index.html')), false, `/videos/${slug}/ is a live page and must not redirect`);
+      assert.equal(videoSlugs().includes(slug), false, `${slug} is a listed film and must not redirect`);
+    }
+  });
+
+  it('mirror the same redirects in nginx.conf, as exact matches', () => {
+    const conf = fs.readFileSync(path.join(ROOT, 'nginx.conf'), 'utf8');
+    const nginx = [...conf.matchAll(/location = \/videos\/([a-z0-9-]+)\/ \{ return 301 \/articles\/([a-z0-9-]+)\/; \}/g)]
+      .map((match) => {
+        assert.equal(match[1], match[2], match[0]);
+        return match[1];
+      });
+    assert.deepEqual(nginx.sort(), redirectedSlugs().sort());
+    assert.doesNotMatch(conf, /location ~[^{]*\^\/videos/, 'no regex location may catch /videos/');
+    assert.ok(conf.indexOf('location = /videos/') < conf.indexOf('location / {'));
+  });
+});
