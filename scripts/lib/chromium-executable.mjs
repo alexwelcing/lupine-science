@@ -44,9 +44,10 @@ export function chromiumInstalls(root) {
  * but sandboxed/CI runners provide a build instead. In order:
  *
  *   1. CHROME_PATH, when it names an existing file (explicit override).
- *   2. The newest chromium-<revision> install under PLAYWRIGHT_BROWSERS_PATH,
- *      then under /opt/pw-browsers (the shared install), whatever revision
- *      the image happens to carry.
+ *   2. The newest chromium-<revision> install under PLAYWRIGHT_BROWSERS_PATH
+ *      or, when that is unset, under /opt/pw-browsers (the shared install),
+ *      whatever revision the image happens to carry. Like Playwright itself,
+ *      a set PLAYWRIGHT_BROWSERS_PATH replaces the default location.
  *
  * Returns undefined when nothing is found, so playwright-core falls back to
  * its own resolution. `env` and `defaultRoots` exist for tests.
@@ -55,11 +56,10 @@ export function chromiumExecutablePath({ env = process.env, defaultRoots = DEFAU
   if (env.CHROME_PATH && isFile(env.CHROME_PATH)) return env.CHROME_PATH;
 
   // PLAYWRIGHT_BROWSERS_PATH=0 means "inside node_modules": playwright-core
-  // resolves that itself.
-  const browsersPath = env.PLAYWRIGHT_BROWSERS_PATH && env.PLAYWRIGHT_BROWSERS_PATH !== '0'
+  // resolves that itself, so it does not name a directory to scan.
+  const roots = env.PLAYWRIGHT_BROWSERS_PATH && env.PLAYWRIGHT_BROWSERS_PATH !== '0'
     ? [env.PLAYWRIGHT_BROWSERS_PATH]
-    : [];
-  const roots = [...new Set([...browsersPath, ...defaultRoots].map((root) => path.resolve(root)))];
+    : defaultRoots;
   for (const root of roots) {
     for (const install of chromiumInstalls(root)) {
       for (const parts of BINARY_PATHS) {

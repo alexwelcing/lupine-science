@@ -44,18 +44,20 @@ test('falls back to an older install when the newest has no browser binary', () 
   );
 });
 
-test('searches PLAYWRIGHT_BROWSERS_PATH before the shared default', () => {
+test('a set PLAYWRIGHT_BROWSERS_PATH replaces the shared default, as in Playwright', () => {
   const custom = browsersRoot(['chromium-1100/chrome-linux64/chrome']);
   const shared = browsersRoot(['chromium-1243/chrome-linux64/chrome']);
   assert.equal(
     chromiumExecutablePath({ env: { PLAYWRIGHT_BROWSERS_PATH: custom }, defaultRoots: [shared] }),
     path.join(custom, 'chromium-1100', 'chrome-linux64', 'chrome'),
   );
-  // an empty custom root falls through to the shared install
+  // an empty or missing custom root finds nothing (callers use this to
+  // simulate a runner without a browser), rather than reaching the default
   const empty = browsersRoot([]);
+  assert.equal(chromiumExecutablePath({ env: { PLAYWRIGHT_BROWSERS_PATH: empty }, defaultRoots: [shared] }), undefined);
   assert.equal(
-    chromiumExecutablePath({ env: { PLAYWRIGHT_BROWSERS_PATH: empty }, defaultRoots: [shared] }),
-    path.join(shared, 'chromium-1243', 'chrome-linux64', 'chrome'),
+    chromiumExecutablePath({ env: { PLAYWRIGHT_BROWSERS_PATH: path.join(empty, 'missing') }, defaultRoots: [shared] }),
+    undefined,
   );
   // PLAYWRIGHT_BROWSERS_PATH=0 means node_modules; it is not a directory to scan
   assert.equal(
