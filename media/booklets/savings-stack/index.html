@@ -177,8 +177,6 @@
     padding: 0.16in 0.2in; font-size: 10pt; line-height: 1.6; color: var(--ink-soft);
   }
   .callout .tag { font-family: var(--mono); font-size: 7.2pt; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--indigo); display: block; margin-bottom: 4px; }
-  .callout.derived { border-left-color: var(--ochre); }
-  .callout.derived .tag { color: var(--ochre); }
 
   /* ── Honesty page ───────────────────────────────────────────────────── */
   .notclaim { display: flex; gap: 0.2in; padding: 0.13in 0; border-top: 1px solid var(--indigo-line); }
@@ -492,10 +490,6 @@
       </tbody>
     </table>
     <p class="body" style="margin-top:0.22in">The anchor rule is frozen: per model and path, endpoints plus the model-predicted minimum and a window around the model-predicted maximum. The naive total pays every model’s set; the union total pays one evaluation per unique image per path. Before any DFT ran, a simulation of the sparse protocol on the recorded reference profiles reproduced the reference barriers with an MAE of 1.2–9.4 meV at ~7 anchors per path. The DFT test came next; page 10 reports it.</p>
-    <div class="callout derived" style="margin-top:0.2in">
-      <span class="tag">Derived estimate — undemonstrated</span>
-      Union-sparse evaluation (154 anchors vs a 4-model dense accounting of 200–400 per path) is a ~38–76× reduction in evaluation count; per-anchor levers from the systems layer (mixed precision ~2×, ML density guess ~1.25×) compose orthogonally to ~95–190×. Each factor is individually cited; <em>the product has not been demonstrated</em>. The July 2026 pilot did not demonstrate it: on these 5–7-image paths it evaluated every image, and its preregistered gate failed.
-    </div>
     <div class="section-tail">
       <p class="prov">Method, reconciliation of the retracted earlier figures, and per-path tables: z1-union-anchor-economics.md in the pack. Anchor rule mirrored byte-exact from the frozen pilot implementation.</p>
     </div>
@@ -578,10 +572,9 @@
     <h2>What we do not claim.</h2>
     <div class="notclaim"><span class="x">01</span><div><p class="t">Not accuracy.</p><p class="d">The 72.4% counts evaluations; it says nothing about whether sparse anchors give accurate barriers. The pilot that tested this failed its preregistered gate and was about 700 meV off the published references (page 10).</p></div></div>
     <div class="notclaim"><span class="x">02</span><div><p class="t">Not generality beyond the basis.</p><p class="d">The projection rests on one 30-path barrier panel, four universal MLIPs and one chemistry family; the pilot used one DFT engine (GPAW). The union scaling curve is four points deep.</p></div></div>
-    <div class="notclaim"><span class="x">03</span><div><p class="t">Not the stacking figure as a measurement.</p><p class="d">The ~38–76× (and composed ~95–190×) evaluation-count reductions are derived estimates — our arithmetic on individually cited factors — labeled derived wherever they appear. The July 2026 pilot did not demonstrate them.</p></div></div>
-    <div class="notclaim"><span class="x">04</span><div><p class="t">Not victory over the point solutions.</p><p class="d">For a single isolated saddle search with a cheap oracle, local GP surrogates win outright. For one stable, high-volume chemistry, fine-tuning is the right tool. Our wedge is amortized, multi-path, multi-model workloads — panels, networks, screening campaigns.</p></div></div>
-    <div class="notclaim"><span class="x">05</span><div><p class="t">Not blanket validation of every literature number.</p><p class="d">The digests retain their [UNVERIFIED] claim flags and per-source access levels. The audit verified every identifier — it does not upgrade abstract-only evidence or independently reproduce reported savings factors.</p></div></div>
-    <div class="notclaim"><span class="x">06</span><div><p class="t">Not peer review.</p><p class="d">This is a research release with committed, hashable records — an invitation to inspect and recompute, not a claim of external validation.</p></div></div>
+    <div class="notclaim"><span class="x">03</span><div><p class="t">Not victory over the point solutions.</p><p class="d">For a single isolated saddle search with a cheap oracle, local GP surrogates win outright. For one stable, high-volume chemistry, fine-tuning is the right tool. The approach is aimed at amortized, multi-path, multi-model workloads — panels, networks, screening campaigns.</p></div></div>
+    <div class="notclaim"><span class="x">04</span><div><p class="t">Not blanket validation of every literature number.</p><p class="d">The digests retain their [UNVERIFIED] claim flags and per-source access levels. The audit verified every identifier — it does not upgrade abstract-only evidence or independently reproduce reported savings factors.</p></div></div>
+    <div class="notclaim"><span class="x">05</span><div><p class="t">Not peer review.</p><p class="d">This is a research release with committed, hashable records — an invitation to inspect and recompute, not a claim of external validation.</p></div></div>
     <div class="section-tail">
       <p class="body" style="font-style:italic">Restraint is the policy: a measurement that overclaims stops being one.</p>
     </div>

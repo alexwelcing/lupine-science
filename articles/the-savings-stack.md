@@ -16,7 +16,7 @@
 
 <div class="cta">
   <p><strong>Download:</strong> The Savings Stack, v1.1 — 16 pages, US Letter, free.</p>
-  <a href="/booklets/the-savings-stack.pdf" download>Get the booklet (PDF, 774 KB) →</a>
+  <a href="/booklets/the-savings-stack.pdf" download>Get the booklet (PDF, 771 KB) →</a>
 </div>
 
 ## Inside the booklet
@@ -41,7 +41,7 @@ On the locked 30-path Z1 panel, path 14 failed CI-NEB convergence in all four mo
 
 ## What it is — and what it is not
 
-The booklet argues, as a direction rather than a result, for a shared commons of checked results: teams contributing checked statements back so that everyone's gates get sharper. (A Lean check covers the arithmetic and stated inequalities behind a statement, not the physics, the reference data or the pipeline.) The projected union count is the evaluation-side instance of the same sharing. The case for restraint is designed with equal care: the basis is one 30-path panel, four universal MLIPs, one DFT engine, one chemistry family; the multiplicative stacking figure is a derived estimate and is labeled as such wherever it appears; the digests keep their [UNVERIFIED] flags; and none of this is peer-reviewed — it is a research release with committed, hashable records.
+The booklet argues, as a direction rather than a result, for a shared commons of checked results: teams contributing checked statements back so that everyone's gates get sharper. (A Lean check covers the arithmetic and stated inequalities behind a statement, not the physics, the reference data or the pipeline.) The projected union count is the evaluation-side instance of the same sharing. The case for restraint is designed with equal care: the basis is one 30-path panel, four universal MLIPs, one DFT engine, one chemistry family; the digests keep their [UNVERIFIED] flags; and none of this is peer-reviewed — it is a research release with committed, hashable records.
 
 The citation audit behind the book verified every identifier against its registry: **115/115 arXiv, 48/48 DOI, zero unresolved** — with three corrections applied on the record, including the VASP MLFF venue reconciliation. Identifier verification does not upgrade abstract-only evidence, and the booklet says so.
 
