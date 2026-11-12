@@ -13,7 +13,7 @@
     },
     "articleHtml": {
       "path": "public/articles/shared-dft-anchors/index.html",
-      "sha256": "327d4454d806d034fa6a6e8f5e41acaa760c52c7fee5a110b363f9558506c649"
+      "sha256": "bc689f1dd42cee89f32964adfb121600113ed5b39967e5f034238abd66a376ef"
     },
     "figures": {
       "images/projected-evaluation-counts.png": "1db5981ce922739f621eb641dc46315554ab06f730969377ebaf41ce273c8988"
@@ -22,8 +22,8 @@
   "output": {
     "pdf": {
       "path": "shared-dft-anchors.proofpack.pdf",
-      "sha256": "d927e182529bbf88b0d5e186123d6101ae5f1d777b39c628a97c28e27eec49c7",
-      "bytes": 190836
+      "sha256": "b115af9e9743eca177fcbc561aa7b36301eef0772fafaf0a3a3489d9456bf318",
+      "bytes": 182371
     }
   }
 }
