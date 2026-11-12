@@ -194,6 +194,8 @@ const HERO_CAPTIONS = {
     'A narrow pilot pipeline from powder hopper through sintering furnace to a pressure-test fixture — one inspection gate admits only measured samples to the pilot press.',
   'why-lupine-science':
     'A single seedling rising from a mound of fine granular material.',
+  'why-lupi':
+    'A glass case filled with granular material over faint blueprint lines.',
   'from-fantasy-frameworks-to-makeable-materials':
     'A porous-framework powder batch moving from synthesis vessel through pellet press and stability chamber into one plain sorbent cartridge — material advances only if it survives every stage.',
   'the-order-is-right-the-size-is-wrong':

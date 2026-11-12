@@ -229,3 +229,21 @@ describe('article video discovery metadata', () => {
     }
   });
 });
+
+// These pages autoplayed muted hero films whose on-screen text made claims the
+// pages no longer make (a retired tagline; an atom-count claim for LUPI). The
+// films were removed; each page must render its text-free still hero instead.
+describe('still article heroes', () => {
+  for (const slug of ['why-lupine-science', 'why-lupi']) {
+    it(`${slug} renders a captioned still hero, not a hero film`, () => {
+      assert.equal(fs.existsSync(path.join(OUT, slug, 'hero.mp4')), false, `${slug}/hero.mp4 must stay removed`);
+      const html = readArticle(slug);
+      const hero = html.match(/<figure class="article-hero"[\s\S]*?<\/figure>/)?.[0];
+      assert.ok(hero, `${slug}: expected an article hero`);
+      assert.doesNotMatch(hero, /<video\b/, slug);
+      assert.doesNotMatch(html, /hero\.mp4/, slug);
+      assert.match(hero, new RegExp(`<img src="/articles/${slug}/hero\\.jpg`), slug);
+      assert.match(hero, /<figcaption id="hero-caption">[^<]+<\/figcaption>/, slug);
+    });
+  }
+});
