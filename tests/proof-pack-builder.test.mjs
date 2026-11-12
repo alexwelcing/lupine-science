@@ -483,13 +483,41 @@ describe('proof-pack output validation', () => {
     assert.equal(report.info['Page size'], '612 x 792 pts (letter)');
   });
 
-  it('PDF round-trips the required Unicode coverage string', async () => {
+  it('keeps the font test string and template instructions out of a published-record build', async () => {
     const report = await inspectPdf(PDF_PATH, path.join(ROOT, 'tests', 'fixtures', 'proof-pack-expectations.json'));
     const normalized = report.text?.normalized || '';
-    assert.ok(
-      normalized.includes(UNICODE_COVERAGE_STRING),
-      'required Unicode coverage string missing from extracted text'
-    );
+    for (const text of ['José García', 'Zoë Šimůnková', 'GtCO₂/year', 'extraction test string', 'Every evidence record must', 'All production PDFs must']) {
+      assert.equal(normalized.includes(text), false, `published-record build prints "${text}"`);
+    }
+  });
+
+  it('PDF round-trips the required Unicode coverage string in a --font-test QA build', async () => {
+    const qaDir = fs.mkdtempSync(path.join(os.tmpdir(), 'proofpack-font-test-'));
+    try {
+      const result = run(['--slug', SLUG, '--out-dir', qaDir, '--font-test']);
+      assert.equal(result.status, 0, result.stderr);
+      const qaPdf = path.join(qaDir, `${SLUG}.proofpack.pdf`);
+      const report = await inspectPdf(qaPdf, path.join(ROOT, 'tests', 'fixtures', 'proof-pack-expectations.json'));
+      assert.ok(report.fonts.allEmbedded, 'not all fonts are embedded');
+      assert.ok(report.fonts.allUnicodeMapped, 'not all fonts have Unicode maps');
+      assert.deepEqual(report.fonts.type3, []);
+      const normalized = report.text?.normalized || '';
+      assert.ok(
+        normalized.includes(UNICODE_COVERAGE_STRING),
+        'required Unicode coverage string missing from extracted text'
+      );
+    } finally {
+      fs.rmSync(qaDir, { recursive: true, force: true });
+    }
+  });
+
+  it('refuses a --font-test build into public/proof-packs/', () => {
+    const published = path.join(ROOT, 'public', 'proof-packs');
+    const before = fs.readdirSync(published).map((name) => [name, sha256(path.join(published, name))]);
+    const result = run(['--slug', SLUG, '--font-test']);
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /--font-test is for QA builds/);
+    assert.deepEqual(fs.readdirSync(published).map((name) => [name, sha256(path.join(published, name))]), before);
   });
 
   it('PDF contains no localhost link annotations', async () => {
@@ -534,6 +562,18 @@ describe('proof-pack promises reach the rendered page', () => {
   // follow the audit trail behind the panel-identity verdict. Assert the rendered HTML
   // actually carries every locked artifact, so the promise cannot drift from the output.
   const SLUG = 'the-materials-we-test-against';
+
+  it('prints the font test string only when a QA render asks for it', () => {
+    const manifestPath = path.join(ROOT, 'public', 'articles', SLUG, `${SLUG}.proofpack.json`);
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    const meta = { title: manifest.title || SLUG, description: '', canonicalUrl: `https://lupine.science/articles/${SLUG}/` };
+    const published = renderPackHtml(SLUG, manifest, meta);
+    assert.equal(published.includes('José García'), false);
+    assert.doesNotMatch(published, /class="unicode-test"|Every evidence record must|All production PDFs must/);
+    const qa = renderPackHtml(SLUG, manifest, meta, { fontTest: true });
+    assert.match(qa, /class="unicode-test"/);
+    assert.ok(qa.includes('José García · Zoë Šimůnková · François L’Écuyer'));
+  });
 
   it('renders url, repository path and digest for every methodology artifact', () => {
     const manifestPath = path.join(ROOT, 'public', 'articles', SLUG, `${SLUG}.proofpack.json`);

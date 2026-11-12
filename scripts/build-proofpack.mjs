@@ -5,6 +5,8 @@
 //   --all                   Build one PDF + JSON manifest per eligible article.
 //   --slug <slug>           Build one article only.
 //   --out-dir <dir>         Output directory for per-article packs (default: public/proof-packs/).
+//   --font-test             QA build only: add the Unicode font-coverage test string
+//                           to the last page. Refused for public/proof-packs/.
 //
 // An article is eligible when public/articles/<slug>/<slug>.proofpack.json exists.
 // The per-article PDF uses public/proof-pack-template/index.html populated from the
@@ -30,7 +32,10 @@ const TMP = path.join(ROOT, '.proofpack');
 // 2026-11-11: its title implied partners and it bundled an investor pitch.
 // See /corrections/. Only per-article evidence records are built here.
 
-const UNICODE_COVERAGE_STRING =
+// The font and text-extraction release gate (docs/proof-pack-design.md). It is
+// printed only in QA builds (--font-test, never into public/proof-packs/): in a
+// published record it read as unfinished template text.
+export const UNICODE_COVERAGE_STRING =
   'CO₂ · CH₄ · GtCO₂/year · en dash – · em dash — · “curly quotes” · α β γ Δ μ σ ∑ ∂ ≈ ≤ ≥ ± × · José García · Zoë Šimůnková · François L’Écuyer';
 
 const MIME = {
@@ -535,7 +540,7 @@ export function verifyArtifactIntegrity(slug, manifest, publicRoot = PUBLIC) {
   }
 }
 
-function buildView(slug, manifest, articleMeta) {
+function buildView(slug, manifest, articleMeta, { fontTest = false } = {}) {
   const articleDir = path.join(PUBLIC, 'articles', slug);
   const title = manifest.metadata.title || articleMeta.title;
   const date = manifest.metadata.date || articleMeta.date;
@@ -613,16 +618,16 @@ function buildView(slug, manifest, articleMeta) {
     shortTitle: shortTitleFrom(title),
     figureCount: figures.length,
     referenceCount: bibliography.length,
-    unicodeCoverageString: UNICODE_COVERAGE_STRING,
+    unicodeCoverageString: fontTest ? UNICODE_COVERAGE_STRING : '',
   };
 }
 
 // Exported so tests can assert that what a pack PROMISES actually reaches the
 // rendered page. The lock URLs and digests were absent from the PDF for exactly as
 // long as nothing could inspect the HTML without launching a browser.
-export function renderPackHtml(slug, manifest, articleMeta) {
+export function renderPackHtml(slug, manifest, articleMeta, options = {}) {
   const template = fs.readFileSync(TEMPLATE_PATH, 'utf8');
-  const view = buildView(slug, manifest, articleMeta);
+  const view = buildView(slug, manifest, articleMeta, options);
   return renderTemplate(template, view);
 }
 
@@ -713,13 +718,13 @@ async function normalizePdf(output, { title, deterministicDate, revisedDate = de
   fs.writeFileSync(output, await doc.save({ useObjectStreams: false, updateMetadata: false }));
 }
 
-async function buildPerArticle(browser, slug, outDir, baseUrl) {
+async function buildPerArticle(browser, slug, outDir, baseUrl, { fontTest = false } = {}) {
   const articlePath = path.join(PUBLIC, 'articles', slug, 'index.html');
   if (!fs.existsSync(articlePath)) throw new Error(`missing article HTML: ${articlePath}`);
   const { manifest, manifestPath } = loadManifest(slug);
   const articleMeta = extractArticleMeta(fs.readFileSync(articlePath, 'utf8'), slug);
 
-  const html = renderPackHtml(slug, manifest, articleMeta);
+  const html = renderPackHtml(slug, manifest, articleMeta, { fontTest });
   const htmlPath = path.join(PUBLIC, '.proofpack-render', `${slug}.html`);
   fs.mkdirSync(path.dirname(htmlPath), { recursive: true });
   fs.writeFileSync(htmlPath, html);
@@ -883,6 +888,7 @@ function parseArgs(argv) {
     mode: null,
     slug: '',
     outDir: DEFAULT_OUT_DIR,
+    fontTest: false,
   };
   const args = [...argv];
   while (args.length) {
@@ -893,6 +899,8 @@ function parseArgs(argv) {
       options.slug = args.shift();
     } else if (arg === '--out-dir') {
       options.outDir = path.resolve(ROOT, args.shift());
+    } else if (arg === '--font-test') {
+      options.fontTest = true;
     } else if (arg === '--help' || arg === '-h') {
       console.log(`usage: node scripts/build-proofpack.mjs [options]
 
@@ -900,6 +908,8 @@ options:
   --all                   Build one PDF + JSON manifest for every eligible article.
   --slug <slug>           Build one article only.
   --out-dir <dir>         Output directory for per-article packs (default: public/proof-packs/).
+  --font-test             QA build only: add the Unicode font-coverage test string to the
+                          last page. Needs --out-dir outside public/proof-packs/.
   --help                  Show this message.`);
       process.exit(0);
     } else {
@@ -911,6 +921,9 @@ options:
   }
   if (options.mode === 'slug' && !options.slug) {
     throw new Error('--slug requires a value');
+  }
+  if (options.fontTest && path.resolve(options.outDir) === path.resolve(DEFAULT_OUT_DIR)) {
+    throw new Error('--font-test is for QA builds; pass an --out-dir outside public/proof-packs/');
   }
   return options;
 }
@@ -936,7 +949,7 @@ async function main() {
       console.log(`building proof pack: ${slug}`);
       let result;
       try {
-        result = await buildPerArticle(browser, slug, options.outDir, baseUrl);
+        result = await buildPerArticle(browser, slug, options.outDir, baseUrl, { fontTest: options.fontTest });
       } catch (error) {
         cleanupArticleOutputs(slug, options.outDir);
         throw error;

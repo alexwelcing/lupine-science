@@ -130,12 +130,12 @@
     {{#each auditLinks}}
     <p>{{this.label}}: <a href="{{this.url}}">{{this.url}}</a></p>
     {{/each}}
-    <p>Every evidence record must add links to the underlying dataset, analysis/code, and archived figure manifest when those artifacts exist.</p>
+    {{#if unicodeCoverageString}}
     <div class="unicode-test" aria-label="Unicode font coverage test">
-      <span class="meta-label">Required font and extraction test string</span>
+      <span class="meta-label">Font and extraction test string (QA build only)</span>
       <p>{{unicodeCoverageString}}</p>
-      <p><code>All production PDFs must embed Unicode-capable font subsets with ToUnicode maps. No remote font fallback is allowed.</code></p>
     </div>
+    {{/if}}
   </section>
 </main>
 </body>
