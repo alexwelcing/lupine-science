@@ -12,6 +12,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { chromium } from 'playwright-core';
+import { chromiumExecutablePath } from '../lib/chromium-executable.mjs';
 
 const OUT = process.argv[2] && !process.argv[2].startsWith('--')
   ? process.argv[2]
@@ -19,7 +20,7 @@ const OUT = process.argv[2] && !process.argv[2].startsWith('--')
 const onlyIdx = process.argv.indexOf('--only');
 const ONLY = onlyIdx > -1 ? process.argv[onlyIdx + 1] : null;
 const BASE = process.env.BASE_URL || 'http://localhost:8080';
-const EXECUTABLE = process.env.CHROME_PATH || '/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
+const EXECUTABLE = chromiumExecutablePath();
 
 fs.mkdirSync(OUT, { recursive: true });
 

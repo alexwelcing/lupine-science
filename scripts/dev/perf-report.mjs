@@ -5,10 +5,11 @@
 //
 // Usage: node scripts/dev/perf-report.mjs [url ...]
 import { chromium } from 'playwright-core';
+import { chromiumExecutablePath } from '../lib/chromium-executable.mjs';
 
 const BASE = process.env.BASE_URL || 'http://localhost:8080';
 const URLS = process.argv.length > 2 ? process.argv.slice(2) : [`${BASE}/`, `${BASE}/articles/`];
-const EXECUTABLE = process.env.CHROME_PATH || '/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
+const EXECUTABLE = chromiumExecutablePath();
 
 const CLASSES = [
   ['html', /\/$|\.html$/],
