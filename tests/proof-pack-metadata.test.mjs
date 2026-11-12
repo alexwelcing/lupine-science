@@ -23,7 +23,26 @@ test('reads page count, byte size, and embedded update date from a valid proof p
 
   assert.equal(metadata.pageCount, 5);
   assert.equal(metadata.size, `${Math.round(bytes / 1024)} KB`);
-  assert.equal(metadata.updatedDate, '2026-08-03');
+  // The record was published 2026-08-03 and reissued 2026-11-12; the update
+  // date is the modification date, not the creation date.
+  assert.equal(metadata.updatedDate, '2026-11-12');
+});
+
+test('falls back to the creation date when a PDF has no modification date', async () => {
+  const { directory, filename } = temporaryFile('created-only.pdf');
+  try {
+    const document = await PDFDocument.create({ updateMetadata: false });
+    document.addPage();
+    document.setCreationDate(new Date('2026-08-03T00:00:00Z'));
+    const bytes = await document.save({ updateMetadata: false });
+    fs.writeFileSync(filename, bytes);
+    const loaded = await PDFDocument.load(bytes, { updateMetadata: false });
+    assert.equal(loaded.getModificationDate(), undefined);
+    const metadata = await readProofPackMetadata(filename);
+    assert.equal(metadata.updatedDate, '2026-08-03');
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
 });
 
 test('rejects malformed bytes that merely contain a PDF page marker', async () => {

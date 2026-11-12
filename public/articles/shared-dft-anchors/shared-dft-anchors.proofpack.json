@@ -2,36 +2,38 @@
   "schemaVersion": "1.0.0",
   "metadata": {
     "slug": "shared-dft-anchors",
-    "title": "Sharing DFT anchors reduces projected evaluations by 72.4%",
+    "title": "Evidence Record: Shared DFT Anchors",
     "date": "2026-08-03",
+    "updated": "2026-11-12",
     "status": "published",
     "license": "CC BY 4.0",
     "articleUrl": "https://lupine.science/articles/shared-dft-anchors/",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "eyebrow": "Z1 union-anchor analysis",
-    "deck": "A frozen, artifact-backed analysis of 29 analyzable diffusion paths compares four separately evaluated sparse-anchor sets with their shared union.",
+    "deck": "A projected saving, and what happened when we ran it. A frozen, artifact-backed analysis of 29 analyzable diffusion paths compares four separately evaluated sparse-anchor sets with their shared union.",
     "documentId": "LS-PP-2026-006",
-    "evidenceStatus": "Verified analysis; independently reviewed and approved for publication 2026-08-03"
+    "evidenceStatus": "Projected accounting, no new DFT. Internally reviewed (AI-assisted); not peer-reviewed."
   },
   "summary": {
-    "claim": "On the locked Z1 panel’s 29 analyzable paths, sharing identical sparse-anchor image indices across four universal interatomic-potential guides reduces the projected DFT evaluation count from 558 to 154: 72.4% fewer DFT evaluations.",
+    "claim": "On the locked Z1 panel’s 29 analyzable paths, sharing identical sparse-anchor image indices across four universal interatomic-potential guides reduces the projected DFT evaluation count from 558 to 154: 72.4% fewer DFT evaluations. The baseline is four separate runs, and on these short paths deduplication alone caps the saving at 73.1%.",
     "verdict": "supported",
     "scope": "Prediction-side accounting under the frozen sparse-anchor rule on one locked path panel, using four recorded model artifacts.",
     "limitations": [
       "The shared union is a projected evaluation set; this analysis does not claim that the union has been evaluated by DFT.",
       "The result does not establish accuracy parity or transfer to another panel, chemistry, engine, model set, or anchor rule.",
-      "Projected and realized campaign records remain separate and are not combined in this proof pack.",
-      "No dollar amount, wall-time conversion, annualization, or additional economic multiplier is inferred."
+      "Projected and realized campaign records remain separate and are not combined in this evidence record.",
+      "No dollar amount, wall-time conversion, annualization, or additional economic multiplier is inferred.",
+      "The realized July 2026 pilot failed its preregistered accuracy gate; its passing check is same-engine only and is summarized here, not combined with the projection."
     ],
-    "lead": "Four model guides nominate sparse images on the same diffusion paths. Deduplicating identical within-path image indices reduces the locked projected reference-evaluation count from 558 to 154.",
+    "lead": "Four model guides nominate sparse images on the same diffusion paths. Deduplicating identical within-path image indices reduces the locked projected reference-evaluation count from 558 to 154. The baseline is four separate runs.",
     "findings": [
       {
         "label": "Finding",
-        "text": "The frozen separate-model accounting contains 558 projected DFT evaluations; the within-path shared union contains 154."
+        "text": "72.4% fewer DFT evaluations, projected. The frozen separate-model accounting contains 558 projected DFT evaluations; the shared union contains 154. The baseline is four separate runs."
       },
       {
-        "label": "Approved public claim",
-        "text": "The locked comparison is 72.4% fewer DFT evaluations."
+        "label": "Ceiling",
+        "text": "The paths have 5–7 images, 167 in all, and the union covers 154 of them; deduplication alone caps the saving at 73.1%."
       },
       {
         "label": "Exclusion",
@@ -40,11 +42,15 @@
       {
         "label": "Boundary",
         "text": "The result is prediction-side accounting, not an executed-DFT, accuracy, cost, or universal-transfer claim."
+      },
+      {
+        "label": "Realized pilot",
+        "text": "In July 2026 the preregistered 40 meV gate against published VASP barriers failed (path 7: 118.8 meV). A same-engine check adopted after that failure passed (0.0–6.8 meV) with every image evaluated: Open (same-engine only). Error against the published references: 693.0–705.7 meV."
       }
     ],
-    "verdictDetail": "Supported within the preregistered accounting scope.",
-    "verdictBody": "The committed JSON record, input SHA-256 digests, analysis script, and separately locked figure support the 558-to-154 comparison on 29 analyzable paths. Missing model–path profiles remain explicit and no realized campaign denominator is substituted.",
-    "orientation": "The pack presents the locked figure and table first, then the selection rule, exclusions, historical context, independent bibliography, and repository audit trail."
+    "verdictDetail": "Supported as projected accounting only; not an accuracy result.",
+    "verdictBody": "The committed JSON record, input SHA-256 digests, analysis script, and separately locked figure support the 558-to-154 comparison on 29 analyzable paths. Missing model–path profiles remain explicit and no realized campaign denominator is substituted. The realized pilot did not show accuracy against published references.",
+    "orientation": "This record presents the locked figure and table first, then the selection rule, exclusions, published literature, and audit trail. The full account of the pilot is “What happened when we ran it” on the canonical article."
   },
   "figures": [
     {
@@ -127,7 +133,7 @@
     ],
     "unitOfAnalysis": "Model–path sparse-anchor set and within-path union of image indices",
     "evidenceCutoff": "2026-07-21",
-    "versioning": "Document LS-PP-2026-006 version 1.0.0; figure input checksum and generated PDF checksum are emitted in the proof-pack manifests.",
+    "versioning": "LS-PP-2026-006 version 1.1.0, 2026-11-12 (version 1.0.0: 2026-08-03). Figure input and generated PDF checksums are in the evidence-record manifests.",
     "limitations": "One locked panel, four recorded universal interatomic-potential guides, one sparse-anchor rule, prediction-side accounting only. No accuracy, realized execution, dollar, wall-time, energy, emissions, or transfer claim is made.",
     "inputs": [
       "Locked Z1 path panel with the digest recorded in the analysis JSON",
@@ -163,7 +169,7 @@
         "role": "Institution"
       }
     ],
-    "editorialReview": "Independent editorial and claim review completed; approved for publication 2026-08-03",
+    "editorialReview": "Internally reviewed (AI-assisted) and approved for publication 2026-08-03; not peer-reviewed",
     "provenance": "Locked Z1 panel, recorded four-model campaign artifacts, committed analysis JSON and script, citation identifier audit, and SHA-256 manifests",
     "contact": "https://lupine.science/contact/"
   },
@@ -198,7 +204,7 @@
   ],
   "auditLinks": [
     {
-      "label": "Canonical article",
+      "label": "Canonical article, including “What happened when we ran it”",
       "url": "https://lupine.science/articles/shared-dft-anchors/"
     },
     {

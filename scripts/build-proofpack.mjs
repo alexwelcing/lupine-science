@@ -603,6 +603,11 @@ function buildView(slug, manifest, articleMeta) {
     bibliography,
     auditLinks: manifest.auditLinks || [],
     formattedDate: formatDate(date),
+    // A revised record keeps its publication date and shows the revision date
+    // beside it; the PDF's modification date carries the revision too.
+    formattedUpdated: manifest.metadata.updated && manifest.metadata.updated !== date
+      ? formatDate(manifest.metadata.updated)
+      : '',
     authorLine: `${authorName} · ${institutionName}`,
     canonicalDomain: domainFrom(canonicalUrl),
     shortTitle: shortTitleFrom(title),
@@ -640,7 +645,7 @@ export async function waitForPageImages(page) {
   });
 }
 
-async function renderPdf(browser, { url, output, title, deterministicDate }) {
+async function renderPdf(browser, { url, output, title, deterministicDate, revisedDate }) {
   const page = await browser.newPage();
   try {
     await page.route('**/*', (route) => {
@@ -666,10 +671,10 @@ async function renderPdf(browser, { url, output, title, deterministicDate }) {
     await page.close();
   }
 
-  await normalizePdf(output, { title, deterministicDate });
+  await normalizePdf(output, { title, deterministicDate, revisedDate });
 }
 
-async function normalizePdf(output, { title, deterministicDate }) {
+async function normalizePdf(output, { title, deterministicDate, revisedDate = deterministicDate }) {
   const bytes = fs.readFileSync(output);
   const doc = await PDFDocument.load(bytes, { updateMetadata: false });
   for (const page of doc.getPages()) {
@@ -690,11 +695,11 @@ async function normalizePdf(output, { title, deterministicDate }) {
   }
   doc.setTitle(title);
   doc.setAuthor('Lupine Science');
-  doc.setSubject('Evidence proof pack');
+  doc.setSubject('Evidence record');
   doc.setCreator('lupine-science/scripts/build-proofpack.mjs');
   doc.setProducer('lupine-science/scripts/build-proofpack.mjs');
   doc.setCreationDate(deterministicDate);
-  doc.setModificationDate(deterministicDate);
+  doc.setModificationDate(revisedDate);
   // Remove any existing ID to reduce cross-run variance.
   try {
     const trailer = doc.context.trailer;
@@ -729,6 +734,7 @@ async function buildPerArticle(browser, slug, outDir, baseUrl) {
     output: pdfPath,
     title: manifest.metadata.title,
     deterministicDate: new Date(`${manifest.metadata.date}T00:00:00Z`),
+    revisedDate: new Date(`${manifest.metadata.updated || manifest.metadata.date}T00:00:00Z`),
   });
 
   const articleDir = path.join(PUBLIC, 'articles', slug);

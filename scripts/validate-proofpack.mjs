@@ -217,6 +217,13 @@ export function validateProofPack(manifest) {
   }
   validateAgainstSchema(manifest, PROOF_PACK_SCHEMA, '', issues);
 
+  // An evidence record keeps its publication date and may carry a later
+  // revision date; a revision can never predate the record it revises.
+  const { date, updated } = manifest.metadata || {};
+  if (typeof date === 'string' && typeof updated === 'string' && updated < date) {
+    schemaIssue(issues, 'metadata.updated', `must not precede metadata.date (${date})`);
+  }
+
   if (Array.isArray(manifest.bibliography)) {
     const ids = new Set();
     for (const source of manifest.bibliography) {
