@@ -13,6 +13,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { renderSiteHeader } from './lib/brand-header.mjs';
+import { listedFilmSlugs } from './lib/film-listing.mjs';
 import { headMetaTitleSegments, renderHeadMetaTags } from './lib/head-meta.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -20,6 +21,8 @@ const JSON_PATH = path.join(ROOT, 'public', 'data', 'atlas_nodes.json');
 const OUT_DIR = path.join(ROOT, 'public', 'atlas');
 const OUT = path.join(OUT_DIR, 'index.html');
 const SITE = 'https://lupine.science';
+// The "Videos" nav item appears only while a film is listed.
+const SHOW_VIDEOS = listedFilmSlugs({ articlesDir: path.join(ROOT, 'articles'), videosDir: path.join(ROOT, 'public', 'videos') }).length > 0;
 
 if (!fs.existsSync(JSON_PATH)) {
   console.error('build-atlas-page: missing public/data/atlas_nodes.json — run scripts/build-atlas-nodes.mjs first');
@@ -93,7 +96,7 @@ ${renderHeadMetaTags(headMetaTitleSegments({ primary: 'Ontology atlas', suffix: 
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
-  ${renderSiteHeader({ ariaCurrentPath: "/atlas/" })}
+  ${renderSiteHeader({ ariaCurrentPath: "/atlas/", showVideos: SHOW_VIDEOS })}
   <main id="content" class="atlas-index">
     <p class="b-label">Ontology atlas</p>
     <h1>Error types, emblems, and material classes that anchor the Lupine research frame.</h1>

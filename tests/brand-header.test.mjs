@@ -45,6 +45,13 @@ describe('brand-header helper', () => {
     assert.ok(articlesLink);
   });
 
+  it('drops the Videos nav item when no film is listed', () => {
+    assert.match(renderSiteHeader(), /<a href="\/videos\/">Videos<\/a>/);
+    const html = renderSiteHeader({ showVideos: false });
+    assert.doesNotMatch(html, /\/videos\//);
+    assert.match(html, /<a href="\/articles\/">Articles<\/a>/);
+  });
+
   it('customizes brand label and tagline', () => {
     const html = renderSiteHeader({
       brandLabel: 'Custom Brand',

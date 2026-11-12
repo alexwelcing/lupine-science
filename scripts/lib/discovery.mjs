@@ -473,7 +473,7 @@ function llmsHref(href) {
   return absolute(href);
 }
 
-export function renderLlmsTxt(company, articles, { asOf = asOfDate(company, articles) } = {}) {
+export function renderLlmsTxt(company, articles, { asOf = asOfDate(company, articles), filmsListed = true } = {}) {
   const email = `${company.email.user}@${company.email.domain}`;
   const next = upcomingEvents(company, asOf)[0];
   const op = company.operatingModel;
@@ -539,7 +539,8 @@ export function renderLlmsTxt(company, articles, { asOf = asOfDate(company, arti
   lines.push(`- Company facts: ${SITE}/about/`);
   lines.push(`- Corrections log: ${SITE}/corrections/`);
   lines.push(`- Articles: ${SITE}/articles/`);
-  lines.push(`- Films: ${SITE}/videos/`);
+  // /videos/ is offered only while at least one film is listed
+  if (filmsListed) lines.push(`- Films: ${SITE}/videos/`);
   lines.push(`- Atom feed: ${SITE}/feed.xml`);
   lines.push('- Library (research corpus): https://library.lupine.science');
   lines.push('- LUPI (browser structure viewer): https://lupi.live');

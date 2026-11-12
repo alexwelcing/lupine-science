@@ -136,7 +136,6 @@ These pieces describe where the work is aimed. They are not results, and any cap
 - Company facts: https://lupine.science/about/
 - Corrections log: https://lupine.science/corrections/
 - Articles: https://lupine.science/articles/
-- Films: https://lupine.science/videos/
 - Atom feed: https://lupine.science/feed.xml
 - Library (research corpus): https://library.lupine.science
 - LUPI (browser structure viewer): https://lupi.live

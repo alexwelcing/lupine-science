@@ -81,8 +81,37 @@ describe('article and video publication routes', () => {
   it('ships a useful 404 response surface for missing pages and downloads', () => {
     const html = read('404.html');
     assert.match(html, /page or download is not available/i);
-    assert.match(html, /href="\/videos\/"/);
+    // the 404 offers /videos/ only while it has a film to show
+    if (videoSlugs().length) assert.match(html, /href="\/videos\/"/);
+    else assert.doesNotMatch(html, /href="\/videos\/"/);
     assert.match(html, /href="\/articles\/"/);
+  });
+
+  it('does not send readers or crawlers to an empty /videos/ index', () => {
+    const index = read('videos', 'index.html');
+    const sitemap = read('sitemap.xml');
+    const llms = read('llms.txt');
+    if (videoSlugs().length) {
+      assert.match(index, /<meta name="robots" content="index,follow">/);
+      assert.match(sitemap, /<loc>https:\/\/lupine\.science\/videos\/<\/loc>/);
+      assert.match(llms, /^- Films: https:\/\/lupine\.science\/videos\/$/m);
+      return;
+    }
+    assert.match(index, /No films are listed at the moment/);
+    assert.match(index, /<meta name="robots" content="noindex,follow">/);
+    assert.doesNotMatch(sitemap, /lupine\.science\/videos\//);
+    assert.doesNotMatch(llms, /lupine\.science\/videos\//);
+    const pages = [];
+    (function walk(dir) {
+      for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+        const full = path.join(dir, entry.name);
+        if (entry.isDirectory()) walk(full);
+        else if (entry.name.endsWith('.html')) pages.push(full);
+      }
+    })(PUBLIC);
+    for (const page of pages) {
+      assert.doesNotMatch(fs.readFileSync(page, 'utf8'), /href="\/videos\/"/, `${path.relative(PUBLIC, page)} links the empty /videos/ index`);
+    }
   });
 
   it('refreshes stale article, video detail, and video index route outputs', () => {

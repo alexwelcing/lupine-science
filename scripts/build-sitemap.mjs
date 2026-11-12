@@ -48,6 +48,12 @@ const siteAsOf = asOfDate(company, fs.readdirSync(path.join(ROOT, 'articles'))
   .filter((f) => f.endsWith('.md') && !articleArchived(f.replace(/\.md$/, '')))
   .map((f) => ({ date: articleDate(f.replace(/\.md$/, '')) || '' })));
 
+// Generated film detail pages (listed films only; scripts/lib/film-listing.mjs).
+// The /videos/ index is offered only while it has a film to show.
+const filmPages = fs.readdirSync(path.join(PUBLIC, 'videos'), { withFileTypes: true })
+  .filter((entry) => entry.isDirectory() && fs.existsSync(path.join(PUBLIC, 'videos', entry.name, 'index.html')))
+  .map((entry) => entry.name);
+
 const urls = [
   { loc: `${SITE}/`, lastmod: siteAsOf || null },
   { loc: `${SITE}/about/`, lastmod: siteAsOf || null },
@@ -56,7 +62,7 @@ const urls = [
     ? [{ loc: `${SITE}/corrections/`, lastmod: correctionsUpdated() }]
     : []),
   { loc: `${SITE}/articles/`, lastmod: null },
-  { loc: `${SITE}/videos/`, lastmod: null },
+  ...(filmPages.length ? [{ loc: `${SITE}/videos/`, lastmod: null }] : []),
   // /atlas/ is the wiki-driven ontology page (see scripts/build-atlas-nodes.mjs).
   // No intrinsic date — the page is generated from the wiki DB at build time.
   { loc: `${SITE}/atlas/`, lastmod: null },
@@ -69,10 +75,8 @@ for (const entry of fs.readdirSync(path.join(PUBLIC, 'articles'), { withFileType
   urls.push({ loc: `${SITE}/articles/${slug}/`, lastmod: articleDate(slug) });
 }
 
-for (const entry of fs.readdirSync(path.join(PUBLIC, 'videos'), { withFileTypes: true })) {
-  if (!entry.isDirectory()) continue;
-  if (!fs.existsSync(path.join(PUBLIC, 'videos', entry.name, 'index.html'))) continue;
-  urls.push({ loc: `${SITE}/videos/${entry.name}/`, lastmod: articleDate(entry.name) });
+for (const slug of filmPages) {
+  urls.push({ loc: `${SITE}/videos/${slug}/`, lastmod: articleDate(slug) });
 }
 // No /presentations/* entries: the only presentation was retired on
 // 2026-11-11 and now redirects to /about/ (public/_redirects).

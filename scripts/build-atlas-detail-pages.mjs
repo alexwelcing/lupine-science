@@ -21,6 +21,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { renderSiteHeader } from './lib/brand-header.mjs';
+import { listedFilmSlugs } from './lib/film-listing.mjs';
 import { headMetaTitleSegments, renderHeadMetaTags, escapeHtml } from './lib/head-meta.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -28,6 +29,8 @@ const ATLAS_NODES_PATH = path.join(ROOT, 'public', 'data', 'atlas_nodes.json');
 const ARTICLE_ONTOLOGY_PATH = path.join(ROOT, 'public', 'data', 'article_ontology.json');
 const OUT_ROOT = path.join(ROOT, 'public', 'atlas');
 const SITE = 'https://lupine.science';
+// The "Videos" nav item appears only while a film is listed.
+const SHOW_VIDEOS = listedFilmSlugs({ articlesDir: path.join(ROOT, 'articles'), videosDir: path.join(ROOT, 'public', 'videos') }).length > 0;
 
 function fail(message) {
   console.error(`build-atlas-detail-pages: ${message}`);
@@ -148,7 +151,7 @@ ${renderHeadMetaTags(headMetaTitleSegments({ prefix: uri, primary: name, suffix:
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
-  ${renderSiteHeader({ ariaCurrentPath: `/atlas/${uri}/` })}
+  ${renderSiteHeader({ ariaCurrentPath: `/atlas/${uri}/`, showVideos: SHOW_VIDEOS })}
   <main id="content" class="atlas-detail" data-kind="${escapeHtml(kind)}">
     <p class="b-label"><a href="/atlas/">&larr; Atlas</a></p>
     <p class="atlas-detail-kind">${escapeHtml(kindTitle)}</p>

@@ -71,8 +71,10 @@ export function renderSiteHeader({
   ],
   brandLabel = 'Lupine Science',
   brandTagline = 'measuring where AI models of materials go wrong',
+  // false while no film is listed (scripts/lib/film-listing.mjs listedFilmSlugs)
+  showVideos = true,
 } = {}) {
-  const navItems = links.map((link) => {
+  const navItems = links.filter((link) => showVideos || link.href !== '/videos/').map((link) => {
     const isCurrent = ariaCurrentPath
       && (link.href === ariaCurrentPath
         || (link.href !== '/' && ariaCurrentPath.startsWith(link.href)));

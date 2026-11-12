@@ -2,6 +2,10 @@
 // their article and offered to crawlers. Kept apart from build-articles.mjs so
 // tests can read the list without running the build.
 //
+import fs from 'node:fs';
+import path from 'node:path';
+import { documentStatus } from './discovery.mjs';
+
 // Films that stay off /videos/, the sitemap and every article page while their
 // files remain in public/videos/ (for example, while a re-cut is prepared).
 // Films of Archived articles are unlisted automatically.
@@ -49,4 +53,22 @@ export const RETIRED_FILMS = new Map([
 
 export function filmListed(slug, status) {
   return status !== 'Archived' && !UNLISTED_FILMS.has(slug) && !RETIRED_FILMS.has(slug);
+}
+
+// Slugs of the films listed right now: a film in <videosDir> whose article in
+// <articlesDir> is listable under filmListed(). While this is empty the site
+// has no film to show, so builders drop the "Videos" nav item, the /videos/
+// sitemap entry and the llms.txt "Films" line, and mark /videos/ noindex.
+export function listedFilmSlugs({ articlesDir, videosDir }) {
+  if (!fs.existsSync(videosDir)) return [];
+  return fs.readdirSync(videosDir)
+    .filter((name) => name.endsWith('.mp4'))
+    .map((name) => name.replace(/\.mp4$/, ''))
+    .filter((slug) => {
+      const source = path.join(articlesDir, `${slug}.md`);
+      if (!fs.existsSync(source)) return false;
+      const status = fs.readFileSync(source, 'utf8').match(/^> \*\*Status:\*\*\s*(.+?)\s*$/m)?.[1];
+      return filmListed(slug, documentStatus(status));
+    })
+    .sort();
 }

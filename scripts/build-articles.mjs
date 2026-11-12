@@ -16,7 +16,7 @@ import {
   renderLlmsTxt, renderAtomFeed, renderNowStrip, organizationGraph, jsonLdScript, injectBetween,
   documentStatus, DOCUMENT_STATUS_MEANING,
 } from './lib/discovery.mjs';
-import { filmListed, RETIRED_FILMS } from './lib/film-listing.mjs';
+import { filmListed, listedFilmSlugs, RETIRED_FILMS } from './lib/film-listing.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = path.join(ROOT, 'articles');
@@ -25,6 +25,9 @@ const PUBLIC_ROOT = process.env.LUPINE_BUILD_PUBLIC_ROOT
   : path.join(ROOT, 'public');
 const OUT = path.join(PUBLIC_ROOT, 'articles');
 const SITE = 'https://lupine.science';
+// With no film listed, /videos/ holds only an empty state: no page links to it,
+// it is noindex, and llms.txt does not offer it (scripts/lib/film-listing.mjs).
+const FILMS_LISTED = listedFilmSlugs({ articlesDir: SRC, videosDir: path.join(PUBLIC_ROOT, 'videos') }).length > 0;
 const LEAN_COUNT_PATH = path.join(PUBLIC_ROOT, 'data', 'lean_count.json');
 // The share widget's 3 KB of CSS is inlined into every page head: as its own
 // <link> it was a second render-blocking request (~300 ms on a slow phone).
@@ -516,8 +519,7 @@ function chrome(inner, { current = 'articles' } = {}) {
     <nav class="site-nav" aria-label="Primary">
       <a href="/">Home</a>
       <a href="/articles/"${current === 'articles' ? ' aria-current="page"' : ''}>Articles</a>
-      <a href="/videos/"${current === 'videos' ? ' aria-current="page"' : ''}>Videos</a>
-      <a href="/about/"${current === 'about' ? ' aria-current="page"' : ''}>About</a>
+${FILMS_LISTED ? `      <a href="/videos/"${current === 'videos' ? ' aria-current="page"' : ''}>Videos</a>\n` : ''}      <a href="/about/"${current === 'about' ? ' aria-current="page"' : ''}>About</a>
       <a href="https://library.lupine.science">Library</a>
       <a href="https://lupi.live">LUPI</a>
     </nav>
@@ -1021,6 +1023,8 @@ function buildVideoIndex(articles) {
     ogImage: articles[0] ? bustVideoPoster(`${SITE}/videos/${articles[0].slug}-poster.jpg`, articles[0].slug) : `${SITE}/og-lupine-science.jpg`,
     ogType: 'website',
     jsonld,
+    // an index with no film to show is kept out of search results
+    robots: articles.length ? 'index,follow' : 'noindex,follow',
   })}
   <style>
     .videos-index { max-width: 1100px; margin: 0 auto; padding: clamp(40px, 7vh, 84px) 22px 80px; }
@@ -1076,7 +1080,7 @@ ${chrome(`  <main id="content" class="article-shell">
     <article class="article">
       <p class="article-kicker">404</p>
       <h1>That page or download is not available.</h1>
-      <p>Check the address, browse <a href="/videos/">all published videos</a>, or return to <a href="/articles/">the article index</a>.</p>
+      <p>${FILMS_LISTED ? 'Check the address, browse <a href="/videos/">all published videos</a>, or return to' : 'Check the address or return to'} <a href="/articles/">the article index</a>.</p>
     </article>
   </main>`, { current: null })}
 ${PAGE_SCRIPT}
@@ -1111,6 +1115,9 @@ const listedArticles = articles.filter((a) => a.status !== 'Archived');
 console.log('built /articles/index.html');
 
 const videos = videoArticles(articles);
+if ((videos.length > 0) !== FILMS_LISTED) {
+  throw new Error(`film listing disagrees: ${videos.length} film pages built, but listedFilmSlugs() says ${FILMS_LISTED ? 'some' : 'none'} are listed`);
+}
 // Retire the generated page for any article that no longer has a source file.
 // Video detail routes were already pruned this way (below) but article routes
 // were not, so moving an article to articles/_drafts/ left its published page and
@@ -1191,7 +1198,7 @@ ${PAGE_SCRIPT}
 `);
   console.log('built /about/');
 
-  writeAtomic(path.join(PUBLIC_ROOT, 'llms.txt'), renderLlmsTxt(company, list, { asOf, leanCount }));
+  writeAtomic(path.join(PUBLIC_ROOT, 'llms.txt'), renderLlmsTxt(company, list, { asOf, leanCount, filmsListed: FILMS_LISTED }));
   writeAtomic(path.join(PUBLIC_ROOT, 'feed.xml'), renderAtomFeed(company, list, { asOf }));
   console.log(`built /llms.txt and /feed.xml (${list.length} articles, as of ${asOf})`);
 
