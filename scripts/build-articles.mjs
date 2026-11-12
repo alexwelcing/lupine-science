@@ -1037,11 +1037,11 @@ function buildVideoIndex(articles) {
 ${chrome(`  <main id="content" class="videos-index">
     <p class="b-label">Short films</p>
     <h1>Article videos.</h1>
-    <p class="lead">Short films that accompany our articles. The article is the record; read it for the numbers and their scope. Films whose narration no longer matches our published results are not listed here.</p>
+    <p class="lead">Short films that accompany our articles. The article is the record; read it for the numbers and their scope. Films whose narration or on-screen text no longer matches our published results are not listed here.</p>
     ${shareBar('/videos/', 'Videos — Lupine Science')}
-    <ul class="video-list">
+${articles.length ? `    <ul class="video-list">
 ${cards}
-    </ul>
+    </ul>` : `    <p class="videos-empty">No films are listed at the moment. Every article is available in the <a href="/articles/">article index</a>.</p>`}
   </main>`, { current: 'videos' })}
 ${PAGE_SCRIPT}
 </body>

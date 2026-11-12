@@ -86,8 +86,9 @@ describe('article and video publication routes', () => {
   });
 
   it('refreshes stale article, video detail, and video index route outputs', () => {
-    // a listed film; unlisted films get no video detail page at all
-    const slug = 'the-savings-stack';
+    // a slug whose film would be listed (Published, not in film-listing.mjs);
+    // unlisted films get no video detail page at all
+    const slug = 'the-small-cell-held-mlip-elastic-benchmark';
     const publicRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'article-route-refresh-'));
     const videosRoot = path.join(publicRoot, 'videos');
     const files = [
@@ -124,8 +125,12 @@ describe('article and video publication routes', () => {
       for (const file of files) {
         const refreshed = fs.readFileSync(file, 'utf8');
         assert.doesNotMatch(refreshed, /stale-output-sentinel/, path.relative(ROOT, file));
-        assert.match(refreshed, /Savings Stack[^<]*—|—[^<]*Savings Stack|limits of both — a free booklet/, `${path.relative(ROOT, file)} must preserve Unicode on rebuild`);
+        assert.match(refreshed, /1×1×1/, `${path.relative(ROOT, file)} must preserve Unicode on rebuild`);
       }
+      // with no hero image in the fixture root, a listed film's poster is the social image
+      const article = fs.readFileSync(files[0], 'utf8');
+      assert.match(article, new RegExp(`<meta property="og:image" content="https://lupine\\.science/videos/${slug}-poster\\.jpg\\?v=\\d+">`));
+      assert.match(article, /<meta property="og:type" content="video\.other">/);
     } finally {
       fs.rmSync(publicRoot, { recursive: true, force: true });
     }

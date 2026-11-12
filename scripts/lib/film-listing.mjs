@@ -5,7 +5,19 @@
 // Films that stay off /videos/, the sitemap and every article page while their
 // files remain in public/videos/ (for example, while a re-cut is prepared).
 // Films of Archived articles are unlisted automatically.
-export const UNLISTED_FILMS = new Map([]);
+//
+// The four 2026-07-27 campaign brand films were unlisted on 2026-11-12. Their
+// soundtrack is music only (no narration) and their .vtt files hold animator
+// direction notes, not captions. Captions transcribing their on-screen text
+// were not written because that text states things our record does not
+// support; a re-cut needs new on-screen text and a WebVTT track with a
+// [Music] cue and the on-screen text.
+export const UNLISTED_FILMS = new Map([
+  ['an-order-of-effort', 'on-screen text presents Tier-1 runtime correction as live work ("Work where the license is live"), although Round 4 failed it, and says machine-checked limits prevent unsupported correction'],
+  ['the-materials-we-test-against', 'on-screen text lists "partner synthesis" in the evidence chain'],
+  ['the-savings-stack', 'on-screen text labels the projected 72.4% saving "measured value"'],
+  ['the-trust-layer', 'on-screen text says "No uncontracted partners are named" and "Primary investment article is Draft", and offers correction "where licensed"'],
+]);
 
 // Films removed from public/videos/ on 2026-11-12 (git history keeps them).
 // Their narration (public/videos/<slug>.vtt) — or, for the un-narrated

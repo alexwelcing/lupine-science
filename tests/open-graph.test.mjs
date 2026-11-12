@@ -29,12 +29,15 @@ describe('article Open Graph metadata', () => {
     assert.doesNotMatch(html, /(?:name="description"|property="og:description"|name="twitter:description") content=""/);
   });
 
-  it('uses the video poster and video type when an article has a listed film but no hero image', () => {
+  it('does not use the poster of an unlisted film as the social image', () => {
+    // an-order-of-effort's film is unlisted (scripts/lib/film-listing.mjs); the
+    // listed-film poster path is covered by the fixture test in video-routes.
     const html = readArticle('an-order-of-effort');
 
-    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/videos\/an-order-of-effort-poster\.jpg\?v=\d+">/);
-    assert.match(html, /<meta name="twitter:image" content="https:\/\/lupine\.science\/videos\/an-order-of-effort-poster\.jpg\?v=\d+">/);
-    assert.match(html, /<meta property="og:type" content="video\.other">/);
+    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/og-lupine-science\.jpg(\?v=\d+)?">/);
+    assert.match(html, /<meta name="twitter:image" content="https:\/\/lupine\.science\/og-lupine-science\.jpg(\?v=\d+)?">/);
+    assert.match(html, /<meta property="og:type" content="article">/);
+    assert.doesNotMatch(html, /an-order-of-effort-poster/);
   });
 
   it('falls back to the site card and article type when the article has no listed film', () => {
