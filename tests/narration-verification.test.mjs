@@ -614,18 +614,34 @@ test('the true-peak target leaves room for the AAC overshoot', () => {
 
 test('generate-motion-vtt refuses to overwrite a narration transcript', () => {
   // The regression that destroyed ten narration scripts and put scene titles
-  // on screen under a `default` track.
-  const root = path.resolve(import.meta.dirname, '..');
-  const slug = 'a-field-not-a-neural-net';
+  // on screen under a `default` track. Runs against a scratch copy of the
+  // script: the films it destroyed were removed on 2026-11-12, so no committed
+  // narration transcript remains to protect in place.
+  const repo = path.resolve(import.meta.dirname, '..');
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'motion-vtt-'));
+  const slug = 'narrated-film';
+  fs.mkdirSync(path.join(root, 'scripts'));
+  fs.mkdirSync(path.join(root, 'data', 'video-motion'), { recursive: true });
+  fs.mkdirSync(path.join(root, 'public', 'videos'), { recursive: true });
+  fs.copyFileSync(path.join(repo, 'scripts', 'generate-motion-vtt.mjs'), path.join(root, 'scripts', 'generate-motion-vtt.mjs'));
+  fs.writeFileSync(path.join(root, 'data', 'video-motion', `${slug}.json`), JSON.stringify({
+    slug,
+    scenes: [{ image: 'unused.jpg', duration: 5, text: ['Scene title'] }],
+  }));
+  fs.writeFileSync(path.join(root, 'public', 'videos', `${slug}.mp4`), 'not a real video');
   const vttPath = path.join(root, 'public', 'videos', `${slug}.vtt`);
+  fs.writeFileSync(vttPath, 'WEBVTT\n\nNOTE Narration transcript. Synthesized narration.\n\n1\n00:00:00.000 --> 00:00:02.000\nMeasure the error.\n');
   const before = fs.readFileSync(vttPath, 'utf8');
-  assert.match(before, /^NOTE Narration transcript\./m, 'published VTT should be a real transcript');
 
-  const r = spawnSync('node', [path.join(root, 'scripts', 'generate-motion-vtt.mjs'), '--slug', slug], {
-    encoding: 'utf8', cwd: root,
-  });
-  assert.equal(r.status, 1, 'must refuse');
-  assert.match(r.stderr, /REFUSED/);
-  assert.match(r.stderr, /narration transcript/);
-  assert.equal(fs.readFileSync(vttPath, 'utf8'), before, 'file must be untouched');
+  try {
+    const r = spawnSync('node', [path.join(root, 'scripts', 'generate-motion-vtt.mjs'), '--slug', slug], {
+      encoding: 'utf8', cwd: root,
+    });
+    assert.equal(r.status, 1, 'must refuse');
+    assert.match(r.stderr, /REFUSED/);
+    assert.match(r.stderr, /narration transcript/);
+    assert.equal(fs.readFileSync(vttPath, 'utf8'), before, 'file must be untouched');
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
 });

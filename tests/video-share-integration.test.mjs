@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, it } from 'node:test';
-import { UNLISTED_FILMS } from '../scripts/lib/film-listing.mjs';
+import { RETIRED_FILMS, UNLISTED_FILMS } from '../scripts/lib/film-listing.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -50,19 +50,18 @@ describe('video share integration', () => {
     assert.match(html, new RegExp(`<meta property="og:image" content="https://lupine\\.science/videos/${slug}-poster\\.jpg\\?v=\\d+">`));
   });
 
-  // The water-and-air and PFAS films were re-cut in August 2026 (poster cache
-  // revision v4) and unlisted on 2026-11-11 (scripts/lib/film-listing.mjs):
-  // their narration states correction capabilities our results do not support.
-  for (const slug of [
-    'water-and-air-correcting-the-molecules-we-drink-and-breathe',
-    'critical-minerals-pfas-and-the-remediation-imperative',
-  ]) {
-    it(`leaves no page, card or poster reference for the unlisted ${slug} film`, () => {
-      assert.ok(UNLISTED_FILMS.has(slug));
+  // Films removed on 2026-11-12 (scripts/lib/film-listing.mjs RETIRED_FILMS):
+  // their narration named partners, pitched a budget or stated correction and
+  // verification capabilities our results do not support.
+  for (const slug of RETIRED_FILMS.keys()) {
+    it(`ships no files, page, card or poster reference for the retired ${slug} film`, () => {
+      for (const suffix of ['.mp4', '.vtt', '-poster.jpg', '-poster.avif', '-poster.webp']) {
+        assert.equal(fs.existsSync(path.join(ROOT, 'public', 'videos', `${slug}${suffix}`)), false, `${slug}${suffix}`);
+      }
       assert.equal(fs.existsSync(path.join(ROOT, 'public', 'videos', slug, 'index.html')), false);
       const pages = [readPublicPage('articles', slug), readPublicPage('videos')].join('\n');
       assert.doesNotMatch(pages, new RegExp(`${slug}-poster\\.`));
-      assert.doesNotMatch(pages, new RegExp(`/videos/${slug}\\.mp4`));
+      assert.doesNotMatch(pages, new RegExp(`/videos/${slug}\\.(?:mp4|vtt)`));
     });
   }
 });

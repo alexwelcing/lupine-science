@@ -35,7 +35,7 @@ const TARGET_FPS = 30;
 const LOUDNESS_TARGET = -16;
 const LOUDNESS_TOLERANCE = 2;
 const LRA_MAX = 8;
-// These five published campaign cuts are intentionally short, descriptive
+// These campaign cuts are intentionally short, descriptive
 // brand films rather than narrated article videos (see VIDEO_KIND in
 // build-articles.mjs). Keep the exception slug-bound so an arbitrary short or
 // 48 kHz article video cannot pass by resembling their media properties.
@@ -44,7 +44,6 @@ const BRAND_FILM_SLUGS = new Set([
   'the-materials-we-test-against',
   'the-savings-stack',
   'the-trust-layer',
-  'z1-union-debrief',
 ]);
 const SAMPLE_STD_THRESHOLD = 12;
 

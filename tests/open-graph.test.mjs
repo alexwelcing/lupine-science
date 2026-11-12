@@ -37,7 +37,7 @@ describe('article Open Graph metadata', () => {
     assert.match(html, /<meta property="og:type" content="video\.other">/);
   });
 
-  it('falls back to the site card and article type when the film is unlisted', () => {
+  it('falls back to the site card and article type when the article has no listed film', () => {
     const html = readArticle('the-02-percent-synthesis-problem');
 
     assert.match(html, /<meta property="og:title" content="The 0\.2% Synthesis Problem — Lupine Science">/);

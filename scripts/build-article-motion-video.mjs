@@ -2,9 +2,9 @@
 // Build a motion-rich article video from a manifest of static visuals.
 //
 // Usage:
-//   node scripts/build-article-motion-video.mjs --slug the-02-percent-synthesis-problem
-//   node scripts/build-article-motion-video.mjs --manifest data/video-motion/the-02-percent-synthesis-problem.json
-//   node scripts/build-article-motion-video.mjs --slug ... --audio public/videos/the-02-percent-synthesis-problem.mp4 --out media/projects/video-motion/renders/the-02-percent-synthesis-problem-motion.mp4
+//   node scripts/build-article-motion-video.mjs --slug <slug>
+//   node scripts/build-article-motion-video.mjs --manifest data/video-motion/<slug>.json
+//   node scripts/build-article-motion-video.mjs --slug <slug> --audio public/videos/<slug>.mp4 --out media/projects/video-motion/renders/<slug>-motion.mp4
 
 import fs from 'node:fs';
 import path from 'node:path';

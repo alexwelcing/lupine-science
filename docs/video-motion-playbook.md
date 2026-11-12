@@ -11,20 +11,25 @@ Turn static article decks into deterministic, publication-quality motion videos 
 
 ## Manifest format
 
-Each article has a manifest in `data/video-motion/<slug>.json`:
+Each article film has a manifest in `data/video-motion/<slug>.json`. None are
+committed at the moment: the nine films they built were removed on 2026-11-12
+because their narration stated claims our results do not support (see
+`RETIRED_FILMS` in `scripts/lib/film-listing.mjs` and
+`data/video-motion/README.md`). The build refuses to publish a film under a
+retired slug.
 
 ```json
 {
   "version": "2026-07-14",
-  "slug": "the-02-percent-synthesis-problem",
-  "title": "The 0.2% Synthesis Problem",
+  "slug": "<slug>",
+  "title": "<article title>",
   "description": "Motion-enhanced article video built from deck-level visuals.",
   "scenes": [
     {
       "image": "public/articles/.../images/...jpg",
       "duration": 6,
       "effect": "slow-zoom-in",
-      "text": ["380,000 computationally stable structures", "736 independently synthesized — 0.2% validation"]
+      "text": ["<caption line 1>", "<caption line 2>"]
     }
   ]
 }
@@ -73,7 +78,7 @@ npm run video:motion:generate -- --force
 ## Rendering one video
 
 ```bash
-SLUG=the-02-percent-synthesis-problem npm run video:motion:render
+SLUG=<slug> npm run video:motion:render
 ```
 
 This writes to `media/projects/video-motion/renders/<slug>-motion.mp4`. If a matching audio file exists at `public/videos/<slug>.mp4`, it is muxed in and trimmed to the visual length.
@@ -82,8 +87,8 @@ To render with a specific audio file or output path:
 
 ```bash
 node scripts/build-article-motion-video.mjs \
-  --slug the-02-percent-synthesis-problem \
-  --audio public/videos/the-02-percent-synthesis-problem.mp4 \
+  --slug <slug> \
+  --audio public/videos/<slug>.mp4 \
   --out media/projects/video-motion/renders/...mp4
 ```
 
@@ -103,16 +108,6 @@ npm run video:motion:verify
 
 Checks that every manifest is valid JSON, every scene points to an existing image, durations are positive, and effects are known. This is also part of `npm run verify`.
 
-## Prototype
-
-The first motion video is the 0.2% synthesis problem article:
-
-```bash
-npm run video:motion:prototype
-```
-
-Output: `media/projects/video-motion/renders/the-02-percent-synthesis-problem-motion.mp4`.
-
 ## CI integration
 
 - `npm run verify` now includes `video:motion:verify`, so a missing image or broken manifest fails CI.
@@ -124,7 +119,7 @@ Output: `media/projects/video-motion/renders/the-02-percent-synthesis-problem-mo
 ### One command, start to finish
 
 ```bash
-node scripts/publish-article-motion-video.mjs --slug the-02-percent-synthesis-problem
+node scripts/publish-article-motion-video.mjs --slug <slug>
 ```
 
 That synthesizes the narration, verifies it, renders the video, writes the
@@ -136,6 +131,11 @@ hand-assembled sequence that used to live in this section is gone — see
 
 The narration script lives in `data/narration-scripts/<slug>.json` as an array
 of paragraphs. Nothing in the pipeline writes to it.
+
+The ten scripts committed there belong to films removed on 2026-11-12 (see
+`RETIRED_FILMS` in `scripts/lib/film-listing.mjs`). They are kept as provenance
+records for the recovery check below, not as narration to reuse: a new film
+needs a new script.
 
 It used to be read from `public/videos/<slug>.vtt` — which is also where the
 caption step *writes*. That loop destroyed all ten narration scripts: every

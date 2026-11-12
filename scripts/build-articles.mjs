@@ -16,7 +16,7 @@ import {
   renderLlmsTxt, renderAtomFeed, renderNowStrip, organizationGraph, jsonLdScript, injectBetween,
   documentStatus, DOCUMENT_STATUS_MEANING,
 } from './lib/discovery.mjs';
-import { filmListed } from './lib/film-listing.mjs';
+import { filmListed, RETIRED_FILMS } from './lib/film-listing.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = path.join(ROOT, 'articles');
@@ -109,21 +109,10 @@ const ARTICLE_ASSET_CACHE_BUST = new Map([
   // v=4: handoff-chain figure re-rendered without the partner wording (2026-11-11).
   ['from-predicted-crystal-to-commercial-cell', '?v=4'],
 ]);
-const PFAS_SLUG = 'critical-minerals-pfas-and-the-remediation-imperative';
-const PFAS_RELEASE = JSON.parse(fs.readFileSync(
-  path.join(ROOT, 'release', 'video-replacements', `${PFAS_SLUG}.json`),
-  'utf8',
-));
-const PFAS_POSTER_CACHE_REVISION = PFAS_RELEASE.releaseState === 'baseline-rollback'
-  ? PFAS_RELEASE.rollback.cacheRevision
-  : PFAS_RELEASE.replacement.cacheRevision;
-if (!Number.isSafeInteger(PFAS_POSTER_CACHE_REVISION) || PFAS_POSTER_CACHE_REVISION < 1) {
-  throw new Error('Invalid PFAS poster cache revision');
-}
-const VIDEO_POSTER_CACHE_BUST = new Map([
-  ['water-and-air-correcting-the-molecules-we-drink-and-breathe', '?v=4'],
-  [PFAS_SLUG, `?v=${PFAS_POSTER_CACHE_REVISION}`],
-]);
+// Per-film poster cache-bust revisions, for a re-cut film whose poster changed
+// at a stable URL. Empty since the re-cut water-and-air and PFAS films were
+// removed on 2026-11-12 (scripts/lib/film-listing.mjs RETIRED_FILMS).
+const VIDEO_POSTER_CACHE_BUST = new Map([]);
 
 function bust(url, slug) {
   if (!url || url.includes('?') || url.includes('#')) return url;
@@ -321,14 +310,13 @@ function publishedVideoUrl(slug) {
 }
 
 // Player label per video kind. Most article videos are narrated article
-// summaries; the 2026-07-27 campaign placed five 28-second brand films
+// summaries; the 2026-07-27 campaign placed short brand films
 // (descriptive captions, no narration) — label them accurately.
 const VIDEO_KIND = new Map([
   ['an-order-of-effort', 'Brand film'],
   ['the-materials-we-test-against', 'Brand film'],
   ['the-savings-stack', 'Brand film'],
   ['the-trust-layer', 'Brand film'],
-  ['z1-union-debrief', 'Brand film'],
 ]);
 
 function inlineVideoPlayer(slug, title, { detailLink = true } = {}) {
@@ -895,6 +883,13 @@ function videoArticles(articles) {
     .find((slug) => !articleSlugs.has(slug));
   if (orphan) {
     throw new Error(`refusing to publish orphan video without article: public/videos/${orphan}.mp4`);
+  }
+  const retired = fs.readdirSync(path.join(PUBLIC_ROOT, 'videos'), { withFileTypes: true })
+    .filter((entry) => entry.isFile())
+    .map((entry) => entry.name)
+    .find((name) => RETIRED_FILMS.has(name.replace(/(?:-poster\.(?:jpg|avif|webp)|\.mp4|\.vtt)$/, '')));
+  if (retired) {
+    throw new Error(`refusing to publish retired film file public/videos/${retired} (scripts/lib/film-listing.mjs RETIRED_FILMS)`);
   }
   return articles.filter((article) => {
     const { slug } = article;

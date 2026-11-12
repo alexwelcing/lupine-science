@@ -83,14 +83,16 @@ test('technical video conformance requires exact 30 fps and BT.709 metadata', ()
   assert.ok(technicalVideoNotes({ ...conforming, color_transfer: 'smpte2084' }).includes('color transfer smpte2084'));
 });
 
-test('short 48 kHz brand-film profile is limited to the five declared campaign slugs', () => {
+test('short 48 kHz brand-film profile is limited to the declared campaign slugs', () => {
   const brandSlugs = [
     'an-order-of-effort',
     'the-materials-we-test-against',
     'the-savings-stack',
     'the-trust-layer',
-    'z1-union-debrief',
   ];
+  // z1-union-debrief's campaign cut was removed on 2026-11-12 and no longer
+  // gets the brand-film exception.
+  assert.equal(technicalMediaProfile('z1-union-debrief').label, 'article video');
   for (const slug of brandSlugs) {
     assert.deepEqual(technicalMediaProfile(slug), {
       sampleRate: 48000,
