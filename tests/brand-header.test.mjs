@@ -1,14 +1,14 @@
-// brand-header.test.mjs — checks the site-header helper.
+// brand-header.test.mjs — checks the site chrome helper.
 //
-// The brand SVG and the primary nav were inlined identically in three
-// builders (build-atlas-page.mjs, build-atlas-detail-pages.mjs,
-// build-claim-facets.mjs) before ATX-CLEANUP. This helper closes that
-// duplication and ensures any future brand change happens in one place.
+// The brand SVG, the primary nav and the footer were inlined separately in
+// build-articles.mjs and the atlas builders. This helper closes that
+// duplication and ensures any future brand, nav or footer change happens in
+// one place.
 
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 
-import { renderSiteHeader } from '../scripts/lib/brand-header.mjs';
+import { renderSiteHeader, renderSiteFooter, SITE_NAV, FOOTER_LINKS } from '../scripts/lib/brand-header.mjs';
 
 describe('brand-header helper', () => {
   it('emits a <header class="site-header"> with the brand SVG and nav', () => {
@@ -19,14 +19,21 @@ describe('brand-header helper', () => {
     assert.ok(html.includes('Lupine Science'), 'brand label present');
   });
 
+  it('carries the one-question-per-page nav: Home · Results · Articles · About · Library · LUPI', () => {
+    const html = renderSiteHeader({ showVideos: false });
+    const labels = [...html.matchAll(/<a href="[^"]+"[^>]*>([^<]+)<\/a>/g)].map((m) => m[1]);
+    assert.deepEqual(labels, ['Home', 'Results', 'Articles', 'About', 'Library', 'LUPI']);
+    assert.deepEqual(SITE_NAV.filter((l) => l.href !== '/videos/').map((l) => l.label), labels);
+  });
+
   it('marks the matching nav link as aria-current="page"', () => {
-    // ariaCurrentPath "/atlas/claims/" matches the default Atlas nav link
-    // (href "/atlas/") because the helper matches by prefix.
-    const html = renderSiteHeader({ ariaCurrentPath: '/atlas/claims/' });
-    // The Atlas <a> should carry aria-current="page".
-    const atlasLink = html.match(/<a href="\/atlas\/" aria-current="page">/);
-    assert.ok(atlasLink, 'Atlas nav link has aria-current="page"');
-    // Home (href "/") should not have aria-current (it's not a prefix of /atlas/claims/).
+    // ariaCurrentPath "/results/" matches the Results nav link exactly, and a
+    // sub-path matches by prefix.
+    const html = renderSiteHeader({ ariaCurrentPath: '/results/' });
+    assert.ok(html.match(/<a href="\/results\/" aria-current="page">/), 'Results nav link has aria-current="page"');
+    const sub = renderSiteHeader({ ariaCurrentPath: '/articles/why-lupi/' });
+    assert.ok(sub.match(/<a href="\/articles\/" aria-current="page">/), 'Articles matches an article path');
+    // Home (href "/") should not have aria-current (it's not a prefix match).
     const homeLink = html.match(/<a href="\/" aria-current/);
     assert.ok(!homeLink, 'Home link does not have aria-current');
   });
@@ -85,5 +92,22 @@ describe('brand-header helper', () => {
     const a = renderSiteHeader({ ariaCurrentPath: '/atlas/' });
     const b = renderSiteHeader({ ariaCurrentPath: '/atlas/' });
     assert.equal(a, b);
+  });
+});
+
+describe('site footer helper', () => {
+  const html = renderSiteFooter({ email: { user: 'alex', domain: 'lupinesci.com' }, contactLine: 'Research partners, model builders, press and investors' });
+
+  it('links Home · Results · Articles · About · Corrections · Library · LUPI · GitHub', () => {
+    const nav = html.match(/<nav class="foot-nav" aria-label="Footer">([\s\S]*?)<\/nav>/)?.[1] || '';
+    const labels = [...nav.matchAll(/>([^<]+)<\/a>/g)].map((m) => m[1]);
+    assert.deepEqual(labels, ['Home', 'Results', 'Articles', 'About', 'Corrections', 'Library', 'LUPI', 'GitHub']);
+    assert.deepEqual(FOOTER_LINKS.map((l) => l.label), labels);
+    assert.doesNotMatch(html, /\/videos\//, 'the footer never offers /videos/');
+  });
+
+  it('carries the neutral contact line without a mailto: in the markup', () => {
+    assert.match(html, /Research partners, model builders, press and investors: <a class="mail" href="\/about\/#contact" data-u="alex" data-d="lupinesci\.com">alex \[at\] lupinesci\.com<\/a>\./);
+    assert.doesNotMatch(html, /mailto:/);
   });
 });

@@ -20,11 +20,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { renderSiteHeader } from './lib/brand-header.mjs';
+import { renderSiteHeader, renderSiteFooter } from './lib/brand-header.mjs';
+import { loadCompany } from './lib/discovery.mjs';
 import { listedFilmSlugs } from './lib/film-listing.mjs';
 import { headMetaTitleSegments, renderHeadMetaTags, escapeHtml } from './lib/head-meta.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+// footer contact line and address, from data/company.json
+const SITE_CONTACT = (({ email, contactLine }) => ({ email, contactLine }))(loadCompany(ROOT));
 const ATLAS_NODES_PATH = path.join(ROOT, 'public', 'data', 'atlas_nodes.json');
 const ARTICLE_ONTOLOGY_PATH = path.join(ROOT, 'public', 'data', 'article_ontology.json');
 const OUT_ROOT = path.join(ROOT, 'public', 'atlas');
@@ -161,10 +164,7 @@ ${renderHeadMetaTags(headMetaTitleSegments({ prefix: uri, primary: name, suffix:
 ${referencedSection}
     <p class="atlas-detail-asof">Source: <a href="/atlas/">Lupine research ontology</a> (lupine-research sphere). URI: <code>${escapeHtml(id)}</code>.</p>
   </main>
-  <footer class="foot">
-    <span class="creed">Evidence before claim.</span>
-    <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
-  </footer>
+  ${renderSiteFooter(SITE_CONTACT)}
 </body>
 </html>
 `;
