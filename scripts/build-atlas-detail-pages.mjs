@@ -27,7 +27,7 @@ import { headMetaTitleSegments, renderHeadMetaTags, escapeHtml } from './lib/hea
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 // footer contact line and address, from data/company.json
-const SITE_CONTACT = (({ email, contactLine }) => ({ email, contactLine }))(loadCompany(ROOT));
+const SITE_CONTACT = (({ email, name }) => ({ email, name }))(loadCompany(ROOT));
 const ATLAS_NODES_PATH = path.join(ROOT, 'public', 'data', 'atlas_nodes.json');
 const ARTICLE_ONTOLOGY_PATH = path.join(ROOT, 'public', 'data', 'article_ontology.json');
 const OUT_ROOT = path.join(ROOT, 'public', 'atlas');

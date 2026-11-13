@@ -1,8 +1,8 @@
 // scripts/lib/brand-header.mjs
 //
 // One source of truth for the site chrome on every generated page: the brand
-// SVG mark and primary nav in the header, and the footer links and contact
-// line. Closes the duplication that grew across build-articles.mjs,
+// SVG mark and primary nav in the header, and the footer links, name and
+// address. Closes the duplication that grew across build-articles.mjs,
 // build-atlas-page.mjs and build-atlas-detail-pages.mjs (each inlined the
 // same mark, nav and footer). The hand-authored homepage gets the same footer
 // through its <!-- discovery:footer --> region.
@@ -10,7 +10,7 @@
 // API:
 //   renderSiteHeader({ ariaCurrentPath, links, brandLabel, brandTagline, showVideos })
 //     -> string of HTML for the <header class="site-header"> block.
-//   renderSiteFooter({ email, contactLine })
+//   renderSiteFooter({ email, name })
 //     -> string of HTML for the <footer class="foot"> block.
 //
 // ariaCurrentPath: optional site-root-relative path (e.g. "/articles/")
@@ -115,19 +115,21 @@ ${navItems}
   </header>`;
 }
 
-// The footer carries the neutral contact line (docs/messaging-canon.md). The
-// address is assembled by page script from data-u/data-d, so the markup holds
-// no mailto: for address-rewriting proxies to mangle; JS-off visitors read the
-// [at] spelling.
+// The footer carries only the name and the address. The neutral contact line
+// ("Research partners, model builders, press and investors: …") belongs to
+// contact blocks only: /about/#contact, llms.txt and the READMEs
+// (docs/messaging-canon.md §3). The address is assembled by page script from
+// data-u/data-d, so the markup holds no mailto: for address-rewriting proxies
+// to mangle; JS-off visitors read the [at] spelling.
 export function renderSiteFooter({
   email = { user: 'alex', domain: 'lupinesci.com' },
-  contactLine = 'Research partners, model builders, press and investors',
+  name = 'Lupine Science',
 } = {}) {
   const links = FOOTER_LINKS.map((link) => `<a href="${escapeAttr(link.href)}">${escapeAttr(link.label)}</a>`).join(' · ');
   return `<footer class="foot">
     <span class="creed">Evidence before claim.</span>
     <nav class="foot-nav" aria-label="Footer">${links}</nav>
-    <span class="contact">${escapeAttr(contactLine)}: <a class="mail" href="/about/#contact" data-u="${escapeAttr(email.user)}" data-d="${escapeAttr(email.domain)}">${escapeAttr(email.user)} [at] ${escapeAttr(email.domain)}</a>.</span>
+    <span class="contact">${escapeAttr(name)} · <a class="mail" href="/about/#contact" data-u="${escapeAttr(email.user)}" data-d="${escapeAttr(email.domain)}">${escapeAttr(email.user)} [at] ${escapeAttr(email.domain)}</a></span>
     <span class="licence">${escapeAttr(LICENCE_LINE)}</span>
   </footer>`;
 }

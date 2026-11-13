@@ -59,8 +59,10 @@ should be rewritten.
 
 Investors are reached through the contact line only, never as a lead
 audience. The contact line, used only in contact blocks, is: "Research
-partners, model builders, press and investors: alex@lupinesci.com." We do not
-publish funding statements of any kind.
+partners, model builders, press and investors: alex@lupinesci.com." The
+contact blocks are /about/#contact, the llms.txt contact line and the READMEs;
+the site footer carries only "Lupine Science · alex [at] lupinesci.com". We do
+not publish funding statements of any kind.
 
 ## 4. Voice
 

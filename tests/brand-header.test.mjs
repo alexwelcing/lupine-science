@@ -6,9 +6,14 @@
 // one place.
 
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, it } from 'node:test';
+import { fileURLToPath } from 'node:url';
 
 import { renderSiteHeader, renderSiteFooter, SITE_NAV, FOOTER_LINKS } from '../scripts/lib/brand-header.mjs';
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 describe('brand-header helper', () => {
   it('emits a <header class="site-header"> with the brand SVG and nav', () => {
@@ -96,7 +101,7 @@ describe('brand-header helper', () => {
 });
 
 describe('site footer helper', () => {
-  const html = renderSiteFooter({ email: { user: 'alex', domain: 'lupinesci.com' }, contactLine: 'Research partners, model builders, press and investors' });
+  const html = renderSiteFooter({ email: { user: 'alex', domain: 'lupinesci.com' }, name: 'Lupine Science' });
 
   it('links Home · Results · Articles · About · Corrections · Library · LUPI · GitHub', () => {
     const nav = html.match(/<nav class="foot-nav" aria-label="Footer">([\s\S]*?)<\/nav>/)?.[1] || '';
@@ -106,8 +111,24 @@ describe('site footer helper', () => {
     assert.doesNotMatch(html, /\/videos\//, 'the footer never offers /videos/');
   });
 
-  it('carries the neutral contact line without a mailto: in the markup', () => {
-    assert.match(html, /Research partners, model builders, press and investors: <a class="mail" href="\/about\/#contact" data-u="alex" data-d="lupinesci\.com">alex \[at\] lupinesci\.com<\/a>\./);
+  it('carries the name and address only, without a mailto: in the markup', () => {
+    assert.match(html, /<span class="contact">Lupine Science · <a class="mail" href="\/about\/#contact" data-u="alex" data-d="lupinesci\.com">alex \[at\] lupinesci\.com<\/a><\/span>/);
     assert.doesNotMatch(html, /mailto:/);
+    // the neutral contact line belongs to contact blocks, not every page
+    assert.doesNotMatch(html, /investor/i);
+    assert.doesNotMatch(html, /Research partners/);
+  });
+
+  it('leaves the neutral contact line to /about/#contact and llms.txt', () => {
+    const line = 'Research partners, model builders, press and investors: ';
+    const read = (...parts) => fs.readFileSync(path.join(ROOT, 'public', ...parts), 'utf8');
+    const about = read('about', 'index.html');
+    assert.match(about, /<div id="contact"><dt>Contact<\/dt><dd>Research partners, model builders, press and investors: <a class="mail"/);
+    assert.ok(read('llms.txt').includes(`- Contact: ${line}alex@lupinesci.com`), 'llms.txt contact');
+    for (const page of [['index.html'], ['about', 'index.html'], ['articles', 'index.html'], ['corrections', 'index.html']]) {
+      const foot = read(...page).match(/<footer class="foot">[\s\S]*?<\/footer>/)?.[0] || '';
+      assert.ok(foot.length > 0, `${page.join('/')} has a footer`);
+      assert.doesNotMatch(foot, /investor/i, `${page.join('/')} footer names investors`);
+    }
   });
 });

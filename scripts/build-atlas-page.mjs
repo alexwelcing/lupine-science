@@ -19,7 +19,7 @@ import { headMetaTitleSegments, renderHeadMetaTags } from './lib/head-meta.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 // footer contact line and address, from data/company.json
-const SITE_CONTACT = (({ email, contactLine }) => ({ email, contactLine }))(loadCompany(ROOT));
+const SITE_CONTACT = (({ email, name }) => ({ email, name }))(loadCompany(ROOT));
 const JSON_PATH = path.join(ROOT, 'public', 'data', 'atlas_nodes.json');
 const OUT_DIR = path.join(ROOT, 'public', 'atlas');
 const OUT = path.join(OUT_DIR, 'index.html');

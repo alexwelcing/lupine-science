@@ -31,10 +31,11 @@ const SITE = 'https://lupine.science';
 // it is noindex, and llms.txt does not offer it (scripts/lib/film-listing.mjs).
 const FILMS_LISTED = listedFilmSlugs({ articlesDir: SRC, videosDir: path.join(PUBLIC_ROOT, 'videos') }).length > 0;
 const LEAN_COUNT_PATH = path.join(PUBLIC_ROOT, 'data', 'lean_count.json');
-// Footer contact line and address, from data/company.json.
+// Footer name and address, from data/company.json. The contact line itself
+// stays in the contact blocks (/about/#contact, llms.txt).
 const COMPANY_CONTACT = (() => {
-  const { email, contactLine } = loadCompany(ROOT);
-  return { email, contactLine };
+  const { email, name } = loadCompany(ROOT);
+  return { email, name };
 })();
 // The share widget's 3 KB of CSS is inlined into every page head: as its own
 // <link> it was a second render-blocking request (~300 ms on a slow phone).
