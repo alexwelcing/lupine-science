@@ -5,9 +5,10 @@ results; it does not produce them.
 
 ## This repo owns
 
-- the homepage, `/about/`, `/corrections/`, `/llms.txt`, the feed and the
-  sitemap
-- `data/company.json`, the single source for company facts and the claims list
+- the homepage, `/results/`, `/about/`, `/corrections/`, `/llms.txt`, the feed
+  and the sitemap
+- `data/company.json`, the single source for company facts, results and the
+  claims list, and `data/corrections.json`, the corrections log
 - article sources (`articles/*.md`) and their built pages
 - films, booklets and evidence records published on the site
 - the venture deck at `/venture`, behind a password wall that fails closed
