@@ -13,7 +13,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { spawnSync } from 'node:child_process';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -24,6 +24,16 @@ const SCRIPT_DIR = path.join(ROOT, 'data', 'narration-scripts');
 function run(cmd, args, options = {}) {
   const r = spawnSync(cmd, args, { encoding: 'utf8', cwd: ROOT, ...options });
   return r;
+}
+
+export function artifactSha256(file) {
+  return crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+}
+
+export function publishedRecordMatches(record, outVideo, outVtt) {
+  if (!record || !fs.existsSync(outVideo) || !fs.existsSync(outVtt)) return false;
+  return record.mp4_sha256 === artifactSha256(outVideo)
+    && record.vtt_sha256 === artifactSha256(outVtt);
 }
 
 function main() {
@@ -54,7 +64,7 @@ function main() {
 
     // Skip only on positive evidence that this film PASSED its release checks. The
     // marker is written by the publisher only after the poster and the audio release
-    // gate have both succeeded, and it records the MP4's sha256.
+    // gate have both succeeded, and records both the MP4 and VTT sha256 digests.
     //
     // Two earlier versions of this test both failed open:
     //   1. `mp4 larger than 4 MB`, on the theory that new renders are bigger. File
@@ -74,20 +84,19 @@ function main() {
     // 0, leaving a rejected artifact live. Evidence of intent is not evidence of
     // success — only a post-gate record is.
     //
-    // Hashing the MP4 also means a re-render invalidates the marker automatically
-    // rather than inheriting the previous run's pass.
+    // Hashing both files means a re-render or caption edit invalidates the marker
+    // automatically rather than inheriting gate evidence for different artifacts.
     if (!force && fs.existsSync(outVideo) && fs.existsSync(outVtt)) {
       const marker = path.join(ROOT, 'data', 'video-motion', 'published', `${slug}.json`);
       if (fs.existsSync(marker)) {
         let record;
         try { record = JSON.parse(fs.readFileSync(marker, 'utf8')); } catch { record = null; }
-        const actual = crypto.createHash('sha256').update(fs.readFileSync(outVideo)).digest('hex');
-        if (record?.mp4_sha256 === actual) {
-          console.log(`${slug}: skipped (gate passed for this exact mp4, ${record.narration_wpm} wpm)`);
+        if (publishedRecordMatches(record, outVideo, outVtt)) {
+          console.log(`${slug}: skipped (gate passed for this exact mp4 and vtt, ${record.narration_wpm} wpm)`);
           skipped++;
           continue;
         }
-        console.log(`${slug}: republishing — marker does not match the mp4 on disk`);
+        console.log(`${slug}: republishing — marker does not match the mp4 and vtt on disk`);
       }
     }
 
@@ -111,4 +120,4 @@ function main() {
   if (failed > 0) process.exit(1);
 }
 
-main();
+if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) main();

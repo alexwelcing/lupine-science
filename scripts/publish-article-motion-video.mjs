@@ -286,8 +286,8 @@ async function main() {
   // verified on the next run: the batch skipped it and exited 0, leaving a rejected
   // artifact live. Evidence of intent is not evidence of success.
   //
-  // Keyed to the MP4's sha256 so the marker cannot outlive the file it describes —
-  // a re-render invalidates it automatically instead of inheriting a stale pass.
+  // Keyed to both artifact digests so the marker cannot outlive the exact media and
+  // narration timeline the gate inspected. Either edit invalidates the stale pass.
   const markerDir = path.join(ROOT, 'data', 'video-motion', 'published');
   fs.mkdirSync(markerDir, { recursive: true });
   fs.writeFileSync(path.join(markerDir, `${slug}.json`), `${JSON.stringify({
@@ -295,6 +295,7 @@ async function main() {
     mp4: path.relative(ROOT, outVideo),
     mp4_sha256: crypto.createHash('sha256').update(fs.readFileSync(outVideo)).digest('hex'),
     vtt: path.relative(ROOT, outVtt),
+    vtt_sha256: crypto.createHash('sha256').update(fs.readFileSync(outVtt)).digest('hex'),
     narration_wpm: narration.measuredWpm,
     length_ratio: narration.lengthRatio,
     audio_gate: path.relative(ROOT, audioGateJson),
