@@ -10,11 +10,8 @@ Updated: 2026-11-12
 - Stage: Early stage, founder-led
 - Founder: Alex Welcing
 - Contact: Research partners, model builders, press and investors: alex@lupinesci.com
-- Focus: Machine-learned interatomic potentials (MLIPs); Benchmarking foundation models for atomistic simulation; Error analysis for atomistic simulation; Preregistered evaluation; Elastic and surface properties of metals; Density functional theory (DFT) reference data; Checking arithmetic with Lean 4; Browser-based molecular visualization
-- Next public appearance: TMS2027 Annual Meeting & Exhibition, Orlando, 14–18 March 2027; poster presentation in Accelerating Innovation in Materials and Manufacturing, "From Transferability to Prediction: The Error Geometry of Interatomic Potentials": https://lupine.science/articles/tms-2027-measuring-what-we-can-trust/
+- Next public appearance: TMS2027 Annual Meeting & Exhibition, Orlando, 14–18 March 2027; poster presentation: https://lupine.science/articles/tms-2027-measuring-what-we-can-trust/
 - Licences: You can reuse our code (MIT) and our first-party text and data (CC BY 4.0) with attribution and no share-alike obligations.
-- Company fact sheet: https://lupine.science/about/
-- Corrections log (retired public claims, with dates and reasons): https://lupine.science/corrections/
 
 ## Publication status
 
@@ -24,128 +21,51 @@ status label.
 
 A poster abstract was accepted for TMS2027 (Orlando, 14–18 March 2027). It is a conference presentation, not a paper. The accepted abstract described a universal error 'hyper-ribbon'; our record no longer supports that, and the proceedings manuscript replaces it with narrower measurement claims.
 
-Lean 4 checks the arithmetic and stated inequalities behind published
-numbers; it does not check the physics, the reference data or the pipeline.
+Lean 4 checks the arithmetic and stated inequalities behind published numbers; it does not check the physics, the reference data or the pipeline.
 
-## Approach
+## Key links
 
-- Measure: Compare MLIP predictions with published reference values and record where, and in which direction, they miss.
-- Test against gates: Write the pass/fail gate down before a test or a correction runs, and label any amendment made after results are seen. Correction is a research question here, not a product: it has held only in narrow, stated cases. In four preregistered campaigns in July 2026 (Round 4), no gate passed: three failed and one abstained.
-- Publish verdicts: Release the data, the gate and the verdict together: pass, fail or abstain. Lean 4 checks the arithmetic and stated inequalities behind published numbers; it does not check the physics, the reference data or the pipeline.
-
-## Where it has been tested
-
-Results we have published, failures beside passes, each with its scope. Status is one of Supported, Open, Failed, Abstained. They are not yet peer-reviewed. Other rounds, including Round 3, and self-corrections: https://github.com/alexwelcing/lupine-rhizo/blob/main/docs/conjectures/ledger.md
-
-- Supported: Blind prediction of fcc (110) surface-energy error. Nine fcc metals, four foundation MLIPs: an error field fitted to three other observables predicted the never-fitted (110) error at r = 0.906 across 36 model–material cells (material-clustered 95% CI 0.82–0.96; permutation null centred near 0.44; significant for three of the four models). https://lupine.science/articles/a-smooth-environment-resolved-error-field/
-- Supported: Energy-only correction beside CHGNet. Blind (110) surface-energy error fell from 9.7% to 1.5% on nickel and from 28.0% to 13.7% on copper: one model, two metals, one facet. https://lupine.science/articles/a-smooth-environment-resolved-error-field/
-- Supported: Surface-energy rankings. Across 21 materials and 228 published reference values, four foundation MLIPs ranked surface energies almost correctly (Spearman 0.88–1.00) while missing magnitudes by tens of percent. https://lupine.science/articles/the-order-is-right-the-size-is-wrong/
-- Failed: Shared error direction across models (21-material benchmark). Apparent cross-model alignment sat inside a coupling-aware null, so we do not count it as a result. https://lupine.science/articles/the-order-is-right-the-size-is-wrong/
-- Open: Elastic-constant bias direction, 16 cubic metals. Four MatPES MLIPs, 128 cases, r2SCAN targets approximate: one bias direction per functional transfers out of sample. When the held-out reference sets how far to correct, MAE falls from 17.84 to 10.36 GPa: a ceiling, not a deployable correction. A correction that works without seeing the answer is still open, and derived moduli are uncertified. https://github.com/alexwelcing/lupine-rhizo/blob/main/paper/lupine-layer2-3x3x3-final-paper.md
-- Supported: Small cells for elastic benchmarks. On the same 16-metal panel, 1×1×1 TensorNet/PBE cells matched 3×3×3 cells for elastic-constant error (14.55 vs 14.61 GPa MAE). https://lupine.science/articles/the-small-cell-held-mlip-elastic-benchmark/
-- Failed: Global elastic correction on that panel. A global correction made the result worse: 63.40 GPa MAE. https://lupine.science/articles/the-small-cell-held-mlip-elastic-benchmark/
-- Failed: Round 4: Li-ion migration barriers. 30-path panel; MACE-MP-0 small and medium, MACE-MPA-0 medium and CHGNet missed a 40 meV gate (MAE 135.0–242.5 meV on completed paths). https://lupine.science/articles/four-gates-three-honest-failures-one-live-experiment/
-- Failed: Round 4: lattice- and elastic-constant correction. Rocksalt ionics and perovskites: ionics 0/4; perovskites 0/1 after a post-measurement amendment. https://lupine.science/articles/four-gates-three-honest-failures-one-live-experiment/
-- Failed: Round 4: catalyst-adsorption Δ-correction. Every selected Δ-correction made holdout error worse. https://lupine.science/articles/four-gates-three-honest-failures-one-live-experiment/
-- Failed: Projection Law Round 2: registered predictions. Four of seven registered predictions across two experiments failed and are reported as failures. https://github.com/alexwelcing/lupine/blob/main/paper2/ProjectionLaw_Round2.md
-- Abstained: Round 4: magnetism. No available model had the spin physics the test needed. https://lupine.science/articles/four-gates-three-honest-failures-one-live-experiment/
-- Abstained: Round 5: direction-gated barrier correction. On the 30-path Li-ion panel, fitted on 12 disjoint training paths: all four models abstained at the direction gate, so no correction was applied. https://lupine.science/articles/the-materials-we-test-against/
-- Open: Sparse-DFT anchor pilot (GPAW), 23 of 30 paths. The preregistered 40 meV gate against published VASP barriers failed on path 7 (118.8 meV). An amendment written after that failure moved the gate to a same-engine check, which passed; against the published references the error was 693.0–705.7 meV. Same-engine only. https://lupine.science/articles/shared-dft-anchors/
-
-## What we can and cannot claim
-
-- We can claim: For nine fcc metals, an error field fitted to three other observables predicted the never-fitted (110) surface-energy error of four foundation MLIPs at r = 0.906 across 36 model–material cells (material-clustered 95% CI 0.82–0.96; permutation null centred near 0.44; significant for three of the four models). https://lupine.science/articles/a-smooth-environment-resolved-error-field/
-- We can claim: Used as an energy-only correction beside CHGNet, the field cut blind (110) surface-energy error from 9.7% to 1.5% on nickel and from 28.0% to 13.7% on copper: one model, two metals, one facet. https://lupine.science/articles/a-smooth-environment-resolved-error-field/
-- We can claim: Across 21 materials and 228 published reference values, four foundation MLIPs ranked surface energies almost correctly (Spearman 0.88–1.00) while missing magnitudes by tens of percent. https://lupine.science/articles/the-order-is-right-the-size-is-wrong/
-- We can claim: On 16 elemental cubic metals, 1×1×1 TensorNet/PBE cells matched 3×3×3 cells for elastic-constant error (14.55 vs 14.61 GPa MAE). https://lupine.science/articles/the-small-cell-held-mlip-elastic-benchmark/
-- We cannot claim: That any correction we have tested is ready to deploy. In four preregistered campaigns in July 2026 (Round 4), no gate passed: three failed and one abstained. On the 16-metal elastic panel, 17.84 → 10.36 GPa is a ceiling that needs the held-out answer, not a deployable correction. https://lupine.science/articles/four-gates-three-honest-failures-one-live-experiment/
-- We cannot claim: That different models share one error direction on surface energies. In our 21-material benchmark, apparent cross-model alignment sat inside a coupling-aware null. https://lupine.science/articles/the-order-is-right-the-size-is-wrong/
-- We cannot claim: That a Lean check confirms the physics. Lean 4 checks the arithmetic and stated inequalities behind published numbers; it does not check the physics, the reference data or the pipeline. https://lupine.science/about/#approach
-- We cannot claim: Anything about the newest multi-head or multi-fidelity models or their confidence heads. We have not tested them. https://lupine.science/about/#faq
-- We cannot claim: Peer review. No Lupine paper has been peer-reviewed or accepted yet. https://lupine.science/about/#faq
-
-## How Lupine works
-
-Lupine Science is founder-led (Alex Welcing, founder). The work is done with AI coding and research agents under rules that live in code. AI assistance is disclosed, and a human author is responsible for every public summary.
-
-- In the research workbench, a pull request that changes a status in the assumption registry, the status-event snapshot or the locked ontology must bring a new evidence-bundle hash, or CI fails. The check does not read claim files, the Markdown ledgers or article status lines; those are reviewed by hand.
-- Public research-activity records pass a reviewed import that rejects local paths, emails, private URLs and credential-shaped strings; failed or stopped work cannot be relabelled completed.
-- The model review stage runs with an explicit tool list: packet critiques run without tools, and literature jobs can search and fetch public web pages. It cannot start experiments, publish or schedule runs.
-- A model's score is a recommendation, not evidence.
-- Lean must build with no sorry, and theorem counts are generated, never typed.
-- Partner-facing evaluation is designed to run in an offline HPC lane on the partner's own hardware: local manifests in, local JSON out, no outbound connections at runtime, telemetry off by default. That container has not yet been built on a facility cluster.
-
-Where data goes: Agent model calls go to commercial model providers, through API keys and the providers' own signed-in command-line tools. Agent traces go to an Arize Phoenix tracing project. Benchmark runs use Lupine's cloud project or a local workstation.
-
-Key-person risk is real: the program depends on one founder. Public data, code and the failure ledger mean the results can be checked without us.
-
-AI and data statement: https://github.com/alexwelcing/lupine-rhizo/blob/main/docs/ai-and-data.md
-
-## Milestones
-
-- 2026-11-11: Corrections log published: retired public claims, with dates and reasons: https://lupine.science/corrections/
-- 2026-10-21: Research explainer: what error patterns can and cannot tell us: https://lupine.science/articles/what-error-patterns-can-tell-us/
-- 2026-08-31: Poster abstract accepted for TMS2027, Orlando (a conference presentation, not a paper): https://lupine.science/articles/tms-2027-measuring-what-we-can-trust/
-- 2026-08-03: Small-cell MLIP elastic benchmark release archived (no DOI yet): https://lupine.science/articles/the-small-cell-held-mlip-elastic-benchmark/
-- 2026-08-03: Shared DFT anchors evidence record: projected accounting, no new DFT: https://lupine.science/articles/shared-dft-anchors/
-- 2026-07-21: The Savings Stack: free 16-page booklet with a hashable data pack: https://lupine.science/articles/the-savings-stack/
-- 2026-07-19: Four preregistered Round-4 campaigns reported: no gate passed (three failed, one abstained): https://lupine.science/articles/four-gates-three-honest-failures-one-live-experiment/
-- 2026-07-05: The Trust Layer: founding-thesis essay (Direction: where the work is aimed, not a result): https://lupine.science/articles/the-trust-layer/
-- 2026-07-02: Foundation MLIPs rank surface energies nearly right while missing magnitudes (21 materials): https://lupine.science/articles/the-order-is-right-the-size-is-wrong/
-- 2026-07-02: An environment-resolved error field for nine fcc metals, tested on a never-fitted surface energy: https://lupine.science/articles/a-smooth-environment-resolved-error-field/
-- 2026-06-30: Why LUPI: the browser-native evidence viewer, explained: https://lupine.science/articles/why-lupi/
-
-## Results and methods
-
-Newest first. Status is Published (current statement on this site, not peer-reviewed) or Working draft (may change, not for citation).
-
-- [Learning What an Error Pattern Can Tell Us](https://lupine.science/articles/what-error-patterns-can-tell-us/) (2026-10-21, Published): A retrospective analysis of previously examined data: errors stayed concentrated, but a learned shared direction added little or no advantage over a simple common-direction baseline. Also: where model disagreement helped, and a diffusion correction that reaches its limit. No new physical validation is claimed.
-- [Lupine Science is heading to TMS2027](https://lupine.science/articles/tms-2027-measuring-what-we-can-trust/) (2026-09-05, Published): A poster abstract was accepted for TMS2027 (Orlando, 14–18 March 2027). It is a conference presentation, not a paper. The accepted abstract described a universal error "hyper-ribbon"; our record no longer supports that, and the proceedings manuscript replaces it with narrower measurement claims.
-- [What the Cap Was Hiding](https://lupine.science/articles/what-the-cap-was-hiding/) (2026-08-04, Published): A preregistered correction trial (Round 4, July 2026) failed. Going back through the mathematics showed four defects, none of them in the physics: the gate that decided when a correction could act was mis-tuned, the confirmatory test could not have passed even with a perfect result, a proposed input statistic measured only the panel's bookkeeping, and the replacement gate has a rounding hazard of its own. The clearance conditions are Lean 4 theorems; the rest is arithmetic replayed from the hash-locked records.
-- [Shared DFT Anchors: A Projected Saving, and What Happened When We Ran It](https://lupine.science/articles/shared-dft-anchors/) (2026-08-03, Published): Projected accounting, no new DFT: 154 instead of 558 projected DFT evaluations on 29 analyzable paths (72.4% fewer DFT evaluations, projected). The baseline is four separate runs; paths have 5–7 images, so the union covers most images and deduplication alone caps the saving near 73%. When we ran the pilot, it was about 700 meV off the published references; see "What happened when we ran it".
-- [The Small Cell Held: A 16-Element MLIP Elastic Benchmark](https://lupine.science/articles/the-small-cell-held-mlip-elastic-benchmark/) (2026-08-03, Published): On a 16-metal panel, 1×1×1 TensorNet/PBE cells matched 3×3×3 cells for elastic-constant error (14.55 vs 14.61 GPa MAE), while a global correction made the result worse (63.40 GPa).
-- [The Savings Stack: A Booklet on Compute Savings in Atomistic Simulation](https://lupine.science/articles/the-savings-stack/) (2026-07-21, Published): The Savings Stack (July 2026; booklet revised as v1.1 on 2026-11-12): a 16-page booklet on compute savings in atomistic simulation, with a hashable data pack. Its headline count is projected, not measured: four models sharing anchors would need 154 instead of 558 DFT evaluations on 29 short paths (72.4% fewer, against a baseline of four separate runs), and no new DFT was run. When the pilot was later run, it was about 700 meV off the published references.
-- [A Seven-Tier Map of MLIP Error, by Property Type (July 2026)](https://lupine.science/articles/an-order-of-effort/) (2026-07-20, Published): A July 2026 map of MLIP error by property type, from lattice constants to magnetism: where a correction has held in a narrow, stated case, where only boundary results apply, and where the honest answer is abstention. Later results that changed the map are dated in the body.
-- [The Z1 Barrier Panel: 42 Li-ion Migration Paths from a Published DFT-NEB Benchmark](https://lupine.science/articles/the-materials-we-test-against/) (2026-07-20, Published): Our barrier campaigns run on 42 published Li-ion migration paths from the LiTraj nebDFT2k benchmark: 30 frozen test paths and 12 disjoint training paths. In Round 4, four foundation MLIPs missed a 40 meV gate on the test panel; in Round 5, a direction-gated correction abstained for all four models, so none was applied.
-- [Round 4: Three Failures and One Abstention, Preregistered](https://lupine.science/articles/four-gates-three-honest-failures-one-live-experiment/) (2026-07-19, Published): In four preregistered campaigns in July 2026 (Round 4), no gate passed: three failed and one abstained. MACE-MP-0 small and medium, MACE-MPA-0 medium and CHGNet missed a 40 meV migration-barrier gate (MAE 135.0–242.5 meV on completed paths); a lattice- and elastic-constant correction on rocksalt ionics and perovskites failed; every selected Δ-correction made catalyst-adsorption holdout error worse; and the magnetism campaign abstained. Each result is hash-locked, including our own preregistration violations.
-- [The Correction That Hurt, and the Claim We Narrowed](https://lupine.science/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/) (2026-07-13, Published): Our first correction made alloy predictions worse. We turned that failure into a Lean-checked rule about correction direction, explored a direction-gated rule that cut lattice errors in-sample, and registered a kill condition for Round 3. It fired, and we narrowed the claim to same-class lattice constants. Round 4's preregistered test of that lattice result then failed, so the claim is not established.
-- [LUPI Gains HFC Refrigerant Research Payloads](https://lupine.science/articles/lupi-hfc-refrigerant-research-payloads/) (2026-07-12, Published): A LUPI viewer release (July 2026) adds R32 and R125 NVT simulations from the Maginn group force fields, a fix ave/chunk profile parser, vector glyph views and level-of-detail rendering for large scenes.
-- [A smooth, environment-resolved error field behind uMLIP errors on fcc metals](https://lupine.science/articles/a-smooth-environment-resolved-error-field/) (2026-07-02, Published): For nine fcc metals, an error field fitted to three other observables predicted the never-fitted (110) surface-energy error of four foundation MLIPs at r = 0.906 across 36 model–material cells (material-clustered 95% CI 0.82–0.96; permutation null centred near 0.44; significant for three of the four models). Used as an energy-only correction beside CHGNet, the field cut blind (110) surface-energy error from 9.7% to 1.5% on nickel and from 28.0% to 13.7% on copper: one model, two metals, one facet.
-- [The Order Is Right, the Size Is Wrong](https://lupine.science/articles/the-order-is-right-the-size-is-wrong/) (2026-07-02, Published): Across 21 materials and 228 published reference values, four foundation MLIPs ranked surface energies almost correctly (Spearman 0.88–1.00) while missing magnitudes by tens of percent. Apparent cross-model alignment sat inside a coupling-aware null, so we do not count it as a result.
-- [Why LUPI?](https://lupine.science/articles/why-lupi/) (2026-06-30, Published): LUPI as a live, install-free window into molecular structures and its implications for research, teaching, and public trust.
-
-## Direction (where the work is aimed; not results)
-
-These pieces describe where the work is aimed. They are not results, and any capability they describe is a hypothesis to test.
-
-- [Beyond Carbon: The Error Geometry of Environmental Materials](https://lupine.science/articles/beyond-carbon-the-error-geometry-of-environmental-materials/) (2026-07-16, Direction): The opening piece of a July 2026 series on environmental materials. It argues that their useful chemistry happens in under-coordinated environments, where machine-learned potentials are least reliable, and sets out what we would need to test. A direction, not a result.
-- [Cement, Concrete, and the Weight of the Built World](https://lupine.science/articles/cement-concrete-and-the-weight-of-the-built-world/) (2026-07-16, Direction): Cement decarbonization depends on disordered, metastable, under-coordinated phases, which are where machine-learned potentials are least reliable. This July 2026 piece sets out where measured model error matters for alternative binders, clinkers and CO₂-cured concrete, and what has been tested so far. A direction, not a result.
-- [Critical Minerals, PFAS, and the Remediation Imperative](https://lupine.science/articles/critical-minerals-pfas-and-the-remediation-imperative/) (2026-07-16, Direction): Critical-mineral recycling, direct lithium extraction and PFAS destruction share a materials-discovery problem: binding and activation energies in under-coordinated environments, where machine-learned potentials are least reliable. This piece describes where the work is aimed and what has been tested so far. A direction, not a result.
-- [Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers](https://lupine.science/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/) (2026-07-16, Direction): Methane and hydrofluorocarbon refrigerants are large non-CO₂ climate levers, and both are materials-limited. This July 2026 piece sets out where measured model error matters for their discovery and what would have to be tested before a fast screen could be trusted. A direction, not a result.
-- [Water and Air: The Materials Behind What We Drink and Breathe](https://lupine.science/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/) (2026-07-16, Direction): Water and air quality depend on materials that separate and transform molecules in under-coordinated environments, where machine-learned potentials are least reliable. This July 2026 piece sets out where a measured correction might help and what would have to be tested first. A direction, not a result.
-- [Five Materials Worth Getting Right: Cathodes, Electrolytes, Sorbents, Catalysts and Absorbers](https://lupine.science/articles/five-materials-for-5-to-12-gtco2-year/) (2026-07-09, Direction): Five climate-relevant material classes whose performance depends on defects, surfaces and transition states, where machine-learned potentials are least reliable. This July 2026 piece describes the targets, the literature on why they matter, and what we have tested so far. A direction, not a result; it makes no climate-impact claim of its own.
-- [From Predicted Crystal to Commercial Cell](https://lupine.science/articles/from-predicted-crystal-to-commercial-cell/) (2026-07-09, Direction): A predicted crystal passes through synthesis, coating, cell fabrication, characterization, integration and manufacturing before it becomes a product. This July 2026 piece, rewritten in November 2026, maps those hand-offs by type of organisation for batteries, carbon removal, ammonia and solar absorbers, and says where knowing a model's error would help. A direction, not a result.
-- [The 0.2% Synthesis Problem](https://lupine.science/articles/the-02-percent-synthesis-problem/) (2026-07-09, Direction): A literature review: of 380,000 structures GNoME reported as computationally stable, 736 had been independently synthesized by late 2023 (about 0.2%). It describes four structural filters between a predicted crystal and a made material and the questions they raise for climate-relevant materials. A direction, not a result.
-- [The Trust Layer](https://lupine.science/articles/the-trust-layer/) (2026-07-05, Direction): Our founding thesis, July 2026. AI made proposing and simulating materials cheap; deciding which predictions to believe is now the bottleneck. We think independent, preregistered measurement of model error is the missing piece, and we publish it in the open. A direction, not a result.
-- [Why Lupine Science?](https://lupine.science/articles/why-lupine-science/) (2026-06-30, Direction): Our June 2026 launch essay, revised. Generative AI produces far more material candidates than labs can test, and the simulations used to rank them are wrong in structured ways. We set out to measure those errors before a lab commits to a candidate. A direction, not a result.
-- [From Fantasy Frameworks to Makeable Materials: A Prospectus for Formalized MOF Discovery](https://lupine.science/articles/from-fantasy-frameworks-to-makeable-materials/) (2026-06-25, Direction): A June 2026 proposal: encode the rules of MOF assembly, stability and synthesis as stated assumptions in Lean, so that each AI-generated candidate carries an explicit, checked list of the assumptions it meets, and test those rules against a lab's successes and failures. A direction, not a result; nothing in it has been built or tested.
-
-## Canonical surfaces
-
-- Website: https://lupine.science/
+- Results (what held and what did not, each with its scope): https://lupine.science/results/
 - Company facts: https://lupine.science/about/
-- Corrections log: https://lupine.science/corrections/
+- Corrections log (retired public claims, with dates and reasons): https://lupine.science/corrections/
 - Articles: https://lupine.science/articles/
 - Atom feed: https://lupine.science/feed.xml
 - Library (research corpus): https://library.lupine.science
 - LUPI (browser structure viewer): https://lupi.live
-- Research code and data: https://github.com/alexwelcing/lupine-rhizo
+- Research code, data and the hypothesis ledger: https://github.com/alexwelcing/lupine-rhizo
 - Repository: https://github.com/alexwelcing/lupine
 
-## Homepage data
+## Articles
 
-The homepage background is an illustration, not a result: it is drawn from
-error statistics of four classical (EAM) potentials at https://lupine.science/data/benchmark_manifold.json
-and from one cavity of MOF-5 (Zn4O(BDC)3), rendered from the committed
-crystal structure at https://lupine.science/data/mof5_structure.json (COD 1516287; Li, Eddaoudi,
-O'Keeffe & Yaghi, Nature 402, 276 (1999)).
+Newest first. Published: current statement on this site, not peer-reviewed. Working draft: may change, not for citation.
+
+- [Learning What an Error Pattern Can Tell Us](https://lupine.science/articles/what-error-patterns-can-tell-us/): Published
+- [Lupine Science is heading to TMS2027](https://lupine.science/articles/tms-2027-measuring-what-we-can-trust/): Published
+- [What the Cap Was Hiding](https://lupine.science/articles/what-the-cap-was-hiding/): Published
+- [Shared DFT Anchors: A Projected Saving, and What Happened When We Ran It](https://lupine.science/articles/shared-dft-anchors/): Published
+- [The Small Cell Held: A 16-Element MLIP Elastic Benchmark](https://lupine.science/articles/the-small-cell-held-mlip-elastic-benchmark/): Published
+- [The Savings Stack: A Booklet on Compute Savings in Atomistic Simulation](https://lupine.science/articles/the-savings-stack/): Published
+- [A Seven-Tier Map of MLIP Error, by Property Type (July 2026)](https://lupine.science/articles/an-order-of-effort/): Published
+- [The Z1 Barrier Panel: 42 Li-ion Migration Paths from a Published DFT-NEB Benchmark](https://lupine.science/articles/the-materials-we-test-against/): Published
+- [Round 4: Three Failures and One Abstention, Preregistered](https://lupine.science/articles/four-gates-three-honest-failures-one-live-experiment/): Published
+- [The Correction That Hurt, and the Claim We Narrowed](https://lupine.science/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/): Published
+- [LUPI Gains HFC Refrigerant Research Payloads](https://lupine.science/articles/lupi-hfc-refrigerant-research-payloads/): Published
+- [A smooth, environment-resolved error field behind uMLIP errors on fcc metals](https://lupine.science/articles/a-smooth-environment-resolved-error-field/): Published
+- [The Order Is Right, the Size Is Wrong](https://lupine.science/articles/the-order-is-right-the-size-is-wrong/): Published
+- [Why LUPI?](https://lupine.science/articles/why-lupi/): Published
+
+## Direction
+
+Describes where this work is aimed. Not a result. Any capability these pieces describe is a hypothesis to test.
+
+- [Beyond Carbon: The Error Geometry of Environmental Materials](https://lupine.science/articles/beyond-carbon-the-error-geometry-of-environmental-materials/): Direction
+- [Cement, Concrete, and the Weight of the Built World](https://lupine.science/articles/cement-concrete-and-the-weight-of-the-built-world/): Direction
+- [Critical Minerals, PFAS, and the Remediation Imperative](https://lupine.science/articles/critical-minerals-pfas-and-the-remediation-imperative/): Direction
+- [Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers](https://lupine.science/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/): Direction
+- [Water and Air: The Materials Behind What We Drink and Breathe](https://lupine.science/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/): Direction
+- [Five Materials Worth Getting Right: Cathodes, Electrolytes, Sorbents, Catalysts and Absorbers](https://lupine.science/articles/five-materials-for-5-to-12-gtco2-year/): Direction
+- [From Predicted Crystal to Commercial Cell](https://lupine.science/articles/from-predicted-crystal-to-commercial-cell/): Direction
+- [The 0.2% Synthesis Problem](https://lupine.science/articles/the-02-percent-synthesis-problem/): Direction
+- [The Trust Layer](https://lupine.science/articles/the-trust-layer/): Direction
+- [Why Lupine Science?](https://lupine.science/articles/why-lupine-science/): Direction
+- [From Fantasy Frameworks to Makeable Materials: A Prospectus for Formalized MOF Discovery](https://lupine.science/articles/from-fantasy-frameworks-to-makeable-materials/): Direction
