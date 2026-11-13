@@ -1,0 +1,120 @@
+{
+  "_comment": "Source of /corrections/ (scripts/lib/discovery.mjs renderCorrectionsMain). Every retired public claim stays listed: add entries, never drop them. Each entry is Was / Now / Why, one line each, within the word budget in docs/messaging-canon.md, with the date retired. Strings may carry [text](href) links and nothing else.",
+  "updated": "2026-11-12",
+  "description": "Public claims Lupine Science has retired, each with the date and the reason: what we said, what we say now, and why.",
+  "intro": "When we retire a public claim, we list it here with the date and the reason; what we claim now is on the [results page](/results/), and older wording stays in our public git history.",
+  "entries": [
+    {
+      "id": "verified-ai-predictions",
+      "title": "“Verified AI predictions”",
+      "was": "“Verified AI predictions for materials discovery”; “the trust layer” as what we offer.",
+      "now": "We measure where machine-learned models of atoms go wrong and publish every verdict, failures included.",
+      "why": "Our evidence supports measurement, not verification. In Round 4 (July 2026) no gate passed.",
+      "retired": "2026-11-11"
+    },
+    {
+      "id": "runtime-correction",
+      "title": "Runtime correction as a product",
+      "was": "“corrects that error at runtime as a physical field beside the model”.",
+      "now": "Correction is a research question here, not a product: it has held only in narrow, stated cases.",
+      "why": "The one correction that held blind covers one model, two metals, one facet; both Round-4 correction tests failed.",
+      "retired": "2026-11-11"
+    },
+    {
+      "id": "shared-directions",
+      "title": "“~70% of dominant error directions are shared”",
+      "was": "“~70% of dominant error directions are shared”; “errors span only 1.1–2.0 directions”.",
+      "now": "Retired as evidence. In our machine-learned benchmark, apparent cross-model alignment sat inside a coupling-aware null.",
+      "why": "It was a mean cosine over four classical (EAM) potentials, shown as if it described machine-learned ones.",
+      "retired": "2026-11-11"
+    },
+    {
+      "id": "theorem-counts",
+      "title": "Theorem counts as evidence",
+      "was": "“899 build-locked theorems in the open Lean library, zero sorry” as a headline.",
+      "now": "Lean 4 checks the arithmetic and stated inequalities behind published numbers; it does not check the physics, the reference data or the pipeline.",
+      "why": "A count of checked statements says nothing about whether the physics is right.",
+      "retired": "2026-11-11"
+    },
+    {
+      "id": "elastic-correction",
+      "title": "“17.84 → 9.92 GPa” and a usable class-aware correction",
+      "was": "Elastic error “17.84 → 9.92 GPa” and “zero no-harm violations”, presented as a usable correction.",
+      "now": "A ceiling, not a deployable correction: it needs the held-out answer to set its size. See [results](/results/#elastic-ceiling-16).",
+      "why": "9.92 GPa was an in-sample recalibration. Neither figure is a correction you could apply to a new material.",
+      "retired": "2026-11-11"
+    },
+    {
+      "id": "gigatonnes",
+      "title": "“5–12 GtCO₂/yr” as a Lupine outcome",
+      "was": "“Five Materials for 5–12 GtCO₂/Year”, as a climate outcome our work would unlock.",
+      "now": "Climate materials are one lane of where the work is aimed (Direction). Literature estimates appear only attributed to their sources.",
+      "why": "The range summed literature estimates. We have not measured or enabled any climate outcome.",
+      "retired": "2026-11-11"
+    },
+    {
+      "id": "partners",
+      "title": "Organisations described as partners",
+      "was": "Labs, companies and agencies named as partners or pilots, with partner tiers and maps.",
+      "now": "We cite published work as sources, and welcome labs that want their models or materials measured.",
+      "why": "None of the organisations named were partners.",
+      "retired": "2026-11-11"
+    },
+    {
+      "id": "environmental-series",
+      "title": "Environmental-series capability claims",
+      "was": "One correction layer “fixes” water, air, PFAS, cement and refrigerant discovery; “corrected barriers recover DFT accuracy”; “certificates of synthesizability”.",
+      "now": "These pieces are marked Direction; each capability is a hypothesis to test.",
+      "why": "Our results contradict them: in Round 4 the barrier gate failed for every model, and both correction tests failed.",
+      "retired": "2026-11-11"
+    },
+    {
+      "id": "proof-pack",
+      "title": "“Proof pack”",
+      "was": "“Proof pack” for our evidence bundles, including a climate-series pack.",
+      "now": "“Evidence record”. The climate-series pack is retired; the shared DFT anchors record was reissued on November 12, 2026, reviewed internally (AI-assisted).",
+      "why": "The bundles check file integrity and provenance; they do not prove the claims inside them.",
+      "retired": "2026-11-11"
+    },
+    {
+      "id": "tms-abstract",
+      "title": "The TMS2027 abstract’s universal “hyper-ribbon”",
+      "was": "The accepted abstract described a universal error “hyper-ribbon” that makes transferability predictable.",
+      "now": "A TMS2027 poster (Orlando, 14–18 March 2027), not a paper; the proceedings manuscript replaces it with narrower measurement claims.",
+      "why": "Registered stress tests did not support it: classical alignment did not predict foundation-model alignment; a global elastic correction made results worse.",
+      "retired": "2026-11-11"
+    },
+    {
+      "id": "seventy-two-percent",
+      "title": "72.4% shown without its baseline",
+      "was": "“72.4% fewer DFT evaluations” with no baseline; booklet v1 called it “measured” and added ~38–76× multipliers.",
+      "now": "Projected, no new DFT, against four separate runs: only on the [shared DFT anchors](/articles/shared-dft-anchors/) page and booklet v1.1.",
+      "why": "Without its baseline a projection read as a saving. The undemonstrated multipliers were removed on November 12, 2026.",
+      "retired": "2026-11-11"
+    },
+    {
+      "id": "universal-underprediction",
+      "title": "“All four models under-predict every barrier”",
+      "was": "Round-4 and Z1 pages: every model under-predicted every barrier, 26 of 26 paths for one.",
+      "now": "Model-dependent at float64: CHGNet 25 of 28, MACE-MP-0 medium 21 of 29, small 17 of 26, MACE-MPA-0 medium 13 of 28 paths.",
+      "why": "That came from the float32 run; the locked float64 records show no universal direction.",
+      "retired": "2026-11-11"
+    },
+    {
+      "id": "investor-material",
+      "title": "The investor one-pager and climate-investor presentation",
+      "was": "An investor one-pager at /one-pager and a climate-investor presentation.",
+      "now": "Removed; both addresses redirect to [company facts](/about/).",
+      "why": "Both were superseded drafts that repeated claims retired on this page.",
+      "retired": "2026-11-11"
+    },
+    {
+      "id": "funding-line",
+      "title": "The funding status line",
+      "was": "A one-line funding status on the homepage, company facts, FAQ and llms.txt.",
+      "now": "No longer published. Research partners, model builders, press and investors can write to the address in [company facts](/about/#contact).",
+      "why": "We no longer publish a funding status.",
+      "retired": "2026-11-11"
+    }
+  ]
+}

@@ -307,7 +307,16 @@ main, header.site-header, footer.foot { position: relative; z-index: 4; }
   .article-card picture .card-thumb, .article-card:hover picture .card-thumb { transition: none; transform: none; }
 }
 .card-status { text-transform: uppercase; letter-spacing: 0.08em; font-size: 11px; }
-.card-status.is-published { color: var(--verified); font-weight: 600; }
+/* document statuses are labels, not verdicts: no "verified" green */
+.card-status.status-direction, .article-status.status-direction { color: var(--indigo); }
+.article-status.status-archived { color: var(--ochre); border-color: var(--ochre); }
+.index-lede { max-width: 68ch; color: var(--ink-soft); font-size: 1rem; line-height: 1.6; margin: -24px 0 36px; }
+.direction-section .index-lede { margin: 0 0 28px; }
+.article-index section + section { margin-top: clamp(48px, 7vh, 80px); }
+.start-here { margin: 0 0 clamp(40px, 6vh, 64px); }
+.start-here-list { margin: 0; padding-left: 1.4em; line-height: 1.9; font-size: 1.05rem; }
+.start-here-list .card-status { margin-left: 0.4em; color: var(--ink-faint); }
+.article-index h2.b-label { font-weight: 400; }
 .card-thumb-empty {
   display: flex; align-items: center; justify-content: center; gap: 6px;
   aspect-ratio: 16/9; border: 1px solid var(--rule); margin-bottom: 14px;
@@ -338,6 +347,7 @@ main, header.site-header, footer.foot { position: relative; z-index: 4; }
   font-family: var(--mono); font-size: 13px; color: var(--ink-faint);
 }
 .foot .creed { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--ink-soft); }
+.foot .licence { font-size: 12px; color: var(--ink-faint); }
 .foot a { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 2px; border-bottom: 1px solid transparent; transition: all 180ms; }
 .foot a:hover { color: var(--indigo); border-color: var(--indigo); }
 .foot b { color: var(--ink); font-weight: 600; }
@@ -879,3 +889,61 @@ body.format-tutorial h2::before {
 @media (max-width: 640px) {
   .about .about-facts > div { grid-template-columns: 1fr; gap: 4px; }
 }
+
+/* ── footer nav (scripts/lib/brand-header.mjs renderSiteFooter) ── */
+.foot .licence { flex-basis: 100%; }
+
+/* ── result labels: one closed vocabulary (docs/messaging-canon.md);
+   AA contrast on --paper at 12–13px ── */
+.result { font-family: var(--mono); font-size: 12.5px; font-weight: 600; letter-spacing: 0.03em; white-space: nowrap; }
+.result-supported { color: #2f7449; }
+.result-open { color: var(--ochre); }
+.result-failed, .result-refuted-by-us, .result-self-corrected { color: #a3402f; }
+.result-abstained, .result-withdrawn { color: var(--ink-soft); }
+
+/* ── /results/ (scripts/lib/discovery.mjs renderResultsMain) ── */
+.results.article-shell { max-width: 1040px; }
+.results .article > p, .results .article > ul { max-width: 68ch; }
+.results .tested-wrap { border-top: 1px solid var(--rule); margin: 0.6em 0 1.4em; }
+.results .tested-table { width: 100%; border-collapse: collapse; font-size: 0.98rem; line-height: 1.52; }
+.results .tested-table th, .results .tested-table td { text-align: left; vertical-align: top; padding: 13px 18px 13px 0; border-bottom: 1px solid var(--rule-soft); }
+.results .tested-table thead th { font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 400; color: var(--ink-faint); }
+.results .tested-table tbody th {
+  width: 27%; font-family: var(--serif); font-size: 1rem; font-weight: 500; letter-spacing: 0;
+  text-transform: none; color: var(--ink); background: none; border-bottom: 1px solid var(--rule-soft);
+}
+.results .tested-table td { font-size: 0.98rem; border-bottom-color: var(--rule-soft); }
+.results .tested-table tbody th a { text-decoration: underline; text-decoration-color: var(--indigo-line); text-underline-offset: 3px; }
+.results .tested-table tbody th a:hover { color: var(--indigo); }
+.results .tested-table td { color: var(--ink-soft); }
+.results .tested-table td:last-child { width: 8em; padding-right: 0; }
+.results .tested-table tr:target { background: var(--indigo-wash); }
+.results .results-note { font-size: 0.98rem; color: var(--ink-soft); }
+.results .results-more { font-family: var(--mono); font-size: 13px; margin-top: 2em; }
+@media (max-width: 760px) {
+  .results .tested-table thead { display: none; }
+  .results .tested-table tr { display: block; padding: 12px 0; border-bottom: 1px solid var(--rule-soft); }
+  .results .tested-table th, .results .tested-table td { display: block; width: auto !important; padding: 2px 0; border: 0; }
+}
+
+/* ── /corrections/ (scripts/lib/discovery.mjs renderCorrectionsMain) ── */
+.corrections h2 { margin-top: 2em; }
+.corrections .about-facts { margin-top: 0.8em; }
+
+/* ── /articles/ compact list and folded Direction pieces ── */
+.compact-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); max-width: 880px; }
+.compact-list li { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 20px; padding: 10px 0; border-bottom: 1px solid var(--rule-soft); font-size: 1.04rem; line-height: 1.45; }
+.compact-list a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--indigo-line); text-underline-offset: 3px; }
+.compact-list a:hover { color: var(--indigo); }
+.compact-list .compact-meta { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); white-space: nowrap; }
+.compact-list .compact-meta .card-status { color: var(--ink-faint); }
+.compact-list .compact-meta .card-status.status-direction { color: var(--indigo); }
+.direction-section details > summary {
+  cursor: pointer; font-family: var(--mono); font-size: 13px; color: var(--indigo);
+  padding: 8px 0; list-style-position: inside;
+}
+.direction-section details[open] > summary { margin-bottom: 12px; }
+.direction-section details > summary:focus-visible { outline: 2px solid var(--indigo-line); outline-offset: 3px; }
+.article-index .index-lede a, .start-here-list a { text-decoration: underline; text-decoration-color: var(--indigo-line); text-underline-offset: 3px; }
+.article-index .index-lede a { color: var(--indigo); }
+.start-here-list a:hover { color: var(--indigo); }

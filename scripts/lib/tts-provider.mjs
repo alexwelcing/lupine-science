@@ -39,7 +39,6 @@
 // without a speech-to-text pass.
 
 import fs from 'node:fs';
-import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -63,15 +62,15 @@ function loadFalKey() {
   return process.env.FAL_KEY || readTrimmed(path.join(ROOT, '.keys', 'fal-key'));
 }
 
-// MiniMax credentials come from the Hermes OAuth record on this machine. An
-// explicit env var or repo key file wins, so CI or another operator can supply
-// a token without a Hermes install.
+// MiniMax credentials: an explicit env var wins, then the repo's ignored key
+// file, then a local OAuth record whose location the operator names in
+// MINIMAX_OAUTH_FILE. No credential location is hard-coded here.
 function loadMiniMaxToken() {
   if (process.env.MINIMAX_API_KEY) return process.env.MINIMAX_API_KEY;
   const keyFile = readTrimmed(path.join(ROOT, '.keys', 'minimax-key'));
   if (keyFile) return keyFile;
-  const authPath = process.env.HERMES_AUTH_PATH || path.join(os.homedir(), '.hermes', 'auth.json');
-  if (!fs.existsSync(authPath)) return undefined;
+  const authPath = process.env.MINIMAX_OAUTH_FILE;
+  if (!authPath || !fs.existsSync(authPath)) return undefined;
   try {
     const auth = JSON.parse(fs.readFileSync(authPath, 'utf8'));
     return auth?.providers?.['minimax-oauth']?.access_token;
@@ -99,7 +98,7 @@ const minimax = {
   extension: 'mp3',
   defaultVoice: NARRATOR_VOICE.minimax,
   credentials: loadMiniMaxToken,
-  hint: 'Set MINIMAX_API_KEY, create .keys/minimax-key, or provide ~/.hermes/auth.json with a minimax-oauth access_token.',
+  hint: 'Set MINIMAX_API_KEY, create .keys/minimax-key, or point MINIMAX_OAUTH_FILE at a local OAuth record with a minimax-oauth access_token.',
   async synthesize({ text, voice, outPath }) {
     const token = loadMiniMaxToken();
     const res = await fetch(MINIMAX_ENDPOINT, {

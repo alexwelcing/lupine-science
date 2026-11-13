@@ -20,15 +20,15 @@ PALETTE = ("#faf9f6", "#16171d", "#3d4db3")
 PAPER, INK, INDIGO = PALETTE
 
 CHILDREN = (
-    ("pilot", "pilot-manifest.json", "t_1ceb4f39", "a338887644f853a63291628914230e8b3019a6003cf559c488698dd76d0150c4", 4, "media/projects/article-visuals/wave4_pilot_scenes.py"),
-    ("batch-01", "batch-01-manifest.json", "t_5f2c59c2", "775d23cafaa2da9ec6606924e21fe82b60b95572ca227f20b6f0517d73e9a7f8", 8, None),
-    ("batch-02", "batch-02-manifest.json", "t_ef12ed7b", "0f01a44c48cca98e564e5553e7d1b6e251eab245afcd4c8464a683aecad842dd", 8, None),
-    ("batch-03", "batch-03-manifest.json", "t_75e02815", "abae2a9180637632435cbca26f53db9448540b3f7b488e6eb28ecffeab176956", 8, None),
-    ("batch-04", "batch-04-manifest.json", "t_17d703ba", "ed9d20da5ce388c15ee72e27de7390860e00ea46ff8bb0164ea5879703d0236c", 8, None),
-    ("batch-05", "batch-05-manifest.json", "t_083045bd", "b4a52b90ca53f973fccd2c244c0e086e963d28660b5b5a209d90820c097be8b4", 8, None),
-    ("batch-06", "batch-06-manifest.json", "t_4c04518c", "5db2a48750c758e86e9a3663a4697e2df61fe4206a895068cfb1574f0faf6696", 8, None),
-    ("batch-07", "batch-07-manifest.json", "t_3c103f38", "1feae42e1867646c9fbad6358e9e37fe6d0c10aa20746505bcc0de311204df8d", 8, None),
-    ("batch-08", "batch-08-manifest.json", "t_a28b8419", "cfca665ff487822c990d77f0e673496a08dae89f86cbd2eeafe88a86db8f48a6", 7, None),
+    ("pilot", "pilot-manifest.json", "t_1ceb4f39", "99c88d84e81fe351fb8306f08d524c63ee54129223f6b6cfae13b5f36644d808", 4, "media/projects/article-visuals/wave4_pilot_scenes.py"),
+    ("batch-01", "batch-01-manifest.json", "t_5f2c59c2", "5f48e0f6d5c3c151179e0b8a0ed2701e85659bfdf31dda6af809e76eea259ab5", 8, None),
+    ("batch-02", "batch-02-manifest.json", "t_ef12ed7b", "54dec4f36e5e04e1ff6b5394698cae738466743c019b2868d632d7775100df14", 8, None),
+    ("batch-03", "batch-03-manifest.json", "t_75e02815", "8992e85ca926d833b4427e7537d90996e57777ab55a48a91fb5e3743c8ef44eb", 8, None),
+    ("batch-04", "batch-04-manifest.json", "t_17d703ba", "751c5c20cbe3622eea6f93783177a1c5ead34342d8d5920af567be0f4838626d", 8, None),
+    ("batch-05", "batch-05-manifest.json", "t_083045bd", "0ffdb8069ebcd4a6ef760b6ba1e5c871ce9f9526293d9d52a7c851e7f746d066", 8, None),
+    ("batch-06", "batch-06-manifest.json", "t_4c04518c", "4f5493e545e620cc99f60d44fd3933bc96437bac9231e342c66054398f8fd0ab", 8, None),
+    ("batch-07", "batch-07-manifest.json", "t_3c103f38", "a20256d345842b229b79b79b982a3b2a6540a7de5ebaa3a909604642d9c10694", 8, None),
+    ("batch-08", "batch-08-manifest.json", "t_a28b8419", "e35d7906f4aad2717274a90b85c4748b8517e7d9c846703bd3646b1a2d3b3ee6", 7, None),
 )
 
 

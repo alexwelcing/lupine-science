@@ -41,6 +41,10 @@
           "type": "string",
           "format": "date"
         },
+        "updated": {
+          "type": "string",
+          "format": "date"
+        },
         "status": {
           "enum": [
             "draft",

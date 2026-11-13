@@ -1,12 +1,12 @@
 # Lupine Science — Content Design System
 
-> The brand book for every long-form surface: articles, white papers, research guides, tutorials, proof packs, and reports. Inherits from `docs/brand-guidelines.md`.
+> The design system for every long-form surface: articles, white papers, research guides, tutorials, evidence records, and reports. Words, claims and status labels follow `docs/messaging-canon.md`; visual rules inherit from `docs/brand-guidelines.md`.
 
 ---
 
 ## 1. Purpose
 
-Lupine publishes many kinds of knowledge. They must all feel like one institution wrote them: calm, rigorous, evidence-first, beautiful enough to share. This system provides the shared structure, components, and templates so any contributor can produce a new piece without reinventing the page.
+Lupine publishes many kinds of knowledge. They must all feel like one institution wrote them: calm, rigorous, scope first, failures beside passes, beautiful enough to share. This system provides the shared structure, components, and templates so any contributor can produce a new piece without reinventing the page.
 
 ---
 
@@ -25,7 +25,7 @@ Lupine publishes many kinds of knowledge. They must all feel like one institutio
 | `--indigo-line` | `rgba(61,77,179,0.24)` | Borders, underlines. |
 | `--ochre` | `#8a5e1f` | Caution / distinction. |
 | `--ochre-wash` | `rgba(168,119,43,0.10)` | Caution backgrounds. |
-| `--verified` | `#3a8f5b` | Success / verified badges. |
+| `--verified` | `#3a8f5b` | Legacy token name; use only for the "Supported" result label. |
 | `--serif` | `Newsreader, Georgia, serif` | Headlines and body. |
 | `--mono` | `IBM Plex Mono, monospace` | Labels, code, data. |
 
@@ -42,7 +42,7 @@ Lupine publishes many kinds of knowledge. They must all feel like one institutio
 - **Hero:** image or video, 16:9 or 3:2.
 
 ### White paper
-- **Purpose:** Definitive document for investors, reviewers, or collaborators.
+- **Purpose:** Definitive document for reviewers, collaborators and labs.
 - **Structure:** title → abstract → metadata → table of contents → sections → conclusion → references.
 - **Tone:** formal, proof-forward, exhaustive.
 - **Hero:** optional figure or none; lead with abstract.
@@ -62,15 +62,15 @@ Lupine publishes many kinds of knowledge. They must all feel like one institutio
 - **Hero:** screenshot or short video.
 - **Special:** step counters; terminal/code blocks; `tip` and `warning` callouts.
 
-### Proof pack
-- **Purpose:** Compact evidence bundle attached to a claim.
+### Evidence record (type value `proof-pack`)
+- **Purpose:** Compact evidence bundle attached to a claim. In prose call it an "evidence record": it checks the integrity and provenance of files; it does not prove the claim.
 - **Structure:** claim statement → status badge → evidence summary → methods → data → conclusion → audit links.
 - **Tone:** sparse, courtroom-like; every sentence is verifiable.
 - **Hero:** none; lead with the claim.
-- **Special:** `claim`, `evidence`, and `refuted` callouts; linked artifacts; status badges.
+- **Special:** `claim`, `evidence`, and `refuted` callouts; linked artifacts; a result label (Supported, Open, Failed, Abstained, Refuted by us, Self-corrected, Withdrawn).
 
 ### Report
-- **Purpose:** Periodic or project summary (e.g., A6 bridge results).
+- **Purpose:** Periodic or project summary (for example, the results of one preregistered round).
 - **Structure:** title → summary → key findings → figures/tables → methodology → next steps.
 - **Tone:** measured, data-rich, self-critical.
 - **Hero:** key figure or table.
@@ -89,11 +89,11 @@ The first blockquote in any `.md` file is treated as metadata by `scripts/build-
 >
 > **Date:** 2026-06-30
 >
-> **Scope:** Trustworthy AI for materials discovery
+> **Scope:** Measuring where machine-learned potentials go wrong
 >
 > **Description:** One-line summary for cards and meta tags.
 >
-> **Audience:** Investors, materials scientists, AI-for-science teams
+> **Audience:** Materials scientists, MLIP teams
 >
 > **Status:** Published
 ```
@@ -146,10 +146,15 @@ Variants: `.info`, `.warning`, `.proof`, `.todo`, `.claim`, `.refuted`.
 
 ```markdown
 <span class="status published">Published</span>
-<span class="status draft">Draft</span>
-<span class="status verified">Verified</span>
-<span class="status refuted">Refuted</span>
+<span class="status draft">Working draft</span>
+<span class="status direction">Direction</span>
+<span class="status archived">Archived</span>
 ```
+
+Document status is one of Published (on this site; not peer-reviewed),
+Working draft, Direction (where the work is aimed; not a result) or Archived.
+Result labels go inline beside the result. "Lean-checked arithmetic" is a
+badge, never a status. There is no "Verified" badge.
 
 ### Lead paragraph
 
@@ -170,10 +175,15 @@ Variants: `.info`, `.warning`, `.proof`, `.todo`, `.claim`, `.refuted`.
 
 ```markdown
 <div class="stat-row">
-  <div class="stat"><span class="num">14/15</span><span class="caption">Elements transfer</span></div>
-  <div class="stat"><span class="num">&gt;0.8</span><span class="caption">Cross-MLIP cosine</span></div>
+  <div class="stat"><span class="num">14.55 vs 14.61 GPa</span><span class="caption">1×1×1 vs 3×3×3 elastic MAE, 16 cubic metals</span></div>
+  <div class="stat"><span class="num">0/4</span><span class="caption">Round-4 ionics correction: failed</span></div>
 </div>
 ```
+
+A stat row holds results with their scope, failures included. Quote a figure
+only if it appears in a linked article or data file, with its scope in the
+same sentence; never quote counts of commits, articles or theorems as
+evidence.
 
 ### CTA box
 
@@ -193,7 +203,7 @@ Variants: `.info`, `.warning`, `.proof`, `.todo`, `.claim`, `.refuted`.
 </dl>
 ```
 
-### Two-column layout (for proof packs or comparisons)
+### Two-column layout (for evidence records or comparisons)
 
 ```markdown
 <div class="two-col">
@@ -242,7 +252,7 @@ Use `<em>` for the emotional beat, in italic indigo when inside headings.
 - `articles/_templates/proof-pack.md`
 - `articles/_templates/report.md`
 - `public/articles/styles.css` — shared styles.
-- `scripts/build-articles.py` — builder that reads type metadata.
+- `scripts/build-articles.mjs` — builder that reads type metadata.
 
 ---
 
@@ -251,6 +261,8 @@ Use `<em>` for the emotional beat, in italic indigo when inside headings.
 - [ ] Type field is one of the allowed values.
 - [ ] Meta block has Date, Description, Audience, Status.
 - [ ] Hero image/video exists in the article folder.
-- [ ] Every claim has a citation, figure, or link.
+- [ ] Every claim has a citation, figure, or link, and carries the scope and qualifiers of its evidence file.
+- [ ] Failures and abstentions that bear on the claim are shown beside it.
+- [ ] No retired wording (see `docs/messaging-canon.md`).
 - [ ] Callouts use the correct variant.
 - [ ] Print preview looks acceptable (Ctrl+P / Cmd+P).

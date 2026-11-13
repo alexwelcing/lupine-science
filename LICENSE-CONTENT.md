@@ -1,16 +1,20 @@
-# Content License
+# Content licence
 
 Unless a file says otherwise, first-party prose, diagrams, figures,
-screenshots, brand copy, and documentation in this repo are licensed under:
+screenshots, films, brand copy and documentation in this repository are
+licensed under:
 
-Creative Commons Attribution-ShareAlike 4.0 International
+Creative Commons Attribution 4.0 International (CC BY 4.0)
 
-SPDX-License-Identifier: CC-BY-SA-4.0
+SPDX-License-Identifier: CC-BY-4.0
 
-See: https://creativecommons.org/licenses/by-sa/4.0/
+See: https://creativecommons.org/licenses/by/4.0/
 
-Code, configuration, and build/deploy scripts are licensed under the main
-`LICENSE` file.
+Attribution: "Lupine Science, lupine.science", with a link to the page or file
+you reused where practical.
 
-Third-party material, public datasets, papers, trademarks, or assets retain
-their original notices and licenses.
+Code, configuration and build/deploy scripts are licensed under the MIT
+licence in `LICENSE`. First-party data is covered by `LICENSE-DATA.md`.
+
+Third-party material (cited papers, public datasets, fonts, trademarks and
+other assets) keeps its own notices and licences. See `NOTICE.md`.

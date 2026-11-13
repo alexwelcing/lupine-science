@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Articles — Lupine Science</title>
-  <meta name="description" content="Articles, prospectuses, and research notes on formalized, machine-checked materials discovery.">
+  <meta name="description" content="Research notes from Lupine Science: preregistered results, the failures among them, and the methods behind them.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://lupine.science/articles/">
   <meta property="og:title" content="Articles — Lupine Science">
-  <meta property="og:description" content="Articles, prospectuses, and research notes on formalized, machine-checked materials discovery.">
+  <meta property="og:description" content="Research notes from Lupine Science: preregistered results, the failures among them, and the methods behind them.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lupine.science/articles/">
   <meta property="og:image" content="https://lupine.science/og-lupine-science.jpg">
@@ -16,7 +16,7 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Articles — Lupine Science">
-  <meta name="twitter:description" content="Articles, prospectuses, and research notes on formalized, machine-checked materials discovery.">
+  <meta name="twitter:description" content="Research notes from Lupine Science: preregistered results, the failures among them, and the methods behind them.">
   <meta name="twitter:image" content="https://lupine.science/og-lupine-science.jpg">
   <meta name="theme-color" content="#faf9f6">
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
@@ -34,395 +34,103 @@
   <header class="site-header">
     <a class="mark" href="/" aria-label="Lupine Science">
       <svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
-  <defs>
-    <linearGradient id="bb" x1="190" y1="74" x2="324" y2="356" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#88a7d8"/><stop offset=".35" stop-color="#475b9c"/><stop offset=".78" stop-color="#102f47"/><stop offset="1" stop-color="#071a2a"/>
-    </linearGradient>
-    <linearGradient id="bl" x1="150" y1="330" x2="360" y2="470" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#7f907c"/><stop offset="1" stop-color="#4c653d"/>
-    </linearGradient>
-    <radialGradient id="bc" cx="48%" cy="30%" r="68%">
-      <stop offset="0" stop-color="#fffdf3"/><stop offset=".7" stop-color="#f1e8c9"/><stop offset="1" stop-color="#d4c58f"/>
-    </radialGradient>
-  </defs>
-  <g fill="none" stroke="#4c653d" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M256 148 C252 224 258 312 254 448"/><path d="M252 402 C222 372 178 354 124 348"/><path d="M260 402 C290 372 334 354 388 348"/>
-  </g>
-  <g fill="url(#bl)" opacity=".96">
-    <ellipse cx="139" cy="348" rx="18" ry="62" transform="rotate(-78 139 348)"/><ellipse cx="167" cy="384" rx="18" ry="62" transform="rotate(-48 167 384)"/><ellipse cx="214" cy="410" rx="17" ry="58" transform="rotate(-20 214 410)"/><ellipse cx="373" cy="348" rx="18" ry="62" transform="rotate(78 373 348)"/><ellipse cx="345" cy="384" rx="18" ry="62" transform="rotate(48 345 384)"/><ellipse cx="298" cy="410" rx="17" ry="58" transform="rotate(20 298 410)"/>
-  </g>
-  <g fill="none" stroke="#fef8f5" stroke-width="5" stroke-linecap="round" opacity=".66">
-    <path d="M132 348 C170 356 205 373 236 405"/><path d="M380 348 C342 356 307 373 276 405"/>
-  </g>
-  <g fill="url(#bb)" stroke="#fef8f5" stroke-width="5" stroke-linejoin="round">
-    <ellipse cx="256" cy="86" rx="22" ry="34"/><ellipse cx="232" cy="122" rx="23" ry="35" transform="rotate(-24 232 122)"/><ellipse cx="280" cy="122" rx="23" ry="35" transform="rotate(24 280 122)"/><ellipse cx="256" cy="150" rx="30" ry="40"/><ellipse cx="211" cy="182" rx="26" ry="38" transform="rotate(-34 211 182)"/><ellipse cx="301" cy="182" rx="26" ry="38" transform="rotate(34 301 182)"/><ellipse cx="256" cy="216" rx="37" ry="48"/><ellipse cx="204" cy="256" rx="30" ry="43" transform="rotate(-42 204 256)"/><ellipse cx="308" cy="256" rx="30" ry="43" transform="rotate(42 308 256)"/><ellipse cx="256" cy="306" rx="40" ry="52"/>
-  </g>
-  <g fill="url(#bc)">
-    <path d="M244 142 C251 124 261 124 268 142 C262 136 250 136 244 142Z"/><path d="M244 207 C252 186 263 186 271 207 C263 199 252 199 244 207Z"/><path d="M242 296 C252 272 265 272 274 296 C264 286 252 286 242 296Z"/>
-  </g>
-</svg>
-      <span><b>Lupine Science</b> <span class="tld">accelerating materials discovery</span></span>
+        <defs>
+          <linearGradient id="bb" x1="190" y1="74" x2="324" y2="356" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#88a7d8"/><stop offset=".35" stop-color="#475b9c"/><stop offset=".78" stop-color="#102f47"/><stop offset="1" stop-color="#071a2a"/>
+          </linearGradient>
+          <linearGradient id="bl" x1="150" y1="330" x2="360" y2="470" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#7f907c"/><stop offset="1" stop-color="#4c653d"/>
+          </linearGradient>
+          <radialGradient id="bc" cx="48%" cy="30%" r="68%">
+            <stop offset="0" stop-color="#fffdf3"/><stop offset=".7" stop-color="#f1e8c9"/><stop offset="1" stop-color="#d4c58f"/>
+          </radialGradient>
+        </defs>
+        <g fill="none" stroke="#4c653d" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M256 148 C252 224 258 312 254 448"/><path d="M252 402 C222 372 178 354 124 348"/><path d="M260 402 C290 372 334 354 388 348"/>
+        </g>
+        <g fill="url(#bl)" opacity=".96">
+          <ellipse cx="139" cy="348" rx="18" ry="62" transform="rotate(-78 139 348)"/><ellipse cx="167" cy="384" rx="18" ry="62" transform="rotate(-48 167 384)"/><ellipse cx="214" cy="410" rx="17" ry="58" transform="rotate(-20 214 410)"/><ellipse cx="373" cy="348" rx="18" ry="62" transform="rotate(78 373 348)"/><ellipse cx="345" cy="384" rx="18" ry="62" transform="rotate(48 345 384)"/><ellipse cx="298" cy="410" rx="17" ry="58" transform="rotate(20 298 410)"/>
+        </g>
+        <g fill="none" stroke="#fef8f5" stroke-width="5" stroke-linecap="round" opacity=".66">
+          <path d="M132 348 C170 356 205 373 236 405"/><path d="M380 348 C342 356 307 373 276 405"/>
+        </g>
+        <g fill="url(#bb)" stroke="#fef8f5" stroke-width="5" stroke-linejoin="round">
+          <ellipse cx="256" cy="86" rx="22" ry="34"/><ellipse cx="232" cy="122" rx="23" ry="35" transform="rotate(-24 232 122)"/><ellipse cx="280" cy="122" rx="23" ry="35" transform="rotate(24 280 122)"/><ellipse cx="256" cy="150" rx="30" ry="40"/><ellipse cx="211" cy="182" rx="26" ry="38" transform="rotate(-34 211 182)"/><ellipse cx="301" cy="182" rx="26" ry="38" transform="rotate(34 301 182)"/><ellipse cx="256" cy="216" rx="37" ry="48"/><ellipse cx="204" cy="256" rx="30" ry="43" transform="rotate(-42 204 256)"/><ellipse cx="308" cy="256" rx="30" ry="43" transform="rotate(42 308 256)"/><ellipse cx="256" cy="306" rx="40" ry="52"/>
+        </g>
+        <g fill="url(#bc)">
+          <path d="M244 142 C251 124 261 124 268 142 C262 136 250 136 244 142Z"/><path d="M244 207 C252 186 263 186 271 207 C263 199 252 199 244 207Z"/><path d="M242 296 C252 272 265 272 274 296 C264 286 252 286 242 296Z"/>
+        </g>
+      </svg>
+      <span><b>Lupine Science</b> <span class="tld">measuring where AI models of materials go wrong</span></span>
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/">Home</a>
+      <a href="/results/">Results</a>
       <a href="/articles/" aria-current="page">Articles</a>
-      <a href="/videos/">Videos</a>
       <a href="/about/">About</a>
       <a href="https://library.lupine.science">Library</a>
       <a href="https://lupi.live">LUPI</a>
     </nav>
   </header>
   <main id="content" class="article-index">
-    <p class="b-label">Recent notes</p>
-    <h1>Research notes, prospectuses, and formalization roadmaps.</h1>
-    <div class="cta proof-pack-cta">
-      <p><strong>Environmental series — download the proof pack</strong></p>
-      <p>A single PDF with all five environmental-series articles: cover pages, printable layout, and source URLs.</p>
-      <a href="/proof-pack-climate-series.pdf" download>Download proof-pack-climate-series.pdf</a>
-    </div>
-    <ul class="article-list">
-<li>
-  <a class="article-card" href="/articles/tms-2027-measuring-what-we-can-trust/">
-    <picture>
-    <source srcset="/articles/tms-2027-measuring-what-we-can-trust/thumb.avif?v=3" type="image/avif">
-    <source srcset="/articles/tms-2027-measuring-what-we-can-trust/thumb.webp?v=3" type="image/webp">
-    <img src="/articles/tms-2027-measuring-what-we-can-trust/thumb.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="eager" fetchpriority="high" decoding="async">
-  </picture>
-    <span class="d8">September 5, 2026 · <span class="card-status">Poster abstract accepted</span></span>
-    <h2>Lupine Science is heading to TMS2027</h2>
-    <p>How measuring simulation error can help us choose the next experiment.</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/what-the-cap-was-hiding/">
-    <picture>
-    <source srcset="/articles/what-the-cap-was-hiding/hero.avif?v=3" type="image/avif">
-    <source srcset="/articles/what-the-cap-was-hiding/hero.webp?v=3" type="image/webp">
-    <img src="/articles/what-the-cap-was-hiding/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">August 4, 2026 · <span class="card-status">Draft</span></span>
-    <h2>What the Cap Was Hiding</h2>
-    <p>A correction gate that refused seven in ten of the cases it could act on turned out to be measuring its own estimator, not the physics — and the failure that exposed it was preserved rather than discarded.</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/shared-dft-anchors/">
-    <picture>
-    <source srcset="/articles/shared-dft-anchors/hero.avif?v=4" type="image/avif">
-    <source srcset="/articles/shared-dft-anchors/hero.webp?v=4" type="image/webp">
-    <img src="/articles/shared-dft-anchors/hero.jpg?v=4" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">August 3, 2026 · <span class="card-status is-published">Published</span></span>
-    <h2>Sharing DFT anchors reduces projected evaluations by 72.4%</h2>
-    <p>A frozen, artifact-backed analysis of 29 analyzable diffusion paths compares four separately evaluated sparse-anchor sets with their shared union.</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/the-small-cell-held-mlip-elastic-benchmark/">
-    <picture>
-    <source srcset="/articles/the-small-cell-held-mlip-elastic-benchmark/hero.avif?v=3" type="image/avif">
-    <source srcset="/articles/the-small-cell-held-mlip-elastic-benchmark/hero.webp?v=3" type="image/webp">
-    <img src="/articles/the-small-cell-held-mlip-elastic-benchmark/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">August 3, 2026 · <span class="card-status">In review</span></span>
-    <h2>The Small Cell Held: A 16-Element MLIP Elastic Benchmark</h2>
-    <p>A preserved 16-element comparison of 1×1×1 and 3×3×3 MatPES elastic calculations, with the correction failure reported alongside the result that survived</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/z1-union-debrief/">
-    <picture>
-    <source srcset="/articles/z1-union-debrief/hero.avif?v=3" type="image/avif">
-    <source srcset="/articles/z1-union-debrief/hero.webp?v=3" type="image/webp">
-    <img src="/articles/z1-union-debrief/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">July 24, 2026 · <span class="card-status">Draft</span></span>
-    <h2>The Union Verdict: A De-brief on the Z1 Campaign</h2>
-    <p>The full account you asked for before we talk — the verdict, the economics, the failures, the catches, and where I'd push back</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/the-savings-stack/">
-    <picture>
-    <source srcset="/articles/the-savings-stack/hero.avif?v=3" type="image/avif">
-    <source srcset="/articles/the-savings-stack/hero.webp?v=3" type="image/webp">
-    <img src="/articles/the-savings-stack/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">July 21, 2026 · <span class="card-status is-published">Published</span></span>
-    <h2>The Savings Stack: A Booklet on Doing Less, and the Commons That Makes Everyone Faster</h2>
-    <p>Seven savings layers from the literature, one measured sharing economy, and the theorem commons — as a free, designed booklet with a hashable data pack</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/an-order-of-effort/">
-    <picture>
-    <source srcset="/articles/an-order-of-effort/hero.avif?v=3" type="image/avif">
-    <source srcset="/articles/an-order-of-effort/hero.webp?v=3" type="image/webp">
-    <img src="/articles/an-order-of-effort/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">July 20, 2026 · <span class="card-status is-published">Published</span></span>
-    <h2>An Order of Effort: Where Correction Laws Hold, and Where the Boundary Begins</h2>
-    <p>The measured ladder from proven corrections to proven impossibility — and the order in which our next rounds climb it</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/the-materials-we-test-against/">
-    <picture>
-    <source srcset="/articles/the-materials-we-test-against/hero.avif?v=3" type="image/avif">
-    <source srcset="/articles/the-materials-we-test-against/hero.webp?v=3" type="image/webp">
-    <img src="/articles/the-materials-we-test-against/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">July 20, 2026 · <span class="card-status is-published">Published</span></span>
-    <h2>The Z1 Barrier Panel: Evaluating Foundation MLIPs on 42 Solid-State Electrolyte Chemistries</h2>
-    <p>One step in the trust-layer program: the locked Li-ion conductor panels behind our barrier campaigns — what they are, why they are the right adversaries, and what a migration barrier actually is</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/four-gates-three-honest-failures-one-live-experiment/">
-    <picture>
-    <source srcset="/articles/four-gates-three-honest-failures-one-live-experiment/hero.avif?v=3" type="image/avif">
-    <source srcset="/articles/four-gates-three-honest-failures-one-live-experiment/hero.webp?v=3" type="image/webp">
-    <img src="/articles/four-gates-three-honest-failures-one-live-experiment/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">July 19, 2026 · <span class="card-status is-published">Published</span></span>
-    <h2>Four Gates, Three Honest Failures, One Live Experiment</h2>
-    <p>A plain-language status report on our four preregistered Round-4 campaigns — what we measured, what failed, what is still running, and how you can check every number</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/beyond-carbon-the-error-geometry-of-environmental-materials/">
-    <picture>
-    <source srcset="/articles/beyond-carbon-the-error-geometry-of-environmental-materials/hero.avif?v=3" type="image/avif">
-    <source srcset="/articles/beyond-carbon-the-error-geometry-of-environmental-materials/hero.webp?v=3" type="image/webp">
-    <img src="/articles/beyond-carbon-the-error-geometry-of-environmental-materials/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">July 16, 2026 · <span class="card-status">Draft</span></span>
-    <h2>Beyond Carbon: The Error Geometry of Environmental Materials</h2>
-    <p>The same under-coordination error that corrupts climate-materials predictions also corrupts water, air, methane, refrigerant, mineral, PFAS, and cement discovery.</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/cement-concrete-and-the-weight-of-the-built-world/">
-    <picture>
-    <source srcset="/articles/cement-concrete-and-the-weight-of-the-built-world/hero.avif?v=3" type="image/avif">
-    <source srcset="/articles/cement-concrete-and-the-weight-of-the-built-world/hero.webp?v=3" type="image/webp">
-    <img src="/articles/cement-concrete-and-the-weight-of-the-built-world/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">July 16, 2026 · <span class="card-status">Draft</span></span>
-    <h2>Cement, Concrete, and the Weight of the Built World</h2>
-    <p>How corrected universal machine-learning interatomic potentials can accelerate low-CO₂ binders, alternative clinkers, and CO₂-cured concrete by taming amorphous and metastable phase chemistry.</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/critical-minerals-pfas-and-the-remediation-imperative/">
-    <picture>
-    <source srcset="/articles/critical-minerals-pfas-and-the-remediation-imperative/hero.avif?v=3" type="image/avif">
-    <source srcset="/articles/critical-minerals-pfas-and-the-remediation-imperative/hero.webp?v=3" type="image/webp">
-    <img src="/articles/critical-minerals-pfas-and-the-remediation-imperative/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">July 16, 2026 · <span class="card-status is-published">Published</span></span>
-    <h2>Critical Minerals, PFAS, and the Remediation Imperative</h2>
-    <p>Critical-mineral recovery and PFAS remediation share the same computational bottleneck — accurate binding and activation energies in under-coordinated environments — and the correction layer addresses both.</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/">
-    <picture>
-    <source srcset="/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/hero.avif?v=3" type="image/avif">
-    <source srcset="/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/hero.webp?v=3" type="image/webp">
-    <img src="/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">July 16, 2026 · <span class="card-status">Draft</span></span>
-    <h2>Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers</h2>
-    <p>How corrected atomistic predictions can accelerate low-temperature methane conversion and the discovery of low-GWP refrigerants.</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/">
-    <picture>
-    <source srcset="/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/hero.avif?v=3" type="image/avif">
-    <source srcset="/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/hero.webp?v=3" type="image/webp">
-    <img src="/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">July 16, 2026 · <span class="card-status">Draft</span></span>
-    <h2>Water and Air: Correcting the Molecules Humans Drink and Breathe</h2>
-    <p>How corrected uMLIPs recover accurate binding and barrier predictions for water desalination, atmospheric harvesting, lithium-selective extraction, and air-quality catalysts.</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/">
-    <picture>
-    <source srcset="/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/thumb.avif?v=3" type="image/avif">
-    <source srcset="/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/thumb.webp?v=3" type="image/webp">
-    <img src="/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/thumb.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">July 13, 2026 · <span class="card-status">Draft</span></span>
-    <h2>The Correction That Hurt, and the Theorem That Stopped It</h2>
-    <p>A pre-registered, two-round trial of raw vs. Lupine-corrected uMLIPs on two of the five portfolio targets, with a LAMMPS classical leg and kernel-checked correction licenses</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/lupi-hfc-refrigerant-research-payloads/">
-    <picture>
-    <source srcset="/articles/lupi-hfc-refrigerant-research-payloads/hero.avif?v=3" type="image/avif">
-    <source srcset="/articles/lupi-hfc-refrigerant-research-payloads/hero.webp?v=3" type="image/webp">
-    <img src="/articles/lupi-hfc-refrigerant-research-payloads/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">July 12, 2026 · <span class="card-status is-published">Live</span></span>
-    <h2>Lupi Gains HFC Refrigerant Research Payloads</h2>
-    <p>Lupi now streams real hydrofluorocarbon refrigerant trajectories with full research payloads: charges, velocities, forces, thermo, and temperature profiles.</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/rhizo-non-co2-climate-forcers-lean/">
-    <picture>
-    <source srcset="/articles/rhizo-non-co2-climate-forcers-lean/hero.avif?v=3" type="image/avif">
-    <source srcset="/articles/rhizo-non-co2-climate-forcers-lean/hero.webp?v=3" type="image/webp">
-    <img src="/articles/rhizo-non-co2-climate-forcers-lean/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">July 12, 2026 · <span class="card-status is-published">Live</span></span>
-    <h2>Non-CO₂ Climate Forcers, Now Formalized in Lean</h2>
-    <p>Lupine Rhizo now formally accounts for methane, N₂O, HFCs, and SF₆ inside its Lean 4 climate library.</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/a-field-not-a-neural-net/">
-    <picture>
-    <source srcset="/articles/a-field-not-a-neural-net/hero.avif?v=3" type="image/avif">
-    <source srcset="/articles/a-field-not-a-neural-net/hero.webp?v=3" type="image/webp">
-    <img src="/articles/a-field-not-a-neural-net/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">July 9, 2026 · <span class="card-status">Draft</span></span>
-    <h2>A Field, Not a Neural Net</h2>
-    <p>The environment error field as a measured physical correction layer for universal machine-learning interatomic potentials.</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/five-materials-for-5-to-12-gtco2-year/">
-    <picture>
-    <source srcset="/articles/five-materials-for-5-to-12-gtco2-year/hero.avif?v=3" type="image/avif">
-    <source srcset="/articles/five-materials-for-5-to-12-gtco2-year/hero.webp?v=3" type="image/webp">
-    <img src="/articles/five-materials-for-5-to-12-gtco2-year/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">July 9, 2026 · <span class="card-status">Draft</span></span>
-    <h2>Five Materials That Could Unlock 5–12 GtCO₂/Year</h2>
-    <p>A portfolio-level view of five material classes targeted for gigatonne-scale climate impact.</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/from-predicted-crystal-to-commercial-cell/">
-    <picture>
-    <source srcset="/articles/from-predicted-crystal-to-commercial-cell/hero.avif?v=3" type="image/avif">
-    <source srcset="/articles/from-predicted-crystal-to-commercial-cell/hero.webp?v=3" type="image/webp">
-    <img src="/articles/from-predicted-crystal-to-commercial-cell/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">July 9, 2026 · <span class="card-status">Draft</span></span>
-    <h2>From Predicted Crystal to Commercial Cell</h2>
-    <p>How Lupine Science turns computational predictions into commercial climate materials through a sequenced partner chain.</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/investing-in-the-trust-layer/">
-    <picture>
-    <source srcset="/articles/investing-in-the-trust-layer/hero.avif?v=3" type="image/avif">
-    <source srcset="/articles/investing-in-the-trust-layer/hero.webp?v=3" type="image/webp">
-    <img src="/articles/investing-in-the-trust-layer/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">July 9, 2026 · <span class="card-status">Draft</span></span>
-    <h2>Investing in the Trust Layer</h2>
-    <p>The Lupine Science correction-and-verification layer as investable climate infrastructure</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/the-02-percent-synthesis-problem/">
-    <picture>
-    <source srcset="/articles/the-02-percent-synthesis-problem/hero.avif?v=3" type="image/avif">
-    <source srcset="/articles/the-02-percent-synthesis-problem/hero.webp?v=3" type="image/webp">
-    <img src="/articles/the-02-percent-synthesis-problem/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">July 9, 2026 · <span class="card-status">Draft</span></span>
-    <h2>The 0.2% Synthesis Problem</h2>
-    <p>Why most computationally predicted materials never reach a synthesis vessel, and why that matters for climate-critical materials.</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/the-trust-layer/">
-    <picture>
-    <source srcset="/articles/the-trust-layer/thumb.avif?v=3" type="image/avif">
-    <source srcset="/articles/the-trust-layer/thumb.webp?v=3" type="image/webp">
-    <img src="/articles/the-trust-layer/thumb.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">July 5, 2026 · <span class="card-status is-published">Published</span></span>
-    <h2>The Trust Layer</h2>
-    <p>The founding thesis of Lupine Science — verification as the missing infrastructure of AI-driven discovery</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/a-smooth-environment-resolved-error-field/">
-    <picture>
-    <source srcset="/articles/a-smooth-environment-resolved-error-field/hero.avif?v=3" type="image/avif">
-    <source srcset="/articles/a-smooth-environment-resolved-error-field/hero.webp?v=3" type="image/webp">
-    <img src="/articles/a-smooth-environment-resolved-error-field/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">July 2, 2026 · <span class="card-status is-published">Published</span></span>
-    <h2>A smooth, environment-resolved error field underlies the systematic property errors of universal machine-learned interatomic potentials</h2>
-    <p>Universal machine-learned interatomic potentials (uMLIPs) err systematically away from equilibrium; the test is whether those errors share a single, measurable shape.</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/the-order-is-right-the-size-is-wrong/">
-    <picture>
-    <source srcset="/articles/the-order-is-right-the-size-is-wrong/thumb.avif?v=3" type="image/avif">
-    <source srcset="/articles/the-order-is-right-the-size-is-wrong/thumb.webp?v=3" type="image/webp">
-    <img src="/articles/the-order-is-right-the-size-is-wrong/thumb.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">July 2, 2026 · <span class="card-status is-published">Live evidence</span></span>
-    <h2>The Order Is Right, the Size Is Wrong</h2>
-    <p>Foundation machine-learned interatomic potentials (CHGNet, MACE-MP, MACE-MPA-0) measured across 21 materials and up to 9 properties against 228 published reference values</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/why-lupi/">
-    <picture>
-    <source srcset="/articles/why-lupi/hero.avif?v=3" type="image/avif">
-    <source srcset="/articles/why-lupi/hero.webp?v=3" type="image/webp">
-    <img src="/articles/why-lupi/hero.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">June 30, 2026 · <span class="card-status is-published">Published</span></span>
-    <h2>Why LUPI?</h2>
-    <p>A browser-native molecular viewer for makeability</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/why-lupine-science/">
-    <picture>
-    <source srcset="/articles/why-lupine-science/thumb.avif?v=3" type="image/avif">
-    <source srcset="/articles/why-lupine-science/thumb.webp?v=3" type="image/webp">
-    <img src="/articles/why-lupine-science/thumb.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">June 30, 2026 · <span class="card-status is-published">Published</span></span>
-    <h2>Why Lupine Science?</h2>
-    <p>Trustworthy AI for materials discovery</p>
-  </a>
-</li>
-<li>
-  <a class="article-card" href="/articles/from-fantasy-frameworks-to-makeable-materials/">
-    <picture>
-    <source srcset="/articles/from-fantasy-frameworks-to-makeable-materials/thumb.avif?v=3" type="image/avif">
-    <source srcset="/articles/from-fantasy-frameworks-to-makeable-materials/thumb.webp?v=3" type="image/webp">
-    <img src="/articles/from-fantasy-frameworks-to-makeable-materials/thumb.jpg?v=3" alt="" class="card-thumb" width="640" height="360" loading="lazy" decoding="async">
-  </picture>
-    <span class="d8">June 25, 2026 · <span class="card-status">Draft</span></span>
-    <h2>From Fantasy Frameworks to Makeable Materials: A Prospectus for Formalized MOF Discovery</h2>
-    <p>Metal–organic frameworks (MOFs), covalent organic frameworks (COFs), and other high-value reticular / complex molecular structures</p>
-  </a>
-</li>
-    </ul>
+    <p class="b-label">Articles</p>
+    <h1>Results, failures and methods</h1>
+    <p class="index-lede">Nothing here is peer-reviewed yet. Retired claims are in the <a href="/corrections/">corrections log</a>; every result is on one page at <a href="/results/">Results</a>.</p>
+    <section class="start-here" aria-labelledby="start-here-title">
+      <h2 class="b-label" id="start-here-title">Start here</h2>
+      <ol class="start-here-list">
+        <li><a href="/articles/four-gates-three-honest-failures-one-live-experiment/">Round 4: Three Failures and One Abstention, Preregistered</a> <span class="card-status status-published">Published</span></li>
+        <li><a href="/articles/what-the-cap-was-hiding/">What the Cap Was Hiding</a> <span class="card-status status-published">Published</span></li>
+        <li><a href="/articles/a-smooth-environment-resolved-error-field/">A smooth, environment-resolved error field behind uMLIP errors on fcc metals</a> <span class="card-status status-published">Published</span></li>
+        <li><a href="/articles/what-error-patterns-can-tell-us/">Learning What an Error Pattern Can Tell Us</a> <span class="card-status status-published">Published</span></li>
+        <li><a href="/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/">The Correction That Hurt, and the Claim We Narrowed</a> <span class="card-status status-published">Published</span></li>
+      </ol>
+    </section>
+    <section aria-labelledby="results-title">
+      <h2 class="b-label" id="results-title">All results and methods, newest first</h2>
+      <ul class="compact-list">
+        <li><a href="/articles/what-error-patterns-can-tell-us/">Learning What an Error Pattern Can Tell Us</a> <span class="compact-meta"><time datetime="2026-10-21">October 21, 2026</time> · <span class="card-status status-published">Published</span></span></li>
+        <li><a href="/articles/tms-2027-measuring-what-we-can-trust/">Lupine Science is heading to TMS2027</a> <span class="compact-meta"><time datetime="2026-09-05">September 5, 2026</time> · <span class="card-status status-published">Published</span></span></li>
+        <li><a href="/articles/what-the-cap-was-hiding/">What the Cap Was Hiding</a> <span class="compact-meta"><time datetime="2026-08-04">August 4, 2026</time> · <span class="card-status status-published">Published</span></span></li>
+        <li><a href="/articles/shared-dft-anchors/">Shared DFT Anchors: A Projected Saving, and What Happened When We Ran It</a> <span class="compact-meta"><time datetime="2026-08-03">August 3, 2026</time> · <span class="card-status status-published">Published</span></span></li>
+        <li><a href="/articles/the-small-cell-held-mlip-elastic-benchmark/">The Small Cell Held: A 16-Element MLIP Elastic Benchmark</a> <span class="compact-meta"><time datetime="2026-08-03">August 3, 2026</time> · <span class="card-status status-published">Published</span></span></li>
+        <li><a href="/articles/the-savings-stack/">The Savings Stack: A Booklet on Compute Savings in Atomistic Simulation</a> <span class="compact-meta"><time datetime="2026-07-21">July 21, 2026</time> · <span class="card-status status-published">Published</span></span></li>
+        <li><a href="/articles/an-order-of-effort/">A Seven-Tier Map of MLIP Error, by Property Type (July 2026)</a> <span class="compact-meta"><time datetime="2026-07-20">July 20, 2026</time> · <span class="card-status status-published">Published</span></span></li>
+        <li><a href="/articles/the-materials-we-test-against/">The Z1 Barrier Panel: 42 Li-ion Migration Paths from a Published DFT-NEB Benchmark</a> <span class="compact-meta"><time datetime="2026-07-20">July 20, 2026</time> · <span class="card-status status-published">Published</span></span></li>
+        <li><a href="/articles/four-gates-three-honest-failures-one-live-experiment/">Round 4: Three Failures and One Abstention, Preregistered</a> <span class="compact-meta"><time datetime="2026-07-19">July 19, 2026</time> · <span class="card-status status-published">Published</span></span></li>
+        <li><a href="/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/">The Correction That Hurt, and the Claim We Narrowed</a> <span class="compact-meta"><time datetime="2026-07-13">July 13, 2026</time> · <span class="card-status status-published">Published</span></span></li>
+        <li><a href="/articles/lupi-hfc-refrigerant-research-payloads/">LUPI Gains HFC Refrigerant Research Payloads</a> <span class="compact-meta"><time datetime="2026-07-12">July 12, 2026</time> · <span class="card-status status-published">Published</span></span></li>
+        <li><a href="/articles/a-smooth-environment-resolved-error-field/">A smooth, environment-resolved error field behind uMLIP errors on fcc metals</a> <span class="compact-meta"><time datetime="2026-07-02">July 2, 2026</time> · <span class="card-status status-published">Published</span></span></li>
+        <li><a href="/articles/the-order-is-right-the-size-is-wrong/">The Order Is Right, the Size Is Wrong</a> <span class="compact-meta"><time datetime="2026-07-02">July 2, 2026</time> · <span class="card-status status-published">Published</span></span></li>
+        <li><a href="/articles/why-lupi/">Why LUPI?</a> <span class="compact-meta"><time datetime="2026-06-30">June 30, 2026</time> · <span class="card-status status-published">Published</span></span></li>
+      </ul>
+    </section>
+    <section class="direction-section" aria-labelledby="direction-title">
+      <h2 class="b-label" id="direction-title">Direction</h2>
+      <p class="index-lede">Describes where this work is aimed. Not a result. Any capability these pieces describe is a hypothesis to test.</p>
+      <details id="direction">
+        <summary>Show the 11 Direction pieces</summary>
+        <ul class="compact-list">
+        <li><a href="/articles/beyond-carbon-the-error-geometry-of-environmental-materials/">Beyond Carbon: The Error Geometry of Environmental Materials</a> <span class="compact-meta"><time datetime="2026-07-16">July 16, 2026</time> · <span class="card-status status-direction">Direction</span></span></li>
+        <li><a href="/articles/cement-concrete-and-the-weight-of-the-built-world/">Cement, Concrete, and the Weight of the Built World</a> <span class="compact-meta"><time datetime="2026-07-16">July 16, 2026</time> · <span class="card-status status-direction">Direction</span></span></li>
+        <li><a href="/articles/critical-minerals-pfas-and-the-remediation-imperative/">Critical Minerals, PFAS, and the Remediation Imperative</a> <span class="compact-meta"><time datetime="2026-07-16">July 16, 2026</time> · <span class="card-status status-direction">Direction</span></span></li>
+        <li><a href="/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/">Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers</a> <span class="compact-meta"><time datetime="2026-07-16">July 16, 2026</time> · <span class="card-status status-direction">Direction</span></span></li>
+        <li><a href="/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/">Water and Air: The Materials Behind What We Drink and Breathe</a> <span class="compact-meta"><time datetime="2026-07-16">July 16, 2026</time> · <span class="card-status status-direction">Direction</span></span></li>
+        <li><a href="/articles/five-materials-for-5-to-12-gtco2-year/">Five Materials Worth Getting Right: Cathodes, Electrolytes, Sorbents, Catalysts and Absorbers</a> <span class="compact-meta"><time datetime="2026-07-09">July 9, 2026</time> · <span class="card-status status-direction">Direction</span></span></li>
+        <li><a href="/articles/from-predicted-crystal-to-commercial-cell/">From Predicted Crystal to Commercial Cell</a> <span class="compact-meta"><time datetime="2026-07-09">July 9, 2026</time> · <span class="card-status status-direction">Direction</span></span></li>
+        <li><a href="/articles/the-02-percent-synthesis-problem/">The 0.2% Synthesis Problem</a> <span class="compact-meta"><time datetime="2026-07-09">July 9, 2026</time> · <span class="card-status status-direction">Direction</span></span></li>
+        <li><a href="/articles/the-trust-layer/">The Trust Layer</a> <span class="compact-meta"><time datetime="2026-07-05">July 5, 2026</time> · <span class="card-status status-direction">Direction</span></span></li>
+        <li><a href="/articles/why-lupine-science/">Why Lupine Science?</a> <span class="compact-meta"><time datetime="2026-06-30">June 30, 2026</time> · <span class="card-status status-direction">Direction</span></span></li>
+        <li><a href="/articles/from-fantasy-frameworks-to-makeable-materials/">From Fantasy Frameworks to Makeable Materials: A Prospectus for Formalized MOF Discovery</a> <span class="compact-meta"><time datetime="2026-06-25">June 25, 2026</time> · <span class="card-status status-direction">Direction</span></span></li>
+        </ul>
+      </details>
+    </section>
   </main>
   <footer class="foot">
-    <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
-    <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" href="mailto:alex@lupinesci.com" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
-    <span><a href="/about/">About</a> · <a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a> · <a href="/feed.xml">Feed</a></span>
+    <span class="creed">Evidence before claim.</span>
+    <nav class="foot-nav" aria-label="Footer"><a href="/">Home</a> · <a href="/results/">Results</a> · <a href="/articles/">Articles</a> · <a href="/about/">About</a> · <a href="/corrections/">Corrections</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://github.com/alexwelcing/lupine">GitHub</a></nav>
+    <span class="contact">Lupine Science · <a class="mail" href="/about/#contact" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
+    <span class="licence">Code MIT · our text and data CC BY 4.0 unless noted · third-party material keeps its own licence</span>
   </footer>
 <script type="module">
 import { initAllShareWidgets } from "/components/share/share.mjs";
@@ -432,6 +140,12 @@ import { initAllShareWidgets } from "/components/share/share.mjs";
     a.href = "mailto:" + addr + (a.dataset.subject ? "?subject=" + encodeURIComponent(a.dataset.subject) : "");
     if (!("keepText" in a.dataset)) a.textContent = addr;
   });
+  const openTarget = () => {
+    const d = location.hash.length > 1 && document.getElementById(location.hash.slice(1));
+    if (d && d.tagName === "DETAILS") d.open = true;
+  };
+  openTarget();
+  addEventListener("hashchange", openTarget);
   const vids = document.querySelectorAll("video[data-autoplay]");
   if (vids.length) {
     if (!("IntersectionObserver" in window)) { vids.forEach((v) => { v.preload = "metadata"; }); }

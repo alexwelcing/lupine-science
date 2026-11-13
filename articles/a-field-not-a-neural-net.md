@@ -1,7 +1,11 @@
 > **Date:** 2026-07-09
+> **Updated:** 2026-11-11
 > **Deck:** The environment error field as a measured physical correction layer for universal machine-learning interatomic potentials.
-> **Summary:** The largest errors in computational materials discovery have a low-dimensional geometry, and Lupine measures and corrects them at runtime with machine-checked proof.
-> **Status:** Draft
+> **Summary:** Archived. A July 2026 draft describing the fcc environment error field; its claims went beyond the result, which is stated with its scope on the fcc error-field page.
+> **Status:** Archived
+> **Archived:** 2026-11-11
+> **Superseded By:** /articles/a-smooth-environment-resolved-error-field/
+> **Archive Note:** This July 2026 draft restated the fcc error-field result with claims that went beyond it (barrier transfer, "provable accuracy" for screening campaigns). The current, scoped statement of that result is the fcc error-field results note.
 
 
 # A Field, Not a Neural Net
@@ -9,7 +13,7 @@
 ![The synthesis validation bottleneck](images/a-field-not-a-neural-net-01-synthesis-funnel.jpg)
 *Predicted materials vastly outrun verified discoveries: GNoME’s 2.2 million crystals produced only 736 confirmed syntheses, while A-Lab’s corrected record confirms 36 of 57 eligible targets. Sources: Merchant et al., Nature 624, 80–85 (2023); Szymanski et al., Nature 624, 86–91 (2023); Author Correction, Nature 650:E1 (2026); Leeman et al., PRX Energy 3, 011002 (2024).*
 
-The dominant narrative in computational materials science is that bigger models trained on more data will close the gap between prediction and synthesis. The evidence points elsewhere. Google DeepMind’s GNoME predicted 2.2 million crystals; only 736 had been independently synthesized by late 2023, a 0.2% validation rate[^1]. The A-Lab Author Correction (Nature 650:E1, 2026) records 36 confirmed of 57 eligible targets, with 4 inconclusive and one compound removed for training-data leakage; a separate critique disputed the novelty classification of many targets[^2]. The problem is not that the models are too small. It is that their errors have a shape — a systematic, low-dimensional geometry in the space of local atomic environments — and the field has been treating that shape as noise.
+The dominant narrative in computational materials science is that bigger models trained on more data will close the gap between prediction and synthesis. The evidence points elsewhere. Google DeepMind’s GNoME predicted 2.2 million crystals, 380,000 of them computationally stable; 736 had been independently synthesized by late 2023, about 0.2% of the stable set[^1]. The A-Lab Author Correction (Nature 650:E1, 2026) records 36 confirmed of 57 eligible targets, with 4 inconclusive and one compound removed for training-data leakage; a separate critique disputed the novelty classification of many targets[^2]. The problem is not that the models are too small. It is that their errors have a shape — a systematic, low-dimensional geometry in the space of local atomic environments — and the field has been treating that shape as noise.
 
 The present approach starts from the opposite premise. The wrongness of universal machine-learning interatomic potentials (uMLIPs) is not random. It is a smooth function of coordination number, measurable from a handful of anchor observables, and correctable at runtime with analytic forces. The environment error field is the focus: what it is, how it is measured rather than learned, and why the distinction matters for climate-critical materials discovery.
 
@@ -76,7 +80,7 @@ Validation confirms selective correction. The fitted observables recover exactly
 
 ## Machine-Checked Proof
 
-Statistical validation has a well-known limitation: it cannot catch bugs in the analysis code, and it applies only to the samples tested. A formal verification layer is added. Every quantitative claim — ordering relations, correction bounds, and impossibility results — is encoded as a Lean 4 theorem over integer-scaled data carrying SHA-256 provenance of the source files. The formalization currently comprises {{LEAN_THEOREM_COUNT}} build-locked theorems and zero `sorry` proofs — Lean's escape hatch for unproven claims. The count is generated directly from the open Lean source at build time.
+Statistical validation has a well-known limitation: it cannot catch bugs in the analysis code, and it applies only to the samples tested. A formal verification layer is added. Every quantitative claim — ordering relations, correction bounds, and impossibility results — is encoded as a Lean 4 theorem over integer-scaled data carrying SHA-256 provenance of the source files. Lean checks the arithmetic and stated inequalities behind these numbers; it does not check the physics, the reference data or the pipeline.
 
 The theorems fall into three categories. Ordering claims are inequality chains verified by the Lean kernel at fixed precision, not statistical summaries. Isotonic correction theorems implement the log-affine correction as a Lean function whose outputs the kernel checks against expected ordering properties. Impossibility theorems prove, with concrete counterexample witnesses, where no monotone correction can reconcile a model’s ordering with the reference ordering.
 
@@ -108,12 +112,12 @@ The field measurement, runtime correction, and formal verification layers close 
 3. **Validate** — check whether errors follow the environment error field; use the three anchors to predict a fourth blind observable.
 4. **Generate** — construct the cubic spline $P(c)$ and deploy it as an additive correction with analytic forces.
 5. **Verify** — submit every quantitative claim to the Lean 4 kernel; ordering claims become inequalities, correction bounds become isotonic theorems, failures become impossibility lemmas.
-6. **Improve** — run the corrected calculator through the full pipeline. If correction succeeds, report corrected values with theorem certificates. If it fails, the impossibility proof tells the experimentalist why.
+6. **Improve** — run the corrected calculator through the full pipeline. If correction succeeds, report corrected values with the Lean checks attached. If it fails, the impossibility proof tells the experimentalist why.
 
 ![The six-step discovery loop](images/a-field-not-a-neural-net-06-discovery-loop.jpg)
-*Field measurement, runtime correction, and machine-checked proof close into a six-step loop that terminates in either a certified candidate or a provable reason to stop.*
+*Field measurement, runtime correction, and machine-checked proof close into a six-step loop that terminates in either a checked candidate or a stated reason to stop.*
 
-These certificates are no longer only a publication artifact. The field-domain gate, ranking-inversion gate, and barrier-underestimation conservatism check are now wired into the runtime policy engine and the promotion gate. When a prediction carries first-shell coordination data, the system checks whether every atom lies inside the measured field's domain; out-of-domain atoms trigger a `skip_correction` action backed by `FieldDomain.refusal_has_witness`. When a candidate model is promoted, adjacent pairs in its reference and predicted rankings are checked for monotone rescuability; an inverted pair is downgraded automatically because `inversion_defeats_monotone` proves no monotone recalibration can rescue it. Barrier claims are checked against `softened_barrier_underestimates` and `softening_never_hides_conductor`. The mathematics that was proved in Lean now governs what reaches the lab.
+These checks are no longer only a publication artifact. The field-domain gate, ranking-inversion gate, and barrier-underestimation conservatism check are now wired into the runtime policy engine and the promotion gate. When a prediction carries first-shell coordination data, the system checks whether every atom lies inside the measured field's domain; out-of-domain atoms trigger a `skip_correction` action backed by `FieldDomain.refusal_has_witness`. When a candidate model is promoted, adjacent pairs in its reference and predicted rankings are checked for monotone rescuability; an inverted pair is downgraded automatically because `inversion_defeats_monotone` proves no monotone recalibration can rescue it. Barrier claims are checked against `softened_barrier_underestimates` and `softening_never_hides_conductor`. The mathematics that was proved in Lean now governs what reaches the lab.
 
 Against DFT, the loop offers comparable defect-energy accuracy at many orders of magnitude higher speed. Against raw uMLIPs, it replaces uncontrolled systematic bias with a bounded, measured correction. Against delta-ML and fine-tuning, it eliminates per-system retraining because the spline transfers within a crystal-structure family. The practical consequence: a $10^6$-structure screening campaign needs no DFT calls, yet every candidate carries a provable accuracy boundary.
 
@@ -126,7 +130,7 @@ The field is not an abstract mathematical device. It maps directly onto the defe
 
 In cobalt-free lithium-manganese-rich cathodes, voltage fade is transition-metal migration from octahedral to tetrahedral sites — a hop whose barrier is underestimated when the transition state is under-coordinated. In earth-abundant halide solid electrolytes, ionic conductivity depends exponentially on the Li$^+$ migration barrier; a 60% barrier error changes predicted conductivity by roughly three orders of magnitude. In MOFs for direct air capture, humidity stability is governed by metal-linker hydrolysis at under-coordinated nodes. In electrochemical ammonia catalysts, N$\equiv$N cleavage occurs at surface defect sites. In lead-free perovskite absorbers, Sn$^{2+}$ oxidation and vacancy formation set the stability ceiling.
 
-Every one of these properties is a coordination-dependent defect property. Every one is therefore within the domain where a measured error field can correct the prediction, or where an impossibility proof can flag the candidate as unsupported. The next part turns from the method to the targets: five material classes where correction plus verification could unlock 5–12 GtCO$_2$/year.
+Every one of these properties is a coordination-dependent defect property. Every one is therefore within the domain where a measured error field can correct the prediction, or where an impossibility proof can flag the candidate as unsupported. (The next part of the July series turned to five target material classes; see the Direction pieces listed on the articles page.)
 
 ![A field, not a neural net](images/a-field-not-a-neural-net-10-field-vs-neural-net.jpg)
 *The measured field and formal verification replace the arms race for bigger models, eliminating per-system retraining while raising the standard of evidence.*

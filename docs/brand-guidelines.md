@@ -1,14 +1,19 @@
-# Lupine Science — Brand Guidelines (pitch-ready)
+# Lupine Science — Brand guidelines
 
-> The source of truth for look, voice, and story when talking to investors, labs, and the public. Derived from `company-profile.md` and `art-direction.md`.
+> Look and voice for every Lupine Science surface. Words follow
+> [messaging-canon.md](messaging-canon.md); where anything here disagrees with
+> it, the canon wins. Visual detail is in [brand-book.md](brand-book.md).
 
 ---
 
 ## 1. The idea in one breath
 
-**Lupine Science is the trust layer for the age of AI-designed matter.**
+**Lupine Science measures where machine-learned models of atoms go wrong,
+against published references and pass/fail gates set in advance, and
+publishes every verdict, failures included.**
 
-AI is crossing from bits to atoms. Every prediction of matter still rests on interatomic potentials that are wrong in structured ways. Lupine measures that wrongness, proves it, corrects it, and makes the evidence inspectable.
+Tagline: **Evidence before claim.** Mission: make AI predictions of new
+materials checkable before a lab commits to them.
 
 ---
 
@@ -16,14 +21,17 @@ AI is crossing from bits to atoms. Every prediction of matter still rests on int
 
 | Attribute | Do | Don't |
 |---|---|---|
-| **Proof-first** | Lead with measured numbers and machine-checked claims. | "Revolutionary," "game-changing," hype adjectives. |
-| **Confident, not arrogant** | State what is proven plainly; name what is still open. | Overclaim or hide uncertainty. |
-| **Frontier-technical but legible** | Make a hard idea understandable to a smart non-expert. | Jargon-wall the reader. |
-| **Category-defining** | Speak as the one creating "error geometry for interatomic potentials." | Sound like a generic simulation SaaS. |
+| **Scope first** | Say what was tested, on what, against which reference, then what it showed. | Lead with a number and leave its scope for later. |
+| **Failures beside passes** | Put the failed and abstained results next to the ones that held. | Show only the passes, or bury failures below the fold. |
+| **Plain words** | Make a hard idea understandable to a careful non-expert. | Jargon walls, hype adjectives, "category-defining" framing. |
+| **Results, not counters** | Quote results with their qualifiers. | Counts of theorems, commits, articles or films as evidence. |
 
-**Preferred phrases:** error geometry · field evidence · science spine · claim lifecycle · inspectable evidence · lab-facing research corpus · MLIP Failure Geometry Audit · agentic research control plane.
+Write as "we" or "Lupine Science". Phrase lists, retired wording and status
+labels are in [messaging-canon.md](messaging-canon.md).
 
-**Retired phrases:** atom-logo framing · legacy Atlas labels · "materials organization" generics · unsupported claims that the science is settled.
+**Numbers rule:** quote a figure only if it appears in a linked article or
+data file, with its scope in the same sentence; never quote counts of
+commits, articles or theorems as evidence.
 
 ---
 
@@ -39,7 +47,8 @@ AI is crossing from bits to atoms. Every prediction of matter still rests on int
 | **Indigo** | `#3d4db3` | The only light source. Accent, links, data highlights. |
 | **Indigo deep** | `#2e3a87` | Hover / emphasis. |
 | **Ochre** | `#8a5e1f` | Rare third accent (caution, distinction). |
-| **Verified** | `#3a8f5b` | Status badges only. |
+| **Green** | `#3a8f5b` (text: `#2f7449`) | The "Supported" result label only. |
+| **Red** | `#a3402f` | The "Failed" result label only. |
 
 **Rule:** every generated image is paper + indigo + ink. If it drifts, palette-lock it to a warm-white→indigo duotone.
 
@@ -56,61 +65,21 @@ AI is crossing from bits to atoms. Every prediction of matter still rests on int
 
 ---
 
-## 4. The ownable hero motif: "the shape of wrongness"
+### The background motif
 
-The central, repeatable image is the **hyper-ribbon manifold**: scattered faint error vectors resolving onto a single luminous indigo ribbon on warm paper. It is the thesis made visible.
+The ribbon-and-particles motif on the homepage is decoration. It is drawn
+from error statistics of four classical potentials and must always be
+captioned as an illustration, never presented as a result about
+machine-learned potentials. Do not label it a "hyper-ribbon", a "manifold" or
+"the shape of wrongness" in public copy.
 
-**Where it repeats:**
-- Cover / OG image
-- Site hero background
-- Proof slide
-- Moat / vision slides
-
-**Secondary motifs:**
-- **Bits → atoms:** pixels/glyphs dissolving into a crystalline lattice.
-- **Error vectors aligning:** many near-parallel arrows collapsing to one direction.
-- **Compounding geometry:** a crystal/flywheel growing outward.
-
-**No-go visuals:** flowers, people, text baked into images, dark neon backgrounds, glowing-circuit AI tropes, stock 3D renders.
+**No-go visuals:** flowers, people, text baked into images, dark neon
+backgrounds, glowing-circuit AI tropes, stock 3D renders, and any picture
+that implies a measurement it does not encode.
 
 ---
 
-## 5. Narrative spine for pitches
-
-1. **Inflection:** AI is leaving the screen and entering matter.
-2. **Catch:** It is designing matter on predictions that are wrong.
-3. **Insight:** The wrongness has a shape — a low-dimensional error geometry.
-4. **Proof:** We mapped it, tested it across classical and foundation MLIPs, and machine-checked the map in Lean 4.
-5. **Product:** A correction layer (floor) and a materials-IP discovery engine (ceiling).
-6. **Moat:** Proof-grade rigor + self-refutation discipline + compounding manifold coverage.
-7. **Vision:** The validation substrate for a real-world Replicator.
-
----
-
-## 6. Fact lock (use exactly these numbers)
-
-- **679 commits · 46 public research articles**
-- **15 elements · ~900 classical potentials · 3 foundation MLIPs**
-- **Participation ratio 1.05–2.05** on the joint error manifold
-- **14/15 elements** preserve geometry classical → MLIP
-- **Cross-MLIP cosine > 0.8** (same direction, different magnitude)
-- **3 hypotheses self-refuted** and published
-- **Lean 4 proof** of the projection law (0 sorry)
-
----
-
-## 7. Surfaces and roles
-
-| Surface | Role | URL |
-|---|---|---|
-| **Lupine Science** | Research program and public start page | https://lupine.science |
-| **LUPI** | Browser-native WebGPU viewer for atomistic evidence | https://lupi.live |
-| **Lupine Library** | Mobile-first human knowledge surface | https://library.lupine.science |
-| **glim-think** | Agentic research control plane and ledger | https://glim-think-v1.aw-ab5.workers.dev |
-
----
-
-## 8. Do / don't for generated media
+## 4. Do / don't for generated media
 
 - **Do** start every prompt with the shared style suffix: *editorial scientific minimalism, warm off-white `#faf9f6` paper background, single indigo `#3d4db3` light/accent, near-duotone, generous negative space, calm and premium, no text, no people, no flowers, no neon.*
 - **Do** generate many variants and keep almost nothing — curation is the competence signal.
@@ -119,60 +88,58 @@ The central, repeatable image is the **hyper-ribbon manifold**: scattered faint 
 
 ---
 
-## 9. Creative exploration workflow
+## 5. Surfaces and roles
 
-For brand-vibe iteration we run a make → evaluate → mutate loop:
+| Surface | Role | URL |
+|---|---|---|
+| **Lupine Science** | Company site, results, corrections log | https://lupine.science |
+| **LUPI** | Browser structure viewer (WebGPU-capable browser, no installation) | https://lupi.live |
+| **Lupine Library** | Reader for the research record | https://library.lupine.science |
+| **lupine-rhizo** | Research code, data and the hypothesis ledger | https://github.com/alexwelcing/lupine-rhizo |
 
-1. **Generate** a controlled matrix of stills across motifs and variants with `media/projects/brand-exploration/scripts/generate_matrix.py`.
-2. **Review** in `media/projects/brand-exploration/renders/gallery.html` with palette / composition / on-brand / hero-usable scoring and a shortlist.
-3. **Explore** live combinations in `media/projects/brand-exploration/renders/playground.html`: procedural hyper-ribbon overlaid with any still, tunable density, curve, opacity, and speed.
-4. **Mutate** the shortlist into next-generation prompts with `scripts/mutate_prompts.py`.
-5. **Regenerate** and repeat.
+---
 
-This keeps the human/agent feedback loop explicit and reusable for every visual campaign.
+## 6. Content design system
 
-## 10. Content design system
+For templates and components for articles, white papers, research guides,
+tutorials, evidence records and reports, see:
 
-For templates and components for articles, white papers, research guides, tutorials, proof packs, and reports, see:
+- **Content design system:** `docs/content-design-system.md`
+- **Article CSS:** `public/articles/styles.css`
+- **Component reference:** `public/articles/components.html`
+- **Markdown templates:** `articles/_templates/`
 
-- **Content design system:** `lupine-science/docs/content-design-system.md`
-- **Article CSS:** `lupine-science/public/articles/styles.css`
-- **Component reference:** `lupine-science/public/articles/components.html`
-- **Markdown templates:** `lupine-science/articles/_templates/`
+## 7. Production files
 
-## 11. Production files
+- **Messaging canon:** `docs/messaging-canon.md`
+- **Company facts and claims:** `data/company.json`
+- **Brand asset manifest:** `data/brand-asset-pack.json`
+- **Procedural brand patterns:** `public/brand-assets/patterns/`
+- **Dark deck design tokens:** `public/brand-assets/deck-dark.css`
+- **Share card source:** `media/og/og-lupine-science.html`
+- **This guideline:** `docs/brand-guidelines.md`
 
-- **Brand narrative:** `lupine/docs/brand/narrative.md`
-- **Market strategy:** `lupine/docs/brand/market-strategy.json`
-- **Company profile:** `lupine/fundraise/company-profile.md`
-- **Deck content:** `lupine/fundraise/lupine-science-deck.md`
-- **Art direction:** `lupine/fundraise/art-direction.md`
-- **Generated brand stills:** `lupine/fundraise/brand-assets/fal/`
-- **Brand asset manifest:** `lupine-science/data/brand-asset-pack.json`
-- **Procedural brand patterns:** `lupine-science/public/brand-assets/patterns/`
-- **Dark deck design tokens:** `lupine-science/public/brand-assets/deck-dark.css`
-- **Dark deck sample:** `lupine-science/public/brand-assets/deck-dark-sample.html`
-- **This guideline:** `lupine-science/docs/brand-guidelines.md`
-
-## 12. Brand patterns and deck system
+## 8. Brand patterns and deck system
 
 ### Procedural patterns
 
 `scripts/build-brand-patterns.mjs` generates vector patterns locked to the brand palette:
 
-- `hyper-ribbon.svg` — the central "shape of wrongness" motif on paper.
-- `error-vectors.svg` — scattered vectors converging toward alignment.
+- `hyper-ribbon.svg` — the ribbon background motif on paper (decoration, not data).
+- `error-vectors.svg` — scattered strokes for backgrounds (decoration, not data).
 - `lattice-dots.svg` — subtle crystalline texture for backgrounds.
-- `dark-ribbon.svg` — hyper-ribbon on a deep ink ground for dark slides.
+- `dark-ribbon.svg` — the ribbon motif on a deep ink ground for dark slides.
 
 Regenerate with `npm run build` or `node scripts/build-brand-patterns.mjs`.
 
-### Dark pitch deck tokens
+### Dark deck tokens
 
 `public/brand-assets/deck-dark.css` provides a self-contained dark slide system:
 
 - CSS custom properties for the dark palette (`--deck-paper`, `--deck-ink`, `--deck-indigo`).
 - `.slide` class sized to 1280×720 with print-safe page breaks.
-- Type scale, stat rows, callouts, and corner mark placement.
+- Type scale, callouts, and corner mark placement. Stat rows hold results with their scope, never counters.
 
 See `public/brand-assets/deck-dark-sample.html` for a two-slide reference.
+Decks built with these tokens are shared privately; none is published on
+lupine.science.

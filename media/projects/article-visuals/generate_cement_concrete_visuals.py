@@ -47,7 +47,7 @@ W_PIX, H_PIX = 1280, 720
 FIG_W = W_PIX / DPI
 FIG_H = H_PIX / DPI
 
-MINIMAX = Path('/home/alex/.hermes/skills/lupine-media-director/scripts/minimax_client.py')
+MINIMAX = Path(os.environ['LUPINE_MINIMAX_CLIENT'])
 
 plt.rcParams.update({
     'font.family': 'sans-serif',

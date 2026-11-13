@@ -22,7 +22,7 @@ function sha256(filename) {
   return crypto.createHash('sha256').update(fs.readFileSync(filename)).digest('hex');
 }
 
-test('shared-anchor proof pack locks the approved claim without campaign conflation', async () => {
+test('shared-anchor evidence record locks the approved claim without campaign conflation', async () => {
   const article = fs.readFileSync(ARTICLE, 'utf8');
   const page = fs.readFileSync(PAGE, 'utf8');
   const articleIndex = fs.readFileSync(ARTICLE_INDEX, 'utf8');
@@ -33,15 +33,29 @@ test('shared-anchor proof pack locks the approved claim without campaign conflat
   assert.match(article, new RegExp(approvedClaim.replace('.', '\\.')));
   assert.equal(manifest.metadata.status, 'published');
   assert.equal(manifest.summary.claim.includes(approvedClaim), true);
-  assert.match(manifest.credits.editorialReview, /completed; approved for publication 2026-08-03/i);
+  assert.match(manifest.summary.claim, /The baseline is four separate runs/);
+  assert.equal(
+    manifest.credits.editorialReview,
+    'Internally reviewed (AI-assisted) and approved for publication 2026-08-03; not peer-reviewed'
+  );
+  assert.doesNotMatch(JSON.stringify(manifest), /independent(?:ly)? (?:editorial|reviewed)|proof pack/i);
+  assert.equal(manifest.metadata.date, '2026-08-03');
+  assert.equal(manifest.metadata.updated, '2026-11-12');
+  assert.match(manifest.metadata.title, /^Evidence Record: /);
   assert.match(page, /<aside class="proof-download" aria-labelledby="proof-download-title-shared-dft-anchors">/);
   const pdfMetadata = await readProofPackMetadata(PDF);
-  assert.ok(page.includes(`PDF · ${pdfMetadata.pageCount} pages · ${pdfMetadata.size} · updated August 3, 2026`));
+  assert.equal(pdfMetadata.updatedDate, manifest.metadata.updated);
+  assert.ok(page.includes(`PDF · ${pdfMetadata.pageCount} pages · ${pdfMetadata.size} · updated November 12, 2026`));
+  // The reissued record replaced the stale August PDF, so the "unrevised" notes are gone.
+  assert.doesNotMatch(article, /has not been revised|unrevised/);
+  assert.doesNotMatch(page, /unrevised|this page supersedes it/);
   assert.match(page, /href="\/proof-packs\/shared-dft-anchors\.proofpack\.pdf" download/);
   assert.match(page, /https:\/\/lupine\.science\/articles\/shared-dft-anchors\/hero\.jpg\?v=4/);
   assert.equal((page.match(/hero\.jpg\?v=4/g) || []).length, 4, 'OG, Twitter, JSON-LD, and visible hero must share v4');
   assert.doesNotMatch(page, /hero\.jpg\?v=3/);
-  assert.match(articleIndex, /shared-dft-anchors\/hero\.jpg\?v=4/);
+  // /articles/ is a compact list (no thumbnails): it lists the record and never a stale hero
+  assert.match(articleIndex, /<a href="\/articles\/shared-dft-anchors\/">/);
+  assert.doesNotMatch(articleIndex, /shared-dft-anchors\/hero\.jpg\?v=[0-3]\b/);
   assert.deepEqual([...hero.subarray(0, 3)], [0xff, 0xd8, 0xff]);
   assert.ok(page.indexOf('class="proof-download"') < page.indexOf('class="article-hero"'), 'proof download must precede hero');
 

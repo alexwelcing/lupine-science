@@ -1,0 +1,44 @@
+# Cloudflare Pages redirects. Retired pages answer with a permanent redirect
+# to the company facts page or the corrections log; see /corrections/ for what
+# was retired and why.
+/one-pager                                 /about/  301
+/one-pager.html                            /about/  301
+/one-pager/                                /about/  301
+/presentations/climate-investor-value      /about/  301
+/presentations/climate-investor-value/     /about/  301
+/presentations/climate-investor-value/*    /about/  301
+/proof-pack-climate-series.pdf             /corrections/  301
+/atlas/claims                              /atlas/  301
+/atlas/claims/*                            /atlas/  301
+
+# The password-walled venture deck left the site on 2026-11-13; decks are
+# shared privately now, not published here.
+/venture                                   /about/  301
+/venture/                                  /about/  301
+/venture/*                                 /about/  301
+
+# Film detail pages retired between 2026-11-11 and 2026-11-12 (see
+# scripts/lib/film-listing.mjs). Each film's article stays at /articles/<slug>/.
+# Listed one by one so a film page published later is never shadowed.
+/videos/a-field-not-a-neural-net/                                       /articles/a-field-not-a-neural-net/  301
+/videos/a-smooth-environment-resolved-error-field/                      /articles/a-smooth-environment-resolved-error-field/  301
+/videos/an-order-of-effort/                                             /articles/an-order-of-effort/  301
+/videos/beyond-carbon-the-error-geometry-of-environmental-materials/    /articles/beyond-carbon-the-error-geometry-of-environmental-materials/  301
+/videos/cement-concrete-and-the-weight-of-the-built-world/              /articles/cement-concrete-and-the-weight-of-the-built-world/  301
+/videos/critical-minerals-pfas-and-the-remediation-imperative/          /articles/critical-minerals-pfas-and-the-remediation-imperative/  301
+/videos/five-materials-for-5-to-12-gtco2-year/                          /articles/five-materials-for-5-to-12-gtco2-year/  301
+/videos/from-fantasy-frameworks-to-makeable-materials/                  /articles/from-fantasy-frameworks-to-makeable-materials/  301
+/videos/from-predicted-crystal-to-commercial-cell/                      /articles/from-predicted-crystal-to-commercial-cell/  301
+/videos/investing-in-the-trust-layer/                                   /articles/investing-in-the-trust-layer/  301
+/videos/lupi-hfc-refrigerant-research-payloads/                         /articles/lupi-hfc-refrigerant-research-payloads/  301
+/videos/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/   /articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/  301
+/videos/rhizo-non-co2-climate-forcers-lean/                             /articles/rhizo-non-co2-climate-forcers-lean/  301
+/videos/the-02-percent-synthesis-problem/                               /articles/the-02-percent-synthesis-problem/  301
+/videos/the-materials-we-test-against/                                  /articles/the-materials-we-test-against/  301
+/videos/the-order-is-right-the-size-is-wrong/                           /articles/the-order-is-right-the-size-is-wrong/  301
+/videos/the-savings-stack/                                              /articles/the-savings-stack/  301
+/videos/the-trust-layer/                                                /articles/the-trust-layer/  301
+/videos/water-and-air-correcting-the-molecules-we-drink-and-breathe/    /articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/  301
+/videos/why-lupi/                                                       /articles/why-lupi/  301
+/videos/why-lupine-science/                                             /articles/why-lupine-science/  301
+/videos/z1-union-debrief/                                               /articles/z1-union-debrief/  301

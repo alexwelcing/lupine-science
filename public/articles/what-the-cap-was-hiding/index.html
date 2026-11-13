@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>What the Cap Was Hiding — Lupine Science</title>
-  <meta name="description" content="A preregistered correction trial failed. Reopening the mathematics rather than the conclusion showed the gate was mis-tuned, the confirmatory test could not have passed even in principle, an escape statistic proposed as an input to the next round had no physical content, and the replacement gate carries a rounding hazard of its own. The license results are theorems in Lean 4; the rest is arithmetic replayed from the hash-locked records.">
+  <meta name="description" content="A preregistered correction trial (Round 4, July 2026) failed. Going back through the mathematics showed four defects, none of them in the physics: the gate that decided when a correction could act was mis-tuned, the confirmatory test could not have passed even with a perfect result, a proposed input statistic measured only the panel's bookkeeping, and the replacement gate has a rounding hazard of its own. The clearance conditions are Lean 4 theorems; the rest is arithmetic replayed from the hash-locked records.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://lupine.science/articles/what-the-cap-was-hiding/">
   <meta property="og:title" content="What the Cap Was Hiding — Lupine Science">
-  <meta property="og:description" content="A preregistered correction trial failed. Reopening the mathematics rather than the conclusion showed the gate was mis-tuned, the confirmatory test could not have passed even in principle, an escape statistic proposed as an input to the next round had no physical content, and the replacement gate carries a rounding hazard of its own. The license results are theorems in Lean 4; the rest is arithmetic replayed from the hash-locked records.">
+  <meta property="og:description" content="A preregistered correction trial (Round 4, July 2026) failed. Going back through the mathematics showed four defects, none of them in the physics: the gate that decided when a correction could act was mis-tuned, the confirmatory test could not have passed even with a perfect result, a proposed input statistic measured only the panel's bookkeeping, and the replacement gate has a rounding hazard of its own. The clearance conditions are Lean 4 theorems; the rest is arithmetic replayed from the hash-locked records.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://lupine.science/articles/what-the-cap-was-hiding/">
   <meta property="og:image" content="https://lupine.science/og-lupine-science.jpg?v=3">
@@ -16,7 +16,7 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="What the Cap Was Hiding — Lupine Science">
-  <meta name="twitter:description" content="A preregistered correction trial failed. Reopening the mathematics rather than the conclusion showed the gate was mis-tuned, the confirmatory test could not have passed even in principle, an escape statistic proposed as an input to the next round had no physical content, and the replacement gate carries a rounding hazard of its own. The license results are theorems in Lean 4; the rest is arithmetic replayed from the hash-locked records.">
+  <meta name="twitter:description" content="A preregistered correction trial (Round 4, July 2026) failed. Going back through the mathematics showed four defects, none of them in the physics: the gate that decided when a correction could act was mis-tuned, the confirmatory test could not have passed even with a perfect result, a proposed input statistic measured only the panel's bookkeeping, and the replacement gate has a rounding hazard of its own. The clearance conditions are Lean 4 theorems; the rest is arithmetic replayed from the hash-locked records.">
   <meta name="twitter:image" content="https://lupine.science/og-lupine-science.jpg?v=3">
   <meta name="theme-color" content="#faf9f6">
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
@@ -27,46 +27,46 @@
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/articles/styles.css">
   <style>:root{--share-ink:var(--ink-soft,#4c4e58);--share-ink-hover:var(--indigo,#3d4db3);--share-border:var(--rule,#e2dfd4);--share-bg:var(--paper,#faf9f6);--share-bg-hover:var(--indigo-wash,rgba(61,77,179,0.08));--share-focus:var(--indigo,#3d4db3);--share-gap:8px;--share-icon-size:18px;}.share-root{display:flex;flex-wrap:wrap;align-items:center;gap:var(--share-gap);margin:2.4em 0 0;padding:16px 0 0;border-top:1px solid var(--share-border);font-family:var(--mono,'IBM Plex Mono',ui-monospace,monospace);font-size:13px;position:relative;}.share-label{color:var(--ink-faint,#6e707a);margin-right:4px;}.share-list{display:flex;flex-wrap:wrap;gap:var(--share-gap);list-style:none;margin:0;padding:0;}.share-list[hidden]{display:none;}.share-list li,.share-menu li{margin:0;padding:0;}.share-link,.share-toggle{display:inline-flex;align-items:center;gap:6px;min-width:44px;min-height:44px;padding:6px 12px;border-radius:4px;border:1px solid var(--share-border);background:var(--share-bg);color:var(--share-ink);text-decoration:none;font-family:inherit;font-size:inherit;cursor:pointer;transition:background 180ms,border-color 180ms,color 180ms;}.share-link svg,.share-toggle svg{width:var(--share-icon-size);height:var(--share-icon-size);flex-shrink:0;}.share-link:hover,.share-link:focus,.share-toggle:hover,.share-toggle:focus{background:var(--share-bg-hover);border-color:var(--share-focus);color:var(--share-ink-hover);}.share-link:focus-visible,.share-toggle:focus-visible{outline:2px solid var(--share-focus);outline-offset:2px;}.share-live{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}@media (max-width:600px){.share-root{flex-wrap:wrap;}.share-toggle{min-width:44px;min-height:44px;padding:8px 12px;justify-content:center;}.share-toggle-text{margin-left:4px;}.share-menu{position:static;flex-basis:100%;list-style:none;margin:6px 0 0;padding:6px;border:1px solid var(--share-border);border-radius:6px;background:var(--share-bg);box-shadow:0 8px 24px rgba(22,23,29,0.08);}.share-menu[hidden]{display:none;}.share-menu .share-link{width:100%;justify-content:flex-start;min-height:44px;border:none;border-radius:4px;background:transparent;}.share-menu .share-link:hover,.share-menu .share-link:focus{background:var(--share-bg-hover);}}@media print{.share-root{display:none;}}@media (prefers-reduced-motion:reduce){.share-link,.share-toggle,.share-menu,.article .share-link,.article .share-toggle{transition:none !important;animation:none !important;}}</style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What the Cap Was Hiding","description":"A preregistered correction trial failed. Reopening the mathematics rather than the conclusion showed the gate was mis-tuned, the confirmatory test could not have passed even in principle, an escape statistic proposed as an input to the next round had no physical content, and the replacement gate carries a rounding hazard of its own. The license results are theorems in Lean 4; the rest is arithmetic replayed from the hash-locked records.","datePublished":"2026-08-04","url":"https://lupine.science/articles/what-the-cap-was-hiding/","mainEntityOfPage":"https://lupine.science/articles/what-the-cap-was-hiding/","image":"https://lupine.science/articles/what-the-cap-was-hiding/hero.jpg?v=3","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png?v=3"}}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What the Cap Was Hiding","description":"A preregistered correction trial (Round 4, July 2026) failed. Going back through the mathematics showed four defects, none of them in the physics: the gate that decided when a correction could act was mis-tuned, the confirmatory test could not have passed even with a perfect result, a proposed input statistic measured only the panel's bookkeeping, and the replacement gate has a rounding hazard of its own. The clearance conditions are Lean 4 theorems; the rest is arithmetic replayed from the hash-locked records.","datePublished":"2026-08-04","dateModified":"2026-11-11","url":"https://lupine.science/articles/what-the-cap-was-hiding/","mainEntityOfPage":"https://lupine.science/articles/what-the-cap-was-hiding/","image":"https://lupine.science/articles/what-the-cap-was-hiding/hero.jpg?v=3","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png?v=3"}}}</script>
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
   <header class="site-header">
     <a class="mark" href="/" aria-label="Lupine Science">
       <svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
-  <defs>
-    <linearGradient id="bb" x1="190" y1="74" x2="324" y2="356" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#88a7d8"/><stop offset=".35" stop-color="#475b9c"/><stop offset=".78" stop-color="#102f47"/><stop offset="1" stop-color="#071a2a"/>
-    </linearGradient>
-    <linearGradient id="bl" x1="150" y1="330" x2="360" y2="470" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#7f907c"/><stop offset="1" stop-color="#4c653d"/>
-    </linearGradient>
-    <radialGradient id="bc" cx="48%" cy="30%" r="68%">
-      <stop offset="0" stop-color="#fffdf3"/><stop offset=".7" stop-color="#f1e8c9"/><stop offset="1" stop-color="#d4c58f"/>
-    </radialGradient>
-  </defs>
-  <g fill="none" stroke="#4c653d" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M256 148 C252 224 258 312 254 448"/><path d="M252 402 C222 372 178 354 124 348"/><path d="M260 402 C290 372 334 354 388 348"/>
-  </g>
-  <g fill="url(#bl)" opacity=".96">
-    <ellipse cx="139" cy="348" rx="18" ry="62" transform="rotate(-78 139 348)"/><ellipse cx="167" cy="384" rx="18" ry="62" transform="rotate(-48 167 384)"/><ellipse cx="214" cy="410" rx="17" ry="58" transform="rotate(-20 214 410)"/><ellipse cx="373" cy="348" rx="18" ry="62" transform="rotate(78 373 348)"/><ellipse cx="345" cy="384" rx="18" ry="62" transform="rotate(48 345 384)"/><ellipse cx="298" cy="410" rx="17" ry="58" transform="rotate(20 298 410)"/>
-  </g>
-  <g fill="none" stroke="#fef8f5" stroke-width="5" stroke-linecap="round" opacity=".66">
-    <path d="M132 348 C170 356 205 373 236 405"/><path d="M380 348 C342 356 307 373 276 405"/>
-  </g>
-  <g fill="url(#bb)" stroke="#fef8f5" stroke-width="5" stroke-linejoin="round">
-    <ellipse cx="256" cy="86" rx="22" ry="34"/><ellipse cx="232" cy="122" rx="23" ry="35" transform="rotate(-24 232 122)"/><ellipse cx="280" cy="122" rx="23" ry="35" transform="rotate(24 280 122)"/><ellipse cx="256" cy="150" rx="30" ry="40"/><ellipse cx="211" cy="182" rx="26" ry="38" transform="rotate(-34 211 182)"/><ellipse cx="301" cy="182" rx="26" ry="38" transform="rotate(34 301 182)"/><ellipse cx="256" cy="216" rx="37" ry="48"/><ellipse cx="204" cy="256" rx="30" ry="43" transform="rotate(-42 204 256)"/><ellipse cx="308" cy="256" rx="30" ry="43" transform="rotate(42 308 256)"/><ellipse cx="256" cy="306" rx="40" ry="52"/>
-  </g>
-  <g fill="url(#bc)">
-    <path d="M244 142 C251 124 261 124 268 142 C262 136 250 136 244 142Z"/><path d="M244 207 C252 186 263 186 271 207 C263 199 252 199 244 207Z"/><path d="M242 296 C252 272 265 272 274 296 C264 286 252 286 242 296Z"/>
-  </g>
-</svg>
-      <span><b>Lupine Science</b> <span class="tld">accelerating materials discovery</span></span>
+        <defs>
+          <linearGradient id="bb" x1="190" y1="74" x2="324" y2="356" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#88a7d8"/><stop offset=".35" stop-color="#475b9c"/><stop offset=".78" stop-color="#102f47"/><stop offset="1" stop-color="#071a2a"/>
+          </linearGradient>
+          <linearGradient id="bl" x1="150" y1="330" x2="360" y2="470" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#7f907c"/><stop offset="1" stop-color="#4c653d"/>
+          </linearGradient>
+          <radialGradient id="bc" cx="48%" cy="30%" r="68%">
+            <stop offset="0" stop-color="#fffdf3"/><stop offset=".7" stop-color="#f1e8c9"/><stop offset="1" stop-color="#d4c58f"/>
+          </radialGradient>
+        </defs>
+        <g fill="none" stroke="#4c653d" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M256 148 C252 224 258 312 254 448"/><path d="M252 402 C222 372 178 354 124 348"/><path d="M260 402 C290 372 334 354 388 348"/>
+        </g>
+        <g fill="url(#bl)" opacity=".96">
+          <ellipse cx="139" cy="348" rx="18" ry="62" transform="rotate(-78 139 348)"/><ellipse cx="167" cy="384" rx="18" ry="62" transform="rotate(-48 167 384)"/><ellipse cx="214" cy="410" rx="17" ry="58" transform="rotate(-20 214 410)"/><ellipse cx="373" cy="348" rx="18" ry="62" transform="rotate(78 373 348)"/><ellipse cx="345" cy="384" rx="18" ry="62" transform="rotate(48 345 384)"/><ellipse cx="298" cy="410" rx="17" ry="58" transform="rotate(20 298 410)"/>
+        </g>
+        <g fill="none" stroke="#fef8f5" stroke-width="5" stroke-linecap="round" opacity=".66">
+          <path d="M132 348 C170 356 205 373 236 405"/><path d="M380 348 C342 356 307 373 276 405"/>
+        </g>
+        <g fill="url(#bb)" stroke="#fef8f5" stroke-width="5" stroke-linejoin="round">
+          <ellipse cx="256" cy="86" rx="22" ry="34"/><ellipse cx="232" cy="122" rx="23" ry="35" transform="rotate(-24 232 122)"/><ellipse cx="280" cy="122" rx="23" ry="35" transform="rotate(24 280 122)"/><ellipse cx="256" cy="150" rx="30" ry="40"/><ellipse cx="211" cy="182" rx="26" ry="38" transform="rotate(-34 211 182)"/><ellipse cx="301" cy="182" rx="26" ry="38" transform="rotate(34 301 182)"/><ellipse cx="256" cy="216" rx="37" ry="48"/><ellipse cx="204" cy="256" rx="30" ry="43" transform="rotate(-42 204 256)"/><ellipse cx="308" cy="256" rx="30" ry="43" transform="rotate(42 308 256)"/><ellipse cx="256" cy="306" rx="40" ry="52"/>
+        </g>
+        <g fill="url(#bc)">
+          <path d="M244 142 C251 124 261 124 268 142 C262 136 250 136 244 142Z"/><path d="M244 207 C252 186 263 186 271 207 C263 199 252 199 244 207Z"/><path d="M242 296 C252 272 265 272 274 296 C264 286 252 286 242 296Z"/>
+        </g>
+      </svg>
+      <span><b>Lupine Science</b> <span class="tld">measuring where AI models of materials go wrong</span></span>
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/">Home</a>
+      <a href="/results/">Results</a>
       <a href="/articles/" aria-current="page">Articles</a>
-      <a href="/videos/">Videos</a>
       <a href="/about/">About</a>
       <a href="https://library.lupine.science">Library</a>
       <a href="https://lupi.live">LUPI</a>
@@ -77,7 +77,8 @@
       <p class="article-kicker" aria-label="Article type">Research note</p>
 <h1>What the Cap Was Hiding</h1>
 <p class="article-deck">A correction gate that refused seven in ten of the cases it could act on turned out to be measuring its own estimator, not the physics — and the failure that exposed it was preserved rather than discarded.</p>
-<ul class="article-byline" aria-label="Publication details"><li><time datetime="2026-08-04">August 4, 2026</time></li> <li aria-hidden="true"><span class="byline-sep" aria-hidden="true">·</span></li> <li><span class="article-status">Draft</span></li></ul>
+<ul class="article-byline" aria-label="Publication details"><li>Originally published <time datetime="2026-08-04">August 4, 2026</time></li><li aria-hidden="true"><span class="byline-sep">·</span></li><li>Updated <time datetime="2026-11-11">November 11, 2026</time></li><li aria-hidden="true"><span class="byline-sep">·</span></li><li><span class="article-status status-published">Published</span></li></ul>
+<aside class="callout warning article-evidence-status" aria-label="Evidence status"><strong>Evidence status:</strong> Every number below was re-derived from the primary records before publication, and five claims in the first draft did not survive that check (see Corrections to this piece). The clearance conditions are Lean 4 theorems; Lean checks the arithmetic and stated inequalities, not the physics, the reference data or the pipeline. Not peer-reviewed.</aside>
 <figure class="article-hero" aria-labelledby="hero-caption">
   <picture>
     <source srcset="/articles/what-the-cap-was-hiding/hero.avif?v=3" type="image/avif">
@@ -122,9 +123,9 @@
 <p>Four defects, none of them in the physics: a mis-tuned gate, an underpowered test, a statistic that measured its own construction, and a rounding hazard in the replacement gate. Two things made them findable.</p>
 <p>The first is that the failure was preserved with its inputs. The candidate set was hash-locked before measurement, the failures were recorded without imputation, and the outcomes were registered in the claim registry as <em>contradicted</em> and <em>withdrawn</em> rather than quietly revised. Every claim in the preceding sections was recomputed from those records sixteen days later. Had the campaign been re-run to a better outcome, or the counter-results dropped, none of this would have been recoverable. The record of being wrong was the instrument.</p>
 <p>That record includes the trial’s own procedural failure, and it is worth stating plainly rather than in the register of a footnote. The preregistration required the analysis implementation to be committed and tested before the evaluation set was locked. It was not: the evaluation set was locked on 17 July and the tool that executed the analysis was first committed on 19 July, after the measurements existed. The amendment that records this calls the remedy fix-forward and explicitly not absolution, and marks the promised freeze as void. The measurements are hash-locked and re-verify byte-for-byte, so the analysis cannot have been tuned against undisclosed intermediate states <em>from that point forward</em> — which is a weaker guarantee than the one that was registered, and the difference is the point.</p>
-<p>The second thing that made the defects findable is mechanical proof. The license results are theorems in Lean 4 — 515 named theorems and lemmas across eight modules, together with 116 anonymous <code>example</code> checks, 631 machine-checked propositions in total, with no <code>sorry</code> and no <code>native_decide</code> anywhere, under toolchain v4.29.0. (The four modules this article draws on most — the sharp characterisation, the optimal estimator, the robustness family, the structural counterexamples — account for 325 of the named results; the rest are the conformal-δ, escape-bound and oracle modules.) That matters less for confidence in the algebra than for a specific failure mode: it is very easy to convince oneself that a conservative gate is safe. It is not possible to convince a proof checker that a gate is necessary when it is merely sufficient.</p>
+<p>The second thing that made the defects findable is mechanical proof. The clearance conditions are Lean 4 theorems, checked with no <code>sorry</code> and no <code>native_decide</code> under toolchain v4.29.0; the generated declaration count is in the corrections note at the end. Lean checks the arithmetic and stated inequalities, not the physics, the reference data or the pipeline. That matters less for confidence in the algebra than for a specific failure mode: it is very easy to convince oneself that a conservative gate is safe. It is not possible to convince a proof checker that a gate is necessary when it is merely sufficient.</p>
 <p>Mechanical proof also produced the least comfortable result in this work, and also the most easily overstated. Componentwise licensing <em>does</em> imply what one would hope at the aggregate level: if every component of a vector-valued prediction carries a licensed, in-hull correction, the error vector shrinks componentwise, hence in every positively weighted MAE and Frobenius norm. That is a theorem. What componentwise licensing does <strong>not</strong> control is quantities <em>derived</em> from the components. Two licensed corrections on <code>c₁₁</code> and <code>c₁₂</code> can worsen the tetragonal shear <code>C′ = (c₁₁ − c₁₂)/2</code>: in the recorded witness both component errors fall, both norms improve, and a derived modulus that was exactly right goes to 7.3% wrong, because the raw prediction was correct by error cancellation and the correction destroyed the cancellation. The same happens for products across regimes — a licensed inflation correction on one property and a licensed deflation correction on another, each strictly improving, turning a perfectly predicted product into an 8.7% error. Per-component licensing plus <em>derived-quantity</em> reporting is the combination the theorems do not support. Finding it required looking for a counterexample rather than a proof.</p>
-<p>Against that, the process failed in a way worth naming. When the trial’s verdicts came back negative, the first instinct — mine — was to treat them as a scope boundary: to catalogue what could still be defended, drop the material classes where claims had been contradicted, and lead with whatever survived external scrutiny. That instinct is not rigour. It reads early errors as terminal verdicts, and it stops exactly where the interesting mathematics starts. The correction came from outside: <em>you are looking for exits rather than pursuing the theory more fully.</em> Everything above followed from reopening the mathematics instead of narrowing the claim, and the specific thing that had to be reopened was the thing the failure had made look settled.</p>
+<p>Against that, the process nearly failed in a way worth naming. When the trial’s verdicts came back negative, our first move was to treat them only as a scope boundary: catalogue what could still be defended, drop the material classes where claims had been contradicted, and lead with whatever survived. Narrowing the public claim was right, and we did it. Stopping there would have been a mistake, because it treated the failure as the end of the analysis. The objection, raised in review, was that this was looking for exits rather than pursuing the theory more fully. Everything above followed from reopening the mathematics as well as narrowing the claim, and the specific thing that had to be reopened was the thing the failure had made look settled.</p>
 <h2>Where it leaves the theory</h2>
 <p>The licensed region is no longer the object of interest. Its boundary was an artefact of an estimator choice, and once the estimator is chosen to suit the license, the gate on in-hull cases becomes vacuous. What remains genuinely open is the condition the gate was standing in for.</p>
 <p>Improvement requires the target ratio to sit on the correct side of <code>H(b)</code>. The hull was a proxy for that, and a conservative one — hull membership is sufficient but not necessary, and a target outside the hull can still be improved, by a quantified amount of slack the gate buys. But hull membership is also not checkable at prediction time, which is precisely why the honest escape measurement matters. What is needed is not a wider license but a computable bound on where the target ratio can be, which is a statement about how far a calibration set can be trusted to travel — across a structure prototype, a composition region, a chemistry.</p>
@@ -132,7 +133,7 @@
 <h2>Corrections to this piece</h2>
 <p>This article asserts that preserved failure plus mechanical proof is what makes error findable. It would be self-refuting to publish it without applying that standard to itself. Every quantitative claim above was re-derived from the Lean sources and the hash-locked campaign records before publication. Five claims in the first draft did not survive:</p>
 <ul>
-<li><strong>The theorem count.</strong> The draft attributed a single round figure to four theorem families. The tree in fact holds 517 <code>theorem</code> declarations and 2 <code>lemma</code>s — 519 named results — plus 116 <code>example</code> checks, across 9 modules; the four families it attributed the count to hold 328 of them. Corrected to the true numbers and the true scope, and every figure in this bullet is now hydrated from <code>public/data/theory_artifacts_count.json</code> at build time rather than typed.</li>
+<li><strong>The theorem count.</strong> The draft attributed a single round figure to four theorem families. The tree in fact holds 517 <code>theorem</code> declarations and 2 <code>lemma</code>s — 519 named results — plus 116 <code>example</code> checks, across 9 modules; the four families it attributed the count to hold 328 of them (generated count, 2026-08-10). Lean checks the arithmetic and stated inequalities behind these results; it does not check the physics, the reference data or the pipeline. Corrected to the true numbers and the true scope, and every figure in this bullet is now hydrated from <code>public/data/theory_artifacts_count.json</code> at build time rather than typed.</li>
 <li><strong>“The trial was frozen before execution.”</strong> Contradicted by the trial’s own amendment: the analysis tool post-dates both the evaluation-set lock and the measurements, and the registered freeze is recorded as void. Corrected, and given its own paragraph rather than a footnote.</li>
 <li><strong>“Nothing previously guaranteed is lost; the sharp gate simply licenses strictly more.”</strong> True of the proofs, false of the operational guarantee: the sharp gate gives up a runtime-checkable refusal that the old cap provided. Corrected.</li>
 <li><strong>“The escape statistic had been reported for months,” and “recomputed months later.”</strong> Neither is true. The trial ran on 19 July 2026 and this analysis is dated 4 August 2026 — sixteen days. No escape rate had been reported anywhere before this audit. Corrected.</li>
@@ -162,9 +163,10 @@
     </article>
   </main>
   <footer class="foot">
-    <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
-    <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" href="mailto:alex@lupinesci.com" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
-    <span><a href="/about/">About</a> · <a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a> · <a href="/feed.xml">Feed</a></span>
+    <span class="creed">Evidence before claim.</span>
+    <nav class="foot-nav" aria-label="Footer"><a href="/">Home</a> · <a href="/results/">Results</a> · <a href="/articles/">Articles</a> · <a href="/about/">About</a> · <a href="/corrections/">Corrections</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://github.com/alexwelcing/lupine">GitHub</a></nav>
+    <span class="contact">Lupine Science · <a class="mail" href="/about/#contact" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
+    <span class="licence">Code MIT · our text and data CC BY 4.0 unless noted · third-party material keeps its own licence</span>
   </footer>
 <script type="module">
 import { initAllShareWidgets } from "/components/share/share.mjs";
@@ -174,6 +176,12 @@ import { initAllShareWidgets } from "/components/share/share.mjs";
     a.href = "mailto:" + addr + (a.dataset.subject ? "?subject=" + encodeURIComponent(a.dataset.subject) : "");
     if (!("keepText" in a.dataset)) a.textContent = addr;
   });
+  const openTarget = () => {
+    const d = location.hash.length > 1 && document.getElementById(location.hash.slice(1));
+    if (d && d.tagName === "DETAILS") d.open = true;
+  };
+  openTarget();
+  addEventListener("hashchange", openTarget);
   const vids = document.querySelectorAll("video[data-autoplay]");
   if (vids.length) {
     if (!("IntersectionObserver" in window)) { vids.forEach((v) => { v.preload = "metadata"; }); }

@@ -156,8 +156,10 @@ for (const file of walkHtml(path.join(PUBLIC, 'articles'))) {
 
 // sitemap must cover exactly what ships: every article page, no phantoms
 {
+  // Archived articles keep their page (noindex) but are deliberately left out.
   const slugs = fs.readdirSync(path.join(PUBLIC, 'articles'), { withFileTypes: true })
     .filter((e) => e.isDirectory() && fs.existsSync(path.join(PUBLIC, 'articles', e.name, 'index.html')))
+    .filter((e) => !/<meta name="robots" content="noindex/.test(fs.readFileSync(path.join(PUBLIC, 'articles', e.name, 'index.html'), 'utf8')))
     .map((e) => e.name);
   for (const slug of slugs) {
     if (!sitemap.includes(`https://lupine.science/articles/${slug}/`)) {

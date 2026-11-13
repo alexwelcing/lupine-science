@@ -97,7 +97,7 @@ def make_01():
         "minimal text, scientific infographic aesthetic, 16:9 landscape."
     )
     subprocess.run([
-        sys.executable, '/home/alex/.hermes/skills/lupine-media-director/scripts/minimax_client.py',
+        sys.executable, os.environ['LUPINE_MINIMAX_CLIENT'],
         'image', '--prompt', prompt, '--aspect', '16:9', '--output', str(output)
     ], check=True)
     return output

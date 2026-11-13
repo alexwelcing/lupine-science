@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learning What an Error Pattern Can Tell Us — Lupine Science</title>
+  <meta name="description" content="A retrospective analysis of previously examined data: errors stayed concentrated, but a learned shared direction added little or no advantage over a simple common-direction baseline. Also: where model disagreement helped, and a diffusion correction that reaches its limit. No new physical validation is claimed.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://lupine.science/articles/what-error-patterns-can-tell-us/">
+  <meta property="og:title" content="Learning What an Error Pattern Can Tell Us — Lupine Science">
+  <meta property="og:description" content="A retrospective analysis of previously examined data: errors stayed concentrated, but a learned shared direction added little or no advantage over a simple common-direction baseline. Also: where model disagreement helped, and a diffusion correction that reaches its limit. No new physical validation is claimed.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://lupine.science/articles/what-error-patterns-can-tell-us/">
+  <meta property="og:image" content="https://lupine.science/og-lupine-science.jpg?v=3">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Learning What an Error Pattern Can Tell Us — Lupine Science">
+  <meta name="twitter:description" content="A retrospective analysis of previously examined data: errors stayed concentrated, but a learned shared direction added little or no advantage over a simple common-direction baseline. Also: where model disagreement helped, and a diffusion correction that reaches its limit. No new physical validation is claimed.">
+  <meta name="twitter:image" content="https://lupine.science/og-lupine-science.jpg?v=3">
+  <meta name="theme-color" content="#faf9f6">
+  <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
+  <link rel="icon" type="image/png" href="/lupine-science-icon.png">
+  <link rel="apple-touch-icon" href="/lupine-science-icon.png">
+  <link rel="alternate" type="application/atom+xml" title="Lupine Science" href="/feed.xml">
+  <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/katex/katex.min.css">
+  <link rel="stylesheet" href="/articles/styles.css">
+  <style>:root{--share-ink:var(--ink-soft,#4c4e58);--share-ink-hover:var(--indigo,#3d4db3);--share-border:var(--rule,#e2dfd4);--share-bg:var(--paper,#faf9f6);--share-bg-hover:var(--indigo-wash,rgba(61,77,179,0.08));--share-focus:var(--indigo,#3d4db3);--share-gap:8px;--share-icon-size:18px;}.share-root{display:flex;flex-wrap:wrap;align-items:center;gap:var(--share-gap);margin:2.4em 0 0;padding:16px 0 0;border-top:1px solid var(--share-border);font-family:var(--mono,'IBM Plex Mono',ui-monospace,monospace);font-size:13px;position:relative;}.share-label{color:var(--ink-faint,#6e707a);margin-right:4px;}.share-list{display:flex;flex-wrap:wrap;gap:var(--share-gap);list-style:none;margin:0;padding:0;}.share-list[hidden]{display:none;}.share-list li,.share-menu li{margin:0;padding:0;}.share-link,.share-toggle{display:inline-flex;align-items:center;gap:6px;min-width:44px;min-height:44px;padding:6px 12px;border-radius:4px;border:1px solid var(--share-border);background:var(--share-bg);color:var(--share-ink);text-decoration:none;font-family:inherit;font-size:inherit;cursor:pointer;transition:background 180ms,border-color 180ms,color 180ms;}.share-link svg,.share-toggle svg{width:var(--share-icon-size);height:var(--share-icon-size);flex-shrink:0;}.share-link:hover,.share-link:focus,.share-toggle:hover,.share-toggle:focus{background:var(--share-bg-hover);border-color:var(--share-focus);color:var(--share-ink-hover);}.share-link:focus-visible,.share-toggle:focus-visible{outline:2px solid var(--share-focus);outline-offset:2px;}.share-live{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}@media (max-width:600px){.share-root{flex-wrap:wrap;}.share-toggle{min-width:44px;min-height:44px;padding:8px 12px;justify-content:center;}.share-toggle-text{margin-left:4px;}.share-menu{position:static;flex-basis:100%;list-style:none;margin:6px 0 0;padding:6px;border:1px solid var(--share-border);border-radius:6px;background:var(--share-bg);box-shadow:0 8px 24px rgba(22,23,29,0.08);}.share-menu[hidden]{display:none;}.share-menu .share-link{width:100%;justify-content:flex-start;min-height:44px;border:none;border-radius:4px;background:transparent;}.share-menu .share-link:hover,.share-menu .share-link:focus{background:var(--share-bg-hover);}}@media print{.share-root{display:none;}}@media (prefers-reduced-motion:reduce){.share-link,.share-toggle,.share-menu,.article .share-link,.article .share-toggle{transition:none !important;animation:none !important;}}</style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Learning What an Error Pattern Can Tell Us","description":"A retrospective analysis of previously examined data: errors stayed concentrated, but a learned shared direction added little or no advantage over a simple common-direction baseline. Also: where model disagreement helped, and a diffusion correction that reaches its limit. No new physical validation is claimed.","datePublished":"2026-10-21","url":"https://lupine.science/articles/what-error-patterns-can-tell-us/","mainEntityOfPage":"https://lupine.science/articles/what-error-patterns-can-tell-us/","image":"https://lupine.science/articles/what-error-patterns-can-tell-us/hero.jpg?v=3","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png?v=3"}}}</script>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="site-header">
+    <a class="mark" href="/" aria-label="Lupine Science">
+      <svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="bb" x1="190" y1="74" x2="324" y2="356" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#88a7d8"/><stop offset=".35" stop-color="#475b9c"/><stop offset=".78" stop-color="#102f47"/><stop offset="1" stop-color="#071a2a"/>
+          </linearGradient>
+          <linearGradient id="bl" x1="150" y1="330" x2="360" y2="470" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#7f907c"/><stop offset="1" stop-color="#4c653d"/>
+          </linearGradient>
+          <radialGradient id="bc" cx="48%" cy="30%" r="68%">
+            <stop offset="0" stop-color="#fffdf3"/><stop offset=".7" stop-color="#f1e8c9"/><stop offset="1" stop-color="#d4c58f"/>
+          </radialGradient>
+        </defs>
+        <g fill="none" stroke="#4c653d" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M256 148 C252 224 258 312 254 448"/><path d="M252 402 C222 372 178 354 124 348"/><path d="M260 402 C290 372 334 354 388 348"/>
+        </g>
+        <g fill="url(#bl)" opacity=".96">
+          <ellipse cx="139" cy="348" rx="18" ry="62" transform="rotate(-78 139 348)"/><ellipse cx="167" cy="384" rx="18" ry="62" transform="rotate(-48 167 384)"/><ellipse cx="214" cy="410" rx="17" ry="58" transform="rotate(-20 214 410)"/><ellipse cx="373" cy="348" rx="18" ry="62" transform="rotate(78 373 348)"/><ellipse cx="345" cy="384" rx="18" ry="62" transform="rotate(48 345 384)"/><ellipse cx="298" cy="410" rx="17" ry="58" transform="rotate(20 298 410)"/>
+        </g>
+        <g fill="none" stroke="#fef8f5" stroke-width="5" stroke-linecap="round" opacity=".66">
+          <path d="M132 348 C170 356 205 373 236 405"/><path d="M380 348 C342 356 307 373 276 405"/>
+        </g>
+        <g fill="url(#bb)" stroke="#fef8f5" stroke-width="5" stroke-linejoin="round">
+          <ellipse cx="256" cy="86" rx="22" ry="34"/><ellipse cx="232" cy="122" rx="23" ry="35" transform="rotate(-24 232 122)"/><ellipse cx="280" cy="122" rx="23" ry="35" transform="rotate(24 280 122)"/><ellipse cx="256" cy="150" rx="30" ry="40"/><ellipse cx="211" cy="182" rx="26" ry="38" transform="rotate(-34 211 182)"/><ellipse cx="301" cy="182" rx="26" ry="38" transform="rotate(34 301 182)"/><ellipse cx="256" cy="216" rx="37" ry="48"/><ellipse cx="204" cy="256" rx="30" ry="43" transform="rotate(-42 204 256)"/><ellipse cx="308" cy="256" rx="30" ry="43" transform="rotate(42 308 256)"/><ellipse cx="256" cy="306" rx="40" ry="52"/>
+        </g>
+        <g fill="url(#bc)">
+          <path d="M244 142 C251 124 261 124 268 142 C262 136 250 136 244 142Z"/><path d="M244 207 C252 186 263 186 271 207 C263 199 252 199 244 207Z"/><path d="M242 296 C252 272 265 272 274 296 C264 286 252 286 242 296Z"/>
+        </g>
+      </svg>
+      <span><b>Lupine Science</b> <span class="tld">measuring where AI models of materials go wrong</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/results/">Results</a>
+      <a href="/articles/" aria-current="page">Articles</a>
+      <a href="/about/">About</a>
+      <a href="https://library.lupine.science">Library</a>
+      <a href="https://lupi.live">LUPI</a>
+    </nav>
+  </header>
+  <main id="content" class="article-shell">
+    <article class="article">
+      <p class="article-kicker" aria-label="Article type">Research note</p>
+<h1>Learning What an Error Pattern Can Tell Us</h1>
+<p class="article-deck">Inside Lupine’s research process: building a broad evidence library, challenging the geometry we hoped to find, and turning simulation errors into better decisions.</p>
+<ul class="article-byline" aria-label="Publication details"><li><time datetime="2026-10-21">October 21, 2026</time></li> <li aria-hidden="true"><span class="byline-sep" aria-hidden="true">·</span></li> <li><span class="article-status status-published">Published</span></li></ul>
+<aside class="callout warning article-evidence-status" aria-label="Evidence status"><strong>Evidence status:</strong> Research-process explainer and scoped results, reviewed October 21, 2026. Includes retrospective analysis, literature extraction and conditional mathematics; no new physical validation is claimed.</aside>
+<figure class="article-hero" aria-labelledby="hero-caption">
+  <picture>
+    <img src="/articles/what-error-patterns-can-tell-us/hero.jpg?v=3" alt="" width="1280" height="720" loading="eager" fetchpriority="high" decoding="async">
+  </picture>
+  <figcaption id="hero-caption">Retrospective prioritization on two archived panels: selecting five of 25 groups by model disagreement captured 35.53% and 47.05% of total group error, versus 20% expected from uniform random selection. Fixed group count; no measured retraining gain.</figcaption>
+</figure>
+
+<p>Three models can agree and all be wrong. A compact pattern in their errors can be real and still offer little help in correcting a prediction. A simulation can resemble an experiment after a change of temperature scale while remaining inaccurate at the temperature an engineer actually needs.</p>
+<p>These possibilities have become the working material of Lupine’s research.</p>
+<p>Our broad question is whether the structure of simulation error can help us make better materials decisions. The recent work has made that question more precise. We are asking which patterns survive a strong comparator, what information is missing, and whether a proposed intervention improves the observable that matters.</p>
+<p>This article follows that change in the research: from assembling evidence, through several tests of our own preferred explanations, to the next measurements worth making. The <a href="/data/error-patterns-october-2026.json">numerical companion</a> records the selected values, evidence dates and limitations behind the tables below.</p>
+<h2>Start with a comparison that means something</h2>
+<p>An interatomic potential is a computational rule for predicting how atoms interact. It lets a simulation estimate forces, follow atomic motion, or calculate properties such as stiffness and diffusion. Different potentials can make different mistakes. The same potential can also look better or worse depending on the reference, physical state and scoring rule.</p>
+<p>That makes a comparison more than a pair of numbers.</p>
+<p>We now record the material and composition, temperature and phase, observable, units, model identity, calculation procedure, and reference kind. Experiment, density functional theory, another simulation, and a fitted target occupy different roles. A missing uncertainty stays missing. Two papers using the same reference do not automatically provide two independent confirmations.</p>
+<p>We also changed how we collect. A single difficult paper can absorb an investigation indefinitely. Our default is now a portfolio of source batches across materials and observables, with deeper checks chosen for the number of records or scientific decisions they can clarify. Elasticity, thermal transport, adsorption and ion motion provide different tests of the same error-geometry ideas.</p>
+<p><strong>The working snapshot on October 21 contained 3,397 extracted comparison rows across 70 comparison-study keys, plus 1,810 unpaired numerical observations.</strong> Together, those records span 137 mixed numerical source keys. These are bookkeeping units with different provenance, not 137 independent physical validations. One comparison and 13 unpaired observations were explicitly quarantined from analysis; passing that filter still does not make all remaining rows mutually comparable. Another 62 text-reviewed panels from seven studies remained outside the admitted totals.</p>
+<p>The distinction matters. A source lead, an extracted number, a compatible comparison, a runnable proposal and a completed experiment are different achievements. A useful library preserves those differences so that the next calculation can ask a defensible question.</p>
+<h2>The research loop: make the alternative explanation concrete</h2>
+<p>Each investigation begins with a proposed explanation and an alternative that could defeat it.</p>
+<p>If errors appear concentrated in a few directions, perhaps models share a physical failure mode. But perhaps the shared reference, normalization, or small number of model channels creates much of that appearance.</p>
+<p>If model disagreement selects difficult cases, perhaps it can guide reference calculations. But that does not yet tell us whether disagreement estimates the error accurately, or whether retraining on those cases improves a particular target.</p>
+<p>If a correction reduces an average loss, perhaps it is useful. But it might worsen the material group or derived property that motivated the calculation.</p>
+<p>The inexpensive first test is often an identity, a counterexample, or a recalculation on preserved data. We then state what evidence would change the result. Successful checks become explicit assumptions; failures change the formula or the experiment. This is how qualifications accumulate into a better theory.</p>
+<p>The research system supports that loop with source records, deterministic calculations, a hypothesis history and selected formal specifications. AI tools assist discovery and analysis, while numerical checks and source attribution carry the factual claims. Internal review is recorded separately from external reproduction. A stopped computation remains stopped in the record.</p>
+<h2>Finding 1: concentrated errors need a stronger baseline</h2>
+<p>One of our motivating ideas is that prediction errors may occupy a narrow region of a much larger space. Such concentration could make correction economical.</p>
+<p>We challenged that idea on a preserved archive of <strong>800 configurations in 100 groups</strong>, split across MatPES and OMat24 panels. This was a retrospective analysis of previously examined data. It was not a fresh blind evaluation.</p>
+<p>The diagnostic compared a learned rank-one direction with a simple direction in which all three model channels move together. Each panel used 25 source groups and 25 target groups; references were kept separate. The question was whether the learned direction captured appreciably more target residual energy than that common direction.</p>
+<table>
+<thead>
+<tr>
+<th>Panel and metric</th>
+<th style="text-align:right">Learned direction</th>
+<th style="text-align:right">Common direction</th>
+<th style="text-align:right">Added capture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MatPES, raw</td>
+<td style="text-align:right">66.15%</td>
+<td style="text-align:right">64.13%</td>
+<td style="text-align:right">+2.02 percentage points</td>
+</tr>
+<tr>
+<td>MatPES, source RMS scaled</td>
+<td style="text-align:right">65.38%</td>
+<td style="text-align:right">65.29%</td>
+<td style="text-align:right">+0.09 points</td>
+</tr>
+<tr>
+<td>OMat24, raw</td>
+<td style="text-align:right">62.94%</td>
+<td style="text-align:right">65.98%</td>
+<td style="text-align:right">−3.04 points</td>
+</tr>
+<tr>
+<td>OMat24, source RMS scaled</td>
+<td style="text-align:right">65.03%</td>
+<td style="text-align:right">68.97%</td>
+<td style="text-align:right">−3.94 points</td>
+</tr>
+</tbody>
+</table>
+<p>Here, “source RMS scaled” means rescaling model channels using root-mean-square quantities from the source portion. The result concerns three model-channel axes. It does not measure the dimension of the physical configuration space.</p>
+<p>The concentration survived, but its interpretation weakened: the learned direction added little or no advantage over the simple baseline. Shared model bias, reference discrepancy and shared training exposure remained competing explanations.</p>
+<p>There is also an algebraic warning. Subtracting the same reference from each model adds a common component to their residuals. Removing the common direction leaves at most two contrast directions when there are three model channels. That rank limit is built into the construction.</p>
+<p>Most importantly, these projections used target reference labels. They describe how compressible the known errors are. They do not supply a deployable rule for predicting a correction’s amplitude.</p>
+<p><strong>What would strengthen the idea?</strong> Freeze both a geometry and a usable correction predictor, then demonstrate improved task loss against the unchanged model and a common-error baseline on genuinely disjoint data. A second compatible reference could help distinguish reference discrepancy from correlated model error.</p>
+<h2>Finding 2: disagreement helped us decide where to look</h2>
+<p>The same archive supported a more encouraging, narrower result.</p>
+<p>We ranked target groups by model disagreement and selected five of the 25 groups in each panel. Those selections contained:</p>
+<table>
+<thead>
+<tr>
+<th>Panel</th>
+<th style="text-align:right">Share of total target group error captured</th>
+<th style="text-align:right">Uniform random five: expected share</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MatPES</td>
+<td style="text-align:right">35.53%</td>
+<td style="text-align:right">20%</td>
+</tr>
+<tr>
+<td>OMat24</td>
+<td style="text-align:right">47.05%</td>
+<td style="text-align:right">20%</td>
+</tr>
+</tbody>
+</table>
+<p>“Error” here is the sum of group-average force-component mean squared errors. The experiment was retrospective and fixed the number of selected groups. It did not equalize computational cost or measure improvement after retraining. The <a href="https://library.lupine.science/#/activity/disagreement-triage-20261017-completed-v1">reviewed Library record</a> preserves that scope.</p>
+<p>This is useful evidence for prioritization: disagreement found a disproportionate share of error in these panels.</p>
+<p>It is weaker evidence for error prediction. Some groups had low disagreement and high error. A disagreement-based predictor could improve mean absolute error while doing worse under squared error on the MatPES panel. The loss function changed the verdict.</p>
+<p>A standard identity explains why agreement cannot certify accuracy:</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><mn>1</mn><mi>M</mi></mfrac><munder><mo>∑</mo><mi>m</mi></munder><mi mathvariant="normal">∥</mi><msub><mi>f</mi><mi>m</mi></msub><mo>−</mo><mi>y</mi><msup><mi mathvariant="normal">∥</mi><mn>2</mn></msup><mo>=</mo><mi mathvariant="normal">∥</mi><mover accent="true"><mi>f</mi><mo>ˉ</mo></mover><mo>−</mo><mi>y</mi><msup><mi mathvariant="normal">∥</mi><mn>2</mn></msup><mo>+</mo><mfrac><mn>1</mn><mi>M</mi></mfrac><munder><mo>∑</mo><mi>m</mi></munder><mi mathvariant="normal">∥</mi><msub><mi>f</mi><mi>m</mi></msub><mo>−</mo><mover accent="true"><mi>f</mi><mo>ˉ</mo></mover><msup><mi mathvariant="normal">∥</mi><mn>2</mn></msup><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">\frac{1}{M}\sum_m\|f_m-y\|^2
+=
+\|\bar f-y\|^2+
+\frac{1}{M}\sum_m\|f_m-\bar f\|^2.
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.5714em;vertical-align:-1.25em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.109em;">M</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.05em;"><span style="top:-1.9em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">m</span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.25em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">∥</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.1076em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1141em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="mord"><span class="mord">∥</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0812em;vertical-align:-0.25em;"></span><span class="mord">∥</span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8312em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.1076em;">f</span></span><span style="top:-3.2634em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.0833em;"><span class="mord">ˉ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1944em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1141em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">y</span><span class="mord"><span class="mord">∥</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.5714em;vertical-align:-1.25em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.109em;">M</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.05em;"><span style="top:-1.9em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">m</span></span></span><span style="top:-3.05em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.25em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">∥</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.1076em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1076em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.1141em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8312em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.1076em;">f</span></span><span style="top:-3.2634em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.0833em;"><span class="mord">ˉ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1944em;"><span></span></span></span></span></span><span class="mord"><span class="mord">∥</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord">.</span></span></span></span></span></p>
+<p>The first term on the right is the ensemble mean’s error; the second is model spread. Models with identical predictions have zero spread even when their common prediction is far from the reference.</p>
+<p>Our practical conclusion is to use disagreement as a candidate prioritization signal while retaining checks that can detect shared bias. Its value should be measured for the intended task and cost.</p>
+<h2>Finding 3: choosing an informative case is only the beginning</h2>
+<p>Suppose a new reference calculation reveals a large error. What happens next depends on the update it produces.</p>
+<p>For a quadratic target loss, a parameter displacement <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">s</span></span></span></span> gives the exact change</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>L</mi><mo stretchy="false">(</mo><mi>θ</mi><mo>+</mo><mi>s</mi><mo stretchy="false">)</mo><mo>−</mo><mi>L</mi><mo stretchy="false">(</mo><mi>θ</mi><mo stretchy="false">)</mo><mo>=</mo><msup><mi>g</mi><mi mathvariant="sans-serif">T</mi></msup><mi>s</mi><mo>+</mo><mstyle scriptlevel="0" displaystyle="false"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><msup><mi>s</mi><mi mathvariant="sans-serif">T</mi></msup><mi>H</mi><mi>s</mi><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">L(\theta+s)-L(\theta)
+=
+g^{\mathsf T}s+\tfrac12s^{\mathsf T}Hs,
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">L</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0278em;">θ</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">s</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">L</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.0278em;">θ</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0935em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0359em;">g</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8991em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathsf mtight">T</span></span></span></span></span></span></span></span></span><span class="mord mathnormal">s</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.2441em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8991em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathsf mtight">T</span></span></span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.0813em;">H</span><span class="mord mathnormal">s</span><span class="mpunct">,</span></span></span></span></span></p>
+<p>where <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>g</mi></mrow><annotation encoding="application/x-tex">g</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">g</span></span></span></span> is the target gradient and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi></mrow><annotation encoding="application/x-tex">H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0813em;">H</span></span></span></span> its curvature matrix. Improvement requires this expression to be negative.</p>
+<p>A large source residual alone does not determine either term. An update can point away from the target, have no effect on it, or overshoot after initially pointing in a useful direction. We constructed exact synthetic examples of each case. These are mathematical checks of an inference, not materials experiments.</p>
+<p>Related fixed-ensemble work asked whether one reweighting could improve an aggregate while protecting every group. Under the stated convexity and positive-curvature conditions, some retained finite panels admit an obstruction: every nonzero change from uniform model weights harms at least one protected group. That conclusion applies to the fixed predictions, groups and loss. It does not rule out new models, local corrections or a different justified task.</p>
+<p>This moves the question from “which case has the biggest error?” to “which feasible measurement and update improve the target, with which tradeoffs?”</p>
+<p>The mathematics uses established ideas from quadratic optimization, robust bounds and data selection. We do not claim those ideas as new. Work such as <a href="https://proceedings.mlr.press/v80/ren18a.html">Learning to Reweight Examples</a> already connects example weighting to validation performance.</p>
+<h2>Finding 4: one diffusion timescale cannot repair every species</h2>
+<p>A recent literature test made the correction question concrete.</p>
+<p>Sandberg and colleagues tabulate diffusion coefficients from a high-dimensional neural-network potential (HDNNP) and ab-initio molecular dynamics (AIMD) for Al–Ni melts. Seven species/composition entries use matched temperatures and 256 atoms. In the 75% Ni melt at 1800 K, the two species err in opposite directions. <a href="https://arxiv.org/pdf/2410.07886">Primary preprint, Table 1</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Species</th>
+<th style="text-align:right">HDNNP</th>
+<th style="text-align:right">AIMD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ni</td>
+<td style="text-align:right">3.884</td>
+<td style="text-align:right">3.640</td>
+</tr>
+<tr>
+<td>Al</td>
+<td style="text-align:right">2.646</td>
+<td style="text-align:right">3.043</td>
+</tr>
+</tbody>
+</table>
+<p><em>Diffusion coefficients in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>10</mn><mrow><mo>−</mo><mn>9</mn></mrow></msup><mtext> </mtext><mrow><msup><mi mathvariant="normal">m</mi><mn>2</mn></msup><mi mathvariant="normal">/</mi><mi mathvariant="normal">s</mi></mrow></mrow><annotation encoding="application/x-tex">10^{-9}\,\mathrm{m^2/s}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">9</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">2</span></span></span></span></span></span></span></span><span class="mord mathrm">/s</span></span></span></span></span>.</em></p>
+<p>We asked whether one positive multiplier on all seven predicted diffusivities could fix the mismatch. The optimum multiplier is <strong>1.032754</strong>, but its worst relative error is still <strong>10.20%</strong>. Allowing independent rounding by half the last printed digit gives a lower bound of <strong>10.17%</strong>.</p>
+<p>This is a conditional limit on common rescaling, not experimental validation. The table has no sampling error bars, and independence from AIMD training exposure is unestablished. Uncertainty-resolved values could change the conclusion.</p>
+<p>For this panel, the next useful check is species-specific residuals and independent reference uncertainty before calibrating one overall clock.</p>
+<p>The calculation itself is simple and reusable. For positive prediction/reference ratios with minimum <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span></span></span></span> and maximum <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">M</span></span></span></span>, minimizing the largest absolute relative error balances the two extremes:</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>a</mi><mo>∗</mo></msub><mo>=</mo><mfrac><mn>2</mn><mrow><mi>M</mi><mo>+</mo><mi>m</mi></mrow></mfrac><mo separator="true">,</mo><mspace width="2em"/><msub><mi>E</mi><mo>∗</mo></msub><mo>=</mo><mfrac><mrow><mi>M</mi><mo>−</mo><mi>m</mi></mrow><mrow><mi>M</mi><mo>+</mo><mi>m</mi></mrow></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">a_* = \frac{2}{M+m},
+\qquad
+E_* = \frac{M-m}{M+m}.
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1757em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0908em;vertical-align:-0.7693em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.109em;">M</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">m</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:2em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0576em;">E</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1757em;"><span style="top:-2.55em;margin-left:-0.0576em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.1297em;vertical-align:-0.7693em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.109em;">M</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">m</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.109em;">M</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord">.</span></span></span></span></span></p>
+<p>The companion contains all seven inputs so this arithmetic can be reproduced without rerunning a simulation.</p>
+<h2>Finding 5: the observable is part of the comparison</h2>
+<p>“Diffusion coefficient” can hide different questions.</p>
+<p>Mean squared displacement summarizes how far particles travel. A scattering experiment measures a signal whose dependence on distance, time, species and instrument resolution matters. A heterogeneous population can give those summaries different emphases.</p>
+<p>In a deliberately synthetic example, 80% of particles diffuse at <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.1</mn><msub><mi>D</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">0.1D_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord">0.1</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0278em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> and 20% at <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><msub><mi>D</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">10D_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord">10</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0278em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>. Their mean-displacement diffusivity is <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2.08</mn><msub><mi>D</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">2.08D_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord">2.08</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0278em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>. Yet at a specified finite scattering window, the single-point log-decay summary is about <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.323</mn><msub><mi>D</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">0.323D_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord">0.323</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0278em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>. Compared with a uniform population at <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">D_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0278em;">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, the ordering reverses.</p>
+<p>No molecular trajectory changed in that example. The summary changed. The log-decay quantity is not a fitted experimental linewidth, and the example is not a quantitative model of an experiment.</p>
+<p>Temperature comparisons need similar care. Herwig and colleagues’ study of butane and hexane monolayers compares scattering and simulation near their respective melting transitions. The reported simulation/experimental melting temperatures are 152/116 K and 221/170 K. Equal reduced temperature, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mi mathvariant="normal">/</mi><msub><mi>T</mi><mi>m</mi></msub></mrow><annotation encoding="application/x-tex">T/T_m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">T</span><span class="mord">/</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.1389em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, therefore corresponds to different absolute temperatures. This can be appropriate for studying mechanisms near melting, but it does not establish accuracy at a chosen operating temperature. The authors discuss the limitation. <a href="https://doi.org/10.1063/1.474881">Primary paper</a>.</p>
+<p>The lesson for a potential-selection task is concrete: specify the observable, state and measurement procedure before ranking models. Agreement after changing the comparison target answers a different question.</p>
+<h2>Where formalization fits</h2>
+<p>Lean is useful because it forces a claim to name its premises. Exact arithmetic is useful because a rounding error can change a narrow decision margin. Numerical tests are useful because a correct formula can be implemented incorrectly.</p>
+<p>Each has a different reach.</p>
+<p>A proof about real-valued inputs does not by itself establish floating-point correctness. A correct program does not establish that the reference describes the intended physical state. A theorem about a supplied uncertainty set does not calibrate that uncertainty set from nature.</p>
+<p>The calculations highlighted here have their actual checking levels stated in the companion. We are not labeling all of them Lean proofs. The program’s task is to connect the relevant mathematical statement, executable calculation and physical comparison where the intended claim needs all three.</p>
+<h2>What we will do differently next</h2>
+<p>The next stage follows from these results.</p>
+<p>First, evaluate proposed corrections against simple baselines and a declared task tolerance. A low-dimensional pattern earns further attention when it predicts an improvement that a common-bias explanation cannot provide.</p>
+<p>Second, test acquisition policies through the updates they cause. Finding high-error labels is promising; the stronger result is improved target performance at matched cost.</p>
+<p>Third, choose additional observations for the ambiguity they resolve. A more precise repeat of the same measurement may leave shared bias or an unobserved population untouched. Another compatible reference, a species-resolved measurement, or a matched observation window may distinguish the alternatives.</p>
+<p>Finally, continue broad extraction across studies while testing the most consequential uncertainties. The library supplies contrasts; focused calculations tell us which contrasts deserve new physical work.</p>
+<p>Our progress is a more demanding account of what an error pattern can justify. We have a useful prioritization result, a weaker case for special low-rank correction than concentration alone suggested, a concrete limit on common diffusion rescaling, and clearer specifications for comparing simulations with measurements.</p>
+<p>Those findings give us better choices about what to compute, what to measure, and when to revise an appealing explanation.</p>
+<hr>
+<h3>Evidence and reproducibility</h3>
+<p>This is a research explainer, not a peer-reviewed paper. Literature values belong to the cited studies; Lupine’s contributions here are the scoped reanalyses, conditional calculations and research decisions.</p>
+<ul>
+<li><a href="/data/error-patterns-october-2026.json">Numerical companion: values, formulas, evidence dates and limits</a>.</li>
+<li><a href="https://library.lupine.science/#/activity/disagreement-triage-20261017-completed-v1">Reviewed disagreement-prioritization result</a>.</li>
+<li><a href="https://library.lupine.science/">Lupine research Library</a> and <a href="https://github.com/alexwelcing/lupine-rhizo">Rhizo source repository</a>.</li>
+<li><a href="https://arxiv.org/pdf/2410.07886">Sandberg et al., Al–Ni diffusion table</a>.</li>
+<li><a href="https://doi.org/10.1063/1.474881">Herwig et al., monolayer scattering and molecular dynamics</a>.</li>
+</ul>
+<p>The archive analyses use preserved, previously examined configurations. Their full underlying archive is not redistributed with this post. The companion exposes selected reviewed summaries and arithmetic inputs; it is not a full reproduction package for the archive analyses.</p>
+
+<div class="share-root" data-url="https://lupine.science/articles/what-error-patterns-can-tell-us/" data-title="Learning What an Error Pattern Can Tell Us" role="group" aria-label="Share this page">
+  <ul class="share-list" role="list" aria-label="Share options">
+    <li><a class="share-link share-x" href="https://twitter.com/intent/tweet?text=Learning%20What%20an%20Error%20Pattern%20Can%20Tell%20Us&amp;url=https%3A%2F%2Flupine.science%2Farticles%2Fwhat-error-patterns-can-tell-us%2F" aria-label="Share on X" target="_blank" rel="noopener noreferrer">X</a></li>
+    <li><a class="share-link share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Flupine.science%2Farticles%2Fwhat-error-patterns-can-tell-us%2F" aria-label="Share on LinkedIn" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+    <li><a class="share-link share-email" href="mailto:?subject=Learning%20What%20an%20Error%20Pattern%20Can%20Tell%20Us&amp;body=Learning%20What%20an%20Error%20Pattern%20Can%20Tell%20Us%0A%0Ahttps%3A%2F%2Flupine.science%2Farticles%2Fwhat-error-patterns-can-tell-us%2F" aria-label="Share by email">Email</a></li>
+  </ul>
+</div>
+    </article>
+  </main>
+  <footer class="foot">
+    <span class="creed">Evidence before claim.</span>
+    <nav class="foot-nav" aria-label="Footer"><a href="/">Home</a> · <a href="/results/">Results</a> · <a href="/articles/">Articles</a> · <a href="/about/">About</a> · <a href="/corrections/">Corrections</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://github.com/alexwelcing/lupine">GitHub</a></nav>
+    <span class="contact">Lupine Science · <a class="mail" href="/about/#contact" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
+    <span class="licence">Code MIT · our text and data CC BY 4.0 unless noted · third-party material keeps its own licence</span>
+  </footer>
+<script type="module">
+import { initAllShareWidgets } from "/components/share/share.mjs";
+(() => {
+  document.querySelectorAll("a.mail").forEach((a) => {
+    const addr = a.dataset.u + "@" + a.dataset.d;
+    a.href = "mailto:" + addr + (a.dataset.subject ? "?subject=" + encodeURIComponent(a.dataset.subject) : "");
+    if (!("keepText" in a.dataset)) a.textContent = addr;
+  });
+  const openTarget = () => {
+    const d = location.hash.length > 1 && document.getElementById(location.hash.slice(1));
+    if (d && d.tagName === "DETAILS") d.open = true;
+  };
+  openTarget();
+  addEventListener("hashchange", openTarget);
+  const vids = document.querySelectorAll("video[data-autoplay]");
+  if (vids.length) {
+    if (!("IntersectionObserver" in window)) { vids.forEach((v) => { v.preload = "metadata"; }); }
+    else {
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) { e.target.play().catch(() => {}); }
+          else { e.target.pause(); }
+        }
+      }, { rootMargin: "120px" });
+      vids.forEach((v) => io.observe(v));
+    }
+  }
+})();
+initAllShareWidgets();
+</script>
+</body>
+</html>

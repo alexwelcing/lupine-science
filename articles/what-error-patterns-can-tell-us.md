@@ -1,10 +1,10 @@
 # Learning What an Error Pattern Can Tell Us
 
-> **Type:** article
 > **Date:** 2026-10-21
 > **Deck:** Inside Lupine’s research process: building a broad evidence library, challenging the geometry we hoped to find, and turning simulation errors into better decisions.
-> **Summary:** Shared errors, useful disagreement, and a diffusion correction that reaches its limit: what our October investigations found, how we checked it, and what would change our conclusions.
+> **Summary:** A retrospective analysis of previously examined data: errors stayed concentrated, but a learned shared direction added little or no advantage over a simple common-direction baseline. Also: where model disagreement helped, and a diffusion correction that reaches its limit. No new physical validation is claimed.
 > **Status:** Published
+> **Featured:** 4
 > **Evidence Status:** Research-process explainer and scoped results, reviewed October 21, 2026. Includes retrospective analysis, literature extraction and conditional mathematics; no new physical validation is claimed.
 
 Three models can agree and all be wrong. A compact pattern in their errors can be real and still offer little help in correcting a prediction. A simulation can resemble an experiment after a change of temperature scale while remaining inaccurate at the temperature an engineer actually needs.
@@ -27,7 +27,7 @@ We also changed how we collect. A single difficult paper can absorb an investiga
 
 **The working snapshot on October 21 contained 3,397 extracted comparison rows across 70 comparison-study keys, plus 1,810 unpaired numerical observations.** Together, those records span 137 mixed numerical source keys. These are bookkeeping units with different provenance, not 137 independent physical validations. One comparison and 13 unpaired observations were explicitly quarantined from analysis; passing that filter still does not make all remaining rows mutually comparable. Another 62 text-reviewed panels from seven studies remained outside the admitted totals.
 
-The distinction matters. A source lead, an extracted number, a compatible comparison, a runnable proposal and a completed experiment are different achievements. A useful library preserves those differences so that the next calculation can ask a defensible question. Our [corpus workflow](https://github.com/alexwelcing/lupine-rhizo/blob/main/tools/scientific-pi/skills/lupine-pi/references/corpus-workflow.md) describes that progression.
+The distinction matters. A source lead, an extracted number, a compatible comparison, a runnable proposal and a completed experiment are different achievements. A useful library preserves those differences so that the next calculation can ask a defensible question.
 
 ## The research loop: make the alternative explanation concrete
 

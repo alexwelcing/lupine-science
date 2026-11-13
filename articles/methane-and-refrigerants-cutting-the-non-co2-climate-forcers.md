@@ -1,22 +1,18 @@
 > **Date:** 2026-07-16
-> **Deck:** How corrected atomistic predictions can accelerate low-temperature methane conversion and the discovery of low-GWP refrigerants.
-> **Summary:** Methane and hydrofluorocarbon refrigerants are the largest non-CO₂ climate levers; both are materials-limited, and the correction-and-verification layer changes the discovery geometry.
-> **Status:** Draft
-
+> **Deck:** Why low-temperature methane conversion and low-GWP refrigerants are hard cases for machine-learned potentials, and what we would need to test.
+> **Summary:** Methane and hydrofluorocarbon refrigerants are large non-CO₂ climate levers, and both are materials-limited. This July 2026 piece sets out where measured model error matters for their discovery and what would have to be tested before a fast screen could be trusted. A direction, not a result.
+> **Updated:** 2026-11-11
+> **Status:** Direction
+> **Evidence Status:** Direction, not a result. Capability statements below are hypotheses we have not tested on these materials. What we have tested: in Round 4 (July 2026) the raw models missed our barrier gate, our adsorption and lattice/elastic correction tests failed, and the magnetism test abstained; in Round 5 our barrier correction abstained; an error field predicted a never-fitted surface energy for nine fcc metals (three of four models). Literature figures are attributed to their sources.
 
 # Methane and Refrigerants: Cutting the Non-CO₂ Climate Forcers
 
 Carbon dioxide dominates climate policy because it accumulates for millennia, but it is not the only molecule warming the atmosphere. Methane and hydrofluorocarbon refrigerants are the two most important non-CO₂ forcers in the near term, and both are constrained by materials that do not yet exist. Cutting anthropogenic methane 30% by 2030 could avoid roughly 0.3 °C of warming by 2040[^1]. Phasing down HFCs under the Kigali Amendment could avoid up to 0.5 °C by 2100[^2]. Together these two targets are comparable to the entire energy-sector decarbonization problem in near-term leverage.
 
-
 ![The Non-CO₂ Warming Lever](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-01-non-co2-warming-lever.jpg)
 *Methane and HFC refrigerants together offer warming avoidance comparable to the entire energy-sector transition, yet both depend on materials that do not yet exist. Sources: UNEP Global Methane Assessment, 2021; UNEP / US EPA Kigali Amendment impact estimates; IPCC AR6.*
 
-Yet the tools used to discover the materials for each target share the same failure mode. Universal machine-learning interatomic potentials (uMLIPs) are trained on bulk, equilibrium configurations, while the functional behaviour of methane-oxidation catalysts, refrigerant fluids, and caloric solids is controlled by under-coordinated environments — surfaces, transition states, radical fragments, and phase boundaries — where uMLIPs systematically soften the potential energy surface by 15–60%[^3]. The result is not merely inaccurate energies; it is inverted candidate rankings, false-positive catalysts, and discarded metastable phases. The measured environment error field corrects those predictions for methane and refrigerant discovery at uMLIP speed, with machine-checked proof of which claims can be believed.
-
-![Where uMLIPs Fail: Systematic Softening in Under-Coordinated Environments](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-02-umlip-softening-error.jpg)
-*Universal machine-learning potentials soften the energy surface by 15–60% at surfaces, transition states, and radical fragments — the exact environments that determine catalyst and refrigerant performance. Source: Deng et al., npj Computational Materials, 2025.*
-
+Yet the tools used to discover the materials for each target share a weakness. Universal machine-learning interatomic potentials (uMLIPs) are trained mostly on bulk, equilibrium configurations, while the functional behaviour of methane-oxidation catalysts, refrigerant fluids and caloric solids is controlled by under-coordinated environments — surfaces, transition states, radical fragments and phase boundaries. Deng et al. document a systematic softening of the potential energy surface in universal MLIPs trained on MPtrj, with energies and forces under-predicted away from equilibrium[^3]. In our own benchmark of four uMLIPs on 21 mostly metallic materials, defect-family observables (surfaces, vacancies, stacking faults) erred 15–60 times more than bulk observables; whether the same holds at the transition states, radical fragments and phase boundaries discussed here is untested. If those errors are large there, candidate rankings could invert. Measuring them is the first step; correcting them is a hypothesis.
 
 ## The methane imperative
 
@@ -27,8 +23,7 @@ Those reductions are not all materials-limited. Fugitive emissions from oil and 
 The materials bottleneck is severe. The C–H bond in methane is one of the strongest in organic chemistry at ~439 kJ mol⁻¹[^6]. Activating it at low temperature almost always over-oxidises the product to CO₂, because the same metal sites that bind CHₓ intermediates strongly enough to break the C–H bond also bind oxygenates too tightly. This is the scaling-relation problem: the adsorption energies of CH₄, CH₃OH, and CO₂ intermediates move together across conventional metal surfaces, so a catalyst that activates methane tends to destroy methanol[^7].
 
 ![Breaking the Scaling Relation in Direct Methane-to-Methanol](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-05-methane-to-methanol-scaling.jpg)
-*Corrected transition-state barriers can escape the scaling relation that forces active methane catalysts to over-oxidize methanol. Sources: Berkowitz et al., J. Phys. Chem., 1994; IEA / Methanol Institute technology assessments; Grundner et al., Nat. Commun., 2015.*
-
+*Active methane catalysts tend to over-oxidize methanol: the scaling relation an accurate barrier calculation would need to see past. Sources: Berkowitz et al., J. Phys. Chem., 1994; IEA / Methanol Institute technology assessments; Grundner et al., Nat. Commun., 2015.*
 
 ## Direct methane-to-methanol
 
@@ -38,17 +33,13 @@ Industrial methanol production today passes through syngas, an energy-intensive 
 
 The direct route has been a long-standing target. Homogeneous systems using Fe- or Cu-exchanged zeolites at sub-200 °C can achieve high selectivity to methanol, but only at low single-pass conversion because the methanol product must be extracted before further oxidation[^10]. Heterogeneous catalysts have struggled to match both metrics simultaneously. The reason is the scaling relation described above: any site with enough activity to dissociate methane also tends to over-oxidise the methanol intermediate.
 
-Breaking scaling relations is a materials-discovery problem that sits exactly at the boundary of what atomistic screening can address. Candidate active sites — single-metal cations in zeolite frameworks, single-atom alloys, confined metal clusters, metal-oxide interfaces — number in the thousands when framework, dopant, and support variations are included. Density functional theory (DFT) is accurate enough for any one candidate but economically impossible across the full space. Raw uMLIPs are fast enough but misrank the candidates because the C–H activation barrier, the O-insertion step, and the desorption energy of methanol all involve under-coordinated metal environments.
+Breaking scaling relations is a materials-discovery problem that sits exactly at the boundary of what atomistic screening can address. Candidate active sites — single-metal cations in zeolite frameworks, single-atom alloys, confined metal clusters, metal-oxide interfaces — number in the thousands when framework, dopant, and support variations are included. Density functional theory (DFT) is accurate enough for any one candidate but economically impossible across the full space. Raw uMLIPs are fast enough, but they could misrank the candidates, because the C–H activation barrier, the O-insertion step, and the desorption energy of methanol all involve under-coordinated metal environments.
 
 ![A direct methane-to-methanol reactor train as practical vessels and heat exchangers, with the catalytic zone marked in indigo](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-01--retry-1.jpg)
 
-![The Measured Environment Error Field](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-03-environment-error-field.jpg)
-*The environment error field uses three anchor observables and a bulk constraint to correct under-coordinated predictions without retraining the underlying potential. Source: Lupine Science formalization library and repository (https://library.lupine.science, https://github.com/alexwelcing/lupine-rhizo).*
+Our hypothesis is that this error can be measured as a function of local coordination and, where it is regular, corrected. On nine fcc metals an error field fitted to three observables predicted a fourth for three of four models[^11]. Whether that carries over to CH₄ dissociation on under-coordinated sites is untested, and on Li-ion migration the raw models missed our barrier gate (Round 4) and our barrier correction abstained for all four models (Round 5).
 
-
-The environment error field addresses this by measuring and correcting the systematic error as a function of local coordination. For a reference bulk environment, such as fcc metal with coordination number twelve, the error is defined as zero. Three anchor observables fix the field, and a cubic spline with the bulk constraint predicts the correction at lower-coordination environments the field was never directly fitted to[^11]. The corrected barrier for CH₄ dissociation on an under-coordinated site recovers DFT-level accuracy while retaining uMLIP speed, filtering out the false-positive low-temperature catalysts that raw uMLIPs would promote.
-
-Selective field failure adds a second screening signal. In most cases the error field is smooth and predictable; where it deviates, it flags unusual electronic structures that may break the standard scaling relation. Those outliers become the highest-priority targets for expensive ab initio verification and synthesis[^11]. The same logic was applied to ammonia catalysts: the correction ranks the bulk of candidates, and the anomalies identify the breakthroughs.
+If such a field exists for these catalysts, the places where it departs from its smooth trend could point to unusual electronic structures that break the standard scaling relation. That is a second hypothesis, not a result.
 
 ## Methane pyrolysis for turquoise hydrogen
 
@@ -57,10 +48,9 @@ Methane pyrolysis offers a different product slate: hydrogen plus solid carbon. 
 ![Methane Pyrolysis: Lower Temperature, Useful Carbon](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-06-methane-pyrolysis-temperature.jpg)
 *Molten-metal catalysts can cut methane pyrolysis temperatures from above 1000 °C to 700–900 °C, producing hydrogen and a storable solid carbon product. Source: Abánades, Int. J. Hydrogen Energy, 2012.*
 
+The materials problem is again controlled by under-coordinated environments. Carbon solubility in the melt, diffusion to the nucleation site, and the structure of the nucleated carbon all depend on metal–carbon binding at defect sites, alloy surfaces and three-phase boundaries, where fast potentials are least reliable. Errors there would mislead predictions of coking rate, catalyst lifetime and carbon quality.
 
-The materials problem is again controlled by under-coordinated environments. Carbon solubility in the melt, diffusion to the nucleation site, and the structure of the nucleated carbon all depend on metal-carbon binding at defect sites, alloy surfaces, and three-phase boundaries. Raw uMLIPs underestimate the metal-carbon binding energies and misrank the diffusion barriers, leading to wrong predictions of coking rate, catalyst lifetime, and carbon quality. Corrected metal-carbon binding and carbon diffusion energies identify alloy compositions that resist coking and produce a useful solid product, whether carbon black, graphite, or carbon nanotubes.
-
-Here the verification layer matters as much as the correction. Molten-metal systems are inherently dynamic; the active surface reconstructs, carbon precipitates, and local coordination changes during operation. The Lean 4 theorems prove which predictions are supported by the measured field and which depend on synthesis or operating conditions that the model cannot bound[^11]. A catalyst composition is not sold as predicted until the correction domain and the metastability boundaries are checked.
+Molten-metal systems are also dynamic: the active surface reconstructs, carbon precipitates, and local coordination changes during operation. Any prediction here would need to say which parts depend on operating conditions the model cannot bound.
 
 ## Refrigerants and the Kigali Amendment
 
@@ -69,18 +59,13 @@ Hydrofluorocarbon refrigerants were introduced to protect the stratospheric ozon
 ![The Refrigerant Trade-Off: GWP, Performance, and Safety](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-07-refrigerant-gwp-landscape.jpg)
 *Today's refrigerants force a choice between low GWP, high efficiency, and safety; computational screening must explore millions of candidates to find one that satisfies all three. Sources: ASHRAE Standard 34; Velders et al., Climatic Change, 2021.*
 
-
 The replacement problem is molecular. A viable vapor-compression refrigerant must simultaneously satisfy thermophysical, safety, and compatibility constraints: vapor pressure curve, critical temperature, latent heat of vaporization, heat capacity, viscosity, lubricant miscibility, flammability, toxicity, and atmospheric lifetime. Current options are a compromise. R-32 has a GWP of 675, too high for the long term. R-1234yf has GWP below 1 but is patented, costly, and raises decomposition and flammability questions[^14]. Natural refrigerants — CO₂, ammonia, hydrocarbons — are viable in some applications but face toxicity, pressure, or flammability limits that prevent universal substitution.
 
 Fluorine-free synthetic refrigerants are attractive because they can be engineered to match the performance of HFCs while eliminating the greenhouse-gas liability. The search space of small organic molecules is in the millions, and experimental screening of every candidate is impossible. Computational screening must predict vapor pressure, latent heat, transport properties, flammability, and atmospheric lifetime across that space.
 
 Each of those properties depends on under-coordinated environments. Vapor pressure and latent heat come from intermolecular potentials. Transport properties depend on collision dynamics and radical intermediates. Flammability and atmospheric lifetime are controlled by C–H and C–F bond dissociation energies in radical transition states — precisely the open-shell, low-coordination configurations where uMLIPs fail[^3]. A generic force field may rank bulk thermodynamics adequately but will misrank combustion chemistry and decomposition pathways.
 
-![Caloric Materials: From Correction to Verified Discovery](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-08-caloric-verification-workflow.jpg)
-*Caloric materials promise 20–50% efficiency gains, but only a verified correction pipeline can separate genuine thermodynamic predictions from microstructure assumptions. Sources: Gutfleisch et al., Adv. Mater., 2011; DOE / ARPA-E.*
-
-
-The correction layer changes the screen in three ways. First, corrected intermolecular potentials recover accurate vapor pressure, latent heat, and transport properties for candidate fluids, filtering the millions of molecules down to a tractable set. Second, corrected C–H and C–F bond dissociation energies in radical transition states improve flammability and atmospheric-lifetime predictions, which are safety-critical. Third, the verification layer flags molecules whose decomposition pathways fall outside the measured correction domain, preventing false-negative exclusions of unusual but safe candidates.
+Three properties would need trustworthy predictions: vapor pressure, latent heat and transport properties for candidate fluids; C–H and C–F bond dissociation energies in radical transition states, which set flammability and atmospheric lifetime; and decomposition pathways. The second and third sit in exactly the under-coordinated regime where fast potentials are least reliable, so their errors would need to be measured before a screen is trusted.
 
 ## Solid-state refrigerants: caloric materials
 
@@ -88,36 +73,30 @@ An even more radical path eliminates the working fluid entirely. Solid-state ref
 
 ![A building cooling plant with one solid-state caloric module clamped between a warm loop and a cold loop inside an accessible service cabinet — The caloric module pumps heat between the two closed fluid loops](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-inline-03.jpg)
 
-![Blind Prediction Accuracy Across 36 (Model, Material) Combinations](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-04-blind-prediction-correlation.jpg)
-*Blind tests across 36 model-material combinations yield r = 0.906 with no adjustable parameters, giving capital decisions a DFT-accurate signal at uMLIP speed. Source: Lupine Science formalization library and repository (https://library.lupine.science, https://github.com/alexwelcing/lupine-rhizo).*
-
-
 The materials problem is phase transitions. Magnetocaloric alloys near room temperature, such as LaFeSi-based compounds and Heusler alloys, undergo first-order phase transitions with large entropy changes but also hysteresis losses. The hysteresis comes from nucleation, twin boundaries, and metastable intermediate phases — all under-coordinated environments that uMLIPs soften. A screen based on equilibrium thermodynamics discards the metastable phases that often deliver the best caloric response, while raw uMLIPs misrank the transition temperatures and hysteresis widths.
 
-Corrected transition-state and twin-boundary energies rank candidates by the combination of entropy change and hysteresis. The same provable-boundary discipline used for cement hydrates and battery cathodes applies here: the system separates supported predictions of transition temperature and entropy from synthesis-dependent microstructure predictions[^11]. A caloric material with low hysteresis is not declared a discovery until the correction domain covers the relevant twin-boundary and nucleation environments.
+Transition-state and twin-boundary energies would need to be reliable to rank candidates by the combination of entropy change and hysteresis, and predictions of transition temperature would need to be kept apart from microstructure-dependent ones. A caloric material with low hysteresis is not a discovery until both are measured.
 
-## A common correction geometry
+## What we have tested so far
 
-Methane and refrigerants appear to be different problems — one a strong C–H bond, the other a thermodynamic cycle — but they share the same computational pathology. The useful physics happens in under-coordinated environments: the C–H activation transition state, the metal-carbon binding site in a molten alloy, the radical transition state of a refrigerant molecule, the twin boundary of a caloric alloy. In each case uMLIPs soften the potential energy surface and corrupt the ranking. In each case the error has a geometrically regular shape that can be measured, corrected at runtime, and verified with proof.
+None of the methane catalysts, refrigerants or caloric materials in this piece has been tested by us. The capability described above is a hypothesis. These are the results that bear on it:
 
-![One Correction Geometry, Many Climate Targets](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-10-common-correction-geometry.jpg)
-*Methane, refrigerants, caloric materials, batteries, and direct air capture share the same under-coordination failure mode — and the same correction geometry. Source: Lupine Science formalization library and repository (https://library.lupine.science, https://github.com/alexwelcing/lupine-rhizo).*
+- **Barriers.** In Round 4 (July 2026), MACE-MP-0 small and medium, MACE-MPA-0 medium and CHGNet missed a 40 meV gate on 30 Li-ion migration paths (MAE 135.0–242.5 meV on completed paths). In Round 5 a direction-gated barrier correction abstained for all four models, so none was applied. See [Round 4](/articles/four-gates-three-honest-failures-one-live-experiment/) and [the Z1 barrier panel](/articles/the-materials-we-test-against/).
+- **Adsorption.** Every selected Δ-correction made catalyst-adsorption holdout error worse ([Round 4](/articles/four-gates-three-honest-failures-one-live-experiment/)).
+- **Surfaces of fcc metals.** For nine fcc metals, an error field fitted to three other observables predicted the never-fitted (110) surface-energy error of four foundation MLIPs at r = 0.906 across 36 model–material cells (material-clustered 95% CI 0.82–0.96; permutation null centred near 0.44; significant for three of the four models). Used as an energy-only correction beside CHGNet, it improved one facet on two metals ([the fcc error field](/articles/a-smooth-environment-resolved-error-field/)).
+- **Lean checks** cover the arithmetic and stated inequalities behind published numbers; they do not check the physics, the reference data or the pipeline.
 
+If you measure methane-conversion catalysts, refrigerant properties or caloric materials and want to test whether these models can be trusted on your systems, we would like to hear from you; our record and methods are open.
 
-The method is not a new force field trained on each application. It is a measured environment error field with three anchor observables, a bulk constraint, and analytic force corrections that add 15.6% overhead in the current Python implementation and are expected to drop below 1% in a compiled overlay[^11]. The same field that corrects battery cathodes and direct-air-capture sorbents corrects methane-activation barriers, refrigerant bond dissociation, and caloric phase transitions because the failure mode is structural, not chemical.
+## Where this is aimed
 
-The verification layer is what makes the correction usable for capital decisions. Blind prediction across 36 (model, material) combinations achieves Pearson r = 0.906 (p = 10⁻⁴, 95% CI [0.82, 0.96]) with zero adjustable parameters[^11]. The accompanying {{LEAN_THEOREM_COUNT}} build-locked Lean 4 theorems prove the correction bounds and impossibility conditions[^11]. In a refrigerant screen, that means a molecule flagged as safe has a machine-checked argument. In a methane-catalyst campaign, it means a candidate declared scalable has been shown to lie inside the measured correction domain.
+Methane and refrigerants look like different problems — one a strong C–H bond, the other a thermodynamic cycle — but the useful physics in both happens in under-coordinated environments: the C–H activation transition state, the metal–carbon binding site in a molten alloy, the radical transition state of a refrigerant molecule, the twin boundary of a caloric alloy. If the error there has a regular shape, it could be measured and tested the same way in each. That is the direction.
 
 ## Why this matters now
 
 The policy timelines are short. The Global Methane Pledge target is 2030. The Kigali Amendment phase-down is accelerating in major markets. Both require materials transitions that cannot be completed by brute-force experiment alone. A direct methane-to-methanol catalyst with >10% single-pass conversion and >90% selectivity below 250 °C does not exist. A fluorine-free refrigerant with GWP below 10, COP within 10% of R-410A, and acceptable safety classification does not exist. A caloric material with low hysteresis near room temperature is still largely at the prototype stage.
 
-![Policy Timelines and Addressable Markets](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-09-market-and-timeline.jpg)
-*Tens of billions of dollars in annual product markets and 2030–2047 policy deadlines make fast, verified materials discovery an economic and climate imperative. Sources: Methanol Institute; UNEP Global Methane Assessment, 2021; UNEP / US EPA Kigali Amendment impact estimates.*
-
-
-What exists is a correction-and-verification layer that can search these spaces with DFT accuracy and uMLIP speed. The addressable impact is substantial: methane and refrigerants together could avoid 0.5–1 °C of warming, and the associated product markets run to tens of billions of dollars per year. Other recovery and remediation targets follow — critical minerals, PFAS, and cement — where the same correction geometry applies to equally large problems.
-
+What does not yet exist is a way to search these spaces with fast models whose errors are known. The stakes, by the estimates cited here (UNEP on methane, Velders et al. and the Kigali Amendment on HFCs), are large; whether measured corrections can help is the question we would want to test.
 
 ![An empty refrigerated food warehouse with a rooftop heat-pump module connected to one interior cold-room heat exchanger, most of the frame is pale sky and wall — The closed refrigerant loop moves heat from the cold room to the rooftop exchanger](images/methane-and-refrigerants-cutting-the-non-co2-climate-forcers-spread.jpg)
 ## Footnotes
@@ -142,7 +121,7 @@ What exists is a correction-and-verification layer that can search these spaces 
 
 [^10]: S. Grundner *et al.*, "Single-site trinuclear copper oxygen clusters in mordenite for selective oxidation of methane to methanol," *Nature Communications* **6**, 7546 (2015); overview of Fe/Cu-zeolite direct partial oxidation systems.
 
-[^11]: Lupine Science. The build-locked formalization is published in the [open Lean 4 library](https://library.lupine.science) and [source repository](https://github.com/alexwelcing/lupine-rhizo).
+[^11]: Lupine Science, [the fcc error-field results note](/articles/a-smooth-environment-resolved-error-field/) and [Round 4 results](/articles/four-gates-three-honest-failures-one-live-experiment/).
 
 [^12]: A. Abánades, "The challenge of hydrogen production by methane pyrolysis: thermodynamic and kinetic assessment," *International Journal of Hydrogen Energy* **37**, 21, 16218–16225 (2012); molten-metal catalyst literature for low-temperature methane pyrolysis.
 

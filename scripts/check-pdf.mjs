@@ -6,8 +6,10 @@ import { fileURLToPath } from 'node:url';
 import { PDFDocument, PDFName } from 'pdf-lib';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const DEFAULT_PDF = path.join(ROOT, 'public', 'proof-pack-climate-series.pdf');
-const DEFAULT_EXPECTATIONS = path.join(ROOT, 'tests', 'fixtures', 'pdf-qa-expectations.json');
+// Default target: the Savings Stack booklet (the consolidated climate-series
+// PDF this used to check was retired on 2026-11-11).
+const DEFAULT_PDF = path.join(ROOT, 'public', 'booklets', 'the-savings-stack.pdf');
+const DEFAULT_EXPECTATIONS = path.join(ROOT, 'tests', 'fixtures', 'pdf-qa-savings-stack-booklet.json');
 
 function command(name, args) {
   const result = spawnSync(name, args, { cwd: ROOT, encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 });

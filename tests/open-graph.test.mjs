@@ -20,30 +20,34 @@ before(() => {
 });
 
 describe('article Open Graph metadata', () => {
-  it('uses scope when the optional description is missing', () => {
+  it('uses the Summary for every description surface', () => {
     const html = readArticle('the-order-is-right-the-size-is-wrong');
 
-    assert.match(html, /<meta name="description" content="Foundation machine-learned interatomic potentials/);
-    assert.match(html, /<meta property="og:description" content="Foundation machine-learned interatomic potentials/);
-    assert.match(html, /<meta name="twitter:description" content="Foundation machine-learned interatomic potentials/);
+    assert.match(html, /<meta name="description" content="Across 21 materials and 228 published reference values/);
+    assert.match(html, /<meta property="og:description" content="Across 21 materials and 228 published reference values/);
+    assert.match(html, /<meta name="twitter:description" content="Across 21 materials and 228 published reference values/);
     assert.doesNotMatch(html, /(?:name="description"|property="og:description"|name="twitter:description") content=""/);
   });
 
-  it('uses the video poster and video type when an article has a published video but no hero image', () => {
-    const html = readArticle('the-order-is-right-the-size-is-wrong');
+  it('does not use the poster of an unlisted film as the social image', () => {
+    // an-order-of-effort's film is unlisted (scripts/lib/film-listing.mjs); the
+    // listed-film poster path is covered by the fixture test in video-routes.
+    const html = readArticle('an-order-of-effort');
 
-    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/videos\/the-order-is-right-the-size-is-wrong-poster\.jpg\?v=\d+">/);
-    assert.match(html, /<meta name="twitter:image" content="https:\/\/lupine\.science\/videos\/the-order-is-right-the-size-is-wrong-poster\.jpg\?v=\d+">/);
-    assert.match(html, /<meta property="og:type" content="video\.other">/);
+    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/og-lupine-science\.jpg(\?v=\d+)?">/);
+    assert.match(html, /<meta name="twitter:image" content="https:\/\/lupine\.science\/og-lupine-science\.jpg(\?v=\d+)?">/);
+    assert.match(html, /<meta property="og:type" content="article">/);
+    assert.doesNotMatch(html, /an-order-of-effort-poster/);
   });
 
-  it('uses video poster metadata and video type when an article has a published video', () => {
+  it('falls back to the site card and article type when the article has no listed film', () => {
     const html = readArticle('the-02-percent-synthesis-problem');
 
     assert.match(html, /<meta property="og:title" content="The 0\.2% Synthesis Problem — Lupine Science">/);
-    assert.match(html, /<meta property="og:description" content="A review of the 0\.2% validation rate/);
-    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/videos\/the-02-percent-synthesis-problem-poster\.jpg\?v=\d+">/);
+    assert.match(html, /<meta property="og:description" content="A literature review: of 380,000 structures/);
+    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/og-lupine-science\.jpg(\?v=\d+)?">/);
     assert.match(html, /<meta property="og:url" content="https:\/\/lupine\.science\/articles\/the-02-percent-synthesis-problem\/">/);
-    assert.match(html, /<meta property="og:type" content="video\.other">/);
+    assert.match(html, /<meta property="og:type" content="article">/);
+    assert.doesNotMatch(html, /the-02-percent-synthesis-problem-poster/);
   });
 });

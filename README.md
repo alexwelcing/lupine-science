@@ -1,76 +1,45 @@
 # lupine.science
 
-Static public front door for Lupine Science.
+Lupine Science measures where machine-learned models of atoms go wrong, against
+published references and pass/fail gates set in advance, and publishes every
+verdict, failures included.
 
-This repo owns the small public entry page at `lupine.science`: the first
-impression, canonical links, public metadata, nginx container, and deploy
-workflow. It should stay intentionally small. The research corpus currently
-lives at `library.lupine.science`, the molecular viewer lives in `lupi.live`, and the
-science/control-plane repo owns claims, proofs, experiments, and evidence.
+This repository builds the public website at <https://lupine.science> (the
+homepage, `/results/`, `/about/`, `/corrections/`, the articles, `llms.txt`,
+the feed and the sitemap) and deploys it to Cloudflare Pages from `public/`.
+Edit the sources, not the generated pages: `data/company.json`,
+`data/corrections.json`, `articles/*.md`, and `public/index.html` outside its
+`<!-- discovery:* -->` regions.
 
-## Boundary
-
-Owns:
-
-- `public/index.html`
-- `public/robots.txt`, `public/sitemap.xml`, `public/llms.txt`
-- Open Graph image and static visual assets
-- `Dockerfile`, `nginx.conf`, `.github/workflows/` (CI, deploy, media review)
-- a tiny static verifier in `scripts/check-static.mjs`
-
-Does not own:
-
-- article content or status labels
-- papers, proof ledgers, Lean code, MLIP experiments, or distillation policy
-- LUPI viewer code
-- Library reader UI
-
-## Local Smoke
-
-Use Git Bash for Node commands on Windows.
+## Local commands
 
 ```bash
-npm run verify
-python -m http.server 8080 -d public
+npm ci
+npm run build     # regenerate pages, llms.txt, feed, sitemap and headers
+npm run lint
+npm run verify    # static checks, article images, motion manifests, perf budget
+npm test
+npm run dev       # preview at http://localhost:8080/
 ```
 
-Open `http://localhost:8080`.
+## Links
 
-Container smoke:
+- Research code, data and the hypothesis ledger:
+  <https://github.com/alexwelcing/lupine-rhizo>
+- Library: <https://library.lupine.science>
+- LUPI, the browser structure viewer: <https://lupi.live>
+- Earlier monorepo history: <https://github.com/alexwelcing/lupine>
 
-```bash
-docker build -t lupine-science .
-docker run --rm -p 8080:8080 lupine-science
-curl -fsS http://localhost:8080/health
-```
+Research partners, model builders, press and investors: alex@lupinesci.com.
 
-## Public Posture
+You can reuse our code (MIT) and our first-party text and data (CC BY 4.0)
+with attribution and no share-alike obligations. See `NOTICE.md`.
 
-Public paper status on this page must stay minimal:
+## More
 
-- working draft in preparation
-- no peer review
-- no acceptance
-- no journal or venue assignment
-
-Do not add counters, submission claims, or scientific verdicts here. Link to the
-Library and repository for current claim labels and evidence.
-
-## Canonical Surfaces
-
-- Library: `https://library.lupine.science`
-- LUPI viewer: `https://lupi.live`
-- Repository: `https://github.com/alexwelcing/lupine`
-- MLIP progress API:
-  `https://glim-think-v1.aw-ab5.workers.dev/research/mlip-discovery/progress`
-
-The intended Library migration target remains `library.lupine.site`, but public
-links should stay on `library.lupine.science` until that DNS/TLS cutover is live.
-
-## Docs
-
-- [LUPINE.md](LUPINE.md): how this repo fits the Lupine constellation
-- [docs/extraction-packet.md](docs/extraction-packet.md): original split plan
-- [docs/boundaries.md](docs/boundaries.md): ownership rules
-- [docs/operations.md](docs/operations.md): local, deploy, and live checks
+- [docs/site-structure.md](docs/site-structure.md): what each source builds, and the public posture
+- [docs/messaging-canon.md](docs/messaging-canon.md): claims, voice, status labels, word budgets
+- [docs/operations.md](docs/operations.md): CI, deploy, container smoke and live checks
 - [docs/release-checklist.md](docs/release-checklist.md): public release gate
+- [docs/brand-book.md](docs/brand-book.md): visual system
+- [docs/boundaries.md](docs/boundaries.md): what this repo owns; [LUPINE.md](LUPINE.md): the other repos

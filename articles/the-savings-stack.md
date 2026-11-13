@@ -1,36 +1,39 @@
-# The Savings Stack: A Booklet on Doing Less, and the Commons That Makes Everyone Faster
+# The Savings Stack: A Booklet on Compute Savings in Atomistic Simulation
 
-> **Release:** Savings Stack v1 — booklet + data pack
+> **Type:** Release note
+> **Release:** Savings Stack v1 data pack; booklet v1.1 (2026-11-12)
 > **Date:** 2026-07-21  
-> **Deck:** Seven savings layers from the literature, one measured sharing economy, and the theorem commons — as a free, designed booklet with a hashable data pack  
-> **Summary:** The Savings Stack v1 release: a 16-page booklet on compute-savings in atomistic simulation — 72.4% fewer DFT evaluations when four models share anchors (558 naive vs 154 union, 29 paths, 3.62×), 163 citations verified, every number hashable and reproducible.  
-> **Status:** Final
+> **Updated:** 2026-11-12
+> **Deck:** Seven savings layers from the literature, one projected count of shared DFT anchors, and the limits of both — a free booklet with a hashable data pack  
+> **Summary:** The Savings Stack (July 2026; booklet revised as v1.1 on 2026-11-12): a 16-page booklet on compute savings in atomistic simulation, with a hashable data pack. Its headline count is projected, not measured: four models sharing anchors would need 154 instead of 558 DFT evaluations on 29 short paths (72.4% fewer, against a baseline of four separate runs), and no new DFT was run. When the pilot was later run, it was about 700 meV off the published references.  
+> **Status:** Published
+> **Evidence Status:** Booklet v1.1 (2026-11-12) replaces the first edition of 2026-07-21. It calls the 72.4% count projected, not measured; states the baseline (four separate runs) and the ceiling (deduplication alone caps the saving near 73%); reports the realized pilot, whose preregistered gate failed; and gives the licence as CC BY 4.0. The canonical statement of the 72.4% figure, with its baseline and the realized result, is Sharing DFT Anchors. Not peer-reviewed.
 > **OG Image:** /articles/the-savings-stack/hero.jpg
 > **Artifacts:** [the booklet (PDF)](/booklets/the-savings-stack.pdf), [the v1 data pack](/data/savings-stack-v1/README.md) with sha256 manifest, and full scientific detail in the [Library](https://library.lupine.science) (group “savings-stack”)
 > **Ontology:** T6, MC4
 
-<p class="lead">Today we are releasing <em>The Savings Stack</em> — a sixteen-page booklet on how atomistic simulation learned to do less, what that savings stack is still missing, and the measured economics of sharing the expensive part. It is a free download, built to be read: the literature digests, the union-anchor measurement, and the citation audit are all in the pack behind it, hashed and reproducible.</p>
+<p class="lead">Today we are releasing <em>The Savings Stack</em> — a sixteen-page booklet on how atomistic simulation learned to do less, what that savings stack is still missing, and the projected economics of sharing the expensive part. It is a free download, built to be read: the literature digests, the union-anchor count, and the citation audit are all in the pack behind it, hashed and reproducible.</p>
 
 <div class="cta">
-  <p><strong>Download:</strong> The Savings Stack — 16 pages, US Letter, free.</p>
-  <a href="/booklets/the-savings-stack.pdf" download>Get the booklet (PDF, 748 KB) →</a>
+  <p><strong>Download:</strong> The Savings Stack, v1.1 — 16 pages, US Letter, free.</p>
+  <a href="/booklets/the-savings-stack.pdf" download>Get the booklet (PDF, 771 KB) →</a>
 </div>
 
 ## Inside the booklet
 
-The booklet is the designed edition of the Savings Stack v1 release: typography-led, one idea per page, every number anchored to the committed record.
+The booklet is the designed edition of the Savings Stack v1 release: typography-led, one idea per page, every number anchored to the committed record. Version 1.1 (2026-11-12) adds a page on what happened when we ran the pilot.
 
-![The seven-layer stack, drawn to scale — each layer with its strongest verified literature number, the shared crack “no certificate” through all seven, and the missing capstone layer](images/spread-stack.jpg)
+![The seven-layer stack, drawn to scale — each layer with its strongest verified literature number, one shared gap through all seven (no check for where the physics is violated), and the missing capstone layer](images/spread-stack.jpg)
 
-Seven chapters of the underlying book survey the savings layers the field invented independently — surrogate transition-state search, active learning, Δ-learning, abstention economics, systems-level DFT acceleration, electronic-structure surrogates, and path and sampling algorithms — each with its strongest verified number and its named hole. Two backdrop chapters cover four decades of supercomputing economics and today's compute-resourcing landscape. The hole is the same shape in every layer: plenty of signals for where the model is <em>probably</em> wrong, no certificate for where physics is <em>definitely</em> violated.
+Seven chapters of the underlying book survey the savings layers the field invented independently — surrogate transition-state search, active learning, Δ-learning, abstention economics, systems-level DFT acceleration, electronic-structure surrogates, and path and sampling algorithms — each with its strongest verified number and its named hole. Two backdrop chapters cover four decades of supercomputing economics and today's compute-resourcing landscape. The hole is the same shape in every layer: plenty of signals for where the model is <em>probably</em> wrong, no check that says where the physics is <em>definitely</em> violated.
 
-![The big-number page: 72.4% fewer DFT evaluations when four models share anchors instead of each paying for its own](images/spread-big-number.jpg)
+![The big-number page: 72.4% fewer projected DFT evaluations when four models share anchors instead of each running its own; the baseline is four separate runs, and deduplication alone caps the saving near 73%](images/spread-big-number.jpg)
 
 ![The chart: naive per-model anchor cost explodes 139.5 → 558 as models go from one to four, while the shared union stays nearly flat at 139.5 → 154](images/spread-chart.jpg)
 
-## The measured core, in one paragraph
+## The projected core, in one paragraph
 
-On the locked 30-path Z1 panel, path 14 failed CI-NEB convergence in all four model artifacts — the honest denominator is 29. Across those 29 analyzable diffusion paths, the frozen sparse-anchor protocol would consume **558 naive per-model DFT anchors; shared across the four models, the union is 154 — 72.4% fewer evaluations, a 3.62× reduction.** The scaling law is the headline: as guidance models go from one to four, the naive bill multiplies ~4× (139.5, 279, 418.5, 558) while the union stays nearly flat (139.5, 147.8, 152, 154) — four models of guidance cost ~10% more DFT than one. The numbers were recomputed from recorded campaign artifacts under the frozen anchor rule; an earlier informal figure was retracted as arithmetic drift, and the analysis note in the pack reconciles it line by line. No new DFT was run to produce any of it.
+On the locked 30-path Z1 panel, path 14 failed CI-NEB convergence in all four model artifacts — the honest denominator is 29. Across those 29 analyzable diffusion paths, the frozen sparse-anchor protocol would consume **558 naive per-model DFT anchors; shared across the four models, the union is 154 — 72.4% fewer projected evaluations.** The baseline is four separate runs. The paths are short (5–7 images, 167 in all), so the union already covers 154 of the 167 images and deduplication alone caps the saving at 73.1%. On this one panel, the naive count grows about 4× from one to four models (139.5, 279, 418.5, 558) while the union grows about 10% (139.5, 147.8, 152, 154). The numbers were recomputed from recorded campaign artifacts under the frozen anchor rule; an earlier informal figure was retracted as arithmetic drift, and the analysis note in the pack reconciles it line by line. No new DFT was run to produce any of it. When we later ran the pilot, its preregistered accuracy gate failed and the realized barriers were about 700 meV off the published references; the account, including the amendment written after that failure, is in [Sharing DFT anchors](/articles/shared-dft-anchors/).
 
 ![A sequence of three physical screening fixtures on one bench: a wide tray of candidate coupons, a smaller thermal-test rack, and one final reference-calculation instrument — Successive screening fixtures narrow the candidate set before the expensive reference instrument](images/the-savings-stack-inline-01.jpg)
 
@@ -38,13 +41,13 @@ On the locked 30-path Z1 panel, path 14 failed CI-NEB convergence in all four mo
 
 ## What it is — and what it is not
 
-The booklet makes the case for a <em>theorem commons</em>: teams contributing formally verified physical-law theorems back, so everyone's gates get sharper. Theorems are non-rival and leak nothing about the contributor's chemistry; the measured union economics are the evaluation-side instance of the same sharing. The case for restraint is designed with equal care: the measured basis is one 30-path panel, four universal MLIPs, one DFT engine, one chemistry family; the multiplicative stacking figure is a derived estimate and is labeled as such wherever it appears; the digests keep their [UNVERIFIED] flags; and none of this is peer-reviewed — it is a research release with committed, hashable records.
+The booklet argues, as a direction rather than a result, for a shared commons of checked results: teams contributing checked statements back so that everyone's gates get sharper. (A Lean check covers the arithmetic and stated inequalities behind a statement, not the physics, the reference data or the pipeline.) The projected union count is the evaluation-side instance of the same sharing. The case for restraint is designed with equal care: the basis is one 30-path panel, four universal MLIPs, one DFT engine, one chemistry family; the digests keep their [UNVERIFIED] flags; and none of this is peer-reviewed — it is a research release with committed, hashable records.
 
 The citation audit behind the book verified every identifier against its registry: **115/115 arXiv, 48/48 DOI, zero unresolved** — with three corrections applied on the record, including the VASP MLFF venue reconciliation. Identifier verification does not upgrade abstract-only evidence, and the booklet says so.
 
 ## Data and reproduction
 
-The booklet is the cover story; the pack is the evidence. [The v1 pack](/data/savings-stack-v1/README.md) ships all ten chapters, the machine-readable union-anchor record ([JSON](/data/savings-stack-v1/z1-union-anchor-economics.json) + [sha256 sidecar](/data/savings-stack-v1/z1-union-anchor-economics.json.sha256)), the [analysis note](/data/savings-stack-v1/z1-union-anchor-economics.md) and [script](/data/savings-stack-v1/union_anchor_economics.py), the [citation audit](/data/savings-stack-v1/citation-verification-2026-07-21.md), and a [MANIFEST.sha256](/data/savings-stack-v1/MANIFEST.sha256) over every file. Structured data is released under the Open Data Commons Open Database License 1.0 (ODbL-1.0), mirroring the source repository's data license; prose and code keep their repository licenses.
+The booklet is the cover story; the pack is the evidence. [The v1 pack](/data/savings-stack-v1/README.md) ships all ten chapters, the machine-readable union-anchor record ([JSON](/data/savings-stack-v1/z1-union-anchor-economics.json) + [sha256 sidecar](/data/savings-stack-v1/z1-union-anchor-economics.json.sha256)), the [analysis note](/data/savings-stack-v1/z1-union-anchor-economics.md) and [script](/data/savings-stack-v1/union_anchor_economics.py), the [citation audit](/data/savings-stack-v1/citation-verification-2026-07-21.md), and a [MANIFEST.sha256](/data/savings-stack-v1/MANIFEST.sha256) over every file. The pack's README states ODbL-1.0, as released on 2026-07-21, and the pack is hash-locked, so it keeps that text. Since 2026-11-11 its first-party data is also licensed under CC BY 4.0 (see NOTICE.md in the repository); code is MIT.
 
 ![An open rack of identical unmarked sample cartridges feeding two separated battery test instruments through standardized mechanical sockets — The standardized cartridge socket lets the same physical reference sample serve independent instruments](images/the-savings-stack-inline-03.jpg)
 
@@ -52,7 +55,7 @@ The booklet is the cover story; the pack is the evidence. [The v1 pack](/data/sa
 
 ## Receipts
 
-- The booklet: [the-savings-stack.pdf](/booklets/the-savings-stack.pdf) (16 pages, Letter; source and build script in the repository)
+- The booklet: [the-savings-stack.pdf](/booklets/the-savings-stack.pdf) (v1.1, 2026-11-12; 16 pages, Letter; source and build script in the repository)
 - The data pack: [/data/savings-stack-v1/](/data/savings-stack-v1/README.md) — ten chapters, record + sidecar, analysis note + script, audit, manifest
 - Full scientific detail: [library.lupine.science](https://library.lupine.science), group “savings-stack”
 

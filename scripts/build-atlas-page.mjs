@@ -12,14 +12,20 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { renderSiteHeader } from './lib/brand-header.mjs';
+import { renderSiteHeader, renderSiteFooter } from './lib/brand-header.mjs';
+import { loadCompany } from './lib/discovery.mjs';
+import { listedFilmSlugs } from './lib/film-listing.mjs';
 import { headMetaTitleSegments, renderHeadMetaTags } from './lib/head-meta.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+// footer contact line and address, from data/company.json
+const SITE_CONTACT = (({ email, name }) => ({ email, name }))(loadCompany(ROOT));
 const JSON_PATH = path.join(ROOT, 'public', 'data', 'atlas_nodes.json');
 const OUT_DIR = path.join(ROOT, 'public', 'atlas');
 const OUT = path.join(OUT_DIR, 'index.html');
 const SITE = 'https://lupine.science';
+// The "Videos" nav item appears only while a film is listed.
+const SHOW_VIDEOS = listedFilmSlugs({ articlesDir: path.join(ROOT, 'articles'), videosDir: path.join(ROOT, 'public', 'videos') }).length > 0;
 
 if (!fs.existsSync(JSON_PATH)) {
   console.error('build-atlas-page: missing public/data/atlas_nodes.json — run scripts/build-atlas-nodes.mjs first');
@@ -93,18 +99,15 @@ ${renderHeadMetaTags(headMetaTitleSegments({ primary: 'Ontology atlas', suffix: 
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
-  ${renderSiteHeader({ ariaCurrentPath: "/atlas/" })}
+  ${renderSiteHeader({ ariaCurrentPath: "/atlas/", showVideos: SHOW_VIDEOS })}
   <main id="content" class="atlas-index">
     <p class="b-label">Ontology atlas</p>
     <h1>Error types, emblems, and material classes that anchor the Lupine research frame.</h1>
-    <p class="atlas-lede">${totalCount} nodes, pulled from the project's knowledge wiki at build time. Each card carries the canonical <code>lupine-research://</code> URI — copy it, search for it, cite it. Source: <a href="/data/atlas_nodes.json"><code>/data/atlas_nodes.json</code></a>. For the curated claim inventory (the 146 claim/S* nodes, organized into 8 narrative facets), see <a href="/atlas/claims/">/atlas/claims/</a>.</p>
+    <p class="atlas-lede">${totalCount} nodes, pulled from the project's knowledge wiki at build time. Each card carries the canonical <code>lupine-research://</code> URI — copy it, search for it, cite it. Source: <a href="/data/atlas_nodes.json"><code>/data/atlas_nodes.json</code></a>.</p>
 ${sectionHtml}
     <p class="atlas-asof">Generated from <code>${escapeHtml(data.source)}</code>; counts: error_type=${data.counts.error_type}, emblem=${data.counts.emblem}, material_class=${data.counts.material_class}.</p>
   </main>
-  <footer class="foot">
-    <span class="creed">Evidence before claim.</span>
-    <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
-  </footer>
+  ${renderSiteFooter(SITE_CONTACT)}
 </body>
 </html>
 `;

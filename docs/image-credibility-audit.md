@@ -8,7 +8,6 @@
 
 - `public/articles/**` — heroes, inline figures, thumbnails
 - `public/videos/*-poster.jpg` — video poster frames
-- `public/one-pager-assets/**` — executive-summary artwork
 - `public/result-graphics/*.svg` — data charts (audited by extracting `<text>` nodes directly, not OCR)
 
 Each raster image is OCRed **twice**:

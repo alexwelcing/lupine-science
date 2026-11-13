@@ -7,7 +7,6 @@
 
 import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
-import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -16,10 +15,15 @@ const ROOT = path.resolve(__dirname, '..');
 const outDirArg = process.argv.find((arg) => arg.startsWith('--out-dir='))?.slice('--out-dir='.length);
 const OUT_DIR = outDirArg ? path.resolve(outDirArg) : path.join(ROOT, 'public', 'brand-assets', 'minimax');
 
+// The local OAuth record's location comes from MINIMAX_OAUTH_FILE; no
+// credential path is hard-coded in this public repository.
 function minimaxToken() {
-  const auth = JSON.parse(fs.readFileSync(path.join(os.homedir(), '.hermes', 'auth.json'), 'utf8'));
+  if (process.env.MINIMAX_API_KEY) return process.env.MINIMAX_API_KEY;
+  const authPath = process.env.MINIMAX_OAUTH_FILE;
+  if (!authPath) throw new Error('set MINIMAX_API_KEY, or MINIMAX_OAUTH_FILE to a local OAuth record');
+  const auth = JSON.parse(fs.readFileSync(authPath, 'utf8'));
   const pool = auth?.credential_pool?.['minimax-oauth'];
-  if (!pool?.length || !pool[0].access_token) throw new Error('no minimax-oauth credential in ~/.hermes/auth.json');
+  if (!pool?.length || !pool[0].access_token) throw new Error('no minimax-oauth credential in the MINIMAX_OAUTH_FILE record');
   return pool[0].access_token;
 }
 

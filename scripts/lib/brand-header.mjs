@@ -1,25 +1,27 @@
 // scripts/lib/brand-header.mjs
 //
-// One source of truth for the Lupine Science brand SVG mark used in the
-// site header on every public page. Closes the duplication that grew
-// across build-atlas-page.mjs, build-atlas-detail-pages.mjs, and
-// build-claim-facets.mjs (each inlined the same 90 lines of SVG).
+// One source of truth for the site chrome on every generated page: the brand
+// SVG mark and primary nav in the header, and the footer links, name and
+// address. Closes the duplication that grew across build-articles.mjs,
+// build-atlas-page.mjs and build-atlas-detail-pages.mjs (each inlined the
+// same mark, nav and footer). The hand-authored homepage gets the same footer
+// through its <!-- discovery:footer --> region.
 //
 // API:
-//   renderSiteHeader({ ariaCurrentPath, links, brandLabel, brandTagline })
+//   renderSiteHeader({ ariaCurrentPath, links, brandLabel, brandTagline, showVideos })
 //     -> string of HTML for the <header class="site-header"> block.
+//   renderSiteFooter({ email, name })
+//     -> string of HTML for the <footer class="foot"> block.
 //
 // ariaCurrentPath: optional site-root-relative path (e.g. "/articles/")
 //                   to mark as aria-current="page". Matches by
 //                   link.href prefix, so "/articles/foo/" matches a link
 //                   with href "/articles/".
-// links: array of { href, label }. The brand mark and brand label are
-//        emitted separately from the nav, so the same component works
-//        for the homepage (no aria-current) and for sub-pages.
+// links: array of { href, label }. Defaults to SITE_NAV. The brand mark and
+//        brand label are emitted separately from the nav, so the same
+//        component works for every page.
 //
-// The SVG itself is byte-identical to the inlined version that shipped
-// in PR #63. Any change to the brand mark goes here; the three builders
-// consume the helper.
+// Any change to the brand mark, the nav or the footer goes here.
 
 const BRAND_SVG = `<svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
         <defs>
@@ -59,20 +61,43 @@ function escapeAttr(s) {
     .replace(/'/g, '&#39;');
 }
 
+// Primary nav: one question per page (Home, Results, Articles, About) plus
+// the two outside surfaces. Videos shows only while a film is listed
+// (scripts/lib/film-listing.mjs); Corrections lives in the footer.
+export const SITE_NAV = [
+  { href: '/', label: 'Home' },
+  { href: '/results/', label: 'Results' },
+  { href: '/articles/', label: 'Articles' },
+  { href: '/videos/', label: 'Videos' },
+  { href: '/about/', label: 'About' },
+  { href: 'https://library.lupine.science', label: 'Library' },
+  { href: 'https://lupi.live', label: 'LUPI' },
+];
+
+// Footer links, in reading order. GitHub is the earlier monorepo the site has
+// always linked as its repository.
+export const FOOTER_LINKS = [
+  { href: '/', label: 'Home' },
+  { href: '/results/', label: 'Results' },
+  { href: '/articles/', label: 'Articles' },
+  { href: '/about/', label: 'About' },
+  { href: '/corrections/', label: 'Corrections' },
+  { href: 'https://library.lupine.science', label: 'Library' },
+  { href: 'https://lupi.live', label: 'LUPI' },
+  { href: 'https://github.com/alexwelcing/lupine', label: 'GitHub' },
+];
+
+export const LICENCE_LINE = 'Code MIT · our text and data CC BY 4.0 unless noted · third-party material keeps its own licence';
+
 export function renderSiteHeader({
   ariaCurrentPath = null,
-  links = [
-    { href: '/', label: 'Home' },
-    { href: '/articles/', label: 'Articles' },
-    { href: '/videos/', label: 'Videos' },
-    { href: '/atlas/', label: 'Atlas' },
-    { href: 'https://library.lupine.science', label: 'Library' },
-    { href: 'https://lupi.live', label: 'LUPI' },
-  ],
+  links = SITE_NAV,
   brandLabel = 'Lupine Science',
-  brandTagline = 'accelerating materials discovery',
+  brandTagline = 'measuring where AI models of materials go wrong',
+  // false while no film is listed (scripts/lib/film-listing.mjs listedFilmSlugs)
+  showVideos = true,
 } = {}) {
-  const navItems = links.map((link) => {
+  const navItems = links.filter((link) => showVideos || link.href !== '/videos/').map((link) => {
     const isCurrent = ariaCurrentPath
       && (link.href === ariaCurrentPath
         || (link.href !== '/' && ariaCurrentPath.startsWith(link.href)));
@@ -88,4 +113,23 @@ export function renderSiteHeader({
 ${navItems}
     </nav>
   </header>`;
+}
+
+// The footer carries only the name and the address. The neutral contact line
+// ("Research partners, model builders, press and investors: …") belongs to
+// contact blocks only: /about/#contact, llms.txt and the READMEs
+// (docs/messaging-canon.md §3). The address is assembled by page script from
+// data-u/data-d, so the markup holds no mailto: for address-rewriting proxies
+// to mangle; JS-off visitors read the [at] spelling.
+export function renderSiteFooter({
+  email = { user: 'alex', domain: 'lupinesci.com' },
+  name = 'Lupine Science',
+} = {}) {
+  const links = FOOTER_LINKS.map((link) => `<a href="${escapeAttr(link.href)}">${escapeAttr(link.label)}</a>`).join(' · ');
+  return `<footer class="foot">
+    <span class="creed">Evidence before claim.</span>
+    <nav class="foot-nav" aria-label="Footer">${links}</nav>
+    <span class="contact">${escapeAttr(name)} · <a class="mail" href="/about/#contact" data-u="${escapeAttr(email.user)}" data-d="${escapeAttr(email.domain)}">${escapeAttr(email.user)} [at] ${escapeAttr(email.domain)}</a></span>
+    <span class="licence">${escapeAttr(LICENCE_LINE)}</span>
+  </footer>`;
 }

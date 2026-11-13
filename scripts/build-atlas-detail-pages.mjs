@@ -20,14 +20,20 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { renderSiteHeader } from './lib/brand-header.mjs';
+import { renderSiteHeader, renderSiteFooter } from './lib/brand-header.mjs';
+import { loadCompany } from './lib/discovery.mjs';
+import { listedFilmSlugs } from './lib/film-listing.mjs';
 import { headMetaTitleSegments, renderHeadMetaTags, escapeHtml } from './lib/head-meta.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+// footer contact line and address, from data/company.json
+const SITE_CONTACT = (({ email, name }) => ({ email, name }))(loadCompany(ROOT));
 const ATLAS_NODES_PATH = path.join(ROOT, 'public', 'data', 'atlas_nodes.json');
 const ARTICLE_ONTOLOGY_PATH = path.join(ROOT, 'public', 'data', 'article_ontology.json');
 const OUT_ROOT = path.join(ROOT, 'public', 'atlas');
 const SITE = 'https://lupine.science';
+// The "Videos" nav item appears only while a film is listed.
+const SHOW_VIDEOS = listedFilmSlugs({ articlesDir: path.join(ROOT, 'articles'), videosDir: path.join(ROOT, 'public', 'videos') }).length > 0;
 
 function fail(message) {
   console.error(`build-atlas-detail-pages: ${message}`);
@@ -84,9 +90,9 @@ const KIND_TITLE = {
 };
 
 const KIND_BLURB = {
-  error_type: 'A class of failure mode the correction layer has to defend against. Each error type names a recurring pathology in machine-learned interatomic potentials and the materials-discovery workflows that depend on them.',
-  emblem: 'A measured cluster of closely related physical phenomena the correction layer treats as one regime. Each emblem groups observables that move together under the same correction.',
-  material_class: 'A family of materials whose discovery and verification problem shapes share enough structure that the correction layer is designed to address all of them together.',
+  error_type: 'A recurring way machine-learned interatomic potentials, and the workflows that use them, go wrong.',
+  emblem: 'A cluster of closely related physical phenomena whose observables we group and measure together.',
+  material_class: 'A family of materials whose prediction and verification problems share enough structure to be studied together.',
 };
 
 
@@ -148,7 +154,7 @@ ${renderHeadMetaTags(headMetaTitleSegments({ prefix: uri, primary: name, suffix:
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
-  ${renderSiteHeader({ ariaCurrentPath: `/atlas/${uri}/` })}
+  ${renderSiteHeader({ ariaCurrentPath: `/atlas/${uri}/`, showVideos: SHOW_VIDEOS })}
   <main id="content" class="atlas-detail" data-kind="${escapeHtml(kind)}">
     <p class="b-label"><a href="/atlas/">&larr; Atlas</a></p>
     <p class="atlas-detail-kind">${escapeHtml(kindTitle)}</p>
@@ -158,10 +164,7 @@ ${renderHeadMetaTags(headMetaTitleSegments({ prefix: uri, primary: name, suffix:
 ${referencedSection}
     <p class="atlas-detail-asof">Source: <a href="/atlas/">Lupine research ontology</a> (lupine-research sphere). URI: <code>${escapeHtml(id)}</code>.</p>
   </main>
-  <footer class="foot">
-    <span class="creed">Evidence before claim.</span>
-    <span><a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a></span>
-  </footer>
+  ${renderSiteFooter(SITE_CONTACT)}
 </body>
 </html>
 `;

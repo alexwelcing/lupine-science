@@ -8,11 +8,11 @@
   <link rel="stylesheet" href="/proof-pack.css">
 </head>
 <body>
-<main class="proof-pack" aria-label="Proof pack preview">
+<main class="proof-pack" aria-label="Evidence record preview">
   <section class="sheet cover" aria-labelledby="proof-title">
     <div class="cover-bar">
       <div class="wordmark"><img src="/lupine-science-mark.svg" alt=""><span>Lupine Science</span></div>
-      <span class="document-type">Evidence proof pack · v{{metadata.version}}</span>
+      <span class="document-type">Evidence record · v{{metadata.version}}</span>
     </div>
     <div class="cover-rule" aria-hidden="true"></div>
     <span class="eyebrow">{{metadata.eyebrow}}</span>
@@ -24,7 +24,7 @@
       <div><span class="meta-label">References</span><strong>{{referenceCount}} cited</strong></div>
     </div>
     <div class="cover-meta">
-      <p><span class="meta-label">Published</span>{{formattedDate}}</p>
+      <p><span class="meta-label">Published</span>{{formattedDate}}{{#if formattedUpdated}} · revised {{formattedUpdated}}{{/if}}</p>
       <p><span class="meta-label">Document ID</span>{{metadata.documentId}}</p>
       <p><span class="meta-label">Author / institution</span>{{authorLine}}</p>
       <p><span class="meta-label">Canonical source</span>{{canonicalDomain}}</p>
@@ -130,12 +130,12 @@
     {{#each auditLinks}}
     <p>{{this.label}}: <a href="{{this.url}}">{{this.url}}</a></p>
     {{/each}}
-    <p>Every production pack must add links to the underlying dataset, analysis/code, and archived figure manifest when those artifacts exist.</p>
+    {{#if unicodeCoverageString}}
     <div class="unicode-test" aria-label="Unicode font coverage test">
-      <span class="meta-label">Required font and extraction test string</span>
+      <span class="meta-label">Font and extraction test string (QA build only)</span>
       <p>{{unicodeCoverageString}}</p>
-      <p><code>All production PDFs must embed Unicode-capable font subsets with ToUnicode maps. No remote font fallback is allowed.</code></p>
     </div>
+    {{/if}}
   </section>
 </main>
 </body>

@@ -24,8 +24,9 @@
 //   - `articles/the-savings-stack.md` says "72.4% fewer evaluations, a 3.62x
 //     reduction". 3.62x is the arithmetic restatement of 72.4% (1/(1-0.724)), not
 //     a substitute for it.
-//   - the venture-deck surfaces failed exact-adjacency after "72.4%" only because
-//     HTML markup sits between the number and the words.
+//   - the venture-deck surfaces (removed from the site on 2026-11-13) failed
+//     exact-adjacency after "72.4%" only because HTML markup sits between the
+//     number and the words.
 //
 // So the broad guard would have blocked accurate publication rather than protecting
 // it. That is a fence, not a ratchet. The narrow claim is the one worth enforcing,
@@ -52,14 +53,8 @@ const TEXT_SURFACES = [
   'articles/z1-union-debrief.md',
   'articles/the-savings-stack.md',
   'media/booklets/savings-stack/index.html',
-  'media/projects/venture-deck/index.html',
-  'media/projects/venture-deck/deck.html',
-  'media/projects/venture-deck/narrative-script.md',
-  'media/projects/venture-deck/evidence-manifest.json',
   'public/articles/z1-union-debrief/index.html',
   'public/articles/the-savings-stack/index.html',
-  'public/venture/deck.html',
-  'public/venture/evidence-manifest.json',
   'public/videos/index.html',
   // The campaign videos BURN the cost into their frames, so scanning
   // public/videos/index.html (links and descriptions) misses it entirely. These two
@@ -73,7 +68,6 @@ const TEXT_SURFACES = [
 
 const PDF_SURFACES = [
   'public/booklets/the-savings-stack.pdf',
-  'public/venture/lupine-science-venture-deck.pdf',
 ];
 
 function normalized(text) {

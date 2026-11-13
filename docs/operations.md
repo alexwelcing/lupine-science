@@ -79,9 +79,12 @@ Cloudflare token needs only the Pages permission required to deploy the
 `lupine-science` project. The `production` environment allows deployments from
 `main` only; there is no approval gate.
 
-`public/_worker.js` (scoped by `public/_routes.json` to `/venture/*`) puts the
-venture deck behind a password: the `VENTURE_DECK_PASSWORD` environment variable
-on the Pages project, or a placeholder until one is set.
+The site is static files only: there is no Pages Functions worker and no
+password-walled path. Decks are shared privately and are not part of this
+site; `/venture`, `/venture/` and `/venture/*` answer 301 to `/about/` in
+`public/_redirects` and in `nginx.conf` (`tests/venture-retired.test.mjs`). The
+`VENTURE_DECK_PASSWORD` variable the old deck wall read can be deleted from the
+Pages project.
 
 ## Live Checks
 

@@ -4,20 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Critical Minerals, PFAS, and the Remediation Imperative — Lupine Science</title>
-  <meta name="description" content="Critical-mineral recycling, direct lithium extraction, and PFAS destruction share a common materials-discovery problem: accurate binding and activation energies in under-coordinated environments, addressable by corrected uMLIPs and machine-checked verification.">
+  <meta name="description" content="Critical-mineral recycling, direct lithium extraction and PFAS destruction share a materials-discovery problem: binding and activation energies in under-coordinated environments, where machine-learned potentials are least reliable. This piece describes where the work is aimed and what has been tested so far. A direction, not a result.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://lupine.science/articles/critical-minerals-pfas-and-the-remediation-imperative/">
   <meta property="og:title" content="Critical Minerals, PFAS, and the Remediation Imperative — Lupine Science">
-  <meta property="og:description" content="Critical-mineral recycling, direct lithium extraction, and PFAS destruction share a common materials-discovery problem: accurate binding and activation energies in under-coordinated environments, addressable by corrected uMLIPs and machine-checked verification.">
-  <meta property="og:type" content="video.other">
+  <meta property="og:description" content="Critical-mineral recycling, direct lithium extraction and PFAS destruction share a materials-discovery problem: binding and activation energies in under-coordinated environments, where machine-learned potentials are least reliable. This piece describes where the work is aimed and what has been tested so far. A direction, not a result.">
+  <meta property="og:type" content="article">
   <meta property="og:url" content="https://lupine.science/articles/critical-minerals-pfas-and-the-remediation-imperative/">
-  <meta property="og:image" content="https://lupine.science/videos/critical-minerals-pfas-and-the-remediation-imperative-poster.jpg?v=4">
+  <meta property="og:image" content="https://lupine.science/og-lupine-science.jpg?v=3">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Critical Minerals, PFAS, and the Remediation Imperative — Lupine Science">
-  <meta name="twitter:description" content="Critical-mineral recycling, direct lithium extraction, and PFAS destruction share a common materials-discovery problem: accurate binding and activation energies in under-coordinated environments, addressable by corrected uMLIPs and machine-checked verification.">
-  <meta name="twitter:image" content="https://lupine.science/videos/critical-minerals-pfas-and-the-remediation-imperative-poster.jpg?v=4">
+  <meta name="twitter:description" content="Critical-mineral recycling, direct lithium extraction and PFAS destruction share a materials-discovery problem: binding and activation energies in under-coordinated environments, where machine-learned potentials are least reliable. This piece describes where the work is aimed and what has been tested so far. A direction, not a result.">
+  <meta name="twitter:image" content="https://lupine.science/og-lupine-science.jpg?v=3">
   <meta name="theme-color" content="#faf9f6">
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
   <link rel="icon" type="image/png" href="/lupine-science-icon.png">
@@ -25,49 +25,48 @@
   <link rel="alternate" type="application/atom+xml" title="Lupine Science" href="/feed.xml">
   <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="alternate" type="video/mp4" href="https://lupine.science/videos/critical-minerals-pfas-and-the-remediation-imperative.mp4">
   <link rel="stylesheet" href="/articles/styles.css">
   <style>:root{--share-ink:var(--ink-soft,#4c4e58);--share-ink-hover:var(--indigo,#3d4db3);--share-border:var(--rule,#e2dfd4);--share-bg:var(--paper,#faf9f6);--share-bg-hover:var(--indigo-wash,rgba(61,77,179,0.08));--share-focus:var(--indigo,#3d4db3);--share-gap:8px;--share-icon-size:18px;}.share-root{display:flex;flex-wrap:wrap;align-items:center;gap:var(--share-gap);margin:2.4em 0 0;padding:16px 0 0;border-top:1px solid var(--share-border);font-family:var(--mono,'IBM Plex Mono',ui-monospace,monospace);font-size:13px;position:relative;}.share-label{color:var(--ink-faint,#6e707a);margin-right:4px;}.share-list{display:flex;flex-wrap:wrap;gap:var(--share-gap);list-style:none;margin:0;padding:0;}.share-list[hidden]{display:none;}.share-list li,.share-menu li{margin:0;padding:0;}.share-link,.share-toggle{display:inline-flex;align-items:center;gap:6px;min-width:44px;min-height:44px;padding:6px 12px;border-radius:4px;border:1px solid var(--share-border);background:var(--share-bg);color:var(--share-ink);text-decoration:none;font-family:inherit;font-size:inherit;cursor:pointer;transition:background 180ms,border-color 180ms,color 180ms;}.share-link svg,.share-toggle svg{width:var(--share-icon-size);height:var(--share-icon-size);flex-shrink:0;}.share-link:hover,.share-link:focus,.share-toggle:hover,.share-toggle:focus{background:var(--share-bg-hover);border-color:var(--share-focus);color:var(--share-ink-hover);}.share-link:focus-visible,.share-toggle:focus-visible{outline:2px solid var(--share-focus);outline-offset:2px;}.share-live{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}@media (max-width:600px){.share-root{flex-wrap:wrap;}.share-toggle{min-width:44px;min-height:44px;padding:8px 12px;justify-content:center;}.share-toggle-text{margin-left:4px;}.share-menu{position:static;flex-basis:100%;list-style:none;margin:6px 0 0;padding:6px;border:1px solid var(--share-border);border-radius:6px;background:var(--share-bg);box-shadow:0 8px 24px rgba(22,23,29,0.08);}.share-menu[hidden]{display:none;}.share-menu .share-link{width:100%;justify-content:flex-start;min-height:44px;border:none;border-radius:4px;background:transparent;}.share-menu .share-link:hover,.share-menu .share-link:focus{background:var(--share-bg-hover);}}@media print{.share-root{display:none;}}@media (prefers-reduced-motion:reduce){.share-link,.share-toggle,.share-menu,.article .share-link,.article .share-toggle{transition:none !important;animation:none !important;}}</style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@context":"https://schema.org","@type":"Article","headline":"Critical Minerals, PFAS, and the Remediation Imperative","description":"Critical-mineral recycling, direct lithium extraction, and PFAS destruction share a common materials-discovery problem: accurate binding and activation energies in under-coordinated environments, addressable by corrected uMLIPs and machine-checked verification.","datePublished":"2026-07-16","dateModified":"2026-08-12","url":"https://lupine.science/articles/critical-minerals-pfas-and-the-remediation-imperative/","mainEntityOfPage":"https://lupine.science/articles/critical-minerals-pfas-and-the-remediation-imperative/","image":"https://lupine.science/articles/critical-minerals-pfas-and-the-remediation-imperative/hero.jpg?v=3","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png?v=3"}},"@id":"https://lupine.science/articles/critical-minerals-pfas-and-the-remediation-imperative/#article"},{"@type":"VideoObject","@id":"https://lupine.science/articles/critical-minerals-pfas-and-the-remediation-imperative/#video","name":"Critical Minerals, PFAS, and the Remediation Imperative","description":"Critical-mineral recycling, direct lithium extraction, and PFAS destruction share a common materials-discovery problem: accurate binding and activation energies in under-coordinated environments, addressable by corrected uMLIPs and machine-checked verification.","thumbnailUrl":"https://lupine.science/videos/critical-minerals-pfas-and-the-remediation-imperative-poster.jpg?v=4","uploadDate":"2026-08-12","contentUrl":"https://lupine.science/videos/critical-minerals-pfas-and-the-remediation-imperative.mp4","embedUrl":"https://lupine.science/videos/critical-minerals-pfas-and-the-remediation-imperative/","isPartOf":{"@id":"https://lupine.science/articles/critical-minerals-pfas-and-the-remediation-imperative/#article"}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Critical Minerals, PFAS, and the Remediation Imperative","description":"Critical-mineral recycling, direct lithium extraction and PFAS destruction share a materials-discovery problem: binding and activation energies in under-coordinated environments, where machine-learned potentials are least reliable. This piece describes where the work is aimed and what has been tested so far. A direction, not a result.","datePublished":"2026-07-16","dateModified":"2026-11-11","url":"https://lupine.science/articles/critical-minerals-pfas-and-the-remediation-imperative/","mainEntityOfPage":"https://lupine.science/articles/critical-minerals-pfas-and-the-remediation-imperative/","image":"https://lupine.science/articles/critical-minerals-pfas-and-the-remediation-imperative/hero.jpg?v=3","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png?v=3"}}}</script>
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
   <header class="site-header">
     <a class="mark" href="/" aria-label="Lupine Science">
       <svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
-  <defs>
-    <linearGradient id="bb" x1="190" y1="74" x2="324" y2="356" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#88a7d8"/><stop offset=".35" stop-color="#475b9c"/><stop offset=".78" stop-color="#102f47"/><stop offset="1" stop-color="#071a2a"/>
-    </linearGradient>
-    <linearGradient id="bl" x1="150" y1="330" x2="360" y2="470" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#7f907c"/><stop offset="1" stop-color="#4c653d"/>
-    </linearGradient>
-    <radialGradient id="bc" cx="48%" cy="30%" r="68%">
-      <stop offset="0" stop-color="#fffdf3"/><stop offset=".7" stop-color="#f1e8c9"/><stop offset="1" stop-color="#d4c58f"/>
-    </radialGradient>
-  </defs>
-  <g fill="none" stroke="#4c653d" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M256 148 C252 224 258 312 254 448"/><path d="M252 402 C222 372 178 354 124 348"/><path d="M260 402 C290 372 334 354 388 348"/>
-  </g>
-  <g fill="url(#bl)" opacity=".96">
-    <ellipse cx="139" cy="348" rx="18" ry="62" transform="rotate(-78 139 348)"/><ellipse cx="167" cy="384" rx="18" ry="62" transform="rotate(-48 167 384)"/><ellipse cx="214" cy="410" rx="17" ry="58" transform="rotate(-20 214 410)"/><ellipse cx="373" cy="348" rx="18" ry="62" transform="rotate(78 373 348)"/><ellipse cx="345" cy="384" rx="18" ry="62" transform="rotate(48 345 384)"/><ellipse cx="298" cy="410" rx="17" ry="58" transform="rotate(20 298 410)"/>
-  </g>
-  <g fill="none" stroke="#fef8f5" stroke-width="5" stroke-linecap="round" opacity=".66">
-    <path d="M132 348 C170 356 205 373 236 405"/><path d="M380 348 C342 356 307 373 276 405"/>
-  </g>
-  <g fill="url(#bb)" stroke="#fef8f5" stroke-width="5" stroke-linejoin="round">
-    <ellipse cx="256" cy="86" rx="22" ry="34"/><ellipse cx="232" cy="122" rx="23" ry="35" transform="rotate(-24 232 122)"/><ellipse cx="280" cy="122" rx="23" ry="35" transform="rotate(24 280 122)"/><ellipse cx="256" cy="150" rx="30" ry="40"/><ellipse cx="211" cy="182" rx="26" ry="38" transform="rotate(-34 211 182)"/><ellipse cx="301" cy="182" rx="26" ry="38" transform="rotate(34 301 182)"/><ellipse cx="256" cy="216" rx="37" ry="48"/><ellipse cx="204" cy="256" rx="30" ry="43" transform="rotate(-42 204 256)"/><ellipse cx="308" cy="256" rx="30" ry="43" transform="rotate(42 308 256)"/><ellipse cx="256" cy="306" rx="40" ry="52"/>
-  </g>
-  <g fill="url(#bc)">
-    <path d="M244 142 C251 124 261 124 268 142 C262 136 250 136 244 142Z"/><path d="M244 207 C252 186 263 186 271 207 C263 199 252 199 244 207Z"/><path d="M242 296 C252 272 265 272 274 296 C264 286 252 286 242 296Z"/>
-  </g>
-</svg>
-      <span><b>Lupine Science</b> <span class="tld">accelerating materials discovery</span></span>
+        <defs>
+          <linearGradient id="bb" x1="190" y1="74" x2="324" y2="356" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#88a7d8"/><stop offset=".35" stop-color="#475b9c"/><stop offset=".78" stop-color="#102f47"/><stop offset="1" stop-color="#071a2a"/>
+          </linearGradient>
+          <linearGradient id="bl" x1="150" y1="330" x2="360" y2="470" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#7f907c"/><stop offset="1" stop-color="#4c653d"/>
+          </linearGradient>
+          <radialGradient id="bc" cx="48%" cy="30%" r="68%">
+            <stop offset="0" stop-color="#fffdf3"/><stop offset=".7" stop-color="#f1e8c9"/><stop offset="1" stop-color="#d4c58f"/>
+          </radialGradient>
+        </defs>
+        <g fill="none" stroke="#4c653d" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M256 148 C252 224 258 312 254 448"/><path d="M252 402 C222 372 178 354 124 348"/><path d="M260 402 C290 372 334 354 388 348"/>
+        </g>
+        <g fill="url(#bl)" opacity=".96">
+          <ellipse cx="139" cy="348" rx="18" ry="62" transform="rotate(-78 139 348)"/><ellipse cx="167" cy="384" rx="18" ry="62" transform="rotate(-48 167 384)"/><ellipse cx="214" cy="410" rx="17" ry="58" transform="rotate(-20 214 410)"/><ellipse cx="373" cy="348" rx="18" ry="62" transform="rotate(78 373 348)"/><ellipse cx="345" cy="384" rx="18" ry="62" transform="rotate(48 345 384)"/><ellipse cx="298" cy="410" rx="17" ry="58" transform="rotate(20 298 410)"/>
+        </g>
+        <g fill="none" stroke="#fef8f5" stroke-width="5" stroke-linecap="round" opacity=".66">
+          <path d="M132 348 C170 356 205 373 236 405"/><path d="M380 348 C342 356 307 373 276 405"/>
+        </g>
+        <g fill="url(#bb)" stroke="#fef8f5" stroke-width="5" stroke-linejoin="round">
+          <ellipse cx="256" cy="86" rx="22" ry="34"/><ellipse cx="232" cy="122" rx="23" ry="35" transform="rotate(-24 232 122)"/><ellipse cx="280" cy="122" rx="23" ry="35" transform="rotate(24 280 122)"/><ellipse cx="256" cy="150" rx="30" ry="40"/><ellipse cx="211" cy="182" rx="26" ry="38" transform="rotate(-34 211 182)"/><ellipse cx="301" cy="182" rx="26" ry="38" transform="rotate(34 301 182)"/><ellipse cx="256" cy="216" rx="37" ry="48"/><ellipse cx="204" cy="256" rx="30" ry="43" transform="rotate(-42 204 256)"/><ellipse cx="308" cy="256" rx="30" ry="43" transform="rotate(42 308 256)"/><ellipse cx="256" cy="306" rx="40" ry="52"/>
+        </g>
+        <g fill="url(#bc)">
+          <path d="M244 142 C251 124 261 124 268 142 C262 136 250 136 244 142Z"/><path d="M244 207 C252 186 263 186 271 207 C263 199 252 199 244 207Z"/><path d="M242 296 C252 272 265 272 274 296 C264 286 252 286 242 296Z"/>
+        </g>
+      </svg>
+      <span><b>Lupine Science</b> <span class="tld">measuring where AI models of materials go wrong</span></span>
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/">Home</a>
+      <a href="/results/">Results</a>
       <a href="/articles/" aria-current="page">Articles</a>
-      <a href="/videos/">Videos</a>
       <a href="/about/">About</a>
       <a href="https://library.lupine.science">Library</a>
       <a href="https://lupi.live">LUPI</a>
@@ -78,9 +77,10 @@
       
 <p class="article-kicker" aria-label="Article type">Research note</p>
 <h1>Critical Minerals, PFAS, and the Remediation Imperative</h1>
-<p class="article-deck">Critical-mineral recovery and PFAS remediation share the same computational bottleneck — accurate binding and activation energies in under-coordinated environments — and the correction layer addresses both.</p>
-<ul class="article-byline" aria-label="Publication details"><li>Originally published <time datetime="2026-07-16">July 16, 2026</time></li><li aria-hidden="true"><span class="byline-sep">·</span></li><li>Updated <time datetime="2026-08-12">August 12, 2026</time></li><li aria-hidden="true"><span class="byline-sep">·</span></li><li><span class="article-status">Published</span></li></ul>
-<aside class="callout warning article-evidence-status" aria-label="Evidence status"><strong>Evidence status:</strong> Scientific mechanisms are source-cited. Quantitative market, demand, site-count, cost, and performance figures are contextual estimates with unresolved verification gaps; proposed recovery and PFAS-destruction applications are research directions, not demonstrated Lupine outcomes.</aside>
+<p class="article-deck">Critical-mineral recovery and PFAS remediation share a computational bottleneck — binding and activation energies in under-coordinated environments — and both would need model error measured before a fast screen could be trusted.</p>
+<ul class="article-byline" aria-label="Publication details"><li>Originally published <time datetime="2026-07-16">July 16, 2026</time></li><li aria-hidden="true"><span class="byline-sep">·</span></li><li>Updated <time datetime="2026-11-11">November 11, 2026</time></li><li aria-hidden="true"><span class="byline-sep">·</span></li><li><span class="article-status status-direction">Direction</span></li></ul>
+<aside class="callout info article-direction" aria-label="Document status"><strong>Direction.</strong> Describes where this work is aimed. Not a result.</aside>
+<aside class="callout warning article-evidence-status" aria-label="Evidence status"><strong>Evidence status:</strong> Direction, not a result. Scientific mechanisms are source-cited. Quantitative market, demand, site-count, cost, and performance figures are contextual estimates with unresolved verification gaps; proposed recovery and PFAS-destruction applications are research directions, not demonstrated Lupine outcomes. What we have tested: in Round 4 (July 2026) the raw models missed our barrier gate, our adsorption and lattice/elastic correction tests failed, and the magnetism test abstained; in Round 5 our barrier correction abstained; an error field predicted a never-fitted surface energy for nine fcc metals (three of four models).</aside>
 <figure class="article-hero" aria-labelledby="hero-caption">
   <picture>
     <source srcset="/articles/critical-minerals-pfas-and-the-remediation-imperative/hero.avif?v=3" type="image/avif">
@@ -89,19 +89,8 @@
   </picture>
   <figcaption id="hero-caption">A closed-loop water and mineral recovery facility: contaminated flow enters an ink-lined treatment train and separated critical minerals leave in small indigo sample trays.</figcaption>
 </figure>
-<figure class="article-video-player" aria-labelledby="video-label-critical-minerals-pfas-and-the-remediation-imperative">
-  <figcaption id="video-label-critical-minerals-pfas-and-the-remediation-imperative" class="video-player-label">Narrated summary: Critical Minerals, PFAS, and the Remediation Imperative</figcaption>
-  <div class="video-player-frame">
-    <video controls preload="none" width="1920" height="1080" poster="/videos/critical-minerals-pfas-and-the-remediation-imperative-poster.jpg?v=4" aria-describedby="video-label-critical-minerals-pfas-and-the-remediation-imperative">
-      <source src="/videos/critical-minerals-pfas-and-the-remediation-imperative.mp4" type="video/mp4">
-    <track kind="captions" src="/videos/critical-minerals-pfas-and-the-remediation-imperative.vtt" srclang="en" label="English" default>
-      <p>Your browser does not support the video tag. <a href="/videos/critical-minerals-pfas-and-the-remediation-imperative.mp4" download>Download the MP4</a>.</p>
-    </video>
-  </div>
-  <p class="video-player-meta"><a href="/videos/critical-minerals-pfas-and-the-remediation-imperative/">Video page</a> · <a href="/videos/critical-minerals-pfas-and-the-remediation-imperative.mp4" download>Download MP4</a> · <a href="/videos/critical-minerals-pfas-and-the-remediation-imperative.vtt" download>Download captions</a></p>
-</figure>
 <div class="callout warning">
-<strong>Evidence gaps.</strong> This article distinguishes established mechanisms from planning context and proposed applications. Quantitative market, demand, site-count, remediation-cost, and performance figures are retained as attributed contextual estimates but have not received independent Lupine evidence review. Statements about corrected models enabling mineral recovery or PFAS destruction describe research directions; they are not evidence of a validated catalyst, sorbent, commercial process, deployment, or forecast. The accompanying film uses illustrative environments and deterministic explanatory graphics, not experimental evidence.
+<strong>Evidence gaps.</strong> This article distinguishes established mechanisms from planning context and proposed applications. Quantitative market, demand, site-count, remediation-cost, and performance figures are retained as attributed contextual estimates but have not received independent Lupine evidence review. Statements about corrected models enabling mineral recovery or PFAS destruction describe research directions; they are not evidence of a validated catalyst, sorbent, commercial process, deployment, or forecast.
 </div>
 <p>The energy transition is sometimes framed as a carbon problem, but it is equally a atoms problem. Every gigawatt-hour of batteries, every turbine, and every grid-scale storage installation requires lithium, cobalt, nickel, manganese, and rare-earth elements in quantities that primary mining cannot supply cleanly or quickly. By 2040, clean-energy technologies are expected to drive a four- to six-fold increase in mineral demand<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>. Recycling, direct lithium extraction, and urban mining are therefore not peripheral sustainability gestures; they are load-bearing parts of the transition. Yet the materials that would make them economical — selective sorbents, selective extractants, direct-recycling reconstruction conditions — are still discovered largely by trial and error.</p>
 <p>In parallel, another atoms problem is accumulating in groundwater, blood serum, and soil. Per- and polyfluoroalkyl substances, or PFAS, are synthetic compounds whose carbon–fluorine backbone makes them extraordinarily persistent, mobile, and toxic at trace levels. The U.S. Environmental Protection Agency has set maximum contaminant levels of four nanograms per litre for PFOA and PFOS in drinking water<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>. Meeting those levels at scale, and ultimately destroying the captured material rather than relocating it, requires sorbents and catalysts that do not yet exist commercially.</p>
@@ -109,7 +98,7 @@
   <img src="images/critical-minerals-pfas-and-the-remediation-imperative-01-atoms-problem.jpg?v=3" alt="The Atoms Problem Behind the Energy Transition" loading="lazy" decoding="async">
   <figcaption>Clean-energy technologies are expected to drive a four- to six-fold increase in mineral demand by 2040, turning atoms into a central constraint on the energy transition. Source: IEA, The Role of Critical Minerals in Clean Energy Transitions, 2022.</figcaption>
 </figure>
-<p>These two problems look unrelated. One is a supply-chain bottleneck for the energy transition; the other is a public-health and environmental-liability crisis. They converge, however, on the same computational challenge. Both require accurate predictions of binding and activation energies in flexible, under-coordinated environments — ion-insertion sites in sorbents, ligand pockets in extractants, surface and single-atom sites in defluorination catalysts — that universal machine-learning interatomic potentials (uMLIPs) systematically misrepresent. The same correction-and-verification layer that Lupine has built for climate-critical materials applies directly to both critical-mineral recovery and PFAS remediation; treating them as a single discovery problem is the fastest way to make progress on either.</p>
+<p>These two problems look unrelated. One is a supply-chain bottleneck for the energy transition; the other is a public-health and environmental-liability crisis. They converge, however, on the same computational challenge. Both require accurate predictions of binding and activation energies in flexible, under-coordinated environments — ion-insertion sites in sorbents, ligand pockets in extractants, surface and single-atom sites in defluorination catalysts — where universal machine-learning interatomic potentials (uMLIPs) are least reliable. That makes them a natural pair for the same kind of measurement; whether a correction would help either is untested.</p>
 <h2>The mineral-supply gap</h2>
 <p>Primary supply for several energy-transition metals is geographically concentrated and environmentally contentious. Roughly seventy percent of mined cobalt comes from the Democratic Republic of Congo<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>. Lithium extraction from South American salt brines consumes enormous volumes of water in already water-stressed regions. Nickel mining in Indonesia has been linked to deforestation and tailings disposal. These constraints are not hypothetical: they already move commodity prices and shape geopolitical alignments.</p>
 <p>Recycling is the obvious offset. Spent lithium-ion batteries contain cobalt, nickel, lithium, and manganese at concentrations higher than many natural ores. The global battery recycling market is projected at thirty-five to fifty billion dollars by 2030<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>. Current flowsheets, however, are blunt instruments. Pyrometallurgy recovers cobalt and nickel but often loses lithium to slag. Hydrometallurgy can recover more elements but consumes large quantities of acid, base, and organic solvents, and produces waste streams of its own. Direct recycling — restoring degraded cathode particles to usable composition without full element separation — could cut energy use by fifty to eighty percent compared with conventional routes<sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>, but it requires precise control of re-lithiation, transition-metal reordering, and oxygen-vacancy healing. Those are defect-mediated processes, and they are exactly where raw uMLIPs fail.</p>
@@ -134,55 +123,33 @@
 </figure>
 <p>The two materials challenges are therefore a selective sorbent that binds PFAS at nanogram-per-litre levels in the presence of natural organic matter and common ions, and a catalyst that activates the C–F bond at moderate temperature without being poisoned by fluoride. Both challenges live in under-coordinated environments: hydrophobic and fluorophilic pockets in the sorbent, and metal surface or single-atom sites in the catalyst.</p>
 <h2>Why raw uMLIPs misrank the candidates</h2>
-<p>The failure mode is the same one documented in the climate series. uMLIPs are trained on bulk, near-equilibrium configurations where atoms have high, regular coordination numbers. Functional materials, by contrast, do their work at surfaces, vacancies, pore windows, and transition states. A recent systematic survey found that uMLIPs soften the potential energy surface by fifteen to sixty percent in these under-coordinated regions, with the largest errors at coordination numbers of four to eight<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup>.</p>
-<p>For a lithium-selective sorbent, the error corrupts the relative binding energies of Li⁺, Na⁺, K⁺, and Mg²⁺ in flexible pore pockets. A framework that looks selective in a raw uMLIP screen may be mediocre or non-selective in experiment, while a better candidate is discarded. For a Co–Ni extractant, the error distorts metal–ligand distances and binding free energies in polar organic pockets, leading to wrong separation-factor rankings. For direct recycling, it underestimates Li⁺ migration barriers and oxygen-vacancy formation energies in degraded cathode particles, so the re-lithiation conditions predicted by the model do not restore the desired layered structure.</p>
-<figure>
-  <img src="images/critical-minerals-pfas-and-the-remediation-imperative-04-umlip-softening-error.jpg?v=3" alt="Why Raw uMLIPs Misrank Candidates in Under-Coordinated Environments" loading="lazy" decoding="async">
-  <figcaption>A systematic survey found that universal machine-learning interatomic potentials soften the potential energy surface by 15–60% in under-coordinated regions, with the largest errors at coordination numbers of four to eight. Source: B. Deng et al., npj Computational Materials 11, 9 (2025).</figcaption>
-</figure>
-<p>For PFAS, the consequences are equally severe. C–F activation barriers on under-coordinated metal sites are underestimated, producing false-positive defluorination catalysts. Metal–fluoride formation energies are misranked, so a catalyst that appears regenerable in simulation converts irreversibly to a stable fluoride in practice. Host–guest binding energies in fluorophilic pores are wrong, so the sorbent that screens best does not actually bind PFOA or PFOS at environmental concentrations.</p>
-<p>The error is not random noise. It has a smooth, measurable structure that correlates with local coordination and chemistry. That regularity is what makes correction possible.</p>
-<h2>The Lupine correction layer</h2>
-<p>The environment error field measures the systematic departure between uMLIP predictions and higher-fidelity reference data as a function of local atomic environment. For a reference bulk environment — fcc atoms with coordination number twelve — the error is defined as zero. Three anchor observables calibrate the field, and a cubic spline with the bulk constraint predicts the error at environments the field was never directly fitted to. The result is a correction that can be applied at runtime to uMLIP forces and energies<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup>.</p>
+<p>The likely failure mode is the one this series starts from. uMLIPs are trained mostly on bulk, near-equilibrium configurations where atoms have high, regular coordination numbers. Functional materials, by contrast, do their work at surfaces, vacancies, pore windows, and transition states. Deng et al. document a systematic softening of the potential energy surface in universal MLIPs trained on MPtrj, with energies and forces under-predicted away from equilibrium<sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup>. In our own benchmark of four uMLIPs on 21 mostly metallic materials, defect-family observables (surfaces, vacancies, stacking faults) erred 15–60 times more than bulk observables; whether the same holds at the sorbent pores, extractant pockets and catalyst sites discussed here is untested.</p>
+<p>If those errors are large here, they would matter in specific ways. For a lithium-selective sorbent, they would distort the relative binding energies of Li⁺, Na⁺, K⁺, and Mg²⁺ in flexible pore pockets, so a framework that looks selective in a raw screen could be mediocre in experiment. For a Co–Ni extractant, they would distort metal–ligand distances and binding free energies, and so separation-factor rankings. For direct recycling, they would bear on Li⁺ migration barriers and oxygen-vacancy formation energies in degraded cathode particles, and so on the re-lithiation conditions a model predicts.</p>
+<p>For PFAS the stakes are similar. Errors in C–F activation barriers on under-coordinated metal sites would produce false-positive defluorination catalysts; errors in metal–fluoride formation energies would hide catalysts that convert irreversibly to a stable fluoride; and errors in host–guest binding energies in fluorophilic pores would mislead sorbent screens at environmental concentrations.</p>
+<p>Whether the error here has a smooth, measurable structure, as it did for fcc metals<sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup>, is the open question. If it does, correction might be possible; if it does not, the right output is a measured error bar and an abstention.</p>
+<h2>What we have tested so far</h2>
+<p>None of the sorbents, extractants or catalysts in this piece has been tested by us. The capability described above is a hypothesis. These are the results that bear on it:</p>
+<ul>
+<li><strong>Barriers.</strong> In Round 4 (July 2026), MACE-MP-0 small and medium, MACE-MPA-0 medium and CHGNet missed a 40 meV gate on 30 Li-ion migration paths (MAE 135.0–242.5 meV on completed paths). In Round 5 a direction-gated barrier correction abstained for all four models, so none was applied. See <a href="/articles/four-gates-three-honest-failures-one-live-experiment/">Round 4</a> and <a href="/articles/the-materials-we-test-against/">the Z1 barrier panel</a>.</li>
+<li><strong>Adsorption.</strong> Every selected Δ-correction made catalyst-adsorption holdout error worse (<a href="/articles/four-gates-three-honest-failures-one-live-experiment/">Round 4</a>).</li>
+<li><strong>Surfaces of fcc metals.</strong> For nine fcc metals, an error field fitted to three other observables predicted the never-fitted (110) surface-energy error of four foundation MLIPs at r = 0.906 across 36 model–material cells (material-clustered 95% CI 0.82–0.96; permutation null centred near 0.44; significant for three of the four models). Used as an energy-only correction beside CHGNet, it improved one facet on two metals (<a href="/articles/a-smooth-environment-resolved-error-field/">the fcc error field</a>).</li>
+<li><strong>Lean checks</strong> cover the arithmetic and stated inequalities behind published numbers; they do not check the physics, the reference data or the pipeline.</li>
+</ul>
+<p>If you measure recovery sorbents, extractants or defluorination catalysts and want to test whether these models can be trusted on your systems, we would like to hear from you; our record and methods are open.</p>
 <p><img loading="lazy" decoding="async" src="images/critical-minerals-pfas-and-the-remediation-imperative-inline-02.jpg?v=3" alt="A PFAS treatment column in cutaway, packed with granular sorbent between an inlet pipe and a sealed effluent sampling bottle — The packed sorbent captures persistent contaminants before the sampling bottle"></p>
-<figure>
-  <img src="images/critical-minerals-pfas-and-the-remediation-imperative-05-correction-layer.jpg?v=3" alt="The Lupine Correction Layer" loading="lazy" decoding="async">
-  <figcaption>The environment error field corrects uMLIP predictions at runtime, achieving a Pearson correlation of 0.906 in blind tests while retaining a roughly five-order-of-magnitude speed advantage over DFT. Source: Lupine Science formalization library and repository (https://library.lupine.science, https://github.com/alexwelcing/lupine-rhizo).</figcaption>
-</figure>
-<p>Blind prediction across thirty-six (model, material) combinations achieves Pearson r = 0.906 (p = 10⁻⁴, 95% CI [0.82, 0.96]) with zero adjustable parameters<sup class="footnote-ref"><a href="#fn12" id="fnref12:1">[12:1]</a></sup>. Runtime correction adds analytic forces to the uMLIP gradients, so molecular dynamics and structural relaxations follow the corrected potential energy surface. Corrected uMLIPs retain a speed advantage of roughly five orders of magnitude over density functional theory, making hundred-thousand- to million-candidate screens feasible<sup class="footnote-ref"><a href="#fn12" id="fnref12:2">[12:2]</a></sup>.</p>
-<p>For critical-mineral recovery, the same corrected insertion and site-selectivity energies that rank battery cathode compositions can rank selective sorbents for Li⁺ recovery. Corrected metal–ligand binding energies predict Co²⁺/³⁺ versus Ni²⁺ separation in phosphinic-acid, amine, and hydroxamic-acid extractants without empirical fitting. Corrected Li⁺ migration and oxygen-vacancy formation energies guide direct-recycling re-lithiation conditions for degraded layered-oxide cathodes.</p>
-<p>For PFAS, corrected C–F activation barriers filter out false-positive defluorination catalysts before they reach experiment. Corrected metal–fluoride thermodynamics predict which catalyst compositions will be poisoned by fluoride formation and which may be regenerable. Corrected host–guest binding energies rank MOFs and porous polymers for PFOA/PFOS selectivity over competing ions and natural organic matter.</p>
-<figure>
-  <img src="images/critical-minerals-pfas-and-the-remediation-imperative-06-unified-campaign.jpg?v=3" alt="One Discovery Campaign for Two Imperatives" loading="lazy" decoding="async">
-  <figcaption>The same corrected binding energies, activation barriers, and verification discipline apply whether the goal is recovering critical minerals or destroying PFAS.</figcaption>
-</figure>
-<p>The verification layer is as important as the correction. The claims are accompanied by build-locked Lean 4 theorems; the current library contains 899 build-locked theorems with zero sorry proofs<sup class="footnote-ref"><a href="#fn12" id="fnref12:3">[12:3]</a></sup>. Where the correction cannot be applied — for example, where the local environment falls outside the measured domain, or where a phase is genuinely synthesis-dependent — the system proves impossibility or bounded uncertainty rather than emitting a p-value. That discipline matters for both targets. A sorbent whose selectivity depends on an amorphous phase whose structure cannot be separated from synthesis history is flagged as unsupported. A defluorination catalyst whose active site is predicted only under conditions no synthesis can stabilize is not advanced.</p>
-<h2>What a unified discovery campaign looks like</h2>
-<p>Treating critical-mineral recovery and PFAS remediation as one program makes sense because the computational primitives are shared. Both need corrected binding energies in flexible coordination environments. Both need corrected activation barriers at under-coordinated metal sites. Both need to rank metastable phases that equilibrium screening would discard. Both need verification that separates supported predictions from synthesis-dependent speculation.</p>
-<p>A practical campaign would proceed in layers. The first layer screens composition and structure spaces with corrected uMLIPs, using the environment error field to recover accurate energetics at the local sites that control function. For sorbents, this means ranking thousands of framework compositions and window geometries for Li⁺/Mg²⁺ or PFOA/organic-matter selectivity. For extractants, it means ranking ligand chemistries and conformations for Co/Ni separation factors. For catalysts, it means ranking alloy and single-atom sites for C–F activation barrier and fluoride resistance.</p>
-<figure>
-  <img src="images/critical-minerals-pfas-and-the-remediation-imperative-08-recovery-ecosystem.jpg?v=3" alt="The Critical-Mineral Recovery Ecosystem" loading="lazy" decoding="async">
-  <figcaption>Selective sorbents, phosphinic-acid extractants, and direct-recycling reconstruction conditions all rely on accurate binding and migration energies in flexible, under-coordinated environments. Sources: J. E. Plevin et al., Resources, Conservation and Recycling (2024); ReCell Center / U.S. DOE.</figcaption>
-</figure>
-<p>The second layer applies selective field failure. Where the measured error field itself departs from its smooth trend, it signals that the local electronic structure is unusual and that a candidate may break conventional scaling relations. In defluorination, for example, a site with anomalously high C–F activation but low metal–fluoride stability would be a priority target for higher-fidelity validation. The field does not just correct; it directs expensive ab initio work to the most interesting outliers.</p>
-<p>The third layer is synthesis-aware verification. The correction field has a domain, and that domain is machine-checked. Predictions inside the domain are supported. Predictions outside the domain are either bounded by uncertainty proofs or flagged as unsupported. This prevents the familiar pattern in computational materials discovery, where a screen produces a long list of “predicted” materials that cannot be made or do not perform as advertised.</p>
-<h2>Why the numbers justify the effort</h2>
-<p>The quantified impact is deliberately conservative. Critical-mineral demand is projected to grow four- to six-fold by 2040, and battery recycling alone is a thirty-five to fifty billion dollar market by 2030<sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup><sup class="footnote-ref"><a href="#fn4" id="fnref4:1">[4:1]</a></sup>. Cobalt supply concentration in a single jurisdiction creates price and ethical risk that recycling can mitigate only if separation economics improve. Direct lithium extraction promises to raise lithium recovery from thirty to fifty percent to above eighty percent while reducing water use and land footprint<sup class="footnote-ref"><a href="#fn6" id="fnref6:1">[6:1]</a></sup>.</p>
+<h2>What a joint test campaign could look like</h2>
+<p>Treating critical-mineral recovery and PFAS remediation as one program could make sense because the computational primitives are shared: binding energies in flexible coordination environments, activation barriers at under-coordinated metal sites, and metastable phases that equilibrium screening would discard.</p>
+<p>A first campaign would measure before it corrects. It would lock a panel of sorbent, extractant and catalyst systems with published reference values, write pass/fail gates in advance, and record how far each fast model misses — for sorbents, on Li⁺/Mg²⁺ or PFOA/organic-matter binding; for extractants, on Co/Ni separation factors; for catalysts, on C–F activation barriers and fluoride resistance. Only if the errors turned out to be regular would a correction be worth testing, under its own preregistration.</p>
+<p>Predictions outside a measured domain would be reported as unsupported rather than ranked, to avoid the familiar pattern in which a screen produces a long list of “predicted” materials that cannot be made or do not perform as advertised.</p>
+<h2>The stakes, as estimated by others</h2>
+<p>Critical-mineral demand is projected to grow four- to six-fold by 2040, and battery recycling alone is estimated at thirty-five to fifty billion dollars by 2030<sup class="footnote-ref"><a href="#fn1" id="fnref1:1">[1:1]</a></sup><sup class="footnote-ref"><a href="#fn4" id="fnref4:1">[4:1]</a></sup>. Cobalt supply concentration in a single jurisdiction creates price and ethical risk that recycling can mitigate only if separation economics improve. Direct lithium extraction promises to raise lithium recovery from thirty to fifty percent to above eighty percent while reducing water use and land footprint<sup class="footnote-ref"><a href="#fn6" id="fnref6:1">[6:1]</a></sup>.</p>
 <p><img loading="lazy" decoding="async" src="images/critical-minerals-pfas-and-the-remediation-imperative-inline-03.jpg?v=3" alt="Two unmarked sample cartridges, one mineral-bearing water and one contaminated water, entering the same modular pressure-flow test fixture from opposite sides — The shared fixture ranks cartridge performance under an identical controlled flow test"></p>
-<figure>
-  <img src="images/critical-minerals-pfas-and-the-remediation-imperative-09-market-opportunity.jpg?v=3" alt="The Economics of Trustworthy Prediction" loading="lazy" decoding="async">
-  <figcaption>A prediction-trust platform that addresses both critical-mineral recovery and PFAS remediation sits at the intersection of two multi-billion-dollar markets driven by four- to six-fold demand growth. Sources: IEA (2022); industry analyst estimates.</figcaption>
-</figure>
 <p>On the PFAS side, more than eighty thousand U.S. sites are contaminated, remediation costs reach millions of dollars per site per year, and the global remediation market is projected at five to ten billion dollars by 2030<sup class="footnote-ref"><a href="#fn9" id="fnref9:1">[9:1]</a></sup><sup class="footnote-ref"><a href="#fn10" id="fnref10:1">[10:1]</a></sup>. A catalytic destruction route that cuts disposal costs by fifty to eighty percent relative to incineration would be transformative not only financially but environmentally, because it would close the loop instead of moving concentrated PFAS between media.</p>
-<p>These numbers are not claims that Lupine will capture the entire market. They are claims that the underlying problems are materials-limited, that the materials limitation is a prediction-trust limitation, and that a single correction-and-verification layer can address both problem classes at once.</p>
-<h2>Conclusion: one geometry, two imperatives</h2>
-<p>Critical-mineral recovery and PFAS remediation sit on opposite sides of the industrial metabolism. One puts scarce atoms back into use; the other removes harmful atoms from circulation. Yet the geometry of the problem is the same. Both depend on binding and barrier energies in under-coordinated environments. Both are corrupted by the same uMLIP softening error. Both require screening composition spaces too large for DFT and ranking metastable phases that equilibrium thermodynamics discards. Both benefit from a correction field measured on anchor observables and from machine-checked proof of what can and cannot be claimed.</p>
-<p>The platform is not a point solution for batteries or direct air capture. It is a correction-and-verification layer for any material whose function is controlled by local environments that deviate from bulk equilibrium. Critical minerals and PFAS are two of the most urgent applications of that layer outside climate. The same measured field that corrects cathode and sorbent predictions corrects ion-selective recovery. The same corrected activation-barrier machinery that filters ammonia and methane catalysts filters defluorination catalysts. The same verification discipline that prevents false confidence in climate materials prevents false confidence in remediation.</p>
-<figure>
-  <img src="images/critical-minerals-pfas-and-the-remediation-imperative-10-one-geometry-two-imperatives.jpg?v=3" alt="One Geometry, Two Imperatives" loading="lazy" decoding="async">
-  <figcaption>Critical-mineral recovery and PFAS remediation sit on opposite sides of the industrial metabolism, but they share the same geometry of binding and barrier energies in under-coordinated environments.</figcaption>
-</figure>
-<p>Cement and concrete — the heaviest industrial material by mass — present another case where amorphous, metastable, and under-coordinated phases control both emissions and performance. The thread remains the same: the materials bottleneck is a prediction-trust bottleneck, and trust comes from measuring the error, correcting it, and proving what can be believed.</p>
+<p>These are other organisations’ estimates of the size of the problems, not claims about what Lupine Science will deliver.</p>
+<h2>Where this is aimed</h2>
+<p>Critical-mineral recovery and PFAS remediation sit on opposite sides of the industrial metabolism. One puts scarce atoms back into use; the other removes harmful atoms from circulation. Both depend on binding and barrier energies in under-coordinated environments, and both need screens over composition spaces too large for DFT. That makes them good places to measure where fast models go wrong.</p>
+<p>We do not have a correction for either. The evidence so far is narrow: an error field that held on fcc-metal surfaces; raw models that missed our barrier gate and adsorption and lattice/elastic correction tests that failed (Round 4); and a barrier correction that abstained (Round 5). Measuring first, under gates set in advance, is where this would start.</p>
+<p>Cement and concrete — the heaviest industrial material by mass — present another case where amorphous, metastable and under-coordinated phases control both emissions and performance.</p>
 <p><img loading="lazy" decoding="async" src="images/critical-minerals-pfas-and-the-remediation-imperative-spread--retry-1.jpg?v=3" alt="A public-works scale remediation scene: treatment tanks, monitoring wells, and a materials recovery bay"></p>
 <div class="share-root" data-url="https://lupine.science/articles/critical-minerals-pfas-and-the-remediation-imperative/" data-title="Critical Minerals, PFAS, and the Remediation Imperative" role="group" aria-label="Share this page">
   <ul class="share-list" role="list" aria-label="Share options">
@@ -216,7 +183,7 @@
 </li>
 <li id="fn11" class="footnote-item"><p>B. Deng <em>et al.</em>, “Systematic softening in universal machine learning interatomic potentials,” <em>npj Computational Materials</em> <strong>11</strong>, 9 (2025). https://doi.org/10.1038/s41524-024-01500-6 <a href="#fnref11" class="footnote-backref">↩︎</a></p>
 </li>
-<li id="fn12" class="footnote-item"><p>Lupine Science. The build-locked formalization is published in the <a href="https://library.lupine.science">open Lean 4 library</a> and <a href="https://github.com/alexwelcing/lupine-rhizo">source repository</a>. The r=0.906 blind-prediction result, the 15.6% runtime overhead, the 899 build-locked Lean 4 theorems, and the boundary conditions for impossibility proofs. <a href="#fnref12" class="footnote-backref">↩︎</a> <a href="#fnref12:1" class="footnote-backref">↩︎</a> <a href="#fnref12:2" class="footnote-backref">↩︎</a> <a href="#fnref12:3" class="footnote-backref">↩︎</a></p>
+<li id="fn12" class="footnote-item"><p>Lupine Science, <a href="/articles/four-gates-three-honest-failures-one-live-experiment/">Round 4 results</a> and <a href="/articles/a-smooth-environment-resolved-error-field/">the fcc error-field results note</a>. <a href="#fnref12" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
@@ -224,9 +191,10 @@
     </article>
   </main>
   <footer class="foot">
-    <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
-    <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" href="mailto:alex@lupinesci.com" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
-    <span><a href="/about/">About</a> · <a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a> · <a href="/feed.xml">Feed</a></span>
+    <span class="creed">Evidence before claim.</span>
+    <nav class="foot-nav" aria-label="Footer"><a href="/">Home</a> · <a href="/results/">Results</a> · <a href="/articles/">Articles</a> · <a href="/about/">About</a> · <a href="/corrections/">Corrections</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://github.com/alexwelcing/lupine">GitHub</a></nav>
+    <span class="contact">Lupine Science · <a class="mail" href="/about/#contact" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
+    <span class="licence">Code MIT · our text and data CC BY 4.0 unless noted · third-party material keeps its own licence</span>
   </footer>
 <script type="module">
 import { initAllShareWidgets } from "/components/share/share.mjs";
@@ -236,6 +204,12 @@ import { initAllShareWidgets } from "/components/share/share.mjs";
     a.href = "mailto:" + addr + (a.dataset.subject ? "?subject=" + encodeURIComponent(a.dataset.subject) : "");
     if (!("keepText" in a.dataset)) a.textContent = addr;
   });
+  const openTarget = () => {
+    const d = location.hash.length > 1 && document.getElementById(location.hash.slice(1));
+    if (d && d.tagName === "DETAILS") d.open = true;
+  };
+  openTarget();
+  addEventListener("hashchange", openTarget);
   const vids = document.querySelectorAll("video[data-autoplay]");
   if (vids.length) {
     if (!("IntersectionObserver" in window)) { vids.forEach((v) => { v.preload = "metadata"; }); }

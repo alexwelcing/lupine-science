@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
+import os
 import pathlib
 import subprocess
 import yaml
 
 ROOT = pathlib.Path(__file__).resolve().parent
 ASSETS = ROOT / "assets"
-SKILL_CLIENT = pathlib.Path.home() / ".hermes/skills/lupine-media-director/scripts/minimax_client.py"
+# Path to the local MiniMax client script; it lives outside this repository.
+SKILL_CLIENT = pathlib.Path(os.environ["LUPINE_MINIMAX_CLIENT"])
 
 with (ROOT / "storyboard.yaml").open() as f:
     sb = yaml.safe_load(f)

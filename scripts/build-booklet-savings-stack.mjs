@@ -15,11 +15,16 @@
 // fonts embedded + Unicode-mapped, required/forbidden text markers — the
 // retracted 624 / 79% figures are forbidden markers by design.
 //
+// Metadata: the PDF's dates, subject and producer are stamped from the
+// booklet-version / booklet-date <meta> tags in the source, not the wall clock,
+// so a rebuild of unchanged source gives the same metadata on any host.
+//
 // Usage: node scripts/build-booklet-savings-stack.mjs
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { PDFDocument, PDFName } from 'pdf-lib';
 import { chromium } from 'playwright-core';
 import { chromiumExecutablePath } from './lib/chromium-executable.mjs';
 import { inspectPdf } from './check-pdf.mjs';
@@ -76,10 +81,38 @@ function serve(rootMap) {
   });
 }
 
+/** Version and ISO date declared in the booklet source's <meta> tags. */
+export function bookletEdition(html) {
+  const version = html.match(/<meta name="booklet-version" content="([0-9]+(?:\.[0-9]+)*)">/)?.[1];
+  const date = html.match(/<meta name="booklet-date" content="(\d{4}-\d{2}-\d{2})">/)?.[1];
+  if (!version || !date) throw new Error('booklet source must declare booklet-version and booklet-date <meta> tags');
+  const parsed = new Date(`${date}T00:00:00Z`);
+  if (Number.isNaN(parsed.valueOf()) || parsed.toISOString().slice(0, 10) !== date) {
+    throw new Error(`invalid booklet-date: ${date}`);
+  }
+  return { version, date };
+}
+
+async function stampPdf(pdfPath, { version, date }) {
+  const doc = await PDFDocument.load(fs.readFileSync(pdfPath), { updateMetadata: false });
+  const when = new Date(`${date}T00:00:00Z`);
+  doc.setTitle('The Savings Stack — Lupine Science');
+  doc.setAuthor('Lupine Science');
+  doc.setSubject(`Research booklet, v${version}`);
+  doc.setCreator('lupine-science/scripts/build-booklet-savings-stack.mjs');
+  doc.setProducer('lupine-science/scripts/build-booklet-savings-stack.mjs');
+  doc.setCreationDate(when);
+  doc.setModificationDate(when);
+  const trailer = doc.context.trailer;
+  if (trailer?.get?.(PDFName.of('ID'))) trailer.set(PDFName.of('ID'), doc.context.obj([]));
+  fs.writeFileSync(pdfPath, await doc.save({ useObjectStreams: false, updateMetadata: false }));
+}
+
 async function main() {
   if (!fs.existsSync(path.join(BOOKLET_SRC, 'index.html'))) {
     throw new Error(`booklet source missing: ${BOOKLET_SRC}/index.html`);
   }
+  const edition = bookletEdition(fs.readFileSync(path.join(BOOKLET_SRC, 'index.html'), 'utf8'));
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
   // /booklet/ serves the booklet source; everything else serves public/.
@@ -120,6 +153,7 @@ async function main() {
     if (browser) await browser.close();
     server.close();
   }
+  await stampPdf(OUT_PDF, edition);
 
   const bytes = fs.statSync(OUT_PDF).size;
   console.log(`wrote ${path.relative(ROOT, OUT_PDF)} (${bytes} bytes)`);
@@ -141,7 +175,9 @@ async function main() {
   console.log('Booklet QA passed.');
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}

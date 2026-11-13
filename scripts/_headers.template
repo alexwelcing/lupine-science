@@ -9,7 +9,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
   Cross-Origin-Opener-Policy: same-origin
-  Content-Security-Policy: default-src 'none'; script-src 'self' %SCRIPT_HASHES%; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self' https://api.github.com; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'none'; script-src 'self' %SCRIPT_HASHES%; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
   Cache-Control: public, max-age=0, must-revalidate
 
 /fonts/*
@@ -44,6 +44,14 @@
 
 /articles/styles.css
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# Production material and templates, not public statements: served, but kept
+# out of search indexes. nginx.conf mirrors this for the container image.
+/brand-assets/*
+  X-Robots-Tag: noindex
+
+/proof-pack-template/*
+  X-Robots-Tag: noindex
 
 # Scripts and components are not content-hashed, so they revalidate daily;
 # stale-while-revalidate keeps repeat views instant while a deploy propagates.

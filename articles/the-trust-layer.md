@@ -2,9 +2,11 @@
 
 > **Why belief is now the bottleneck in materials discovery**
 > **Date:** 2026-07-05  
-> **Deck:** The founding thesis of Lupine Science — verification as the missing infrastructure of AI-driven discovery  
-> **Summary:** AI made imagination and simulation nearly free. Belief is now the bottleneck. The proof infrastructure for designed matter is being built in the open.  
-> **Status:** Published
+> **Updated:** 2026-11-11
+> **Deck:** Our founding thesis (July 2026): independent measurement of where models go wrong, as missing infrastructure for AI-driven materials discovery  
+> **Summary:** Our founding thesis, July 2026. AI made proposing and simulating materials cheap; deciding which predictions to believe is now the bottleneck. We think independent, preregistered measurement of model error is the missing piece, and we publish it in the open. A direction, not a result.  
+> **Status:** Direction
+> **Evidence Status:** Direction: our founding thesis, not a result. "The Trust Layer" is the title of this essay, not a product. What holds so far is narrow; the list under "Evidence before claim" says what.
 > **Ontology:** T6, E9
 
 ---
@@ -35,20 +37,21 @@ Belief is the bottleneck. That is the problem addressed here.
 
 ## Trust as infrastructure
 
-"Trustworthy AI" usually means disclaimers and good intentions. Here it means a mathematical characterization of how a class of predictions fails. It is proved, machine-checked end to end, and published with the data. Run it yourself.
+"Trustworthy AI" usually means disclaimers and good intentions. Here it means measurement: testing how a class of predictions fails, against published references and gates written down in advance. We check the arithmetic behind our numbers in Lean and publish the data; the physics still has to be tested, and we publish those tests when they fail. Run it yourself.
 
-This is the opposite of caution. The slow part of science is re-checking: every lab re-derives and re-benchmarks because nobody's word can be relied on. A verified result is different. It is checked once, and everyone builds on it, the way engineers build on a proved theorem without re-proving it. Verification removes that cost for everyone downstream.
+This is the opposite of caution. The slow part of science is re-checking: every lab re-derives and re-benchmarks because nobody's word can be relied on. A checked result can be built on without re-deriving it, and that saves the re-checking cost for everyone downstream.
 
 ## Evidence before claim
 
-A company whose thesis is proof cannot ask to be taken on faith. Here is where the work stands, checkable today:
+A company whose thesis is measurement cannot ask to be taken on faith. Here is where the work stands, checkable today:
 
-- The mathematics of the error-geometry result lives in a working paper. It is in preparation and not yet peer-reviewed. Its core has been formalized and machine-checked in Lean, with the record in the [open repository](https://github.com/alexwelcing/lupine).
-- The benchmark behind the claims is committed, public data. The [front page](https://lupine.science/) does not quote the numbers. It recomputes them, live, in the browser, from the same files used in the work.
-- The crystal drawn there is not an illustration. It is real, published crystallography, rendered from a committed structure file anyone can open.
-- When an internal idea has failed, the failure stays in the record.
+- What holds so far is narrow: errors on fcc-metal surfaces and vacancies follow a measurable field (nine metals; three of four models) ([the fcc error field](/articles/a-smooth-environment-resolved-error-field/)); our barrier and adsorption tests failed and the magnetism test abstained ([Round 4](/articles/four-gates-three-honest-failures-one-live-experiment/)).
+- The mathematics of the error-geometry result lives in working papers. No Lupine paper has been peer-reviewed or accepted yet. The record is in the [open repositories](https://github.com/alexwelcing/lupine-rhizo).
+- The benchmark data behind our results is committed and public, with the scripts that produce the numbers.
+- The crystal drawn on the [front page](https://lupine.science/) is rendered from published crystallography (MOF-5), from a committed structure file anyone can open.
+- When an idea has failed, the failure stays in the record, and retired public claims are listed in the [corrections log](/corrections/).
 
-None of this is a breakthrough announcement. The claims are modest because the standard is the product. Everything above is checkable today.
+None of this is a breakthrough announcement. The claims are modest because the evidence is. Everything above is checkable today.
 
 ![A predicted material crossing three gates — reference evidence, runtime correction, and claim boundary — before entering a practical component assembly](images/the-trust-layer-inline-02--retry-1.jpg)
 
@@ -58,24 +61,24 @@ This could have been built as a black box: a proprietary trust score, a private 
 
 ![A long rack of sealed evidence cartridges connected by identical mechanical couplers to two independent instruments at opposite ends — The common coupler lets independent instruments inspect the same immutable cartridge chain](images/the-trust-layer-inline-03.jpg)
 
-So the evidence ledger, the proofs, and the benchmark data are public, and the site computes them in front of you. Open results are worth more, because other people can build on them without asking permission.
+So the evidence ledger, the Lean checks and the benchmark data are public. Open results are worth more, because other people can build on them without asking permission.
 
-The closed labs of this era are betting that intelligence is the scarce asset. The bet here is on verified knowledge. The binding constraint on this field is how much of the models' output the world can act on.
+The closed labs of this era are betting that intelligence is the scarce asset. The bet here is on checked knowledge. The binding constraint on this field is how much of the models' output the world can act on.
 
 ## Place in the ecosystem
 
 This is not another generative model, and it is not a robot lab. It sits between them.
 
-Model builders get what they cannot grant themselves: external verification of their predictions. Laboratories get shortlists whose failure modes were characterized before synthesis starts. Formalizers get proofs that gate real decisions instead of sitting in journals.
+Model builders get an open, preregistered record of where their models fail against published references. Laboratories get to see where a model's errors have been measured before synthesis starts. Formalizers get Lean checks attached to published numbers instead of sitting in journals.
 
-Everyone in that loop moves faster because the trust between them is load-bearing. That is the company: the trust layer between the models and the bench.
+Everyone in that loop could move faster if the trust between them were load-bearing. That is the direction: an independent measurement layer between the models and the bench.
 
 ## The invitation
 
 The materials that define the next century exist today only on paper. Specific arrangements of atoms nobody has made, waiting on one question: is the result believable enough to try?
 
-The machinery that answers with proof is being built in public, so the answer never has to be produced twice.
+The machinery that answers with evidence is being built in public, so the answer never has to be produced twice.
 
-If you have synthesis data, build models, or invest in this field: the record is open, and getting in touch is straightforward.
+If you have synthesis data or build models: the record is open, and getting in touch is straightforward.
 
 **Visit [lupine.science](https://lupine.science). Check the record. That is the point.**

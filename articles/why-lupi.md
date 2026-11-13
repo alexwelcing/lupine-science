@@ -2,7 +2,8 @@
 
 > **The vision behind the viewer**
 > **Date:** 2026-06-30  
-> **Deck:** A browser-native molecular viewer for makeability  
+> **Updated:** 2026-11-11
+> **Deck:** A browser-native viewer for molecular and crystal structures, with no installation  
 > **Summary:** LUPI as a live, install-free window into molecular structures and its implications for research, teaching, and public trust.  
 > **Status:** Published
 
@@ -37,8 +38,6 @@ LUPI is the public face of Lupine Science. It has three jobs:
 2. **Make measurement effortless.** Distance, angle, and coordination environments should be a click away, not a plugin away.
 
 3. **Travel with the claim.** Every structure in LUPI can be linked, embedded, and inspected by anyone. Trust comes from shareability.
-
-Under the hood, LUPI connects back to the same formalized makeability record that powers Lupine Science: a growing chain of commitments, simulations, and certificates that say not just *what* a structure is, but *why* it can be made.
 
 ![An open provenance chain — structure, model, force field, comparison, and decision — rendered as linked specimen holders on a bench](images/why-lupi-inline-03--retry-1.jpg)
 

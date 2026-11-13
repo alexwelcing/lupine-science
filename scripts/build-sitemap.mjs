@@ -11,7 +11,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { loadCompany, asOfDate } from './lib/discovery.mjs';
+import { loadCompany, asOfDate, documentStatus } from './lib/discovery.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC = path.join(ROOT, 'public');
@@ -26,19 +26,48 @@ function articleDate(slug) {
   return updated?.[1] || published?.[1] || null;
 }
 
-// The homepage and /about/ carry the newest dated fact on the site (the same
+// Archived articles keep their URL (noindex) but are not offered to crawlers.
+function articleArchived(slug) {
+  const md = path.join(ROOT, 'articles', `${slug}.md`);
+  if (!fs.existsSync(md)) return false;
+  const status = fs.readFileSync(md, 'utf8').match(/^> \*\*Status:\*\*\s*(.+?)\s*$/m)?.[1];
+  return documentStatus(status) === 'Archived';
+}
+
+function correctionsUpdated() {
+  const page = path.join(PUBLIC, 'corrections', 'index.html');
+  if (!fs.existsSync(page)) return null;
+  return fs.readFileSync(page, 'utf8').match(/Corrections log · updated <time datetime="(\d{4}-\d{2}-\d{2})"/)?.[1] || null;
+}
+
+// The homepage, /results/ and /about/ carry the newest dated fact on the site (the same
 // "as of" scripts/lib/discovery.mjs stamps on them): deterministic, and it
 // tells crawlers the front door moves whenever anything ships.
 const company = loadCompany(ROOT);
 const siteAsOf = asOfDate(company, fs.readdirSync(path.join(ROOT, 'articles'))
-  .filter((f) => f.endsWith('.md'))
+  .filter((f) => f.endsWith('.md') && !articleArchived(f.replace(/\.md$/, '')))
   .map((f) => ({ date: articleDate(f.replace(/\.md$/, '')) || '' })));
+
+// Generated film detail pages (listed films only; scripts/lib/film-listing.mjs).
+// The /videos/ index is offered only while it has a film to show.
+const filmPages = fs.readdirSync(path.join(PUBLIC, 'videos'), { withFileTypes: true })
+  .filter((entry) => entry.isDirectory() && fs.existsSync(path.join(PUBLIC, 'videos', entry.name, 'index.html')))
+  .map((entry) => entry.name);
 
 const urls = [
   { loc: `${SITE}/`, lastmod: siteAsOf || null },
+  { loc: `${SITE}/results/`, lastmod: siteAsOf || null },
   { loc: `${SITE}/about/`, lastmod: siteAsOf || null },
+  // hand-written phone/contact page (owner-published, 2026-11-13)
+  ...(fs.existsSync(path.join(PUBLIC, 'contact', 'index.html'))
+    ? [{ loc: `${SITE}/contact/`, lastmod: null }]
+    : []),
+  // the corrections log carries its own "updated" date in its kicker
+  ...(fs.existsSync(path.join(PUBLIC, 'corrections', 'index.html'))
+    ? [{ loc: `${SITE}/corrections/`, lastmod: correctionsUpdated() }]
+    : []),
   { loc: `${SITE}/articles/`, lastmod: null },
-  { loc: `${SITE}/videos/`, lastmod: null },
+  ...(filmPages.length ? [{ loc: `${SITE}/videos/`, lastmod: null }] : []),
   // /atlas/ is the wiki-driven ontology page (see scripts/build-atlas-nodes.mjs).
   // No intrinsic date — the page is generated from the wiki DB at build time.
   { loc: `${SITE}/atlas/`, lastmod: null },
@@ -47,23 +76,15 @@ for (const entry of fs.readdirSync(path.join(PUBLIC, 'articles'), { withFileType
   if (!entry.isDirectory()) continue;
   const slug = entry.name;
   if (!fs.existsSync(path.join(PUBLIC, 'articles', slug, 'index.html'))) continue;
+  if (articleArchived(slug)) continue;
   urls.push({ loc: `${SITE}/articles/${slug}/`, lastmod: articleDate(slug) });
 }
 
-for (const entry of fs.readdirSync(path.join(PUBLIC, 'videos'), { withFileTypes: true })) {
-  if (!entry.isDirectory()) continue;
-  if (!fs.existsSync(path.join(PUBLIC, 'videos', entry.name, 'index.html'))) continue;
-  urls.push({ loc: `${SITE}/videos/${entry.name}/`, lastmod: articleDate(entry.name) });
+for (const slug of filmPages) {
+  urls.push({ loc: `${SITE}/videos/${slug}/`, lastmod: articleDate(slug) });
 }
-// Presentations (standalone HTML decks).
-const presentationsDir = path.join(PUBLIC, 'presentations');
-if (fs.existsSync(presentationsDir)) {
-  for (const entry of fs.readdirSync(presentationsDir, { withFileTypes: true })) {
-    if (!entry.isDirectory()) continue;
-    if (!fs.existsSync(path.join(presentationsDir, entry.name, 'index.html'))) continue;
-    urls.push({ loc: `${SITE}/presentations/${entry.name}/`, lastmod: null });
-  }
-}
+// No /presentations/* entries: the only presentation was retired on
+// 2026-11-11 and now redirects to /about/ (public/_redirects).
 
 // Per-node detail pages under /atlas/<id>/. The id matches one of T*, E*,
 // MC* (built by scripts/build-atlas-detail-pages.mjs). Anything else under
@@ -79,23 +100,15 @@ if (fs.existsSync(atlasDir)) {
   }
 }
 
-// Curated claim facets under /atlas/claims/<facet>/. Built by
-// scripts/build-claim-facets.mjs. The facets index lives at /atlas/claims/.
-const claimsDir = path.join(atlasDir, 'claims');
-if (fs.existsSync(claimsDir)) {
-  if (fs.existsSync(path.join(claimsDir, 'index.html'))) {
-    urls.push({ loc: `${SITE}/atlas/claims/`, lastmod: null });
-  }
-  for (const entry of fs.readdirSync(claimsDir, { withFileTypes: true })) {
-    if (!entry.isDirectory()) continue;
-    if (!fs.existsSync(path.join(claimsDir, entry.name, 'index.html'))) continue;
-    urls.push({ loc: `${SITE}/atlas/claims/${entry.name}/`, lastmod: null });
-  }
-}
+// The curated claim facets that lived under /atlas/claims/ were retired on
+// 2026-11-11: their blurbs restated retired claims, and their claim names came
+// from a private wiki database that cannot be rebuilt from committed data.
+// /atlas/claims/* redirects to /atlas/ (public/_redirects, nginx.conf).
 
 // Static assets that are not directories but should be discoverable.
+// The climate-series proof pack was retired on 2026-11-11 (see /corrections/);
+// its URL now redirects there (public/_redirects).
 for (const file of [
-  'proof-pack-climate-series.pdf',
   'booklets/the-savings-stack.pdf',
   'papers/memorandum-correction-boundary-2026-07-20.pdf',
 ]) {

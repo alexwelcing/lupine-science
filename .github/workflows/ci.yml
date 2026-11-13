@@ -34,7 +34,9 @@ jobs:
 
       - run: npm ci
 
-      # the venture-deck step of the build renders its PDF in Chromium
+      # No build step renders in Chromium since the deck PDF left the site
+      # (2026-11-13); the install stays so a browser-backed build step can be
+      # added without a CI change.
       - run: npx --yes playwright@1.61.1 install chromium
 
       - run: npm run build

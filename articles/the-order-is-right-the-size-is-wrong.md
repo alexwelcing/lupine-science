@@ -1,10 +1,13 @@
 # The Order Is Right, the Size Is Wrong
 
-> **Field note from the live lab**
+> **Type:** Results note
 > **Date:** 2026-07-02  
+> **Updated:** 2026-11-11
 > **Deck:** Foundation machine-learned interatomic potentials (CHGNet, MACE-MP, MACE-MPA-0) measured across 21 materials and up to 9 properties against 228 published reference values  
-> **Status:** Live evidence — every number reported is sealed as a machine-checked theorem over provenance-hashed data; kills and corrections are preserved in the record  
-> **Artifacts:** manuscript, pre-registration with amendments, 100+ Lean theorems, and the full evidence corpus in the [repository](https://github.com/alexwelcing/lupine-rhizo/pull/14) and [Library](https://library.lupine.science)  
+> **Summary:** Across 21 materials and 228 published reference values, four foundation MLIPs ranked surface energies almost correctly (Spearman 0.88–1.00) while missing magnitudes by tens of percent. Apparent cross-model alignment sat inside a coupling-aware null, so we do not count it as a result.
+> **Status:** Published
+> **Evidence Status:** Four uMLIPs, 21 materials, 228 published reference values. The arithmetic and stated inequalities are checked in Lean over hashed data; the physics is tested against the references, not by Lean. Not peer-reviewed.
+> **Artifacts:** manuscript, pre-registration with amendments, Lean checks of the arithmetic, and the full evidence corpus in the [repository](https://github.com/alexwelcing/lupine-rhizo/pull/14) and [Library](https://library.lupine.science)  
 
 ---
 
@@ -14,7 +17,7 @@ Foundation potentials promise density-functional accuracy at classical cost.
 On bulk properties they nearly deliver: across the benchmark matrix, lattice constants
 land within half a percent and formation enthalpies within a few percent of
 published references. On the properties that decide real materials questions —
-surfaces, vacancies, stacking faults — the same models miss by ten to forty
+surfaces, vacancies, stacking faults — the same models miss by tens of
 percent, systematically.
 
 The question is whether that failure has *structure*: something measurable,
@@ -41,70 +44,71 @@ same day it was written, with the falsification logged in place.
 ## What survived
 
 **Rankings.** Ask any of these models *which* metal has the higher surface
-energy and it almost never lies — rank correlations of 0.88 to a perfect
+energy and it is almost always right — rank correlations of 0.88 to a perfect
 1.000 across materials — even while the magnitudes are wrong by tens of
 percent. All 22 reference-ordered facet hierarchies reproduce. The order is
 right; the size is wrong.
 
-**A form.** The error is approximately a power law, `prediction ≈ c·T^α`,
-and the two parameters have different owners. The exponent belongs to the
-*property family* — surfaces sit near α ≈ 1.10 in all four models, across
-two architectures and three training sets — while the prefactor belongs to
-the *model's training data*, moving from 0.66 (CHGNet) toward 1 (0.98,
-OMat-lineage MACE) as training distributions improve. Retraining fixes the
-bias and barely touches the exponent.
+**A form.** Within a property family the error is approximately a power
+law, `prediction ≈ c·T^α`. The four fitted surface exponents (1.065–1.138)
+spread less between models than a single model's uncertainty — consistent
+with, though not demonstrating, an exponent that belongs to the property
+family. The prefactor moves with training data, from 0.66 (CHGNet) to 0.98
+(MACE-MPA-0).
 
 **A field.** Both regularities are projections of something simpler
 underneath: a smooth error field over local atomic environments, keyed on
 coordination. Measured from just three standard observables per material,
 the field predicted a fourth observable it had never seen — the (110)
 surface energy, which probes an unfitted coordination — with r = 0.906
-across 36 cells, zero adjustable parameters, surviving material-clustered
-resampling and a permutation null reported at its true center (0.44, not zero).
+across 36 cells (nine fcc metals × four models), zero adjustable parameters,
+surviving material-clustered resampling and a permutation null reported at
+its true center (0.44, not zero). It is significant for three of the four
+models, not for MACE-MP-0 medium. Details are on the
+[fcc error-field page](/articles/a-smooth-environment-resolved-error-field/).
 
 ![Surface-energy rankings translated into coating and catalyst sample plates: the order holds while the measured distances reveal the magnitude error](images/the-order-is-right-the-size-is-wrong-inline-01--retry-1.jpg)
 
 ## From map to correction
 
-Because the field lives on atomic environments, its inverse is not a
-spreadsheet adjustment — it is an additive energy term with analytic forces,
-running beside the live model. Deployed over CHGNet, it recovered the fitted
-observables exactly through full relaxations, improved the *blind* facet at
-run time (9.7% → 1.5% error on nickel; 28.0% → 13.7% on copper), left the
-bulk provably untouched, and ran stable molecular dynamics.
+Because the field lives on atomic environments, its inverse is an additive
+energy term with analytic forces that can run beside the live model. Used as
+an energy-only correction beside CHGNet, it recovered the fitted observables
+exactly through full relaxations, improved the *blind* facet (9.7% → 1.5%
+error on nickel; 28.0% → 13.7% on copper: one model, two metals, one facet),
+left bulk lattice constants unchanged, and ran stable molecular dynamics.
 
-And where it cannot work, the failure is provable: MPtrj-trained models
-scramble the ranking of stacking-fault energies, and a short quantified lemma
-shows no order-preserving correction can ever map those predictions onto the
-references. The impossibility is a theorem with concrete witnesses, checked
-by the Lean proof kernel — the system refuses, with a proof, before a
-core-hour is spent.
+Where it cannot work, we can say so in advance: MPtrj-trained models scramble
+the ranking of stacking-fault energies, and a short Lean-checked lemma with
+concrete witnesses shows that no order-preserving correction can map those
+predictions onto the references.
 
 One null result is part of the record: the first-shell field corrects
 energies, not near-equilibrium forces — force error lives in the curvature,
 not the coordination step. That boundary is stated in the manuscript's
 abstract, because knowing where a method stops is most of knowing what it is.
 
-## Why the proof kernel is in the loop
+## What the Lean checks do
 
-Every claim above — the wins, the kills, the impossibility — is sealed as
-decidable theorems over integer-scaled data carrying cryptographic
-provenance. This is not decoration. During preparation the kernel rejected
-one claimed result: a blind-prediction win whose margin vanished
-at the fourth decimal (`decide` refused `813 < 813`). The corrected count is
-the published one. The proof assistant edited the science, in exactly the
-direction of honesty.
+Lean 4 checks the arithmetic and stated inequalities behind the numbers
+above, over integer-scaled data with hashed provenance. It does not check the
+physics, the reference data or the pipeline; those are tested against the
+published references. One check changed a reported count: at the 10⁻⁴ J/m²
+precision used for checking, one cell's improvement rounds to zero (`decide`
+refuses `813 < 813`), so we report 26 of 36 improved cells (27 of 36 at
+float64).
 
 ## What this means if you run simulations
 
-- **Screening today:** rankings from these models are already trustworthy
-  in the measured domain (surfaces, vacancies, bulk moduli) — pick candidates
-  with confidence, and treat MPtrj stacking-fault rankings as unusable.
-- **Certification:** a handful of anchor measurements per property family,
-  plus the family exponent, buys a several-fold error reduction at zero
-  additional simulation cost.
-- **Boundaries:** where the order is broken, no monotone fix exists — the
-  proof is provided rather than a worse number.
+- **Screening:** on these 21 materials, the models' rankings of surfaces,
+  vacancies and bulk moduli tracked the references closely. Treat that as
+  evidence for this domain, not a guarantee elsewhere, and treat MPtrj-trained
+  stacking-fault rankings as unusable.
+- **Correction:** an energy-only correction built from three anchor
+  observables improved one blind facet on two metals beside one model. It is
+  a research result, not a tool to apply to other materials.
+- **Boundaries:** where the order is broken, a Lean-checked inequality shows
+  that no monotone fix exists.
 
 The registered next tests — hcp metals, alloys, a continuous-coordinate
 field for forces — are in the record with their kill conditions. If they

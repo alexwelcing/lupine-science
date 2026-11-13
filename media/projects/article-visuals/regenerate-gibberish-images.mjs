@@ -105,24 +105,9 @@ const REPLACEMENTS = [
     seed: 104,
   },
   {
-    path: 'articles/the-02-percent-synthesis-problem/images/the-02-percent-synthesis-problem-08-commercial-endpoints.jpg',
-    prompt: `Editorial illustration of a materials discovery pipeline ending in industrial commercial endpoints. Left: stylized crystals and data streams flow through a verification layer in indigo (#3d4db3). Right: a clean modern battery cell, a solar panel segment, and a catalyst wafer. Warm cream paper background (#faf9f6). Clean minimalist vector style. ${NO_TEXT}. 16:9 landscape.`,
-    seed: 105,
-  },
-  {
-    path: 'articles/five-materials-for-5-to-12-gtco2-year/images/five-materials-for-5-to-12-gtco2-year-08-partner-ecosystem-map.jpg',
-    prompt: `Clean abstract world map in muted taupe and cream tones with subtle indigo (#3d4db3) connection arcs linking a few major continental regions. Small teal and amber dots mark partner locations. Warm cream paper background (#faf9f6). Minimalist infographic style, no country names or labels. ${NO_TEXT}. 16:9 landscape.`,
-    seed: 106,
-  },
-  {
     path: 'articles/from-fantasy-frameworks-to-makeable-materials/hero.jpg',
     prompt: `Abstract editorial hero showing the transformation from abstract mathematical curves into a solid, makeable molecular structure. Left: faint ghostly equations and frameworks dissolve into particles. Right: a clear indigo (#3d4db3) molecular model emerges. Warm cream paper background (#faf9f6). Clean vector style. ${NO_TEXT}. 16:9 landscape.`,
     seed: 107,
-  },
-  {
-    path: 'articles/from-predicted-crystal-to-commercial-cell/images/from-predicted-crystal-to-commercial-cell-10-crystal-to-cell.jpg',
-    prompt: `Editorial illustration of a materials pipeline from predicted crystal to commercial battery cell. Left: a translucent indigo (#3d4db3) crystal lattice. Center: flowing data streams pass through a verification layer. Right: a clean cylindrical battery cell. Warm cream paper background (#faf9f6). Clean minimalist vector style. ${NO_TEXT}. 16:9 landscape.`,
-    seed: 108,
   },
   {
     path: 'articles/lupi-hfc-refrigerant-research-payloads/hero.jpg',
@@ -133,16 +118,6 @@ const REPLACEMENTS = [
     path: 'articles/lupi-hfc-refrigerant-research-payloads/hfc-r125.jpg',
     prompt: `Clean 3D molecular model of an HFC refrigerant molecule with carbon, fluorine, and hydrogen atoms shown as smooth spheres in indigo (#3d4db3), teal, and white. Dark near-black background. Scientific visualization style. ${NO_TEXT}. 16:9 landscape.`,
     seed: 110,
-  },
-  {
-    path: 'articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/images/water-and-air-correcting-the-molecules-we-drink-and-breathe-10-platform-thesis.jpg',
-    prompt: `Editorial illustration of a water and air purification platform. A central indigo (#3d4db3) filter membrane separates blue water droplets on the left from clean air particles on the right. Small molecular structures are caught in the membrane. Warm cream paper background (#faf9f6). Clean vector style. ${NO_TEXT}. 16:9 landscape.`,
-    seed: 111,
-  },
-  {
-    path: 'articles/investing-in-the-trust-layer/images/investing-in-the-trust-layer-10-trust-loop-cta.jpg',
-    prompt: `Abstract editorial illustration of a closed-loop materials trust pipeline. Left: stylized crystals and flowing data streams in indigo (#3d4db3). Center: a translucent verification layer filters the flow. Right: a clean modern synthesis lab bench. A glowing feedback arc loops back to the start. Warm cream paper background (#faf9f6). Clean minimalist vector style. ${NO_TEXT}. 16:9 landscape.`,
-    seed: 112,
   },
   {
     path: 'articles/the-trust-layer/hero.jpg',

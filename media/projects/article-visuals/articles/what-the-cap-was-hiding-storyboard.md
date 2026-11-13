@@ -16,7 +16,7 @@ A preregistered Round-4 trial asked whether a theorem-licensed correction to uni
 - **Type:** generated-image
 - **Single idea:** A conservative gate rejects most of what passes it, and the rejected material is indistinguishable from what it let through.
 - **Why this image:** The article's finding is not that the correction was wrong but that the *gate* was a lossy proxy — it refused 66 of 94 possible cases, and 32 of those refusals were provably improvable. The visual must make "refused material identical to accepted material" legible without a chart or any text.
-- **Generation method:** MiniMax `image-01` via `~/.hermes/skills/lupine-media-director/scripts/minimax_client.py image`
+- **Generation method:** MiniMax `image-01` via a local MiniMax image client (`$LUPINE_MINIMAX_CLIENT image`)
 - **Aspect:** 16:9
 - **Prompt (verbatim, includes the mandated brand suffix):**
 
@@ -46,7 +46,7 @@ Brand indigo saturation for reference is 118; paper warmth (R−B) is +4.
 
 ## Provenance
 
-Generated assets must remain traceable to prompt and source (`conventions/brand-law.md`). Model: MiniMax **`image-01`** (not "M3") via `~/.hermes/skills/lupine-media-director/scripts/minimax_client.py image`, authenticating from `~/.hermes/auth.json`. Regenerate v4 with `SUBJECT + STYLE` where `SUBJECT` is:
+Generated assets must remain traceable to prompt and source (`conventions/brand-law.md`). Model: MiniMax **`image-01`** (not "M3") via a local MiniMax image client (`$LUPINE_MINIMAX_CLIENT image`), authenticating from a local OAuth record. Regenerate v4 with `SUBJECT + STYLE` where `SUBJECT` is:
 
 > a narrow indigo slot standing upright across the centre of the frame; to its left a dense crowded field of many identical small blank ink rectangles pressed together, unable to pass; to its right only three of the same blank rectangles continuing freely across vast empty paper; the rectangles on both sides drawn identically to show that what was refused is indistinguishable from what was let through, sparse precise line art on warm paper
 

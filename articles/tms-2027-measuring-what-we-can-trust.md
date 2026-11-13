@@ -2,10 +2,10 @@
 
 > **Type:** Conference announcement
 > **Date:** 2026-09-05
+> **Updated:** 2026-11-11
 > **Deck:** How measuring simulation error can help us choose the next experiment.
-> **Summary:** Lupine Science will attend TMS2027 in Orlando, March 14–18, 2027. Alex Welcing will present an accepted poster on measuring the errors of interatomic potentials.
-> **Audience:** Anyone curious about how better simulations can support materials discovery
-> **Status:** Poster abstract accepted
+> **Summary:** A poster abstract was accepted for TMS2027 (Orlando, 14–18 March 2027). It is a conference presentation, not a paper. The accepted abstract described a universal error "hyper-ribbon"; our record no longer supports that, and the proceedings manuscript replaces it with narrower measurement claims.
+> **Status:** Published
 > **OG Image:** /articles/tms-2027-measuring-what-we-can-trust/hero.jpg
 
 <div class="conference-facts">
@@ -43,7 +43,11 @@ The practical question is simple: **can an error we already know help us decide 
 
 The accepted poster is titled **“From Transferability to Prediction: The Error Geometry of Interatomic Potentials.”** It gives us a place to discuss error measurement with the materials and manufacturing community, share the boundaries of the evidence, and sharpen the next validation experiment.
 
-Our longer-term goal is to help researchers spend their experimental and computational effort on better-informed choices. Establishing whether this approach saves work in a prospective materials campaign is a next test. The announcement marks acceptance of a poster abstract; manuscript publication is a separate process.
+<div class="callout warning">
+  <strong>What the accepted abstract said, and what we will present.</strong> The accepted abstract described a universal error “hyper-ribbon” that carries over from classical potentials to machine-learned ones and makes transferability predictable. Our record no longer supports that. Registered stress tests did not support it, and the proceedings manuscript replaces it with narrower measurement claims: error geometry is measurable only relative to a stated model family, property, material class and reference convention. The poster will present the narrower claims. The retired wording is listed in our <a href="/corrections/">corrections log</a>.
+</div>
+
+Our longer-term goal is to help researchers spend their experimental and computational effort on better-informed choices. Establishing whether this approach saves work in a prospective materials campaign is a next test. The announcement marks acceptance of a poster abstract. It is a conference presentation, not a paper, and no Lupine paper has been peer-reviewed or accepted yet.
 
 The animation above expresses that journey as a survey: scattered traces, reference landmarks, and a path that reaches toward an unfinished landscape. It is an original conceptual illustration. Its shapes do not encode measurements or imply that uncertainty has disappeared.
 

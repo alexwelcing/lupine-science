@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Savings Stack: A Booklet on Doing Less, and the Commons That Makes Everyone Faster — Lupine Science</title>
-  <meta name="description" content="The Savings Stack v1 release: a 16-page booklet on compute-savings in atomistic simulation — 72.4% fewer DFT evaluations when four models share anchors (558 naive vs 154 union, 29 paths, 3.62×), 163 citations verified, every number hashable and reproducible.">
+  <title>The Savings Stack: A Booklet on Compute Savings in Atomistic Simulation — Lupine Science</title>
+  <meta name="description" content="The Savings Stack (July 2026; booklet revised as v1.1 on 2026-11-12): a 16-page booklet on compute savings in atomistic simulation, with a hashable data pack. Its headline count is projected, not measured: four models sharing anchors would need 154 instead of 558 DFT evaluations on 29 short paths (72.4% fewer, against a baseline of four separate runs), and no new DFT was run. When the pilot was later run, it was about 700 meV off the published references.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://lupine.science/articles/the-savings-stack/">
-  <meta property="og:title" content="The Savings Stack: A Booklet on Doing Less, and the Commons That Makes Everyone Faster — Lupine Science">
-  <meta property="og:description" content="The Savings Stack v1 release: a 16-page booklet on compute-savings in atomistic simulation — 72.4% fewer DFT evaluations when four models share anchors (558 naive vs 154 union, 29 paths, 3.62×), 163 citations verified, every number hashable and reproducible.">
-  <meta property="og:type" content="video.other">
+  <meta property="og:title" content="The Savings Stack: A Booklet on Compute Savings in Atomistic Simulation — Lupine Science">
+  <meta property="og:description" content="The Savings Stack (July 2026; booklet revised as v1.1 on 2026-11-12): a 16-page booklet on compute savings in atomistic simulation, with a hashable data pack. Its headline count is projected, not measured: four models sharing anchors would need 154 instead of 558 DFT evaluations on 29 short paths (72.4% fewer, against a baseline of four separate runs), and no new DFT was run. When the pilot was later run, it was about 700 meV off the published references.">
+  <meta property="og:type" content="article">
   <meta property="og:url" content="https://lupine.science/articles/the-savings-stack/">
-  <meta property="og:image" content="https://lupine.science/articles/the-savings-stack/hero.jpg?v=3">
+  <meta property="og:image" content="https://lupine.science/articles/the-savings-stack/hero.jpg?v=4">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="The Savings Stack: A Booklet on Doing Less, and the Commons That Makes Everyone Faster — Lupine Science">
-  <meta name="twitter:description" content="The Savings Stack v1 release: a 16-page booklet on compute-savings in atomistic simulation — 72.4% fewer DFT evaluations when four models share anchors (558 naive vs 154 union, 29 paths, 3.62×), 163 citations verified, every number hashable and reproducible.">
-  <meta name="twitter:image" content="https://lupine.science/articles/the-savings-stack/hero.jpg?v=3">
+  <meta name="twitter:title" content="The Savings Stack: A Booklet on Compute Savings in Atomistic Simulation — Lupine Science">
+  <meta name="twitter:description" content="The Savings Stack (July 2026; booklet revised as v1.1 on 2026-11-12): a 16-page booklet on compute savings in atomistic simulation, with a hashable data pack. Its headline count is projected, not measured: four models sharing anchors would need 154 instead of 558 DFT evaluations on 29 short paths (72.4% fewer, against a baseline of four separate runs), and no new DFT was run. When the pilot was later run, it was about 700 meV off the published references.">
+  <meta name="twitter:image" content="https://lupine.science/articles/the-savings-stack/hero.jpg?v=4">
   <meta name="theme-color" content="#faf9f6">
   <link rel="icon" type="image/svg+xml" href="/lupine-science-mark.svg">
   <link rel="icon" type="image/png" href="/lupine-science-icon.png">
@@ -25,49 +25,48 @@
   <link rel="alternate" type="application/atom+xml" title="Lupine Science" href="/feed.xml">
   <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="alternate" type="video/mp4" href="https://lupine.science/videos/the-savings-stack.mp4">
   <link rel="stylesheet" href="/articles/styles.css">
   <style>:root{--share-ink:var(--ink-soft,#4c4e58);--share-ink-hover:var(--indigo,#3d4db3);--share-border:var(--rule,#e2dfd4);--share-bg:var(--paper,#faf9f6);--share-bg-hover:var(--indigo-wash,rgba(61,77,179,0.08));--share-focus:var(--indigo,#3d4db3);--share-gap:8px;--share-icon-size:18px;}.share-root{display:flex;flex-wrap:wrap;align-items:center;gap:var(--share-gap);margin:2.4em 0 0;padding:16px 0 0;border-top:1px solid var(--share-border);font-family:var(--mono,'IBM Plex Mono',ui-monospace,monospace);font-size:13px;position:relative;}.share-label{color:var(--ink-faint,#6e707a);margin-right:4px;}.share-list{display:flex;flex-wrap:wrap;gap:var(--share-gap);list-style:none;margin:0;padding:0;}.share-list[hidden]{display:none;}.share-list li,.share-menu li{margin:0;padding:0;}.share-link,.share-toggle{display:inline-flex;align-items:center;gap:6px;min-width:44px;min-height:44px;padding:6px 12px;border-radius:4px;border:1px solid var(--share-border);background:var(--share-bg);color:var(--share-ink);text-decoration:none;font-family:inherit;font-size:inherit;cursor:pointer;transition:background 180ms,border-color 180ms,color 180ms;}.share-link svg,.share-toggle svg{width:var(--share-icon-size);height:var(--share-icon-size);flex-shrink:0;}.share-link:hover,.share-link:focus,.share-toggle:hover,.share-toggle:focus{background:var(--share-bg-hover);border-color:var(--share-focus);color:var(--share-ink-hover);}.share-link:focus-visible,.share-toggle:focus-visible{outline:2px solid var(--share-focus);outline-offset:2px;}.share-live{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}@media (max-width:600px){.share-root{flex-wrap:wrap;}.share-toggle{min-width:44px;min-height:44px;padding:8px 12px;justify-content:center;}.share-toggle-text{margin-left:4px;}.share-menu{position:static;flex-basis:100%;list-style:none;margin:6px 0 0;padding:6px;border:1px solid var(--share-border);border-radius:6px;background:var(--share-bg);box-shadow:0 8px 24px rgba(22,23,29,0.08);}.share-menu[hidden]{display:none;}.share-menu .share-link{width:100%;justify-content:flex-start;min-height:44px;border:none;border-radius:4px;background:transparent;}.share-menu .share-link:hover,.share-menu .share-link:focus{background:var(--share-bg-hover);}}@media print{.share-root{display:none;}}@media (prefers-reduced-motion:reduce){.share-link,.share-toggle,.share-menu,.article .share-link,.article .share-toggle{transition:none !important;animation:none !important;}}</style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@context":"https://schema.org","@type":"Article","headline":"The Savings Stack: A Booklet on Doing Less, and the Commons That Makes Everyone Faster","description":"The Savings Stack v1 release: a 16-page booklet on compute-savings in atomistic simulation — 72.4% fewer DFT evaluations when four models share anchors (558 naive vs 154 union, 29 paths, 3.62×), 163 citations verified, every number hashable and reproducible.","datePublished":"2026-07-21","url":"https://lupine.science/articles/the-savings-stack/","mainEntityOfPage":"https://lupine.science/articles/the-savings-stack/","image":"https://lupine.science/articles/the-savings-stack/hero.jpg?v=3","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png?v=3"}},"@id":"https://lupine.science/articles/the-savings-stack/#article"},{"@type":"VideoObject","@id":"https://lupine.science/articles/the-savings-stack/#video","name":"The Savings Stack: A Booklet on Doing Less, and the Commons That Makes Everyone Faster","description":"The Savings Stack v1 release: a 16-page booklet on compute-savings in atomistic simulation — 72.4% fewer DFT evaluations when four models share anchors (558 naive vs 154 union, 29 paths, 3.62×), 163 citations verified, every number hashable and reproducible.","thumbnailUrl":"https://lupine.science/videos/the-savings-stack-poster.jpg","uploadDate":"2026-07-21","contentUrl":"https://lupine.science/videos/the-savings-stack.mp4","embedUrl":"https://lupine.science/videos/the-savings-stack/","isPartOf":{"@id":"https://lupine.science/articles/the-savings-stack/#article"}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Savings Stack: A Booklet on Compute Savings in Atomistic Simulation","description":"The Savings Stack (July 2026; booklet revised as v1.1 on 2026-11-12): a 16-page booklet on compute savings in atomistic simulation, with a hashable data pack. Its headline count is projected, not measured: four models sharing anchors would need 154 instead of 558 DFT evaluations on 29 short paths (72.4% fewer, against a baseline of four separate runs), and no new DFT was run. When the pilot was later run, it was about 700 meV off the published references.","datePublished":"2026-07-21","dateModified":"2026-11-12","url":"https://lupine.science/articles/the-savings-stack/","mainEntityOfPage":"https://lupine.science/articles/the-savings-stack/","image":"https://lupine.science/articles/the-savings-stack/hero.jpg?v=4","author":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science"},"publisher":{"@type":"Organization","name":"Lupine Science","url":"https://lupine.science","logo":{"@type":"ImageObject","url":"https://lupine.science/lupine-science-icon.png?v=3"}}}</script>
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
   <header class="site-header">
     <a class="mark" href="/" aria-label="Lupine Science">
       <svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
-  <defs>
-    <linearGradient id="bb" x1="190" y1="74" x2="324" y2="356" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#88a7d8"/><stop offset=".35" stop-color="#475b9c"/><stop offset=".78" stop-color="#102f47"/><stop offset="1" stop-color="#071a2a"/>
-    </linearGradient>
-    <linearGradient id="bl" x1="150" y1="330" x2="360" y2="470" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#7f907c"/><stop offset="1" stop-color="#4c653d"/>
-    </linearGradient>
-    <radialGradient id="bc" cx="48%" cy="30%" r="68%">
-      <stop offset="0" stop-color="#fffdf3"/><stop offset=".7" stop-color="#f1e8c9"/><stop offset="1" stop-color="#d4c58f"/>
-    </radialGradient>
-  </defs>
-  <g fill="none" stroke="#4c653d" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M256 148 C252 224 258 312 254 448"/><path d="M252 402 C222 372 178 354 124 348"/><path d="M260 402 C290 372 334 354 388 348"/>
-  </g>
-  <g fill="url(#bl)" opacity=".96">
-    <ellipse cx="139" cy="348" rx="18" ry="62" transform="rotate(-78 139 348)"/><ellipse cx="167" cy="384" rx="18" ry="62" transform="rotate(-48 167 384)"/><ellipse cx="214" cy="410" rx="17" ry="58" transform="rotate(-20 214 410)"/><ellipse cx="373" cy="348" rx="18" ry="62" transform="rotate(78 373 348)"/><ellipse cx="345" cy="384" rx="18" ry="62" transform="rotate(48 345 384)"/><ellipse cx="298" cy="410" rx="17" ry="58" transform="rotate(20 298 410)"/>
-  </g>
-  <g fill="none" stroke="#fef8f5" stroke-width="5" stroke-linecap="round" opacity=".66">
-    <path d="M132 348 C170 356 205 373 236 405"/><path d="M380 348 C342 356 307 373 276 405"/>
-  </g>
-  <g fill="url(#bb)" stroke="#fef8f5" stroke-width="5" stroke-linejoin="round">
-    <ellipse cx="256" cy="86" rx="22" ry="34"/><ellipse cx="232" cy="122" rx="23" ry="35" transform="rotate(-24 232 122)"/><ellipse cx="280" cy="122" rx="23" ry="35" transform="rotate(24 280 122)"/><ellipse cx="256" cy="150" rx="30" ry="40"/><ellipse cx="211" cy="182" rx="26" ry="38" transform="rotate(-34 211 182)"/><ellipse cx="301" cy="182" rx="26" ry="38" transform="rotate(34 301 182)"/><ellipse cx="256" cy="216" rx="37" ry="48"/><ellipse cx="204" cy="256" rx="30" ry="43" transform="rotate(-42 204 256)"/><ellipse cx="308" cy="256" rx="30" ry="43" transform="rotate(42 308 256)"/><ellipse cx="256" cy="306" rx="40" ry="52"/>
-  </g>
-  <g fill="url(#bc)">
-    <path d="M244 142 C251 124 261 124 268 142 C262 136 250 136 244 142Z"/><path d="M244 207 C252 186 263 186 271 207 C263 199 252 199 244 207Z"/><path d="M242 296 C252 272 265 272 274 296 C264 286 252 286 242 296Z"/>
-  </g>
-</svg>
-      <span><b>Lupine Science</b> <span class="tld">accelerating materials discovery</span></span>
+        <defs>
+          <linearGradient id="bb" x1="190" y1="74" x2="324" y2="356" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#88a7d8"/><stop offset=".35" stop-color="#475b9c"/><stop offset=".78" stop-color="#102f47"/><stop offset="1" stop-color="#071a2a"/>
+          </linearGradient>
+          <linearGradient id="bl" x1="150" y1="330" x2="360" y2="470" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#7f907c"/><stop offset="1" stop-color="#4c653d"/>
+          </linearGradient>
+          <radialGradient id="bc" cx="48%" cy="30%" r="68%">
+            <stop offset="0" stop-color="#fffdf3"/><stop offset=".7" stop-color="#f1e8c9"/><stop offset="1" stop-color="#d4c58f"/>
+          </radialGradient>
+        </defs>
+        <g fill="none" stroke="#4c653d" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M256 148 C252 224 258 312 254 448"/><path d="M252 402 C222 372 178 354 124 348"/><path d="M260 402 C290 372 334 354 388 348"/>
+        </g>
+        <g fill="url(#bl)" opacity=".96">
+          <ellipse cx="139" cy="348" rx="18" ry="62" transform="rotate(-78 139 348)"/><ellipse cx="167" cy="384" rx="18" ry="62" transform="rotate(-48 167 384)"/><ellipse cx="214" cy="410" rx="17" ry="58" transform="rotate(-20 214 410)"/><ellipse cx="373" cy="348" rx="18" ry="62" transform="rotate(78 373 348)"/><ellipse cx="345" cy="384" rx="18" ry="62" transform="rotate(48 345 384)"/><ellipse cx="298" cy="410" rx="17" ry="58" transform="rotate(20 298 410)"/>
+        </g>
+        <g fill="none" stroke="#fef8f5" stroke-width="5" stroke-linecap="round" opacity=".66">
+          <path d="M132 348 C170 356 205 373 236 405"/><path d="M380 348 C342 356 307 373 276 405"/>
+        </g>
+        <g fill="url(#bb)" stroke="#fef8f5" stroke-width="5" stroke-linejoin="round">
+          <ellipse cx="256" cy="86" rx="22" ry="34"/><ellipse cx="232" cy="122" rx="23" ry="35" transform="rotate(-24 232 122)"/><ellipse cx="280" cy="122" rx="23" ry="35" transform="rotate(24 280 122)"/><ellipse cx="256" cy="150" rx="30" ry="40"/><ellipse cx="211" cy="182" rx="26" ry="38" transform="rotate(-34 211 182)"/><ellipse cx="301" cy="182" rx="26" ry="38" transform="rotate(34 301 182)"/><ellipse cx="256" cy="216" rx="37" ry="48"/><ellipse cx="204" cy="256" rx="30" ry="43" transform="rotate(-42 204 256)"/><ellipse cx="308" cy="256" rx="30" ry="43" transform="rotate(42 308 256)"/><ellipse cx="256" cy="306" rx="40" ry="52"/>
+        </g>
+        <g fill="url(#bc)">
+          <path d="M244 142 C251 124 261 124 268 142 C262 136 250 136 244 142Z"/><path d="M244 207 C252 186 263 186 271 207 C263 199 252 199 244 207Z"/><path d="M242 296 C252 272 265 272 274 296 C264 286 252 286 242 296Z"/>
+        </g>
+      </svg>
+      <span><b>Lupine Science</b> <span class="tld">measuring where AI models of materials go wrong</span></span>
     </a>
     <nav class="site-nav" aria-label="Primary">
       <a href="/">Home</a>
+      <a href="/results/">Results</a>
       <a href="/articles/" aria-current="page">Articles</a>
-      <a href="/videos/">Videos</a>
       <a href="/about/">About</a>
       <a href="https://library.lupine.science">Library</a>
       <a href="https://lupi.live">LUPI</a>
@@ -75,55 +74,45 @@
   </header>
   <main id="content" class="article-shell">
     <article class="article">
-      <p class="article-kicker" aria-label="Article type">Research note</p>
-<h1>The Savings Stack: A Booklet on Doing Less, and the Commons That Makes Everyone Faster</h1>
-<p class="article-deck">Seven savings layers from the literature, one measured sharing economy, and the theorem commons — as a free, designed booklet with a hashable data pack</p>
-<ul class="article-byline" aria-label="Publication details"><li><time datetime="2026-07-21">July 21, 2026</time></li> <li aria-hidden="true"><span class="byline-sep" aria-hidden="true">·</span></li> <li><span class="article-status">Published</span></li></ul>
+      <p class="article-kicker" aria-label="Article type">Release note</p>
+<h1>The Savings Stack: A Booklet on Compute Savings in Atomistic Simulation</h1>
+<p class="article-deck">Seven savings layers from the literature, one projected count of shared DFT anchors, and the limits of both — a free booklet with a hashable data pack</p>
+<ul class="article-byline" aria-label="Publication details"><li>Originally published <time datetime="2026-07-21">July 21, 2026</time></li><li aria-hidden="true"><span class="byline-sep">·</span></li><li>Updated <time datetime="2026-11-12">November 12, 2026</time></li><li aria-hidden="true"><span class="byline-sep">·</span></li><li><span class="article-status status-published">Published</span></li></ul>
+<aside class="callout warning article-evidence-status" aria-label="Evidence status"><strong>Evidence status:</strong> Booklet v1.1 (2026-11-12) replaces the first edition of 2026-07-21. It calls the 72.4% count projected, not measured; states the baseline (four separate runs) and the ceiling (deduplication alone caps the saving near 73%); reports the realized pilot, whose preregistered gate failed; and gives the licence as CC BY 4.0. The canonical statement of the 72.4% figure, with its baseline and the realized result, is Sharing DFT Anchors. Not peer-reviewed.</aside>
 <figure class="article-hero" aria-labelledby="hero-caption">
   <picture>
-    <source srcset="/articles/the-savings-stack/hero.avif?v=3" type="image/avif">
-    <source srcset="/articles/the-savings-stack/hero.webp?v=3" type="image/webp">
-    <img src="/articles/the-savings-stack/hero.jpg?v=3" alt="" width="1280" height="720" loading="eager" fetchpriority="high" decoding="async">
+    <source srcset="/articles/the-savings-stack/hero.avif?v=4" type="image/avif">
+    <source srcset="/articles/the-savings-stack/hero.webp?v=4" type="image/webp">
+    <img src="/articles/the-savings-stack/hero.jpg?v=4" alt="" width="1280" height="720" loading="eager" fetchpriority="high" decoding="async">
   </picture>
   <figcaption id="hero-caption">Many pale compute lanes converging into a compact shared evaluation backbone that feeds several materials programs: reuse instead of brute force.</figcaption>
 </figure>
-<figure class="article-video-player" aria-labelledby="video-label-the-savings-stack">
-  <figcaption id="video-label-the-savings-stack" class="video-player-label">Brand film: The Savings Stack: A Booklet on Doing Less, and the Commons That Makes Everyone Faster</figcaption>
-  <div class="video-player-frame">
-    <video controls preload="none" width="1920" height="1080" poster="/videos/the-savings-stack-poster.jpg?v=3" aria-describedby="video-label-the-savings-stack">
-      <source src="/videos/the-savings-stack.mp4" type="video/mp4">
-    <track kind="captions" src="/videos/the-savings-stack.vtt" srclang="en" label="English" default>
-      <p>Your browser does not support the video tag. <a href="/videos/the-savings-stack.mp4" download>Download the MP4</a>.</p>
-    </video>
-  </div>
-  <p class="video-player-meta"><a href="/videos/the-savings-stack/">Video page</a> · <a href="/videos/the-savings-stack.mp4" download>Download MP4</a> · <a href="/videos/the-savings-stack.vtt" download>Download captions</a></p>
-</figure>
 
-<p class="lead">Today we are releasing <em>The Savings Stack</em> — a sixteen-page booklet on how atomistic simulation learned to do less, what that savings stack is still missing, and the measured economics of sharing the expensive part. It is a free download, built to be read: the literature digests, the union-anchor measurement, and the citation audit are all in the pack behind it, hashed and reproducible.</p>
+<p class="lead">Today we are releasing <em>The Savings Stack</em> — a sixteen-page booklet on how atomistic simulation learned to do less, what that savings stack is still missing, and the projected economics of sharing the expensive part. It is a free download, built to be read: the literature digests, the union-anchor count, and the citation audit are all in the pack behind it, hashed and reproducible.</p>
 <div class="cta">
-  <p><strong>Download:</strong> The Savings Stack — 16 pages, US Letter, free.</p>
-  <a href="/booklets/the-savings-stack.pdf" download>Get the booklet (PDF, 748 KB) →</a>
+  <p><strong>Download:</strong> The Savings Stack, v1.1 — 16 pages, US Letter, free.</p>
+  <a href="/booklets/the-savings-stack.pdf" download>Get the booklet (PDF, 771 KB) →</a>
 </div>
 <h2>Inside the booklet</h2>
-<p>The booklet is the designed edition of the Savings Stack v1 release: typography-led, one idea per page, every number anchored to the committed record.</p>
-<p><img loading="lazy" decoding="async" src="images/spread-stack.jpg?v=3" alt="The seven-layer stack, drawn to scale — each layer with its strongest verified literature number, the shared crack “no certificate” through all seven, and the missing capstone layer"></p>
-<p>Seven chapters of the underlying book survey the savings layers the field invented independently — surrogate transition-state search, active learning, Δ-learning, abstention economics, systems-level DFT acceleration, electronic-structure surrogates, and path and sampling algorithms — each with its strongest verified number and its named hole. Two backdrop chapters cover four decades of supercomputing economics and today’s compute-resourcing landscape. The hole is the same shape in every layer: plenty of signals for where the model is <em>probably</em> wrong, no certificate for where physics is <em>definitely</em> violated.</p>
-<p><img loading="lazy" decoding="async" src="images/spread-big-number.jpg?v=3" alt="The big-number page: 72.4% fewer DFT evaluations when four models share anchors instead of each paying for its own"></p>
-<p><img loading="lazy" decoding="async" src="images/spread-chart.jpg?v=3" alt="The chart: naive per-model anchor cost explodes 139.5 → 558 as models go from one to four, while the shared union stays nearly flat at 139.5 → 154"></p>
-<h2>The measured core, in one paragraph</h2>
-<p>On the locked 30-path Z1 panel, path 14 failed CI-NEB convergence in all four model artifacts — the honest denominator is 29. Across those 29 analyzable diffusion paths, the frozen sparse-anchor protocol would consume <strong>558 naive per-model DFT anchors; shared across the four models, the union is 154 — 72.4% fewer evaluations, a 3.62× reduction.</strong> The scaling law is the headline: as guidance models go from one to four, the naive bill multiplies ~4× (139.5, 279, 418.5, 558) while the union stays nearly flat (139.5, 147.8, 152, 154) — four models of guidance cost ~10% more DFT than one. The numbers were recomputed from recorded campaign artifacts under the frozen anchor rule; an earlier informal figure was retracted as arithmetic drift, and the analysis note in the pack reconciles it line by line. No new DFT was run to produce any of it.</p>
-<p><img loading="lazy" decoding="async" src="images/the-savings-stack-inline-01.jpg?v=3" alt="A sequence of three physical screening fixtures on one bench: a wide tray of candidate coupons, a smaller thermal-test rack, and one final reference-calculation instrument — Successive screening fixtures narrow the candidate set before the expensive reference instrument"></p>
-<p><img loading="lazy" decoding="async" src="images/the-savings-stack-inline-02.jpg?v=3" alt="Branching simulation paths reusing the same sparse set of shared anchor evaluations — the blank space is calculations deliberately not run"></p>
+<p>The booklet is the designed edition of the Savings Stack v1 release: typography-led, one idea per page, every number anchored to the committed record. Version 1.1 (2026-11-12) adds a page on what happened when we ran the pilot.</p>
+<p><img loading="lazy" decoding="async" src="images/spread-stack.jpg?v=4" alt="The seven-layer stack, drawn to scale — each layer with its strongest verified literature number, one shared gap through all seven (no check for where the physics is violated), and the missing capstone layer"></p>
+<p>Seven chapters of the underlying book survey the savings layers the field invented independently — surrogate transition-state search, active learning, Δ-learning, abstention economics, systems-level DFT acceleration, electronic-structure surrogates, and path and sampling algorithms — each with its strongest verified number and its named hole. Two backdrop chapters cover four decades of supercomputing economics and today’s compute-resourcing landscape. The hole is the same shape in every layer: plenty of signals for where the model is <em>probably</em> wrong, no check that says where the physics is <em>definitely</em> violated.</p>
+<p><img loading="lazy" decoding="async" src="images/spread-big-number.jpg?v=4" alt="The big-number page: 72.4% fewer projected DFT evaluations when four models share anchors instead of each running its own; the baseline is four separate runs, and deduplication alone caps the saving near 73%"></p>
+<p><img loading="lazy" decoding="async" src="images/spread-chart.jpg?v=4" alt="The chart: naive per-model anchor cost explodes 139.5 → 558 as models go from one to four, while the shared union stays nearly flat at 139.5 → 154"></p>
+<h2>The projected core, in one paragraph</h2>
+<p>On the locked 30-path Z1 panel, path 14 failed CI-NEB convergence in all four model artifacts — the honest denominator is 29. Across those 29 analyzable diffusion paths, the frozen sparse-anchor protocol would consume <strong>558 naive per-model DFT anchors; shared across the four models, the union is 154 — 72.4% fewer projected evaluations.</strong> The baseline is four separate runs. The paths are short (5–7 images, 167 in all), so the union already covers 154 of the 167 images and deduplication alone caps the saving at 73.1%. On this one panel, the naive count grows about 4× from one to four models (139.5, 279, 418.5, 558) while the union grows about 10% (139.5, 147.8, 152, 154). The numbers were recomputed from recorded campaign artifacts under the frozen anchor rule; an earlier informal figure was retracted as arithmetic drift, and the analysis note in the pack reconciles it line by line. No new DFT was run to produce any of it. When we later ran the pilot, its preregistered accuracy gate failed and the realized barriers were about 700 meV off the published references; the account, including the amendment written after that failure, is in <a href="/articles/shared-dft-anchors/">Sharing DFT anchors</a>.</p>
+<p><img loading="lazy" decoding="async" src="images/the-savings-stack-inline-01.jpg?v=4" alt="A sequence of three physical screening fixtures on one bench: a wide tray of candidate coupons, a smaller thermal-test rack, and one final reference-calculation instrument — Successive screening fixtures narrow the candidate set before the expensive reference instrument"></p>
+<p><img loading="lazy" decoding="async" src="images/the-savings-stack-inline-02.jpg?v=4" alt="Branching simulation paths reusing the same sparse set of shared anchor evaluations — the blank space is calculations deliberately not run"></p>
 <h2>What it is — and what it is not</h2>
-<p>The booklet makes the case for a <em>theorem commons</em>: teams contributing formally verified physical-law theorems back, so everyone’s gates get sharper. Theorems are non-rival and leak nothing about the contributor’s chemistry; the measured union economics are the evaluation-side instance of the same sharing. The case for restraint is designed with equal care: the measured basis is one 30-path panel, four universal MLIPs, one DFT engine, one chemistry family; the multiplicative stacking figure is a derived estimate and is labeled as such wherever it appears; the digests keep their [UNVERIFIED] flags; and none of this is peer-reviewed — it is a research release with committed, hashable records.</p>
+<p>The booklet argues, as a direction rather than a result, for a shared commons of checked results: teams contributing checked statements back so that everyone’s gates get sharper. (A Lean check covers the arithmetic and stated inequalities behind a statement, not the physics, the reference data or the pipeline.) The projected union count is the evaluation-side instance of the same sharing. The case for restraint is designed with equal care: the basis is one 30-path panel, four universal MLIPs, one DFT engine, one chemistry family; the digests keep their [UNVERIFIED] flags; and none of this is peer-reviewed — it is a research release with committed, hashable records.</p>
 <p>The citation audit behind the book verified every identifier against its registry: <strong>115/115 arXiv, 48/48 DOI, zero unresolved</strong> — with three corrections applied on the record, including the VASP MLFF venue reconciliation. Identifier verification does not upgrade abstract-only evidence, and the booklet says so.</p>
 <h2>Data and reproduction</h2>
-<p>The booklet is the cover story; the pack is the evidence. <a href="/data/savings-stack-v1/README.md">The v1 pack</a> ships all ten chapters, the machine-readable union-anchor record (<a href="/data/savings-stack-v1/z1-union-anchor-economics.json">JSON</a> + <a href="/data/savings-stack-v1/z1-union-anchor-economics.json.sha256">sha256 sidecar</a>), the <a href="/data/savings-stack-v1/z1-union-anchor-economics.md">analysis note</a> and <a href="/data/savings-stack-v1/union_anchor_economics.py">script</a>, the <a href="/data/savings-stack-v1/citation-verification-2026-07-21.md">citation audit</a>, and a <a href="/data/savings-stack-v1/MANIFEST.sha256">MANIFEST.sha256</a> over every file. Structured data is released under the Open Data Commons Open Database License 1.0 (ODbL-1.0), mirroring the source repository’s data license; prose and code keep their repository licenses.</p>
-<p><img loading="lazy" decoding="async" src="images/the-savings-stack-inline-03.jpg?v=3" alt="An open rack of identical unmarked sample cartridges feeding two separated battery test instruments through standardized mechanical sockets — The standardized cartridge socket lets the same physical reference sample serve independent instruments"></p>
+<p>The booklet is the cover story; the pack is the evidence. <a href="/data/savings-stack-v1/README.md">The v1 pack</a> ships all ten chapters, the machine-readable union-anchor record (<a href="/data/savings-stack-v1/z1-union-anchor-economics.json">JSON</a> + <a href="/data/savings-stack-v1/z1-union-anchor-economics.json.sha256">sha256 sidecar</a>), the <a href="/data/savings-stack-v1/z1-union-anchor-economics.md">analysis note</a> and <a href="/data/savings-stack-v1/union_anchor_economics.py">script</a>, the <a href="/data/savings-stack-v1/citation-verification-2026-07-21.md">citation audit</a>, and a <a href="/data/savings-stack-v1/MANIFEST.sha256">MANIFEST.sha256</a> over every file. The pack’s README states ODbL-1.0, as released on 2026-07-21, and the pack is hash-locked, so it keeps that text. Since 2026-11-11 its first-party data is also licensed under CC BY 4.0 (see NOTICE.md in the repository); code is MIT.</p>
+<p><img loading="lazy" decoding="async" src="images/the-savings-stack-inline-03.jpg?v=4" alt="An open rack of identical unmarked sample cartridges feeding two separated battery test instruments through standardized mechanical sockets — The standardized cartridge socket lets the same physical reference sample serve independent instruments"></p>
 <p><code>sha256sum -c MANIFEST.sha256</code> verifies the pack; <code>python3 union_anchor_economics.py --local &lt;artifacts&gt; --out z1-union-anchor-economics.json</code> recomputes the record.</p>
 <h2>Receipts</h2>
 <ul>
-<li>The booklet: <a href="/booklets/the-savings-stack.pdf">the-savings-stack.pdf</a> (16 pages, Letter; source and build script in the repository)</li>
+<li>The booklet: <a href="/booklets/the-savings-stack.pdf">the-savings-stack.pdf</a> (v1.1, 2026-11-12; 16 pages, Letter; source and build script in the repository)</li>
 <li>The data pack: <a href="/data/savings-stack-v1/README.md">/data/savings-stack-v1/</a> — ten chapters, record + sidecar, analysis note + script, audit, manifest</li>
 <li>Full scientific detail: <a href="https://library.lupine.science">library.lupine.science</a>, group “savings-stack”</li>
 </ul>
@@ -132,11 +121,11 @@
   <a href="/booklets/the-savings-stack.pdf" download>Download The Savings Stack →</a>
 </div>
 
-<div class="share-root" data-url="https://lupine.science/articles/the-savings-stack/" data-title="The Savings Stack: A Booklet on Doing Less, and the Commons That Makes Everyone Faster" role="group" aria-label="Share this page">
+<div class="share-root" data-url="https://lupine.science/articles/the-savings-stack/" data-title="The Savings Stack: A Booklet on Compute Savings in Atomistic Simulation" role="group" aria-label="Share this page">
   <ul class="share-list" role="list" aria-label="Share options">
-    <li><a class="share-link share-x" href="https://twitter.com/intent/tweet?text=The%20Savings%20Stack%3A%20A%20Booklet%20on%20Doing%20Less%2C%20and%20the%20Commons%20That%20Makes%20Everyone%20Faster&amp;url=https%3A%2F%2Flupine.science%2Farticles%2Fthe-savings-stack%2F" aria-label="Share on X" target="_blank" rel="noopener noreferrer">X</a></li>
+    <li><a class="share-link share-x" href="https://twitter.com/intent/tweet?text=The%20Savings%20Stack%3A%20A%20Booklet%20on%20Compute%20Savings%20in%20Atomistic%20Simulation&amp;url=https%3A%2F%2Flupine.science%2Farticles%2Fthe-savings-stack%2F" aria-label="Share on X" target="_blank" rel="noopener noreferrer">X</a></li>
     <li><a class="share-link share-linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Flupine.science%2Farticles%2Fthe-savings-stack%2F" aria-label="Share on LinkedIn" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-    <li><a class="share-link share-email" href="mailto:?subject=The%20Savings%20Stack%3A%20A%20Booklet%20on%20Doing%20Less%2C%20and%20the%20Commons%20That%20Makes%20Everyone%20Faster&amp;body=The%20Savings%20Stack%3A%20A%20Booklet%20on%20Doing%20Less%2C%20and%20the%20Commons%20That%20Makes%20Everyone%20Faster%0A%0Ahttps%3A%2F%2Flupine.science%2Farticles%2Fthe-savings-stack%2F" aria-label="Share by email">Email</a></li>
+    <li><a class="share-link share-email" href="mailto:?subject=The%20Savings%20Stack%3A%20A%20Booklet%20on%20Compute%20Savings%20in%20Atomistic%20Simulation&amp;body=The%20Savings%20Stack%3A%20A%20Booklet%20on%20Compute%20Savings%20in%20Atomistic%20Simulation%0A%0Ahttps%3A%2F%2Flupine.science%2Farticles%2Fthe-savings-stack%2F" aria-label="Share by email">Email</a></li>
   </ul>
 </div>
 <aside class="article-ontology" aria-label="Ontology references">
@@ -150,9 +139,10 @@
     </article>
   </main>
   <footer class="foot">
-    <span class="creed">Unlocking the materials that build the future. <em>Evidence before claim.</em></span>
-    <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" href="mailto:alex@lupinesci.com" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
-    <span><a href="/about/">About</a> · <a href="/articles/">Articles</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a> · <a href="/feed.xml">Feed</a></span>
+    <span class="creed">Evidence before claim.</span>
+    <nav class="foot-nav" aria-label="Footer"><a href="/">Home</a> · <a href="/results/">Results</a> · <a href="/articles/">Articles</a> · <a href="/about/">About</a> · <a href="/corrections/">Corrections</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://github.com/alexwelcing/lupine">GitHub</a></nav>
+    <span class="contact">Lupine Science · <a class="mail" href="/about/#contact" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
+    <span class="licence">Code MIT · our text and data CC BY 4.0 unless noted · third-party material keeps its own licence</span>
   </footer>
 <script type="module">
 import { initAllShareWidgets } from "/components/share/share.mjs";
@@ -162,6 +152,12 @@ import { initAllShareWidgets } from "/components/share/share.mjs";
     a.href = "mailto:" + addr + (a.dataset.subject ? "?subject=" + encodeURIComponent(a.dataset.subject) : "");
     if (!("keepText" in a.dataset)) a.textContent = addr;
   });
+  const openTarget = () => {
+    const d = location.hash.length > 1 && document.getElementById(location.hash.slice(1));
+    if (d && d.tagName === "DETAILS") d.open = true;
+  };
+  openTarget();
+  addEventListener("hashchange", openTarget);
   const vids = document.querySelectorAll("video[data-autoplay]");
   if (vids.length) {
     if (!("IntersectionObserver" in window)) { vids.forEach((v) => { v.preload = "metadata"; }); }

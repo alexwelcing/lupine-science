@@ -153,9 +153,9 @@ def viz_02():
         ax.text(fx, y + h / 2 + 0.25, '!', ha='center', va='center',
                 fontsize=12, fontweight='bold', color='white')
 
-    ax.text(5, 2.6, 'GNoME synthesis rate: 0.2%  •  A-Lab correction: 36 / 57 eligible confirmed',
+    ax.text(5, 2.6, 'GNoME: 736 of 380,000 stable structures synthesized by late 2023 (about 0.2%)',
             ha='center', va='center', fontsize=11, fontweight='bold', color=ROSE)
-    ax.text(5, 1.9, 'Six sequential handoffs; each introduces new error and new reasons for partners to distrust the screen.',
+    ax.text(5, 1.9, 'Six sequential handoffs; each can introduce new error.',
             ha='center', va='center', fontsize=11, color=SECONDARY)
     ax.set_title('Six Handoffs, Six Places for a Prediction to Fail', fontsize=20, pad=15)
     add_source(ax, 'Sources: Merchant et al., Nature 2023; Leeman et al., PRX Energy 2024', x=0.99, y=0.01)

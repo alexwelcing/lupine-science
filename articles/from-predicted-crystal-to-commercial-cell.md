@@ -1,175 +1,71 @@
 > **Date:** 2026-07-09
-> **Deck:** How Lupine Science turns computational predictions into commercial climate materials through a sequenced partner chain.
-> **Summary:** A rigorous, partner-by-partner map from predicted crystal to commercial cell for batteries, carbon removal, ammonia, and solar absorbers.
-> **Status:** Draft
-
+> **Updated:** 2026-11-11
+> **Deck:** The hand-offs between a computational screen and a working device, mapped by the kind of organisation that usually does each step, and where a measured model error would matter.
+> **Summary:** A predicted crystal passes through synthesis, coating, cell fabrication, characterization, integration and manufacturing before it becomes a product. This July 2026 piece, rewritten in November 2026, maps those hand-offs by type of organisation for batteries, carbon removal, ammonia and solar absorbers, and says where knowing a model's error would help. A direction, not a result.
+> **Status:** Direction
+> **Evidence Status:** Direction, not a result. The organisations named in earlier versions of this page were described as partners; none is. This version names no organisation as a collaborator and cites published work only as sources. What we have tested: in Round 4 (July 2026) the raw models missed our barrier gate, our adsorption and lattice/elastic correction tests failed, and the magnetism test abstained; in Round 5 our barrier correction abstained; an error field predicted a never-fitted surface energy for nine fcc metals (three of four models).
 
 # From Predicted Crystal to Commercial Cell
 
-A predicted crystal is not a material. A synthesized powder is not a cell. A cell is not a fleet, a filter, a fertilizer plant, or a solar farm. Between a computational screen and climate-relevant deployment stands a chain of specialized capabilities — synthesis, coating, cell fabrication, operando characterization, module integration, and manufacturing scale-up — that no single institution owns. The question is not simply "which compound is stable?" but "which compound can survive handoff across this chain?"
+A predicted crystal is not a material. A synthesized powder is not a cell. A cell is not a fleet, a filter, a fertilizer plant or a solar farm. Between a computational screen and a deployed device stands a chain of specialized capabilities — synthesis, coating, cell fabrication, characterization, module integration and manufacturing scale-up — that no single institution owns. The question is not only "which compound is stable?" but "which compound can survive hand-off across this chain?"
 
 ![From 2.2 million predicted crystals to 736 synthesized](images/from-predicted-crystal-to-commercial-cell-01-prediction-funnel.jpg)
-*GNoME's crystal generator produced 2.2 million predictions, yet only 736 had been independently synthesized by late 2023 — a 0.2% validation rate that exposes the handoff bottleneck.*
+*GNoME reported 2.2 million predicted crystals, 380,000 of them computationally stable; 736 had been independently synthesized by late 2023 (Merchant et al., 2023).*
 
-The conventional answer is to build a bigger generator. That has produced volume without trust. Google DeepMind's GNoME predicted 2.2 million crystals and identified 380,000 as thermodynamically stable, yet only 736 had been independently synthesized by late 2023 — a 0.2% validation rate[^1]. The A-Lab Author Correction (Nature 650:E1, 2026) records 36 confirmed of 57 eligible targets, with 4 inconclusive and one compound removed for training-data leakage; a separate critique disputed the novelty classification of many targets[^2]. The bottleneck is not a shortage of predictions; it is the absence of a reliable correction and verification layer between prediction and experiment.
+Generators keep getting larger. Google DeepMind's GNoME predicted 2.2 million crystals and identified 380,000 as thermodynamically stable; 736 had been independently synthesized by late 2023, about 0.2% of the stable set[^1]. The A-Lab Author Correction (Nature 650:E1, 2026) records 36 confirmed of 57 eligible targets, with 4 inconclusive and one compound removed for training-data leakage; a separate critique disputed the novelty classification of many targets[^2]. Volume is not the scarce part. Knowing which predictions to trust is.
 
-Lupine Science occupies that layer. Rather than competing with structure generators, laboratories, or databases, Lupine corrects the systematic errors of universal machine-learning interatomic potentials (uMLIPs) using a measured environment error field, deploys the correction at runtime with analytic forces, and verifies claims through machine-checked Lean 4 proofs. The result is a partner-facing platform that makes other organizations' predictions trustworthy, accelerating every link from crystal to cell.
-
-The following sections map that chain across the five priority targets — cobalt-free lithium-manganese-rich (LMR) cathodes, earth-abundant halide solid electrolytes, metal-organic frameworks (MOFs) for direct air capture, electrochemical ammonia catalysts, and lead-free perovskite solar absorbers. In each, a prediction is handed to synthesis, then characterization, then integration, then manufacturing. Where each handoff currently fails, a correction-and-verification layer creates value.
+That is the part we work on: measuring where the fast machine-learned models used for screening go wrong, against published references and pass/fail gates set in advance. This piece maps where in the hand-off chain that knowledge would matter. It does not claim that we can supply it yet.
 
 ![Six handoffs, six places for a prediction to fail](images/from-predicted-crystal-to-commercial-cell-02-handoff-chain.jpg)
-*Between a computational screen and a commercial product, a predicted material must survive six sequential handoffs — and current validation rates show most do not.*
+*Between a computational screen and a product, a predicted material passes through a chain of hand-offs, and each can fail.*
 
-## Batteries: From Cathode Prediction to Pack Integration
+## The hand-off chain, by type of organisation
 
-LMR cathodes are the highest-impact near-term target. By eliminating cobalt and raising energy density above 300 Wh/kg, they could avoid 2–5 GtCO₂ cumulatively by 2050. The commercial stakes are visible in the field: POSCO Future M has completed pilot LMR production and is preparing mass manufacturing in 2025[^3], while GM and LG Energy Solution aim to begin commercial production of prismatic LMR cells by 2028[^4].
+| Stage | Who usually does it | What a prediction has to survive | Where model error would matter |
+|---|---|---|---|
+| Screen | Computational groups, materials databases | Ranking across very large composition spaces | Barriers, defect and surface energies that set the ranking |
+| Synthesis | University and national-laboratory synthesis groups | A practical precursor route to the target phase | Metastable phases a convex-hull screen discards |
+| Coating and processing | Coating and powder-processing companies | Surface reconstruction, interface stability | Interface and surface energetics |
+| Device fabrication | Cell, membrane or module fabrication lines | Cycling, humidity, thermal and electrochemical stress | Degradation barriers |
+| Characterization | Operando spectroscopy and microscopy facilities | Agreement between the predicted and the made structure | Whether the predicted structure is the one made |
+| Integration and scale-up | Manufacturers | Cost, yield and lifetime at scale | Mostly outside what an atomistic model can say |
 
-The first handoff is from computation to synthesis. The corrected migration barriers and oxygen-vacancy formation energies rank candidates across a compositional space exceeding 10⁶ compositions. The Manthiram Laboratory at UT Austin is the natural Tier 1 partner: Arumugam Manthiram invented cobalt-free layered oxide cathodes and has trained more than 300 researchers[^5]. TexPower EV Technologies — a Manthiram spinout — extends this to scale-up with a pilot producing NMA cathodes at >230 mAh/g and a 300-ton plant planned by 2027[^5].
-
-The second handoff is from powder to coated particle. Voltage fade is driven by transition-metal migration and surface reconstruction, both suppressible by atomic-layer-deposition (ALD) coatings. Forge Nano operates powder ALD systems and has demonstrated that ALD coatings improve TexPower cathode cycle life by more than 30% while reducing resistance five-fold[^6]. A three-way arrangement — Lupine identifies compositions, Forge Nano applies coatings, TexPower supplies coated material — closes the cathode-to-cell gap.
-
-The third handoff is from material to cell. The Battery500 Consortium, led by Pacific Northwest National Laboratory, operates pouch-cell fabrication lines and has demonstrated 350 Wh/kg pouch cells with more than 600 cycles[^7]. Lupine fits as a computational seedling project feeding the consortium's cathode pipeline.
-
-![From predicted LMR cathode to GM/LG prismatic cell](images/from-predicted-crystal-to-commercial-cell-05-battery-partner-chain.jpg)
-*Lupine ranks candidates across more than a million compositions, then passes corrected cathodes through TexPower, Forge Nano, Battery500, and GM/LG toward 2028 production.*
-
-Finally, the OEM handoff. GM's Wallace Battery Cell Innovation Center and LG Energy Solution are developing prismatic LMR cells for GM's electric trucks, with commercial production targeted for 2028[^4]. These industrial partners do not need another screen; they need a screen they can trust.
-
-## Batteries: From Halide Electrolyte to Solid-State Cell
-
-If LMR cathodes are the near-term lever, solid-state batteries with lithium-metal anodes are the long-term leap. Earth-abundant halide solid electrolytes — Li-Zr-Cl and Li-Fe-Cl systems — target >10 mS/cm ionic conductivity, stability versus lithium metal, and compatibility with mechanochemical synthesis. Industry analysts project the solid-state battery market to grow by an order of magnitude or more over the next decade.
-
-![A waist-high pilot line on a bare factory floor: a covered powder hopper feeds one compact sintering furnace, then a ceramic pellet exits onto a cell-test cradle — One continuous indigo material route follows the sample from hopper through furnace to the test cradle](images/from-predicted-crystal-to-commercial-cell-inline-03.jpg)
+The earlier stages are where a model's error decides what gets made at all; the later stages are where it stops being the main risk.
 
 ![A practical cell as layered architecture — cathode, electrolyte separator, and current collector — with the ion-conduction route traced in indigo](images/from-predicted-crystal-to-commercial-cell-inline-01.jpg)
 
-![How Lupine makes a uMLIP trustworthy at runtime](images/from-predicted-crystal-to-commercial-cell-03-correction-loop.jpg)
-*A raw universal machine-learning interatomic potential can underestimate a lithium migration barrier by 60%, shifting conductivity by 5,000×; the runtime correction and Lean 4 proofs bound that error before the next handoff.*
+## Lane by lane
 
-The discovery challenge is that raw uMLIPs systematically underestimate Li⁺ migration barriers by 60% or more because transition states are under-coordinated relative to bulk training data. A 60% barrier error changes predicted room-temperature conductivity by roughly 5,000×. The environment error field corrects this at uMLIP speed.
+**Battery cathodes.** Cobalt-free lithium-manganese-rich cathodes depend on transition-metal migration and oxygen release, both governed by barriers at under-coordinated sites. A screen that mis-estimates those barriers would rank compositions wrongly before any synthesis group sees them.
 
-The partner chain begins at UC Berkeley with Gerbrand Ceder's group and the Materials Project, which published foundational DFT studies of Li₃YCl₆ and Li₂ZrCl₆[^8]. The University of Münster's Janek and Zeier groups add world-leading halide solid-electrolyte synthesis and lithium-metal interface analytics via XPS and cryo-TEM[^9]. Argonne National Laboratory contributes operando X-ray absorption spectroscopy and the Materials Engineering Research Facility for kilogram-scale scale-up[^10].
+**Solid electrolytes.** Halide and other ceramic electrolytes depend on Li⁺ hop barriers. Because ionic conductivity depends exponentially on the barrier, a barrier error of a hundred meV or more changes predicted conductivity by orders of magnitude at room temperature. On our own 30-path Li-ion migration panel, four foundation MLIPs missed published DFT-NEB barriers by 135.0–242.5 meV on average (Round 4, July 2026); see [the Z1 barrier panel](/articles/the-materials-we-test-against/).
 
-Industrial translation runs through Solid Power, which produces sulfide and halide solid electrolytes and has built automotive-scale cells validated by BMW[^11]. Factorial Energy, whose quasi-solid-state cells have achieved 391 Wh/kg with Mercedes EQS validation, offers another integration path[^12].
+**Carbon-removal sorbents.** Metal–organic frameworks for direct air capture fail through hydrolysis at metal–linker bonds, again an under-coordinated environment. The stakes are set by the IPCC's estimates of removal needs[^13]; we have not tested MOF hydrolysis.
 
-![Cumulative climate opportunity by target](images/from-predicted-crystal-to-commercial-cell-06-climate-scale.jpg)
-*The five target chains — batteries, solid-state electrolytes, carbon removal, ammonia, and solar — map onto gigatonne-scale climate opportunities.*
+**Ammonia catalysts.** Electrochemical nitrogen reduction depends on N₂ binding and dissociation at under-coordinated sites, where scaling relations propagate any error. Our only adsorption-correction test so far (Round 4, a different catalyst panel) made errors worse.
 
-The cross-cutting partner here is again Battery500. The halide-screening results and the consortium's pouch-cell fabrication create a single loop: computational composition → mechanochemical synthesis → impedance spectroscopy → full-cell cycling. With correction, each handoff carries a bounded error budget.
+**Lead-free perovskite absorbers.** Tin perovskites oxidize through Sn vacancy formation. In our own measurement on lead-free halide perovskites, four uMLIPs disagreed on neutral B-site vacancy formation energies by 0.5–1.8 eV ([The Correction That Hurt](/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/)), so ranking candidates on any single raw potential is not yet meaningful there.
 
-## Carbon Removal: From MOF Linker to Gigafactory
+![A waist-high pilot line on a bare factory floor: a covered powder hopper feeds one compact sintering furnace, then a ceramic pellet exits onto a cell-test cradle — One continuous indigo material route follows the sample from hopper through furnace to the test cradle](images/from-predicted-crystal-to-commercial-cell-inline-03.jpg)
 
-Direct air capture is the only carbon-removal technology that can address legacy emissions regardless of source sector. The IPCC estimates cumulative removal needs of 100–1,000 GtCO₂ by 2100, with annual rates approaching 10 GtCO₂/year by mid-century[^13]. MOFs are the most tunable sorbent class, but the gap between a predicted stable framework and a deployed filter is wide: synthesis costs must fall below $50/kg, humidity stability must survive thousands of cycles, and working capacity must exceed 2 mmol/g at 400 ppm CO₂.
+## What we have tested so far
 
-The partner chain starts with reticular chemistry. UC Berkeley's Omar Yaghi and Jeffrey Long offer large MOF/COF synthesis libraries and cooperative-binding design. Omar Farha's group at Northwestern brings MOF-808 and Zr-based synthesis expertise, plus DOE programs focused on DAC MOF stability.
+None of the materials in this piece has been tested by us end to end. The results that bear on the hand-off chain:
 
-The role is to correct hydrolysis-barrier errors and flag unsupported frameworks. Water attack on metal-linker bonds proceeds through under-coordinated transition states — exactly where uMLIPs soften the potential energy surface. Corrected hydrolysis barriers filter frameworks by real-world humidity stability, not idealized gas-phase energy. Amine-functionalized MOF-808 has reached 1.2 mmol/g at 400 ppm and 50% relative humidity[^14].
+- **Barriers.** In Round 4 (July 2026), MACE-MP-0 small and medium, MACE-MPA-0 medium and CHGNet missed a 40 meV gate on 30 Li-ion migration paths (MAE 135.0–242.5 meV on completed paths). In Round 5 a direction-gated barrier correction abstained for all four models, so none was applied. See [Round 4](/articles/four-gates-three-honest-failures-one-live-experiment/).
+- **Adsorption.** Every selected Δ-correction made catalyst-adsorption holdout error worse ([Round 4](/articles/four-gates-three-honest-failures-one-live-experiment/)).
+- **Surfaces of fcc metals.** For nine fcc metals, an error field fitted to three other observables predicted the never-fitted (110) surface-energy error of four foundation MLIPs at r = 0.906 across 36 model–material cells (material-clustered 95% CI 0.82–0.96; permutation null centred near 0.44; significant for three of the four models) ([the fcc error field](/articles/a-smooth-environment-resolved-error-field/)).
 
-![When correction says "no" — impossibility, not just uncertainty](images/from-predicted-crystal-to-commercial-cell-07-impossibility-flags.jpg)
-*{{LEAN_THEOREM_COUNT}} build-locked Lean 4 theorems let Lupine flag unsupported frameworks or metastable phases before they consume experimental time.*
+## Where this is aimed
 
-Manufacturing scale runs through BASF, the first commercial MOF producer at several hundred tons per year and exclusive manufacturer of Svante's CALF-20 sorbent[^15]. Svante has deployed MOF-based capture at pilot scale and is planning multi-million-tonne-per-year capture facilities. Climeworks, the world's largest DAC deployer with its Mammoth plant in Iceland, offers field validation.
-
-## Industrial Decarbonization: From Catalyst Prediction to Ammonia Market
-
-Haber-Bosch ammonia synthesis emits approximately 450 MtCO₂/year and consumes 1–2% of global energy[^16]. Electrochemical synthesis powered by renewable electricity could eliminate those emissions. Lithium-mediated nitrogen reduction has achieved >90% Faradaic efficiency, but energy efficiency is stuck near 28% because lithium plating imposes a >3 V overpotential penalty[^17]. Lupine targets non-lithium mediators — Ca, Mg, Al, Na — with a goal of >60% energy efficiency and >300 mA/cm² partial current density[^18].
-
-The most rigorous verification partner is the Technical University of Denmark's Villum Center for Sustainable Fuels, led by Ib Chorkendorff. DTU published the landmark Ca-mediated nitrogen reduction result in 2024, achieving 40% Faradaic efficiency, and operates a rigorous ammonia verification protocol[^19]. Chorkendorff has described non-lithium mediators as the field's highest priority.
-
-Stanford's SUNCAT Center, co-directed by Jens Nørskov, adds computational catalysis and operando X-ray absorption spectroscopy at SLAC. The loop is tight: Lupine predicts compositions, SUNCAT screens them at the electronic-structure level, and DTU validates the winners.
-
-![Zero-parameter blind prediction of surface energies](images/from-predicted-crystal-to-commercial-cell-04-blind-accuracy.jpg)
-*Across 36 model-material combinations, the environment error field achieves r = 0.906 in zero-parameter blind prediction of surface energies.*
-
-Commercial engineering comes through Jupiter Ionics, which licensed Douglas MacFarlane's lithium-mediated technology and is developing modular MSA Cell technology after a $9 million Series A. ARPA-E's REFUEL program provides funding and metrics: >60% energy efficiency, >300 mA/cm², and >90% Faradaic efficiency[^18].
-
-Downstream, Caltech's Karthish Manthiram group contributes gas-diffusion-electrode engineering, Nitricity offers distributed-fertilizer piloting, and CF Industries — the world's largest ammonia manufacturer — provides the eventual industrial exit.
-
-## Solar: From Lead-Free Absorber to Tandem Module
-
-Lead-based halide perovskites have exceeded 26% single-junction efficiency and ~34.6% in perovskite-silicon tandems, but lead toxicity and impending EU restrictions threaten terawatt-scale deployment[^20]. Lead-free tin perovskites are the leading alternative, yet Sn²⁺ oxidizes within minutes to hours. The target is >20% certified power conversion efficiency with >25-year operational stability.
-
-The key descriptor is Sn vacancy formation energy, which determines oxidation susceptibility. uMLIPs systematically underestimate this energy because vacancies create under-coordinated Sn neighbors that bulk-trained models predict as too stable. The correction recovers accurate vacancy energetics, while provable boundaries flag metastable phases that convex-hull screening would discard.
-
-The partner chain begins with NREL, which provides certified efficiency measurements, slot-die and roll-to-roll fabrication, and ISOS stability protocols. The University of Queensland's Lianzhou Wang group holds the certified world record for tin halide perovskites at 16.65% and has demonstrated 1,500-hour stability without encapsulation[^21]. Tandem PV Inc., which operates a pilot factory in San Jose, integrates perovskite top cells with silicon bottom cells. Northwestern's Mercouri Kanatzidis, who pioneered CsSnI₃ and solid-state halide perovskite solar cells, offers synthesis and panoramic methodology for discovering new absorber families.
-
-![NREL, UC Berkeley, and ARPA-E create economies of scope](images/from-predicted-crystal-to-commercial-cell-08-ecosystem-map.jpg)
-*A single NREL master CRADA and one UC Berkeley campus partnership give Lupine coverage across four of five target chains, while coordinated ARPA-E submissions provide non-dilutive validation.*
-
-The scale-up handoff runs through Oxford Photovoltaics, which began commercial tandem shipments in 2024 and holds a 24%+ module efficiency, and through Swift Solar, whose vapor-deposition manufacturing is especially compatible with oxygen-sensitive tin perovskites.
-
-## Cross-Cutting Architecture: NREL, UC Berkeley, and ARPA-E
-
-Each target has its own partner chain, but three institutions create economies of scope.
-
-NREL is the highest-value cross-cutting partner. It spans four of the five targets — cathodes, halide solid electrolytes, ammonia catalysts, and perovskites — and offers certified testing, lifecycle analysis, techno-economic analysis, and a single point of access to DOE funding networks. A master CRADA with NREL replaces multiple one-off agreements.
-
-![The economic case for a verification layer](images/from-predicted-crystal-to-commercial-cell-09-materials-genome-value.jpg)
-*The NIST Materials Genome Initiative estimates $123 billion–$270 billion in annual value from better materials innovation infrastructure, while ARPA-E's portfolio has catalyzed billions in follow-on funding.*
-
-UC Berkeley offers a complementary two-group engagement: the Ceder group for battery materials and the Yaghi/Long groups for MOF direct air capture. A campus-wide partnership gives Lupine access to synthesis, characterization, and autonomous discovery infrastructure across three targets from one institutional relationship.
-
-ARPA-E should be approached with a portfolio strategy rather than individual proposals. Coordinated submissions across REFUEL (ammonia), IONICS (halide solid electrolytes), and OPEN (MOF DAC) position Lupine as a multi-target computational materials company. The return is non-dilutive capital and validation credibility. ARPA-E's portfolio has catalyzed billions of dollars in private follow-on funding[^22], and the NIST Materials Genome Initiative analysis estimates $123 billion–$270 billion in annual value from improved materials innovation infrastructure[^23].
-
-## The Verification Layer as Partnership Enabler
-
-Partners validate the science; verification makes it trustworthy at scale. Every organization named above has been burned by computational predictions that looked convincing in a paper but failed in the lab. The 0.2% GNoME synthesis rate and the A-Lab disordered-phase episode are warnings that experimental budgets are finite and false positives are expensive.
-
-The environment error field, runtime correction, and formal verification address this directly. The field achieves r=0.906 blind prediction of never-fitted surface energies across 36 (model, material) combinations with zero adjustable parameters. Runtime correction adds 15.6% overhead in Python and will drop below 1% in a compiled LAMMPS overlay, keeping corrected uMLIPs many orders of magnitude faster than DFT. {{LEAN_THEOREM_COUNT}} build-locked Lean 4 theorems provide machine-checked guarantees. Where correction cannot be applied, impossibility proofs identify the boundary rather than silently extrapolating.
-
-For partners, handoffs carry documentation. A cathode candidate comes with corrected migration barriers and a theorem certificate of the ranking claim. A MOF candidate comes with a hydrolysis-barrier correction and a proof of whether its coordination environment lies inside or outside the field's domain. An ammonia catalyst comes with corrected N₂ dissociation barriers and a flag if scaling-relation breaking requires higher-level treatment. Experimentalists still synthesize and measure; Lupine removes the guesswork about which candidates deserve the work.
-
-![The scarce resource is trust](images/from-predicted-crystal-to-commercial-cell-10-crystal-to-cell.jpg)
-*In a discovery ecosystem that must scale from thousands to millions of validated materials per year, the scarce resource is the trust that turns a predicted crystal into a commercial cell.*
-
-In a discovery ecosystem that must scale from thousands to millions of validated materials per year, the scarce resource is not prediction volume. It is the trust that turns a predicted crystal into a commercial cell.
-
+The scarce resource in this chain is not prediction volume; it is knowing which predictions deserve the work. We would like to work with synthesis, characterization and device groups that want an independent, preregistered measurement of how far the models behind their shortlists can be trusted on their systems. The record and methods are open.
 
 ![An empty electric-bus depot beneath a broad solar canopy, with a quiet row of stationary battery cabinets beside the charging bays and a vast pale sky — The battery cabinets buffer power from the canopy before it reaches the charging pedestals](images/from-predicted-crystal-to-commercial-cell-spread.jpg)
+
 ## Footnotes
 
 [^1]: A. Merchant *et al.*, "Scaling deep learning for materials discovery," *Nature* **624**, 80–85 (2023). https://doi.org/10.1038/s41586-023-06735-9
 
 [^2]: N. J. Szymanski *et al.*, "An autonomous laboratory for the accelerated synthesis of novel materials," *Nature* **624**, 86–91 (2023); J. Leeman *et al.*, "Challenges in High-Throughput Inorganic Materials Prediction and Autonomous Synthesis," *PRX Energy* **3**, 011002 (2024). https://doi.org/10.1038/s41586-023-06734-7; https://doi.org/10.1103/PRXEnergy.3.011002
 
-[^3]: POSCO Future M, "POSCO Future M to lead entry-level and standard EV markets with LMR cathode materials," press release, June 2025.
-
-[^4]: General Motors, "Why LMR batteries will change the outlook for the EV market," GM Newsroom, May 2025; LG Energy Solution / GM, Battery Innovation of the Year, The Battery Show North America, October 2025.
-
-[^5]: TexPower EV Technologies, company website and press releases, 2024–2025; A. Manthiram, "A reflection on lithium-ion battery cathode chemistry," *Nature Communications* **11**, 1550 (2020).
-
-[^6]: Forge Nano, "US-made ultrahigh-energy cathodes will enable low-cost electric vehicle batteries," press release, January 2024.
-
-[^7]: U.S. Department of Energy / PNNL, "Battery500: Progress Update," 2020; PNNL, "Powering Up to Address Challenges in Energy Storage," March 2024.
-
-[^8]: G. Ceder *et al.*, foundational DFT studies of Li₃YCl₆ and Li₂ZrCl₆ halide solid electrolytes; Materials Project.
-
-[^9]: J. Janek and W. G. Zeier groups, University of Münster, halide solid-electrolyte synthesis and interface analytics.
-
-[^10]: Argonne National Laboratory, Materials Engineering Research Facility and Advanced Photon Source capabilities.
-
-[^11]: BMW Group / Solid Power, joint development agreement and solid-state battery cell validation announcements, 2021–2025.
-
-[^12]: Factorial Energy / Mercedes-Benz, solid-state battery cell development and EQS road-test announcements, 2023–2025.
-
 [^13]: IPCC, *Climate Change 2022: Mitigation of Climate Change*, Working Group III Contribution to AR6, Cambridge University Press, 2022.
-
-[^14]: X. Chen *et al.*, "Computational Screening of Amino-Functionalized Molecules for Direct Air Capture of CO₂," *J. Phys. Chem. A* (2026).
-
-[^15]: BASF, "BASF becomes first company to successfully produce metal-organic frameworks on a commercial scale for carbon capture," press release, October 2023.
-
-[^16]: Royal Society, *Ammonia: Zero-Carbon Fertiliser, Fuel and Energy Store*, policy briefing, 2020; International Energy Agency, *Ammonia Technology Roadmap*, IEA, 2021.
-
-[^17]: W. Chang *et al.*, "Lithium-mediated nitrogen reduction to ammonia via the solvation-enabled N₂ activation," *Nature Catalysis* **7**, 342–352 (2024).
-
-[^18]: ARPA-E REFUEL program, U.S. Department of Energy, program targets.
-
-[^19]: X. Fu *et al.*, "Calcium-mediated nitrogen reduction for electrochemical ammonia synthesis," *Nature Materials* **23**, 101–107 (2024). https://doi.org/10.1038/s41563-023-01702-1
-
-[^20]: NREL, "Best Research-Cell Efficiency Chart," National Renewable Energy Laboratory, updated 2025.
-
-[^21]: P. Chen *et al.*, "2D/3D tin-halide perovskite solar cell with certified 16.65% efficiency," *Nature Nanotechnology* **20**, 742–749 (2025).
-
-[^22]: ARPA-E, "ARPA-E Impact," U.S. Department of Energy, 2023.
-
-[^23]: NIST / RTI International, *Economic Analysis of the Materials Genome Initiative*, National Institute of Standards and Technology, 2023.

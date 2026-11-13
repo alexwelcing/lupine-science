@@ -198,14 +198,15 @@ describe('article metadata output', () => {
     const html = fs.readFileSync(path.join(__dirname, '../public/articles/the-trust-layer/index.html'), 'utf8');
 
     assert.match(html, /<meta property="og:title" content="The Trust Layer — Lupine Science">/);
-    assert.match(html, /<meta property="og:type" content="video\.other">/);
+    // its film is unlisted (scripts/lib/film-listing.mjs), so the card is the site card
+    assert.match(html, /<meta property="og:type" content="article">/);
     assert.match(html, /<meta property="og:url" content="https:\/\/lupine\.science\/articles\/the-trust-layer\/">/);
-    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/videos\/the-trust-layer-poster\.jpg\?v=\d+">/);
+    assert.match(html, /<meta property="og:image" content="https:\/\/lupine\.science\/og-lupine-science\.jpg\?v=\d+">/);
     assert.match(html, /<meta property="og:image:width" content="1200">/);
     assert.match(html, /<meta property="og:image:height" content="630">/);
     assert.match(html, /<meta name="twitter:card" content="summary_large_image">/);
     assert.match(html, /<meta name="twitter:title" content="The Trust Layer — Lupine Science">/);
-    assert.match(html, /<meta name="twitter:image" content="https:\/\/lupine\.science\/videos\/the-trust-layer-poster\.jpg\?v=\d+">/);
+    assert.match(html, /<meta name="twitter:image" content="https:\/\/lupine\.science\/og-lupine-science\.jpg\?v=\d+">/);
   });
 
 });

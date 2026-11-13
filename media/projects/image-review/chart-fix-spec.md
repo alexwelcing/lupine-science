@@ -110,7 +110,7 @@ hand-made figure), skip it and note that in your report.
 
 ## Acceptance
 1. Every chart above re-opened with ReadMediaFile: zero text overlaps, all text real.
-2. Full audit re-run: `cd /home/alex/Dev/lupine/lupine-science && node scripts/review-images.mjs --no-fail`
+2. Full audit re-run, from the repository root: `node scripts/review-images.mjs --no-fail`
    → expect 0 P0; any remaining P1 on these files must be eyeballed by you and explained.
 3. Report back: per chart — fixed/skipped, what changed, and the final audit P0/P1 counts.
    Do NOT git-commit anything. Do not touch files outside the listed generators,
