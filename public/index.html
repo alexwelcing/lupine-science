@@ -131,7 +131,7 @@
       min-height: 100svh;
       display: grid;
       /* generous margins; content sits in [main] after the left gutter, with a
-         breathing [gap] track separating the copy from the ledger rail */
+         breathing [gap] track before the [rail] that holds the caption line */
       grid-template-columns:
         [edge] clamp(44px, 7vw, 156px)
         [main] minmax(0, 1fr)
@@ -215,39 +215,18 @@
     .routes a:hover { color: var(--indigo); border-color: var(--indigo-line); background: var(--indigo-wash); }
     .routes a .ar { color: var(--ink-faint); }
     .routes a:hover .ar { color: var(--indigo); }
+    .routes a.primary { background: var(--indigo); border-color: var(--indigo); color: var(--paper); }
+    .routes a.primary .ar { color: var(--paper); }
+    .routes a.primary:hover { background: var(--indigo-deep); border-color: var(--indigo-deep); color: var(--paper); }
 
-    /* ════════ THE LEDGER — margin rail (right) ════════ */
-    .rail-ledger {
-      grid-column: rail / end; grid-row: body; z-index: 4; align-self: start;
-      display: flex; flex-direction: column; padding-top: 30px; min-height: 0;
-      background: linear-gradient(90deg, rgba(250,249,246,0) 0%, rgba(250,249,246,0.78) 14%, rgba(250,249,246,0.9) 100%);
-    }
-    .rail-head, .ledger li, .rail-note {
+    /* ════════ THE PICTURE — one caption line, bottom right ════════ */
+    .art-note {
+      grid-column: rail / end; grid-row: foot; z-index: 4; align-self: end;
+      margin: 0; padding: 0 0 22px; max-width: 292px;
+      font-family: var(--mono); font-size: 12px; line-height: 1.55; color: var(--ink-faint);
       text-shadow: 0 0 7px var(--paper), 0 0 7px var(--paper), 0 0 3px var(--paper);
     }
-    .rail-head {
-      font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--ink-faint); display: flex; justify-content: space-between; align-items: baseline;
-      gap: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--rule);
-    }
-    .rail-head span { white-space: nowrap; }
-    /* the rail narrows before the mobile breakpoint — tighten the head so
-       "public ledger" and the height never collide or wrap */
-    @media (max-width: 1160px) {
-      .rail-head { font-size: 10.5px; letter-spacing: 0.1em; }
-    }
-    .rail-head .h { color: var(--ochre); }
-
-    .rail-note {
-      margin-top: auto; padding-top: 20px;
-      font-family: var(--mono); font-size: 12.5px; color: var(--ink-faint); line-height: 1.6;
-    }
-    .rail-note .row { display: flex; gap: 7px; align-items: baseline; margin-bottom: 8px; }
-    .rail-note .d { width: 7px; height: 7px; border-radius: 50%; flex: none; transform: translateY(3px); }
-    .rail-note .d.wp { background: var(--ochre); } .rail-note .d.ok { background: var(--verified); }
-    .rail-note .d.mof { background: var(--indigo-deep); }
-    .rail-note .cite { font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--ink-soft); margin-top: 10px; display: block; }
-    .rail-note a { text-decoration: underline; text-decoration-color: var(--indigo-line); text-underline-offset: 2px; }
+    .art-note a { text-decoration: underline; text-decoration-color: var(--indigo-line); text-underline-offset: 2px; }
 
     /* ════════ BENEATH — the substance, one scroll down ════════ */
     .beneath {
@@ -257,62 +236,33 @@
     }
     .b-label {
       font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.24em;
-      text-transform: uppercase; color: var(--indigo); margin: 0 0 16px;
+      text-transform: uppercase; color: var(--indigo); margin: 0 0 16px; font-weight: 400;
     }
     .b-all .ar { display: inline-block; transition: transform 200ms var(--ease); }
     .b-all a:hover .ar { transform: translateX(4px); }
-    .b-notebook { margin-top: clamp(64px, 9vh, 110px); }
-    .b-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 2.6vw, 40px); }
-    .b-cards a {
-      display: block; border-top: 1px solid var(--rule); padding: 20px 6px 18px;
-      transition: background 240ms var(--ease), border-color 240ms var(--ease);
-    }
-    .b-cards a:hover { background: var(--indigo-wash); border-color: var(--indigo-line); }
-    .b-cards .d8 { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); }
-    .b-cards h3 { font-size: 1.22rem; font-weight: 500; line-height: 1.26; margin: 9px 0 8px; }
-    .b-cards p { font-size: 0.94rem; line-height: 1.56; color: var(--ink-soft); margin: 0; }
     .b-all { margin: 28px 0 0; font-family: var(--mono); font-size: 13px; }
     .b-all a { color: var(--indigo); }
 
-    /* ════════ NOW — dated momentum: next, shipped, the way in ════════ */
-    .now { padding-bottom: 0; }
-    .now .b-label { display: flex; align-items: center; gap: 10px; }
-    .now-pulse { position: relative; width: 7px; height: 7px; border-radius: 50%; background: var(--verified); flex: none; }
-    .now-pulse::after {
-      content: ""; position: absolute; inset: -4px; border-radius: 50%;
-      border: 1px solid var(--verified); opacity: 0; animation: now-ping 2.8s var(--ease) infinite;
+    /* ════════ WHAT WE FOUND — three scoped results ════════ */
+    .found-lede { max-width: 68ch; margin: 0 0 24px; font-size: clamp(1rem, 1.3vw, 1.1rem); line-height: 1.6; color: var(--ink-soft); }
+    .found-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: clamp(24px, 3vw, 52px); border-top: 1px solid var(--rule); padding-top: 26px;
     }
-    @keyframes now-ping { 0% { transform: scale(0.5); opacity: 0.7; } 80%, 100% { transform: scale(1.8); opacity: 0; } }
-    .now-grid {
-      display: grid; grid-template-columns: 1.15fr 1.25fr 1fr;
-      gap: clamp(28px, 4vw, 64px); border-top: 1px solid var(--rule); padding-top: 32px;
-    }
-    .now .now-k { font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); margin: 0 0 12px; }
-    .now .now-when { font-family: var(--mono); font-size: 13.5px; color: var(--ochre); margin: 0 0 6px; }
-    .now-next h2 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); font-weight: 500; line-height: 1.16; letter-spacing: -0.01em; margin: 0 0 10px; }
-    .now-next h2 a { color: var(--ink); }
-    .now-next h2 a:hover { color: var(--indigo); }
-    .now-next p, .now-door p { font-size: 1rem; line-height: 1.58; color: var(--ink-soft); margin: 0 0 16px; }
-    .now-next em { color: var(--indigo); }
-    .now-list { list-style: none; margin: 0; padding: 0; }
-    .now-list li { display: grid; grid-template-columns: 7.2em 1fr; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--rule-soft); font-size: 0.98rem; line-height: 1.4; }
-    .now-list li:first-child { padding-top: 0; }
-    .now-list time { font-family: var(--mono); font-size: 12.5px; color: var(--ink-faint); padding-top: 2px; font-feature-settings: "tnum"; }
-    .now-list a { color: var(--ink); }
-    .now-list a:hover { color: var(--indigo); }
-    .now-log .b-all { margin-top: 16px; }
-    .now-door { border-left: 1px solid var(--rule); padding-left: clamp(20px, 2.6vw, 40px); }
-    .now-cta {
-      display: inline-block; font-family: var(--mono); font-size: 13.5px; color: var(--paper); background: var(--indigo);
-      padding: 10px 16px; margin: 0 14px 10px 0; transition: background 200ms var(--ease);
-    }
-    .now-cta:hover { background: var(--indigo-deep); }
-    .now-cta .ar, .now-sub .ar { display: inline-block; transition: transform 200ms var(--ease); }
-    .now-cta:hover .ar, .now-sub:hover .ar { transform: translateX(4px); }
-    .now-sub { font-family: var(--mono); font-size: 13px; color: var(--indigo); white-space: nowrap; }
-    @media (max-width: 1100px) { .now-grid { grid-template-columns: 1fr 1fr; } .now-door { grid-column: 1 / -1; border-left: 0; padding-left: 0; border-top: 1px solid var(--rule); padding-top: 24px; } }
-    @media (max-width: 860px) { .now-grid { grid-template-columns: 1fr; gap: 30px; } }
-    @media (prefers-reduced-motion: reduce) { .now-pulse::after { animation: none; } }
+    .found-card h3 { font-size: 1.22rem; font-weight: 500; line-height: 1.26; margin: 8px 0 8px; text-wrap: balance; }
+    .found-card p { font-size: 0.97rem; line-height: 1.6; color: var(--ink-soft); margin: 0 0 10px; }
+    .found-card .found-status { font-family: var(--mono); font-size: 12.5px; color: var(--ink-faint); margin: 0; }
+    .found-card .found-link { font-family: var(--mono); font-size: 13px; margin: 0; }
+    .found-card .found-link a { color: var(--indigo); }
+    @media (max-width: 1100px) { .found-grid { grid-template-columns: 1fr 1fr; } }
+
+    /* ════════ NEXT — one line ════════ */
+    .next { padding-top: clamp(36px, 5vh, 64px); padding-bottom: 0; }
+    .next-line { margin: 0; border-top: 1px solid var(--rule); padding-top: 22px; font-size: 1.04rem; line-height: 1.6; color: var(--ink-soft); }
+    .next-line .next-k { font-family: var(--mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ochre); margin-right: 10px; }
+    .next-line a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--indigo-line); text-underline-offset: 3px; }
+    .next-line a:hover { color: var(--indigo); }
+    .next-line .next-note { font-style: italic; }
 
     /* ════════ FOOT — colophon ════════ */
     .foot {
@@ -321,24 +271,12 @@
       max-width: 1560px; border-top: 1px solid var(--rule);
       font-family: var(--mono); font-size: 13px; color: var(--ink-faint);
     }
-    .foot .offer { flex-basis: 100%; font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--ink-soft); }
-    .foot .offer a { color: var(--indigo); border-bottom-color: var(--indigo-line); }
     .foot .creed { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--ink-soft); }
     .foot a { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 2px; border-bottom: 1px solid transparent; transition: all 180ms; }
     .foot a:hover { color: var(--indigo); border-color: var(--indigo); }
     .foot b { color: var(--ink); font-weight: 600; }
 
     .foot .licence { flex-basis: 100%; font-size: 12px; }
-    .now-note { font-size: 0.92rem !important; font-style: italic; }
-
-    /* ── first-screen scope strip: what has been tested, passes beside failures ── */
-    .scope-strip {
-      list-style: none; margin: 4px 0 0; padding: 14px 0 0; border-top: 1px solid var(--rule);
-      font-family: var(--mono); font-size: 13px; line-height: 1.5; color: var(--ink-soft);
-    }
-    .scope-strip li { margin: 0 0 6px; }
-    .scope-strip .k { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); }
-    .scope-strip a { color: var(--indigo); }
 
     /* result labels share one closed vocabulary (docs/messaging-canon.md) */
     .result { font-family: var(--mono); font-size: 12.5px; font-weight: 600; letter-spacing: 0.03em; white-space: nowrap; }
@@ -348,49 +286,16 @@
     .result-abstained, .result-withdrawn { color: var(--ink-soft); }
     .result-refuted-by-us, .result-self-corrected { color: var(--failed); }
 
-    /* the illustration caption in the right rail */
-    .rail-note p { margin: 0 0 12px; }
-    .rail-note .rail-links { margin-top: 14px; }
-    .rail-note .rail-links a { color: var(--indigo); }
-
-    /* ════════ WHERE IT HAS BEEN TESTED ════════ */
-    .tested { padding-bottom: 0; }
-    .tested-lede { max-width: 68ch; margin: 0 0 22px; font-size: clamp(1rem, 1.3vw, 1.1rem); line-height: 1.6; color: var(--ink-soft); }
-    .tested-wrap { border-top: 1px solid var(--rule); }
-    .tested-table { width: 100%; border-collapse: collapse; font-size: 0.98rem; line-height: 1.52; }
-    .tested-table th, .tested-table td { text-align: left; vertical-align: top; padding: 13px 18px 13px 0; border-bottom: 1px solid var(--rule-soft); }
-    .tested-table thead th { font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 400; color: var(--ink-faint); }
-    .tested-table tbody th { width: 27%; font-weight: 500; color: var(--ink); }
-    .tested-table tbody th a { text-decoration: underline; text-decoration-color: var(--indigo-line); text-underline-offset: 3px; }
-    .tested-table tbody th a:hover { color: var(--indigo); }
-    .tested-table td { color: var(--ink-soft); }
-    .tested-table td:last-child { width: 8em; padding-right: 0; }
-    @media (max-width: 760px) {
-      .tested-table thead { display: none; }
-      .tested-table tr { display: block; padding: 12px 0; border-bottom: 1px solid var(--rule-soft); }
-      .tested-table th, .tested-table td { display: block; width: auto !important; padding: 2px 0; border: 0; }
-    }
-
     /* ════════ WHERE THIS IS AIMED — direction, not results ════════ */
     .lanes-lede { max-width: 68ch; margin: 0 0 24px; font-size: clamp(1rem, 1.3vw, 1.1rem); line-height: 1.6; color: var(--ink-soft); }
     .doc-status {
       display: inline-block; margin-right: 10px; padding: 1px 8px; border: 1px solid var(--rule);
       font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ochre);
     }
-    .lane-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: clamp(24px, 3vw, 52px); border-top: 1px solid var(--rule); padding-top: 30px;
-    }
-    .lane-grid h3 { font-size: 1.14rem; font-weight: 500; line-height: 1.3; margin: 0 0 8px; }
-    .lane-grid p { font-size: 0.97rem; line-height: 1.6; color: var(--ink-soft); margin: 0 0 10px; }
-    .lane-grid .lane-links { font-family: var(--mono); font-size: 13px; line-height: 1.7; }
-    .lane-grid .lane-links a { color: var(--indigo); }
-    @media (max-width: 1100px) { .lane-grid { grid-template-columns: 1fr 1fr; } }
-
-    /* ════════ LEAN — what a check does and does not cover ════════ */
-    .lean-body { max-width: 68ch; border-top: 1px solid var(--rule); padding-top: 28px; }
-    .lean-body p { font-size: clamp(1.02rem, 1.35vw, 1.16rem); line-height: 1.64; color: var(--ink); margin: 0 0 1em; }
-    .lean-body .b-all { font-size: 13px; }
+    .lane-row { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+    .lane-row li { display: grid; grid-template-columns: minmax(12em, 22em) 1fr; gap: 6px 24px; padding: 11px 0; border-bottom: 1px solid var(--rule-soft); font-size: 1rem; line-height: 1.5; }
+    .lane-row b { font-weight: 500; color: var(--ink); }
+    .lane-row a { color: var(--indigo); text-decoration: underline; text-decoration-color: var(--indigo-line); text-underline-offset: 3px; }
 
     /* ════════ responsive — instrument → stacked document ════════ */
     @media (max-width: 920px) {
@@ -406,7 +311,7 @@
         background: linear-gradient(180deg, rgba(250,249,246,0) 50%, var(--paper) 100%); }
       /* block layout drops grid stacking: re-establish positioning so text
          paints above the hero band's paper-fade overlay */
-      .mark, .reading, .rail-ledger, .beneath, .foot { position: relative; z-index: 4; }
+      .mark, .reading, .art-note, .beneath, .foot { position: relative; z-index: 4; }
       .mark { padding-top: 18px; }
       /* the descriptor sits under the name instead of wrapping beside it */
       .mark > span { display: flex; flex-direction: column; gap: 1px; line-height: 1.25; }
@@ -416,10 +321,10 @@
       #ribbon { filter: contrast(1.18) saturate(1.12); }
       .panel { position: relative !important; opacity: 1 !important; transform: none !important; filter: none !important; pointer-events: auto !important; }
       .routes a { white-space: normal; }
-      .rail-ledger { padding-top: 26px; border-top: 1px solid var(--rule); }
-      .rail-note { margin-top: 0; }
+      .art-note { max-width: none; padding: 0 0 8px; }
       .beneath { padding-left: 22px; padding-right: 22px; }
-      .b-cards, .lane-grid { grid-template-columns: 1fr; gap: 26px; }
+      .found-grid { grid-template-columns: 1fr; gap: 26px; }
+      .lane-row li { grid-template-columns: 1fr; gap: 2px; }
       /* colophon stacks cleanly: one item per line */
       .foot { flex-direction: column; align-items: flex-start; gap: 12px; padding: 26px 22px 40px; }
       .foot .creed { margin-bottom: 2px; }
@@ -431,7 +336,7 @@
   </style>
 </head>
 <body>
-  <a class="skip" href="#tested">Skip to what has been tested</a>
+  <a class="skip" href="#found">Skip to what we found</a>
 
   <main class="field">
     <canvas id="ribbon" aria-hidden="true"></canvas>
@@ -472,241 +377,89 @@
       <span><b>Lupine Science</b> <span class="tld">measuring where AI models of materials go wrong</span></span>
     </a>
 
-    <!-- ════ FIRST SCREEN — what we do, what has been tested, three routes ════ -->
+    <!-- ════ FIRST SCREEN — what this is, and two ways in ════ -->
     <section class="reading" id="evidence" aria-label="What Lupine Science does">
       <div class="evidence">
         <div class="panel" data-active>
           <p class="tag"><span class="dot"></span>Evidence before claim</p>
           <h1>Before a lab spends a year on a material, <em>know whether to trust the prediction.</em></h1>
-          <p>Machine-learned potentials now screen batteries, catalysts and frameworks faster than any lab can test them, and a model can be confident and wrong. We measure where these models go wrong, against published references and pass/fail gates set in advance, and publish every verdict, failures included.</p>
-          <p class="why">Our aim: make AI predictions of new materials checkable before a lab commits to them.</p>
-          <ul class="scope-strip" aria-label="Tested so far">
-            <li><span class="k">Tested so far</span></li>
-            <li>Blind prediction of fcc surface-energy error · <span class="result result-supported">Supported</span> on nine metals, three of four models</li>
-            <li>Elastic correction, 16 cubic metals · <span class="result result-open">Open</span>: a ceiling, not deployable</li>
-            <li>Round 4, July 2026 · <span class="result result-failed">no gate passed</span>: three failed, one abstained</li>
-            <li><a href="#tested">Every result, with its scope ↓</a></li>
-          </ul>
+          <p>Lupine Science measures where machine-learned models of atoms go wrong, against published references and pass/fail gates set in advance, and publishes every verdict, failures included.</p>
+          <p class="why">Our mission: Make AI predictions of new materials checkable before a lab commits to them.</p>
           <div class="routes">
-            <a href="/articles/four-gates-three-honest-failures-one-live-experiment/">Round 4: what failed, and why <span class="ar">→</span></a>
-            <a href="https://lupi.live">Open LUPI in your browser <span class="ar">→</span></a>
-            <a href="https://github.com/alexwelcing/lupine-rhizo">Benchmark code and data <span class="ar">→</span></a>
+            <a class="primary" href="/results/">See every result <span class="ar">→</span></a>
+            <a href="https://lupi.live">Open LUPI <span class="ar">→</span></a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ════ RAIL — what the picture is, and where the record lives ════ -->
-    <aside class="rail-ledger" aria-label="About this page">
-      <div class="rail-head"><span>About the picture</span></div>
-      <div class="rail-note">
-        <p>Background illustration, not a result. The curves are drawn from error statistics of four classical (EAM) potentials on four or five metals and five properties (<a href="/data/benchmark_manifold.json">data</a>). They say nothing about machine-learned potentials.</p>
-        <div class="row"><span class="d mof"></span><span>MOF-5 · Zn₄O(BDC)₃ — published crystallography, <a href="/data/mof5_structure.json">drawn from the committed structure</a>.<span class="cite">Li, Eddaoudi, O’Keeffe &amp; Yaghi, Nature 402, 276 (1999) · COD 1516287</span></span></div>
-        <p class="rail-links"><a href="https://github.com/alexwelcing/lupine-rhizo/blob/main/docs/conjectures/ledger.md">Hypothesis ledger: every claim we tested and whether it held →</a></p>
-        <p class="rail-links"><a href="/corrections/">Corrections log →</a></p>
-      </div>
-    </aside>
+    <!-- the background, in one line: an illustration, with its sources -->
+    <p class="art-note">Background illustration, not a result: classical-potential <a href="/data/benchmark_manifold.json">error data</a> and <a href="/data/mof5_structure.json">MOF-5</a> (Li, Eddaoudi, O’Keeffe &amp; Yaghi, Nature 402, 276 (1999); COD 1516287).</p>
 
   </main>
 
-  <!-- ════ WHERE IT HAS BEEN TESTED + RECORD — generated from data/company.json
-       by scripts/build-articles.mjs (scripts/lib/discovery.mjs); edit the
-       data, not this region. ════ -->
-  <!-- discovery:now -->
-  <section class="beneath tested" id="tested" aria-labelledby="tested-title">
-    <p class="b-label" id="tested-title">Where it has been tested</p>
-    <p class="tested-lede">Results we have published, failures beside passes, each with the scope it holds in. They are not yet peer-reviewed. Other rounds, including Round 3, and our self-corrections are in the <a href="https://github.com/alexwelcing/lupine-rhizo/blob/main/docs/conjectures/ledger.md">hypothesis ledger</a>.</p>
-    <div class="tested-wrap">
-      <table class="tested-table">
-        <thead>
-          <tr><th scope="col">What we tested</th><th scope="col">Scope and numbers</th><th scope="col">Result</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row"><a href="/articles/a-smooth-environment-resolved-error-field/">Blind prediction of fcc (110) surface-energy error</a></th>
-            <td>Nine fcc metals, four foundation MLIPs: an error field fitted to three other observables predicted the never-fitted (110) error at r = 0.906 across 36 model–material cells (material-clustered 95% CI 0.82–0.96; permutation null centred near 0.44; significant for three of the four models).</td>
-            <td><span class="result result-supported">Supported</span></td>
-          </tr>
-          <tr>
-            <th scope="row"><a href="/articles/a-smooth-environment-resolved-error-field/">Energy-only correction beside CHGNet</a></th>
-            <td>Blind (110) surface-energy error fell from 9.7% to 1.5% on nickel and from 28.0% to 13.7% on copper: one model, two metals, one facet.</td>
-            <td><span class="result result-supported">Supported</span></td>
-          </tr>
-          <tr>
-            <th scope="row"><a href="/articles/the-order-is-right-the-size-is-wrong/">Surface-energy rankings</a></th>
-            <td>Across 21 materials and 228 published reference values, four foundation MLIPs ranked surface energies almost correctly (Spearman 0.88–1.00) while missing magnitudes by tens of percent.</td>
-            <td><span class="result result-supported">Supported</span></td>
-          </tr>
-          <tr>
-            <th scope="row"><a href="/articles/the-order-is-right-the-size-is-wrong/">Shared error direction across models (21-material benchmark)</a></th>
-            <td>Apparent cross-model alignment sat inside a coupling-aware null, so we do not count it as a result.</td>
-            <td><span class="result result-failed">Failed</span></td>
-          </tr>
-          <tr>
-            <th scope="row"><a href="https://github.com/alexwelcing/lupine-rhizo/blob/main/paper/lupine-layer2-3x3x3-final-paper.md">Elastic-constant bias direction, 16 cubic metals</a></th>
-            <td>Four MatPES MLIPs, 128 cases, r2SCAN targets approximate: one bias direction per functional transfers out of sample. When the held-out reference sets how far to correct, MAE falls from 17.84 to 10.36 GPa: a ceiling, not a deployable correction. A correction that works without seeing the answer is still open, and derived moduli are uncertified.</td>
-            <td><span class="result result-open">Open</span></td>
-          </tr>
-          <tr>
-            <th scope="row"><a href="/articles/the-small-cell-held-mlip-elastic-benchmark/">Small cells for elastic benchmarks</a></th>
-            <td>On the same 16-metal panel, 1×1×1 TensorNet/PBE cells matched 3×3×3 cells for elastic-constant error (14.55 vs 14.61 GPa MAE).</td>
-            <td><span class="result result-supported">Supported</span></td>
-          </tr>
-          <tr>
-            <th scope="row"><a href="/articles/the-small-cell-held-mlip-elastic-benchmark/">Global elastic correction on that panel</a></th>
-            <td>A global correction made the result worse: 63.40 GPa MAE.</td>
-            <td><span class="result result-failed">Failed</span></td>
-          </tr>
-          <tr>
-            <th scope="row"><a href="/articles/four-gates-three-honest-failures-one-live-experiment/">Round 4: Li-ion migration barriers</a></th>
-            <td>30-path panel; MACE-MP-0 small and medium, MACE-MPA-0 medium and CHGNet missed a 40 meV gate (MAE 135.0–242.5 meV on completed paths).</td>
-            <td><span class="result result-failed">Failed</span></td>
-          </tr>
-          <tr>
-            <th scope="row"><a href="/articles/four-gates-three-honest-failures-one-live-experiment/">Round 4: lattice- and elastic-constant correction</a></th>
-            <td>Rocksalt ionics and perovskites: ionics 0/4; perovskites 0/1 after a post-measurement amendment.</td>
-            <td><span class="result result-failed">Failed</span></td>
-          </tr>
-          <tr>
-            <th scope="row"><a href="/articles/four-gates-three-honest-failures-one-live-experiment/">Round 4: catalyst-adsorption Δ-correction</a></th>
-            <td>Every selected Δ-correction made holdout error worse.</td>
-            <td><span class="result result-failed">Failed</span></td>
-          </tr>
-          <tr>
-            <th scope="row"><a href="https://github.com/alexwelcing/lupine/blob/main/paper2/ProjectionLaw_Round2.md">Projection Law Round 2: registered predictions</a></th>
-            <td>Four of seven registered predictions across two experiments failed and are reported as failures.</td>
-            <td><span class="result result-failed">Failed</span></td>
-          </tr>
-          <tr>
-            <th scope="row"><a href="/articles/four-gates-three-honest-failures-one-live-experiment/">Round 4: magnetism</a></th>
-            <td>No available model had the spin physics the test needed.</td>
-            <td><span class="result result-abstained">Abstained</span></td>
-          </tr>
-          <tr>
-            <th scope="row"><a href="/articles/the-materials-we-test-against/">Round 5: direction-gated barrier correction</a></th>
-            <td>On the 30-path Li-ion panel, fitted on 12 disjoint training paths: all four models abstained at the direction gate, so no correction was applied.</td>
-            <td><span class="result result-abstained">Abstained</span></td>
-          </tr>
-          <tr>
-            <th scope="row"><a href="/articles/shared-dft-anchors/">Sparse-DFT anchor pilot (GPAW), 23 of 30 paths</a></th>
-            <td>The preregistered 40 meV gate against published VASP barriers failed on path 7 (118.8 meV). An amendment written after that failure moved the gate to a same-engine check, which passed; against the published references the error was 693.0–705.7 meV. Same-engine only.</td>
-            <td><span class="result result-open">Open</span></td>
-          </tr>
-        </tbody>
-      </table>
+  <!-- ════ WHAT WE FOUND — three scoped results, generated from
+       data/company.json "highlights" by scripts/build-articles.mjs
+       (scripts/lib/discovery.mjs); edit the data, not this region.
+       Every other result is on /results/. ════ -->
+  <!-- discovery:found -->
+  <section class="beneath found" id="found" aria-labelledby="found-title">
+    <h2 class="b-label" id="found-title">What we found</h2>
+    <p class="found-lede">Three results, each with its scope. Not yet peer-reviewed.</p>
+    <div class="found-grid">
+      <article class="found-card">
+        <p class="found-status"><span class="result result-supported">Supported</span><span class="found-note"> · narrow scope</span></p>
+        <h3>A blind prediction held</h3>
+        <p>For nine fcc metals, an error field fitted to three other properties predicted the never-fitted (110) surface-energy error of four foundation models, significantly for three of the four.</p>
+        <p class="found-link"><a href="/articles/a-smooth-environment-resolved-error-field/">The error field <span class="ar">→</span></a></p>
+      </article>
+      <article class="found-card">
+        <p class="found-status"><span class="result result-open">Open</span><span class="found-note"> · not deployable</span></p>
+        <h3>A correction ceiling, not a fix</h3>
+        <p>On 16 cubic metals, an elastic-constant correction helped only when the held-out answer set how far to correct. One that works without seeing the answer is still open.</p>
+        <p class="found-link"><a href="/results/#elastic-ceiling-16">The 16-metal result <span class="ar">→</span></a></p>
+      </article>
+      <article class="found-card">
+        <p class="found-status"><span class="result result-failed">Failed</span><span class="found-note"> · three failed, one abstained</span></p>
+        <h3>Round 4: no gate passed</h3>
+        <p>In July 2026, migration barriers, a lattice and elastic correction, and a catalyst correction failed. Magnetism abstained: no available model had the spin physics it needed.</p>
+        <p class="found-link"><a href="/articles/four-gates-three-honest-failures-one-live-experiment/">What failed, and why <span class="ar">→</span></a></p>
+      </article>
     </div>
-    <p class="b-all"><a href="/corrections/">Claims we have retired, and why <span class="ar">→</span></a></p>
+    <p class="b-all"><a href="/results/">Every result, failures included <span class="ar">→</span></a></p>
   </section>
+  <!-- /discovery:found -->
 
-  <section class="beneath now" id="now" aria-labelledby="now-title">
-    <p class="b-label" id="now-title">Record · updated <time datetime="2026-11-12">November 2026</time></p>
-    <div class="now-grid">
-      <div class="now-next">
-        <p class="now-k">Next</p>
-        <p class="now-when"><time datetime="2027-03-14">14–18 March 2027</time> · Orlando</p>
-        <h2><a href="/articles/tms-2027-measuring-what-we-can-trust/">TMS2027 Annual Meeting &amp; Exhibition</a></h2>
-        <p>Poster presentation in <em>Accelerating Innovation in Materials and Manufacturing</em>: “From Transferability to Prediction: The Error Geometry of Interatomic Potentials.”</p>
-        <p class="now-note">A poster abstract was accepted for TMS2027 (Orlando, 14–18 March 2027). It is a conference presentation, not a paper. The accepted abstract described a universal error 'hyper-ribbon'; our record no longer supports that, and the proceedings manuscript replaces it with narrower measurement claims.</p>
-        <a class="now-cta mail" href="/about/#contact" data-u="alex" data-d="lupinesci.com" data-subject="Meet us at TMS2027 — Lupine Science" data-keep-text>Meet us at TMS2027 <span class="ar">→</span></a>
-      </div>
-      <div class="now-log">
-        <p class="now-k">Recently published</p>
-        <ol class="now-list">
-          <li><time datetime="2026-11-11">Nov 11, 2026</time><a href="/corrections/">Corrections log published: retired public claims, with dates and reasons</a></li>
-          <li><time datetime="2026-10-21">Oct 21, 2026</time><a href="/articles/what-error-patterns-can-tell-us/">Research explainer: what error patterns can and cannot tell us</a></li>
-          <li><time datetime="2026-08-31">Aug 31, 2026</time><a href="/articles/tms-2027-measuring-what-we-can-trust/">Poster abstract accepted for TMS2027, Orlando (a conference presentation, not a paper)</a></li>
-          <li><time datetime="2026-08-03">Aug 3, 2026</time><a href="/articles/the-small-cell-held-mlip-elastic-benchmark/">Small-cell MLIP elastic benchmark release archived (no DOI yet)</a></li>
-          <li><time datetime="2026-08-03">Aug 3, 2026</time><a href="/articles/shared-dft-anchors/">Shared DFT anchors evidence record: projected accounting, no new DFT</a></li>
-        </ol>
-        <p class="b-all"><a href="/about/#milestones">Full record <span class="ar">→</span></a></p>
-      </div>
-      <div class="now-door">
-        <p class="now-k">Questions and replication</p>
-        <p>We welcome questions, replication attempts and test proposals from MLIP builders, benchmark maintainers, materials scientists and labs.</p>
-        <a class="now-cta mail" href="/about/#contact" data-u="alex" data-d="lupinesci.com" data-subject="Question — Lupine Science" data-keep-text>Write to us <span class="ar">→</span></a>
-        <a class="now-sub" href="/about/">Company facts <span class="ar">→</span></a>
-      </div>
-    </div>
-  </section>
-  <!-- /discovery:now -->
-
-  <!-- ════ WHERE THIS IS AIMED — direction pieces, not results ════ -->
+  <!-- ════ WHERE THIS IS AIMED — Direction pieces, one line per lane ════ -->
   <section class="beneath lanes" id="aimed" aria-labelledby="aimed-title">
-    <p class="b-label" id="aimed-title">Where this is aimed</p>
-    <p class="lanes-lede"><span class="doc-status">Direction</span>These pieces describe where the work is aimed. They are not results. Each lane says what we have tested in it so far.</p>
-    <div class="lane-grid">
-      <article>
-        <h3>Solid electrolytes and batteries</h3>
-        <p>Migration barriers decide how fast ions move through a solid electrolyte. Tested so far: on a 30-path Li-ion panel, none of the four foundation MLIPs we tested met our 40&nbsp;meV gate (Round 4, <span class="result result-failed">Failed</span>).</p>
-        <p class="lane-links"><a href="/articles/from-predicted-crystal-to-commercial-cell/">From Predicted Crystal to Commercial Cell</a><br><a href="/articles/the-materials-we-test-against/">The Z1 barrier panel</a></p>
-      </article>
-      <article>
-        <h3>Catalysts</h3>
-        <p>Adsorption energies decide which surfaces are worth making. Tested so far: every selected Δ-correction made catalyst-adsorption holdout error worse (Round 4, <span class="result result-failed">Failed</span>).</p>
-        <p class="lane-links"><a href="/articles/four-gates-three-honest-failures-one-live-experiment/">The Round-4 record</a></p>
-      </article>
-      <article>
-        <h3>Frameworks and MOFs</h3>
-        <p>Porous frameworks for capture, storage and sensing. Not yet measured by us; the prospectus sets out what would have to be tested.</p>
-        <p class="lane-links"><a href="/articles/from-fantasy-frameworks-to-makeable-materials/">From Fantasy Frameworks to Makeable Materials</a></p>
-      </article>
-      <article>
-        <h3>Environmental and climate materials</h3>
-        <p>Water and air, methane and refrigerants, critical minerals and PFAS, cement and concrete. Not yet measured by us. The series states hypotheses to test, and the Round-4 failures bear on them.</p>
-        <p class="lane-links"><a href="/articles/beyond-carbon-the-error-geometry-of-environmental-materials/">Beyond Carbon</a> · <a href="/articles/water-and-air-correcting-the-molecules-we-drink-and-breathe/">Water and Air</a> · <a href="/articles/methane-and-refrigerants-cutting-the-non-co2-climate-forcers/">Methane and Refrigerants</a> · <a href="/articles/critical-minerals-pfas-and-the-remediation-imperative/">Critical Minerals and PFAS</a> · <a href="/articles/cement-concrete-and-the-weight-of-the-built-world/">Cement and Concrete</a> · <a href="/articles/five-materials-for-5-to-12-gtco2-year/">Five candidate materials</a></p>
-      </article>
-      <article>
-        <h3>Alloys</h3>
-        <p>Tested so far: on fcc Cantor-subset alloys (CoCrNi, CoCrFeNi), our first correction made bulk-modulus error worse (median 9.1% → 16.9%; <span class="result result-failed">Failed</span>). Our supported results are mostly on elemental metals; the 21-material ranking set includes two ordered intermetallics (B2-NiAl, L1₂-Ni₃Al).</p>
-        <p class="lane-links"><a href="/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/">The Correction That Hurt</a><br><a href="/articles/the-order-is-right-the-size-is-wrong/">The 21-material ranking</a></p>
-      </article>
-    </div>
-    <p class="b-all">Why we started: <a href="/articles/the-trust-layer/">The Trust Layer</a> · <a href="/articles/the-02-percent-synthesis-problem/">The 0.2% Synthesis Problem</a></p>
+    <h2 class="b-label" id="aimed-title">Where this is aimed</h2>
+    <p class="lanes-lede"><span class="doc-status">Direction</span>Where the work is aimed, not results.</p>
+    <ul class="lane-row">
+      <li><b>Solid electrolytes and batteries</b> <a href="/articles/from-predicted-crystal-to-commercial-cell/">From Predicted Crystal to Commercial Cell</a></li>
+      <li><b>Catalysts</b> <a href="/articles/five-materials-for-5-to-12-gtco2-year/">Five candidate materials</a></li>
+      <li><b>Frameworks and MOFs</b> <a href="/articles/from-fantasy-frameworks-to-makeable-materials/">From Fantasy Frameworks to Makeable Materials</a></li>
+      <li><b>Environmental and climate materials</b> <a href="/articles/beyond-carbon-the-error-geometry-of-environmental-materials/">Beyond Carbon</a></li>
+      <li><b>Alloys</b> <a href="/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/">What we tested: The Correction That Hurt</a></li>
+    </ul>
+    <p class="b-all"><a href="/articles/#direction">All Direction pieces <span class="ar">→</span></a></p>
   </section>
 
-  <!-- ════ LEAN — what a check covers, once, with no counter ════ -->
-  <section class="beneath lean" id="lean" aria-labelledby="lean-title">
-    <p class="b-label" id="lean-title">Lean-checked arithmetic</p>
-    <div class="lean-body">
-      <p>Lean 4 checks the arithmetic and stated inequalities behind published numbers; it does not check the physics, the reference data or the pipeline.</p>
-      <p>One example, from the blind surface-energy test: at the 10⁻⁴ precision used for checking, one cell’s improvement rounds to zero, so we report 26 of 36 (27 of 36 at float64).</p>
-      <p class="b-all"><a href="https://github.com/alexwelcing/lupine-rhizo/blob/main/paper/environment-error-field-2026-07-02.md">The manuscript behind that count <span class="ar">→</span></a></p>
-    </div>
+  <!-- ════ NEXT — generated from data/company.json "upcoming" ════ -->
+  <!-- discovery:next -->
+  <section class="beneath next" aria-label="Next public appearance">
+    <p class="next-line"><span class="next-k">Next</span> <a href="/articles/tms-2027-measuring-what-we-can-trust/">TMS2027, Orlando, 14–18 March 2027 — poster</a> <span class="next-note">(a conference presentation, not a paper)</span></p>
   </section>
+  <!-- /discovery:next -->
 
-  <!-- ════ RECENT NOTES — hand-written summaries; keep each one's numbers
-       and qualifiers identical to the article it links. ════ -->
-  <section class="beneath" aria-label="Recent notes">
-    <div class="b-notebook">
-      <p class="b-label">Recent notes</p>
-      <div class="b-cards">
-        <a href="/articles/what-error-patterns-can-tell-us/">
-          <span class="d8">2026·10·21</span>
-          <h3>Learning What an Error Pattern Can Tell Us</h3>
-          <p>A retrospective analysis of previously examined data: errors stayed concentrated, but a learned shared direction added little or no advantage over a simple common-direction baseline. No new physical validation is claimed.</p>
-        </a>
-        <a href="/articles/the-small-cell-held-mlip-elastic-benchmark/">
-          <span class="d8">2026·08·03</span>
-          <h3>The Small Cell Held</h3>
-          <p>On 16 cubic metals, 1×1×1 TensorNet/PBE cells matched 3×3×3 cells for elastic-constant error (14.55 vs 14.61 GPa MAE), while a global correction made the result worse (63.40 GPa).</p>
-        </a>
-        <a href="/articles/four-gates-three-honest-failures-one-live-experiment/">
-          <span class="d8">2026·07·19</span>
-          <h3>Round 4: four gates, no pass</h3>
-          <p>Four preregistered campaigns in July 2026: no gate passed. Three failed and one abstained; the records are public.</p>
-        </a>
-      </div>
-      <p class="b-all"><a href="/articles/">All articles <span class="ar">→</span></a></p>
-    </div>
-  </section>
-
-  <!-- ════ COLOPHON ════ -->
+  <!-- ════ COLOPHON — generated by scripts/lib/brand-header.mjs ════ -->
+  <!-- discovery:footer -->
   <footer class="foot">
     <span class="creed">Evidence before claim.</span>
-    <span><b>Lupine Science</b> · <a class="mail" href="/about/#contact" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
-    <span><a href="/about/">About</a> · <a href="/articles/">Articles</a> · <a href="/corrections/">Corrections</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a> · <a href="/feed.xml">Feed</a></span>
+    <nav class="foot-nav" aria-label="Footer"><a href="/">Home</a> · <a href="/results/">Results</a> · <a href="/articles/">Articles</a> · <a href="/about/">About</a> · <a href="/corrections/">Corrections</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://github.com/alexwelcing/lupine">GitHub</a></nav>
+    <span class="contact">Research partners, model builders, press and investors: <a class="mail" href="/about/#contact" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a>.</span>
     <span class="licence">Code MIT · our text and data CC BY 4.0 unless noted · third-party material keeps its own licence</span>
   </footer>
+  <!-- /discovery:footer -->
   <script>
   (() => {
     "use strict";
@@ -841,12 +594,12 @@
           const m = rectOf(".mark"); if (m) zones.push(m);
           STAGE = { x0: w * 0.04, x1: w * 0.96, y0: h * 0.15, y1: h * 0.97 };
         } else {
-          [".reading .panel[data-active]", ".rail-ledger"]
+          [".reading .panel[data-active]", ".art-note"]
             .forEach((s) => { const z = rectOf(s); if (z) zones.push(z); });
           const m = rectOf(".mark"); if (m) zones.push({ l: m.l, t: m.t, r: Math.min(m.r, m.l + 250), bo: m.bo });
           const rd = rectOf(".reading .panel[data-active]") || rectOf(".reading");
-          const rl = rectOf(".rail-ledger"), mk = rectOf(".mark");
-          STAGE = { x0: (rd ? rd.r : w * 0.34) + 28, x1: (rl ? rl.l : w * 0.95) - 28,
+          const mk = rectOf(".mark");
+          STAGE = { x0: (rd ? rd.r : w * 0.34) + 28, x1: w * 0.95 - 28,
                     y0: (mk ? mk.bo : h * 0.12) + 30, y1: h * 0.94 };
         }
         STAGE.cx = (STAGE.x0 + STAGE.x1) / 2; STAGE.cy = (STAGE.y0 + STAGE.y1) / 2;

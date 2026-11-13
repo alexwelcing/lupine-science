@@ -40,7 +40,7 @@ function correctionsUpdated() {
   return fs.readFileSync(page, 'utf8').match(/Corrections log · updated <time datetime="(\d{4}-\d{2}-\d{2})"/)?.[1] || null;
 }
 
-// The homepage and /about/ carry the newest dated fact on the site (the same
+// The homepage, /results/ and /about/ carry the newest dated fact on the site (the same
 // "as of" scripts/lib/discovery.mjs stamps on them): deterministic, and it
 // tells crawlers the front door moves whenever anything ships.
 const company = loadCompany(ROOT);
@@ -56,6 +56,7 @@ const filmPages = fs.readdirSync(path.join(PUBLIC, 'videos'), { withFileTypes: t
 
 const urls = [
   { loc: `${SITE}/`, lastmod: siteAsOf || null },
+  { loc: `${SITE}/results/`, lastmod: siteAsOf || null },
   { loc: `${SITE}/about/`, lastmod: siteAsOf || null },
   // the corrections log carries its own "updated" date in its kicker
   ...(fs.existsSync(path.join(PUBLIC, 'corrections', 'index.html'))

@@ -53,7 +53,9 @@ test('shared-anchor evidence record locks the approved claim without campaign co
   assert.match(page, /https:\/\/lupine\.science\/articles\/shared-dft-anchors\/hero\.jpg\?v=4/);
   assert.equal((page.match(/hero\.jpg\?v=4/g) || []).length, 4, 'OG, Twitter, JSON-LD, and visible hero must share v4');
   assert.doesNotMatch(page, /hero\.jpg\?v=3/);
-  assert.match(articleIndex, /shared-dft-anchors\/hero\.jpg\?v=4/);
+  // /articles/ is a compact list (no thumbnails): it lists the record and never a stale hero
+  assert.match(articleIndex, /<a href="\/articles\/shared-dft-anchors\/">/);
+  assert.doesNotMatch(articleIndex, /shared-dft-anchors\/hero\.jpg\?v=[0-3]\b/);
   assert.deepEqual([...hero.subarray(0, 3)], [0xff, 0xd8, 0xff]);
   assert.ok(page.indexOf('class="proof-download"') < page.indexOf('class="article-hero"'), 'proof download must precede hero');
 

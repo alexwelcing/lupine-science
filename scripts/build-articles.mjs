@@ -13,9 +13,11 @@ import { renderArticleMarkdown } from './lib/article-markdown.mjs';
 import { readProofPackMetadata } from './lib/proof-pack-metadata.mjs';
 import {
   loadCompany, normalizeArticles, asOfDate, aboutJsonLd, renderAboutMain,
-  renderLlmsTxt, renderAtomFeed, renderNowStrip, organizationGraph, jsonLdScript, injectBetween,
+  renderLlmsTxt, renderAtomFeed, renderFoundRegion, renderNextRegion, organizationGraph, jsonLdScript, injectBetween,
+  renderResultsMain, resultsJsonLd, RESULTS_LEDE, loadCorrections, renderCorrectionsMain, correctionsJsonLd,
   documentStatus, DOCUMENT_STATUS_MEANING,
 } from './lib/discovery.mjs';
+import { renderSiteHeader, renderSiteFooter } from './lib/brand-header.mjs';
 import { filmListed, listedFilmSlugs, RETIRED_FILMS } from './lib/film-listing.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -29,6 +31,11 @@ const SITE = 'https://lupine.science';
 // it is noindex, and llms.txt does not offer it (scripts/lib/film-listing.mjs).
 const FILMS_LISTED = listedFilmSlugs({ articlesDir: SRC, videosDir: path.join(PUBLIC_ROOT, 'videos') }).length > 0;
 const LEAN_COUNT_PATH = path.join(PUBLIC_ROOT, 'data', 'lean_count.json');
+// Footer contact line and address, from data/company.json.
+const COMPANY_CONTACT = (() => {
+  const { email, contactLine } = loadCompany(ROOT);
+  return { email, contactLine };
+})();
 // The share widget's 3 KB of CSS is inlined into every page head: as its own
 // <link> it was a second render-blocking request (~300 ms on a slow phone).
 // public/components/share/share.css stays the one source to edit.
@@ -222,35 +229,6 @@ const HERO_CAPTIONS = {
   'the-small-cell-held-mlip-elastic-benchmark':
     'A compact crystal cell and a larger repeated supercell feed the same elastic gauge, while a separate brass correction path turns away from the matched result.',
 };
-
-const MARK_SVG = `<svg viewBox="100 44 312 440" fill="none" aria-hidden="true">
-  <defs>
-    <linearGradient id="bb" x1="190" y1="74" x2="324" y2="356" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#88a7d8"/><stop offset=".35" stop-color="#475b9c"/><stop offset=".78" stop-color="#102f47"/><stop offset="1" stop-color="#071a2a"/>
-    </linearGradient>
-    <linearGradient id="bl" x1="150" y1="330" x2="360" y2="470" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#7f907c"/><stop offset="1" stop-color="#4c653d"/>
-    </linearGradient>
-    <radialGradient id="bc" cx="48%" cy="30%" r="68%">
-      <stop offset="0" stop-color="#fffdf3"/><stop offset=".7" stop-color="#f1e8c9"/><stop offset="1" stop-color="#d4c58f"/>
-    </radialGradient>
-  </defs>
-  <g fill="none" stroke="#4c653d" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M256 148 C252 224 258 312 254 448"/><path d="M252 402 C222 372 178 354 124 348"/><path d="M260 402 C290 372 334 354 388 348"/>
-  </g>
-  <g fill="url(#bl)" opacity=".96">
-    <ellipse cx="139" cy="348" rx="18" ry="62" transform="rotate(-78 139 348)"/><ellipse cx="167" cy="384" rx="18" ry="62" transform="rotate(-48 167 384)"/><ellipse cx="214" cy="410" rx="17" ry="58" transform="rotate(-20 214 410)"/><ellipse cx="373" cy="348" rx="18" ry="62" transform="rotate(78 373 348)"/><ellipse cx="345" cy="384" rx="18" ry="62" transform="rotate(48 345 384)"/><ellipse cx="298" cy="410" rx="17" ry="58" transform="rotate(20 298 410)"/>
-  </g>
-  <g fill="none" stroke="#fef8f5" stroke-width="5" stroke-linecap="round" opacity=".66">
-    <path d="M132 348 C170 356 205 373 236 405"/><path d="M380 348 C342 356 307 373 276 405"/>
-  </g>
-  <g fill="url(#bb)" stroke="#fef8f5" stroke-width="5" stroke-linejoin="round">
-    <ellipse cx="256" cy="86" rx="22" ry="34"/><ellipse cx="232" cy="122" rx="23" ry="35" transform="rotate(-24 232 122)"/><ellipse cx="280" cy="122" rx="23" ry="35" transform="rotate(24 280 122)"/><ellipse cx="256" cy="150" rx="30" ry="40"/><ellipse cx="211" cy="182" rx="26" ry="38" transform="rotate(-34 211 182)"/><ellipse cx="301" cy="182" rx="26" ry="38" transform="rotate(34 301 182)"/><ellipse cx="256" cy="216" rx="37" ry="48"/><ellipse cx="204" cy="256" rx="30" ry="43" transform="rotate(-42 204 256)"/><ellipse cx="308" cy="256" rx="30" ry="43" transform="rotate(42 308 256)"/><ellipse cx="256" cy="306" rx="40" ry="52"/>
-  </g>
-  <g fill="url(#bc)">
-    <path d="M244 142 C251 124 261 124 268 142 C262 136 250 136 244 142Z"/><path d="M244 207 C252 186 263 186 271 207 C263 199 252 199 244 207Z"/><path d="M242 296 C252 272 265 272 274 296 C264 286 252 286 242 296Z"/>
-  </g>
-</svg>`;
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
@@ -509,28 +487,14 @@ ${videoUrl ? `  <link rel="alternate" type="video/mp4" href="${esc(videoUrl)}">\
   <script type="application/ld+json">${JSON.stringify(jsonld)}</script>`;
 }
 
-function chrome(inner, { current = 'articles' } = {}) {
+// Header and footer come from scripts/lib/brand-header.mjs, the one source for
+// the nav (Home · Results · Articles · About · Library · LUPI; Videos only
+// while a film is listed) and the footer links and contact line.
+function chrome(inner, { current = '/articles/' } = {}) {
   return `  <a class="skip" href="#content">Skip to content</a>
-  <header class="site-header">
-    <a class="mark" href="/" aria-label="Lupine Science">
-      ${MARK_SVG}
-      <span><b>Lupine Science</b> <span class="tld">measuring where AI models of materials go wrong</span></span>
-    </a>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="/">Home</a>
-      <a href="/articles/"${current === 'articles' ? ' aria-current="page"' : ''}>Articles</a>
-${FILMS_LISTED ? `      <a href="/videos/"${current === 'videos' ? ' aria-current="page"' : ''}>Videos</a>\n` : ''}      <a href="/about/"${current === 'about' ? ' aria-current="page"' : ''}>About</a>
-      <a href="https://library.lupine.science">Library</a>
-      <a href="https://lupi.live">LUPI</a>
-    </nav>
-  </header>
+  ${renderSiteHeader({ ariaCurrentPath: current, showVideos: FILMS_LISTED })}
 ${inner}
-  <footer class="foot">
-    <span class="creed">Evidence before claim.</span>
-    <span><b>Lupine Science</b> · founder Alex Welcing · <a class="mail" href="mailto:alex@lupinesci.com" data-u="alex" data-d="lupinesci.com">alex [at] lupinesci.com</a></span>
-    <span><a href="/about/">About</a> · <a href="/articles/">Articles</a> · <a href="/corrections/">Corrections</a> · <a href="https://lupi.live">LUPI</a> · <a href="https://library.lupine.science">Library</a> · <a href="https://github.com/alexwelcing/lupine">Repository</a> · <a href="/feed.xml">Feed</a></span>
-    <span class="licence">Code MIT · our text and data CC BY 4.0 unless noted · third-party material keeps its own licence</span>
-  </footer>`;
+  ${renderSiteFooter(COMPANY_CONTACT)}`;
 }
 
 function shareBar(route, title) {
@@ -795,39 +759,32 @@ ${PAGE_SCRIPT}${hero.includes('data-svg-hero') ? '\n<script type="module" src="/
   return { page, title, description, meta, status, slug, ogImage, ogImageWidth, ogImageHeight, twitterCard };
 }
 
-function articleCard(a, index) {
-  // cards use dedicated 640w thumbs; full-size heroes stay on the article
-  const base = fs.existsSync(path.join(OUT, a.slug, 'thumb.jpg')) ? 'thumb'
-    : fs.existsSync(path.join(OUT, a.slug, 'hero.jpg')) ? 'hero' : null;
-  const thumb = base
-    ? pictureSources(a.slug, base, { eager: index === 0 })
-        .replace('width="1280" height="720"', 'class="card-thumb" width="640" height="360"')
-    : '<span class="card-thumb card-thumb-empty" aria-hidden="true"><i></i><i></i><i></i></span>';
-  // the card carries the plain document status; scope lives on the article
-  const statusHtml = `<span class="card-status ${statusClass(a.status)}">${esc(a.status)}</span>`;
-  const metaLine = [a.meta.date ? esc(formatDate(a.meta.date)) : '', statusHtml].filter(Boolean).join(' · ');
-  return `<li>
-  <a class="article-card" href="/articles/${a.slug}/">
-    ${thumb}
-    <span class="d8">${metaLine}</span>
-    <h2>${esc(a.title)}</h2>
-    <p>${esc(a.meta.deck || a.meta.summary || a.meta.scope || a.description)}</p>
-  </a>
-</li>`;
+// At most this many result pieces are pinned under "Start here" on /articles/.
+const START_HERE_LIMIT = 5;
+
+function compactItem(a) {
+  // title · date · status, no summary: the article carries its own scope
+  const date = a.meta.date ? `<time datetime="${esc(a.meta.date)}">${esc(formatDate(a.meta.date))}</time> · ` : '';
+  return `        <li><a href="/articles/${a.slug}/">${esc(a.title)}</a> <span class="compact-meta">${date}<span class="card-status ${statusClass(a.status)}">${esc(a.status)}</span></span></li>`;
 }
 
-// /articles/ lists results and methods (Published, Working draft) apart from
-// Direction pieces, and never lists an Archived page. A short "Start here"
-// list is pinned from the `> **Featured:** N` front-matter field.
+// /articles/ answers one question: what can I read? A short "Start here" list
+// of result pieces (pinned with `> **Featured:** N`, 1 = first), then every
+// Published and Working draft piece as one compact line each, then the
+// Direction pieces folded inside a <details>. Archived pages are never listed.
 function buildIndex(articles) {
   const listed = articles.filter((a) => a.status !== 'Archived');
   const results = listed.filter((a) => a.status === 'Published' || a.status === 'Working draft');
   const direction = listed.filter((a) => a.status === 'Direction');
-  const featured = listed
+  const featured = articles
     .filter((a) => /^\d+$/.test(a.meta.featured || ''))
     .sort((a, b) => Number(a.meta.featured) - Number(b.meta.featured) || a.slug.localeCompare(b.slug));
-  const resultCards = results.map((a, index) => articleCard(a, index)).join('\n');
-  const directionCards = direction.map((a) => articleCard(a, 1)).join('\n');
+  for (const a of featured) {
+    if (!results.includes(a)) throw new Error(`articles/${a.slug}.md is Featured but its status is ${a.status}; Start here lists result pieces only`);
+  }
+  if (featured.length > START_HERE_LIMIT) {
+    throw new Error(`${featured.length} articles are Featured; Start here holds at most ${START_HERE_LIMIT}`);
+  }
   const startHere = featured.length ? `
     <section class="start-here" aria-labelledby="start-here-title">
       <h2 class="b-label" id="start-here-title">Start here</h2>
@@ -859,20 +816,23 @@ ${featured.map((a) => `        <li><a href="/articles/${a.slug}/">${esc(a.title)
 <body>
 ${chrome(`  <main id="content" class="article-index">
     <p class="b-label">Articles</p>
-    <h1>Results, failures, and methods, newest first.</h1>
-    <p class="index-lede">Nothing here is peer-reviewed yet. Each article carries one status: <strong>Published</strong> (our current statement; corrections dated in the body) or <strong>Working draft</strong> (may change; not for citation). Pieces that describe where the work is aimed are listed separately under Direction. Claims we have retired are in the <a href="/corrections/">corrections log</a>.</p>${startHere}
+    <h1>Results, failures and methods</h1>
+    <p class="index-lede">Nothing here is peer-reviewed yet. Retired claims are in the <a href="/corrections/">corrections log</a>; every result is on one page at <a href="/results/">Results</a>.</p>${startHere}
     <section aria-labelledby="results-title">
-      <h2 class="b-label" id="results-title">Results and methods</h2>
-      <ul class="article-list">
-${resultCards}
+      <h2 class="b-label" id="results-title">All results and methods, newest first</h2>
+      <ul class="compact-list">
+${results.map(compactItem).join('\n')}
       </ul>
     </section>
     <section class="direction-section" aria-labelledby="direction-title">
       <h2 class="b-label" id="direction-title">Direction</h2>
-      <p class="index-lede">${esc(DOCUMENT_STATUS_MEANING.Direction)} These pieces say what we would like to build toward and why; any capability they describe is a hypothesis we have not yet shown, and each says what has been tested so far.</p>
-      <ul class="article-list">
-${directionCards}
-      </ul>
+      <p class="index-lede">${esc(DOCUMENT_STATUS_MEANING.Direction)} Any capability these pieces describe is a hypothesis to test.</p>
+      <details id="direction">
+        <summary>Show the ${direction.length} Direction pieces</summary>
+        <ul class="compact-list">
+${direction.map(compactItem).join('\n')}
+        </ul>
+      </details>
     </section>
   </main>`)}
 ${PAGE_SCRIPT}
@@ -973,7 +933,7 @@ ${chrome(`  <main id="content" class="article-shell video-detail" data-generated
       <p class="video-article-backlink">Read the source article: <a href="/articles/${slug}/">${esc(title)}</a></p>
       ${shareBar(`/videos/${slug}/`, `${title} — Video — Lupine Science`)}
     </article>
-  </main>`, { current: 'videos' })}
+  </main>`, { current: '/videos/' })}
 ${PAGE_SCRIPT}
 </body>
 </html>
@@ -1050,7 +1010,7 @@ ${chrome(`  <main id="content" class="videos-index">
 ${articles.length ? `    <ul class="video-list">
 ${cards}
     </ul>` : `    <p class="videos-empty">No films are listed at the moment. Every article is available in the <a href="/articles/">article index</a>.</p>`}
-  </main>`, { current: 'videos' })}
+  </main>`, { current: '/videos/' })}
 ${PAGE_SCRIPT}
 </body>
 </html>
@@ -1164,39 +1124,68 @@ writeAtomic(path.join(PUBLIC_ROOT, '404.html'), buildNotFoundPage());
 buildDiscoverySurfaces(listedArticles);
 console.log(`built /videos/index.html (${videos.length} videos)`);
 
-// Company fact sheet, llms.txt, Atom feed, and the homepage's structured data
-// and "Now" strip, all rendered from data/company.json + the articles above
-// (scripts/lib/discovery.mjs). The homepage is hand-authored, so only the
-// regions between its <!-- discovery:* --> markers are regenerated.
+// /results/, /about/, /corrections/, llms.txt, the Atom feed, and the
+// homepage's structured data, "What we found", "Next" and footer regions, all
+// rendered from data/company.json, data/corrections.json and the articles
+// above (scripts/lib/discovery.mjs). The homepage is hand-authored, so only
+// the regions between its <!-- discovery:* --> markers are regenerated.
+function writePage(dir, { head, main, current }) {
+  const target = path.join(PUBLIC_ROOT, dir);
+  fs.mkdirSync(target, { recursive: true });
+  writeAtomic(path.join(target, 'index.html'), `<!doctype html>
+<html lang="en">
+<head>
+  ${renderHead({ ogImage: `${SITE}/og-lupine-science.jpg`, ogType: 'website', ...head })}
+</head>
+<body>
+${chrome(main, { current })}
+${PAGE_SCRIPT}
+</body>
+</html>
+`);
+  console.log(`built /${dir}/`);
+}
+
 function buildDiscoverySurfaces(builtArticles) {
   const company = loadCompany(ROOT);
+  const corrections = loadCorrections(ROOT);
   const list = normalizeArticles(builtArticles);
   const asOf = asOfDate(company, list);
   const leanPath = path.join(PUBLIC_ROOT, 'data', 'lean_count.json');
   const leanCount = fs.existsSync(leanPath) ? JSON.parse(fs.readFileSync(leanPath, 'utf8')) : null;
 
-  const aboutDir = path.join(PUBLIC_ROOT, 'about');
-  fs.mkdirSync(aboutDir, { recursive: true });
-  const description = `${company.oneLiner} Stage, founder, milestones, and how to get in touch.`;
-  writeAtomic(path.join(aboutDir, 'index.html'), `<!doctype html>
-<html lang="en">
-<head>
-  ${renderHead({
-    title: `About ${company.name} — company facts`,
-    description,
-    url: `${SITE}/about/`,
-    ogImage: `${SITE}/og-lupine-science.jpg`,
-    ogType: 'website',
-    jsonld: aboutJsonLd(company, asOf),
-  })}
-</head>
-<body>
-${chrome(renderAboutMain(company, list, { asOf }), { current: 'about' })}
-${PAGE_SCRIPT}
-</body>
-</html>
-`);
-  console.log('built /about/');
+  writePage('results', {
+    head: {
+      title: `Results — ${company.name}`,
+      description: `${RESULTS_LEDE} Every test ${company.name} has published, failures included.`,
+      url: `${SITE}/results/`,
+      jsonld: resultsJsonLd(company, asOf),
+    },
+    main: renderResultsMain(company, { asOf }),
+    current: '/results/',
+  });
+
+  writePage('about', {
+    head: {
+      title: `About ${company.name} — company facts`,
+      description: `${company.oneLiner} Stage, founder, how we work and how to get in touch.`,
+      url: `${SITE}/about/`,
+      jsonld: aboutJsonLd(company, asOf),
+    },
+    main: renderAboutMain(company, list, { asOf }),
+    current: '/about/',
+  });
+
+  writePage('corrections', {
+    head: {
+      title: `Corrections — ${company.name}`,
+      description: corrections.description,
+      url: `${SITE}/corrections/`,
+      jsonld: correctionsJsonLd(corrections),
+    },
+    main: renderCorrectionsMain(corrections),
+    current: null,
+  });
 
   writeAtomic(path.join(PUBLIC_ROOT, 'llms.txt'), renderLlmsTxt(company, list, { asOf, leanCount, filmsListed: FILMS_LISTED }));
   writeAtomic(path.join(PUBLIC_ROOT, 'feed.xml'), renderAtomFeed(company, list, { asOf }));
@@ -1207,7 +1196,9 @@ ${PAGE_SCRIPT}
   if (!fs.existsSync(homePath)) return;
   let home = fs.readFileSync(homePath, 'utf8');
   home = injectBetween(home, 'jsonld', jsonLdScript(organizationGraph(company, { asOf })));
-  home = injectBetween(home, 'now', renderNowStrip(company, list, { asOf }));
+  home = injectBetween(home, 'found', renderFoundRegion(company));
+  home = injectBetween(home, 'next', renderNextRegion(company, { asOf }));
+  home = injectBetween(home, 'footer', `\n  ${renderSiteFooter(COMPANY_CONTACT)}\n  `);
   writeAtomic(homePath, home);
-  console.log('refreshed homepage structured data and Now strip');
+  console.log('refreshed homepage structured data, What we found, Next and footer');
 }

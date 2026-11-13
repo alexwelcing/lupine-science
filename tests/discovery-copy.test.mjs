@@ -1,20 +1,23 @@
 // Guards the public front-door copy that is generated from data/company.json
-// (scripts/lib/discovery.mjs) or hand-written in public/index.html and
-// public/corrections/index.html. The rules are in docs/messaging-canon.md:
-// no funding statements, no bare theorem counts, retired claims stay retired,
-// failures sit beside passes, and every surface links the corrections log.
+// and data/corrections.json (scripts/lib/discovery.mjs) or hand-written in
+// public/index.html. The rules are in docs/messaging-canon.md: no funding
+// statements, no bare theorem counts, retired claims stay retired, failures
+// sit beside passes, and every surface links the corrections log.
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 import {
-  loadCompany, normalizeArticles, asOfDate, organizationGraph, renderNowStrip,
-  renderAboutMain, renderLlmsTxt, faqEntries, aboutJsonLd, RESULT_STATUSES, testedRows,
+  loadCompany, loadCorrections, normalizeArticles, asOfDate, organizationGraph, renderFoundRegion,
+  renderNextRegion, renderResultsMain, resultsJsonLd, renderAboutMain, renderLlmsTxt, faqEntries,
+  aboutJsonLd, renderCorrectionsMain, RESULT_STATUSES, testedRows,
 } from '../scripts/lib/discovery.mjs';
+import { renderSiteFooter } from '../scripts/lib/brand-header.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const company = loadCompany(ROOT);
+const corrections = loadCorrections(ROOT);
 const articles = normalizeArticles([
   { slug: 'example-note', title: 'Example note', meta: { date: '2026-10-01', status: 'Published', summary: 'An example.' } },
 ]);
@@ -24,13 +27,22 @@ const generated = {
   'company.json': JSON.stringify(company),
   'JSON-LD': JSON.stringify(organizationGraph(company, { asOf })),
   'about JSON-LD': JSON.stringify(aboutJsonLd(company, asOf)),
-  'homepage record strip': renderNowStrip(company, articles, { asOf }),
+  'homepage What we found': renderFoundRegion(company),
+  'homepage Next': renderNextRegion(company, { asOf }),
+  'site footer': renderSiteFooter(company),
+  '/results/': renderResultsMain(company, { asOf }),
+  'results JSON-LD': JSON.stringify(resultsJsonLd(company, asOf)),
   '/about/': renderAboutMain(company, articles, { asOf }),
   'llms.txt': renderLlmsTxt(company, articles, { asOf, leanCount: { count: 123, counted_at: '2026-01-01' } }),
 };
 const handWritten = {
   'public/index.html': fs.readFileSync(path.join(ROOT, 'public', 'index.html'), 'utf8'),
-  'public/corrections/index.html': fs.readFileSync(path.join(ROOT, 'public', 'corrections', 'index.html'), 'utf8'),
+};
+// The corrections log quotes retired wording on purpose, so it is checked for
+// leaks and structure but not against the retired-claim patterns.
+const correctionsLog = {
+  'data/corrections.json': JSON.stringify(corrections),
+  '/corrections/': renderCorrectionsMain(corrections),
 };
 
 // Leak blocklist (host names, local agent paths, credential and signed-URL
@@ -54,7 +66,7 @@ const RETIRED = [
   /Unlocking the materials/i, /corrects that error at runtime/i, /\bthe trust layer\b/,
 ];
 
-for (const [name, text] of Object.entries({ ...generated, ...handWritten })) {
+for (const [name, text] of Object.entries({ ...generated, ...handWritten, ...correctionsLog })) {
   test(`${name}: no leak-blocklist strings`, () => {
     for (const pattern of [...BLOCKLIST, LEAK_TOKEN]) assert.ok(!pattern.test(text), `${name} contains a blocklisted string`);
   });
@@ -76,7 +88,6 @@ test('investors appear only in the neutral contact line', () => {
     const withoutContact = text.split(company.contactLine).join('');
     assert.doesNotMatch(withoutContact, /investor/i, `${name} mentions investors outside the contact line`);
   }
-  assert.ok(company.audiences.every((a) => !/investor/i.test(a.who)), 'investors are not an audience row');
 });
 
 test('the 72.4% projection stays off the homepage and the company record', () => {
@@ -103,7 +114,7 @@ test('tested rows use the closed result vocabulary and keep failures beside pass
 });
 
 test('r = 0.906 always travels with its null and per-model qualifiers', () => {
-  for (const [name, text] of Object.entries({ ...generated, ...handWritten })) {
+  for (const [name, text] of Object.entries({ ...generated, ...handWritten, ...correctionsLog })) {
     for (const match of text.matchAll(/r = 0\.906[^)]*\)/g)) {
       assert.match(match[0], /0\.44/, `${name}: r = 0.906 without the permutation null`);
       assert.match(match[0], /three of the four models/, `${name}: r = 0.906 without the per-model qualifier`);
@@ -112,14 +123,14 @@ test('r = 0.906 always travels with its null and per-model qualifiers', () => {
 });
 
 test('every front-door surface links the corrections log', () => {
-  assert.match(generated['/about/'], /href="\/corrections\/"/);
+  assert.match(generated['site footer'], /href="\/corrections\/"/);
+  assert.match(generated['/results/'], /href="\/corrections\/"/);
   assert.match(generated['llms.txt'], /https:\/\/lupine\.science\/corrections\//);
-  assert.match(generated['homepage record strip'], /href="\/corrections\/"/);
   assert.match(handWritten['public/index.html'], /<footer class="foot">[\s\S]*href="\/corrections\/"/);
 });
 
 test('the FAQ answers peer review plainly and asks nothing about raising', () => {
-  const faq = faqEntries(company, asOf);
+  const faq = faqEntries(company);
   const peer = faq.find((e) => /peer-reviewed/i.test(e.q));
   assert.ok(peer, 'peer-review question present');
   assert.match(peer.a, /^No Lupine paper has been peer-reviewed or accepted yet\./);
@@ -128,7 +139,7 @@ test('the FAQ answers peer review plainly and asks nothing about raising', () =>
 });
 
 test('the corrections page lists each retired headline with a date and a reason', () => {
-  const page = handWritten['public/corrections/index.html'];
+  const page = correctionsLog['/corrections/'];
   for (const heading of [
     'Verified AI predictions', '~70% of dominant error directions are shared', 'Theorem counts as evidence',
     '17.84 → 9.92 GPa', '5–12 GtCO₂/yr', 'Organisations described as partners', 'Proof pack',
@@ -137,6 +148,7 @@ test('the corrections page lists each retired headline with a date and a reason'
     assert.ok(page.includes(heading), `corrections page is missing "${heading}"`);
   }
   const entries = page.split('<h2 ').slice(1);
+  assert.equal(entries.length, corrections.entries.length);
   for (const entry of entries) {
     assert.match(entry, /<dt>Was<\/dt>/);
     assert.match(entry, /<dt>Now<\/dt>/);

@@ -161,19 +161,44 @@ describe('article top-line metadata', () => {
 describe('article index', () => {
   const html = fs.readFileSync(path.join(OUT, 'index.html'), 'utf8');
 
-  it('lists results and methods apart from Direction pieces', () => {
+  it('lists results and methods apart from Direction pieces, which stay folded', () => {
     const results = html.indexOf('id="results-title"');
     const direction = html.indexOf('id="direction-title"');
+    const folded = html.indexOf('<details id="direction">');
     assert.ok(results > 0 && direction > results, 'expected a Results section followed by a Direction section');
+    assert.ok(folded > direction, 'Direction pieces sit inside a collapsed <details>');
+    assert.doesNotMatch(html, /<details id="direction" open/, 'the Direction list starts collapsed');
+    const startHere = html.indexOf('id="start-here-title"');
     for (const slug of sourceSlugs()) {
       const status = statusOf(slug);
-      const at = html.indexOf(`<a class="article-card" href="/articles/${slug}/">`);
+      const link = `<li><a href="/articles/${slug}/">`;
+      const at = html.indexOf(link, results);
       if (status === 'Archived') {
-        assert.equal(at, -1, `${slug} is archived but has a card`);
+        assert.equal(html.indexOf(`href="/articles/${slug}/"`), -1, `${slug} is archived but is listed`);
       } else if (status === 'Direction') {
-        assert.ok(at > direction, `${slug} should be listed under Direction`);
+        assert.ok(at > folded, `${slug} should be listed under Direction`);
+        assert.ok(html.indexOf(`href="/articles/${slug}/"`) > folded, `${slug} is a Direction piece listed outside Direction`);
       } else {
         assert.ok(at > results && at < direction, `${slug} should be listed under Results and methods`);
+      }
+    }
+    assert.ok(startHere > 0 && startHere < results, 'Start here comes first');
+  });
+
+  it('pins at most five result pieces under Start here', () => {
+    const block = html.slice(html.indexOf('id="start-here-title"'), html.indexOf('id="results-title"'));
+    const pinned = [...block.matchAll(/<a href="\/articles\/([^/]+)\/">/g)].map((m) => m[1]);
+    assert.ok(pinned.length > 0 && pinned.length <= 5, `Start here lists ${pinned.length} pieces`);
+    for (const slug of pinned) assert.ok(['Published', 'Working draft'].includes(statusOf(slug)), `${slug} is not a result piece`);
+  });
+
+  it('keeps the index compact: one line per article, no summaries or thumbnails', () => {
+    assert.doesNotMatch(html, /class="article-card"/);
+    assert.doesNotMatch(html, /card-thumb/);
+    for (const item of html.matchAll(/<ul class="compact-list">([\s\S]*?)<\/ul>/g)) {
+      for (const li of item[1].matchAll(/<li>([\s\S]*?)<\/li>/g)) {
+        assert.doesNotMatch(li[1], /<p\b/, 'compact list items carry no summary paragraph');
+        assert.match(li[1], /<span class="card-status status-[a-z-]+">/, 'each line carries its status');
       }
     }
   });

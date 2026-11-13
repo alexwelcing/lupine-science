@@ -104,10 +104,15 @@ test('generated articles hydrate the theory-artifacts count tokens', () => {
   assert.doesNotMatch(output, /\{\{TA_[A-Z_]+\}\}/);
 });
 
-test('homepage shows no theorem count and says what a Lean check covers', () => {
+// The homepage carries no Lean section at all; what a Lean check covers is
+// said once, on /results/, beside the one generated example.
+test('homepage and /results/ show no theorem count; /results/ says what a Lean check covers', () => {
   const homepage = fs.readFileSync(path.join(ROOT, 'public', 'index.html'), 'utf8');
-  assert.doesNotMatch(homepage, /id="lean-count"/);
-  assert.doesNotMatch(homepage, new RegExp(`\\b${inventory.count}\\b`));
-  assert.doesNotMatch(homepage, STATIC_THEOREM_COUNT);
-  assert.match(homepage, /it does not check the physics, the reference data or the pipeline/);
+  const results = fs.readFileSync(path.join(ROOT, 'public', 'results', 'index.html'), 'utf8');
+  for (const page of [homepage, results]) {
+    assert.doesNotMatch(page, /id="lean-count"/);
+    assert.doesNotMatch(page, new RegExp(`\\b${inventory.count}\\b`));
+    assert.doesNotMatch(page, STATIC_THEOREM_COUNT);
+  }
+  assert.match(results, /<h2 id="lean">Lean-checked arithmetic<\/h2>\s*<p>Lean 4 checks the arithmetic and stated inequalities behind published numbers; it does not check the physics, the reference data or the pipeline\.<\/p>/);
 });
