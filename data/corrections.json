@@ -79,9 +79,9 @@
     {
       "id": "tms-abstract",
       "title": "The TMS2027 abstract’s universal “hyper-ribbon”",
-      "was": "The accepted poster abstract described a universal error “hyper-ribbon” that makes transferability predictable.",
+      "was": "The accepted abstract described a universal error “hyper-ribbon” that makes transferability predictable.",
       "now": "A TMS2027 poster (Orlando, 14–18 March 2027), not a paper; the proceedings manuscript replaces it with narrower measurement claims.",
-      "why": "Registered stress tests did not support it, and a global elastic correction made results worse.",
+      "why": "Registered stress tests did not support it: classical alignment did not predict foundation-model alignment; a global elastic correction made results worse.",
       "retired": "2026-11-11"
     },
     {

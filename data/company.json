@@ -118,7 +118,7 @@
     {
       "id": "alloy-correction",
       "what": "Cross-class correction on fcc alloys",
-      "scope": "On CoCrNi and CoCrFeNi, a correction learned on elemental fcc metals made median bulk-modulus error worse: 9.1% to 16.9%.",
+      "scope": "On CoCrNi and CoCrFeNi, a correction learned on elemental fcc metals made median bulk-modulus error worse: 9.1% to 16.9%. Our supported results are mostly on elemental metals; the 21-material set includes B2-NiAl and L1₂-Ni₃Al.",
       "status": "Failed",
       "href": "/articles/the-correction-that-hurt-and-the-theorem-that-stopped-it/"
     },

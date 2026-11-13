@@ -102,8 +102,11 @@ test('homepage keeps only the lanes row, the next appearance and the footer belo
   for (const gone of [/class="tested-table"/, /id="lean"/, /rail-ledger/, /Recent notes/, /scope-strip/]) {
     assert.doesNotMatch(home, gone);
   }
-  // the background keeps one caption line, with the MOF-5 credit
+  // the background keeps one caption line, with the MOF-5 credit and the
+  // disclaimer that its classical-potential curves say nothing about MLIPs
   assert.match(home, /<p class="art-note">Background illustration, not a result:[^]*Li, Eddaoudi, O’Keeffe &amp; Yaghi, Nature 402, 276 \(1999\)/);
+  const caption = home.match(/<p class="art-note">([\s\S]*?)<\/p>/)?.[1] || '';
+  assert.match(caption, /four classical \(EAM\) potentials, which says nothing about machine-learned potentials/);
 });
 
 test('/results/ carries every tested row, the cannot-claim list, the Lean scope and the ledgers', () => {
@@ -123,6 +126,9 @@ test('/results/ carries every tested row, the cannot-claim list, the Lean scope 
   assert.match(results, /href="https:\/\/github\.com\/alexwelcing\/lupine-rhizo\/blob\/main\/docs\/conjectures\/ledger\.md"/);
   assert.match(results, /href="\/corrections\/"/);
   assert.match(results, /little or no advantage over a common-direction baseline/);
+  // qualifiers moved off the homepage land here, not nowhere
+  const alloy = results.slice(results.indexOf('<tr id="alloy-correction">'));
+  assert.match(alloy.slice(0, alloy.indexOf('</tr>')), /Our supported results are mostly on elemental metals; the 21-material set includes B2-NiAl and L1₂-Ni₃Al\./);
 });
 
 test('/results/ is offered in the nav, the footer, the sitemap and llms.txt', () => {
@@ -162,6 +168,9 @@ test('/corrections/ keeps every retired claim, each as Was / Now / Why with a da
     assert.ok(ids.includes(id), `corrections entry ${id} was dropped`);
     assert.match(correctionsPage, new RegExp(`<h2 id="${id}">`));
   }
+  // a compacted entry keeps every disclosed failure it carried
+  const tms = correctionsPage.slice(correctionsPage.indexOf('<h2 id="tms-abstract">'));
+  assert.match(tms.slice(0, tms.indexOf('</dl>')), /classical alignment did not predict foundation-model alignment/);
   const intro = corrections.intro.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
   assert.equal(intro.split(/(?<=[.!?])\s+/).length, 1, 'the intro is one sentence');
   assert.match(correctionsPage, /Corrections log · updated <time datetime="\d{4}-\d{2}-\d{2}">/);
