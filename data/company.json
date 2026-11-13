@@ -12,6 +12,11 @@
   "description": "Lupine Science is an early-stage, founder-led research company. We independently measure the errors of machine-learned interatomic potentials (MLIPs), test corrections against preregistered gates, record any amendment made after results are seen, and publish the verdict: pass, fail or abstain. Correction is a research question here, not a product: it has held only in narrow, stated cases. Nothing we have published is peer-reviewed yet.",
   "stage": "Early stage, founder-led",
   "contactLine": "Research partners, model builders, press and investors",
+  "phone": {
+    "display": "940-400-0727",
+    "e164": "+19404000727",
+    "page": "/contact/"
+  },
   "founder": {
     "name": "Alex Welcing",
     "role": "Founder",

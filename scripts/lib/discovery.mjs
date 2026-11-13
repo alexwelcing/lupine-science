@@ -155,6 +155,7 @@ export function organizationGraph(company, { asOf } = {}) {
     slogan: company.tagline,
     description: company.description,
     email,
+    ...(company.phone ? { telephone: company.phone.e164 } : {}),
     founder: { '@id': `${SITE}/about/#founder` },
     knowsAbout: company.knowsAbout,
     sameAs: company.sameAs,
@@ -162,6 +163,7 @@ export function organizationGraph(company, { asOf } = {}) {
       '@type': 'ContactPoint',
       contactType: company.contactLine,
       email,
+      ...(company.phone ? { telephone: company.phone.e164 } : {}),
       url: `${SITE}/about/#contact`,
     },
   };
@@ -438,6 +440,7 @@ export function renderAboutMain(company, articles, { asOf = asOfDate(company, ar
     ['Stage', escapeHtml(company.stage)],
     ['Founder', escapeHtml(`${company.founder.name}, ${company.founder.role.toLowerCase()}`)],
     ['Contact', `${escapeHtml(company.contactLine)}: ${mailLink(company, `Question — ${company.name}`)}`, 'contact'],
+    ...(company.phone ? [['Phone', `<a href="tel:${escapeHtml(company.phone.e164)}">${escapeHtml(company.phone.display)}</a> · <a href="${escapeHtml(company.phone.page)}">Phone and contact details</a>`]] : []),
     ['Licences', `${escapeHtml(company.licence.text)} <a href="${escapeHtml(company.licence.href)}">Details →</a>`],
     ...(next ? [['Next appearance', `<a href="${escapeHtml(next.href)}">${escapeHtml(`${next.name}, ${next.locality}`)}</a> · ${escapeHtml(`${formatRange(next.startDate, next.endDate)} · ${next.role.toLowerCase()}`)}`]] : []),
   ];
@@ -538,6 +541,7 @@ export function renderLlmsTxt(company, articles, { asOf = asOfDate(company, arti
   lines.push(`- Stage: ${company.stage}`);
   lines.push(`- Founder: ${company.founder.name}`);
   lines.push(`- Contact: ${company.contactLine}: ${email}`);
+  if (company.phone) lines.push(`- Phone: ${company.phone.display} (${absolute(company.phone.page)})`);
   if (next) lines.push(`- Next public appearance: ${next.name}, ${next.locality}, ${formatRange(next.startDate, next.endDate)}; ${next.role.toLowerCase()}: ${absolute(next.href)}`);
   lines.push(`- Licences: ${company.licence.text}`);
   lines.push('');

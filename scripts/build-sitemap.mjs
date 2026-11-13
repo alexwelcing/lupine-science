@@ -58,6 +58,10 @@ const urls = [
   { loc: `${SITE}/`, lastmod: siteAsOf || null },
   { loc: `${SITE}/results/`, lastmod: siteAsOf || null },
   { loc: `${SITE}/about/`, lastmod: siteAsOf || null },
+  // hand-written phone/contact page (owner-published, 2026-11-13)
+  ...(fs.existsSync(path.join(PUBLIC, 'contact', 'index.html'))
+    ? [{ loc: `${SITE}/contact/`, lastmod: null }]
+    : []),
   // the corrections log carries its own "updated" date in its kicker
   ...(fs.existsSync(path.join(PUBLIC, 'corrections', 'index.html'))
     ? [{ loc: `${SITE}/corrections/`, lastmod: correctionsUpdated() }]

@@ -144,7 +144,9 @@ test('/results/ is offered in the nav, the footer, the sitemap and llms.txt', ()
 
 test('/about/ is one description, the facts table, three bullets and three questions', () => {
   const facts = [...about.matchAll(/<div(?: id="[a-z]+")?><dt>([^<]+)<\/dt>/g)].map((m) => m[1]);
-  assert.deepEqual(facts, ['Company', 'Mission', 'Stage', 'Founder', 'Contact', 'Licences', 'Next appearance']);
+  assert.deepEqual(facts, ['Company', 'Mission', 'Stage', 'Founder', 'Contact', 'Phone', 'Licences', 'Next appearance']);
+  // the owner-published phone number links a tel: URI and the /contact/ page
+  assert.match(about, /<dt>Phone<\/dt><dd><a href="tel:\+19404000727">940-400-0727<\/a> · <a href="\/contact\/">/);
   assert.match(about, /<div id="contact"><dt>Contact<\/dt><dd>Research partners, model builders, press and investors: /);
   const how = about.match(/<h2 id="how-we-work">How we work<\/h2>\s*<ul>([\s\S]*?)<\/ul>/)?.[1] || '';
   assert.equal([...how.matchAll(/<li>/g)].length, 3);
