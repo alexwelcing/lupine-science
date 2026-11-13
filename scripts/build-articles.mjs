@@ -431,8 +431,9 @@ ${avif ? `    <source srcset="${bust(`/articles/${slug}/${base}.avif`, slug)}" t
 
 // One small script on every page: assemble the email client-side (so no
 // email pattern exists in the HTML source for rewriting proxies to mangle),
-// lazy-start hero videos only when they scroll into view, and power the
-// article "Copy link" share button.
+// open a folded <details> a link points at (/articles/#direction), lazy-start
+// hero videos only when they scroll into view, and power the article
+// "Copy link" share button.
 const PAGE_SCRIPT = `<script type="module">
 import { initAllShareWidgets } from "/components/share/share.mjs";
 (() => {
@@ -441,6 +442,12 @@ import { initAllShareWidgets } from "/components/share/share.mjs";
     a.href = "mailto:" + addr + (a.dataset.subject ? "?subject=" + encodeURIComponent(a.dataset.subject) : "");
     if (!("keepText" in a.dataset)) a.textContent = addr;
   });
+  const openTarget = () => {
+    const d = location.hash.length > 1 && document.getElementById(location.hash.slice(1));
+    if (d && d.tagName === "DETAILS") d.open = true;
+  };
+  openTarget();
+  addEventListener("hashchange", openTarget);
   const vids = document.querySelectorAll("video[data-autoplay]");
   if (vids.length) {
     if (!("IntersectionObserver" in window)) { vids.forEach((v) => { v.preload = "metadata"; }); }
