@@ -10,6 +10,8 @@ Use this before a public `lupine.science` deploy or domain cutover.
       re-adjudicated here.
 - [ ] Live metrics are either fetched live or removed.
 - [ ] No private, investor, or gated copy is present.
+- [ ] No deck is published: decks are shared privately, and `/venture` still
+      answers 301 to `/about/`.
 
 ## Links And Metadata
 

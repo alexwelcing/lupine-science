@@ -27,7 +27,8 @@ question here, not a product: it has held only in narrow, stated cases.
 
 Audiences, in order: MLIP builders and benchmark maintainers; computational
 materials scientists and lab directors; HPC, security and legal reviewers;
-press and analysts. Investors are reached through the contact line only.
+press and analysts. Investors are reached through the contact line only;
+decks are shared privately and are not part of the site.
 
 ### 1.3 Voice
 
@@ -469,6 +470,9 @@ Location: `lupine-science/public/brand-assets/deck-dark.css`
 - CSS custom properties for the dark palette (`--deck-paper`, `--deck-ink`, `--deck-indigo`)
 - `.slide` class sized to 1280×720 with print-safe page breaks
 - Type scale, stat rows, callouts, and corner mark placement
+
+Decks built with these tokens are shared privately; none is published on
+lupine.science.
 
 ### 8.4 Fonts
 

@@ -30,8 +30,8 @@ Other sources:
 - `articles/*.md`: articles, built into `public/articles/` by
   `scripts/build-articles.mjs`. Archived pieces keep their URL behind a dated
   banner and are left out of every index.
-- `public/venture/`: the venture deck, behind a password wall
-  (`public/_worker.js`) that fails closed when no password is configured.
+- Decks are shared privately and are not part of this site. `/venture`
+  redirects to `/about/` (`public/_redirects`, `nginx.conf`).
 
 ## Public posture
 

@@ -7,8 +7,8 @@ public repositories.
 ## This repository
 
 **lupine-science** is the source for <https://lupine.science>: the homepage,
-company facts, articles, the corrections log, films and the venture deck
-behind its password wall.
+company facts, articles, the corrections log and films. Decks are shared
+privately and are not part of this site.
 
 ## Related repositories
 

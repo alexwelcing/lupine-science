@@ -11,6 +11,12 @@
 /atlas/claims                              /atlas/  301
 /atlas/claims/*                            /atlas/  301
 
+# The password-walled venture deck left the site on 2026-11-13; decks are
+# shared privately now, not published here.
+/venture                                   /about/  301
+/venture/                                  /about/  301
+/venture/*                                 /about/  301
+
 # Film detail pages retired between 2026-11-11 and 2026-11-12 (see
 # scripts/lib/film-listing.mjs). Each film's article stays at /articles/<slug>/.
 # Listed one by one so a film page published later is never shadowed.

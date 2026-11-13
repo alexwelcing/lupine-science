@@ -22,5 +22,5 @@ media/
 ├── README.md
 ├── og/            share-card source (scripts/build-og-image.mjs)
 ├── booklets/      booklet sources
-└── projects/      per-project sources (article visuals, films, venture deck)
+└── projects/      per-project sources (article visuals, films)
 ```

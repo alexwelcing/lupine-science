@@ -2,8 +2,9 @@
 
 How Lupine Science describes itself and its results. Every public surface in
 this repository (homepage, `/results/`, `/about/`, `/corrections/`,
-`/llms.txt`, the feed, articles, films, booklets, the venture deck and the
-READMEs) follows these rules. When a rule
+`/llms.txt`, the feed, articles, films, booklets and the READMEs) follows
+these rules. Decks are shared privately and are not part of this site, but
+they follow these rules too. When a rule
 here conflicts with an older style note, this file wins and the older note
 should be rewritten.
 

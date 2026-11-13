@@ -141,3 +141,5 @@ Regenerate with `npm run build` or `node scripts/build-brand-patterns.mjs`.
 - Type scale, callouts, and corner mark placement. Stat rows hold results with their scope, never counters.
 
 See `public/brand-assets/deck-dark-sample.html` for a two-slide reference.
+Decks built with these tokens are shared privately; none is published on
+lupine.science.

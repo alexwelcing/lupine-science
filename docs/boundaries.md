@@ -11,7 +11,6 @@ results; it does not produce them.
   claims list, and `data/corrections.json`, the corrections log
 - article sources (`articles/*.md`) and their built pages
 - films, booklets and evidence records published on the site
-- the venture deck at `/venture`, behind a password wall that fails closed
 - deploy configuration (`wrangler.toml`, `public/_headers`, `public/_redirects`,
   nginx for the container image) and the static verifiers
 
@@ -27,7 +26,8 @@ results; it does not produce them.
 - claim adjudication: results come from the research record, not from copy
 - experiment code, generated experiment evidence or Lean sources
 - internal operations notes, host names, credentials or agent rosters
-- investor material outside the password-walled venture deck
+- investor material, including pitch or venture decks: decks are shared
+  privately and are not part of this site (`/venture` redirects to `/about/`)
 
 ## Copy rules
 
